@@ -1,0 +1,111 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用 · 量子优化日报</title><meta name="description" content="在含噪中等规模量子（NISQ）时代，QAOA 及其衍生变分量子算法被视为最有可能率先展现量子计算实用价值的方向，尤其面向组合优化问题（MaxCut、投资组合优化、带基数约束的选择问题、调度与路径规划等）。然而这些算法在真实硬件上面临一个核心矛盾："><meta property="og:title" content="基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用 · 量子优化日报"><meta property="og:description" content="在含噪中等规模量子（NISQ）时代，QAOA 及其衍生变分量子算法被视为最有可能率先展现量子计算实用价值的方向，尤其面向组合优化问题（MaxCut、投资组合优化、带基数约束的选择问题、调度与路径规划等）。然而这些算法在真实硬件上面临一个核心矛盾："><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="stylesheet" href="/_astro/about.Cez-ziax.css"></head> <body> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-05</div> <h1>基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-05 · arXiv 预印本 · arXiv:2605.18985 · Almudena Carrera Vazquez, Daniel J. Egger, Stefan Woerner </p> </div> <div class="report-body"><h1>每日论文推荐报告（2026-09-05）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 5 日（周六，北京时间）</strong>。经多平台交叉核验（arXiv 官方最新公告列表、Semantic Scholar、OpenAlex、CrossRef、INSPIRE-HEP、paper-distill MCP 聚合检索）：</p>
+<ul>
+<li><strong>今天（2026-09-05）没有任何一篇&quot;提交时间戳恰好为 9 月 5 日&quot;的量子优化方向论文处于可公开检索状态</strong>。原因：9 月 5 日是周六，arXiv 周六提交的论文要等到下周一才公告上线（尚未进入任何索引）；Semantic Scholar / OpenAlex / CrossRef / INSPIRE 按日期 <code>2026-09-05</code> 精确过滤均为 0 篇相关结果。</li>
+<li>因此按&quot;<strong>今天最新公布（更新）的论文</strong>&quot;口径选取：arXiv 于美东时间周五 20:00（= <strong>北京时间 2026-09-05 08:00，即今天早上</strong>）发布了最新一期公告（quant-ph 共 152 篇），本报告推荐论文即出自<strong>今天全球最新公开的这批论文</strong>，其最新版本（v2）修订于 2026-09-03，今天随公告正式上线。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>一、论文标题（中英文对照）</h2>
+<ul>
+<li><strong>英文标题</strong>：Efficient Fourier-Based Linear Combination of Unitaries and Applications in Quantum Optimization</li>
+<li><strong>中文标题</strong>：基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用</li>
+</ul>
+<h2>二、作者列表</h2>
+<table>
+<thead>
+<tr>
+<th>作者</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Almudena Carrera Vazquez</td>
+<td>IBM Quantum 量子算法研究者</td>
+</tr>
+<tr>
+<td>Daniel J. Egger</td>
+<td>IBM Research Zurich 量子优化方向负责人之一</td>
+</tr>
+<tr>
+<td>Stefan Woerner</td>
+<td>IBM Research Zurich 量子算法负责人，量子优化领域领军人物（本文通讯作者，v2 由其提交）</td>
+</tr>
+</tbody></table>
+<p>三位作者均来自 <strong>IBM 量子计算研究团队（IBM Quantum / IBM Research – Zurich）</strong>，是当前国际上量子近似优化算法（QAOA）与量子-经典混合优化领域最活跃、最具影响力的工业研究团队之一（团队此前多项工作发表于 <em>Quantum</em>、<em>Nature Computational Science</em>、<em>Physical Review Applied</em> 等，包括著名的 QAOA 温启动方法与量子优化基准库 QuEra/QOBLIB 相关工作）。</p>
+<h2>三、发表平台/期刊名称及时间</h2>
+<ul>
+<li><strong>发表平台</strong>：arXiv 预印本平台（quant-ph 分类）</li>
+<li><strong>版本时间线</strong>：<ul>
+<li>v1：2026 年 5 月 18 日首次提交</li>
+<li><strong>v2（本次推荐版本）：2026 年 9 月 3 日修订，2026 年 9 月 5 日（北京时间）随 arXiv 最新公告正式上线</strong>，修订内容为补充开源代码链接</li>
+</ul>
+</li>
+<li><strong>当前状态</strong>：arXiv 预印本（尚未见正式期刊卷期信息，属该团队典型的顶刊/顶会投稿前公开工作）</li>
+</ul>
+<h2>四、arXiv 编号</h2>
+<p><strong>arXiv:2605.18985</strong>（v2）
+DOI：<code>10.48550/arXiv.2605.18985</code></p>
+<h2>五、研究背景与动机</h2>
+<p>在含噪中等规模量子（NISQ）时代，QAOA 及其衍生变分量子算法被视为最有可能率先展现量子计算实用价值的方向，尤其面向组合优化问题（MaxCut、投资组合优化、带基数约束的选择问题、调度与路径规划等）。然而这些算法在真实硬件上面临一个核心矛盾：</p>
+<ol>
+<li><strong>电路连通性与硬件拓扑不匹配</strong>：组合优化问题的代价哈密顿量通常是全连接或高连通的（例如基数约束罚项、全连接 XY 混合器），编译到只有稀疏连接的量子芯片（如 IBM 的重原子链式拓扑）上会产生极深的电路；</li>
+<li><strong>深度即噪声</strong>：电路越深，噪声累积越严重，量子优化的解质量随电路深度迅速退化；</li>
+<li><strong>约束处理代价高昂</strong>：带约束组合优化（如投资组合中的基数约束）依赖的惩罚项与约束保持混合器（XY-mixer）恰恰是电路中连通性要求最高的成分；</li>
+<li><strong>理论工具缺失</strong>：如何在&quot;近似酉算子&quot;的同时<strong>严格保证优化性能不下滑</strong>，此前缺乏系统化的方法学。</li>
+</ol>
+<p>本文的动机正是：<strong>系统地用&quot;多项式级采样开销&quot;换取&quot;大幅降低的电路深度与连通性需求&quot;</strong>，让近期的量子优化算法真正跑得动、跑得深。</p>
+<h2>六、核心方法与技术路线</h2>
+<p>论文提出**无辅助量子比特的傅里叶线性组合酉算子（Fourier-Based Ancilla-Free LCU）**框架，技术路线可概括为四步：</p>
+<ol>
+<li><strong>LCU 近似分解</strong>：将目标酉算子（对角或非对角）展开为一系列&quot;简单酉算子&quot;的线性组合——简单算子只需单比特门层或结构显著简化的子电路即可实现，从而把高度连接的多比特交互替换掉；</li>
+<li><strong>傅里叶系数构造</strong>：利用傅里叶级数系统性地产出 LCU 系数，可覆盖广泛类别的对角/非对角酉算子（包括 QAOA 中的约束罚项与全连接 XY 混合器），使分解过程自动化、通用化；</li>
+<li><strong>采样式执行与性能保证</strong>：分解后的电路以&quot;近似采样&quot;方式运行——量子优化任务的本质是采样高质量比特串（候选解可经典评估），而无需精确重构全部输出分布。作者证明了这种近似<strong>在与全相干实现对比时保持严格的性能保证</strong>，代价仅为多项式级的采样开销；</li>
+<li><strong>量子-经典优化理论的桥接</strong>：论文进一步证明傅里叶型量子罚项与经典数学规划中的**拉格朗日松弛（Lagrangian Relaxation）**存在形式化对应，首次给出&quot;量子约束处理&quot;与&quot;经典约束松弛&quot;的统一视角。</li>
+</ol>
+<p>整个框架天然构成<strong>量子-经典混合优化范式</strong>：经典端负责候选解评估与松弛视角，量子端负责高质量解分布的采样。</p>
+<h2>七、主要实验/理论结果</h2>
+<ol>
+<li><strong>理论结果</strong>：<ul>
+<li>证明傅里叶 LCU 可高效分解大类的对角与非对角酉算子，将高度连接的量子交互替换为单比特门层，仅引入多项式采样开销；</li>
+<li>给出近似采样相对全相干实现的<strong>严格性能保证</strong>（对以&quot;采样优质比特串&quot;为目标的量子优化算法成立）；</li>
+<li>建立傅里叶量子罚项 ↔ 拉格朗日松弛的形式化联系，统一了约束处理的量子与经典两种视角。</li>
+</ul>
+</li>
+<li><strong>实验结果</strong>：<ul>
+<li>12 量子比特电路的<strong>精确态矢量模拟</strong>验证方法正确性与解质量；</li>
+<li>在 <strong>106 个超导量子比特</strong>上完成大规模硬件实验（IBM 超导处理器，Heron 级别规模），验证了该方法在真实含噪硬件上对 QAOA 类算法（含基数约束罚项、全连接 XY 混合器）的实际可运行性与可扩展性；</li>
+<li>结果表明：以系统化的采样开销换取电路复杂度，可显著扩展近期量子优化的实用边界。</li>
+</ul>
+</li>
+</ol>
+<h2>八、对本研究领域的意义与启示</h2>
+<ol>
+<li><strong>对 QAOA/VQA 研究的直接价值</strong>：提供了第一条通向&quot;浅电路 + 约束保持&quot;的系统性路径。对带约束组合优化（基数约束投资组合、调度、路径规划等）而言，这是当前 NISQ 硬件上最具落地性的设计模式之一。</li>
+<li><strong>对量子-经典混合优化框架的启示</strong>：论文揭示的&quot;量子罚项 = 拉格朗日松弛&quot;对应关系，为把经典运筹学数十年的约束处理理论（松弛、对偶、罚函数法）整体移植到量子算法设计打开了大门——这正是&quot;量子计算赋能智能优化&quot;的一条清晰技术路线。</li>
+<li><strong>对量子退火/绝热方法的互补意义</strong>：LCU-采样范式给出了门模型电路上模拟类似退火式&quot;试探解分布&quot;的低深度方案，与量子退火形成互补。</li>
+<li><strong>方法论示范</strong>：106 量子比特的真机验证 + 开源代码，使其成为可复现、可跟进的基准工作；对关注&quot;规模化量子优化实验&quot;的团队有直接参考价值。</li>
+<li><strong>对本团队研究方向（量子计算求解组合优化 / 量子赋能智能优化算法）的启示</strong>：在构建混合算法时，应显式管理&quot;电路复杂度—采样开销&quot;的资源权衡；约束型组合优化问题的量子化建模可借鉴本文的傅里叶罚项与松弛视角，并与经典启发式（进化算法、局部搜索）形成三层次混合架构。</li>
+</ol>
+<h2>九、论文原文链接</h2>
+<ul>
+<li><strong>arXiv 摘要页</strong>：<a href="https://arxiv.org/abs/2605.18985">https://arxiv.org/abs/2605.18985</a></li>
+<li><strong>PDF 全文</strong>：<a href="https://arxiv.org/pdf/2605.18985">https://arxiv.org/pdf/2605.18985</a></li>
+<li><strong>DOI</strong>：<a href="https://doi.org/10.48550/arXiv.2605.18985">https://doi.org/10.48550/arXiv.2605.18985</a></li>
+<li><strong>当日公告列表（本论文 [118] 条目出处）</strong>：<a href="https://arxiv.org/list/quant-ph/new">https://arxiv.org/list/quant-ph/new</a></li>
+</ul>
+<hr>
+<h2>附：备选论文（同期今日公布，供扩展阅读）</h2>
+<p>在今日同一批公告中，另一篇高相关论文值得关注：</p>
+<ul>
+<li><strong>Efficient Estimation of Reduced QAOA Expressibility on Acyclic Graphs</strong>（arXiv:2609.03317，2026-09-03 提交、2026-09-05 北京时间随公告上线）
+作者：Bao Bach, Boris Tsvelikhovskiy, Jose Falla, Ilya Safro（特拉华大学/阿贡国家实验室量子优化团队）
+内容：针对 MaxCut 对称性约简 QAOA，提出多项式时间经典算法，仅凭图结构（最短路径 + 度奇偶性）即可高效判定约简后电路的动力学李代数（DLA）与最大表达能力，可在上量子硬件之前先&quot;经典诊断&quot;变分量子算法的表达力——与主推论文形成&quot;硬件端降深度 / 经典端验表达力&quot;的互补。</li>
+</ul>
+<p><em>（检索时间：2026-09-05；检索渠道：paper-distill MCP 多库聚合检索、arXiv 官方公告列表、Semantic Scholar、OpenAlex、CrossRef、INSPIRE-HEP）</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-03-2/">← 上一期(2026-09-03)</a> <a class="btn" href="https://arxiv.org/abs/2605.18985" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-06</span> · 共收录 152 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </body></html>

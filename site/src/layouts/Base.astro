@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+import site from '../data/site.json';
+import { SITE_NAME, SITE_NAME_EN, SITE_TAGLINE } from '../lib/utils.js';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: string;
+}
+const { title, description = SITE_TAGLINE, active = '' } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME} · ${SITE_NAME_EN}`;
+const nav = [
+  ['/', '首页', 'home'],
+  ['/daily/', '每日报告', 'daily'],
+  ['/papers/', '论文库', 'papers'],
+  ['/topics/', '研究方向', 'topics'],
+  ['/about/', '关于', 'about'],
+];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} RSS`} href="/rss.xml" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">
+          <span class="logo">Q</span>
+          <span>{SITE_NAME}<span class="sub">{SITE_NAME_EN}</span></span>
+        </a>
+        <nav class="nav" aria-label="主导航">
+          {nav.map(([href, label, key]) => (
+            <a href={href} class={active === key ? 'active' : ''}>{label}</a>
+          ))}
+          <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <div>
+          <strong>{SITE_NAME}</strong> · {SITE_NAME_EN}<br />
+          由每日自动检索流水线生成 · 数据更新至 <span class="mono">{site.lastUpdated}</span> · 共收录 {site.stats.papers} 篇论文
+        </div>
+        <div>
+          数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

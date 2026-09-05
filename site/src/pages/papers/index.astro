@@ -1,0 +1,110 @@
+---
+import Base from '../../layouts/Base.astro';
+import PaperCard from '../../components/PaperCard.astro';
+import site from '../../data/site.json';
+
+const { topics, papers } = site as any;
+// 默认按时间倒序(数据已是);初始高亮最新
+const initial = papers as any[];
+---
+
+<Base active="papers" title="论文库" description="量子优化领域论文库:按方向、年份、影响力筛选,支持全文检索">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>论文库</div>
+    <h1>论文库</h1>
+    <p class="lead">共 {initial.length} 篇 · 覆盖 {site.stats.yearMin}–{site.stats.yearMax} 年 · 支持按研究方向、年份、标签与关键词筛选。</p>
+  </div>
+
+  <div class="toolbar" id="toolbar">
+    <div class="row">
+      <input type="search" id="q" placeholder="搜索标题 / 作者 / 摘要 / arXiv 编号…" aria-label="搜索论文" />
+      <select id="year" aria-label="年份">
+        <option value="">全部年份</option>
+        {[...new Set(initial.map((p) => p.year))].filter(Boolean).sort((a, b) => b - a).map((y) => <option value={y}>{y}</option>)}
+      </select>
+      <select id="sort" aria-label="排序">
+        <option value="date">按时间排序</option>
+        <option value="cites">按引用排序</option>
+      </select>
+    </div>
+    <div class="chips" id="chips">
+      <button class="chip" data-topic="">全部方向</button>
+      {Object.entries(topics).map(([k, t]: any) => (
+        <button class={`chip t-${k}`} data-topic={k}>{t.label}</button>
+      ))}
+      <span style="width:10px"></span>
+      <button class="chip" data-tag="report">日报精选</button>
+      <button class="chip" data-tag="foundational">领域奠基</button>
+    </div>
+    <div class="row" style="justify-content:space-between">
+      <span class="result-count" id="count"></span>
+      <span class="small muted">提示:点击方向徽章可快速筛选;排序在浏览器本地完成</span>
+    </div>
+  </div>
+
+  <div class="grid two" id="list">
+    {initial.map((p) => <PaperCard paper={p} />)}
+  </div>
+  <div class="empty" id="empty">没有符合条件的论文,试试放宽筛选条件。</div>
+</Base>
+
+<script>
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.paper-card'));
+  const q = document.getElementById('q') as HTMLInputElement;
+  const year = document.getElementById('year') as HTMLSelectElement;
+  const sort = document.getElementById('sort') as HTMLSelectElement;
+  const chips = Array.from(document.querySelectorAll<HTMLButtonElement>('.chip'));
+  const count = document.getElementById('count')!;
+  const empty = document.getElementById('empty')!;
+  let topic = '';
+  let tag = '';
+
+  // 支持 /papers/?sort=cites 与 ?tag=foundational 深链
+  const params = new URLSearchParams(location.search);
+  if (params.get('sort') === 'cites') sort.value = 'cites';
+  if (params.get('tag')) {
+    tag = params.get('tag')!;
+    chips.filter((c) => c.dataset.tag === tag).forEach((c) => c.classList.add('on'));
+  }
+
+  function apply() {
+    const kw = q.value.trim().toLowerCase();
+    let shown = 0;
+    const visible = [];
+    for (const c of cards) {
+      const okTopic = !topic || (c.dataset.topics || '').split(' ').includes(topic);
+      const okTag = !tag || (c.dataset.tags || '').split(' ').includes(tag);
+      const okYear = !year.value || c.dataset.year === year.value;
+      const okKw = !kw || (c.dataset.search || '').includes(kw);
+      const ok = okTopic && okTag && okYear && okKw;
+      c.style.display = ok ? '' : 'none';
+      if (ok) { shown++; visible.push(c); }
+    }
+    if (sort.value === 'cites') {
+      visible.sort((a, b) => Number(b.dataset.cites) - Number(a.dataset.cites));
+    } else {
+      visible.sort((a, b) => (a.dataset.date < b.dataset.date ? 1 : -1));
+    }
+    const list = document.getElementById('list')!;
+    for (const c of visible) list.appendChild(c);
+    count.textContent = `筛选出 ${shown} / ${cards.length} 篇`;
+    empty.style.display = shown ? 'none' : 'block';
+  }
+
+  q.addEventListener('input', apply);
+  year.addEventListener('change', apply);
+  sort.addEventListener('change', apply);
+  chips.forEach((c) =>
+    c.addEventListener('click', () => {
+      if (c.dataset.topic !== undefined) {
+        topic = topic === c.dataset.topic ? '' : c.dataset.topic;
+        chips.filter((x) => x.dataset.topic !== undefined).forEach((x) => x.classList.toggle('on', x.dataset.topic === topic));
+      } else {
+        tag = tag === c.dataset.tag ? '' : (c.dataset.tag ?? '');
+        chips.filter((x) => x.dataset.tag !== undefined).forEach((x) => x.classList.toggle('on', x.dataset.tag === tag));
+      }
+      apply();
+    })
+  );
+  apply();
+</script>

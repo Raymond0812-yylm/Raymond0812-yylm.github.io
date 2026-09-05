@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>无需逐实例优化的量子近似优化算法具有有效常数采样复杂度的证据 · 量子优化日报</title><meta name="description" content="量子近似优化算法（QAOA） 是 NISQ（含噪中等规模量子）时代求解组合优化问题的旗舰候选算法：将 QUBO / Ising 形式的组合优化问题映射为代价哈密顿量，通过交替施加代价层与混合层并测量比特串来搜索高质量近似解。然而，QAOA 走向实用化面临两个相互纠缠的开销瓶颈："><meta property="og:title" content="无需逐实例优化的量子近似优化算法具有有效常数采样复杂度的证据 · 量子优化日报"><meta property="og:description" content="量子近似优化算法（QAOA） 是 NISQ（含噪中等规模量子）时代求解组合优化问题的旗舰候选算法：将 QUBO / Ising 形式的组合优化问题映射为代价哈密顿量，通过交替施加代价层与混合层并测量比特串来搜索高质量近似解。然而，QAOA 走向实用化面临两个相互纠缠的开销瓶颈："><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="stylesheet" href="/_astro/about.Cez-ziax.css"></head> <body> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-01</div> <h1>无需逐实例优化的量子近似优化算法具有有效常数采样复杂度的证据</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-01 · Physical Review A · arXiv:2509.19035 · Andrey Yu. Chernyavskiy, Denis A. Kulikov, Boris I. Bantysh 等 6 人 </p> </div> <div class="report-body"><h1>每日论文精选报告 —— 量子优化方向（2026-09-01）</h1>
+<h2>一、论文基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Evidence for effectively constant shot complexity in the quantum approximate optimization algorithm without per-instance optimization</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>无需逐实例优化的量子近似优化算法具有有效常数采样复杂度的证据</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Andrey Yu. Chernyavskiy, Denis A. Kulikov, Boris I. Bantysh, Yurii I. Bogdanov, Aleksey K. Fedorov, Evgeniy O. Kiktenko</td>
+</tr>
+<tr>
+<td><strong>作者团队</strong></td>
+<td>以俄罗斯量子中心（Russian Quantum Center）为核心的联合团队；Aleksey K. Fedorov 长期从事量子优化与量子机器学习交叉研究，在量子-经典混合算法方向有大量高影响工作</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td><strong>Physical Review A</strong>（美国物理学会 APS 旗下权威物理期刊，QAOA 理论研究的主要发表平台之一）；arXiv 同步预印本（quant-ph 分类）</td>
+</tr>
+<tr>
+<td><strong>发表 / 更新时间</strong></td>
+<td>PRA 于 <strong>2026-08-03 在线发表</strong>（2025-12-30 收稿）；arXiv 版本历史：v1 2025-09-23 → v2 2026-02-20 → <strong>v3 2026-08-28 修订</strong>（随 2026-08-31 批次公告，为本次检索时点可见的最新更新）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>arXiv:2509.19035 [quant-ph]</td>
+</tr>
+<tr>
+<td><strong>DOI</strong></td>
+<td>10.1103/x32d-wx13（Physical Review A）</td>
+</tr>
+<tr>
+<td><strong>文档规模</strong></td>
+<td>13 页，7 幅图</td>
+</tr>
+</tbody></table>
+<h2>二、研究背景与动机</h2>
+<p><strong>量子近似优化算法（QAOA）</strong> 是 NISQ（含噪中等规模量子）时代求解组合优化问题的旗舰候选算法：将 QUBO / Ising 形式的组合优化问题映射为代价哈密顿量，通过交替施加代价层与混合层并测量比特串来搜索高质量近似解。然而，QAOA 走向实用化面临两个相互纠缠的开销瓶颈：</p>
+<ol>
+<li><strong>采样开销</strong>：量子线路每次执行只产生一个比特串样本，且测量结果具有随机性。要以高概率找到达到目标近似比（approximation ratio）的解，通常需要重复执行线路大量次数（shots），且所需 shots 一般随问题规模增长——运行时间被采样过程主导，可能抵消量子计算带来的任何加速；</li>
+<li><strong>逐实例参数优化开销</strong>：QAOA 的角度参数需针对每个具体问题实例进行训练，量子-经典混合优化循环需要大量线路评估，代价高昂且难以规模化。</li>
+</ol>
+<p>本文的动机正是<strong>同时消除这两类开销</strong>：提出并系统验证一种&quot;固定参数 QAOA（fixed-parameter QAOA, fpQAOA）&quot;协议，证明在完全免除逐实例优化的前提下，达到目标近似比所需的采样次数可以做到<strong>与问题规模无关的有效常数</strong>。</p>
+<h2>三、核心方法与技术路线</h2>
+<p>fpQAOA 协议由三项关键要素构成：</p>
+<ol>
+<li><strong>正弦-余弦角度编码（sin-cos angle encoding）</strong>：将 QUBO 实例的耦合系数经 <strong>QUBO 矩阵 Frobenius 范数归一化</strong> 后，以正弦/余弦角度的形式编码进 QAOA 代价算符，使角度取值的分布与问题规模无关（幅值有界），这是实现参数跨规模迁移的关键组件；</li>
+<li><strong>小规模训练 + 跨规模参数迁移</strong>：仅在少数量子比特的小规模实例上训练 QAOA 参数，随后将参数<strong>直接迁移</strong>到更大的问题实例，完全免除对每个新实例的重新优化——参数与问题规模解耦；</li>
+<li><strong>常数级采样复杂度</strong>：参数固定后，单一量子线路构型输出的比特串分布即以高概率包含高质量近似解，从而将所需 shots 压缩为与问题规模无关的常数。</li>
+</ol>
+<p>技术验证上，作者通过<strong>消融实验（ablation study）</strong> 逐项检验各组件贡献：移除角度编码后，所需 shots 随问题规模显著增长——证明角度编码是采样复杂度保持常数的最关键因素。整个评估在无噪声数值模拟中完成，并对单次 shot 的线路门数与运行时间代价进行了独立分析。</p>
+<h2>四、主要实验结果</h2>
+<ul>
+<li><strong>规模与质量</strong>：在无噪声数值模拟中，对随机生成的 QUBO 实例测试至 <strong>30 量子比特</strong>，以高概率找到<strong>近似比 ≥ 0.95</strong> 的解；</li>
+<li><strong>核心结论</strong>：在该规模范围内，达到目标近似比所需的测量次数（shots）保持<strong>有效常数</strong>——即采样复杂度不随问题规模增长；</li>
+<li><strong>消融验证</strong>：移除角度编码后，shot 复杂度随问题规模增长，确认角度编码是常数采样复杂度的决定性组件；</li>
+<li><strong>代价转移分析</strong>：虽然 shots 为常数，但单次 shot 线路中单量子比特旋转门数量随规模呈<strong>多项式级</strong>增长，单次 shot 的运行时间按 <strong>O(N³)</strong> 规模化——总开销从&quot;采样次数&quot;转移至&quot;单次线路执行代价&quot;；</li>
+<li><strong>适用前提</strong>：全部结果基于无噪声模拟假设，噪声硬件上的表现留待后续验证。</li>
+</ul>
+<h2>五、对研究领域的意义与启示</h2>
+<ol>
+<li><strong>直击 QAOA 实用化两大痛点</strong>：采样开销与逐实例参数训练是 QAOA 可扩展性讨论中被广泛承认却少有系统性解法的难题，本文给出&quot;角度编码 + 参数迁移&quot;的组合式解法并完成了消融归因，方法学上完整扎实；</li>
+<li><strong>&quot;免重训练&quot;范式的示范</strong>：&quot;小规模训练、大规模迁移&quot;的思路与经典智能优化领域中&quot;离线学习超参数 / 学习到优化（learning-to-optimize）&quot;的思想同构，为<strong>量子计算赋能智能优化算法</strong>提供了可借鉴的跨规模泛化设计范式——其中 Frobenius 范数归一化实现&quot;问题规模无关的特征缩放&quot;这一细节，对任何需要参数迁移的混合算法设计都有直接启发；</li>
+<li><strong>量子优势论证的重新校准</strong>：结论表明 QAOA 的运行时间瓶颈可从&quot;指数级/线性增长的测量次数&quot;转移为&quot;多项式级增长的单 shot 门数与 O(N³) 线路执行时间&quot;，为后续量子优势的理论论证划定了更清晰的靶子；</li>
+<li><strong>清醒的局限意识</strong>：作者明确指出结果限于无噪声模拟，诚实的代价转移分析（O(N³) per-shot time）为该方向的后续硬件实验提供了明确的检验基线；</li>
+<li><strong>发表信号</strong>：论文经 Physical Review A 严格评审后正式见刊，并在见刊后持续以 v3 修订维护，反映其在 QAOA 可扩展性方向被认可的参考价值（昨日报告的备选池中亦收录本篇，今日正式推荐）。</li>
+</ol>
+<h2>六、论文原文链接</h2>
+<ul>
+<li><strong>arXiv 摘要页</strong>：<a href="https://arxiv.org/abs/2509.19035">https://arxiv.org/abs/2509.19035</a></li>
+<li><strong>PDF 全文</strong>：<a href="https://arxiv.org/pdf/2509.19035">https://arxiv.org/pdf/2509.19035</a></li>
+<li><strong>Physical Review A 正式版（DOI）</strong>：<a href="https://doi.org/10.1103/x32d-wx13">https://doi.org/10.1103/x32d-wx13</a></li>
+</ul>
+<hr>
+<h2>附：检索与筛选说明（2026-09-01）</h2>
+<ul>
+<li><strong>检索渠道</strong>：paper-distill MCP 聚合检索（覆盖 arXiv、OpenAlex、Semantic Scholar、CrossRef、PubMed、DBLP 等 9 个学术平台；本轮 4 个并行查询中 3 个因超时/连接中断未返回，已通过 arXiv 官方最新列表与 CrossRef API 逐条核验补足）；arXiv quant-ph 当前可见最新批次（2026-08-31，共 114 条：51 篇新投稿 + 20 篇交叉列表 + 43 篇更新）全量人工复核；</li>
+<li><strong>&quot;今日论文&quot;口径说明</strong>：截至检索时点（北京时间 2026-09-01 上午），arXiv 当日（09-01）批次尚未生成（arXiv 于美东时间 20:00 公告，北京时间次日约 08:00 可见）。故以<strong>检索时点可见的最新批次（08-31）中的最新提交/更新</strong>为当日口径；该批次中唯一全新的量子组合优化投稿（Energy Internet Routing，arXiv:2608.28401）已于昨日（2026-08-31）报告推荐，为避免重复，今日选取该批次中最新更新发布的本篇（v3 修订，2026-08-28 提交）；</li>
+<li><strong>候选池</strong>（当前可见批次内）：① 本文（fpQAOA 采样复杂度，PRA 正式发表 + v3 更新，昨日报告备选）；② Energy Internet Routing（昨日已推荐）；③ 定点车队车辆路径 QUBO 连通性修正（昨日已提及）；</li>
+<li><strong>入选理由</strong>：① 完全落在 QAOA / 变分量子算法 / 量子-经典混合优化核心主题内；② 已正式发表于 Physical Review A（APS），满足&quot;高水平期刊&quot;优先条件，权威性高于同批次其余候选；③ 出自知名团队（俄罗斯量子中心，Fedorov 等），结论（常数采样复杂度 + 消融归因）对 QAOA 可扩展性研究具有直接参考价值；</li>
+<li><strong>时间敏感性提示</strong>：arXiv 的 2026-09-01 批次将于北京时间 09-02 上午可见，如需严格意义上的&quot;9 月 1 日提交&quot;论文，可于明日上午复跑本流程。</li>
+</ul>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-08-31/">← 上一期(2026-08-31)</a> <a class="btn" href="https://arxiv.org/abs/2509.19035" target="_blank" rel="noopener">论文原文 ↗</a> <a class="btn" href="/daily/2026-09-02/">下一期(2026-09-02) →</a> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-06</span> · 共收录 152 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </body></html>

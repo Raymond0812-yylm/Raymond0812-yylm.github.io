@@ -1,0 +1,43 @@
+---
+import site from '../data/site.json';
+import { fmtAuthors, fmtCites, isTopVenue, searchBlob } from '../lib/utils.js';
+
+interface Props {
+  paper: any;
+  compact?: boolean;
+  showAbstractFallback?: boolean;
+}
+const { paper: p, compact = false } = Astro.props;
+const topics = site.topics as Record<string, { label: string }>;
+const primary = p.topics[0];
+const isFound = p.tags?.includes('foundational');
+---
+
+<article
+  class:list={['card', 'paper-card', { featured: p.featured, compact }]}
+  data-topics={p.topics.join(' ')}
+  data-year={p.year ?? ''}
+  data-cites={p.citations ?? -1}
+  data-date={p.date}
+  data-tags={[...(p.tags || []), p.featured ? 'report' : ''].join(' ').trim()}
+  data-search={searchBlob(p)}
+>
+  <div class="top">
+    <a class={`badge t-${primary}`} href={`/topics/${primary}/`}>{topics[primary]?.label ?? primary}</a>
+    {p.featured && <a class="badge tag report" href={`/daily/${p.reportSlug}/`}>日报精选 · {p.reportDate}</a>}
+    {isFound && <span class="badge tag found">领域奠基</span>}
+    <span class="date">{p.date}</span>
+  </div>
+  <h3 class="title"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></h3>
+  <div class="title-en">{p.title}</div>
+  {!compact && <p class="summary">{p.summaryZh}</p>}
+  <div class="meta">
+    <span class="authors" title={(p.authors || []).join(', ')}>{fmtAuthors(p.authors)}</span>
+    <span style="display:flex;gap:10px;align-items:center;white-space:nowrap">
+      <span class:list={['venue', { top: isTopVenue(p.venue) }]}>{p.venue}</span>
+      {p.citations !== null && p.citations !== undefined && p.citations > 0 && (
+        <span class="cites">引用 <b>{fmtCites(p.citations)}</b></span>
+      )}
+    </span>
+  </div>
+</article>

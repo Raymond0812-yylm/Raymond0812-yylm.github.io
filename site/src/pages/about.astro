@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { TOPIC_ORDER, TOPIC_COLOR } from '../lib/utils.js';
+
+const { topics } = site as any;
+---
+
+<Base active="about" title="关于本站" description="量子优化日报:站点介绍、数据来源与更新机制">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>关于</div>
+    <h1>关于本站</h1>
+    <p class="lead">
+      「量子优化日报」是一个自动化的领域论文门户,持续追踪量子计算求解组合优化问题、
+      量子计算赋能智能优化算法方向的最新论文与研究进展,并以中文深度解读的形式沉淀为可检索、可分享的研究档案。
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>收录范围</h2>
+    <p>本站聚焦以下交叉方向,论文按研究内容归入七个方向:</p>
+    <div class="chips" style="margin-bottom:6px">
+      {TOPIC_ORDER.map((k) => <a class={`badge t-${k}`} style="font-size:.85rem;padding:5px 12px" href={`/topics/${k}/`}>{topics[k].label}</a>)}
+    </div>
+    <p class="small muted">量子近似优化(QAOA 及其变体) · 量子退火与绝热优化 · 变分量子算法 · 量子-经典混合与量子启发优化 ·
+    机器学习求解组合优化(ML4CO) · 大模型赋能优化(LLM4CO,含自动启发式设计、LLM 作为优化器等)。
+    当某一时期量子方向缺乏高质量新作时,每日报告会自动转向大模型方向的最新工作。</p>
+  </div>
+
+  <div class="panel">
+    <h2>数据来源与更新机制</h2>
+    <p class="abstract">
+      每天上午 10:00(北京时间),自动流水线并行检索 <strong>arXiv、OpenAlex、Semantic Scholar、CrossRef、PubMed、DBLP</strong> 等
+      九个学术平台;按相关性、时效性、影响力与新颖性四因子打分排序,精选当日最具代表性的论文生成深度报告。
+      论文元数据(标题、作者、期刊、引用数)来自 OpenAlex 等开放学术数据库,引用数为检索时点的近似值。
+    </p>
+    <p class="abstract" style="margin-bottom:0">
+      站内内容分两类:<strong>① 每日报告</strong> —— 单篇论文的完整中文深度解读(背景动机 / 方法路线 / 实验结果 / 领域启示);
+      <strong>② 论文库</strong> —— 回溯收录的领域工作档案,含逐篇中文摘要、方向标签与原文链接,支持筛选与检索。
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>订阅与接入</h2>
+    <p class="abstract">
+      本站提供全站 RSS 订阅:<a href="/rss.xml"><code>/rss.xml</code></a>。
+      网站为纯静态站点(Astro 构建),数据以 JSON 形式随站点发布,程序化接入可直接使用构建产物中的数据文件。
+    </p>
+    <p class="abstract small muted" style="margin-bottom:0">
+      免责声明:本站为学术信息聚合与研究辅助工具,摘要为对原文的概括性中文转述,准确内容请以论文原文为准;
+      引用数据来自第三方数据库,可能存在滞后或误差。
+    </p>
+  </div>
+
+  <div class="panel">
+    <h2>技术栈</h2>
+    <p class="abstract" style="margin-bottom:0">
+      Astro(静态站点)+ 自动化论文检索流水线(多平台聚合检索与评分)+ 每日定时任务;
+      每日报告以 Markdown 生成,构建时自动解析入库,无需人工维护。
+    </p>
+  </div>
+</Base>

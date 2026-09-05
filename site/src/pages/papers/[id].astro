@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import siteData from '../../data/site.json';
+import { fmtAuthors, fmtCites, isTopVenue } from '../../lib/utils.js';
+
+const site: any = siteData;
+
+export function getStaticPaths() {
+  // getStaticPaths 可访问模块级导入
+  return (siteData as any).papers.map((paper: any) => ({ params: { id: paper.id }, props: { paper } }));
+}
+
+const { paper } = Astro.props;
+const topics = site.topics;
+const primary = paper.topics[0];
+const related = site.papers
+  .filter((p) => p.id !== paper.id && p.topics.includes(primary))
+  .slice(0, 6);
+const inTopic = site.papers.filter((p) => p.topics.includes(primary)).length;
+---
+
+<Base active="papers" title={paper.titleZh} description={paper.summaryZh}>
+  <div class="page-head" style="padding-bottom:0">
+    <div class="crumbs">
+      <a href="/">首页</a><span>/</span>
+      <a href="/papers/">论文库</a><span>/</span>
+      <a href={`/topics/${primary}/`}>{topics[primary]?.label}</a>
+    </div>
+  </div>
+
+  <div class="detail">
+    <div class="detail-main">
+      <h1>{paper.titleZh}</h1>
+      <p class="title-en">{paper.title}</p>
+      <div class="badges">
+        <a class={`badge t-${primary}`} href={`/topics/${primary}/`}>{topics[primary]?.label}</a>
+        {paper.topics.slice(1).map((t) => <a class={`badge t-${t}`} href={`/topics/${t}/`}>{topics[t]?.label}</a>)}
+        {paper.tags.includes('foundational') && <span class="badge tag found">领域奠基</span>}
+        {paper.featured && <a class="badge tag report" href={`/daily/${paper.reportSlug}/`}>日报精选 · {paper.reportDate}</a>}
+      </div>
+
+      <div class="panel">
+        <h2>核心内容</h2>
+        <p class="lead-zh" style="margin-bottom:0">{paper.summaryZh}</p>
+      </div>
+
+      {paper.abstract && (
+        <div class="panel">
+          <h2>原始摘要</h2>
+          <details>
+            <summary>展开 / 收起英文摘要(共 {paper.abstract.length} 字符)</summary>
+            <p class="abstract" style="margin-top:10px">{paper.abstract}{paper.abstract.length >= 1500 && '…'}</p>
+          </details>
+        </div>
+      )}
+      {!paper.abstract && paper.featured && (
+        <div class="panel">
+          <h2>深度解读</h2>
+          <p class="abstract" style="margin-bottom:0">
+            本站为该论文生成了完整的中文深度解读报告(含研究背景、方法路线、主要结果与领域启示):
+            <a href={`/daily/${paper.reportSlug}/`}>→ 阅读日报全文解读</a>
+          </p>
+        </div>
+      )}
+
+      {related.length > 0 && (
+        <div class="panel">
+          <h2>同方向相关论文</h2>
+          <div class="related">
+            {related.map((p) => (
+              <div>
+                <a href={`/papers/${p.id}/`}>{p.titleZh}</a>
+                <div class="m">{p.venue} · {p.date}{p.citations ? ` · 引用 ${fmtCites(p.citations)}` : ''}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+
+    <aside class="side">
+      <div class="panel">
+        <h3>论文信息</h3>
+        <dl class="kv">
+          <dt>发表时间</dt><dd>{paper.date}</dd>
+          <dt>期刊 / 平台</dt><dd><span class:list={['venue', { top: isTopVenue(paper.venue) }]}>{paper.venue}</span></dd>
+          <dt>作者</dt><dd>{fmtAuthors(paper.authors, 8)}</dd>
+          {paper.arxivId && <><dt>arXiv</dt><dd class="mono">{paper.arxivId}</dd></>}
+          {paper.doi && <><dt>DOI</dt><dd class="mono" style="font-size:.78rem">{paper.doi}</dd></>}
+          {paper.citations ? <><dt>引用数</dt><dd>{paper.citations} <span class="small muted">(OpenAlex)</span></dd></> : null}
+          <dt>同方向</dt><dd><a href={`/topics/${primary}/`}>{inTopic} 篇 →</a></dd>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>原文链接</h3>
+        <div class="links">
+          {paper.arxivId && <a href={paper.url} target="_blank" rel="noopener">📄 arXiv 摘要页 ↗</a>}
+          {paper.doi && <a href={`https://doi.org/${paper.doi}`} target="_blank" rel="noopener">🔗 DOI 解析 ↗</a>}
+          {paper.arxivId && <a href={`https://arxiv.org/pdf/${paper.arxivId}`} target="_blank" rel="noopener">📥 PDF 全文 ↗</a>}
+          {!paper.arxivId && !paper.doi && <a href={paper.url} target="_blank" rel="noopener">🔍 Google Scholar ↗</a>}
+        </div>
+      </div>
+      <div class="panel">
+        <h3>分享</h3>
+        <p class="small muted" style="margin:0">本页链接:<code style="word-break:break-all">/papers/{paper.id}/</code></p>
+      </div>
+    </aside>
+  </div>
+</Base>

@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+import { TOPIC_ORDER, TOPIC_COLOR } from '../../lib/utils.js';
+
+const { topics, stats } = site as any;
+---
+
+<Base active="topics" title="研究方向" description="量子优化领域的七个研究方向:QAOA、量子退火、变分量子算法、量子-经典混合、综述与应用、机器学习求解组合优化、大模型赋能优化">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>研究方向</div>
+    <h1>研究方向</h1>
+    <p class="lead">
+      站内论文按研究内容归入七个方向(同一论文可属多个方向,归入其最核心方向)。
+      点击任意方向查看该方向的全部论文、奠基文献与最新进展。
+    </p>
+  </div>
+  <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
+    {TOPIC_ORDER.map((k) => (
+      <a class="topic-card" href={`/topics/${k}/`} style={`--tc:${TOPIC_COLOR[k]}`}>
+        <div class="n">{stats.topicCounts[k] || 0}<span style="font-size:.85rem;color:var(--text-3);font-weight:600"> 篇</span></div>
+        <div class="l">{topics[k].label}</div>
+        <div class="d">{topics[k].desc}</div>
+      </a>
+    ))}
+  </div>
+</Base>

@@ -1,0 +1,36 @@
+---
+import { marked } from 'marked';
+import Base from '../../layouts/Base.astro';
+import siteData from '../../data/site.json';
+import { fmtAuthors } from '../../lib/utils.js';
+
+const data: any = siteData;
+export function getStaticPaths() {
+  return (siteData as any).reports.map((report) => ({ params: { id: report.slug }, props: { report } }));
+}
+
+const { report } = Astro.props;
+const paper = data.papers.find((p: any) => p.id === report.paperId);
+const html = marked.parse(report.markdown, { gfm: true, breaks: false });
+const idx = data.reports.findIndex((r: any) => r.slug === report.slug);
+const newer = idx > 0 ? data.reports[idx - 1] : null;
+const older = idx < data.reports.length - 1 ? data.reports[idx + 1] : null;
+---
+
+<Base active="daily" title={report.titleZh} description={report.summaryZh}>
+  <div class="page-head" style="padding-bottom:6px">
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>{report.date}</div>
+    <h1>{report.titleZh}</h1>
+    <p class="lead small muted" style="margin-top:8px">
+      {report.date} · {report.venue}{report.arxivId ? ` · arXiv:${report.arxivId}` : ''} · {fmtAuthors(report.authors)}
+    </p>
+  </div>
+
+  <div class="report-body" set:html={html} />
+
+  <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap">
+    {older ? <a class="btn" href={`/daily/${older.slug}/`}>← 上一期({older.date})</a> : <span></span>}
+    {paper?.url && <a class="btn" href={paper.url} target="_blank" rel="noopener">论文原文 ↗</a>}
+    {newer ? <a class="btn" href={`/daily/${newer.slug}/`}>下一期({newer.date}) →</a> : <span></span>}
+  </div>
+</Base>

@@ -1,0 +1,17 @@
+{
+  "name": "quantum-opt-daily",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "量子优化日报 — 量子计算 × 组合优化 × 智能优化算法 论文门户",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "dev": "npm run data && astro dev",
+    "build": "npm run data && astro build",
+    "preview": "astro preview --host 127.0.0.1 --port 4321"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "marked": "^15.0.0"
+  }
+}

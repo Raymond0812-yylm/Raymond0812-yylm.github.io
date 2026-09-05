@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+import { groupByMonth, monthLabel } from '../../lib/utils.js';
+
+const { reports, topics } = site as any;
+const months = groupByMonth(reports);
+---
+
+<Base active="daily" title="每日报告" description="量子优化方向的每日精选论文中文深度解读报告归档">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>每日报告</div>
+    <h1>每日报告</h1>
+    <p class="lead">
+      每天从最新公布的论文中精选 1 篇最具代表性的工作,生成包含研究背景、方法路线、主要结果与领域启示的
+      完整中文解读;当日无合适目标时,自动转向大模型赋能优化方向的最新工作。
+    </p>
+  </div>
+
+  {months.map(([ym, list]) => (
+    <div class="month">
+      <h2>{monthLabel(ym)}</h2>
+      {list.map((r: any) => (
+        <div class="report-row">
+          <div class="d">{r.date}</div>
+          <div>
+            <div class="t">
+              <a href={`/daily/${r.slug}/`}>{r.titleZh}</a>
+              {r.topics.slice(0, 1).map((t) => <a class={`badge t-${t}`} href={`/topics/${t}/`} style="margin-left:8px;vertical-align:2px">{topics[t]?.label}</a>)}
+            </div>
+            <div class="e">{r.titleEn} · {r.venue}{r.arxivId ? ` · arXiv:${r.arxivId}` : ''}</div>
+            <p class="s">{r.summaryZh}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  ))}
+</Base>

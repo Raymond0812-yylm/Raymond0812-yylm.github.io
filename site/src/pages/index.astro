@@ -1,0 +1,126 @@
+---
+import Base from '../layouts/Base.astro';
+import PaperCard from '../components/PaperCard.astro';
+import site from '../data/site.json';
+import { TOPIC_ORDER, TOPIC_COLOR, fmtCites, fmtAuthors, SITE_TAGLINE } from '../lib/utils.js';
+
+const { stats, topics, papers, reports } = site as any;
+const byId = new Map(papers.map((p: any) => [p.id, p]));
+const latestReport = reports[0];
+const latestPaper = byId.get(latestReport?.paperId);
+const moreReports = reports.slice(1, 4);
+const latest = papers.filter((p: any) => !p.featured).slice(0, 9);
+const topCited = [...papers].filter((p: any) => p.citations).sort((a: any, b: any) => b.citations - a.citations).slice(0, 8);
+const foundational = papers.filter((p: any) => p.tags.includes('foundational')).sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0)).slice(0, 6);
+---
+
+<Base active="home" description={SITE_TAGLINE}>
+  <section class="hero">
+    <span class="eyebrow"><span class="dot"></span> 每日 10:00 自动更新 · 最近更新 {site.lastUpdated}</span>
+    <h1>量子计算求解组合优化<br /><span class="grad">论文与研究进展门户</span></h1>
+    <p class="lead">
+      聚焦 <strong>QAOA、量子退火、变分量子算法、量子-经典混合优化</strong>,并延伸至
+      <strong>机器学习 / 大模型赋能组合优化</strong>。每天自动检索 arXiv、OpenAlex 等学术平台,
+      精选高水平论文并生成中文深度解读;回溯收录 2014 年以来的领域奠基与高影响力工作,持续沉淀为可检索的研究档案。
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="/papers/">浏览论文库 →</a>
+      <a class="btn" href="/daily/">查看每日报告</a>
+      <a class="btn" href="/rss.xml">RSS 订阅</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">{stats.papers}</div><div class="l">收录论文</div></div>
+      <div class="stat"><div class="n">{stats.reports}</div><div class="l">每日深度报告</div></div>
+      <div class="stat"><div class="n">{stats.recent2026}</div><div class="l">2026 年最新工作</div></div>
+      <div class="stat"><div class="n">{stats.venues}</div><div class="l">覆盖期刊 / 平台</div></div>
+    </div>
+  </section>
+
+  {latestReport && (
+    <section class="section">
+      <div class="section-head">
+        <h2><span class="bar"></span>最新每日报告</h2>
+        <a class="more" href="/daily/">全部报告 →</a>
+      </div>
+      <div class="report-hero">
+        <div class="big">
+          <div class="k">Daily Report · {latestReport.date}</div>
+          <h3><a href={`/daily/${latestReport.slug}/`}>{latestReport.titleZh}</a></h3>
+          <div class="en">{latestReport.titleEn}</div>
+          <p class="sum">{latestReport.summaryZh}</p>
+          <div class="foot">
+            <a class="btn" href={`/daily/${latestReport.slug}/`}>阅读完整解读</a>
+            {latestPaper?.url && <a class="btn" href={latestPaper.url} target="_blank" rel="noopener">原文 ↗</a>}
+          </div>
+        </div>
+        <div class="side-list">
+          {moreReports.map((r: any) => (
+            <article class="card compact">
+              <div class="top"><span class="badge tag report">日报 · {r.date}</span>
+                <a class={`badge t-${r.topics[0]}`} href={`/topics/${r.topics[0]}/`}>{topics[r.topics[0]]?.label}</a></div>
+              <h3 class="title"><a href={`/daily/${r.slug}/`}>{r.titleZh}</a></h3>
+              <div class="title-en">{r.titleEn}</div>
+              <div class="meta"><span class="authors">{fmtAuthors(r.authors)}</span><span class="venue">{r.venue}</span></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="bar"></span>研究方向</h2>
+      <a class="more" href="/topics/">方向说明 →</a>
+    </div>
+    <div class="topic-grid">
+      {TOPIC_ORDER.map((k) => (
+        <a class="topic-card" href={`/topics/${k}/`} style={`--tc:${TOPIC_COLOR[k]}`}>
+          <div class="n">{stats.topicCounts[k] || 0}</div>
+          <div class="l">{topics[k].label}</div>
+          <div class="d">{topics[k].desc}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="bar"></span>最新收录</h2>
+      <a class="more" href="/papers/">进入论文库 →</a>
+    </div>
+    <div class="grid">
+      {latest.map((p: any) => <PaperCard paper={p} />)}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="bar"></span>高影响力工作</h2>
+      <a class="more" href="/papers/?sort=cites">按引用排序 →</a>
+    </div>
+    <p class="desc" style="color:var(--text-3);font-size:.9rem;margin:-6px 0 14px 15px">按 OpenAlex 引用数排序 · 引用数随时间变化,仅供参考</p>
+    <div class="rank-list">
+      {topCited.map((p: any, i: number) => (
+        <div class="rank">
+          <div class="no">{String(i + 1).padStart(2, '0')}</div>
+          <div>
+            <div class="t"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></div>
+            <div class="s">{p.title} · {p.venue} · {p.year}</div>
+          </div>
+          <div class="c"><b>{fmtCites(p.citations)}</b><span>引用</span></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="bar"></span>领域奠基文献</h2>
+      <a class="more" href="/papers/?tag=foundational">全部奠基文献 →</a>
+    </div>
+    <div class="grid">
+      {foundational.map((p: any) => <PaperCard paper={p} compact />)}
+    </div>
+  </section>
+</Base>

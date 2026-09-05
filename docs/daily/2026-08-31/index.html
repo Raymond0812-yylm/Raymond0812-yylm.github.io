@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>基于量子优化算法的能源互联网路由 · 量子优化日报</title><meta name="description" content="能源互联网（Energy Internet, EI） 是为实现可再生能源与电网深度融合而提出的新一代能源系统架构。在 EI 中，能量以&#34;数据包&#34;式的形式在网络节点间路由传输，其核心运筹问题之一是能效最优路径选择（energy-efficient path selection）——在满足需求的前提下，选择传输损耗最小、能效最高的能量路由方案。该问题被证明是 NP-hard 的：随着网络规模增长，经典精确算法的计算代价急剧上升。"><meta property="og:title" content="基于量子优化算法的能源互联网路由 · 量子优化日报"><meta property="og:description" content="能源互联网（Energy Internet, EI） 是为实现可再生能源与电网深度融合而提出的新一代能源系统架构。在 EI 中，能量以&#34;数据包&#34;式的形式在网络节点间路由传输，其核心运筹问题之一是能效最优路径选择（energy-efficient path selection）——在满足需求的前提下，选择传输损耗最小、能效最高的能量路由方案。该问题被证明是 NP-hard 的：随着网络规模增长，经典精确算法的计算代价急剧上升。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="stylesheet" href="/_astro/about.Cez-ziax.css"></head> <body> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-08-31</div> <h1>基于量子优化算法的能源互联网路由</h1> <p class="lead small muted" style="margin-top:8px"> 2026-08-31 · arXiv 预印本 · arXiv:2608.28401 · Alireza Alamgir Tehrani, Mehrdad Boroushaki, Abbas Rajabi </p> </div> <div class="report-body"><h1>每日论文精选报告 —— 量子优化方向（2026-08-31）</h1>
+<h2>一、论文基本信息</h2>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Energy Internet Routing using Quantum Optimization Algorithms</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于量子优化算法的能源互联网路由</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Alireza Alamgir Tehrani, Mehrdad Boroushaki, Abbas Rajabi</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本平台（quant-ph 分类）；论文备注&quot;拟投稿至 <em>Quantum</em> 期刊&quot;（for submission to the Quantum journal）</td>
+</tr>
+<tr>
+<td><strong>提交 / 发布时间</strong></td>
+<td>2026-08-28（UTC）提交，2026-08-31（周一）arXiv 正式发布列出</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>arXiv:2608.28401 [quant-ph]</td>
+</tr>
+<tr>
+<td><strong>DOI</strong></td>
+<td>10.48550/arXiv.2608.28401（DataCite 注册中）</td>
+</tr>
+<tr>
+<td><strong>文档规模</strong></td>
+<td>16 页，5 幅图</td>
+</tr>
+<tr>
+<td><strong>许可协议</strong></td>
+<td>CC BY-NC-SA 4.0</td>
+</tr>
+</tbody></table>
+<h2>二、研究背景与动机</h2>
+<p><strong>能源互联网（Energy Internet, EI）</strong> 是为实现可再生能源与电网深度融合而提出的新一代能源系统架构。在 EI 中，能量以&quot;数据包&quot;式的形式在网络节点间路由传输，其核心运筹问题之一是<strong>能效最优路径选择（energy-efficient path selection）</strong>——在满足需求的前提下，选择传输损耗最小、能效最高的能量路由方案。该问题被证明是 <strong>NP-hard</strong> 的：随着网络规模增长，经典精确算法的计算代价急剧上升。</p>
+<p>在&quot;双碳&quot;目标与高比例可再生渗透的背景下，该问题的规模与实时性要求不断提高，传统方法（如 Dijkstra 最短路径算法、数学规划求解器）在大规模、多约束场景下面临可扩展性瓶颈。量子计算——尤其是<strong>量子退火（Quantum Annealing）<strong>与</strong>量子近似优化算法（QAOA）</strong>——为组合优化问题提供了新的求解范式：将路径选择问题映射为 QUBO / Ising 模型后，可借助量子硬件或量子启发式求解器进行搜索。本文正是这一思路在能源互联网路由场景中的系统性落地与实证评估。</p>
+<h2>三、核心方法与技术路线</h2>
+<p>本文的技术路线遵循&quot;<strong>问题建模 → 量子映射 → 多求解器验证 → 经典-量子对比</strong>&quot;的完整闭环：</p>
+<ol>
+<li><strong>QUBO / Ising 哈密顿量建模</strong>：提出一种面向能源路由的创新性二次无约束二元优化（QUBO）与 Ising 哈密顿量数学表达，将 EI 中能量高效路径选择问题编码为量子优化硬件可直接处理的能量最小化形式；</li>
+<li><strong>量子门电路优化（QAOA 路线）</strong>：基于 Qiskit 框架的 <strong>Sampler Primitive</strong> 实现 QAOA 求解，并使用 <strong>NumPyEigenSolver</strong> 作为基准特征值求解器；</li>
+<li><strong>量子退火 / 量子启发式路线（D-Wave 生态）</strong>：使用 Ocean 工具链中的 <strong>Exact Solver（精确求解器）</strong>、<strong>Tabu Sampler（禁忌搜索采样器）</strong> 与 <strong>Simulated Annealing（模拟退火采样器）</strong> 求解同一 QUBO 模型；</li>
+<li><strong>经典基线对比</strong>：以 <strong>Dijkstra 算法</strong>及基于数学规划的优化方法作为经典参照，形成系统的量子-经典混合对比评估框架；</li>
+<li><strong>案例研究</strong>：在 <strong>9 节点</strong>与 <strong>30 节点</strong>两个能源互联网测试网络上验证模型的正确性与可扩展性。</li>
+</ol>
+<h2>四、主要实验结果</h2>
+<ul>
+<li><strong>正确性</strong>：基于所提 QUBO/Ising 模型，各量子（及量子启发）求解方法的仿真结果与精确解（Exact Solver）<strong>完全一致</strong>，验证了建模的正确性；</li>
+<li><strong>性能对比</strong>：在当前规模下，<strong>经典方法（Dijkstra 等）的运行时间仍短于量子方法</strong>——这一诚实的负面结果对领域内的&quot;量子优势&quot;预期具有重要的校准意义；</li>
+<li><strong>量子方法内部</strong>：<strong>D-Wave 模拟退火采样器（Simulated Annealing）</strong> 在所有量子类方法中运行时间最短，说明在 NISQ 时代，量子启发式退火方法在实用性上先于门电路 QAOA；</li>
+<li><strong>可扩展性</strong>：9 节点 → 30 节点的规模扩展实验表明所提建模方法具备进一步放大的潜力。</li>
+</ul>
+<h2>五、对研究领域的意义与启示</h2>
+<ol>
+<li><strong>应用领域拓展</strong>：这是量子组合优化技术在<strong>能源互联网/智能电网</strong>这一国家重大基础设施场景的较新落地工作，为&quot;量子计算赋能行业优化&quot;提供了从建模到求解的完整参考模板；</li>
+<li><strong>建模方法论价值</strong>：论文给出的能源路由 QUBO/Ising 形式化表达，可复用于能源调度、网架规划、电力市场出清等相邻 NP-hard 问题，是&quot;实际问题 → 量子模型&quot;转化的范例；</li>
+<li><strong>量子-经典公平对比范式</strong>：论文同时使用 QAOA（门电路路线）与量子退火（D-Wave 路线）并诚实地报告经典方法在运行时间上的优势，为 NISQ 时代&quot;量子何时真正有用&quot;提供了清醒的实证参照；</li>
+<li><strong>对混合框架研究的启示</strong>：结果显示模拟退火等量子启发方法当前最具实用价值，提示近期研究应更多关注&quot;经典预处理 + 量子启发搜索 + 浅层 QAOA 精修&quot;的混合优化架构，而非单纯追求全量子求解。</li>
+</ol>
+<h2>六、论文原文链接</h2>
+<ul>
+<li><strong>arXiv 摘要页</strong>：<a href="https://arxiv.org/abs/2608.28401">https://arxiv.org/abs/2608.28401</a></li>
+<li><strong>PDF 全文</strong>：<a href="https://arxiv.org/pdf/2608.28401">https://arxiv.org/pdf/2608.28401</a></li>
+</ul>
+<hr>
+<h2>附：检索与筛选说明（2026-08-31）</h2>
+<ul>
+<li><strong>检索渠道</strong>：paper-distill MCP 聚合检索（覆盖 arXiv、OpenAlex、Semantic Scholar、Crossref、PubMed、DBLP 等 9 个学术平台），并辅以 arXiv 当日官方新列表、OpenAlex/Crossref/Semantic Scholar 按&quot;仅今日发表&quot;的精确日期过滤复核；</li>
+<li><strong>&quot;今日论文&quot;口径</strong>：arXiv 每日公告采用美东时间，北京时间 2026-08-31 发布的 quant-ph 列表共 <strong>114 条</strong>（51 篇新投稿 + 20 篇交叉列表 + 43 篇更新），其中与量子组合优化直接相关者 3 篇；</li>
+<li><strong>候选池</strong>（今日列表内）：① 本文（能源互联网量子路由，QUBO/QAOA/量子退火全链路）；② 固定车队车辆路径问题的 QUBO 连通性修正（含真实超导硬件实验）；③ 定点 QAOA（fpQAOA）免逐例优化的采样复杂度研究（更新版）；</li>
+<li><strong>入选理由</strong>：① 完整覆盖 QAOA、量子退火、量子-经典混合对比三大主题，与本日关注方向契合度最高；② 方法-实验-结论完整，建模具备领域可迁移性；③ 今日恰逢周末，Nature/Science/PRL 等顶刊当日无新的量子优化论文发表，故从当日 arXiv 新发布列表中选取最具代表性的一篇；</li>
+<li><strong>备选说明</strong>：若更侧重理论深度，可关注同日更新的 fpQAOA 论文（arXiv:2509.19035，俄罗斯量子中心团队）：其&quot;参数小规模训练 + 迁移至大规模问题&quot;协议在无噪声模拟中将达到 95% 近似比所需的线路采样次数随规模增长收敛至近常数，是 QAOA 可扩展性方向的重要实证结果。</li>
+</ul>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <span></span> <a class="btn" href="https://arxiv.org/abs/2608.28401" target="_blank" rel="noopener">论文原文 ↗</a> <a class="btn" href="/daily/2026-09-01/">下一期(2026-09-01) →</a> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-06</span> · 共收录 152 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </body></html>
