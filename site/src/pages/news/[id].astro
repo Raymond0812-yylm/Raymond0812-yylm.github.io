@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import siteData from '../../data/site.json';
+
+const data: any = siteData;
+export function getStaticPaths() {
+  return (siteData as any).news.map((day: any) => ({ params: { id: day.slug }, props: { day } }));
+}
+
+const { day } = Astro.props;
+const idx = data.news.findIndex((n: any) => n.slug === day.slug);
+const newer = idx > 0 ? data.news[idx - 1] : null;
+const older = idx < data.news.length - 1 ? data.news[idx + 1] : null;
+---
+
+<Base active="news" title={`行业动态 · ${day.date}`} description={`${day.date} 量子计算产业动态 ${day.count} 条`}>
+  <div class="page-head" style="padding-bottom:6px">
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/news/">行业动态</a><span>/</span>{day.date}</div>
+    <h1>行业动态 · {day.date}</h1>
+    <p class="lead small muted" style="margin-top:8px">当日共 {day.count} 条要闻 · 摘要为中文编译,准确信息以来源为准</p>
+  </div>
+
+  {day.items.map((it: any, i: number) => (
+    <div class="panel">
+      <h2 style="margin-bottom:6px">{i + 1}. {it.title}</h2>
+      <div class="badges" style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+        <span class="badge tag">{it.category}</span>
+        {it.source && <span class="venue">{it.source}</span>}
+      </div>
+      <p class="abstract" style="margin-bottom:0">{it.summary}</p>
+      {it.url && <p style="margin:10px 0 0"><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></p>}
+    </div>
+  ))}
+
+  <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap">
+    {older ? <a class="btn" href={`/news/${older.slug}/`}>← 上一期({older.date})</a> : <span></span>}
+    {newer ? <a class="btn" href={`/news/${newer.slug}/`}>下一期({newer.date}) →</a> : <span></span>}
+  </div>
+</Base>

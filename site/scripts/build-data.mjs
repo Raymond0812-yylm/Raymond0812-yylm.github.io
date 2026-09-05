@@ -1,5 +1,6 @@
-// 构建站点数据:读取工作区根目录的 papers-db.json(回溯论文库)与每日日报 Markdown,
-// 合并为 src/data/site.json。每日定时任务只需照旧生成日报 .md,再运行 `npm run build` 即可自动入库。
+// 构建站点数据:读取工作区根目录的 papers-db.json(回溯论文库)、每日日报 Markdown
+// (支持一天多篇:`## 论文一：` 分节)与行业动态 Markdown(news-YYYY-MM-DD.md),
+// 合并为 src/data/site.json。每日定时任务只需照旧生成 .md,再运行 `npm run build` 即可自动入库。
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -12,13 +13,15 @@ const OUT_DIR = path.join(SITE_DIR, 'src', 'data');
 const OUT = path.join(OUT_DIR, 'site.json');
 
 const TOPIC_RULES = [
+  ['llm4co', /\blarge language model\b|\bLLMs?\b|语言模型|大模型|FunSearch|ReEvo|AlphaEvolve/i],
+  ['ml4co', /neural combinatorial|graph neural|learning to branch|reinforcement learning|指针网络|图神经网络|神经组合优化/i],
   ['qaoa', /\bQAOA\b|quantum approximate optimization|quantum alternating operator|量子近似优化/i],
-  ['llm4co', /large language model|\bLLMs?\b|language model|大模型|大语言模型/i],
-  ['annealing', /quantum anneal|adiabatic quantum|rydberg|neutral[- ]atom|中性原子|量子退火|绝热/i],
-  ['vqa', /variational quantum|\bVQE\b|变分量子/i],
-  ['hybrid', /hybrid quantum|quantum-classical|quantum[- ]inspired|混合|量子启发/i],
-  ['ml4co', /graph neural|reinforcement learning|neural combinatorial|machine learning|神经网络|强化学习/i],
-  ['quantum', /quantum|量子/i],
+  ['vqa', /variational quantum|\bVQE\b|barren plateau|变分量子|贫瘠高原/i],
+  ['annealing', /quantum anneal|annealer|adiabatic quantum|reverse annealing|量子退火|绝热量子|transverse[- ]field ising/i],
+  ['hardware', /superconducting (qubit|processor|quantum)|trapped[- ]ion|\brydberg\b|neutral atom|photonic quantum|spin qubit|quantum (processor|hardware|chip)|超导量子|离子阱|中性原子|光量子|里德堡/i],
+  ['hybrid', /hybrid quantum|quantum-classical|quantum[- ]inspired|ising machine|simulated bifurcation|coherent ising|混合量子|量子启发|量子[- ]经典/i],
+  ['applications', /portfolio|financ|supply chain|vehicle routing|schedul|job shop|microgrid|smart grid|power system|telecommunication|network (routing|optimization)|drug|docking|protein|logistics|投资组合|金融|物流|调度|电网|供应链|药物/i],
+  ['quantum', /review|survey|benchmark|perspective|综述|基准/i],
 ];
 
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 70);
@@ -37,12 +40,15 @@ function inferTopics(text) {
   return t.length ? t : ['quantum'];
 }
 
-// ---------- 解析日报 Markdown ----------
-function parseReport(file) {
-  const md = fs.readFileSync(path.join(ROOT, file), 'utf-8');
-  const allLines = md.split(/\r?\n/);
-  const date = file.slice(0, 10);
-  // 只在正文信息区解析字段,避免误读附录中"备选/候选论文"的作者、编号等
+const stripParens = (s) => {
+  let prev;
+  do { prev = s; s = s.replace(/（[^（）]*）|\([^()]*\)/g, ''); } while (s !== prev);
+  return s;
+};
+
+// ---------- 从一组 Markdown 行中解析单篇论文信息 ----------
+function parsePaperFromLines(allLines) {
+  // 只在正文信息区解析,避免误读附录中"备选/候选论文"的作者、编号等
   let cut = allLines.findIndex((l) => /^##\s/.test(l) && /(附|候选|备选|检索与筛选|溯源|速览|其他相关)/.test(l));
   if (cut < 0) cut = allLines.length;
   const lines = allLines.slice(0, cut);
@@ -65,13 +71,13 @@ function parseReport(file) {
     return '';
   };
 
-  const sectionLines = (keyword) => {
-    const start = lines.findIndex((l) => /^##\s/.test(l) && l.includes(keyword));
+  const sectionLines = (keyword, scope = lines) => {
+    const start = scope.findIndex((l) => /^##\s/.test(l) && l.includes(keyword));
     if (start < 0) return [];
     const out = [];
-    for (let i = start + 1; i < lines.length; i++) {
-      if (/^##\s/.test(lines[i])) break;
-      out.push(lines[i]);
+    for (let i = start + 1; i < scope.length; i++) {
+      if (/^##\s/.test(scope[i])) break;
+      out.push(scope[i]);
     }
     return out;
   };
@@ -87,11 +93,6 @@ function parseReport(file) {
   venue = venue.replace(/（.*$/, '').replace(/\(.*$/, '').replace(/;.*$/, '').replace(/；.*$/, '').trim() || 'arXiv 预印本';
   if (/^arXiv/i.test(venue)) venue = 'arXiv 预印本';
 
-  const stripParens = (s) => {
-    let prev;
-    do { prev = s; s = s.replace(/（[^（）]*）|\([^()]*\)/g, ''); } while (s !== prev);
-    return s;
-  };
   let authors = [];
   const authorSec = sectionLines('作者');
   const authorRows = authorSec.filter((l) => l.trim().startsWith('|') && !/^\|\s*:?-+/.test(l.trim()) && !/^\|\s*作者\s*\|/.test(l.trim()));
@@ -104,21 +105,85 @@ function parseReport(file) {
 
   let arxivId = '';
   const idLine = lines.find((l) => l.includes('arXiv 编号') || l.includes('arXiv编号'));
-  const mm = (idLine || '').match(/(\d{4}\.\d{4,5})/) || md.match(/arxiv\.org\/abs\/(\d{4}\.\d{4,5})/i) || md.match(/arXiv[:：]\s*(\d{4}\.\d{4,5})/);
+  const mm = (idLine || '').match(/(\d{4}\.\d{4,5})/);
   if (mm) arxivId = mm[1];
+  if (!arxivId) {
+    const joined = allLines.join('\n');
+    const m2 = joined.match(/arxiv\.org\/abs\/(\d{4}\.\d{4,5})/i) || joined.match(/arXiv[:：]\s*(\d{4}\.\d{4,5})/);
+    if (m2) arxivId = m2[1];
+  }
 
   const bg = sectionLines('研究背景与动机');
   let summary = '';
   for (const l of bg) {
     const t = stripMd(l.replace(/^[-*>\d.\s]+/, ''));
     if (!t) { if (summary) break; else continue; }
-    summary += (summary ? '' : '') + t;
+    summary += t;
     if (summary.length > 220) break;
   }
   summary = summary.replace(/\s+/g, ' ').trim();
   if (summary.length > 260) summary = summary.slice(0, 258) + '…';
 
-  return { date, file, titleEn, titleZh: titleZh || titleEn, venue, authors, arxivId, summaryZh: summary, markdown: md };
+  return { titleEn, titleZh: titleZh || titleEn, venue, authors, arxivId, summaryZh: summary };
+}
+
+// ---------- 解析日报 Markdown(支持一天多篇) ----------
+function splitPaperSections(allLines) {
+  const starts = [];
+  allLines.forEach((l, i) => {
+    if (/^#{1,3}\s*论文\s*(一|二|三|四|五|六|[1-9])[：:、\s]/.test(l.trim()) && !/标题/.test(l)) starts.push(i);
+  });
+  if (starts.length === 0) return null;
+  const secs = [];
+  for (let i = 0; i < starts.length; i++) {
+    const end = i + 1 < starts.length ? starts[i + 1] : allLines.length;
+    secs.push(allLines.slice(starts[i], end));
+  }
+  return secs;
+}
+
+function parseReport(file) {
+  const md = fs.readFileSync(path.join(ROOT, file), 'utf-8');
+  const allLines = md.split(/\r?\n/);
+  const date = file.slice(0, 10);
+  const secs = splitPaperSections(allLines);
+  const papers = secs ? secs.map(parsePaperFromLines).filter((p) => p.titleEn) : [parsePaperFromLines(allLines)].filter((p) => p.titleEn);
+  return { date, file, papers: papers.length ? papers : [{ titleEn: file, titleZh: file, venue: 'arXiv 预印本', authors: [], arxivId: '', summaryZh: '' }], markdown: md };
+}
+
+// ---------- 解析行业动态 Markdown(news-YYYY-MM-DD.md) ----------
+function parseNews(file) {
+  const md = fs.readFileSync(path.join(ROOT, file), 'utf-8');
+  const lines = md.split(/\r?\n/);
+  const date = file.replace(/^news-/i, '').replace(/\.md$/i, '');
+  const starts = [];
+  lines.forEach((l, i) => { if (/^##\s/.test(l)) starts.push(i); });
+  const items = [];
+  for (let i = 0; i < starts.length; i++) {
+    const end = i + 1 < starts.length ? starts[i + 1] : lines.length;
+    const sec = lines.slice(starts[i], end);
+    const heading = stripMd(lines[starts[i]].replace(/^##\s*\d*[.、]?\s*/, ''));
+    const f = (label) => {
+      const line = sec.find((l) => l.includes(label));
+      if (!line) return '';
+      if (line.trim().startsWith('|')) {
+        const cells = line.split('|').map((c) => stripMd(c)).filter(Boolean);
+        return cells[1] || '';
+      }
+      return stripMd(line.split(/[：:]/).slice(1).join('：'));
+    };
+    const sumLine = sec.find((l) => l.includes('摘要'));
+    let summary = sumLine ? stripMd(sumLine.replace(/^[-*>\s]*\**摘要\**\s*[：:]?\s*/, '')) : '';
+    if (!summary) summary = (sec.filter((l) => l.trim() && !/^#/.test(l) && !/类别|来源|链接/.test(l)).map(stripMd).join(' ')).slice(0, 300);
+    items.push({
+      title: heading,
+      category: f('类别') || '行业动态',
+      source: f('来源'),
+      url: (f('链接') || '').replace(/^https?\/\//, 'https://'),
+      summary,
+    });
+  }
+  return { date, slug: date, count: items.length, items };
 }
 
 // ---------- 主流程 ----------
@@ -133,62 +198,79 @@ const reports = [];
 const usedReportSlugs = new Set();
 for (const file of reportFiles) {
   const r = parseReport(file);
-  // 同一天可能有多份报告(如 2026-09-03),用后缀区分
   let rslug = r.date;
   for (let n = 2; usedReportSlugs.has(rslug); n++) rslug = `${r.date}-${n}`;
   usedReportSlugs.add(rslug);
   r.slug = rslug;
-  let paper = (r.arxivId && byArxiv.get(r.arxivId)) || byTitle.get(norm(r.titleEn));
-  if (paper) {
-    paper.featured = true;
-    paper.reportDate = r.date;
-    paper.reportSlug = rslug;
-    if (!paper.summaryZh) paper.summaryZh = r.summaryZh;
-    if (!paper.titleZh) paper.titleZh = r.titleZh;
-  } else {
-    let slug = slugify(r.titleEn, r.arxivId || r.titleEn);
-    while (usedSlugs.has(slug)) slug += 'x';
-    usedSlugs.add(slug);
-    const doi = r.arxivId ? `10.48550/arXiv.${r.arxivId}` : '';
-    paper = {
-      id: slug,
-      title: r.titleEn,
-      titleZh: r.titleZh,
-      authors: r.authors,
-      venue: r.venue,
-      date: r.date,
-      year: Number(r.date.slice(0, 4)),
-      citations: null,
-      arxivId: r.arxivId,
-      doi,
-      url: r.arxivId ? `https://arxiv.org/abs/${r.arxivId}` : '',
-      topics: inferTopics(`${r.titleEn} ${r.titleZh} ${r.summaryZh}`),
-      tags: ['recent'],
-      summaryZh: r.summaryZh,
-      abstract: '',
-      source: 'daily',
-      featured: true,
-      reportDate: r.date,
-      reportSlug: rslug,
-    };
-    papers.push(paper);
-    if (r.arxivId) byArxiv.set(r.arxivId, paper);
-    byTitle.set(norm(r.titleEn), paper);
+
+  const paperIds = [];
+  for (const rp of r.papers) {
+    let paper = (rp.arxivId && byArxiv.get(rp.arxivId)) || byTitle.get(norm(rp.titleEn));
+    if (paper) {
+      paper.featured = true;
+      paper.reportDate = r.date;
+      paper.reportSlug = rslug;
+      if (!paper.summaryZh) paper.summaryZh = rp.summaryZh;
+      if (!paper.titleZh) paper.titleZh = rp.titleZh;
+    } else {
+      let slug = slugify(rp.titleEn, rp.arxivId || rp.titleEn);
+      while (usedSlugs.has(slug)) slug += 'x';
+      usedSlugs.add(slug);
+      const doi = rp.arxivId ? `10.48550/arXiv.${rp.arxivId}` : '';
+      paper = {
+        id: slug,
+        title: rp.titleEn,
+        titleZh: rp.titleZh,
+        authors: rp.authors,
+        venue: rp.venue,
+        date: r.date,
+        year: Number(r.date.slice(0, 4)),
+        citations: null,
+        arxivId: rp.arxivId,
+        doi,
+        url: rp.arxivId ? `https://arxiv.org/abs/${rp.arxivId}` : '',
+        topics: inferTopics(`${rp.titleEn} ${rp.titleZh} ${rp.summaryZh}`),
+        tags: ['recent'],
+        summaryZh: rp.summaryZh,
+        abstract: '',
+        source: 'daily',
+        featured: true,
+        reportDate: r.date,
+        reportSlug: rslug,
+      };
+      papers.push(paper);
+      if (rp.arxivId) byArxiv.set(rp.arxivId, paper);
+      byTitle.set(norm(rp.titleEn), paper);
+    }
+    paperIds.push(paper.id);
   }
-  reports.push({ ...r, paperId: paper.id, topics: paper.topics });
+  reports.push({
+    date: r.date, slug: rslug, file: r.file, markdown: r.markdown,
+    titleEn: r.papers[0].titleEn, titleZh: r.papers[0].titleZh,
+    venue: r.papers[0].venue, authors: r.papers[0].authors,
+    arxivId: r.papers.map((p) => p.arxivId).filter(Boolean).join(' / '),
+    summaryZh: r.papers[0].summaryZh,
+    paperIds,
+    topics: papers.find((p) => p.id === paperIds[0]).topics,
+    paperCount: paperIds.length,
+  });
 }
 reports.sort((a, b) => (a.date < b.date ? 1 : -1));
 papers.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-// 'quantum' 是兜底泛标签:仅当论文没有更具体的方向时才保留,避免"综述与应用"分类膨胀
+// 'quantum' 是兜底泛标签:仅当论文没有更具体的方向时才保留,避免"综述与基准"分类膨胀
 for (const p of papers) {
   if (p.topics.length > 1 && p.topics.includes('quantum')) p.topics = p.topics.filter((t) => t !== 'quantum');
 }
+
+// ---------- 行业动态 ----------
+const newsFiles = fs.readdirSync(ROOT).filter((f) => /^news-\d{4}-\d{2}-\d{2}\.md$/i.test(f)).sort();
+const news = newsFiles.map(parseNews).sort((a, b) => (a.date < b.date ? 1 : -1));
 
 const topicCounts = {};
 for (const p of papers) for (const t of p.topics) topicCounts[t] = (topicCounts[t] || 0) + 1;
 const years = papers.map((p) => p.year).filter(Boolean);
 const venues = new Set(papers.map((p) => p.venue));
-const lastUpdated = [db.updated, ...reports.map((r) => r.date)].sort().pop();
+const lastUpdated = [db.updated, ...reports.map((r) => r.date), ...news.map((n) => n.date)].sort().pop();
 
 const site = {
   generatedAt: new Date().toISOString(),
@@ -196,6 +278,8 @@ const site = {
   stats: {
     papers: papers.length,
     reports: reports.length,
+    news: news.reduce((s, n) => s + n.count, 0),
+    newsDays: news.length,
     recent2026: papers.filter((p) => p.year === 2026).length,
     foundational: papers.filter((p) => p.tags.includes('foundational')).length,
     venues: venues.size,
@@ -206,9 +290,11 @@ const site = {
   topics: db.topics,
   papers,
   reports,
+  news,
 };
 
 fs.mkdirSync(OUT_DIR, { recursive: true });
 fs.writeFileSync(OUT, JSON.stringify(site), 'utf-8');
-console.log(`site.json: ${papers.length} papers (${reports.length} daily reports, ${papers.filter((p) => p.source === 'daily').length} report-only), topics:`, topicCounts);
-for (const r of reports) console.log(`  [${r.date}] ${r.titleZh.slice(0, 40)} | ${r.arxivId || 'no-arxiv'} | authors=${r.authors.length} | venue=${r.venue}`);
+console.log(`site.json: ${papers.length} papers, ${reports.length} daily reports, ${news.length} news days (${site.stats.news} items)`);
+for (const r of reports) console.log(`  [${r.date}] (${r.paperCount} 篇) ${r.titleZh.slice(0, 36)} | ${r.arxivId || 'no-arxiv'}`);
+for (const n of news) console.log(`  [新闻 ${n.date}] ${n.count} 条`);

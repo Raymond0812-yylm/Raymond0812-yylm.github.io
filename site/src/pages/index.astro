@@ -4,10 +4,11 @@ import PaperCard from '../components/PaperCard.astro';
 import site from '../data/site.json';
 import { TOPIC_ORDER, TOPIC_COLOR, fmtCites, fmtAuthors, SITE_TAGLINE } from '../lib/utils.js';
 
-const { stats, topics, papers, reports } = site as any;
+const { stats, topics, papers, reports, news } = site as any;
 const byId = new Map(papers.map((p: any) => [p.id, p]));
 const latestReport = reports[0];
-const latestPaper = byId.get(latestReport?.paperId);
+const latestPaper = byId.get(latestReport?.paperIds?.[0] ?? latestReport?.paperId);
+const latestNews = news[0];
 const moreReports = reports.slice(1, 4);
 const latest = papers.filter((p: any) => !p.featured).slice(0, 9);
 const topCited = [...papers].filter((p: any) => p.citations).sort((a: any, b: any) => b.citations - a.citations).slice(0, 8);
@@ -31,8 +32,8 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
     <div class="stats">
       <div class="stat"><div class="n">{stats.papers}</div><div class="l">收录论文</div></div>
       <div class="stat"><div class="n">{stats.reports}</div><div class="l">每日深度报告</div></div>
+      <div class="stat"><div class="n">{stats.news}</div><div class="l">行业动态</div></div>
       <div class="stat"><div class="n">{stats.recent2026}</div><div class="l">2026 年最新工作</div></div>
-      <div class="stat"><div class="n">{stats.venues}</div><div class="l">覆盖期刊 / 平台</div></div>
     </div>
   </section>
 
@@ -44,7 +45,7 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
       </div>
       <div class="report-hero">
         <div class="big">
-          <div class="k">Daily Report · {latestReport.date}</div>
+          <div class="k">Daily Report · {latestReport.date}{latestReport.paperCount > 1 ? ` · ${latestReport.paperCount} 篇论文` : ''}</div>
           <h3><a href={`/daily/${latestReport.slug}/`}>{latestReport.titleZh}</a></h3>
           <div class="en">{latestReport.titleEn}</div>
           <p class="sum">{latestReport.summaryZh}</p>
@@ -64,6 +65,24 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  )}
+
+  {latestNews && latestNews.items.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2><span class="bar"></span>行业动态 · {latestNews.date}</h2>
+        <a class="more" href="/news/">全部动态 →</a>
+      </div>
+      <div class="grid">
+        {latestNews.items.slice(0, 4).map((it: any) => (
+          <article class="card compact">
+            <div class="top"><span class="badge tag">{it.category}</span><span class="venue">{it.source}</span></div>
+            <h3 class="title">{it.title}</h3>
+            <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
+          </article>
+        ))}
       </div>
     </section>
   )}

@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+
+const { news } = site as any;
+const latest = news[0];
+const rest = news.slice(1);
+---
+
+<Base active="news" title="行业动态" description="量子计算产业动态:公司进展、硬件交付、应用部署与政策生态,每日汇总">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>行业动态</div>
+    <h1>行业动态</h1>
+    <p class="lead">
+      量子计算的领域进展不止于论文:公司路线图、硬件交付、企业应用部署与政策生态同样是研究者的关键信息。
+      本栏目每天汇总来自 The Quantum Insider、Quantum Computing Report 等产业媒体与公司官方发布的要闻,并附中文摘要。
+    </p>
+    <p class="small muted">共 {news.length} 期 · {site.stats.news} 条动态 · 最近更新 {site.lastUpdated}</p>
+  </div>
+
+  {news.map((day: any, di: number) => (
+    <div class="month">
+      <h2>{day.date}{di === 0 ? ' · 最新' : ''}</h2>
+      <a class="btn" style="margin-bottom:12px" href={`/news/${day.slug}/`}>查看当日全文版 →</a>
+      {day.items.map((it: any, i: number) => (
+        <div class="card" style="margin-bottom:10px">
+          <div class="top">
+            <span class="badge tag report">{String(i + 1).padStart(2, '0')}</span>
+            <span class="badge tag">{it.category}</span>
+            <span class="venue">{it.source}</span>
+          </div>
+          <h3 class="title">{it.title}</h3>
+          <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
+          {it.url && <div class="meta"><span class="authors">来源链接</span><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></div>}
+        </div>
+      ))}
+    </div>
+  ))}
+</Base>

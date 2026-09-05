@@ -32,7 +32,19 @@ FIXES = {
     ("sup", 65): {"topics": ["hybrid", "ml4co"]},
 }
 
-TOPIC_ORDER = ["qaoa", "annealing", "vqa", "hybrid", "quantum", "ml4co", "llm4co"]
+TOPIC_ORDER = ["qaoa", "annealing", "vqa", "hybrid", "hardware", "applications", "quantum", "ml4co", "llm4co"]
+
+TOPIC_LABELS = {
+    "qaoa": {"label": "量子近似优化", "desc": "QAOA 及其变体、参数策略、硬件实验与理论性能"},
+    "annealing": {"label": "量子退火与绝热优化", "desc": "量子退火、绝热量子计算、反绝热驱动、退火机实验"},
+    "vqa": {"label": "变分量子算法", "desc": "VQE/VQA 框架、ansatz 设计、贫瘠高原与可训练性"},
+    "hybrid": {"label": "量子-经典混合与量子启发", "desc": "混合优化流水线、量子启发算法、Ising 机、进化计算×量子"},
+    "hardware": {"label": "量子硬件平台", "desc": "超导、离子阱、中性原子、光量子等平台及面向优化的硬件进展"},
+    "applications": {"label": "行业应用", "desc": "金融、能源、物流、调度、制药、通信等领域的量子/智能优化落地"},
+    "quantum": {"label": "综述与基准", "desc": "领域综述、路线图、基准测试与开放问题"},
+    "ml4co": {"label": "机器学习求解组合优化", "desc": "神经组合优化、GNN、强化学习、学习增强精确求解"},
+    "llm4co": {"label": "大模型赋能优化", "desc": "LLM 自动设计启发式、LLM 作为优化器、LLM×进化计算"},
+}
 
 
 def load_json(p):
@@ -71,14 +83,17 @@ def clean_venue(v):
 def main():
     selected = load_json(os.path.join(CACHE, "selected.json"))
     supplement = load_json(os.path.join(CACHE, "supplement.json"))
+    supplement2 = load_json(os.path.join(CACHE, "supplement2.json"))
     sum_ws = load_summaries("sum_b")
     sum_sup = load_summaries("sum_s")
+    sum_t = load_summaries("sum_t")
 
     papers, seen_slugs, seen_titles = [], set(), set()
 
     def add(p, s, src, idx):
         fix = FIXES.get((src, idx), {})
         topics = fix.get("topics") or s.get("topics") or p.get("topics") or ["quantum"]
+        curated = bool(fix.get("topics") or s.get("topics"))
         topics = [t for t in topics if t in TOPIC_ORDER]
         if not topics:
             topics = ["quantum"]
@@ -119,6 +134,7 @@ def main():
             "doi": doi,
             "url": url,
             "topics": topics,
+            "curatedTopics": curated,
             "tags": tags,
             "summaryZh": s["summaryZh"].strip(),
             "abstract": (p.get("abstract") or "")[:1500],
@@ -132,20 +148,15 @@ def main():
     for i, p in enumerate(supplement):
         if i in sum_sup:
             add(p, sum_sup[i], "sup", i)
+    for i, p in enumerate(supplement2):
+        if i in sum_t:
+            add(p, sum_t[i], "sup2", i)
 
     papers.sort(key=lambda r: r["date"], reverse=True)
     db = {
         "version": 1,
         "updated": date.today().isoformat(),
-        "topics": {
-            "qaoa": {"label": "量子近似优化", "desc": "QAOA 及其变体、参数策略、硬件实验与理论性能"},
-            "annealing": {"label": "量子退火与绝热优化", "desc": "量子退火、绝热量子计算、反绝热驱动、中性原子/退火机实验"},
-            "vqa": {"label": "变分量子算法", "desc": "VQE/VQA 框架、ansatz 设计、贫瘠高原与可训练性"},
-            "hybrid": {"label": "量子-经典混合与量子启发", "desc": "混合优化流水线、量子启发算法、Ising 机、进化计算×量子"},
-            "quantum": {"label": "量子优化综述与应用", "desc": "领域综述、基准、金融/能源/物流/调度等应用场景"},
-            "ml4co": {"label": "机器学习求解组合优化", "desc": "神经组合优化、GNN、强化学习、学习增强精确求解"},
-            "llm4co": {"label": "大模型赋能优化", "desc": "LLM 自动设计启发式、LLM 作为优化器、LLM×进化计算"},
-        },
+        "topics": TOPIC_LABELS,
         "papers": papers,
     }
     with open(OUT, "w", encoding="utf-8") as f:

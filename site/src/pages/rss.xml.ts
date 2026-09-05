@@ -3,8 +3,20 @@ import { escapeXml } from '../lib/utils.js';
 
 export async function GET({ site: base }: { site: URL }) {
   const data: any = site;
-  const origin = base?.origin || 'https://quantum-opt-daily.example.com';
+  const origin = base?.origin || 'https://raymond0812-yylm.github.io';
   const items: string[] = [];
+
+  for (const n of data.news || []) {
+    for (const it of n.items) {
+      items.push(`    <item>
+      <title>${escapeXml(`[行业动态] ${it.title}`)}</title>
+      <link>${origin}/news/${n.slug}/</link>
+      <guid isPermaLink="true">${origin}/news/${n.slug}/${it.title}</guid>
+      <pubDate>${new Date(n.date + 'T06:00:00+08:00').toUTCString()}</pubDate>
+      <description>${escapeXml(`${it.category} · ${it.source} — ${it.summary}`)}</description>
+    </item>`);
+    }
+  }
 
   for (const r of data.reports) {
     items.push(`    <item>
@@ -28,7 +40,7 @@ export async function GET({ site: base }: { site: URL }) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>量子优化日报 · QuantOpt Daily</title>
+    <title>量子优化日报 · QuanOpt Daily</title>
     <link>${origin}</link>
     <description>量子计算求解组合优化、量子赋能智能优化方向的最新论文与研究进展(中文解读)</description>
     <language>zh-CN</language>
