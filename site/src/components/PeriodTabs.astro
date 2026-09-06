@@ -1,0 +1,12 @@
+---
+// 日报/周报/月报 切换标签(AIHOT 式)
+interface Props { active: 'daily' | 'weekly' | 'monthly' }
+const { active } = Astro.props;
+const tabs = [['/daily/', '日报', 'daily'], ['/weekly/', '周报', 'weekly'], ['/monthly/', '月报', 'monthly']];
+---
+
+<div class="period-tabs">
+  {tabs.map(([href, label, key]) => (
+    <a href={href} class:list={['period-tab', active === key && 'on']}>{label}</a>
+  ))}
+</div>

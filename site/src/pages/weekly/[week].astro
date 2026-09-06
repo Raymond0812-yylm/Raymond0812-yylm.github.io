@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import PeriodTabs from '../../components/PeriodTabs.astro';
+import siteData from '../../data/site.json';
+import { groupByWeek } from '../../lib/periods.js';
+import { isTopVenue } from '../../lib/utils.js';
+
+const data: any = siteData;
+export function getStaticPaths() {
+  return groupByWeek((siteData as any).papers).map((week: any) => ({ params: { week: week.key }, props: { week } }));
+}
+
+const { week } = Astro.props;
+const topics = data.topics;
+const papers = [...week.papers].sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0));
+const reportsIn = (data.reports || []).filter((r: any) => r.date >= week.range[0] && r.date <= week.range[1]);
+const topicCount: any = {};
+for (const p of papers) for (const t of p.topics) topicCount[t] = (topicCount[t] || 0) + 1;
+const topTopics = Object.entries(topicCount).sort((a: any, b: any) => (b[1] as number) - (a[1] as number)).slice(0, 3).map(([t]) => topics[t]?.label ?? t);
+const topCited = papers.find((p: any) => p.citations);
+const mainLine = `本周共收录 ${papers.length} 篇论文` +
+  (topTopics.length ? `,研究热点集中在「${topTopics.join('」「')}」等方向` : '') +
+  (topCited?.citations ? `;本期最受关注的工作为《${topCited.titleZh}》(被引 ${topCited.citations} 次)` : '') + '。';
+---
+
+<Base active="weekly" title={`量子优化周报 · ${week.key}`} description={`量子优化周报 ${week.range[0]} ~ ${week.range[1]},共 ${papers.length} 篇论文`}>
+  <div class="page-head" style="padding-bottom:0">
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/weekly/">周报</a><span>/</span>{week.key}</div>
+  </div>
+  <PeriodTabs active="weekly" />
+
+  <div class="period-hero">
+    <div class="vol-line">VOL.{week.key} · {papers.length} 篇 · QUANTOPT WEEKLY</div>
+    <h1>量子优化周报</h1>
+    <p class="vol-sub">{week.range[0]} ~ {week.range[1]} · WEEKLY · 编辑系统自动综合</p>
+    <div class="double-rule"></div>
+  </div>
+
+  <div class="panel mainline-box">
+    <h2 style="margin-bottom:6px">本期主线</h2>
+    <p class="abstract" style="margin-bottom:0">{mainLine}</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">{papers.length}</div><div class="l">新收录论文</div></div>
+    <div class="stat"><div class="n">{reportsIn.length}</div><div class="l">期日报浓缩</div></div>
+    <div class="stat"><div class="n">≈{Math.max(2, Math.ceil(papers.length / 12))} min</div><div class="l">读完全部摘要</div></div>
+  </div>
+
+  {reportsIn.length > 0 && (
+    <section class="section">
+      <div class="section-head"><h2><span class="bar"></span>本周深度解读(日报)</h2></div>
+      <div class="grid">
+        {reportsIn.map((r: any) => (
+          <article class="card compact">
+            <div class="top"><span class="badge tag report">日报 · {r.date}</span></div>
+            <h3 class="title"><a href={`/daily/${r.slug}/`}>{r.titleZh}</a></h3>
+            <div class="title-en">{r.titleEn}</div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head"><h2><span class="bar"></span>本周全部论文</h2><span class="more">按被引排序</span></div>
+    <div class="grid">
+      {papers.map((p: any) => (
+        <article class="card compact">
+          <div class="top">
+            <a class={`badge t-${p.topics[0]}`} href={`/topics/${p.topics[0]}/`}>{topics[p.topics[0]]?.label}</a>
+            {(p.domains || []).slice(0, 1).map((d: string) => <span class="badge tag">{data.domains[d]?.label}</span>)}
+            <span class="date">{p.date}</span>
+          </div>
+          <h3 class="title"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></h3>
+          <div class="meta">
+            <span class="venue" class:list={[{ top: isTopVenue(p.venue) }]}>{p.venue}</span>
+            {p.citations ? <span class="cites">被引 {p.citations}</span> : null}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

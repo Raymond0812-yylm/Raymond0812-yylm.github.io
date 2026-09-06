@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import PeriodTabs from '../../components/PeriodTabs.astro';
+import site from '../../data/site.json';
+import { groupByMonth, monthLabel } from '../../lib/periods.js';
+
+const { topics, papers } = site as any;
+const months = groupByMonth(papers).map((m) => {
+  const sorted = [...m.papers].sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0));
+  const reportsIn = (site as any).reports.filter((r: any) => r.date.slice(0, 7) === m.key);
+  return { ...m, sorted, top: sorted[0], reportsIn };
+}).sort((a: any, b: any) => (a.key < b.key ? 1 : -1));
+---
+
+<Base active="monthly" title="月报" description="量子优化月报:按月汇总新收录论文、热点方向与最受关注工作">
+  <div class="page-head" style="padding-bottom:0">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>月报</div>
+  </div>
+  <PeriodTabs active="monthly" />
+
+  <div class="period-archive">
+    {months.map((m: any) => (
+      <a class="period-row" href={`/monthly/${m.key}/`}>
+        <span class="pr-key">{monthLabel(m.key)}</span>
+        <span class="pr-count">{m.papers.length} 篇</span>
+        <span class="pr-range">{m.reportsIn.length} 期日报</span>
+        {m.top && <span class="pr-top">最热:《{m.top.titleZh.slice(0, 26)}{m.top.titleZh.length > 26 ? '…' : ''}》</span>}
+      </a>
+    ))}
+  </div>
+  <p class="small muted" style="margin-top:14px">共 {months.length} 个月 · 点任一个月查看该月全部论文、热点方向与关联日报。</p>
+</Base>

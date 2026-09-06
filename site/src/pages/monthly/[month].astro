@@ -1,0 +1,106 @@
+---
+import Base from '../../layouts/Base.astro';
+import PeriodTabs from '../../components/PeriodTabs.astro';
+import PaperCard from '../../components/PaperCard.astro';
+import siteData from '../../data/site.json';
+import { groupByMonth, monthLabel } from '../../lib/periods.js';
+
+const data: any = siteData;
+export function getStaticPaths() {
+  const months = groupByMonth((siteData as any).papers);
+  return months.map((m: any) => ({ params: { month: m.key }, props: { month: m } }));
+}
+
+import { isTopVenue } from '../../lib/utils.js';
+const { month } = Astro.props;
+const topics = data.topics;
+const papers = [...month.papers].sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0));
+const reportsIn = (data.reports || []).filter((r: any) => r.date.slice(0, 7) === month.key);
+const topicCount: any = {};
+for (const p of papers) for (const t of p.topics) topicCount[t] = (topicCount[t] || 0) + 1;
+const topTopics = Object.entries(topicCount).sort((a: any, b: any) => (b[1] as number) - (a[1] as number)).slice(0, 3).map(([t]) => topics[t]?.label ?? t);
+const topCited = papers.find((p: any) => p.citations);
+const domainCount: any = {};
+for (const p of papers) for (const d of p.domains || []) domainCount[d] = (domainCount[d] || 0) + 1;
+const topDomains = Object.entries(domainCount).sort((a: any, b: any) => (b[1] as number) - (a[1] as number)).slice(0, 3).map(([d]) => data.domains[d]?.label ?? d);
+const mainLine = `本月共收录 ${papers.length} 篇论文` +
+  (topTopics.length ? `,研究热点集中在「${topTopics.join('」「')}」等方向` : '') +
+  (topDomains.length ? `,应用层面覆盖${topDomains.join('、')}` : '') +
+  (topCited?.citations ? `;最受关注的工作为《${topCited.titleZh}》(被引 ${topCited.citations} 次)` : '') + '。';
+---
+
+<Base active="monthly" title={`量子优化月报 · ${monthLabel(month.key)}`} description={`量子优化月报 ${month.key},共 ${papers.length} 篇论文`}>
+  <div class="page-head" style="padding-bottom:0">
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/monthly/">月报</a><span>/</span>{monthLabel(month.key)}</div>
+  </div>
+  <PeriodTabs active="monthly" />
+
+  <div class="period-hero">
+    <div class="vol-line">VOL.{month.key} · {papers.length} 篇 · QUANTOPT MONTHLY</div>
+    <h1>量子优化月报</h1>
+    <p class="vol-sub">{monthLabel(month.key)} · MONTHLY · 编辑系统自动综合</p>
+    <div class="double-rule"></div>
+  </div>
+
+  <div class="panel mainline-box">
+    <h2 style="margin-bottom:6px">本期主线</h2>
+    <p class="abstract" style="margin-bottom:0">{mainLine}</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">{papers.length}</div><div class="l">新收录论文</div></div>
+    <div class="stat"><div class="n">{reportsIn.length}</div><div class="l">期日报浓缩</div></div>
+    <div class="stat"><div class="n">{topDomains.length ? topDomains.join('、') : '—'}</div><div class="l">热门应用领域</div></div>
+  </div>
+
+  {reportsIn.length > 0 && (
+    <section class="section">
+      <div class="section-head"><h2><span class="bar"></span>本月深度解读(日报)</h2></div>
+      <div class="grid">
+        {reportsIn.map((r: any) => (
+          <article class="card compact">
+            <div class="top"><span class="badge tag report">日报 · {r.date}</span></div>
+            <h3 class="title"><a href={`/daily/${r.slug}/`}>{r.titleZh}</a></h3>
+            <div class="title-en">{r.titleEn}</div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head"><h2><span class="bar"></span>本月最受关注</h2><span class="more">按被引排序 Top 9</span></div>
+    <div class="rank-list">
+      {papers.slice(0, 9).map((p: any, i: number) => (
+        <div class="rank">
+          <div class="no">{String(i + 1).padStart(2, '0')}</div>
+          <div>
+            <div class="t"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></div>
+            <div class="s">{p.venue} · {p.date}</div>
+          </div>
+          <div class="c">{p.citations ? <><b>{p.citations}</b><span>被引</span></> : null}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2><span class="bar"></span>本月全部论文</h2><span class="more">按时间排序</span></div>
+    <div class="grid">
+      {papers.map((p: any) => (
+        <article class="card compact">
+          <div class="top">
+            <a class={`badge t-${p.topics[0]}`} href={`/topics/${p.topics[0]}/`}>{topics[p.topics[0]]?.label}</a>
+            {(p.domains || []).slice(0, 1).map((d: string) => <span class="badge tag">{data.domains[d]?.label}</span>)}
+            <span class="date">{p.date}</span>
+          </div>
+          <h3 class="title"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></h3>
+          <div class="meta">
+            <span class="venue" class:list={[{ top: isTopVenue(p.venue) }]}>{p.venue}</span>
+            {p.citations ? <span class="cites">被引 {p.citations}</span> : null}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
