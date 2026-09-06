@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>量子拟蒙特卡洛：预渐近量子优势的窗口 · 量子优化日报</title><meta name="description" content="蒙特卡洛（MC）方法是金融工程（衍生品定价、风险价值 VaR、预期损失估计）与大规模数值积分的主力算法，其均方误差以 O(N^{-1/2}) 的速率收敛——想要精度提高一个数量级，样本量要增加两个数量级。量子振幅估计（QAE）在理论上可将收敛速率提升到 O(N^{-1})，即所谓&#34;二次量子加速&#34;，这也是量子计算金融叙事的支柱之一。"><meta property="og:title" content="量子拟蒙特卡洛：预渐近量子优势的窗口 · 量子优化日报"><meta property="og:description" content="蒙特卡洛（MC）方法是金融工程（衍生品定价、风险价值 VaR、预期损失估计）与大规模数值积分的主力算法，其均方误差以 O(N^{-1/2}) 的速率收敛——想要精度提高一个数量级，样本量要增加两个数量级。量子振幅估计（QAE）在理论上可将收敛速率提升到 O(N^{-1})，即所谓&#34;二次量子加速&#34;，这也是量子计算金融叙事的支柱之一。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.Dxf6g9F5.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-07</div> <h1>量子拟蒙特卡洛：预渐近量子优势的窗口</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-07 · arXiv 预印本 · arXiv:2609.03625 / 2603.01809 / 2609.03706 · Paolo Recchia, Zhan Yu, Kelvin Koor 等 4 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/quantum-quasi-monte-carlo-window-pre-asymptotic-8f7e7/" style="font-weight:700">量子拟蒙特卡洛：预渐近量子优势的窗口</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">蒙特卡洛（MC）方法是金融工程（衍生品定价、风险价值 VaR、预期损失估计）与大规模数值积分的主力算法，其均方误差以 O(N^{-1/2}) 的速率收敛——想要精度提高一个数量级，样本量要增加两个数量级。量子振幅估计（QAE）在理论上可将收敛速率提升到 O(N^{-1})，即所谓&quot;二次量子加速&quot;，这也是量子计算金融叙事的支柱之一。</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/finite-depth-finite-shot-guarantees-constrained-quantum-52182/" style="font-weight:700">基于 Fejér 滤波的约束量子优化有限深度与有限采样保证</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">约束组合优化（带硬约束的车辆路径、机组组合、排产等问题）是 QAOA 走向工业应用最现实的入口，但约束处理恰恰是变分量子算法最薄弱的环节：惩罚项编码破坏问题结构，离散化编码比特开销爆炸，而&quot;约束弹性&quot;（constrained elastic）一类的松弛方法允许解在可行集附近小幅偏移、以非凸方式混合子保持可行性，却长期缺乏定量的性能保证——跑多深、采多少次，才能以可估概率采到可行解乃至最优解？</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/q-edge-symmetry-reduced-quantum-simulation-structured-8f7e7/" style="font-weight:700">Q-Edge：结构化极端相依性的对称约简量子模拟</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">金融风险管理中刻画多资产极端相依结构（厚尾、尾部联动、极端情景下的联合损失分布）依赖高维生成模型，而经典生成模型在捕捉尾部相依时面临维度灾难与采样成本的双重瓶颈。本文提出 Q-Edge 框架，用量子生成模型学习结构化极端相依分布，其核心贡献是对称约简的状态空间压缩：利用问题固有的对称群把动力学约简到轨道空间（orbit space）——在一个 30 维模型上，160 余万个角向状态被压缩为 256 个对称轨道状态，所需量子比特从 21 个降至 8 个，使原本超出近期硬件规模的模拟任务进入可执行区间；数值实验验证…</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-07）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 7 日（周日，北京时间）</strong>。检索渠道：paper-distill MCP 多库聚合检索（OpenAlex、Semantic Scholar、CrossRef、arXiv 等）+ arXiv 官方公告列表逐条核验。</p>
+<ul>
+<li><strong>今天（2026-09-07）为周日，arXiv 周末不发布新公告</strong>；当前全球可检索的最新批次仍为 <strong>9 月 4 日（周五）20:00 美东发布的公告</strong>（quant-ph 共 66 篇新作 + 18 篇跨分类 + 68 篇更新），与昨日（09-06 期）为同一批次。昨日已从该批次精选 3 篇（QAOA 表达能力 / C₄-Helix 离子阱容错 / Parity Twine 中性原子编译），本期从中选取<strong>尚未被此前任何一期日报覆盖</strong>的三篇高相关论文：量子拟蒙特卡洛新作（09-03 提交）深度解读 + 约束量子优化有限保证（批次更新列表）+ 对称约简量子金融模拟（09-03 提交）。</li>
+<li><strong>追踪论文更新核验</strong>：昨日附注的 IBM Zurich 论文 Fourier-LCU（arXiv:2605.18985）经 arXiv 官方页面核验，当前最新版本为 <strong>v2（2026-09-03 提交，新增代码链接）</strong>，今日（09-07）无再更新；昨日报告中&quot;v3&quot;的版本记载以 arXiv 官方页面显示为准。</li>
+<li><strong>大模型/机器学习求解组合优化方向</strong>：quant-ph 最新公告批次（66 篇新作逐条扫描）未见该方向新作；量子方向候选充足，今日仍以量子方向为主。</li>
+<li>北京时间周一（09-08）早晨 arXiv 将发布下一个公告批次（含周五至周日提交的论文），届时恢复正常&quot;当日批次&quot;节奏。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：量子拟蒙特卡洛——预渐近量子优势的窗口</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Quantum Quasi-Monte Carlo: a window for pre-asymptotic quantum advantage</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子拟蒙特卡洛：预渐近量子优势的窗口</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Paolo Recchia, Zhan Yu, Kelvin Koor, Patrick Rebentrost（新加坡国立大学量子技术中心；Rebentrost 教授是量子计算金融与量子机器学习领域的知名学者，量子振幅估计定价、量子 PCA 等方向的持续输出者）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.03625（v1，2026-09-03 提交，2026-09-04 随公告公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.03625">https://arxiv.org/abs/2609.03625</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>蒙特卡洛（MC）方法是金融工程（衍生品定价、风险价值 VaR、预期损失估计）与大规模数值积分的主力算法，其均方误差以 O(N^{-1/2}) 的速率收敛——想要精度提高一个数量级，样本量要增加两个数量级。量子振幅估计（QAE）在理论上可将收敛速率提升到 O(N^{-1})，即所谓&quot;二次量子加速&quot;，这也是量子计算金融叙事的支柱之一。</p>
+<p>然而这条路径存在两个长期被回避的现实问题。<strong>其一，深度问题</strong>：标准 QAE 依赖迭代振幅放大与相位估计，电路深度随目标精度线性增长，NISQ 与早期容错硬件难以承受；各种浅层 QAE 变体虽降低了深度，但精度增益随之打折，&quot;理论二次加速&quot;与&quot;硬件可实现增益&quot;之间的落差缺乏定量刻画。<strong>其二，渐近叙事问题</strong>：绝大多数优势论证只比较 Big-O 指数，忽略常数因子、离散化误差与门预算约束——在真实硬件给定门数预算内，量子方法究竟何时开始领先、领先区间有多宽，才是产业界真正关心的&quot;预渐近&quot;（pre-asymptotic）问题。本文正是针对这两个缺口，把经典数值计算中成熟的**拟蒙特卡洛（QMC，低差异点列）**引入量子框架，系统回答&quot;量子加速的窗口在哪里&quot;。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>论文提出**量子拟蒙特卡洛（Quantum Quasi-Monte Carlo, QQMC）**这一新的方法家族，技术路线分三步：</p>
+<ol>
+<li><strong>误差的统一分解</strong>：把总误差显式分解为<strong>离散化误差</strong>（把连续积分问题装载到有限分辨率预言机/振幅编码时引入）与<strong>估计误差</strong>（有限次振幅估计采样引入）两部分，并分别刻画二者随电路深度、预言机粒度与采样数目的标度行为——这使&quot;精度—资源&quot;关系从经验陈述变为可推导的公式；</li>
+<li><strong>四类方法的成本统一比较</strong>：在同一误差预算下，比较 (a) 经典蒙特卡洛（随机点列）、(b) 经典拟蒙特卡洛（低差异点列）、(c) 量子蒙特卡洛（QAE + 随机点列）、(d) 量子拟蒙特卡洛（QAE + 低差异点列）四条路线所需的门资源与采样成本，重点考察浅层/中等深度 QAE 变体在近期硬件可行的门预算区间内的表现；</li>
+<li><strong>预渐近优势窗口的界定</strong>：证明在噪声门预算约束下，(d) 类 QQMC 在低到中等电路深度区间内保持对 (a)(b)(c) 的优势窗口，并对窗口的边界条件（被积函数正则性、预言机粒度）给出刻画；同时诚实地指出：在深度渐近极限下，传统量子优势论证所依赖的&quot;任意细粒度预言机分辨率&quot;假设在物理上不再成立，渐近二次加速不能无限外推。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>理论结果</strong>：建立了 QQMC 的误差分解框架与四方法资源对比模型，给出量子优势窗口存在的充分条件——在该窗口内，达到同等精度所需的门预算低于全部三条经典/混合对照路线；低差异结构带来的确定性方差压缩与 QAE 的振幅估计增益是<strong>可叠加</strong>的，这是窗口得以&quot;前移&quot;（在更小资源规模即告领先）的根源；</li>
+<li><strong>数值结果</strong>：面向金融应用的代表性积分任务（衍生品定价与风险度量类函数）验证了窗口的存在性与宽度，显示在近期硬件可承受的中等门深度下，QQMC 即可进入优势区间，无需等待全深度容错实现；</li>
+<li><strong>边界刻画</strong>：论文明确给出优势失效的条件——预言机粒度受限、门深度趋深时，优势窗口关闭；这一&quot;负结果&quot;与正结果同等重要，为量子金融应用划定了诚实的适用边界。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>从 Big-O 叙事转向&quot;误差—资源曲线&quot;方法论</strong>：论文示范了如何评价一个量子算法的实用价值——不是渐近指数，而是在给定门预算下的全曲线比较。这一评价范式对 QAOA/量子退火同样适用：与其争论渐近加速，不如界定&quot;预渐近优势窗口&quot;，这与本专栏 09-01 期（QAOA 有效常数采样复杂度）与 09-03 期（NP-完全问题上的规模优势证据）构成同一主题的系列进展；</li>
+<li><strong>&quot;经典数值技巧 × 量子子程序&quot;的组合范式</strong>：低差异点列是经典数值计算数十年的积累，将其嫁接到振幅估计上即获得增益叠加。组合优化领域同理——问题结构（对称性、图稀疏性、解空间几何）与量子子程序的组合仍有大量未开发空间，今日论文三 Q-Edge 的对称约简正是同一思想在生成建模上的体现；</li>
+<li><strong>对量子×金融方向的路线性意义</strong>：Rebentrost 团队（NUS）持续构建的量子金融算法链（量子 PCA、QAE 定价、量子优化的风险度量、如今的 QQMC）正在把&quot;量子金融&quot;从概念演示推向带资源估计的工程清单，是行业应用方向值得整体跟踪的研究脉络。</li>
+</ol>
+<hr>
+<h2>论文二：基于 Fejér 滤波的约束量子优化有限深度与有限采样保证</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Finite-Depth, Finite-Shot Guarantees for Constrained Quantum Optimization via Fejér Filtering</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于 Fejér 滤波的约束量子优化有限深度与有限采样保证</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Chinonso Onah, Kristel Michielsen（亚琛工业大学 / 于利希超算中心（JSC）；Michielsen 教授领导 JSC 量子模拟团队，两人亦是本专栏 09-01 期主推论文&quot;QAOA 有效常数采样复杂度&quot;的作者）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类；收录于 09-04 公告的更新列表，v2 为 2026-04-19 版本）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2603.01809（v1 2026-03-02；v2 2026-04-19）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2603.01809">https://arxiv.org/abs/2603.01809</a></td>
+</tr>
+</tbody></table>
+<h3>二至五、内容简评</h3>
+<p>约束组合优化（带硬约束的车辆路径、机组组合、排产等问题）是 QAOA 走向工业应用最现实的入口，但<strong>约束处理</strong>恰恰是变分量子算法最薄弱的环节：惩罚项编码破坏问题结构，离散化编码比特开销爆炸，而&quot;约束弹性&quot;（constrained elastic）一类的松弛方法允许解在可行集附近小幅偏移、以非凸方式混合子保持可行性，却长期缺乏<strong>定量的性能保证</strong>——跑多深、采多少次，才能以可估概率采到可行解乃至最优解？</p>
+<p>本文用经典傅里叶分析中的 <strong>Fejér 滤波</strong>（正/余弦级数的 Cesàro 平均截断）给出了答案：针对约束弹性 QAOA（CE-QAOA）类算法，证明在有限深度 p、有限采样数目下的可行解采样概率具有<strong>与问题维度无关</strong>（dimension-free）的显式下界——采样到目标解的概率 q₀ 满足 q₀ ≥ x/(1+x)，其中 x = (p+1)²sin²(δ/2)·C_β 由深度 p、弹性参数 δ 与可行集的几何常数 C_β 决定。该框架把此前互不相通的三条技术线——反绝热 QAOA（CD-QAOA）、热启动初始化（WS-Init）与约束弹性松弛（CE-QAOA）——纳入同一分析框架统一比较。</p>
+<p>推荐理由有三：其一，这是少见的**&quot;上机前可计算&quot;的工程保证**——深度、采样数、弹性参数三个旋钮与最终解质量之间的量化关系，可直接用于预算规划与算法配置；其二，维度无关性意味着保证在大规模实例上依然成立，规避了多数 QAOA 理论结果&quot;只在常数深度/特殊图上有效&quot;的通病；其三，作者组合与 09-01 期一脉相承（同一对作者从&quot;常数采样复杂度&quot;推进到&quot;约束场景的有限保证&quot;），是约束量子优化理论线上值得连续跟踪的工作。</p>
+<hr>
+<h2>论文三：Q-Edge——结构化极端相依性的对称约简量子模拟</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Q-Edge: Symmetry-Reduced Quantum Simulation of Structured Extreme Dependence</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>Q-Edge：结构化极端相依性的对称约简量子模拟</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Hongrui Zhang, Paolo Recchia, Ying Chen（其中 Recchia 亦为今日论文一作者，量子金融算法线上的活跃团队）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.03706（v1，2026-09-03 提交，2026-09-04 随公告公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.03706">https://arxiv.org/abs/2609.03706</a></td>
+</tr>
+</tbody></table>
+<h3>二至五、内容简评</h3>
+<p>金融风险管理中刻画多资产<strong>极端相依结构</strong>（厚尾、尾部联动、极端情景下的联合损失分布）依赖高维生成模型，而经典生成模型在捕捉尾部相依时面临维度灾难与采样成本的双重瓶颈。本文提出 Q-Edge 框架，用<strong>量子生成模型</strong>学习结构化极端相依分布，其核心贡献是<strong>对称约简的状态空间压缩</strong>：利用问题固有的对称群把动力学约简到轨道空间（orbit space）——在一个 30 维模型上，160 余万个角向状态被压缩为 256 个对称轨道状态，所需量子比特从 21 个降至 <strong>8 个</strong>，使原本超出近期硬件规模的模拟任务进入可执行区间；数值实验验证了约简模型在轨道空间中学习极端相依统计量的有效性。</p>
+<p>推荐理由：其一，这是&quot;<strong>对称性作为量子算法资源</strong>&quot;在量子金融生成建模上的具体兑现，比特数压缩近三分之二的意义对 NISQ 时代不言而喻；其二，它与昨日（09-06 期）主推的对称约简 QAOA 表达能力论文构成一组有意味的对照——约简压缩了比特数与状态空间，但是否也改变了电路的动力学表达能力（DLA）？两篇工作提示&quot;降比特&quot;与&quot;保表达力&quot;需要联合设计，值得研究者合并阅读；其三，与论文一同日同批次出现、作者重叠，勾勒出量子×金融方向&quot;积分估计（QQMC）+ 生成建模（Q-Edge）&quot;的双轮技术版图。</p>
+<hr>
+<h2>附：今日更新动态</h2>
+<ul>
+<li><strong>IBM Zurich Fourier-LCU（arXiv:2605.18985）</strong>：经 arXiv 官方页面核验，当前最新版本为 <strong>v2（2026-09-03 提交，新增代码链接）</strong>，今日（09-07）无再更新；106 比特硬件实验结论不变，昨日报告中&quot;v3&quot;的版本记载以 arXiv 官方页面为准。</li>
+<li><strong>同批次值得关注的编码类工作</strong>：《A Quantum Encoding of Traveling Salesperson Tours via Route Generation, Cost Phases, and a Valid-Permutation Oracle》（arXiv:2603.21283，NTNU 的 Stasik &amp; Fuchs，亦见于 09-04 公告更新列表）：以 <strong>n log n 比特</strong>的紧凑编码表示 TSP 巡回路线，构造可逆&quot;有效排列预言机&quot;，线路深度平方级；论文同时诚实指出任何量子算法求全局最优仍需指数资源——为&quot;编码压缩&quot;与&quot;复杂度下界&quot;划出清晰边界的诚实之作。</li>
+<li><strong>下个公告批次预告</strong>：北京时间周一（09-08）早晨 arXiv 将发布新公告（含周五至周日提交的论文），量子优化方向将恢复正常&quot;当日批次&quot;精选节奏。</li>
+</ul>
+<p><em>（检索时间：2026-09-07；检索渠道：paper-distill MCP 聚合检索、arXiv 官方公告列表 /quant-ph/new、逐篇摘要页核验）</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-06/">← 上一期(2026-09-06)</a> <a class="btn" href="https://arxiv.org/abs/2609.03625" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-07</span> · 共收录 506 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
