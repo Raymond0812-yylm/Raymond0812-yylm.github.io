@@ -19,7 +19,7 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
 
 <Base active="home" description={SITE_TAGLINE}>
   <section class="hero">
-    <span class="eyebrow"><span class="dot"></span> 每日 10:00 自动更新 · 最近更新 {site.lastUpdated}</span>
+    <span class="eyebrow"><span class="dot"></span> 每日 6:00 自动更新 · 最近更新 {site.lastUpdated}</span>
     <h1>量子计算求解组合优化<br /><span class="grad">论文与研究进展门户</span></h1>
     <p class="lead">
       聚焦 <strong>QAOA、量子退火、变分量子算法、量子-经典混合优化</strong>,并延伸至
@@ -90,7 +90,7 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
         <a class="more" href="/news/">全部动态 →</a>
       </div>
       <div class="grid">
-        {latestNews.items.slice(0, 4).map((it: any) => (
+        {latestNews.items.slice(0, 6).map((it: any) => (
           <article class="card compact">
             <div class="top"><span class="badge tag">{it.category}</span><span class="venue">{it.source}</span></div>
             <h3 class="title">{it.title}</h3>

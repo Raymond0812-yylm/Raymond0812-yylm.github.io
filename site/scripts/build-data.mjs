@@ -20,7 +20,8 @@ const TOPIC_RULES = [
   ['vqa', /variational quantum|\bVQE\b|barren plateau|变分量子|贫瘠高原/i],
   ['annealing', /quantum anneal|annealer|adiabatic quantum|reverse annealing|量子退火|绝热量子|transverse[- ]field ising/i],
   ['hardware', /superconducting (qubit|processor|quantum)|trapped[- ]ion|\brydberg\b|neutral atom|photonic quantum|spin qubit|quantum (processor|hardware|chip)|超导量子|离子阱|中性原子|光量子|里德堡/i],
-  ['hybrid', /hybrid quantum|quantum-classical|quantum[- ]inspired|ising machine|simulated bifurcation|coherent ising|混合量子|量子启发|量子[- ]经典/i],
+  ['qinspired', /quantum[- ]inspired|量子启发|ising machine|simulated bifurcation|coherent ising|quantum (particle swarm|differential evolution|evolutionary|swarm|memetic)|量子粒子群|量子差分进化|量子演化/i],
+  ['hybrid', /hybrid quantum|quantum-classical|混合量子|量子[- ]经典/i],
   ['quantum', /review|survey|benchmark|perspective|综述|基准/i],
 ];
 

@@ -32,13 +32,14 @@ FIXES = {
     ("sup", 65): {"topics": ["hybrid", "ml4co"]},
 }
 
-TOPIC_ORDER = ["qaoa", "annealing", "vqa", "hybrid", "hardware", "quantum-ai", "quantum", "ml4co", "llm4co"]
+TOPIC_ORDER = ["qaoa", "annealing", "vqa", "qinspired", "hybrid", "hardware", "quantum-ai", "quantum", "ml4co", "llm4co"]
 
 TOPIC_LABELS = {
     "qaoa": {"label": "量子近似优化", "desc": "QAOA 及其变体、参数策略、硬件实验与理论性能"},
     "annealing": {"label": "量子退火与绝热优化", "desc": "量子退火、绝热量子计算、反绝热驱动、退火机实验"},
     "vqa": {"label": "变分量子算法", "desc": "VQE/VQA 框架、ansatz 设计、贫瘠高原与可训练性"},
-    "hybrid": {"label": "量子-经典混合与量子启发", "desc": "混合优化流水线、量子启发算法、Ising 机、进化计算×量子"},
+    "qinspired": {"label": "量子启发式算法", "desc": "量子启发元启发式:量子粒子群、量子进化、模拟分叉、Ising 机等借鉴量子机制的经典算法"},
+    "hybrid": {"label": "量子-经典混合优化", "desc": "量子-经典混合优化流水线:量子线路与经典求解器分工协同的架构与方法"},
     "hardware": {"label": "量子硬件平台", "desc": "超导、离子阱、中性原子、光量子等平台及面向优化的硬件进展"},
     "quantum-ai": {"label": "量子计算×人工智能", "desc": "量子机器学习、量子神经网络、量子与大模型/生成式AI的交叉前沿"},
     "quantum": {"label": "领域综述与交叉前沿", "desc": "领域综述、路线图、基准测试与交叉前沿探索"},
@@ -82,7 +83,8 @@ AUTO_TOPIC_RULES = [
     ("vqa", [r"variational quantum", r"\bVQE\b", r"barren plateau", r"变分量子", r"贫瘠高原", r"variational eigensolver", r"\bVQAs?\b"]),
     ("annealing", [r"quantum anneal", r"annealer", r"adiabatic quantum", r"reverse annealing", r"量子退火", r"绝热量子", r"transverse[- ]field ising"]),
     ("hardware", [r"superconducting (qubit|processor|quantum)", r"trapped[- ]ion", r"\brydberg\b", r"neutral atom", r"photonic quantum", r"spin qubit", r"quantum (processor|hardware|chip)", r"ion trap", r"超导量子", r"离子阱", r"中性原子", r"光量子", r"里德堡"]),
-    ("hybrid", [r"hybrid quantum", r"quantum-classical", r"quantum[- ]inspired", r"ising machine", r"simulated bifurcation", r"coherent ising", r"混合量子", r"量子启发", r"量子[- ]经典"]),
+    ("qinspired", [r"quantum[- ]inspired", r"量子启发", r"ising machine", r"simulated bifurcation", r"coherent ising", r"quantum (particle swarm|differential evolution|evolutionary|swarm|memetic)", r"量子粒子群", r"量子差分进化", r"量子演化", r"量子模因"]),
+    ("hybrid", [r"hybrid quantum", r"quantum-classical", r"混合量子", r"量子[- ]经典", r"quantum[- ]classic(al)? (hybrid|loop|solver)"]),
     ("quantum", [r"review", r"survey", r"benchmark", r"perspective", r"outlook", r"综述", r"展望", r"基准"]),
 ]
 
@@ -221,8 +223,21 @@ def main():
                 hits.append(key)
         return hits
 
+    QINS = re.compile(r"quantum[- ]inspired|量子启发|ising machine|simulated bifurcation|coherent ising|quantum (particle swarm|differential evolution|evolutionary|swarm|memetic)|量子粒子群|量子差分进化|量子演化|量子模因", re.I)
+    HYBR = re.compile(r"hybrid quantum|quantum-classical|混合量子|量子[- ]经典", re.I)
     for p in papers:
         text = " ".join([p.get("title", ""), p.get("titleZh", ""), p.get("summaryZh", ""), p.get("abstract", "")])
+        # 全库拆分:hybrid 一类拆为 qinspired / hybrid 两个方向
+        if "hybrid" in p["topics"]:
+            qi, hy = bool(QINS.search(text)), bool(HYBR.search(text))
+            repl = ([x for x in ["hybrid", "qinspired"] if (x == "hybrid" and hy) or (x == "qinspired" and qi)]) or (["qinspired"] if qi else ["hybrid"])
+            out = []
+            for t in p["topics"]:
+                if t == "hybrid":
+                    out.extend([x for x in repl if x not in out])
+                elif t not in out:
+                    out.append(t)
+            p["topics"] = out
         if p.get("curatedTopics"):
             t = [x for x in p["topics"] if x != "applications"]
             if not t or t == ["quantum"]:
