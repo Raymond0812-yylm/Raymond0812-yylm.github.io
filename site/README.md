@@ -52,9 +52,9 @@ python site/scripts/curate.py            # 主题打标/质量过滤/配额筛�
 python site/scripts/build_db.py          # 合并 → papers-db.json
 ```
 
-## 部署(待办)
+## 部署(已上线)
 
-1. 在 GitHub 建仓库,把整个工作区(或至少 `site/`、`papers-db.json`、`*.md`)推送上去;
-2. Vercel / Netlify 导入该仓库,框架选 Astro,构建目录 `site/dist`(Root Directory 设为 `site`);
-3. 绑定域名后,修改 `site/astro.config.mjs` 的 `site` 字段为正式域名(RSS 链接依赖它);
-4. (可选)把 Vercel Deploy Hook 配置进 paper-distill 的 `site_deploy_hook`,实现部署全自动化。
+- **正式网址**:https://raymond0812-yylm.github.io (GitHub Pages 个人主页仓库 `Raymond0812-yylm/Raymond0812-yylm.github.io`)
+- **发布方式**:网站构建产物输出到工作区根目录 `docs/`,随源码一起推送到 main 分支,GitHub Pages 配置为「main 分支 /docs 目录」自动发布
+- **每日更新流程**:定时任务生成日报与行业动态 .md → `npm run build` → `git add -A && git commit && git push` → 约 1 分钟后线上更新
+- 如未来更换域名:修改 `astro.config.mjs` 的 `site` 字段、在 `site/public/` 放 CNAME 文件、并在 GitHub 仓库 Pages 设置中登记域名即可
