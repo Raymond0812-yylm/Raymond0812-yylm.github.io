@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SPECIALS } from '../../lib/specials.js';
+import site from '../../data/site.json';
+
+const data: any = site;
+const counts = SPECIALS.map((s) => ({ ...s, count: data.papers.filter((p: any) => s.match(p)).length }));
+---
+
+<Base active="specials" title="专题" description="量子优化的重点专题:量子计算与卫星任务规划、量子计算与大模型">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>专题</div>
+    <h1>专题聚焦</h1>
+    <p class="lead">
+      专题是与「研究方向」并列的内容主线:围绕一个具体的交叉场景,把全库中相关论文自动聚合在一起,
+      并随每日更新持续扩充。以下是当前的重点专题,更多专题将陆续开设。
+    </p>
+  </div>
+  <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+    {counts.map((s) => (
+      <a class="special-card" href={`/specials/${s.key}/`} style={`--sc:${s.color}`}>
+        <div class="icon">{s.icon}</div>
+        <div class="l">{s.title}</div>
+        <div class="e">{s.en}</div>
+        <div class="d">{s.desc}</div>
+        <div class="n">{s.count} 篇 →</div>
+      </a>
+    ))}
+  </div>
+</Base>

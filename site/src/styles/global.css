@@ -269,3 +269,27 @@ details[open] summary::before { content: "▾ "; }
 .report-hero .big .btn { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .25); color: #fff; }
 .report-hero .big .btn:hover { background: rgba(255, 255, 255, .22); color: #fff; box-shadow: none; }
 .report-hero .side-list { display: flex; flex-direction: column; gap: 10px; }
+
+/* ---- 专题与应用领域 ---- */
+.special-hero { background: linear-gradient(135deg, color-mix(in srgb, var(--sc, #4338ca) 92%, #000) 0%, var(--sc, #4338ca) 60%, color-mix(in srgb, var(--sc, #4338ca) 70%, #0ea5e9) 100%); color: #fff; border-radius: var(--radius); padding: 30px 34px; margin-top: 16px; box-shadow: var(--shadow-hover); }
+.special-hero .icon { font-size: 2.2rem; margin-bottom: 6px; }
+.special-hero h1 { color: #fff; margin: 0 0 4px; }
+.special-hero .en { opacity: .8; font-style: italic; margin: 0 0 10px; }
+.special-hero .desc { opacity: .95; max-width: 760px; margin: 0; }
+.special-hero .crumbs a, .special-hero .crumbs { color: rgba(255,255,255,.75); }
+@media (max-width: 600px) { .special-hero { padding: 22px 20px; } }
+.special-card { background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--sc); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); color: var(--text); display: flex; flex-direction: column; gap: 8px; transition: .18s; }
+.special-card:hover { text-decoration: none; transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.special-card .icon { font-size: 2rem; }
+.special-card .l { font-weight: 800; font-size: 1.15rem; }
+.special-card .e { color: var(--text-3); font-size: .85rem; font-style: italic; }
+.special-card .d { color: var(--text-2); font-size: .9rem; line-height: 1.55; }
+.special-card .n { margin-top: auto; padding-top: 8px; color: var(--sc); font-weight: 700; font-size: .92rem; }
+.domain-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow); color: var(--text); display: flex; flex-direction: column; gap: 6px; transition: .18s; }
+.domain-card:hover { text-decoration: none; transform: translateY(-2px); box-shadow: var(--shadow-hover); border-color: #c7cbf9; }
+.domain-card .icon { font-size: 1.7rem; }
+.domain-card .l { font-weight: 800; font-size: 1.08rem; }
+.domain-card .d { color: var(--text-3); font-size: .86rem; line-height: 1.5; }
+.domain-card .n { margin-top: auto; padding-top: 6px; color: var(--brand); font-weight: 700; font-size: .88rem; }
+.nav { flex-wrap: nowrap; }
+.nav a { white-space: nowrap; flex-shrink: 0; }

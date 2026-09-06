@@ -14,8 +14,10 @@ const nav = [
   ['/', '首页', 'home'],
   ['/daily/', '每日报告', 'daily'],
   ['/news/', '行业动态', 'news'],
+  ['/specials/', '专题', 'specials'],
   ['/papers/', '论文库', 'papers'],
   ['/topics/', '研究方向', 'topics'],
+  ['/applications/', '应用领域', 'domains'],
   ['/about/', '关于', 'about'],
 ];
 ---
@@ -32,8 +34,18 @@ const nav = [
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} RSS`} href="/rss.xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#4338ca" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="QuantOpt" />
   </head>
   <body>
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script>
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href="/">

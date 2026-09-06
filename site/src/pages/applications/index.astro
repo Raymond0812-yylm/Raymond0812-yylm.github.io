@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import site from '../../data/site.json';
+import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
+
+const data: any = site;
+const counts = data.stats.domainCounts || {};
+const domains = DOMAIN_ORDER.map((k) => ({ key: k, ...(data.domains[k] || { label: k, desc: '' }), count: counts[k] || 0 }));
+const totalTagged = domains.reduce((s, d) => s + d.count, 0);
+---
+
+<Base active="domains" title="应用领域" description="量子优化与智能优化在各行业的应用:卫星航天、金融、能源、物流、制造、通信、交通、医药、材料、信息技术">
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span>应用领域</div>
+    <h1>应用领域</h1>
+    <p class="lead">
+      领域的真正进步发生在方法落地之处。本栏目按<b>应用场景</b>聚合全库论文——从卫星任务规划到投资组合、
+      从电网调度到药物发现,与按学术方法划分的<a href="/topics/">研究方向</a>互补。
+      一篇论文可同时属于多个领域,共 {totalTagged} 条领域标注。
+    </p>
+  </div>
+  <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+    {domains.map((d) => (
+      <a class="domain-card" href={`/applications/${d.key}/`}>
+        <div class="icon">{DOMAIN_ICON[d.key] ?? '📎'}</div>
+        <div class="l">{d.label}</div>
+        <div class="d">{d.desc}</div>
+        <div class="n">{d.count} 篇 →</div>
+      </a>
+    ))}
+  </div>
+</Base>

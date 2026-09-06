@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 import PaperCard from '../components/PaperCard.astro';
 import site from '../data/site.json';
-import { TOPIC_ORDER, TOPIC_COLOR, fmtCites, fmtAuthors, SITE_TAGLINE } from '../lib/utils.js';
+import { TOPIC_ORDER, TOPIC_COLOR, fmtCites, fmtAuthors, DOMAIN_ORDER, DOMAIN_ICON, SITE_TAGLINE } from '../lib/utils.js';
+import { SPECIALS } from '../lib/specials.js';
 
-const { stats, topics, papers, reports, news } = site as any;
+const { stats, topics, domains, papers, reports, news } = site as any;
+const specials = SPECIALS.map((s: any) => ({ ...s, count: papers.filter((p: any) => s.match(p)).length }));
 const byId = new Map(papers.map((p: any) => [p.id, p]));
 const latestReport = reports[0];
 const latestPaper = byId.get(latestReport?.paperIds?.[0] ?? latestReport?.paperId);
@@ -46,12 +48,24 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
       <div class="report-hero">
         <div class="big">
           <div class="k">Daily Report · {latestReport.date}{latestReport.paperCount > 1 ? ` · ${latestReport.paperCount} 篇论文` : ''}</div>
-          <h3><a href={`/daily/${latestReport.slug}/`}>{latestReport.titleZh}</a></h3>
-          <div class="en">{latestReport.titleEn}</div>
-          <p class="sum">{latestReport.summaryZh}</p>
+          {latestReport.paperIds.map((pid: string, i: number) => {
+            const pp: any = byId.get(pid);
+            if (!pp) return null;
+            return (
+              <div style={i > 0 ? 'margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)' : ''}>
+                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+                  <span style="font-family:var(--mono);opacity:.75;font-size:.78rem">#{i + 1}</span>
+                  <a class={`badge t-${pp.topics[0]}`} href={`/topics/${pp.topics[0]}/`}>{topics[pp.topics[0]]?.label}</a>
+                  {pp.arxivId && <span style="font-family:var(--mono);opacity:.6;font-size:.72rem">arXiv:{pp.arxivId}</span>}
+                </div>
+                <h3 style={i === 0 ? 'margin:6px 0 4px' : 'margin:6px 0 4px;font-size:1.08rem'}><a href={`/papers/${pp.id}/`}>{pp.titleZh}</a></h3>
+                <p class="sum" style="-webkit-line-clamp:2;margin:0 0 2px">{pp.summaryZh}</p>
+              </div>
+            );
+          })}
           <div class="foot">
             <a class="btn" href={`/daily/${latestReport.slug}/`}>阅读完整解读</a>
-            {latestPaper?.url && <a class="btn" href={latestPaper.url} target="_blank" rel="noopener">原文 ↗</a>}
+            <a class="btn" href="/daily/">往期报告</a>
           </div>
         </div>
         <div class="side-list">
@@ -98,6 +112,24 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
           <div class="n">{stats.topicCounts[k] || 0}</div>
           <div class="l">{topics[k].label}</div>
           <div class="d">{topics[k].desc}</div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2><span class="bar"></span>专题聚焦</h2>
+      <a class="more" href="/specials/">专题说明 →</a>
+    </div>
+    <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
+      {specials.map((s: any) => (
+        <a class="special-card" href={`/specials/${s.key}/`} style={`--sc:${s.color}`}>
+          <div class="icon">{s.icon}</div>
+          <div class="l">{s.title}</div>
+          <div class="e">{s.en}</div>
+          <div class="d">{s.desc}</div>
+          <div class="n">{s.count} 篇 →</div>
         </a>
       ))}
     </div>

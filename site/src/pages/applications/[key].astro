@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import PaperCard from '../../components/PaperCard.astro';
+import site from '../../data/site.json';
+import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
+
+const data: any = site;
+export function getStaticPaths() {
+  return DOMAIN_ORDER.map((key) => ({ params: { key }, props: { key } }));
+}
+
+const { key } = Astro.props;
+const meta = data.domains[key] || { label: key, desc: '' };
+const list = data.papers
+  .filter((p: any) => (p.domains || []).includes(key))
+  .sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
+---
+
+<Base active="domains" title={`${DOMAIN_ICON[key] ?? ''} ${meta.label}`} description={meta.desc}>
+  <div class="page-head">
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/applications/">应用领域</a><span>/</span>{meta.label}</div>
+    <h1>{DOMAIN_ICON[key] ?? ''} {meta.label}</h1>
+    <p class="lead">{meta.desc}</p>
+    <p class="small muted">本领域现收录 {list.length} 篇论文,随每日更新自动扩充。论文按其研究方法归入上方「研究方向」,此处按应用场景聚合。</p>
+  </div>
+
+  {list.length === 0 ? (
+    <div class="empty" style="display:block">该领域论文正在充实中,每日凌晨自动扩库会持续补充。</div>
+  ) : (
+    <div class="grid">
+      {list.map((p: any) => <PaperCard paper={p} />)}
+    </div>
+  )}
+</Base>

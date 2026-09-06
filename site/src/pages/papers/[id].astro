@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import siteData from '../../data/site.json';
-import { fmtAuthors, fmtCites, isTopVenue } from '../../lib/utils.js';
+import { fmtAuthors, fmtCites, isTopVenue, DOMAIN_ICON } from '../../lib/utils.js';
 
 const site: any = siteData;
 
@@ -11,6 +11,7 @@ export function getStaticPaths() {
 }
 
 const { paper } = Astro.props;
+const domains: any = site.domains;
 const topics = site.topics;
 const primary = paper.topics[0];
 const related = site.papers
@@ -36,6 +37,9 @@ const inTopic = site.papers.filter((p) => p.topics.includes(primary)).length;
         <a class={`badge t-${primary}`} href={`/topics/${primary}/`}>{topics[primary]?.label}</a>
         {paper.topics.slice(1).map((t) => <a class={`badge t-${t}`} href={`/topics/${t}/`}>{topics[t]?.label}</a>)}
         {paper.tags.includes('foundational') && <span class="badge tag found">领域奠基</span>}
+        {(paper.domains || []).map((d: string) => (
+          <a class="badge tag" href={`/applications/${d}/`}>{DOMAIN_ICON[d] ?? '📎'} {domains[d]?.label ?? d}</a>
+))}
         {paper.featured && <a class="badge tag report" href={`/daily/${paper.reportSlug}/`}>日报精选 · {paper.reportDate}</a>}
       </div>
 
@@ -89,6 +93,7 @@ const inTopic = site.papers.filter((p) => p.topics.includes(primary)).length;
           {paper.doi && <><dt>DOI</dt><dd class="mono" style="font-size:.78rem">{paper.doi}</dd></>}
           {paper.citations ? <><dt>引用数</dt><dd>{paper.citations} <span class="small muted">(OpenAlex)</span></dd></> : null}
           <dt>同方向</dt><dd><a href={`/topics/${primary}/`}>{inTopic} 篇 →</a></dd>
+          {(paper.domains || []).length > 0 && (<><dt>应用领域</dt><dd>{(paper.domains || []).map((d: string) => `${DOMAIN_ICON[d] ?? ''} ${domains[d]?.label ?? d}`).join(' · ')}</dd></>)}
         </dl>
       </div>
       <div class="panel">

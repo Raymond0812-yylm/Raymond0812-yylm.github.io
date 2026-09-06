@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PaperCard from '../../components/PaperCard.astro';
+import siteData from '../../data/site.json';
+import { SPECIALS } from '../../lib/specials.js';
+
+const data: any = siteData;
+export function getStaticPaths() {
+  return SPECIALS.map((s) => ({ params: { key: s.key }, props: { spec: s } }));
+}
+
+const { spec } = Astro.props;
+const { papers } = data;
+const list = papers.filter((p: any) => spec.match(p));
+const featured = list.filter((p: any) => p.featured);
+const rest = list.filter((p: any) => !p.featured).sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
+---
+
+<Base active="specials" title={spec.title} description={spec.desc}>
+  <div class="special-hero" style={`--sc:${spec.color}`}>
+    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/specials/">专题</a><span>/</span>{spec.title}</div>
+    <div class="icon">{spec.icon}</div>
+    <h1>{spec.title}</h1>
+    <p class="en">{spec.en}</p>
+    <p class="desc">{spec.desc}</p>
+    <p class="small" style="opacity:.75">本专题现收录 {list.length} 篇论文 · 随每日更新自动扩充</p>
+  </div>
+
+  {featured.length > 0 && (
+    <section class="section">
+      <div class="section-head"><h2><span class="bar"></span>日报解读</h2></div>
+      <div class="grid">{featured.map((p: any) => <PaperCard paper={p} />)}</div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="section-head"><h2><span class="bar"></span>专题论文</h2><span class="more">按时间排序</span></div>
+    <div class="grid">{rest.map((p: any) => <PaperCard paper={p} />)}</div>
+  </section>
+</Base>

@@ -13,6 +13,7 @@ const OUT_DIR = path.join(SITE_DIR, 'src', 'data');
 const OUT = path.join(OUT_DIR, 'site.json');
 
 const TOPIC_RULES = [
+  ['quantum-ai', /quantum (machine learning|neural network|deep learning|reinforcement learning)|quantum[- ]enhanced (machine )?learning|\bQML\b|quantum.{0,30}large language|large language.{0,30}quantum|量子机器学习|量子神经网络|量子.{0,12}大模型/i],
   ['llm4co', /\blarge language model\b|\bLLMs?\b|语言模型|大模型|FunSearch|ReEvo|AlphaEvolve/i],
   ['ml4co', /neural combinatorial|graph neural|learning to branch|reinforcement learning|指针网络|图神经网络|神经组合优化/i],
   ['qaoa', /\bQAOA\b|quantum approximate optimization|quantum alternating operator|量子近似优化/i],
@@ -20,8 +21,20 @@ const TOPIC_RULES = [
   ['annealing', /quantum anneal|annealer|adiabatic quantum|reverse annealing|量子退火|绝热量子|transverse[- ]field ising/i],
   ['hardware', /superconducting (qubit|processor|quantum)|trapped[- ]ion|\brydberg\b|neutral atom|photonic quantum|spin qubit|quantum (processor|hardware|chip)|超导量子|离子阱|中性原子|光量子|里德堡/i],
   ['hybrid', /hybrid quantum|quantum-classical|quantum[- ]inspired|ising machine|simulated bifurcation|coherent ising|混合量子|量子启发|量子[- ]经典/i],
-  ['applications', /portfolio|financ|supply chain|vehicle routing|schedul|job shop|microgrid|smart grid|power system|telecommunication|network (routing|optimization)|drug|docking|protein|logistics|投资组合|金融|物流|调度|电网|供应链|药物/i],
   ['quantum', /review|survey|benchmark|perspective|综述|基准/i],
+];
+
+const DOMAIN_RULES = [
+  ['satellite', /satellite|spacecraft|earth observation|mission planning|aerospace|remote sensing|卫星|航天|任务规划|遥感/i],
+  ['finance', /portfolio|\bfinanc|credit|trading|risk management|投资组合|金融|信贷/i],
+  ['energy', /power system|smart grid|microgrid|renewable|energy (management|dispatch|optimization|scheduling)|carbon emission|电网|微网|电力|能源|碳排放/i],
+  ['logistics', /vehicle routing|supply chain|logistics|warehouse|inventory|shipping|fleet|物流|供应链|仓储|库存|车队/i],
+  ['manufacturing', /job shop|production schedul|manufactur|assembly line|process planning|生产调度|制造|车间|工艺/i],
+  ['telecom', /wireless|telecommunication|network routing|\b5G\b|\b6G\b|MIMO|base station|spectrum|通信|无线|基站|频谱/i],
+  ['transport', /traffic|railway|subway|urban air mobility|autonomous driving|intelligent transport|交通|轨道交通|自动驾驶/i],
+  ['pharma', /\bdrug\b|docking|protein|genom|molecular design|药物|对接|蛋白质|基因|分子设计/i],
+  ['materials', /material|catalyst|chemistry|battery|材料|催化|化学|电池/i],
+  ['it-cloud', /cloud computing|task offload|edge computing|data center|\bIoT\b|云计算|任务卸载|边缘计算|数据中心|物联网/i],
 ];
 
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 70);
@@ -38,6 +51,10 @@ function slugify(title, key) {
 function inferTopics(text) {
   const t = TOPIC_RULES.filter(([, re]) => re.test(text)).map(([k]) => k);
   return t.length ? t : ['quantum'];
+}
+
+function inferDomains(text) {
+  return DOMAIN_RULES.filter(([, re]) => re.test(text)).map(([k]) => k).slice(0, 3);
 }
 
 const stripParens = (s) => {
@@ -72,11 +89,11 @@ function parsePaperFromLines(allLines) {
   };
 
   const sectionLines = (keyword, scope = lines) => {
-    const start = scope.findIndex((l) => /^##\s/.test(l) && l.includes(keyword));
+    const start = scope.findIndex((l) => /^#{2,4}\s/.test(l) && l.includes(keyword));
     if (start < 0) return [];
     const out = [];
     for (let i = start + 1; i < scope.length; i++) {
-      if (/^##\s/.test(scope[i])) break;
+      if (/^#{2,4}\s/.test(scope[i])) break;
       out.push(scope[i]);
     }
     return out;
@@ -113,15 +130,24 @@ function parsePaperFromLines(allLines) {
     if (m2) arxivId = m2[1];
   }
 
-  const bg = sectionLines('研究背景与动机');
-  let summary = '';
-  for (const l of bg) {
-    const t = stripMd(l.replace(/^[-*>\d.\s]+/, ''));
-    if (!t) { if (summary) break; else continue; }
-    summary += t;
-    if (summary.length > 220) break;
+  const summarize = (sec) => {
+    let s = '';
+    for (const l of sec) {
+      const t = stripMd(l.replace(/^[-*>\d.\s]+/, ''));
+      if (!t) { if (s) break; else continue; }
+      s += t;
+      if (s.length > 220) break;
+    }
+    return s.replace(/\s+/g, ' ').trim();
+  };
+  // 摘要优先取"研究背景与动机";多论文简报格式则回退到"内容简评"等任何正文小节
+  let summary = summarize(sectionLines('研究背景与动机'));
+  if (!summary) summary = summarize(sectionLines('内容简评'));
+  if (!summary) summary = summarize(sectionLines('摘要'));
+  if (!summary) {
+    const anySec = lines.findIndex((l) => /^#{2,4}\s/.test(l));
+    if (anySec >= 0) summary = summarize(lines.slice(anySec + 1));
   }
-  summary = summary.replace(/\s+/g, ' ').trim();
   if (summary.length > 260) summary = summary.slice(0, 258) + '…';
 
   return { titleEn, titleZh: titleZh || titleEn, venue, authors, arxivId, summaryZh: summary };
@@ -229,8 +255,9 @@ for (const file of reportFiles) {
         arxivId: rp.arxivId,
         doi,
         url: rp.arxivId ? `https://arxiv.org/abs/${rp.arxivId}` : '',
-        topics: inferTopics(`${rp.titleEn} ${rp.titleZh} ${rp.summaryZh}`),
-        tags: ['recent'],
+      topics: inferTopics(`${rp.titleEn} ${rp.titleZh} ${rp.summaryZh}`),
+      domains: inferDomains(`${rp.titleEn} ${rp.titleZh} ${rp.summaryZh}`),
+      tags: ['recent'],
         summaryZh: rp.summaryZh,
         abstract: '',
         source: 'daily',
@@ -261,6 +288,10 @@ papers.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 for (const p of papers) {
   if (p.topics.length > 1 && p.topics.includes('quantum')) p.topics = p.topics.filter((t) => t !== 'quantum');
 }
+// 回溯库论文若无 domains 字段(旧数据),按规则补齐
+for (const p of papers) {
+  if (!Array.isArray(p.domains)) p.domains = inferDomains(`${p.title} ${p.titleZh} ${p.summaryZh} ${p.abstract}`);
+}
 
 // ---------- 行业动态 ----------
 const newsFiles = fs.readdirSync(ROOT).filter((f) => /^news-\d{4}-\d{2}-\d{2}\.md$/i.test(f)).sort();
@@ -268,6 +299,8 @@ const news = newsFiles.map(parseNews).sort((a, b) => (a.date < b.date ? 1 : -1))
 
 const topicCounts = {};
 for (const p of papers) for (const t of p.topics) topicCounts[t] = (topicCounts[t] || 0) + 1;
+const domainCounts = {};
+for (const p of papers) for (const t of p.domains || []) domainCounts[t] = (domainCounts[t] || 0) + 1;
 const years = papers.map((p) => p.year).filter(Boolean);
 const venues = new Set(papers.map((p) => p.venue));
 const lastUpdated = [db.updated, ...reports.map((r) => r.date), ...news.map((n) => n.date)].sort().pop();
@@ -286,8 +319,10 @@ const site = {
     yearMin: Math.min(...years),
     yearMax: Math.max(...years),
     topicCounts,
+    domainCounts,
   },
   topics: db.topics,
+  domains: db.domains || {},
   papers,
   reports,
   news,
