@@ -338,3 +338,9 @@ img, svg, video { max-width: 100%; }
   .bottom-nav { display: block; }
   body { padding-bottom: calc(62px + env(safe-area-inset-bottom)); }
 }
+
+/* 行业动态 国际/国内 两栏 */
+.news-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+@media (max-width: 900px) { .news-cols { grid-template-columns: 1fr; } }
+.region-block .region-title { font-weight: 800; font-size: 1.02rem; margin-bottom: 10px; padding-left: 10px; border-left: 4px solid var(--brand); }
+.news-item { margin-bottom: 10px; }

@@ -204,6 +204,7 @@ function parseNews(file) {
     if (!summary) summary = (sec.filter((l) => l.trim() && !/^#/.test(l) && !/类别|来源|链接/.test(l)).map(stripMd).join(' ')).slice(0, 300);
     items.push({
       title: heading,
+      region: f('地区') || '国际',
       category: f('类别') || '行业动态',
       source: f('来源'),
       url: (f('链接') || '').replace(/^https?\/\//, 'https://'),

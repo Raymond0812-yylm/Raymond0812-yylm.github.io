@@ -20,17 +20,26 @@ const older = idx < data.news.length - 1 ? data.news[idx + 1] : null;
     <p class="lead small muted" style="margin-top:8px">当日共 {day.count} 条要闻 · 摘要为中文编译,准确信息以来源为准</p>
   </div>
 
-  {day.items.map((it: any, i: number) => (
-    <div class="panel">
-      <h2 style="margin-bottom:6px">{i + 1}. {it.title}</h2>
-      <div class="badges" style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
-        <span class="badge tag">{it.category}</span>
-        {it.source && <span class="venue">{it.source}</span>}
+  {['国际', '国内'].map((region: string) => {
+    const items = day.items.filter((it: any) => (it.region || '国际') === region);
+    if (!items.length) return null;
+    return (
+      <div style="margin-bottom:26px">
+        <h2 style="margin:0 0 12px">{region === '国际' ? '🌍 国际动态' : '🇨🇳 国内动态'} <span class="muted small">({items.length} 条)</span></h2>
+        {items.map((it: any, i: number) => (
+          <div class="panel">
+            <h2 style="margin-bottom:6px">{i + 1}. {it.title}</h2>
+            <div class="badges" style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+              <span class="badge tag">{it.category}</span>
+              {it.source && <span class="venue">{it.source}</span>}
+            </div>
+            <p class="abstract" style="margin-bottom:0">{it.summary}</p>
+            {it.url && <p style="margin:10px 0 0"><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></p>}
+          </div>
+        ))}
       </div>
-      <p class="abstract" style="margin-bottom:0">{it.summary}</p>
-      {it.url && <p style="margin:10px 0 0"><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></p>}
-    </div>
-  ))}
+    );
+  })}
 
   <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap">
     {older ? <a class="btn" href={`/news/${older.slug}/`}>← 上一期({older.date})</a> : <span></span>}

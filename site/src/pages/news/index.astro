@@ -22,18 +22,27 @@ const rest = news.slice(1);
     <div class="month">
       <h2>{day.date}{di === 0 ? ' · 最新' : ''}</h2>
       <a class="btn" style="margin-bottom:12px" href={`/news/${day.slug}/`}>查看当日全文版 →</a>
-      {day.items.map((it: any, i: number) => (
-        <div class="card" style="margin-bottom:10px">
-          <div class="top">
-            <span class="badge tag report">{String(i + 1).padStart(2, '0')}</span>
-            <span class="badge tag">{it.category}</span>
-            <span class="venue">{it.source}</span>
+      {['国际', '国内'].map((region: string) => {
+        const items = day.items.filter((it: any) => (it.region || '国际') === region);
+        if (!items.length) return null;
+        return (
+          <div class="region-block">
+            <div class="region-title">{region === '国际' ? '🌍 国际动态' : '🇨🇳 国内动态'} <span class="muted small">({items.length})</span></div>
+            {items.map((it: any, i: number) => (
+              <div class="card" style="margin-bottom:10px">
+                <div class="top">
+                  <span class="badge tag report">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="badge tag">{it.category}</span>
+                  <span class="venue">{it.source}</span>
+                </div>
+                <h3 class="title">{it.title}</h3>
+                <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
+                {it.url && <div class="meta"><span class="authors">来源链接</span><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></div>}
+              </div>
+            ))}
           </div>
-          <h3 class="title">{it.title}</h3>
-          <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
-          {it.url && <div class="meta"><span class="authors">来源链接</span><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></div>}
-        </div>
-      ))}
+        );
+      })}
     </div>
   ))}
 </Base>
