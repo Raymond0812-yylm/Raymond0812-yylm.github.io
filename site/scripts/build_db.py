@@ -32,7 +32,7 @@ FIXES = {
     ("sup", 65): {"topics": ["hybrid", "ml4co"]},
 }
 
-TOPIC_ORDER = ["qaoa", "annealing", "vqa", "qinspired", "hybrid", "hardware", "quantum-ai", "quantum", "ml4co", "llm4co"]
+TOPIC_ORDER = ["qaoa", "annealing", "vqa", "qinspired", "hybrid", "hardware", "quantum-ai", "quantum"]
 
 TOPIC_LABELS = {
     "qaoa": {"label": "量子近似优化", "desc": "QAOA 及其变体、参数策略、硬件实验与理论性能"},
@@ -43,8 +43,6 @@ TOPIC_LABELS = {
     "hardware": {"label": "量子硬件平台", "desc": "超导、离子阱、中性原子、光量子等平台及面向优化的硬件进展"},
     "quantum-ai": {"label": "量子计算×人工智能", "desc": "量子机器学习、量子神经网络、量子与大模型/生成式AI的交叉前沿"},
     "quantum": {"label": "领域综述与交叉前沿", "desc": "领域综述、路线图、基准测试与交叉前沿探索"},
-    "ml4co": {"label": "机器学习求解组合优化", "desc": "神经组合优化、GNN、强化学习、学习增强精确求解"},
-    "llm4co": {"label": "大模型赋能优化", "desc": "LLM 自动设计启发式、LLM 作为优化器、LLM×进化计算"},
 }
 
 # 应用领域(与研究方向正交的二级标签,一篇论文可属多个领域)
@@ -54,9 +52,7 @@ DOMAIN_LABELS = {
     "energy": {"label": "能源电力", "desc": "电网调度、微电网、可再生能源、碳排放优化"},
     "logistics": {"label": "物流供应链", "desc": "车辆路径、仓储、库存、车队与供应链网络"},
     "manufacturing": {"label": "制造调度", "desc": "车间调度、生产排程、工艺规划、装配线平衡"},
-    "telecom": {"label": "通信网络", "desc": "无线网络、频谱分配、基站组网、5G/6G 优化"},
     "transport": {"label": "交通出行", "desc": "城市交通、轨道交通、低空经济、自动驾驶"},
-    "pharma": {"label": "医药生物", "desc": "药物发现、分子对接、蛋白质、基因分析"},
     "materials": {"label": "材料化工", "desc": "材料设计、催化、化学合成、电池优化"},
     "it-cloud": {"label": "信息技术", "desc": "云计算调度、任务卸载、边缘计算、数据中心"},
 }
@@ -69,7 +65,6 @@ DOMAIN_RULES = [
     ("manufacturing", [r"job shop", r"production schedul", r"manufactur", r"assembly line", r"process planning", r"生产调度", r"制造", r"车间", r"工艺"]),
     ("telecom", [r"wireless", r"telecommunication", r"network routing", r"\b5G\b", r"\b6G\b", r"MIMO", r"base station", r"spectrum", r"通信", r"无线", r"基站", r"频谱"]),
     ("transport", [r"traffic", r"railway", r"subway", r"urban air mobility", r"autonomous driving", r"intelligent transport", r"交通", r"轨道交通", r"自动驾驶"]),
-    ("pharma", [r"drug", r"docking", r"protein", r"genom", r"molecular design", r"药物", r"对接", r"蛋白质", r"基因", r"分子设计"]),
     ("materials", [r"material", r"catalyst", r"chemistry", r"battery", r"材料", r"催化", r"化学", r"电池"]),
     ("it-cloud", [r"cloud computing", r"task offload", r"edge computing", r"data center", r"\bIoT\b", r"云计算", r"任务卸载", r"边缘计算", r"数据中心", r"物联网"]),
 ]
@@ -212,6 +207,12 @@ def main():
             }
             add(sp, s, "fill", -1)
 
+    # ---- 量子相关性硬过滤:与量子计算无关的纯经典论文一律剔除(卫星与航天领域豁免)----
+    QUANT = re.compile(r"quantum|QAOA|anneal|Ising|adiabatic|rydberg|trapped[- ]ion|superconducting qubit|photonic quantum|VQE|variational quantum|QUBO|量子|退火|绝热|里德堡|离子阱", re.I)
+    before = len(papers)
+    papers = [p for p in papers if QUANT.search(" ".join([p.get("title",""), p.get("titleZh",""), p.get("summaryZh",""), p.get("abstract","")])) or "satellite" in (p.get("domains") or [])]
+    culled = before - len(papers)
+
     papers.sort(key=lambda r: r["date"], reverse=True)
 
     # ---- 分类归一化 + 应用领域标注 ----
@@ -247,7 +248,12 @@ def main():
         else:
             hits = match_key(text, AUTO_TOPIC_RULES)
             p["topics"] = hits[:3] if hits else ["quantum"]
-        p["domains"] = match_key(text, DOMAIN_RULES)[:3]
+        p["domains"] = [d for d in match_key(text, DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
+        # 已废弃方向键(ml4co/llm4co)重映射:量子×AI 交叉归 quantum-ai,其余按规则重判
+        if any(t in ("ml4co", "llm4co") for t in p["topics"]):
+            auto = match_key(text, AUTO_TOPIC_RULES)
+            t = [x for x in auto[:3] if x in TOPIC_ORDER] or (["quantum"] if "satellite" in p.get("domains", []) else ["quantum"])
+            p["topics"] = t
 
     db = {
         "version": 1,
@@ -259,7 +265,7 @@ def main():
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(db, f, ensure_ascii=False, indent=1)
     from collections import Counter
-    print("papers:", len(papers))
+    print("papers:", len(papers), "| culled non-quantum:", culled)
     print("primary topics:", dict(Counter(p["topics"][0] for p in papers)))
     print("tags:", dict(Counter(t for p in papers for t in p["tags"])))
     print("years:", dict(sorted(Counter(p["year"] for p in papers).items())))

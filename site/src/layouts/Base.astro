@@ -39,6 +39,11 @@ const nav = [
     <link rel="apple-touch-icon" href="/icons/icon-192.png" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="QuantOpt" />
+    <script is:inline>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script>
   </head>
   <body>
     <script is:inline>
@@ -46,13 +51,44 @@ const nav = [
         window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
       }
     </script>
-    <header class="site-header">
-      <div class="wrap">
+    <div class="shell">
+      <aside class="sidebar">
         <a class="brand" href="/">
           <span class="logo">Q</span>
-          <span>{SITE_NAME}<span class="sub">{SITE_NAME_EN}</span></span>
+          <span>{SITE_NAME}</span>
         </a>
-        <nav class="nav" aria-label="主导航">
+        <div class="side-group">
+          <div class="side-label">内容</div>
+          <a class="side-link" href="/" class:list={[active === 'home' && 'active']}><span class="ico">🏠</span>首页</a>
+          <a class="side-link" href="/daily/" class:list={[active === 'daily' && 'active']}><span class="ico">📅</span>每日报告</a>
+          <a class="side-link" href="/news/" class:list={[active === 'news' && 'active']}><span class="ico">📣</span>行业动态</a>
+          <a class="side-link" href="/specials/" class:list={[active === 'specials' && 'active']}><span class="ico">🧭</span>专题</a>
+        </div>
+        <div class="side-group">
+          <div class="side-label">文献</div>
+          <a class="side-link" href="/papers/" class:list={[active === 'papers' && 'active']}><span class="ico">📚</span>论文库</a>
+          <a class="side-link" href="/topics/" class:list={[active === 'topics' && 'active']}><span class="ico">🔬</span>研究方向</a>
+          <a class="side-link" href="/applications/" class:list={[active === 'domains' && 'active']}><span class="ico">🏭</span>应用领域</a>
+        </div>
+        <div class="side-group">
+          <div class="side-label">更多</div>
+          <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a>
+          <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a>
+          <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a>
+        </div>
+        <div class="side-foot">
+          <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button>
+        </div>
+      </aside>
+      <div class="main-col">
+        <header class="site-header">
+          <div class="wrap">
+            <a class="brand" href="/">
+              <span class="logo">Q</span>
+              <span>{SITE_NAME}<span class="sub">{SITE_NAME_EN}</span></span>
+            </a>
+            <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button>
+            <nav class="nav" aria-label="主导航">
           {nav.map(([href, label, key]) => (
             <a href={href} class={active === key ? 'active' : ''}>{label}</a>
           ))}
@@ -76,6 +112,8 @@ const nav = [
         </div>
       </div>
     </footer>
+      </div>
+    </div>
 
     <nav class="bottom-nav" aria-label="移动端导航">
       <div class="inner">
@@ -86,5 +124,26 @@ const nav = [
         <a href="/specials/" class={active === 'specials' ? 'active' : ''}><span class="ico">🧭</span>专题</a>
       </div>
     </nav>
+    <script is:inline>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script>
   </body>
 </html>

@@ -3,7 +3,7 @@ export const SITE_NAME = '量子优化日报';
 export const SITE_NAME_EN = 'QuantOpt Daily';
 export const SITE_TAGLINE = '量子计算 × 组合优化 × 智能优化算法 —— 每日追踪领域最新论文与研究进展';
 
-export const TOPIC_ORDER = ['qaoa', 'annealing', 'vqa', 'qinspired', 'hybrid', 'hardware', 'quantum-ai', 'quantum', 'ml4co', 'llm4co'];
+export const TOPIC_ORDER = ['qaoa', 'annealing', 'vqa', 'qinspired', 'hybrid', 'hardware', 'quantum-ai', 'quantum'];
 
 export const DOMAIN_ORDER = ['satellite', 'finance', 'energy', 'logistics', 'manufacturing', 'telecom', 'transport', 'pharma', 'materials', 'it-cloud'];
 

@@ -33,14 +33,6 @@
   "quantum": {
    "label": "领域综述与交叉前沿",
    "desc": "领域综述、路线图、基准测试与交叉前沿探索"
-  },
-  "ml4co": {
-   "label": "机器学习求解组合优化",
-   "desc": "神经组合优化、GNN、强化学习、学习增强精确求解"
-  },
-  "llm4co": {
-   "label": "大模型赋能优化",
-   "desc": "LLM 自动设计启发式、LLM 作为优化器、LLM×进化计算"
   }
  },
  "domains": {
@@ -64,17 +56,9 @@
    "label": "制造调度",
    "desc": "车间调度、生产排程、工艺规划、装配线平衡"
   },
-  "telecom": {
-   "label": "通信网络",
-   "desc": "无线网络、频谱分配、基站组网、5G/6G 优化"
-  },
   "transport": {
    "label": "交通出行",
    "desc": "城市交通、轨道交通、低空经济、自动驾驶"
-  },
-  "pharma": {
-   "label": "医药生物",
-   "desc": "药物发现、分子对接、蛋白质、基因分析"
   },
   "materials": {
    "label": "材料化工",
@@ -347,38 +331,6 @@
    "domains": []
   },
   {
-   "id": "llm-driven-joint-evolution-coupled-heuristics-components-49016",
-   "title": "LLM-Driven Joint Evolution of Coupled Heuristics Components for Routing Optimization",
-   "titleZh": "LLM驱动的耦合启发式组件联合进化用于路径优化",
-   "authors": [
-    "Juntao Wei",
-    "Yangming Zhou",
-    "Zhibin Jiang",
-    "Shan Jiang"
-   ],
-   "venue": "arXiv",
-   "date": "2026-09-02",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2609.02353",
-   "doi": "10.48550/arxiv.2609.02353",
-   "url": "https://arxiv.org/abs/2609.02353",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "现有LLM增强的进化方法大多孤立地进化单个算法组件。论文提出LLM-HCJG框架,在统一设计蓝图下联合生成并共同进化相互依赖的启发式组件,应用于引导局部搜索(GLS)时将解初始化与罚函数构造耦合设计。这标志着\"LLM自动设计启发式\"从单组件走向系统级联合设计。",
-   "abstract": "Heuristic design for combinatorial optimization remains heavily reliant on expert knowledge, while existing large language model (LLM)-enhanced evolutionary methods typically evolve isolated algorithmic components, even when one determines the search state on which another operates. This paper proposes LLM-driven Heuristic Components Joint Generation (LLM-HCJG), a population-based framework that jointly generates and co-evolves interdependent heuristic components under a shared design blueprint. Applied to guided local search (GLS), LLM-HCJG couples solution initialization with penalty construction and embeds the generated pair into an enhanced online search mechanism. The resulting form is further transferred from the traveling salesman problem (TSP) to the capacitated vehicle routing problem (CVRP). Theoretical analysis establishes the non-separable state-transition effects between the two components and the advantage in generation consistency. Across synthetic instances and 41 public TSPLIB/CVRPLIB benchmarks, LLM-HCJG attains consistently low optimality gaps, including best or tied-best results on 28 of 29 TSPLIB instances and all 12 CVRPLIB instances. Ablation and structural analyses further indicate that these gains are associated with cross-component compatibility and alignment rather than isolated-component recombination. These results support effective cross-instance transfer within the evaluated routing settings under limited-sample, modest-cost training.",
-   "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
-  },
-  {
    "id": "improving-dimensionality-reduction-carbon-emissions-prediction-hybrid-57516",
    "title": "Improving dimensionality-reduction for carbon-emissions prediction using hybrid quantum annealing-based feature selection and PCA",
    "titleZh": "量子退火特征选择与PCA结合的混合降维用于碳排放预测",
@@ -529,8 +481,7 @@
    "abstract": "In post-disaster environments, the failure of terrestrial communication infrastructure necessitates the rapid deployment of unmanned aerial vehicles (UAVs) as aerial base stations to restore wireless connectivity. This paper addresses the joint UAV activation-and-placement problem in continuous space, with the objective of minimizing the number of deployed UAVs while satisfying coverage and minimum-separation constraints. To solve this problem, we propose a Hybrid K-means Quantum-Inspired Evolutionary Algorithm (HKQEA) that combines K-means-guided initialization, a calibrated penalty-based feasibility objective, non-elitist evolutionary search, and a quantum-inspired learning update. Experimental results over 50 independent runs show that HKQEA attains a best fully feasible solution with 8 UAVs, while achieving average values of 98.94% for coverage, 99.94% for non-overlap, and 99.68% for minimum-distance satisfaction. Comparative evaluation against standard Non-dominated Sorting Genetic Algorithm II (NSGA-II), Particle Swarm Optimization algorithm (PSO) and an elitist variant of HKQEA further shows that the proposed method provides a more favorable balance among exploration, convergence behavior, and reliable feasibility preservation in constrained deployment problems. An illustrative procurement-level cost analysis also indicates that reducing the fleet from 10 UAVs to 8 can yield a 20% reduction in hardware count, corresponding to a simplified savings ratio of 25% for the s",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "telecom"
+    "logistics"
    ]
   },
   {
@@ -550,7 +501,6 @@
    "doi": "10.1007/s00163-026-00494-0",
    "url": "https://doi.org/10.1007/s00163-026-00494-0",
    "topics": [
-    "llm4co",
     "quantum"
    ],
    "curatedTopics": false,
@@ -579,7 +529,6 @@
    "doi": "10.70917/ijcisim-2026-5339",
    "url": "https://doi.org/10.70917/ijcisim-2026-5339",
    "topics": [
-    "ml4co",
     "qinspired",
     "quantum"
    ],
@@ -589,38 +538,6 @@
    ],
    "summaryZh": "该综述系统梳理了图着色这一经典NP难问题的理论内核(顶点/边/面/列表/全着色)、算法演进脉络——从精确与贪心方法(Welsh-Powell、DSATUR、回溯)到元启发式与现代混合算法,并覆盖考试排课、频谱分配等产业应用,适合作为进入组合优化领域的入门综述。",
    "abstract": "Coloring the vertices, edges or faces of a graph so that no two adjacent elements share a label is among the oldest problems in graph theory, and one of the few whose reach extends into exam timetables and wireless spectrum allocation as it does into pure combinatorics. This survey draws together the problem’s theoretical core – vertex, edge, face, list and total coloring – with the algorithms built to solve it and the industries that now depend on those algorithms. Because coloring is NP-hard, we trace the field’s progression from exact and greedy methods (Welsh-Powell, DSATUR, backtracking) through metaheuristics that trade optimality for scale (genetic algorithms, tabu search, simulated annealing, ant colony and artificial bee colony optimization), to the graph neural network and quantum-inspired solvers that have emerged in recent years. Rather than treating theory, algorithms and applications as separate literatures, we connect them directly: each application – examination and crew scheduling, frequency assignment, compiler register allocation, cartographic map coloring – is traced back to the specific coloring variant and algorithm family the literature actually uses, while the algorithm families themselves are compared head-to-head on complexity, solution quality and scalability rather than catalogued one at a time. This comparative structure, together with its coverage of recent learning-based solvers, is what distinguishes this survey from the standard references on ",
-   "source": "backfill",
-   "domains": [
-    "telecom"
-   ]
-  },
-  {
-   "id": "lomax-llm-driven-local-code-optimization-maxsat-ad962",
-   "title": "LoMax: LLM‐Driven Local Code Optimization for MaxSAT Solvers",
-   "titleZh": "LoMax:LLM驱动的MaxSAT求解器局部代码优化",
-   "authors": [
-    "Fan Gao",
-    "Yanhong Huang",
-    "Jianwen Li",
-    "Jianqi Shi"
-   ],
-   "venue": "Concurrency and Computation Practice and Experience",
-   "date": "2026-08-30",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1002/cpe.70926",
-   "url": "https://doi.org/10.1002/cpe.70926",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "与FunSearch、SATLUTION等聚焦高层算法草图或大规模代码重构的工作不同,LoMax专注纯局部、经正确性验证的代码级优化,由LLM自动改进工业级MaxSAT求解器的底层实现。研究表明局部微优化这一被低估的环节同样能带来可观的求解性能收益。",
-   "abstract": "ABSTRACT The Maximum Satisfiability (MaxSAT) problem is a fundamental combinatorial optimization task, and state‐of‐the‐art solvers rely on decades of expert‐engineered heuristics and low‐level micro‐optimizations to achieve competitive performance. While recent Large Language Model (LLM)‐driven approaches (e.g., FunSearch, SATLUTION) have shown promise in algorithmic design and global solver evolution, they either focus on high‐level algorithmic sketches or large‐scale code restructuring, leaving the potential of purely local, correctness‐validated code optimization for industrial MaxSAT solvers largely underexplored in prior MaxSAT‐focused studies. This paper presents LoMax, a plug‐and‐play framework that leverages an LLM to perform local code optimization for MaxSAT solvers. Without any human‐written heuristics or instance‐specific domain‐specific templates (The prompts contain general MaxSAT domain knowledge but no instance‐specific or benchmark‐specific optimization templates), LoMax iteratively (i) ranks source files, (ii) scores individual functions, (iii) optimizes the highest‐scoring function body, (iv) performs a fast sanity evaluation on a small instance set, and (v) validates it on full exact‐unweighted and exact‐weighted benchmarks. Experiments on two state‐of‐the‐art solvers (UWrMaxSat‐SCIP‐MaxPre and OpenWBO) show consistent improvements: UWrMaxSat‐SCIP‐MaxPre solves additional instances (average runtime 13.11 s 14.27 s) on 553 unweighted instances and addition",
    "source": "backfill",
    "domains": []
   },
@@ -895,37 +812,6 @@
    "summaryZh": "分子对接因结合构象组合爆炸而计算昂贵。论文将其重构为兼容图上的最大点权团问题(MVWCP),提出混合量子-经典求解方案并在NISQ设备上实现资源高效的端到端演示,为药物发现核心环节的量子化提供了可扩展的技术路线。",
    "abstract": "Molecular docking is a vital computational task in drug discovery, wherein the objective is to efficiently identify optimal binding poses between a ligand and a target receptor protein. Due to the combinatorial explosion of possible binding configurations, docking of large and flexible molecules remains a computationally intensive problem, especially at scale. Early studies have revealed that the molecular docking can be re-cast as a maximum vertex-weighted clique problem (MVWCP) problem on a compatibility graph to be solved classically. In this work, we proposed a hybrid quantum-classical approach for molecular docking leveraging the MVWCP formalism with a variational full-basis encoding (FBE) strategy, which enables efficient encoding of classical binary variables with Bloch sphere vectors. We further prove that a global minimizer of the FBE objective can always be chosen to be a pure product state, thereby providing a rigorous justification for its optimization using a unitary variational circuit. The molecular docking problem is first mapped to a cost Hamiltonian that is minimized within a variational framework, optimized via a randomized imaginary time evolution (ITE)-inspired warm start, and gradient-based techniques. Finally, we also executed the circuit on an IBM quantum computer, underlying the feasibility and of quantum-assisted optimization for structure-based drug design and point towards the broader utility of advanced encoding techniques in quantum optimization ",
    "source": "backfill",
-   "domains": [
-    "pharma"
-   ]
-  },
-  {
-   "id": "behavior-representation-open-weight-large-language-models-3218f",
-   "title": "Behavior and representation in open-weight Large Language Models for combinatorial optimization: From feature extraction to algorithm selection",
-   "titleZh": "开源大语言模型在组合优化中的行为与表征:从特征提取到算法选择",
-   "authors": [
-    "Francesca Da Ros",
-    "Luca Di Gaspero",
-    "Kevin Roitero"
-   ],
-   "venue": "Computers & Operations Research",
-   "date": "2026-08-19",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1016/j.cor.2026.107603",
-   "url": "https://doi.org/10.1016/j.cor.2026.107603",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文探究冻结的开源LLM对组合优化实例形成的内部表征能否支撑下游决策:以算法选择任务为例,检验LLM表征是否捕获了问题结构与算法行为信息。研究不追求替代精确特征工程,而是评估LLM作为\"通用实例特征提取器\"的可行性,为LLM在优化自动化中的角色提供了机理层面的证据。",
-   "abstract": "Recent advances in Large Language Models (LLMs) open new perspectives for automation in optimization, yet little is known about whether their internal representations capture problem structure or algorithmic behavior. We investigate whether representations learned by frozen, open-weight LLMs for combinatorial optimization instances can support downstream decision tasks. The goal is not to replace exact feature extractors or to propose a new algorithm, but to assess whether such representations are reusable for feature recovery and algorithm selection. Our methodology combines direct querying , which tests explicit feature extraction, with probing analyses of whether this information is implicitly encoded in the hidden layers. The probing framework is further extended to a per-instance algorithm selection task. Experiments span four benchmark problems, three instance representations, and five open-weight models from 3B to 120B parameters across the Llama instruct and gpt-oss reasoning families, including a chain-of-thought study on Llama models. Results show a limited ability to recover features explicitly, particularly those requiring structured computation, while part of this information remains implicitly encoded in the hidden states. A consistent gap separates implicit encoding from explicit retrieval. Model scale attenuates this gap, whereas the effect of chain-of-thought prompting depends strongly on model size, and in all cases the gap remains open. Reasoning-oriented m",
-   "source": "backfill",
    "domains": []
   },
   {
@@ -1164,38 +1050,6 @@
    "domains": []
   },
   {
-   "id": "autopref-automatic-discovery-task-specific-preference-objectives-22e57",
-   "title": "AutoPref: Automatic Discovery of Task-Specific Preference Objectives for Neural Combinatorial Optimization",
-   "titleZh": "AutoPref:为神经组合优化自动发现任务特定偏好目标",
-   "authors": [
-    "Shengda Gu",
-    "Kai Li",
-    "Xinyi Ke",
-    "Haobo Fu",
-    "Yifan Zhang",
-    "Jian Cheng"
-   ],
-   "venue": "arXiv",
-   "date": "2026-07-30",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2607.27953",
-   "doi": "10.48550/arxiv.2607.27953",
-   "url": "https://arxiv.org/abs/2607.27953",
-   "topics": [
-    "llm4co",
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "基于偏好的NCO通过相对解质量学习提升样本效率,但偏好目标依赖人工设计。AutoPref利用LLM驱动的搜索自动发现任务特定的偏好目标函数,在多类组合优化问题上超越手工设计的目标。该工作是\"LLM设计训练目标\"这一元学习思路在NCO中的体现。",
-   "abstract": "Combinatorial optimization problems (COPs) underpin many real-world decisions, but their exponentially large search spaces make high-quality solutions costly to obtain. Neural combinatorial optimization (NCO) learns fast construction policies, typically with reinforcement learning (RL), while preference-based NCO improves sample efficiency by learning from relative solution quality. However, existing preference objectives combine two distinct design choices in manually specified, one-size-fits-all formulations: what learning signal to extract from each solution pair and how to weight each pair relative to the sampled set. We present AutoPref, the first LLM-guided framework for automated preference-objective discovery in NCO. AutoPref factorizes the objective into a pairwise loss program, which defines the learning signal, and a set-aware weighting program, which determines each pair's relative contribution. Their composition forms a unified programmatic objective space containing existing preference objectives as special cases. To make its search tractable, we introduce a staged conditional search strategy with behavioral gates that filter inadmissible programs before short-horizon training and evaluation. Across TSP, CVRP, FFSP, and JSSP, AutoPref consistently outperforms strong hand-designed baselines across problem scales, demonstrating the benefits and scalability of automated objective discovery for NCO.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
    "id": "quantum-ensemble-variational-optimization-algorithm-applications-molecular-85317",
    "title": "The quantum ensemble variational optimization algorithm: Applications to molecular inverse design",
    "titleZh": "量子集成变分优化算法:在分子逆向设计中的应用",
@@ -1223,7 +1077,6 @@
    "abstract": "Designing molecules with optimized properties remains a fundamental challenge due to the intricate relationship between molecular structure and properties. Traditional computational approaches that address the combinatorial number of possible molecular designs become unfeasible as the molecular size increases, suffering from the so-called \"curse of dimensionality\" problem. Recent advances in quantum computing hardware present new opportunities to address this problem. Here, we introduce the quantum ensemble variational optimization (QEVO) method for near-term and early fault-tolerant quantum computing platforms. QEVO efficiently maps molecular structures onto an orthonormal basis of binary strings and samples from a superposition state generated by a variational ansatz. The ansatz is iteratively optimized to identify molecular candidates with the desired property. Our numerical simulations demonstrate the potential of QEVO to design drug-like molecules with anticancer properties, operating in combinatorial spaces composed of up to [Formula: see text] solutions, while employing a shallow quantum circuit that requires only a modest number of qubits. We envision that QEVO could be applied to a wide range of complex problems, offering practical solutions to problems with combinatorial complexity.",
    "source": "backfill",
    "domains": [
-    "pharma",
     "materials"
    ]
   },
@@ -1380,7 +1233,6 @@
    "abstract": "Martian dust storms cut off communication and break standard robot navigation. We built a hybrid system that keeps robot swarms alive during these blackouts and recovers their data quickly. Our rovers use Spiking Neural Networks (SNNs) on their own edge processors to navigate without a signal. Once the storm passes, we use the Quantum Approximate Optimization Algorithm (QAOA) on a cloud platform to merge the fragmented maps the rovers collected while they were offline. We tested this system in a Robot Operating System 2 (ROS 2) and Gazebo environment using a simulated 10-rover Martian deployment. During the simulated blackout, our SNN edge navigation achieved a 92.0% survival rate, outperforming traditional planners like Dynamic Window Approach (DWA) (29.0%) and Timed Elastic Band (TEB) (24.3%). The neuromorphic approach also reduced overall system power consumption by 80.0% compared to a traditional unoptimized Graphics Processing Unit (GPU)-based Simultaneous Localization and Mapping (SLAM) baseline. For the map recovery phase, our simulated QAOA proof-of-concept evaluated the map constraints in just 1.2 ms, compared to 50.0 ms for a classical Generalized Iterative Closest Point (G-ICP) and g2o pose-graph approach. Despite the noisy sensor data collected during the blackout, the final quantum-stitched map achieved an 8.54 cm Root Mean Square Error (RMSE). These results show that combining edge-based neuromorphic processing with quantum cloud computing secures swarm survival",
    "source": "backfill",
    "domains": [
-    "telecom",
     "it-cloud"
    ]
   },
@@ -1504,8 +1356,7 @@
    "doi": "10.48550/arxiv.2606.19741",
    "url": "https://arxiv.org/abs/2606.19741",
    "topics": [
-    "llm4co",
-    "ml4co"
+    "quantum"
    ],
    "curatedTopics": false,
    "tags": [
@@ -1565,8 +1416,6 @@
    "doi": "10.48550/arxiv.2606.10321",
    "url": "https://arxiv.org/abs/2606.10321",
    "topics": [
-    "llm4co",
-    "ml4co",
     "quantum"
    ],
    "curatedTopics": false,
@@ -1754,63 +1603,6 @@
    ]
   },
   {
-   "id": "mathematical-model-amoeba-inspired-combinatorial-optimization-machine-11b06",
-   "title": "Mathematical model of the amoeba-inspired combinatorial optimization machine for physical implementation and its equivalence to recurrent neural networks",
-   "titleZh": "面向物理实现的阿米巴启发组合优化机数学模型及其与循环神经网络的等价性",
-   "authors": [
-    "Yusuke Miyajima",
-    "Masahito Mochizuki"
-   ],
-   "venue": "Physical Review Research",
-   "date": "2026-05-08",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1103/zgvb-cfpg",
-   "url": "https://doi.org/10.1103/zgvb-cfpg",
-   "topics": [
-    "hybrid",
-    "ml4co"
-   ],
-   "curatedTopics": true,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "受黏菌生存策略启发的组合优化机以高效低功耗为目标,但既有模型因体积守恒约束与条件分支难以物理实现。论文提出适合物理实现的数学模型,并证明其与循环神经网络等价,把生物启发优化机与神经网络计算统一起来。",
-   "abstract": "Information-processing algorithms inspired by survival strategies of slime molds have been intensively studied to realize combinatorial optimization machines with high computational efficiency and low power consumption. However, previously proposed mathematical models are not suitable for physical implementation as they involved constraints due to the volume-conservation law of slime molds, multiple conditional branches, and numerous complex functions such as sigmoid functions. Here, we propose a mathematical model, the Amoeba TSP (traveling salesman problem) recurrence formula model, which simplifies the information-processing procedure and enables physical implementation without sacrificing optimization performance. Specifically, we demonstrate using numerical simulations that (1) the conservation-law constraints assumed in previous models can be removed, (2) several sigmoid functions can be eliminated, and (3) Gaussian-distribution random numbers that can be generated from thermal fluctuations can be employed as random fluctuations. These improvements broaden the range of candidate materials and phenomena for physical implementation and reduce the number of device components required. Furthermore, we discover that our mathematical model integrating these modifications is mathematically equivalent to a recurrent neural network with fixed weights that exploits nonlinear dynamics. Remarkably, despite its significant simplification, the proposed model exhibits superior solutio",
-   "source": "backfill",
-   "domains": [
-    "materials"
-   ]
-  },
-  {
-   "id": "rag-enhanced-kernel-based-heuristic-synthesis-rkhs-8b8a0",
-   "title": "RAG-Enhanced Kernel-Based Heuristic Synthesis (RKHS): A Structured Methodology Using Large Language Models for Hardware Design",
-   "titleZh": "RKHS:面向硬件设计的RAG增强核启发式合成LLM方法",
-   "authors": [
-    "Shiva Ahir",
-    "Alex Doboli"
-   ],
-   "venue": "arXiv",
-   "date": "2026-04-28",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2604.26153",
-   "doi": "10.48550/arxiv.2604.26153",
-   "url": "https://arxiv.org/abs/2604.26153",
-   "topics": [
-    "llm4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "EDA工具中的布局、布线与调度启发式依赖深厚专家经验。论文提出RKHS方法,将检索增强生成(RAG)与结构化的\"核\"抽象结合,使LLM能系统合成可复用的优化启发式而非一次性代码生成。这把LLM自动启发式设计推向了电子设计自动化这一高价值工业领域。",
-   "abstract": "Heuristic design upholds modern electronic design automation (EDA) tools, yet crafting effective placement, routing, and scheduling strategies entails substantial expertise. We study how large language models (LLMs) can systematically synthesize reusable optimization heuristics beyond one-shot code generation. We propose RAG-Enhanced Kernel-Based Heuristic Synthesis (RKHS), which integrates retrieval-augmented generation (RAG), compact kernel heuristic templates, and an LLM-driven refinement loop inspired by iterative self-feedback. Applied to latency-minimizing list scheduling in high-level synthesis (HLS), a prototype reduces average schedule length by up to 11 percent over a baseline scheduler with only 1.3x runtime overhead, and the structured retrieval-synthesis loop generalizes to other EDA optimization problems.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
    "id": "autoqresearch-llm-guided-closed-loop-policy-search-b4a99",
    "title": "AutoQResearch: LLM-Guided Closed-Loop Policy Search for Adaptive Variational Quantum Optimization",
    "titleZh": "AutoQResearch:LLM引导的自适应变分量子优化闭环策略搜索",
@@ -1826,7 +1618,6 @@
    "doi": "10.48550/arxiv.2604.24283",
    "url": "https://arxiv.org/abs/2604.24283",
    "topics": [
-    "llm4co",
     "vqa",
     "quantum"
    ],
@@ -1871,37 +1662,6 @@
    ]
   },
   {
-   "id": "clustering-based-neural-combinatorial-optimization-scanning-path-72074",
-   "title": "Clustering Based Neural Combinatorial Optimization for Scanning Path Planning of Heterogeneous Multi-Agent System",
-   "titleZh": "基于聚类的神经组合优化用于异构多智能体系统扫描路径规划",
-   "authors": [
-    "Bocheng Zhao",
-    "Hang Shi",
-    "Jirou Feng",
-    "Bo Qi",
-    "Mingying Huo",
-    "Naiming Qi"
-   ],
-   "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
-   "date": "2026-04-24",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1109/tetci.2026.3681463",
-   "url": "https://doi.org/10.1109/tetci.2026.3681463",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对异构多智能体扫描路径规划,论文先用密度聚类将任务划分为均衡的簇,再对各簇进行神经组合优化路径规划,最后基于规划结果用MILP系统分配任务。这种\"聚类分解+学习求解+精确分配\"的分层混合方案体现了ML4CO与传统运筹方法的务实结合。",
-   "abstract": "An effective solution method is proposed for the scanning path planning problem of heterogeneous multi-agent systems. Target mission is divided into multiple task clusters by density clustering to balance the task difficulty. Afterwards, the method innovatively first performs path planning for each task cluster, then systematically allocates tasks by utilizing mixed-integer linear programming (MILP) based on the planning outcomes and the diverse capabilities within the heterogeneous system, ensuring that agents possess unique adaptability to tasks that align with their specific capabilities. In the optimization solving phase, a neural combinatorial optimization (NCO) algorithm based on graph neural network (GNN) is proposed. Through supervised learning and cross-instance parallel training, the automation of heuristic design and the enhancement of heuristic rules are achieved, avoiding the inefficiency and suboptimality of expert design and manual parameter tuning. Simulation results show that the algorithm has better performance in terms of task completion time, execution time and deviation rate, showing its application potential in the rapid task planning problem of heterogeneous multi-agent systems.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
    "id": "ncogap-neural-combinatorial-optimization-solving-large-scale-7f3c5",
    "title": "NCOGAP: Neural Combinatorial Optimization for Solving Large-Scale Airport Gate Assignment Problems",
    "titleZh": "NCOGAP:求解大规模机场登机口分配问题的神经组合优化",
@@ -1918,7 +1678,7 @@
    "doi": "10.1109/tits.2026.3682207",
    "url": "https://doi.org/10.1109/tits.2026.3682207",
    "topics": [
-    "ml4co"
+    "quantum"
    ],
    "curatedTopics": false,
    "tags": [
@@ -1977,7 +1737,6 @@
    "doi": "10.48550/arxiv.2604.01455",
    "url": "https://arxiv.org/abs/2604.01455",
    "topics": [
-    "llm4co",
     "annealing"
    ],
    "curatedTopics": false,
@@ -1986,69 +1745,6 @@
    ],
    "summaryZh": "现有LLM求解组合优化的方法多聚焦可行实例的解生成,忽视不可行性检测。论文提出不可行性感知框架:构建可证明的数据集、监督微调LLM识别不可行实例,并辅助下游搜索;以量子退火中的minor-embedding问题为案例验证。该工作弥补了LLM4CO在\"知道何时无解\"上的空白,且与量子退火编译直接相关。",
    "abstract": "Large language models (LLMs) are increasingly explored for NP-hard combinatorial optimization problems, but most existing methods emphasize feasible-instance solution generation and do not explicitly address infeasibility detection. We propose an infeasibility-aware framework that combines certifiable dataset construction, supervised fine-tuning, and LLM-assisted downstream search. For the minor-embedding problem, we introduce a new mathematical programming formulation together with provable zero-phase infeasibility screening, which enables scalable construction of training instances labeled either as feasible with structured certificates or as certifiably infeasible. Using training data generated through this exact optimization pipeline, we show that an 8B-parameter LLM can be fine-tuned to jointly perform solution generation and infeasibility detection. We further utilize LLM outputs as warm starts for downstream local search, providing a practical way to accelerate optimization even when the LLM outputs are imperfect. Experiments show that our fine-tuned model improves overall accuracy by up to 30\\% over GPT-5.2; meanwhile LLM-guided warm starts provide up to $2\\times$ speedup compared with starting from scratch in downstream local search.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "aligning-llms-graph-neural-solvers-combinatorial-optimization-6aaae",
-   "title": "Aligning LLMs with Graph Neural Solvers for Combinatorial Optimization",
-   "titleZh": "让LLM与图神经求解器对齐以求解组合优化",
-   "authors": [
-    "Shuhao Feng",
-    "Zhuoyi Lin",
-    "Yaoxin Wu",
-    "Haiyan Yin",
-    "Yan Jin",
-    "J. Senthilnath",
-    "Xun Xu"
-   ],
-   "venue": "arXiv",
-   "date": "2026-03-28",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2603.27169",
-   "doi": "10.48550/arxiv.2603.27169",
-   "url": "https://arxiv.org/abs/2603.27169",
-   "topics": [
-    "llm4co",
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "纯语言表示难以刻画组合优化中的复杂关系结构,限制了LLM在中大规模实例上的效果。论文提出将LLM与图神经求解器对齐:GNN提供结构化表征与求解能力,LLM负责理解与推理,两者协同互补。该工作代表了LLM4CO与ML4CO两条路线的融合趋势。",
-   "abstract": "Recent research has demonstrated the effectiveness of large language models (LLMs) in solving combinatorial optimization problems (COPs) by representing tasks and instances in natural language. However, purely language-based approaches struggle to accurately capture complex relational structures inherent in many COPs, rendering them less effective at addressing medium-sized or larger instances. To address these limitations, we propose AlignOPT, a novel approach that aligns LLMs with graph neural solvers to learn a more generalizable neural COP heuristic. Specifically, AlignOPT leverages the semantic understanding capabilities of LLMs to encode textual descriptions of COPs and their instances, while concurrently exploiting graph neural solvers to explicitly model the underlying graph structures of COP instances. Our approach facilitates a robust integration and alignment between linguistic semantics and structural representations, enabling more accurate and scalable COP solutions. Experimental results demonstrate that AlignOPT achieves state-of-the-art results across diverse COPs, underscoring its effectiveness in aligning semantic and structural representations. In particular, AlignOPT demonstrates strong generalization, effectively extending to previously unseen COP instances.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "large-language-models-combinatorial-optimization-systematic-review-2633b",
-   "title": "Large Language Models for Combinatorial Optimization: A Systematic Review",
-   "titleZh": "大语言模型用于组合优化:系统综述",
-   "authors": [
-    "Francesca Da Ros",
-    "Michael Soprano",
-    "Luca Di Gaspero",
-    "Kevin Roitero"
-   ],
-   "venue": "ACM Computing Surveys",
-   "date": "2026-03-16",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1145/3801961",
-   "url": "https://doi.org/10.1145/3801961",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "ACM Computing Surveys上遵循PRISMA规范的系统综述:从Scopus与Google Scholar超2000篇文献中按明确的纳入/排除标准筛选,系统归纳LLM在组合优化中的角色——直接求解器、启发式生成器、建模助手、算法选择与配置等,并梳理评估方法、局限与开放问题。是LLM4CO方向迄今最系统的文献地图。",
-   "abstract": "This systematic review explores the application of Large Language Models (LLMs) in Combinatorial Optimization (CO). We report our findings using the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) guidelines. We conduct a literature search via Scopus and Google Scholar, examining over 2,000 publications. We assess publications against four inclusion and four exclusion criteria related to their language, research focus, publication year, and type. Eventually, we select 103 studies. We classify these studies into semantic categories and topics to provide a comprehensive overview of the field, including the tasks performed by LLMs, the architectures of LLMs, the existing datasets specifically designed for evaluating LLMs in CO, and the field of application. Finally, we identify future directions for leveraging LLMs in this field.",
    "source": "backfill",
    "domains": []
   },
@@ -2313,7 +2009,7 @@
    "doi": "10.1038/s42256-025-01153-0",
    "url": "https://doi.org/10.1038/s42256-025-01153-0",
    "topics": [
-    "llm4co"
+    "quantum"
    ],
    "curatedTopics": false,
    "tags": [
@@ -2343,7 +2039,6 @@
    "doi": "10.1007/s42484-026-00341-4",
    "url": "https://doi.org/10.1007/s42484-026-00341-4",
    "topics": [
-    "ml4co",
     "annealing",
     "hardware"
    ],
@@ -2557,42 +2252,6 @@
    ]
   },
   {
-   "id": "evolutionary-algorithm-memory-guidance-data-transmission-scheduling-49f8b",
-   "title": "An Evolutionary Algorithm With Memory Guidance for Data Transmission Scheduling Optimization in Communication Satellite Network",
-   "titleZh": "带记忆引导的进化算法用于通信卫星网络数据传输调度优化",
-   "authors": [
-    "Yingying Ren",
-    "Qiuli Li",
-    "Yue Zhang",
-    "Jiting Li",
-    "Witold Pedrycz",
-    "Ponnuthurai Nagaratnam Suganthan",
-    "Rammohan Mallipeddi",
-    "Yanjie Song"
-   ],
-   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
-   "date": "2026-01-12",
-   "year": 2026,
-   "citations": 13,
-   "arxivId": "",
-   "doi": "10.1109/tsmc.2025.3647265",
-   "url": "https://doi.org/10.1109/tsmc.2025.3647265",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "通信卫星数量激增使星地数据传输调度成为瓶颈。论文提出带记忆引导的进化算法优化数据传输调度方案,2026 年发表于 IEEE TSMC,是卫星网络调度与先进进化算法结合的最新成果。",
-   "abstract": "With the rapid development of satellite technology, communication satellites have become an indispensable part of modern infrastructure. They serve as a key pillar for the future integrated communication satellite network (CSN). However, the increasing number of communication satellites presents significant challenges for data transmission between the satellite and ground station. This article focuses on transmitting communication data by scheduling resources for communication tasks. The goal of data transmission scheduling optimization in CSN (DTSOCSN) is to design a scheduling scheme that maximizes task profit across satellite–ground links, considering the constraints of the two working modes of communication satellites. To solve DTSOCSN, a mixed-integer programming model is developed, which incorporates various constraints such as the conditions for feed switching operation and the limitations of task execution windows. Based on the complexity of the problem, we propose an evolutionary algorithm with memory guidance (MGEA). The algorithm takes into account the memory dependence of Caputo fractional-order differential and innovatively designs a crossover operator, called Caputo crossover (CX). This crossover method uses the genetic information stored in memory to guide the crossover operation of the next generation, thereby forming a smooth optimization path and improving the search efficiency of the algorithm. In addition, an elite opposition-based heuristic initialization",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "telecom"
-   ]
-  },
-  {
    "id": "neural-combinatorial-optimization-algorithms-solving-vehicle-routing-a1bf4",
    "title": "Neural Combinatorial Optimization Algorithms for Solving Vehicle Routing Problems: A Comprehensive Survey With Perspectives",
    "titleZh": "求解车辆路径问题的神经组合优化算法:综合综述与展望",
@@ -2615,7 +2274,6 @@
    "doi": "10.1109/tnnls.2026.3713193",
    "url": "https://doi.org/10.1109/tnnls.2026.3713193",
    "topics": [
-    "ml4co",
     "quantum"
    ],
    "curatedTopics": false,
@@ -2658,40 +2316,6 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
-   ]
-  },
-  {
-   "id": "deep-resource-allocation-spectrum-aggregated-aav-multicast-5c5b4",
-   "title": "Deep Resource Allocation for Spectrum-Aggregated AAV Multicast Systems: A Neural Combinatorial Optimization Approach",
-   "titleZh": "频谱聚合无人机多播系统的深度资源分配:神经组合优化方法",
-   "authors": [
-    "Yihang Huang",
-    "Yin Xu",
-    "Ling Yi",
-    "Xiaojie Wang",
-    "Zhaolong Ning",
-    "Dazhi He",
-    "Wenjun Zhang"
-   ],
-   "venue": "IEEE Transactions on Cognitive Communications and Networking",
-   "date": "2025-12-08",
-   "year": 2025,
-   "citations": 1,
-   "arxivId": "",
-   "doi": "10.1109/tccn.2025.3641520",
-   "url": "https://doi.org/10.1109/tccn.2025.3641520",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "面向低空经济中无人机多播传输的动态频谱资源整合难题,论文提出神经组合优化方法,学习跨多频段碎片化频谱的资源分配策略,以应对无人机移动带来的信道波动。该工作是NCO在通信资源分配这类高动态组合决策中的应用代表。",
-   "abstract": "UAV-enabled multicast transmission is pivotal for low-altitude economy networking, but is fundamentally constrained by dynamic channel availability and fluctuations stemming from UAV mobility. Efficient integration of fragmented spectrum resources spanning multiple frequency bands for opportunistic multicast transmission not only elevates resource utilization but also broadens service scalability. Nevertheless, the fragmented spectrum exhibits strong frequency selectivity, compounded by the max-min objective inherent to multicast broadcast services (MBS) and the nonlinear channel aggregation characteristics, which collectively render the resource allocation problem an intricate max-min nonlinear combinatorial optimization problem. To tackle this challenge, this paper proposes an artificial general intelligence (AGI)-driven deep resource allocation algorithm for spectrum aggregation (SA)-enabled UAV-MBS systems, capable of accommodating diverse UE demands and flexible resources. A pointer network-based neural combinatorial optimization (NCO) solver, integrated with a self-reference reinforcement learning framework, is employed to achieve probability-driven sequential resource selection. Sensitivity analysis and stepwise decomposition are conducted to evaluate the effectiveness of the trained network, providing interpretability and deeper insights into the NCO solver. Simulation results demonstrate the proposed scheme’s superiority over baseline methods with significantly fewer",
-   "source": "backfill",
-   "domains": [
-    "telecom"
    ]
   },
   {
@@ -2785,36 +2409,6 @@
    "domains": []
   },
   {
-   "id": "scheduling-multiple-agile-earth-observation-satellites-multiple-4813e",
-   "title": "Scheduling multiple agile Earth observation satellites with multiple observations",
-   "titleZh": "多次观测约束下的多颗敏捷对地观测卫星调度",
-   "authors": [
-    "Xinwei Wang",
-    "Chao Han",
-    "Roel Leus"
-   ],
-   "venue": "Advances in Space Research",
-   "date": "2025-10-17",
-   "year": 2025,
-   "citations": 12,
-   "arxivId": "",
-   "doi": "10.1016/j.asr.2025.10.042",
-   "url": "https://doi.org/10.1016/j.asr.2025.10.042",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文研究带多次观测要求的敏捷对地观测卫星调度问题——目标函数与约束较经典模型更贴近实际遥感任务。建立了相应的混合整数模型并设计高效求解算法,发表于 Advances in Space Research。",
-   "abstract": "Earth observation satellites (EOSs) are specially designed to collect images according to user requirements. Agile EOSs (AEOSs), with stronger attitude maneuverability, greatly improve the observation capability, while increasing the complexity of scheduling the observations. In this paper, we address the problem of scheduling multiple AEOSs with multiple observations where the objective function aims to maximize the entire observation profit over a fixed horizon. The profit attained by multiple observations for each target is nonlinear in the number of observations. Our model is a specific interval scheduling problem, with each satellite orbit represented as a machine. A column-generation-based framework is developed for this problem, in which the pricing problems are solved using a label-setting algorithm. Extensive computational experiments are conducted on the basis of one of China’s AEOS constellations. The results indicate that our optimality gap is less than 3 % on average, which validates our framework. We also evaluate the performance of the framework for conventional EOS scheduling.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "game-theoretic-energy-scheduling-community-multi-energy-f868f",
    "title": "Game-theoretic energy scheduling for community multi-energy system with electric vehicle aggregator leveraging quantum swarm intelligence",
    "titleZh": "基于量子群体智能的社区综合能源系统博弈论能量调度",
@@ -2867,7 +2461,7 @@
    "doi": "10.1186/s13677-025-00777-2",
    "url": "https://doi.org/10.1186/s13677-025-00777-2",
    "topics": [
-    "ml4co"
+    "qinspired"
    ],
    "curatedTopics": true,
    "tags": [],
@@ -2900,8 +2494,7 @@
    "url": "https://doi.org/10.1007/s11277-025-11855-8",
    "topics": [
     "hybrid",
-    "qaoa",
-    "ml4co"
+    "qaoa"
    ],
    "curatedTopics": true,
    "tags": [],
@@ -2910,7 +2503,6 @@
    "source": "backfill",
    "domains": [
     "energy",
-    "telecom",
     "materials"
    ]
   },
@@ -3105,8 +2697,8 @@
    "doi": "10.1038/s41598-025-12280-4",
    "url": "https://doi.org/10.1038/s41598-025-12280-4",
    "topics": [
-    "quantum",
-    "ml4co"
+    "qinspired",
+    "hybrid"
    ],
    "curatedTopics": true,
    "tags": [],
@@ -3147,39 +2739,6 @@
    "source": "backfill",
    "domains": [
     "satellite"
-   ]
-  },
-  {
-   "id": "memetic-reflective-evolution-framework-automatic-heuristic-design-fb836",
-   "title": "A Memetic and Reflective Evolution Framework for Automatic Heuristic Design Using Large Language Models",
-   "titleZh": "面向自动启发式设计的模因与反思进化LLM框架",
-   "authors": [
-    "Fubo Qi",
-    "Tianyu Wang",
-    "Ruixiang Zheng",
-    "Mian Li"
-   ],
-   "venue": "Applied Sciences",
-   "date": "2025-08-07",
-   "year": 2025,
-   "citations": 3,
-   "arxivId": "",
-   "doi": "10.3390/app15158735",
-   "url": "https://doi.org/10.3390/app15158735",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文将模因算法的局部改进思想与ReEvo式反思机制结合,构建LLM驱动的自动启发式设计框架:LLM在进化循环中同时执行全局生成与局部精化,并利用反思反馈避免静态算子库的僵化。在制造调度与智能电网资源优化等工程问题上验证了适应性与性能优势。",
-   "abstract": "The increasing complexity of real-world engineering problems, ranging from manufacturing scheduling to resource optimization in smart grids, has driven demand for adaptive and high-performing heuristic methods. Automatic Heuristic Design (AHD) and neural-enhanced metaheuristics have shown promise in automating strategy development, but often suffer from limited flexibility and scalability due to static operator libraries or high retraining costs. Recently, Large Language Models (LLMs) have emerged as a powerful alternative for exploring and evolving heuristics through natural language and program synthesis. This paper proposes a novel LLM-based memetic framework that synergizes LLM-driven exploration with domain-specific local refinement and memory-aware reflection, enabling a dynamic balance between heuristic creativity and effectiveness. In the experiments, the developed framework outperforms other LLM-based state-of-the-art approaches across the designed AGV-drone scheduling scenario and two benchmark combinatorial problems. The findings suggest that LLMs can serve not only as general-purpose optimizers but also as interpretable heuristic generators that adapt efficiently to complex and heterogeneous domains.",
-   "source": "backfill",
-   "domains": [
-    "energy",
-    "manufacturing"
    ]
   },
   {
@@ -3238,35 +2797,6 @@
    "tags": [],
    "summaryZh": "与主流的参数经典优化不同,论文证明固定线性斜坡调制的LR-QAOA即可在多类组合优化问题上高效逼近最优解:在42量子比特、400层的模拟中成功概率随层深近指数增长,呈现对经典方法潜在的规模优势。该工作大幅简化了QAOA的参数工程,是\"QAOA规模优势\"讨论的关键证据之一。",
    "abstract": "Abstract The quantum approximate optimization algorithm (QAOA) is a promising algorithm for solving combinatorial optimization problems (COPs), with performance governed by variational parameters $${\\{{\\gamma }_{i},{\\beta }_{i}\\}}_{i = 0}^{p-1}$$ { γ i , β i } i = 0 p − 1 . While most prior work has focused on classically optimizing these parameters, we demonstrate that fixed linear ramp schedules, linear ramp QAOA (LR-QAOA), can efficiently approximate optimal solutions across diverse COPs. Simulations with up to N q = 42 qubits and p = 400 layers suggest that the success probability scales as $$P({x}^{* })\\approx {2}^{-\\eta (p){N}_{q}+C}$$ P ( x * ) ≈ 2 − η ( p ) N q + C , where η ( p ) decreases with increasing p . For example, in Weighted Maxcut instances, η (10) = 0.22 improves to η (100) = 0.05. Comparisons with classical algorithms, including simulated annealing, Tabu Search, and branch-and-bound, show a scaling advantage for LR-QAOA. We show results of LR-QAOA on multiple QPUs (IonQ, Quantinuum, IBM) with up to N q = 109 qubits, p = 100, and circuits requiring 21,200 CNOT gates. Finally, we present a noise model based on two-qubit gate counts that accurately reproduces the experimental behavior of LR-QAOA.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "can-large-language-models-be-trusted-as-3b518",
-   "title": "Can Large Language Models Be Trusted as Evolutionary Optimizers for Network-Structured Combinatorial Problems?",
-   "titleZh": "大语言模型能否被信任为网络结构组合问题的进化优化器?",
-   "authors": [
-    "Jie Zhao",
-    "Tao Wen",
-    "Kang Hao Cheong"
-   ],
-   "venue": "IEEE Transactions on Network Science and Engineering",
-   "date": "2025-07-24",
-   "year": 2025,
-   "citations": 10,
-   "arxivId": "",
-   "doi": "10.1109/tnse.2025.3592367",
-   "url": "https://doi.org/10.1109/tnse.2025.3592367",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文系统检验LLM直接作为进化优化器求解网络结构组合问题(如影响力最大化、关键节点识别)时的可靠性:LLM生成的算子是否满足可行性、是否真正利用了图结构、结果是否稳定可复现。研究揭示了LLM优化器在规模化与一致性上的系统性弱点,并给出可信部署的检验框架,是对LLM4CO热潮的重要审慎之声。",
-   "abstract": "Large Language Models (LLMs) have shown strong capabilities in language understanding and reasoning across diverse domains. Recently, there has been increasing interest in utilizing LLMs not merely as assistants in optimization tasks, but as primary optimizers, particularly for network-structured combinatorial problems. However, before LLMs can be reliably deployed in this role, a fundamental question must be addressed: Can LLMs iteratively manipulate solutions that consistently adhere to problem constraints? In this work, we propose a systematic framework to evaluate the capability of LLMs to engage with problem structures. Rather than treating the model as a black-box generator, we adopt the commonly used evolutionary optimizer (EVO) and propose a comprehensive evaluation framework that rigorously assesses the output fidelity of LLM-generated operators across different stages of the evolutionary process. To enhance robustness, we introduce a hybrid error-correction mechanism that mitigates uncertainty in LLMs outputs. Moreover, we explore a cost-efficient population-level optimization strategy that significantly improves efficiency compared to traditional individual-level approaches. Extensive experiments on a representative node-level combinatorial network optimization task demonstrate the effectiveness, adaptability, and inherent limitations of LLM-based EVO. Our findings present perspectives on integrating LLMs into evolutionary computation and discuss paths that may sup",
    "source": "backfill",
    "domains": []
   },
@@ -3332,82 +2862,6 @@
    "domains": []
   },
   {
-   "id": "alphaevolve-coding-agent-scientific-algorithmic-discovery-93feb",
-   "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
-   "titleZh": "AlphaEvolve:面向科学与算法发现的编码智能体",
-   "authors": [
-    "Novikov, Alexander",
-    "Nhat Vu",
-    "Eisenberger, Marvin",
-    "Emilien Dupont",
-    "Po-Sen Huang",
-    "Ascher Wagner",
-    "S. Shirobokov",
-    "Borislav Kozlovskii",
-    "Francisco J. R. Ruiz",
-    "Abbas Mehrabian",
-    "Manish Kumar",
-    "Abigail See",
-    "Swarat Chaudhuri",
-    "George Holland",
-    "A.J. Davies",
-    "Sebastian Nowozin",
-    "Pushmeet Kohli",
-    "Matej Balog"
-   ],
-   "venue": "arXiv",
-   "date": "2025-06-16",
-   "year": 2025,
-   "citations": 13,
-   "arxivId": "2506.13131",
-   "doi": "10.48550/arxiv.2506.13131",
-   "url": "https://arxiv.org/abs/2506.13131",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "DeepMind的AlphaEvolve将LLM驱动的进化编码推向新高度:编排多模型流水线直接修改代码、由自动评估器打分,在进化数据库中维护多样性。它改进了4×4复矩阵乘法的48次标量乘法算法(超越Strassen 56年纪录)、在多个开放数学问题上刷新界限,并优化了Google数据中心调度、TPU电路等真实基础设施。它标志着LLM自动算法设计从学术基准走向工业级影响。",
-   "abstract": "In this white paper, we present AlphaEvolve, an evolutionary coding agent that substantially enhances capabilities of state-of-the-art LLMs on highly challenging tasks such as tackling open scientific problems or optimizing critical pieces of computational infrastructure. AlphaEvolve orchestrates an autonomous pipeline of LLMs, whose task is to improve an algorithm by making direct changes to the code. Using an evolutionary approach, continuously receiving feedback from one or more evaluators, AlphaEvolve iteratively improves the algorithm, potentially leading to new scientific and practical discoveries. We demonstrate the broad applicability of this approach by applying it to a number of important computational problems. When applied to optimizing critical components of large-scale computational stacks at Google, AlphaEvolve developed a more efficient scheduling algorithm for data centers, found a functionally equivalent simplification in the circuit design of hardware accelerators, and accelerated the training of the LLM underpinning AlphaEvolve itself. Furthermore, AlphaEvolve discovered novel, provably correct algorithms that surpass state-of-the-art solutions on a spectrum of problems in mathematics and computer science, significantly expanding the scope of prior automated discovery methods (Romera-Paredes et al., 2023). Notably, AlphaEvolve developed a search algorithm that found a procedure to multiply two $4 \\times 4$ complex-valued matrices using $48$ scalar multipli",
-   "source": "backfill",
-   "domains": [
-    "telecom",
-    "it-cloud"
-   ]
-  },
-  {
-   "id": "deep-reinforcement-learning-based-two-phase-hybrid-30661",
-   "title": "Deep Reinforcement Learning-Based Two-Phase Hybrid Optimization for Scheduling Agile Earth Observation Satellites",
-   "titleZh": "基于深度强化学习的两阶段混合优化敏捷对地观测卫星调度",
-   "authors": [
-    "Guanghui Zhou",
-    "Jin Zhi-cheng",
-    "D. Liu"
-   ],
-   "venue": "Remote Sensing",
-   "date": "2025-06-06",
-   "year": 2025,
-   "citations": 13,
-   "arxivId": "",
-   "doi": "10.3390/rs17121972",
-   "url": "https://doi.org/10.3390/rs17121972",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "面向多颗敏捷对地观测卫星调度的大解空间与大规模任务量,论文提出 DRL 两阶段混合框架:先由马尔可夫决策过程生成观测方案,再混合优化平衡解质量与计算效率。",
-   "abstract": "The multi-agile Earth observation satellite scheduling problem is challenging because of its large solution space and substantial task volume. This study generates observation schemes for static tasks over an execution period. To balance solution quality and computational efficiency, a deep reinforcement learning (DRL)-based algorithmic framework is proposed. A Markov decision process (MDP) is formulated as the foundational model for the DRL architecture. To mitigate problem complexity, the action space is decomposed into two interdependent decision layers: task sequencing and resource allocation. Given the resource occupation constraints during action execution, a novel reward function is designed by integrating resource occupation utility into the immediate reward mechanism. Corresponding to these dual decision layers, a Two-Phase Hybrid Optimization (TPHO) framework is developed. The task sequencing subproblem is addressed through an encoder–decoder architecture based on sequence-to-sequence learning. To preserve resource diversity throughout the scheduling horizon, a maximum residual capacity (MRC) heuristic is introduced. A comprehensive experimental suite is constructed, incorporating multi-satellite scheduling scenarios with capacity and temporal constraints. The experimental results demonstrate that the TPHO framework with MRC rules achieves superior performance, yielding a total reward improvement exceeding 16% compared with the A-ALNS algorithm in the most complex s",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
-  },
-  {
    "id": "quantum-computing-space-applications-selective-review-perspectives-67ca9",
    "title": "Quantum computing for space applications: a selective review and perspectives",
    "titleZh": "面向空间应用的量子计算:选择性综述与展望",
@@ -3471,36 +2925,6 @@
    ]
   },
   {
-   "id": "neural-combinatorial-optimization-tutorial-f66ba",
-   "title": "Neural combinatorial optimization: A tutorial",
-   "titleZh": "神经组合优化:教程",
-   "authors": [
-    "Davide Angioni",
-    "Claudia Archetti",
-    "M. Grazia Speranza"
-   ],
-   "venue": "Computers & Operations Research",
-   "date": "2025-05-22",
-   "year": 2025,
-   "citations": 6,
-   "arxivId": "",
-   "doi": "10.1016/j.cor.2025.107102",
-   "url": "https://doi.org/10.1016/j.cor.2025.107102",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "Archetti、Speranza等运筹学名家在Computers & Operations Research上撰写的NCO教程,面向运筹背景读者系统讲解深度强化学习如何构造组合优化的启发式函数:从策略网络、编码-解码架构到训练范式与评估准则,并客观讨论NCO相对传统方法的优劣与适用边界。是运筹学者进入ML4CO的理想入门材料。",
-   "abstract": "Recent advancements in deep reinforcement learning have sparked a growing interest in the application of this approach to solve combinatorial optimization (CO) problems. This paper presents neural combinatorial optimization (NCO) as a framework for constructing functions that work as heuristics for CO problems. Given the rapid expansion of the field and the increasing interest in the topic, this tutorial introduces the main techniques utilized in NCO and explores the current open issues in the field. We define key terms and concepts related to NCO and present the latest developments, using the Knapsack Problem as a running example to complement theoretical explanations. Finally, we analyze prominent works in the field of NCO, with a focus on their application to the Traveling Salesman Problem , which serves as the most extensively studied problem in this domain.",
-   "source": "backfill",
-   "domains": [
-    "materials"
-   ]
-  },
-  {
    "id": "quantum-approximate-optimization-algorithm-applied-multi-objective-7be47",
    "title": "Quantum Approximate Optimization Algorithm applied to multi-objective routing for large scale 6G networks",
    "titleZh": "QAOA应用于大规模6G网络多目标路由",
@@ -3527,9 +2951,7 @@
    "summaryZh": "面向6G网络中IoT设备爆炸式增长带来的多目标路由优化挑战,论文提出量子启发路由方法并应用QAOA求解时延、吞吐等多冲突目标的联合优化。在大规模网络实例上的评估显示量子方法的可行性与质量-成本权衡,为电信网络优化的量子化提供了工程视角。",
    "abstract": "A multi-objective optimization problem involves optimizing two or more conflicting objectives simultaneously. This type of problem arises in many scientific and industrial areas and it is classified as NP-Hard. Network routing optimization with multiple objectives falls into this category. In the context of 6G networks, solving this problem will become even more challenging due to the exponential growth of Internet of Things devices and the high quality of service requirements. Finding good quality solutions for large-scale networks will be increasingly difficult. In this paper, we introduce a quantum-inspired routing optimization scheme in which noisy-intermediate scale quantum computers (NISQ) can be used to solve the Multi-Objective Routing Problem (MORP). We evaluate the application of the proposed scheme in detail by first developing the mathematical formulas for both single-objective and multi-objective routing and mapping the problem onto gate-based models by using the quadratic unconstrained binary optimization (QUBO) approach. To validate the proposed scheme, we use the quantum approximate optimization algorithm (QAOA), the go-to approach for solving combinatorial optimization problems that are classically intractable. For the simulation, we use the IBM-Qasm simulator and Qiskit framework. Additionally, we use the Chernoff Bound as a standard technique to estimate the sample complexity of QAOA. Finally, we provide a detailed numerical and theoretical analysis of the ",
    "source": "backfill",
-   "domains": [
-    "telecom"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-computing-as-catalyst-microgrid-management-enhancing-5fd12",
@@ -3593,7 +3015,6 @@
    "source": "backfill",
    "domains": [
     "energy",
-    "telecom",
     "transport"
    ]
   },
@@ -3826,38 +3247,6 @@
    "domains": []
   },
   {
-   "id": "neural-combinatorial-optimization-multiobjective-task-offloading-mobile-3ce0c",
-   "title": "Neural Combinatorial Optimization for Multiobjective Task Offloading in Mobile Edge Computing",
-   "titleZh": "移动边缘计算中多目标任务卸载的神经组合优化",
-   "authors": [
-    "Xiang-Jie Xiao",
-    "Yong Wang",
-    "Pei-Qiu Huang",
-    "Kezhi Wang"
-   ],
-   "venue": "IEEE Transactions on Vehicular Technology",
-   "date": "2025-03-03",
-   "year": 2025,
-   "citations": 2,
-   "arxivId": "",
-   "doi": "10.1109/tvt.2025.3546914",
-   "url": "https://doi.org/10.1109/tvt.2025.3546914",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对能耗与时延双目标的边缘任务卸载问题,论文提出偏好可调的神经组合优化方法:单一模型通过偏好向量条件化即可覆盖整个Pareto前沿,避免了传统学习方法在偏好变化时需重新训练的问题,是多目标NCO在通信网络中的实用化案例。",
-   "abstract": "Task offloading is crucial in supporting resource-intensive applications in mobile edge computing. This paper explores multiobjective task offloading, aiming to minimize energy consumption and latency simultaneously. Although learning-based algorithms have been used to address this problem, they train a model based on onea prioripreference to make the offloading decision. When the preference changes, the trained model may not perform well and needs to be retrained. To address this issue, we propose a neural combinatorial optimization method that combines an encoder-decoder model with reinforcement learning. The encoder captures task relationships, while the decoder, equipped with a preference-conditioned attention mechanism, determines offloading decisions for various preferences. Additionally, reinforcement learning is employed to train the encoder-decoder model. Since the proposed method can infer the offloading decision for each preference, it eliminates the need to retrain the model when the preference changes, thus improving real-time performance. Experimental studies demonstrate the effectiveness of the proposed method by comparison with three algorithms on instances of different scales.",
-   "source": "backfill",
-   "domains": [
-    "telecom",
-    "it-cloud"
-   ]
-  },
-  {
    "id": "manufacturable-platform-photonic-quantum-computing-37253",
    "title": "A manufacturable platform for photonic quantum computing",
    "titleZh": "可制造的光量子计算平台",
@@ -3913,39 +3302,6 @@
    ]
   },
   {
-   "id": "rcm-neural-policy-model-reconstruction-mechanism-construct-54549",
-   "title": "RCM: A Neural Policy Model With Reconstruction Mechanism to Construct a Solution for the Agile Satellite Scheduling Problem",
-   "titleZh": "RCM:带重构机制的神经策略模型用于敏捷卫星调度解构造",
-   "authors": [
-    "Ming Chen",
-    "Jie Chun",
-    "Witold Pedrycz",
-    "Yong‐Ming He",
-    "Xiaolu Liu",
-    "Guohua Wu"
-   ],
-   "venue": "IEEE Transactions on Cybernetics",
-   "date": "2025-02-25",
-   "year": 2025,
-   "citations": 9,
-   "arxivId": "",
-   "doi": "10.1109/tcyb.2025.3535777",
-   "url": "https://doi.org/10.1109/tcyb.2025.3535777",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对 DRL 调度模型可能产生不可行动作的问题,论文提出带重构机制的神经策略模型 RCM,在构造解的过程中即时修复违反约束的动作,发表于 IEEE TCyb,提升了学习式卫星调度的可靠性与泛化性。",
-   "abstract": "The agile Earth observation satellite scheduling problem (AEOSSP) with time-dependent transition time is a combinatorial optimization challenge. Due to its NP-hardness, problem-tailored methods are sensitive to instances and require massive computational overhead. Recently, deep reinforcement learning (DRL) models have shown promise in efficiently addressing the AEOSSP. However, these models may make decision mistakes in specific scenarios due to prioritizing maximizing average reward expectation over individual decision accuracy during DRL training, directly leading to resource wastage. To address these issues, we propose a reconstruction model (RCM), which is a DRL-based two-stage construction model (CM), including a CM and a reconstruction mechanism (RM). RCM constructs solutions initially using a DRL-trained CM, which are subsequently refined by RM. CM utilizes a more efficient network for policy representation to make decisions. RM applies two operators, \"repair\" and \"removal,\" with a \"repair-removal-repair\" solution reconstruction process to identify and rectify decision mistakes from CM, offering a modular component to enhance the stability and solution quality. Experimental results demonstrate that the proposed RCM outperforms the state-of-the-art AEOSSP iterative search method, achieving such performance within a computational time of 0.1 s. Additionally, CM surpasses the state-of-the-art DRL policy model and RM can effectively rectify decision errors or suboptimalit",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "optimizing-sustainable-energy-management-grid-connected-microgrids-e9cc1",
    "title": "Optimizing sustainable energy management in grid connected microgrids using quantum particle swarm optimization for cost and emission reduction",
    "titleZh": "基于量子粒子群优化的并网微电网可持续能源管理:成本与排放双目标降低",
@@ -3975,38 +3331,6 @@
    "source": "backfill",
    "domains": [
     "energy",
-    "materials"
-   ]
-  },
-  {
-   "id": "neural-combinatorial-optimization-reinforcement-learning-industrial-engineering-69b1e",
-   "title": "Neural combinatorial optimization with reinforcement learning in industrial engineering: a survey",
-   "titleZh": "工业工程中基于强化学习的神经组合优化:综述",
-   "authors": [
-    "K. T. Chung",
-    "C.K.M. Lee",
-    "Yung Po Tsang"
-   ],
-   "venue": "Artificial Intelligence Review",
-   "date": "2025-02-14",
-   "year": 2025,
-   "citations": 29,
-   "arxivId": "",
-   "doi": "10.1007/s10462-024-11045-1",
-   "url": "https://doi.org/10.1007/s10462-024-11045-1",
-   "topics": [
-    "ml4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "该综述面向工业工程场景系统梳理神经组合优化与强化学习的结合:覆盖调度、路径、资源分配等多目标、带约束、随机性的运筹问题,归纳了问题建模、网络架构与训练方法的演进,并从可持续性、韧性与以人为本等现代工业目标出发讨论未来方向。",
-   "abstract": "In recent trends, machine learning is widely used to support decision-making in various domains and industrial operations. Because of the increasing complexity of modern industries, industrial engineering aims not only to increase cost-effectiveness and productivity but also to consider sustainability, resilience, and human centricity, resulting in many-objective, constrained, and stochastic operations research. Based on the above stringent requirements, combinatorial optimization (CO) problems are thus developed to support the complicated decision-making process in operations research. Due to the computational complexity of exact algorithms and the uncertain solution quality of heuristic methods, there is a growing trend to leverage the power of machine learning in solving CO problems, known as neural combinatorial optimization (NCO), where reinforcement learning (RL) is the core to achieve the sequential decision support. This survey study provides a comprehensive investigation of the theories and recent advancements in applying RL to solve hard CO problems, such as vehicle routing, bin packing, assignment, scheduling, and planning problems, and, in addition, summarizes the applications of neural combinatorial optimization with reinforcement learning (NCO-RL). The detailed review found that although the research domain of NCO-RL is still under-explored, its research potential has been proven to address environmental sustainability, adaptability, and human factors. Last but ",
-   "source": "backfill",
-   "domains": [
-    "logistics",
     "materials"
    ]
   },
@@ -4042,8 +3366,7 @@
    "abstract": "ABSTRACT Quantum key distribution (QKD) allows the generation of cryptographic keys beyond the computational hardness paradigm and is befitting for secure data transmission requiring long‐term security. The communication distance of fiber‐based QKD, however, is limited to a few hundred kilometers due to the exponential scaling of signal attenuation. Satellite QKD (SatQKD) can instead leverage free‐space optical links to establish long‐range connections and enable global‐scale QKD. In this work, we review the manifold of design choices that concur to form the set of possible SatQKD architectures. These include the choice of the QKD protocol and its physical implementation, but also the satellite orbit, the optical link direction, and whether or not to use trusted‐node relays. The possible SatQKD architectures are then evaluated in terms of key generation throughput, latency and maximum reachable communication distance, but also system‐level security and implementation complexity. Given the technical challenges of realizing SatQKD systems, it is paramount, for near‐future satellite missions, to adhere to the simplest possible architecture that still allows to deliver the QKD service. We thus identify as advisable options the use of low‐Earth orbit satellites as trusted nodes for prepare‐and‐measure discrete‐variable QKD downlinks with weak laser pulses. The decoy‐state version of BB84 is found to be the most promising QKD protocols due to the maturity of the security proofs, th",
    "source": "backfill",
    "domains": [
-    "satellite",
-    "telecom"
+    "satellite"
    ]
   },
   {
@@ -4416,8 +3739,7 @@
    "abstract": "Satellite communications (SatComs) have recently been through a renaissance, both technologically and entrepreneurially. Ambitious plans have already come into fruition with the operation of low-Earth orbit (LEO) constellations including thousands of satellites and supported by state of the art but proprietary technologies, such as active antenna arrays and intersatellite links (ISLs). In this context, this article aims to provide a forward-looking vision of use cases and a deep dive into technological enablers that will be prominent in space communications beyond 2030. In parallel, it motivates how open standards can play a role in delivering affordable communication services in space. Starting from the 5G plans for nonterrestrial networks, we provide a survey and roadmap toward artificial intelligence (AI)-supported satellite systems, space-enabled quantum networks, and joint communications and positioning (JCAP) for space missions and interplanetary exploration.",
    "source": "backfill",
    "domains": [
-    "satellite",
-    "telecom"
+    "satellite"
    ]
   },
   {
@@ -4478,37 +3800,6 @@
    "tags": [],
    "summaryZh": "该综述聚焦进化计算与量子计算的交叉:一方面评估量子启发元启发式在真实量子设备上的实现与验证,另一方面研究用自然启发元启发式优化量子线路可调参数的新范式。这正是\"量子赋能智能优化算法\"方向的核心问题域,是连接两个社区的重要参考。",
    "abstract": "Quantum computers have made significant progress in the last two decades showing great potential in tackling some of the most challenging problems in computing. This ongoing progress creates an opportunity to implement and evaluate quantum-inspired metaheuristics on real quantum devices, with the aim of uncovering potential computational advantages. Additionally, the practical constraints associated with current quantum computers have highlighted a critical need for classical heuristic methods to optimize the tunable parameters of quantum circuits. Nature-inspired metaheuristics have emerged as promising candidates for fulfilling this optimization role. In this paper, we discuss both of these potential directions at the intersection of evolutionary computing and quantum computing while surveying some of the most promising advancements in these directions. We start with the review of quantum-inspired metaheuristics and then explore implementations of some of these quantum-inspired algorithms on physical quantum devices, capitalizing on the progress in quantum computing technology. Furthermore, we investigate the role of nature-inspired metaheuristics in enhancing the performance of noisy intermediate-scale quantum computers by fine-tuning their parameters. Finally, we discuss some of the recent progress at the intersection of both computing frameworks to highlight the current status and potential of the currently available quantum computing hardware. Synergies between these tw",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "meta-heuristics-graph-neural-architecture-search-combinatorial-c1a90",
-   "title": "Meta-Heuristics Graph Neural Architecture Search for Combinatorial Optimization",
-   "titleZh": "面向组合优化的元启发式图神经架构搜索",
-   "authors": [
-    "Yang Liu",
-    "Chuan Zhou",
-    "Peng Zhang",
-    "Yang Gao",
-    "Zhao Li",
-    "Hongyang Chen"
-   ],
-   "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
-   "date": "2025-01-01",
-   "year": 2025,
-   "citations": 2,
-   "arxivId": "",
-   "doi": "10.1109/tetci.2025.3592961",
-   "url": "https://doi.org/10.1109/tetci.2025.3592961",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文将元启发式算法用于自动搜索求解MaxCut、MIS等组合优化问题的GNN架构,替代人工设计网络结构。搜索得到的架构在多类NP难问题上超越手工设计的GNN求解器,体现了\"智能优化算法设计学习求解器\"的双向融合思路。",
-   "abstract": "Graph neural networks (GNNs) have emerged as a powerful tool for tackling Nondeterministic Polynomial-time (NP) hard combinatorial optimization (CO) problems which were believed that no algorithm can solve them in polynomial time, such as maximum cut and maximum independent set. The fundamental idea behind these methods is to represent CO problems as graphs, enabling GNNs to learn node or graph embeddings that encode essential combinatorial information. However, the design of GNN architectures for specific CO problems still demands considerable manual effort, relying heavily on domain expertise. Moreover, existing automated GNN architectures are primarily developed for traditional graph learning tasks and are not well-suited for addressing the unique challenges posed by NP-hard CO problems. To bridge this gap, we proposeAutoGNP, a novelAutomatedGNN architecture search framework specifically designed to solveNP-hard combinatorial optimization problems.AutoGNPformulates CO problems using GNNs and focuses on two representative problem types: mixed integer linear programming and quadratic unconstrained binary optimization. The core idea ofAutoGNPis to leverage graph neural architecture search algorithms to automatically identify the optimal GNN architecture for a given CO problem, significantly reducing the need for manual intervention and expertise. Unlike existing graph neural architecture search algorithms,AutoGNPincorporates 2-hop message passing operators in its architecture",
    "source": "backfill",
    "domains": []
   },
@@ -4639,7 +3930,6 @@
    "source": "backfill",
    "domains": [
     "satellite",
-    "telecom",
     "it-cloud"
    ]
   },
@@ -4782,7 +4072,7 @@
    "doi": "10.3390/rs16234436",
    "url": "https://doi.org/10.3390/rs16234436",
    "topics": [
-    "ml4co"
+    "quantum"
    ],
    "curatedTopics": false,
    "tags": [],
@@ -5252,7 +4542,6 @@
    "abstract": "Abstract Variational quantum algorithms represent a powerful approach for solving optimization problems on noisy quantum computers, with a broad spectrum of potential applications ranging from chemistry to machine learning. However, their performances in practical implementations crucially depend on the effectiveness of quantum circuit training, which can be severely limited by phenomena such as barren plateaus. While, in general, dissipation is detrimental for quantum algorithms, and noise itself can actually induce barren plateaus, here we describe how the inclusion of properly engineered Markovian losses after each unitary quantum circuit layer allows for the trainability of quantum models. We identify the required form of the dissipation processes and establish that their optimization is efficient. We benchmark the generality of our proposal in both a synthetic and a practical quantum chemistry example, demonstrating its effectiveness and potential impact across different domains.",
    "source": "backfill",
    "domains": [
-    "telecom",
     "materials"
    ]
   },
@@ -5336,9 +4625,7 @@
    "summaryZh": "论文提出QPSOFL协议,将增强量子粒子群优化与模糊逻辑结合,优化无线传感器网络的分簇与路由以延长网络寿命。被引67次,是量子启发元启发式在网络优化方向的高影响力应用,覆盖了大规模低功耗场景的工程约束。",
    "abstract": "Clustering and routing protocols play a pivotal role in reducing energy consumption and extending the lifespan of wireless sensor networks. However, optimizing energy efficiency to maximize network longevity remains a primary challenge for these protocols. This paper introduces QPSOFL, a clustering and routing protocol that integrates quantum particle swarm optimization and a fuzzy logic system to enhance energy efficiency and prolong network lifespan. QPSOFL employs an enhanced quantum particle swarm optimization algorithm to select optimal cluster heads, utilizing Sobol sequences for population diversification during initialization. Additionally, it incorporates Lévy flight and Gaussian perturbation-based position updates to prevent trapping in local optima. Benchmark experiments validate QPSOFL's efficacy compared to Harris Hawks Optimization (HHO), Grey Wolf Optimization (GWO), Particle Swarm Optimization (PSO), and Quantum Particle Swarm Optimization (QPSO), focusing on accuracy, search capability, and convergence speed. Within QPSOFL, a fuzzy logic system determines the best next-hop cluster head based on descriptors such as residual energy, energy deviation, and relay distance. Extensive simulations compare QPSOFL's performance in terms of network lifetime, throughput, energy consumption, and scalability against existing protocols E-FUCA, IHHO-F, F-GWO, and FLPSOC, demonstrating its superior performance over these counterparts.",
    "source": "backfill",
-   "domains": [
-    "telecom"
-   ]
+   "domains": []
   },
   {
    "id": "simple-linear-algebra-identity-optimize-large-scale-010c4",
@@ -5398,8 +4685,7 @@
    "abstract": "LowEarth orbit (LEO) satellite network can complement terrestrial networks for achieving global wireless coverage and improving delay-sensitive Internet services. This paper proposes an integrated satellite-terrestrial network (ISTN) architecture to provide ground users with seamless and reliable content delivery services. For optimal service provisioning in this architecture, we formulate an optimization model to maximize the network throughput by jointly optimizing content delivery policy, cache placement, and transmission power allocation. The resulting optimization model is a large-scale mixed-integer nonlinear program (MINLP) that is intractable for classical computer solvers. Inspired by quantum computing techniques, we propose a hybrid quantum-classical generalized Benders' decomposition (HQCGBD) algorithm to address this challenge. Specifically, we first exploit the generalized Benders' decomposition (GBD) to decompose the problem into a master problem and a subproblem and then leverage the state-of-the-art quantum annealer to solve the challenging master problem. Furthermore, a multi-cut strategy is designed in HQCGBD to accelerate the solution process by leveraging the quantum advantages in parallel computing. Simulation results demonstrate the superiority of the proposed HQCGBD algorithm and validate the effectiveness of the proposed cache-enabled ISTN architecture.",
    "source": "backfill",
    "domains": [
-    "satellite",
-    "telecom"
+    "satellite"
    ]
   },
   {
@@ -5606,38 +4892,6 @@
    "domains": []
   },
   {
-   "id": "learning-construct-solution-agile-satellite-scheduling-problem-31c32",
-   "title": "Learning to Construct a Solution for the Agile Satellite Scheduling Problem With Time-Dependent Transition Times",
-   "titleZh": "面向时间相关转移时间敏捷卫星调度问题的解构造学习方法",
-   "authors": [
-    "Ming Chen",
-    "Yonghao Du",
-    "Ke Tang",
-    "Lining Xing",
-    "Yuning Chen",
-    "Yingwu Chen"
-   ],
-   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
-   "date": "2024-07-09",
-   "year": 2024,
-   "citations": 48,
-   "arxivId": "",
-   "doi": "10.1109/tsmc.2024.3411640",
-   "url": "https://doi.org/10.1109/tsmc.2024.3411640",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "敏捷对地观测卫星调度(AEOSSP)是大规模星座管理带来的复杂组合优化问题。论文提出基于深度强化学习的解构造模型(DRL-CM),以马尔可夫决策过程建模含时间相关转移时间的调度决策,被引 48 次,是\"学习构造可行调度\"路线的代表作。",
-   "abstract": "The agile earth observation satellite scheduling problem (AEOSSP) with time-dependent transition times is a complex combinational optimization problem that has emerged from the development of large-scale satellite management techniques. To address this problem, we propose a deep reinforcement learning-based construction model (DRL-CM) that consists of five parts: 1) a Markov decision process (MDP); 2) a feature engineering; 3) a constructive heuristic neural network (CHNN); 4) an RL training method; and 5) an evaluation system. Specifically, the CHNN comprises six modules containing three special components that we propose: a dynamic encoder, a dynamic global layer, and a two-stage attention layer. First, we build the MDP of the AEOSSP and the feature engineering with effective features required for decision-making. Second, we design the CHNN to function as the MDP policy and train it with an RL model. Finally, we propose a comprehensive evaluation system for the validation of our model. The experimental results indicate that the proposed DRL-CM outperforms the state-of-the-art algorithm in terms of both optimization speed and quality. In addition, the feature engineering and network architecture built in our model are verified to be effective in comprehensive experiments.",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
-  },
-  {
    "id": "robust-fast-microwave-driven-quantum-logic-trapped-418d5",
    "title": "Robust and fast microwave-driven quantum logic for trapped-ion qubits",
    "titleZh": "面向离子阱量子比特的鲁棒快速微波驱动量子逻辑",
@@ -5718,34 +4972,6 @@
    "tags": [],
    "summaryZh": "神经网络量子态(NQS)是表示量子多体波函数的有力工具,但变分优化困难。本工作提出高效优化策略,在复杂二维相互作用系统中成功计算基态,是\"AI×量子物态\"交叉方向的高影响力代表作(被引 79 次,发表于 Nature Physics)。",
    "abstract": "Abstract Computing the ground state of interacting quantum matter is a long-standing challenge, especially for complex two-dimensional systems. Recent developments have highlighted the potential of neural quantum states to solve the quantum many-body problem by encoding the many-body wavefunction into artificial neural networks. However, this method has faced the critical limitation that existing optimization algorithms are not suitable for training modern large-scale deep network architectures. Here, we introduce a minimum-step stochastic-reconfiguration optimization algorithm, which allows us to train deep neural quantum states with up to 10 6 parameters. We demonstrate our method for paradigmatic frustrated spin-1/2 models on square and triangular lattices, for which our trained deep networks approach machine precision and yield improved variational energies compared to existing results. Equipped with our optimization algorithm, we find numerical evidence for gapless quantum-spin-liquid phases in the considered models, an open question to date. We present a method that captures the emergent complexity in quantum many-body problems through the expressive power of large-scale artificial neural networks.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "large-language-models-as-evolutionary-optimizers-d34c6",
-   "title": "Large Language Models as Evolutionary Optimizers",
-   "titleZh": "大语言模型作为进化优化器",
-   "authors": [
-    "Shengcai Liu",
-    "Caishun Chen",
-    "Xinghua Qu",
-    "Ke Tang",
-    "Yew-Soon Ong"
-   ],
-   "venue": "IEEE CEC 2024",
-   "date": "2024-06-30",
-   "year": 2024,
-   "citations": 109,
-   "arxivId": "",
-   "doi": "10.1109/cec60901.2024.10611913",
-   "url": "https://doi.org/10.1109/cec60901.2024.10611913",
-   "topics": [
-    "llm4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "Liu、Tang、Ong等人首次系统研究\"LLM直接充当进化组合优化器\":以自然语言描述问题与父代解,让LLM在提示中执行选择、交叉与变异操作,几乎不需领域知识。在TSP等问题上,配合自适应的自我优化机制,LLM-EA在小规模实例上达到与专门算法可比的质量,揭示了LLM作为通用优化算子的潜力与规模瓶颈。",
-   "abstract": "Evolutionary algorithms (EAs) have achieved remarkable success in tackling complex combinatorial optimization problems. However, EAs often demand carefully-designed operators with the aid of domain expertise to achieve satisfactory performance. In this work, we present the first study on large language models (LLMs) as evolutionary combinatorial optimizers. The main advantage is that it requires minimal domain knowledge and human efforts, as well as no additional training of the model. This approach is referred to as LLM-driven EA (LMEA). Specifically, in each generation of the evolutionary search, LMEA instructs the LLM to select parent solutions from current population, and perform crossover and mutation to generate offspring solutions. Then, LMEA evaluates these new solutions and include them into the population for the next generation. LMEA is equipped with a self-adaptation mechanism that controls the temperature of the LLM. This enables it to balance between exploration and exploitation and prevents the search from getting stuck in local optima. We investigate the power of LMEA on the classical traveling salesman problems (TSPs) widely used in combinatorial optimization research. Notably, the results show that LMEA performs competitively to traditional heuristics in finding high-quality solutions on TSP instances with up to 20 nodes. Additionally, we also study the effectiveness of LLM-driven crossover/mutation and the self- adaptation mechanism in evolutionary search. ",
    "source": "backfill",
    "domains": []
   },
@@ -5902,7 +5128,8 @@
    "doi": "10.1007/s42484-024-00161-4",
    "url": "https://doi.org/10.1007/s42484-024-00161-4",
    "topics": [
-    "ml4co"
+    "quantum",
+    "quantum-ai"
    ],
    "curatedTopics": true,
    "tags": [],
@@ -6058,38 +5285,6 @@
    "domains": []
   },
   {
-   "id": "energy-efficient-satellite-range-scheduling-reinforcement-learning-841e3",
-   "title": "Energy-Efficient Satellite Range Scheduling Using a Reinforcement Learning-Based Memetic Algorithm",
-   "titleZh": "基于强化学习模因算法的节能卫星测控资源调度",
-   "authors": [
-    "Yanjie Song",
-    "Ponnuthurai Nagaratnam Suganthan",
-    "Witold Pedrycz",
-    "Ran Yan",
-    "Dongming Fan",
-    "Yue Zhang"
-   ],
-   "venue": "IEEE Transactions on Aerospace and Electronic Systems",
-   "date": "2024-03-12",
-   "year": 2024,
-   "citations": 20,
-   "arxivId": "",
-   "doi": "10.1109/taes.2024.3371964",
-   "url": "https://doi.org/10.1109/taes.2024.3371964",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "频繁任务执行带来的高能耗已成为未来卫星管理系统设计必须考量因素。论文提出强化学习驱动的模因算法求解卫星测控区间调度,在优化调度的同时最小化能耗,把\"绿色调度\"目标引入卫星资源管理。",
-   "abstract": "The rapid expansion of the satellite industry has presented numerous opportunities across various sectors and significantly transformed people's daily lives. However, the high energy consumption resulting from frequent task execution poses challenges for satellite management. Energy consumption has become an important factor to be considered in the design of future satellite management systems. The energy-efficient satellite range scheduling problem (EESRSP) aims to optimize task sequencing profits within the satellite management system while simultaneously conserving energy. To address this problem, a mixed-integer scheduling model is constructed, taking into account the energy consumption of ground stations during telemetry, tracking and command (TT&C) operations. Then, we propose a reinforcement learning-based memetic algorithm (RL-MA) that incorporates a heuristic initialization method (HIM). The HIM enables the algorithm to rapidly generate high-quality initial solutions by leveraging task features associated with EESRSRP. RL-MA employs both population search and local search techniques to explore the satellite TT&C task plan. RL-MA incorporates two genetic operators, crossover and mutation, into the population-based search. In the local search stage, multiple random and heuristic local search operators are incorporated through an ensemble local search strategy (ELSS). To improve search performance, Q-learning, a classical class of reinforcement learning (RL) methods tai",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
-  },
-  {
    "id": "generative-quantum-machine-learning-denoising-diffusion-probabilistic-c23ff",
    "title": "Generative Quantum Machine Learning via Denoising Diffusion Probabilistic Models",
    "titleZh": "基于去噪扩散概率模型的生成式量子机器学习",
@@ -6108,7 +5303,6 @@
    "url": "https://doi.org/10.1103/physrevlett.132.100602",
    "topics": [
     "quantum-ai",
-    "llm4co",
     "vqa"
    ],
    "curatedTopics": false,
@@ -6117,40 +5311,6 @@
    "abstract": "Deep generative models are key-enabling technology to computer vision, text generation, and large language models. Denoising diffusion probabilistic models (DDPMs) have recently gained much attention due to their ability to generate diverse and high-quality samples in many computer vision tasks, as well as to incorporate flexible model architectures and a relatively simple training scheme. Quantum generative models, empowered by entanglement and superposition, have brought new insight to learning classical and quantum data. Inspired by the classical counterpart, we propose the quantum denoising diffusion probabilistic model (QuDDPM) to enable efficiently trainable generative learning of quantum data. QuDDPM adopts sufficient layers of circuits to guarantee expressivity, while it introduces multiple intermediate training tasks as interpolation between the target distribution and noise to avoid barren plateau and guarantee efficient training. We provide bounds on the learning error and demonstrate QuDDPM's capability in learning correlated quantum noise model, quantum many-body phases, and topological structure of quantum data. The results provide a paradigm for versatile and efficient quantum generative learning.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "evolution-heuristics-towards-efficient-automatic-algorithm-design-0bc4c",
-   "title": "Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model",
-   "titleZh": "启发式进化(EoH):基于大语言模型的高效自动算法设计",
-   "authors": [
-    "Fei Liu",
-    "Xialiang Tong",
-    "Mingxuan Yuan",
-    "Xi Lin",
-    "Fu Luo",
-    "Zhenkun Wang",
-    "Zhichao Lu",
-    "Qingfu Zhang"
-   ],
-   "venue": "ICML 2024",
-   "date": "2024-01-04",
-   "year": 2024,
-   "citations": 14,
-   "arxivId": "2401.02051",
-   "doi": "10.48550/arxiv.2401.02051",
-   "url": "https://arxiv.org/abs/2401.02051",
-   "topics": [
-    "llm4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "Liu等人提出EoH,将LLM与进化计算结合进行自动启发式设计(AHD):同时进化\"思想\"(自然语言描述)与\"代码\"两种表示,通过精心设计的LLM提示策略实现交叉与变异。在在线装箱、TSP、流水车间调度等问题上,EoH以远低于FunSearch的查询次数设计出超越人工与既有自动方法的启发式,是LLM4CO方向最具影响力的框架之一。",
-   "abstract": "Heuristics are widely used for dealing with complex search and optimization problems. However, manual design of heuristics can be often very labour extensive and requires rich working experience and knowledge. This paper proposes Evolution of Heuristic (EoH), a novel evolutionary paradigm that leverages both Large Language Models (LLMs) and Evolutionary Computation (EC) methods for Automatic Heuristic Design (AHD). EoH represents the ideas of heuristics in natural language, termed thoughts. They are then translated into executable codes by LLMs. The evolution of both thoughts and codes in an evolutionary search framework makes it very effective and efficient for generating high-performance heuristics. Experiments on three widely studied combinatorial optimization benchmark problems demonstrate that EoH outperforms commonly used handcrafted heuristics and other recent AHD methods including FunSearch. Particularly, the heuristic produced by EoH with a low computational budget (in terms of the number of queries to LLMs) significantly outperforms widely-used human hand-crafted baseline algorithms for the online bin packing problem.",
-   "source": "backfill",
-   "domains": [
-    "manufacturing"
-   ]
   },
   {
    "id": "physics-informed-neural-networks-quantum-control-29ab9",
@@ -6178,66 +5338,6 @@
    "abstract": "Quantum control is a ubiquitous research field that has enabled physicists to delve into the dynamics and features of quantum systems, delivering powerful applications for various atomic, optical, mechanical, and solid-state systems. In recent years, traditional control techniques based on optimization processes have been translated into efficient artificial intelligence algorithms. Here, we introduce a computational method for optimal quantum control problems via physics-informed neural networks (PINNs). We apply our methodology to open quantum systems by efficiently solving the state-to-state transfer problem with high probabilities, short-time evolution, and using low-energy consumption controls. Furthermore, we illustrate the flexibility of PINNs to solve the same problem under changes in physical parameters and initial conditions, showing advantages in comparison with standard control techniques.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "targeted-branching-maximum-independent-set-problem-graph-b228c",
-   "title": "Targeted Branching for the Maximum Independent Set Problem Using Graph Neural Networks",
-   "titleZh": "使用图神经网络进行最大独立集问题的定向分支",
-   "authors": [
-    "Kenneth Langedal",
-    "Demian Hespe",
-    "Peter Sanders"
-   ],
-   "venue": "SEA 2024 (Symposium on Experimental Algorithms)",
-   "date": "2024-01-01",
-   "year": 2024,
-   "citations": null,
-   "arxivId": "",
-   "doi": "10.4230/lipics.sea.2024.20",
-   "url": "https://doi.org/10.4230/lipics.sea.2024.20",
-   "topics": [
-    "ml4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "分支归约(branch-and-reduce)是精确求解最大独立集的最有效方法之一。该工作用图神经网络学习分支决策——预测哪些顶点更可能属于最优解,以定向引导分支,在真实世界大规模实例上显著加速精确求解。这是\"学习增强精确算法\"这一ML4CO路线的代表性成果。",
-   "abstract": "Identifying a maximum independent set is a fundamental NP-hard problem. This problem has several real-world applications and requires finding the largest possible set of vertices not adjacent to each other in an undirected graph. Over the past few years, branch-and-bound and branch-and-reduce algorithms have emerged as some of the most effective methods for solving the problem exactly. Specifically, the branch-and-reduce approach, which combines branch-and-bound principles with reduction rules, has proven particularly successful in tackling previously unmanageable real-world instances. This progress was largely made possible by the development of more effective reduction rules. Nevertheless, other key components that can impact the efficiency of these algorithms have not received the same level of interest. Among these is the branching strategy, which determines which vertex to branch on next. Until recently, the most widely used strategy was to choose the vertex of the highest degree. In this work, we present a graph neural network approach for selecting the next branching vertex. The intricate nature of current branch-and-bound solvers makes supervised and reinforcement learning difficult. Therefore, we use a population-based genetic algorithm to evolve the model’s parameters instead. Our proposed approach results in a speedup on 73% of the benchmark instances with a median speedup of 24%.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "reevo-large-language-models-as-hyper-heuristics-d023e",
-   "title": "ReEvo: Large Language Models as Hyper-Heuristics with Reflective Evolution",
-   "titleZh": "ReEvo:具备反思进化能力的大语言模型超启发式",
-   "authors": [
-    "Haoran Ye",
-    "Jiarui Wang",
-    "Zhiguang Cao",
-    "Federico Berto",
-    "Chuanbo Hua",
-    "Haeyeon Kim",
-    "Jinkyoo Park",
-    "Guojie Song"
-   ],
-   "venue": "NeurIPS 2024",
-   "date": "2024-01-01",
-   "year": 2024,
-   "citations": 47,
-   "arxivId": "",
-   "doi": "10.52202/079017-1381",
-   "url": "https://doi.org/10.52202/079017-1381",
-   "topics": [
-    "llm4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "Ye等人提出ReEvo,把LLM定位为\"超启发式\"——在启发式空间中搜索的生成器,并引入受强化学习启发的\"反思\"机制:LLM对比父代启发式的表现生成语言化反馈,指导下一代生成,使搜索具备可解释的方向性。ReEvo在TSP、CVRP、装箱、MKP等问题及ACO/引导局部搜索等多种算法框架下达到当前最优,代码开源、影响广泛。",
-   "abstract": "",
-   "source": "backfill",
-   "domains": [
-    "materials"
-   ]
   },
   {
    "id": "quantum-optimization-methods-satellite-mission-planning-05875",
@@ -6330,70 +5430,6 @@
    "domains": [
     "satellite"
    ]
-  },
-  {
-   "id": "mathematical-discoveries-from-program-search-large-language-80f9d",
-   "title": "Mathematical discoveries from program search with large language models",
-   "titleZh": "用大语言模型进行程序搜索的数学发现(FunSearch)",
-   "authors": [
-    "Bernardino Romera‐Paredes",
-    "Mohammadamin Barekatain",
-    "Alexander Novikov",
-    "Matej Balog",
-    "Manish Kumar",
-    "Emilien Dupont",
-    "Francisco J. R. Ruiz",
-    "Jordan S. Ellenberg",
-    "Pengming Wang",
-    "Omar Fawzi",
-    "Pushmeet Kohli",
-    "Alhussein Fawzi"
-   ],
-   "venue": "Nature",
-   "date": "2023-12-14",
-   "year": 2023,
-   "citations": 456,
-   "arxivId": "",
-   "doi": "10.1038/s41586-023-06924-6",
-   "url": "https://doi.org/10.1038/s41586-023-06924-6",
-   "topics": [
-    "llm4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "foundational"
-   ],
-   "summaryZh": "DeepMind在Nature发表的FunSearch将预训练LLM与进化式程序搜索结合:LLM生成候选程序,自动评估器打分筛选,迭代进化。它在cap set问题上发现了超越已知最优的新构造,并为在线装箱问题找到了优于传统启发式的算法——首次证明LLM可以在开放数学与组合优化问题上产生可验证的新知识,开启了\"LLM自动设计启发式算法\"这一爆发性方向。",
-   "abstract": "Abstract Large language models (LLMs) have demonstrated tremendous capabilities in solving complex tasks, from quantitative reasoning to understanding natural language. However, LLMs sometimes suffer from confabulations (or hallucinations), which can result in them making plausible but incorrect statements 1,2 . This hinders the use of current large models in scientific discovery. Here we introduce FunSearch (short for searching in the function space), an evolutionary procedure based on pairing a pretrained LLM with a systematic evaluator. We demonstrate the effectiveness of this approach to surpass the best-known results in important problems, pushing the boundary of existing LLM-based approaches 3 . Applying FunSearch to a central problem in extremal combinatorics—the cap set problem—we discover new constructions of large cap sets going beyond the best-known ones, both in finite dimensional and asymptotic cases. This shows that it is possible to make discoveries for established open problems using LLMs. We showcase the generality of FunSearch by applying it to an algorithmic problem, online bin packing, finding new heuristics that improve on widely used baselines. In contrast to most computer search approaches, FunSearch searches for programs that describe how to solve a problem, rather than what the solution is. Beyond being an effective and scalable strategy, discovered programs tend to be more interpretable than raw solutions, enabling feedback loops between domain exper",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "algorithm-evolution-large-language-model-b1bb4",
-   "title": "Algorithm Evolution Using Large Language Model",
-   "titleZh": "使用大语言模型的算法进化(AEL)",
-   "authors": [
-    "Fei Liu",
-    "Xialiang Tong",
-    "Mingxuan Yuan",
-    "Qingfu Zhang"
-   ],
-   "venue": "arXiv",
-   "date": "2023-11-26",
-   "year": 2023,
-   "citations": 16,
-   "arxivId": "2311.15249",
-   "doi": "10.48550/arxiv.2311.15249",
-   "url": "https://arxiv.org/abs/2311.15249",
-   "topics": [
-    "llm4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "AEL是EoH的前身工作:提出用LLM在进化框架中自动生成与改进优化算法,以TSP的构造式启发式为案例,展示LLM生成的算法可超越人工设计的贪心规则并具备跨规模泛化能力。该论文确立了\"算法本身作为进化个体、LLM作为遗传算子\"的基本范式。",
-   "abstract": "Optimization can be found in many real-life applications. Designing an effective algorithm for a specific optimization problem typically requires a tedious amount of effort from human experts with domain knowledge and algorithm design skills. In this paper, we propose a novel approach called Algorithm Evolution using Large Language Model (AEL). It utilizes a large language model (LLM) to automatically generate optimization algorithms via an evolutionary framework. AEL does algorithm-level evolution without model training. Human effort and requirements for domain knowledge can be significantly reduced. We take constructive methods for the salesman traveling problem as a test example, we show that the constructive algorithm obtained by AEL outperforms simple hand-crafted and LLM-generated heuristics. Compared with other domain deep learning model-based algorithms, these methods exhibit excellent scalability across different problem sizes. AEL is also very different from previous attempts that utilize LLMs as search operators in algorithms.",
-   "source": "backfill",
-   "domains": []
   },
   {
    "id": "quantum-enhanced-markov-chain-monte-carlo-387ea",
@@ -6676,157 +5712,6 @@
    "domains": []
   },
   {
-   "id": "machine-learning-combinatorial-optimization-methodological-tour-d-01b95",
-   "title": "Machine learning for combinatorial optimization: A methodological tour d'horizon",
-   "titleZh": "机器学习求解组合优化:方法论全景综述",
-   "authors": [
-    "Yoshua Bengio",
-    "Andrea Lodi",
-    "Antoine Prouvost"
-   ],
-   "venue": "European Journal of Operational Research",
-   "date": "2021-01-01",
-   "year": 2021,
-   "citations": 1427,
-   "arxivId": "",
-   "doi": "10.1016/j.ejor.2020.07.063",
-   "url": "https://doi.org/10.1016/j.ejor.2020.07.063",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "foundational"
-   ],
-   "summaryZh": "Bengio、Lodi与Prouvost在EJOR上的这篇综述是ML4CO领域的奠基性文献:系统梳理机器学习与运筹学两个社区用学习替代手工启发式决策的尝试,提出\"端到端学习\"\"学习配置算法\"\"学习与算法交替\"三种集成范式的方法论框架,并指明了泛化、可扩展与理论保证等开放问题,至今仍是该方向的引用基石。",
-   "abstract": "This paper surveys the recent attempts, both from the machine learning and operations research communities, at leveraging machine learning to solve combinatorial optimization problems. Given the hard nature of these problems, state-of-the-art algorithms rely on handcrafted heuristics for making decisions that are otherwise too expensive to compute or mathematically not well defined. Thus, machine learning looks like a natural candidate to make such decisions in a more principled and optimized way. We advocate for pushing further the integration of machine learning and combinatorial optimization and detail a methodology to do so. A main point of the paper is seeing generic optimization problems as data points and inquiring what is the relevant distribution of problems to use for learning on a given task.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "combinatorial-optimization-reasoning-graph-neural-networks-9d93b",
-   "title": "Combinatorial Optimization and Reasoning with Graph Neural Networks",
-   "titleZh": "图神经网络的组合优化与推理",
-   "authors": [
-    "Quentin Cappart",
-    "Didier Chételat",
-    "Elias B. Khalil",
-    "Andrea Lodi",
-    "Christopher Morris",
-    "Petar Veličković"
-   ],
-   "venue": "Journal of Machine Learning Research",
-   "date": "2021-01-01",
-   "year": 2021,
-   "citations": 177,
-   "arxivId": "",
-   "doi": "10.24963/ijcai.2021/595",
-   "url": "https://doi.org/10.24963/ijcai.2021/595",
-   "topics": [
-    "ml4co",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "Cappart、Chételat、Khalil、Lodi、Morris与Veličković合著的JMLR综述,系统论述图神经网络作为组合优化核心构件的理论与实践:GNN如何表达算法推理、与精确求解器(分支定界)和启发式的多种结合方式、表达力与泛化的理论边界,以及开放问题。这是理解GNN在组合优化中\"能做什么、不能做什么\"的权威指南。",
-   "abstract": "Combinatorial optimization is a well-established area in operations research and computer science. Until recently, its methods have mostly focused on solving problem instances in isolation, ignoring the fact that they often stem from related data distributions in practice. However, recent years have seen a surge of interest in using machine learning, especially graph neural networks, as a key building block for combinatorial tasks, either directly as solvers or by enhancing the former. This paper presents a conceptual review of recent key advancements in this emerging field, aiming at researchers in both optimization and machine learning.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "pomo-policy-optimization-multiple-optima-reinforcement-learning-26a56",
-   "title": "POMO: Policy Optimization with Multiple Optima for Reinforcement Learning",
-   "titleZh": "POMO:利用多重最优解的策略优化",
-   "authors": [
-    "Yeong‐Dae Kwon",
-    "Jinho Choo",
-    "Byoungjip Kim",
-    "Iljoo Yoon",
-    "Youngjune Gwon",
-    "Seung-Jai Min"
-   ],
-   "venue": "NeurIPS 2020",
-   "date": "2020-10-30",
-   "year": 2020,
-   "citations": 135,
-   "arxivId": "2010.16011",
-   "doi": "10.48550/arxiv.2010.16011",
-   "url": "https://arxiv.org/abs/2010.16011",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "Kwon等人观察到组合优化解常有多个等价表示(如TSP路径可从任意城市出发),POMO利用这种对称性:并行从多个起点展开轨迹,以共享基线做REINFORCE训练,并在推理时结合实例增强。该方法显著提升了神经构造式求解器在TSP、CVRP、背包问题上的性能,成为此后神经组合优化的标准训练范式之一。",
-   "abstract": "In neural combinatorial optimization (CO), reinforcement learning (RL) can turn a deep neural net into a fast, powerful heuristic solver of NP-hard problems. This approach has a great potential in practical applications because it allows near-optimal solutions to be found without expert guides armed with substantial domain knowledge. We introduce Policy Optimization with Multiple Optima (POMO), an end-to-end approach for building such a heuristic solver. POMO is applicable to a wide range of CO problems. It is designed to exploit the symmetries in the representation of a CO solution. POMO uses a modified REINFORCE algorithm that forces diverse rollouts towards all optimal solutions. Empirically, the low-variance baseline of POMO makes RL training fast and stable, and it is more resistant to local minima compared to previous approaches. We also introduce a new augmentation-based inference method, which accompanies POMO nicely. We demonstrate the effectiveness of POMO by solving three popular NP-hard problems, namely, traveling salesman (TSP), capacitated vehicle routing (CVRP), and 0-1 knapsack (KP). For all three, our solver based on POMO shows a significant improvement in performance over all recent learned heuristics. In particular, we achieve the optimality gap of 0.14% with TSP100 while reducing inference time by more than an order of magnitude.",
-   "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
-  },
-  {
-   "id": "exact-combinatorial-optimization-graph-convolutional-neural-networks-7dbb0",
-   "title": "Exact Combinatorial Optimization with Graph Convolutional Neural Networks",
-   "titleZh": "基于图卷积神经网络的精确组合优化",
-   "authors": [
-    "Maxime Gasse",
-    "Didier Chételat",
-    "Nicola Ferroni",
-    "Laurent Charlin",
-    "Andrea Lodi"
-   ],
-   "venue": "NeurIPS 2019",
-   "date": "2019-06-04",
-   "year": 2019,
-   "citations": 227,
-   "arxivId": "1906.01629",
-   "doi": "10.48550/arxiv.1906.01629",
-   "url": "https://arxiv.org/abs/1906.01629",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "foundational"
-   ],
-   "summaryZh": "Gasse等人提出用图卷积网络学习分支定界中的变量选择策略:利用MILP天然的变量-约束二分图表示,通过模仿学习逼近昂贵但高效的强分支规则。学到的策略在多类问题上超越了SCIP默认策略并能泛化到更大实例,开创了\"学习增强精确求解器\"路线,催生了ML4CO的整个learning-to-branch研究方向与竞赛。",
-   "abstract": "Combinatorial optimization problems are typically tackled by the branch-and-bound paradigm. We propose a new graph convolutional neural network model for learning branch-and-bound variable selection policies, which leverages the natural variable-constraint bipartite graph representation of mixed-integer linear programs. We train our model via imitation learning from the strong branching expert rule, and demonstrate on a series of hard problems that our approach produces policies that improve upon state-of-the-art machine-learning methods for branching and generalize to instances significantly larger than seen during training. Moreover, we improve for the first time over expert-designed branching rules implemented in a state-of-the-art solver on large problems. Code for reproducing all the experiments can be found at https://github.com/ds4dm/learn2branch.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "online-vehicle-routing-neural-combinatorial-optimization-deep-89de0",
-   "title": "Online Vehicle Routing With Neural Combinatorial Optimization and Deep Reinforcement Learning",
-   "titleZh": "基于神经组合优化与深度强化学习的在线车辆路径规划",
-   "authors": [
-    "James J. Q. Yu",
-    "Wen Yu",
-    "Jiatao Gu"
-   ],
-   "venue": "IEEE Transactions on Intelligent Transportation Systems",
-   "date": "2019-04-17",
-   "year": 2019,
-   "citations": 335,
-   "arxivId": "",
-   "doi": "10.1109/tits.2019.2909109",
-   "url": "https://doi.org/10.1109/tits.2019.2909109",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": true,
-   "tags": [
-    "foundational"
-   ],
-   "summaryZh": "面向实时小件配送的在线车辆路径问题,论文将神经组合优化与深度强化学习结合,训练策略网络在毫秒级生成高质量路径,替代计算耗时的数学规划方法。作为神经组合优化在交通运输领域的早期高被引应用,展示了\"离线训练、在线快速推理\"范式在动态运筹场景的价值。",
-   "abstract": "Online vehicle routing is an important task of the modern transportation service provider. Contributed by the ever-increasing real-time demand on the transportation system, especially small-parcel last-mile delivery requests, vehicle route generation is becoming more computationally complex than before. The existing routing algorithms are mostly based on mathematical programming, which requires huge computation time in city-size transportation networks. To develop routes with minimal time, in this paper, we propose a novel deep reinforcement learning-based neural combinatorial optimization strategy. Specifically, we transform the online routing problem to a vehicle tour generation problem, and propose a structural graph embedded pointer network to develop these tours iteratively. Furthermore, since constructing supervised training data for the neural network is impractical due to the high computation complexity, we propose a deep reinforcement learning mechanism with an unsupervised auxiliary network to train the model parameters. A multisampling scheme is also devised to further improve the system performance. Since the parameter training process is offline, the proposed strategy can achieve a superior online route generation speed. To assess the proposed strategy, we conduct comprehensive case studies with a real-world transportation network. The simulation results show that the proposed strategy can significantly outperform conventional strategies with limited computation ",
-   "source": "backfill",
-   "domains": [
-    "logistics",
-    "transport",
-    "materials"
-   ]
-  },
-  {
    "id": "combinatorial-optimization-simulating-adiabatic-bifurcations-nonlinear-hamiltonian-52a89",
    "title": "Combinatorial optimization by simulating adiabatic bifurcations in nonlinear Hamiltonian systems",
    "titleZh": "通过模拟非线性哈密顿系统的绝热分叉求解组合优化",
@@ -6944,38 +5829,6 @@
    "abstract": "Many experimental proposals for noisy intermediate scale quantum devices involve training a parameterized quantum circuit with a classical optimization loop. Such hybrid quantum-classical algorithms are popular for applications in quantum simulation, optimization, and machine learning. Due to its simplicity and hardware efficiency, random circuits are often proposed as initial guesses for exploring the space of quantum states. We show that the exponential dimension of Hilbert space and the gradient estimation complexity make this choice unsuitable for hybrid quantum-classical algorithms run on more than a few qubits. Specifically, we show that for a wide class of reasonable parameterized quantum circuits, the probability that the gradient along any reasonable direction is non-zero to some fixed precision is exponentially small as a function of the number of qubits. We argue that this is related to the 2-design characteristic of random circuits, and that solutions to this problem must be studied.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "learning-combinatorial-optimization-algorithms-over-graphs-3ce6e",
-   "title": "Learning Combinatorial Optimization Algorithms over Graphs",
-   "titleZh": "在图上学习组合优化算法",
-   "authors": [
-    "Hanjun Dai",
-    "Elias B. Khalil",
-    "Yuyu Zhang",
-    "Bistra Dilkina",
-    "Le Song"
-   ],
-   "venue": "NeurIPS 2017",
-   "date": "2017-04-05",
-   "year": 2017,
-   "citations": 975,
-   "arxivId": "1704.01665",
-   "doi": "10.48550/arxiv.1704.01665",
-   "url": "https://arxiv.org/abs/1704.01665",
-   "topics": [
-    "ml4co"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "foundational"
-   ],
-   "summaryZh": "Dai、Khalil等人提出S2V-DQN:用structure2vec图嵌入表示部分解与图结构,以深度Q学习端到端学习MVC、MaxCut、TSP等问题的贪心构造策略,学到的策略可泛化到远大于训练规模的实例。该工作与Bello等人的NCO一起开创了\"图神经网络+强化学习\"求解组合优化的研究路线,是ML4CO的奠基文献。",
-   "abstract": "The design of good heuristics or approximation algorithms for NP-hard combinatorial optimization problems often requires significant specialized knowledge and trial-and-error. Can we automate this challenging, tedious process, and learn the algorithms instead? In many real-world applications, it is typically the case that the same optimization problem is solved again and again on a regular basis, maintaining the same problem structure but differing in the data. This provides an opportunity for learning heuristic algorithms that exploit the structure of such recurring problems. In this paper, we propose a unique combination of reinforcement learning and graph embedding to address this challenge. The learned greedy policy behaves like a meta-algorithm that incrementally constructs a solution, and the action is determined by the output of a graph embedding network capturing the current state of the solution. We show that our framework can be applied to a diverse range of optimization problems over graphs, and learns effective algorithms for the Minimum Vertex Cover, Maximum Cut and Traveling Salesman problems.",
-   "source": "backfill",
-   "domains": [
-    "materials"
-   ]
   },
   {
    "id": "coherent-ising-machine-2000-node-optimization-problems-694d0",
