@@ -76,5 +76,15 @@ const nav = [
         </div>
       </div>
     </footer>
+
+    <nav class="bottom-nav" aria-label="移动端导航">
+      <div class="inner">
+        <a href="/" class={active === 'home' ? 'active' : ''}><span class="ico">🏠</span>首页</a>
+        <a href="/daily/" class={active === 'daily' ? 'active' : ''}><span class="ico">📅</span>日报</a>
+        <a href="/news/" class={active === 'news' ? 'active' : ''}><span class="ico">📣</span>动态</a>
+        <a href="/papers/" class={active === 'papers' ? 'active' : ''}><span class="ico">📚</span>论文库</a>
+        <a href="/specials/" class={active === 'specials' ? 'active' : ''}><span class="ico">🧭</span>专题</a>
+      </div>
+    </nav>
   </body>
 </html>
