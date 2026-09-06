@@ -1,6 +1,6 @@
 // 站点公共工具函数
 export const SITE_NAME = '量子优化日报';
-export const SITE_NAME_EN = 'QuanOpt Daily';
+export const SITE_NAME_EN = 'QuantOpt Daily';
 export const SITE_TAGLINE = '量子计算 × 组合优化 × 智能优化算法 —— 每日追踪领域最新论文与研究进展';
 
 export const TOPIC_ORDER = ['qaoa', 'annealing', 'vqa', 'hybrid', 'hardware', 'applications', 'quantum', 'ml4co', 'llm4co'];

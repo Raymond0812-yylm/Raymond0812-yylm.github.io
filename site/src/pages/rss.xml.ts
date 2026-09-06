@@ -40,7 +40,7 @@ export async function GET({ site: base }: { site: URL }) {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>量子优化日报 · QuanOpt Daily</title>
+    <title>量子优化日报 · QuantOpt Daily</title>
     <link>${origin}</link>
     <description>量子计算求解组合优化、量子赋能智能优化方向的最新论文与研究进展(中文解读)</description>
     <language>zh-CN</language>
