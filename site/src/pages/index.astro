@@ -86,9 +86,9 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
   {latestNews && latestNews.items.length > 0 && (() => {
     const intl = latestNews.items.filter((it: any) => it.region !== '国内').slice(0, 3);
     const dom = latestNews.items.filter((it: any) => it.region === '国内').slice(0, 3);
-    const newsPick = [
-      ...intl.map((it: any) => ({ ...it, regionLabel: '🌍 国际' })),
-      ...dom.map((it: any) => ({ ...it, regionLabel: '🇨🇳 国内' })),
+    const groups = [
+      { title: '国际动态', items: intl },
+      { title: '国内动态', items: dom },
     ];
     return (
       <section class="section">
@@ -96,19 +96,25 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
           <h2><span class="bar"></span>行业动态 · {latestNews.date}</h2>
           <a class="more" href="/news/">全部动态 →</a>
         </div>
-        <div class="grid news-grid">
-          {newsPick.map((it: any) => (
-            <article class="card news-item">
-              <div class="top">
-                <span class="badge tag">{it.regionLabel}</span>
-                <span class="badge tag">{it.category}</span>
-                <span class="venue">{it.source}</span>
+        {groups.map((g: any) => (
+          <div class="news-group" style="margin-bottom:22px">
+            <div class="news-group-title">{g.title} <span class="muted small">({g.items.length} 条)</span></div>
+            {g.items.length > 0 ? (
+              <div class="grid news-grid">
+                {g.items.map((it: any) => (
+                  <article class="card news-item">
+                    <div class="top">
+                      <span class="badge tag">{it.category}</span>
+                      <span class="venue">{it.source}</span>
+                    </div>
+                    <h3 class="title">{it.title}</h3>
+                    <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
+                  </article>
+                ))}
               </div>
-              <h3 class="title">{it.title}</h3>
-              <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
-            </article>
-          ))}
-        </div>
+            ) : <p class="muted small" style="padding:6px 2px">本期暂无。</p>}
+          </div>
+        ))}
       </section>
     );
   })()}
