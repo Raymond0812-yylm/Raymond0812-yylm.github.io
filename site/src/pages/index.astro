@@ -84,35 +84,30 @@ const foundational = papers.filter((p: any) => p.tags.includes('foundational')).
   )}
 
   {latestNews && latestNews.items.length > 0 && (() => {
-    const intl = latestNews.items.filter((it: any) => it.region !== '国内');
-    const dom = latestNews.items.filter((it: any) => it.region === '国内');
+    const intl = latestNews.items.filter((it: any) => it.region !== '国内').slice(0, 3);
+    const dom = latestNews.items.filter((it: any) => it.region === '国内').slice(0, 3);
+    const newsPick = [
+      ...intl.map((it: any) => ({ ...it, regionLabel: '🌍 国际' })),
+      ...dom.map((it: any) => ({ ...it, regionLabel: '🇨🇳 国内' })),
+    ];
     return (
       <section class="section">
         <div class="section-head">
           <h2><span class="bar"></span>行业动态 · {latestNews.date}</h2>
           <a class="more" href="/news/">全部动态 →</a>
         </div>
-        <div class="news-cols">
-          <div class="region-block">
-            <div class="region-title">🌍 国际动态 <span class="muted small">({intl.length})</span></div>
-            {intl.slice(0, 4).map((it: any) => (
-              <article class="card compact news-item">
-                <div class="top"><span class="badge tag">{it.category}</span><span class="venue">{it.source}</span></div>
-                <h3 class="title">{it.title}</h3>
-                <p class="summary" style="-webkit-line-clamp:2">{it.summary}</p>
-              </article>
-            ))}
-          </div>
-          <div class="region-block">
-            <div class="region-title">🇨🇳 国内动态 <span class="muted small">({dom.length})</span></div>
-            {dom.length > 0 ? dom.slice(0, 4).map((it: any) => (
-              <article class="card compact news-item">
-                <div class="top"><span class="badge tag">{it.category}</span><span class="venue">{it.source}</span></div>
-                <h3 class="title">{it.title}</h3>
-                <p class="summary" style="-webkit-line-clamp:2">{it.summary}</p>
-              </article>
-            )) : <p class="muted small" style="padding:12px 4px">本期暂无国内动态。</p>}
-          </div>
+        <div class="grid news-grid">
+          {newsPick.map((it: any) => (
+            <article class="card news-item">
+              <div class="top">
+                <span class="badge tag">{it.regionLabel}</span>
+                <span class="badge tag">{it.category}</span>
+                <span class="venue">{it.source}</span>
+              </div>
+              <h3 class="title">{it.title}</h3>
+              <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
+            </article>
+          ))}
         </div>
       </section>
     );
