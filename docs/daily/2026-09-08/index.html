@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>量子优化求解蛋白质相互作用网络比对 · 量子优化日报</title><meta name="description" content="蛋白质相互作用（PPI）网络比对是系统生物学的基础计算问题：把不同物种的 PPI 网络对齐，可以识别跨物种保守的功能模块、推断直系同源基因、发现药物靶点，是&#34;用网络结构读懂进化&#34;的核心手段。其计算难度来源于双重耦合——全局比对要求同时在两个网络中寻找拓扑结构与序列信息（节点相似度）双最优的对应关系，本质上是子图同构族的 NP 难问题：经典启发式比对工具（SANA、MAGNA 等模拟退火/遗传搜索类）牺牲最优性换取可扩展性，精确方法则完全无法上规模。&#34;既要质量、又要规模&#34;的矛盾长期无解，这正是组合优化新范式（量子…"><meta property="og:title" content="量子优化求解蛋白质相互作用网络比对 · 量子优化日报"><meta property="og:description" content="蛋白质相互作用（PPI）网络比对是系统生物学的基础计算问题：把不同物种的 PPI 网络对齐，可以识别跨物种保守的功能模块、推断直系同源基因、发现药物靶点，是&#34;用网络结构读懂进化&#34;的核心手段。其计算难度来源于双重耦合——全局比对要求同时在两个网络中寻找拓扑结构与序列信息（节点相似度）双最优的对应关系，本质上是子图同构族的 NP 难问题：经典启发式比对工具（SANA、MAGNA 等模拟退火/遗传搜索类）牺牲最优性换取可扩展性，精确方法则完全无法上规模。&#34;既要质量、又要规模&#34;的矛盾长期无解，这正是组合优化新范式（量子…"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.DEa1pR_2.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-08</div> <h1>量子优化求解蛋白质相互作用网络比对</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-08 · arXiv 预印本 · arXiv:2609.05238 / 2609.04462 / 2609.04459 · Merle Stahl, Robert J. Banks, Matthias Traube 等 7 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/quantum-optimisation-protein-protein-interaction-network-alignment-8f7f4/" style="font-weight:700">量子优化求解蛋白质相互作用网络比对</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">蛋白质相互作用（PPI）网络比对是系统生物学的基础计算问题：把不同物种的 PPI 网络对齐，可以识别跨物种保守的功能模块、推断直系同源基因、发现药物靶点，是&quot;用网络结构读懂进化&quot;的核心手段。其计算难度来源于双重耦合——全局比对要求同时在两个网络中寻找拓扑结构与序列信息（节点相似度）双最优的对应关系，本质上是子图同构族的 NP 难问题：经典启发式比对工具（SANA、MAGNA 等模拟退火/遗传搜索类）牺牲最优性换取可扩展性，精确方法则完全无法上规模。&quot;既要质量、又要规模&quot;的矛盾长期无解，这正是组合优化新范式（量子…</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/representation-theoretic-framework-characterizing-barren-plateaus-8f7ed/" style="font-weight:700">刻画贫瘠高原的表示论框架</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">贫瘠高原（barren plateau）——代价函数梯度方差随系统规模指数消失——是包括 QAOA 在内一切变分量子算法可扩展性的根本威胁。近年最有力的分析工具是基于动力学李代数（DLA）的李代数方法（本专栏 09-06 期主推的 QAOA 表达能力约简即属此谱系），但它有一个关键限制：要求初态或观测量本身落在电路生成的 DLA 内，否则工具失效。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/efficient-quantum-error-correction-from-three-dimensional-8f7ed/" style="font-weight:700">三维量子比特控制带来的高效量子纠错</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">高码率 qLDPC 码（如 [[144,12,12]] 双变量自行车码）相对表面码可大幅降低比特开销，但其优势兑现取决于能否高效实现非局域的校验子提取——这恰是二维平面架构的短板。本文研究在中性原子平台的原生三维（3D）几何中执行该码：保持码不变，仅比较平面排布与 3D 排布。核心结果：以&quot;单位光学视场内的逻辑比特密度&quot;为度量，3D 嵌入的面积逻辑密度约为平面布局的 4 倍、表面码基线的 42 倍；同时校验子提取时间缩短约 2 倍（原子搬运次数更少、传输距离更短）。</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-08）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 8 日（周一，北京时间）</strong>。检索渠道：paper-distill MCP 多库聚合检索（OpenAlex、Semantic Scholar、CrossRef、arXiv 等）+ arXiv 官方新公告列表逐条核验。</p>
+<ul>
+<li><strong>今晨（北京时间 08:00）arXiv 发布了 Monday, 7 September 2026 公告批次（quant-ph 共 50 篇新作 + 9 篇跨类 + 若干更新）</strong>，含周五至周日提交的论文，恢复正常&quot;当日批次&quot;节奏。本报告从该批次精选 3 篇：QAOA 求解蛋白质相互作用网络比对（生物信息学 × 量子优化，深度解读）+ 变分算法贫瘠高原的表示论框架（简要推荐）+ 中性原子三维比特控制跑 qLDPC 码（简要推荐）。</li>
+<li><strong>机器学习/大模型求解组合优化方向</strong>：逐条扫描本批次 quant-ph 与 cs 相关跨类列表，未检索到合格的当日新作（最接近的 QMClaw 为&quot;LLM 辅助量子测控&quot;框架，不属于组合优化求解）；量子方向候选充足，今日仍以量子方向为主。</li>
+<li><strong>追踪论文更新核验</strong>：本专栏 09-01/09-07 期持续追踪的 Fejér 滤波约束量子优化（arXiv:2603.01809，Onah &amp; Michielsen）出现在今晨批次更新列表，为<strong>大幅修订版</strong>：官方页面注明&quot;标题与论述已修订&quot;，新标题为《Exposing Finite-Depth, Finite-Shot Guarantees for Constrained Quantum Optimization via Fejér Filtering》，理论结论（维度无关的有限深度/有限采样保证）方向不变，建议关注该线的读者以新版为准。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：量子优化求解蛋白质相互作用网络比对</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Quantum Optimisation for Protein-Protein Interaction Network Alignment</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子优化求解蛋白质相互作用网络比对</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Merle Stahl, Robert J. Banks, Matthias Traube, Josua Unger, Wolfgang Lechner, Jan Baumbach, Mhaned Oubounyt（作者横跨量子优化与生物信息学两条线：Lechner 为因斯布鲁克大学教授、Parity 量子架构/LHZ 的提出者，其团队的中性原子编译工作见本专栏 09-06 期；Baumbach 为慕尼黑工业大学实验生物信息学教席、生物网络分析与系统医学领域知名学者，论文同时标注萨尔兰大学 &quot;Data + Science&quot; 卓越集群）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类；亦标注 q-bio.QM）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.05238（v1，2026-09-04 提交，2026-09-08 随公告公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.05238">https://arxiv.org/abs/2609.05238</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>蛋白质相互作用（PPI）网络比对是系统生物学的基础计算问题：把不同物种的 PPI 网络对齐，可以识别跨物种保守的功能模块、推断直系同源基因、发现药物靶点，是&quot;用网络结构读懂进化&quot;的核心手段。其计算难度来源于双重耦合——<strong>全局比对</strong>要求同时在两个网络中寻找拓扑结构与序列信息（节点相似度）双最优的对应关系，本质上是子图同构族的 NP 难问题：经典启发式比对工具（SANA、MAGNA 等模拟退火/遗传搜索类）牺牲最优性换取可扩展性，精确方法则完全无法上规模。<strong>&quot;既要质量、又要规模&quot;的矛盾长期无解</strong>，这正是组合优化新范式（量子优化）值得进场的地方。</p>
+<p>量子路线的机会与障碍同样清晰：QAOA 等变分算法已在 Max-Cut、最大独立集等图组合问题上积累了相当多的方法学，但把一个带约束、带节点权重的真实生物网络问题<strong>忠实且高效地</strong>编码为量子优化实例，并在编码方式与电路资源之间做出可量化的权衡，此前几乎没有系统性的工作——多数&quot;量子×生物&quot;论文止步于玩具图演示。本文的动机正是补上这一环：以 PPI 网络比对为载体，给出从问题归约、QAOA 编码设计、到性能-资源权衡分析的完整方法论。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>论文的技术路线是一条&quot;经典归约 + 量子求解 + 解析分析&quot;的三段式流水线：</p>
+<ol>
+<li><strong>问题归约</strong>：将 PPI 全局比对建模为带权最大公共诱导子图问题，经模积图（modular product graph）变换归约为补图上的<strong>最小权顶点覆盖</strong>（MWVC），节点权重携带蛋白质序列相似度。这一步把生物问题翻译成量子优化文献中研究最充分的问题族之一；</li>
+<li><strong>混合求解框架</strong>：组合三类手段——核化（kernelisation，利用图结构不变量压缩实例规模）、分支定界（经典精确剪枝，处理小规模子问题）、以及<strong>七种 QAOA 编码方案</strong>。七种方案的差异集中在<strong>约束处理方式</strong>这个变分量子算法最核心的痛点上：从把覆盖约束作为惩罚项写入代价哈密顿量（电路浅、但解可能不可行），到用限制在可行子空间内的混合算符（mixer）硬性保证可行性（解可行、但电路深）；</li>
+<li><strong>解析性能刻画</strong>：对四种循环（circulant）混合算符变体，推导出单轮 QAOA 期望代价的<strong>闭式表达式</strong>——无需电路仿真即可预测不同编码方案的性能，这是全文最有方法论价值的部分。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>理论结果</strong>：四种循环 mixer 变体在单轮 QAOA 下的期望代价闭式解，建立了&quot;编码方案 → 可解析预测性能&quot;的直接通道，为方案选型提供了免仿真工具；</li>
+<li><strong>实验结果</strong>：在合成网络与归约到 KEGG 通路规模的真实网络上验证：QAOA 方案在对齐核心区域取得高拓扑保守性，生物学保守性至少与主流经典比对工具相当，代价是节点覆盖率下降；对齐出的子网络成功保留了疾病关联蛋白，说明生物医学关键信息没有在量子化编码中丢失；</li>
+<li><strong>资源权衡的诚实刻画</strong>：惩罚项方案便宜但会留下更多未覆盖边；把可行性硬编码进 mixer 则使电路深度上升<strong>一到两个数量级</strong>——论文没有回避这一差距，而是把它作为&quot;量子硬件成熟过程中必须管理的核心权衡&quot;明确量化出来。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>&quot;量子作为子程序&quot;的工程范式样本</strong>：核化 + 分支定界 + QAOA 的三层架构示范了现实的落地路径——经典手段压缩实例到量子硬件可处理的规模，量子求解器负责其中组合爆炸的核心子问题。这与本专栏 09-02 期（MWIS 核 + 随机机组组合）、09-03 期（增强量子求解器的规模优势证据）一脉相承，勾勒出&quot;混合流水线&quot;而非&quot;全量子替代&quot;的应用图景；</li>
+<li><strong>问题编码的系统比较学</strong>：七种编码方案 + 闭式期望代价分析，把&quot;约束如何进入 QAOA&quot;从经验选择变成可推导的比较问题。惩罚项与可行 mixer 之间一到两个数量级的深度差，是今后任何带约束量子优化应用（排产、路径、装载）都必须直面的资源账本，本文给出了记账方法；</li>
+<li><strong>对量子×生物信息学方向的路线性意义</strong>：Lechner 团队（量子优化架构）与 Baumbach 团队（大规模生物网络分析）的直接合作表明，&quot;领域专家出问题、量子专家出方法&quot;的双向通道正在打通；KEGG 通路与疾病蛋白保留率的评估标准也示范了领域级 benchmark 该怎么建。随着逻辑比特规模增长，此类&quot;真实数据库规模 + 可行性保证&quot;的工作将决定量子优化能否走出玩具图时代。</li>
+</ol>
+<hr>
+<h2>论文二：贫瘠高原的表示论刻画框架</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>A Representation-Theoretic Framework for Characterizing Barren Plateaus</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>刻画贫瘠高原的表示论框架</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Pedro Alcântara, Leandro Morais, Rafael Chaves（亚琛工业大学 / 于利希研究中心；Chaves 是量子因果推断与量子机器学习理论方向的知名学者）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.04462（v1，2026-09-03 提交，2026-09-08 随公告公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.04462">https://arxiv.org/abs/2609.04462</a></td>
+</tr>
+</tbody></table>
+<h3>二至五、内容简评</h3>
+<p>贫瘠高原（barren plateau）——代价函数梯度方差随系统规模指数消失——是包括 QAOA 在内一切变分量子算法可扩展性的根本威胁。近年最有力的分析工具是基于动力学李代数（DLA）的李代数方法（本专栏 09-06 期主推的 QAOA 表达能力约简即属此谱系），但它有一个关键限制：要求初态或观测量本身落在电路生成的 DLA 内，否则工具失效。</p>
+<p>本文打破这一限制：在 2-设计假设下证明变分量子景观天然分解为<strong>不可约表示（irreducible representation）通道</strong>，从而对<strong>任意初态与任意观测量</strong>给出代价方差的精确表达式与解析界——既有李代数结果成为特例。作为演示，作者用该框架分析了一维 ANNNI 模型在多种电路架构下的能量景观，找到了现有方法无法触及的可训练性区间。推荐理由：其一，这是 VQA 可训练性理论从&quot;李代数时代&quot;迈向&quot;表示论时代&quot;的标志性一步，工具箱普适性显著扩大；其二，它与近期&quot;DLA 无法描述浅层 QAOA&quot;（arXiv:2608.04252，cragged terrains）的数值证据形成呼应——浅层/常数深度区间的景观标度理论正在成为变分优化研究的前沿争论点，本框架为这场争论提供了新的解析武器。</p>
+<hr>
+<h2>论文三：三维比特控制下的高效量子纠错</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Efficient Quantum Error Correction from Three dimensional Qubit Control</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>三维量子比特控制带来的高效量子纠错</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Kevin Yipu Wu, Ohik Kwon, Maxwell F. Parsons（加州理工学院）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph 分类）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.04459（v1，2026-09-03 提交，2026-09-08 随公告公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.04459">https://arxiv.org/abs/2609.04459</a></td>
+</tr>
+</tbody></table>
+<h3>二至五、内容简评</h3>
+<p>高码率 qLDPC 码（如 [[144,12,12]] 双变量自行车码）相对表面码可大幅降低比特开销，但其优势兑现取决于能否高效实现<strong>非局域</strong>的校验子提取——这恰是二维平面架构的短板。本文研究在中性原子平台的原生<strong>三维（3D）几何</strong>中执行该码：保持码不变，仅比较平面排布与 3D 排布。核心结果：以&quot;单位光学视场内的逻辑比特密度&quot;为度量，3D 嵌入的面积逻辑密度约为平面布局的 <strong>4 倍</strong>、表面码基线的 <strong>42 倍</strong>；同时校验子提取时间缩短约 <strong>2 倍</strong>（原子搬运次数更少、传输距离更短）。</p>
+<p>推荐理由：其一，这是&quot;硬件几何作为算法资源&quot;的又一实证——与 09-06 期 C₄-Helix 离子阱容错、Parity Twine 中性原子编译共同勾勒近期硬件-编译协同设计的活跃脉络；其二，对量子优化的远期路线意义重大：逻辑比特密度决定容错时代能装下多大规模的组合优化实例（QAOA/量子退火的实用化终将受限于逻辑比特预算），中性原子 3D 控制正是把 qLDPC 的高码率兑换为真实密度的关键工程路径。</p>
+<hr>
+<p><em>（检索时间：2026-09-08；检索渠道：paper-distill MCP 聚合检索、arXiv 官方公告列表 /quant-ph/new（Monday, 7 September 2026 批次）、arXiv API 摘要页逐篇核验）</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-07/">← 上一期(2026-09-07)</a> <a class="btn" href="https://arxiv.org/abs/2609.05238" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-08</span> · 共收录 506 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
