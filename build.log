@@ -6,7 +6,8 @@
 > quantum-opt-daily@0.1.0 data
 > node scripts/build-data.mjs
 
-site.json: 195 papers, 7 daily reports, 1 news days (11 items)
+site.json: 506 papers, 8 daily reports, 2 news days (17 items)
+  [2026-09-07] (3 篇) 量子拟蒙特卡洛：预渐近量子优势的窗口 | 2609.03625 / 2603.01809 / 2609.03706
   [2026-09-06] (3 篇) 无环图上对称约简 QAOA 表达能力的高效估计 | 2609.03317 / 2609.03194 / 2609.03583
   [2026-09-05] (1 篇) 基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用 | 2605.18985
   [2026-09-03] (1 篇) 量子增强的多目标优化（框架 QEMOO） | 2607.18848
@@ -14,31 +15,21 @@ site.json: 195 papers, 7 daily reports, 1 news days (11 items)
   [2026-09-02] (1 篇) 面向随机机组组合的后端无关最大权独立集（MWIS）内核：中性原子量子硬件 | 2609.01248
   [2026-09-01] (1 篇) 无需逐实例优化的量子近似优化算法具有有效常数采样复杂度的证据 | 2509.19035
   [2026-08-31] (1 篇) 基于量子优化算法的能源互联网路由 | 2608.28401
+  [新闻 2026-09-07] 6 条
   [新闻 2026-09-06] 11 条
-[2m01:37:14[22m [34m[content][39m Syncing content
-[2m01:37:14[22m [34m[content][39m Synced content
-[2m01:37:14[22m [34m[types][39m Generated [2m63ms[22m
-[2m01:37:14[22m [34m[build][39m output: [34m"static"[39m
-[2m01:37:14[22m [34m[build][39m mode: [34m"static"[39m
-[2m01:37:14[22m [34m[build][39m directory: [34mF:\研究生\01 竞赛科研\每日论文推送\docs\[39m
-[2m01:37:14[22m [34m[build][39m Collecting build info...
-[2m01:37:14[22m [34m[build][39m [32m✓ Completed in 107ms.[39m
-[2m01:37:14[22m [34m[build][39m Building static entrypoints...
-[2m01:37:16[22m [34m[vite][39m [32m✓ built in 1.75s[39m
-[2m01:37:16[22m [34m[build][39m [32m✓ Completed in 1.80s.[39m
-
-[42m[30m building client (vite) [39m[49m
-[2m01:37:16[22m [34m[vite][39m transforming...
-[2m01:37:16[22m [34m[vite][39m [32m✓[39m 1 modules transformed.
-[2m01:37:16[22m [34m[vite][39m rendering chunks...
-[2m01:37:16[22m [34m[vite][39m [32m✓ built in 153ms[39m
-
-[42m[30m generating static routes [39m[49m
-[2m01:37:16[22m [32m▶[39m src/pages/about.astro
-[2m01:37:16[22m   [34m└─[39m [2m/about/index.html[22mCannot read properties of undefined (reading 'label')
+[2m08:47:18[22m [34m[content][39m Syncing content
+[2m08:47:18[22m [34m[content][39m Synced content
+[2m08:47:18[22m [34m[types][39m Generated [2m41ms[22m
+[2m08:47:18[22m [34m[build][39m output: [34m"static"[39m
+[2m08:47:18[22m [34m[build][39m mode: [34m"static"[39m
+[2m08:47:18[22m [34m[build][39m directory: [34mF:\研究生\01 竞赛科研\每日论文推送\docs\[39m
+[2m08:47:18[22m [34m[build][39m Collecting build info...
+[2m08:47:18[22m [34m[build][39m [32m✓ Completed in 65ms.[39m
+[2m08:47:18[22m [34m[build][39m Building static entrypoints...
+[31m[1m08:47:19[22m [ERROR] [vite][39m [31m✗[39m Build failed in 771ms
+Could not resolve "../components/ArchivePanel.astro" from "src/pages/daily/index.astro"
+file: F:/研究生/01 竞赛科研/每日论文推送/site/src/pages/daily/index.astro
   [1mStack trace:[22m
-[2m    at file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/.astro/pages/about.astro.mjs?time=1788716236831:15:303
-    at Object.default (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/.astro/pages/about.astro.mjs?time=1788716236831:15:140)
-    at createAstroComponentInstance (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/.astro/chunks/astro/server_DLSzJewN.mjs:1503:20)
-    at renderComponent (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/.astro/chunks/astro/server_DLSzJewN.mjs:1882:12)
-    at about (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/.astro/chunks/astro/server_DLSzJewN.mjs:139:12)[22m
+[2m    at getRollupError (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/node_modules/rollup/dist/es/shared/parseAst.js:317:41)
+    at ModuleLoader.handleInvalidResolvedId (file:///F:/%E7%A0%94%E7%A9%B6%E7%94%9F/01%20%E7%AB%9E%E8%B5%9B%E7%A7%91%E7%A0%94/%E6%AF%8F%E6%97%A5%E8%AE%BA%E6%96%87%E6%8E%A8%E9%80%81/site/node_modules/rollup/dist/es/shared/node-entry.js:22002:24)[22m
+Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 94

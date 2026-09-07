@@ -1,0 +1,88 @@
+---
+// 日报板块归档面板:顶部 日报/周报/月报 切换标签 + 月份归档树(当前查看项高亮、所在月默认展开)
+import siteData from '../data/site.json';
+import { groupByWeek } from '../lib/periods.js';
+
+interface Props { mode: 'daily' | 'weekly' | 'monthly'; current?: string }
+const { mode, current = '' } = Astro.props;
+const data: any = siteData;
+
+// 日报树条目(按月分组的全部日报)
+const dailyEntries = (data.reports || []).map((r: any) => ({ key: r.slug, date: r.date, title: r.titleZh }));
+// 周树条目
+const weekObjs = groupByWeek(data.papers);
+// 月树条目
+const monthKeys = [...new Set([
+  ...dailyEntries.map((e) => e.date.slice(0, 7)),
+  ...weekObjs.map((w: any) => w.range[0].slice(0, 7)),
+])].sort().reverse();
+
+const tabs = [['/daily/', '日报', 'daily'], ['/weekly/', '周报', 'weekly'], ['/monthly/', '月报', 'monthly']];
+const monthOf = (k: string) => (mode === 'weekly' ? (weekObjs.find((w: any) => w.key === k)?.range[0] ?? '').slice(0, 7) : k.slice(0, 7));
+---
+
+<div class="archive-panel">
+  <div class="period-tabs">
+    {tabs.map(([href, label, key]) => (
+      <a href={href} class:list={['period-tab', mode === key && 'on']}>{label}</a>
+    ))}
+  </div>
+
+  {mode === 'daily' && (
+    <div class="archive-tree">
+      {monthKeys.map((m) => {
+        const items = dailyEntries.filter((e) => e.date.slice(0, 7) === m).sort((a, b) => (a.date < b.date ? 1 : -1));
+        const open = items.some((e) => e.key === current);
+        return (
+          <details open={open || undefined}>
+            <summary>{m.slice(0, 4)} 年 {Number(m.slice(5, 7))} 月 <span class="cnt">{items.length}</span></summary>
+            <div class="archive-items">
+              {items.map((e) => (
+                <a class:list={['archive-entry', e.key === current && 'current']} href={`/daily/${e.key}/`}>
+                  <span class="ae-date">{e.date.slice(8)}</span>
+                  <span class="ae-title">{e.title}</span>
+                </a>
+              ))}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  )}
+
+  {mode === 'weekly' && (
+    <div class="archive-tree">
+      {monthKeys.map((m) => {
+        const items = weekObjs
+          .filter((w: any) => w.range[0].slice(0, 7) === m)
+          .sort((a: any, b: any) => (a.key < b.key ? 1 : -1));
+        const open = items.some((w: any) => w.key === current);
+        return (
+          <details open={open || undefined}>
+            <summary>{m.slice(0, 4)} 年 {Number(m.slice(5, 7))} 月 <span class="cnt">{items.length}</span></summary>
+            <div class="archive-items">
+              {items.map((w: any) => (
+                <a class:list={['archive-entry', w.key === current && 'current']} href={`/weekly/${w.key}/`}>
+                  <span class="ae-title">第 {w.week} 周<span class="cnt">({w.papers.length} 篇)</span></span>
+                </a>
+              ))}
+            </div>
+          </details>
+        );
+      })}
+    </div>
+  )}
+
+  {mode === 'monthly' && (
+    <div class="archive-tree">
+      {monthKeys.map((m) => {
+        const count = (data.papers as any[]).filter((p: any) => p.date.slice(0, 7) === m).length;
+        return (
+          <a class:list={['archive-entry', m === current && 'current']} href={`/monthly/${m}/`}>
+            <span class="ae-title">{m.slice(0, 4)} 年 {Number(m.slice(5, 7))} 月<span class="cnt">({count} 篇)</span></span>
+          </a>
+        );
+      })}
+    </div>
+  )}
+</div>

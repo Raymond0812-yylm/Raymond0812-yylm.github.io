@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PeriodTabs from '../../components/PeriodTabs.astro';
+import ArchivePanel from '../../components/ArchivePanel.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import siteData from '../../data/site.json';
 import { groupByMonth, monthLabel } from '../../lib/periods.js';
@@ -32,8 +32,9 @@ const mainLine = `本月共收录 ${papers.length} 篇论文` +
 <Base active="monthly" title={`量子优化月报 · ${monthLabel(month.key)}`} description={`量子优化月报 ${month.key},共 ${papers.length} 篇论文`}>
   <div class="page-head" style="padding-bottom:0">
     <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/monthly/">月报</a><span>/</span>{monthLabel(month.key)}</div>
-  </div>
-  <PeriodTabs active="monthly" />
+  </div>  <div class="period-layout">
+    <ArchivePanel mode="monthly" current={(month.key)} />
+    <div class="period-content">
 
   <div class="period-hero">
     <div class="vol-line">VOL.{month.key} · {papers.length} 篇 · QUANTOPT MONTHLY</div>

@@ -468,3 +468,28 @@ html[data-theme="dark"] .report-hero .big { background: linear-gradient(135deg, 
 .period-row .pr-range { font-family: var(--mono); font-size: .8rem; color: var(--text-3); }
 .period-row .pr-count { font-weight: 700; color: var(--brand); font-size: .88rem; }
 .period-row .pr-top { color: var(--text-3); font-size: .85rem; flex: 1; min-width: 200px; }
+
+/* ===== 日报板块归档面板 ===== */
+.period-layout { display: grid; grid-template-columns: 252px minmax(0, 1fr); gap: 20px; align-items: start; margin-top: 12px; }
+@media (max-width: 900px) { .period-layout { grid-template-columns: 1fr; } }
+.archive-panel { position: sticky; top: 70px; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 12px; box-shadow: var(--shadow); }
+.archive-panel .period-tabs { display: flex; width: 100%; margin-bottom: 10px; }
+.archive-panel .period-tab { flex: 1; text-align: center; padding: 7px 0; font-size: .88rem; }
+.archive-tree details { border-bottom: 1px solid var(--line); }
+.archive-tree details:last-child { border-bottom: none; }
+.archive-tree summary { list-style: none; cursor: pointer; font-weight: 700; font-size: .92rem;
+  padding: 9px 6px; display: flex; align-items: center; gap: 6px; border-radius: 8px; }
+.archive-tree summary::-webkit-details-marker { display: none; }
+.archive-tree summary::before { content: '▸'; color: var(--text-3); font-size: .75rem; transition: .15s; }
+.archive-tree details[open] summary::before { content: '▾'; }
+.archive-tree summary:hover { color: var(--brand); }
+.archive-tree summary .cnt { margin-left: auto; color: var(--text-3); font-size: .78rem; font-weight: 600; }
+.archive-items { padding: 2px 4px 8px; display: flex; flex-direction: column; gap: 2px; }
+.archive-entry { display: flex; gap: 8px; align-items: baseline; padding: 6px 8px; border-radius: 8px;
+  font-size: .86rem; color: var(--text-2); line-height: 1.45; }
+.archive-entry:hover { background: var(--brand-soft); color: var(--brand); text-decoration: none; }
+.archive-entry.current { background: var(--brand-soft); color: var(--brand); font-weight: 700; }
+.archive-entry .ae-date { font-family: var(--mono); font-size: .76rem; color: var(--text-3); flex-shrink: 0; }
+.archive-entry .ae-title { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.archive-entry .cnt { color: var(--text-3); font-size: .74rem; margin-left: 4px; }

@@ -1,7 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
-import PeriodTabs from '../../components/PeriodTabs.astro';
+import ArchivePanel from '../../components/ArchivePanel.astro';
 import site from '../../data/site.json';
 import { groupByWeek } from '../../lib/periods.js';
 
@@ -17,8 +17,9 @@ const weeks = groupByWeek(papers).map((w) => {
 <Base active="weekly" title="周报" description="量子优化周报:按周汇总新收录论文、热点方向与最受关注工作">
   <div class="page-head" style="padding-bottom:0">
     <div class="crumbs"><a href="/">首页</a><span>/</span>周报</div>
-  </div>
-  <PeriodTabs active="weekly" />
+  </div>  <div class="period-layout">
+    <ArchivePanel mode="weekly" current={(weeks[0]?.key ?? '')} />
+    <div class="period-content">
 
   <div class="period-archive">
     {weeks.map((w: any) => {

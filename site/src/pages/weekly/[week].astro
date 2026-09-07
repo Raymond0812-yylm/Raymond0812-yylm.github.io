@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PeriodTabs from '../../components/PeriodTabs.astro';
+import ArchivePanel from '../../components/ArchivePanel.astro';
 import siteData from '../../data/site.json';
 import { groupByWeek } from '../../lib/periods.js';
 import { isTopVenue } from '../../lib/utils.js';
@@ -26,8 +26,9 @@ const mainLine = `本周共收录 ${papers.length} 篇论文` +
 <Base active="weekly" title={`量子优化周报 · ${week.key}`} description={`量子优化周报 ${week.range[0]} ~ ${week.range[1]},共 ${papers.length} 篇论文`}>
   <div class="page-head" style="padding-bottom:0">
     <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/weekly/">周报</a><span>/</span>{week.key}</div>
-  </div>
-  <PeriodTabs active="weekly" />
+  </div>  <div class="period-layout">
+    <ArchivePanel mode="weekly" current={(week.key)} />
+    <div class="period-content">
 
   <div class="period-hero">
     <div class="vol-line">VOL.{week.key} · {papers.length} 篇 · QUANTOPT WEEKLY</div>
