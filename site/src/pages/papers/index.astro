@@ -3,8 +3,9 @@ import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import TrendChart from '../../components/TrendChart.astro';
 import HBars from '../../components/HBars.astro';
+import NetGraph from '../../components/NetGraph.astro';
 import site from '../../data/site.json';
-import { monthlyTrend, distOf, yearDist, topCited } from '../../lib/analytics.js';
+import { monthlyTrend, distOf, yearDist, topCited, authorStats, coAuthorPairs, titleKeywords } from '../../lib/analytics.js';
 import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
 
 const { topics, domains, papers } = site as any;
@@ -13,6 +14,15 @@ const trend = monthlyTrend(initial);
 const topicBars = Object.entries(topics).map(([k, t]: any) => ({ label: t.label, value: initial.filter((p: any) => p.topics.includes(k)).length })).sort((a, b) => b.value - a.value);
 const domainBars = Object.entries(domains).map(([k, t]: any) => ({ label: `${DOMAIN_ICON[k] ?? ''} ${t.label}`, value: initial.filter((p: any) => (p.domains || []).includes(k)).length })).sort((a, b) => b.value - a.value);
 const hot = topCited(initial, 3);
+const years = yearDist(initial);
+const authors = authorStats(initial).sort((a, b) => (b.count - a.count) || (b.cites - a.cites)).slice(0, 10);
+const authorNames = new Set(authors.map(a => a.name));
+const coEdges = coAuthorPairs(initial, authorNames, 1).slice(0, 16);
+const netNodes = authors.map(a => ({ name: a.name, count: a.count }));
+const keywords = titleKeywords(initial, 16);
+const venueCount = {};
+for (const p of initial) { const v = p.venue || '未知'; venueCount[v] = (venueCount[v] || 0) + 1; }
+const topVenues = Object.entries(venueCount).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([label, value]) => ({ label: label.length > 28 ? label.slice(0, 28) + '…' : label, value }));
 ---
 
 <Base active="papers" title="论文库" description="量子优化领域论文库:按方向、年份、影响力筛选,支持全文检索">
@@ -24,23 +34,66 @@ const hot = topCited(initial, 3);
 
   <section class="section" style="margin-top:18px">
     <div class="section-head"><h2><span class="bar"></span>库情分析</h2><span class="more">构建时自动生成 · 随库更新</span></div>
-    <div class="insight-grid">
-      <div class="panel" style="margin-bottom:0">
-        <h2>月度收录趋势</h2>
-        <TrendChart data={trend} />
+    <div class="insight-row">
+      <div class="panel insight-panel">
+        <h2>📈 月度收录趋势</h2>
+        <TrendChart data={trend} height={170} />
+        <p class="small muted" style="margin:6px 2px 0">从奠基文献到近期前沿,2024 年起进入快速扩张期</p>
       </div>
-      <div class="panel" style="margin-bottom:0">
-        <h2>研究方向分布</h2>
-        <HBars items={topicBars} />
-        <h2 style="margin-top:16px">应用领域分布</h2>
-        <HBars items={domainBars} color="#0891b2" />
+      <div class="panel insight-panel">
+        <h2>📊 年份分布</h2>
+        <HBars items={years.map(y => ({ label: String(y.year), value: y.count }))} unit="篇" />
       </div>
     </div>
-    {hot.length > 0 && (
-      <p class="small muted" style="margin:10px 2px 0">
-        库内高被引:{hot.map((p: any) => `《${p.titleZh.slice(0, 18)}…》(${p.citations} 引)`).join(' · ')}
-      </p>
-    )}
+    <div class="insight-row" style="margin-top:14px">
+      <div class="panel insight-panel">
+        <h2>🔬 研究方向分布</h2>
+        <HBars items={topicBars} />
+      </div>
+      <div class="panel insight-panel">
+        <h2>🏭 应用领域分布</h2>
+        <HBars items={domainBars} color="#0891b2" />
+      </div>
+      <div class="panel insight-panel">
+        <h2>🔑 高频关键词</h2>
+        <div class="kw-cloud">
+          {keywords.map((k: any) => (
+            <span class="kw" style={`font-size:${0.76 + Math.min(k.count, 10) * 0.055}rem`}>{k.word}<i>{k.count}</i></span>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="insight-row" style="margin-top:14px">
+      <div class="panel insight-panel" style="flex:1.4">
+        <h2>🕸️ 作者合作网络</h2>
+        <p class="small muted" style="margin:0 0 6px">节点大小 = 论文数 · 连线 = 合著关系 · 仅展示高产作者 Top 10</p>
+        <NetGraph nodes={netNodes} edges={coEdges} />
+      </div>
+      <div class="panel insight-panel">
+        <h2>👤 高产作者 Top 10</h2>
+        <HBars items={authors.map(a => ({ label: a.name.length > 18 ? a.name.slice(0, 18) + '…' : a.name, value: a.count }))} unit="篇" />
+      </div>
+    </div>
+    <div class="insight-row" style="margin-top:14px">
+      <div class="panel insight-panel" style="flex:1">
+        <h2>📰 主要期刊 / 来源 Top 8</h2>
+        <HBars items={topVenues} color="#0891b2" unit="篇" />
+      </div>
+      <div class="panel insight-panel" style="flex:1">
+        <h2>⭐ 库内高被引 Top 3</h2>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          {hot.map((p: any, i: number) => (
+            <div style="display:flex;gap:10px;align-items:center">
+              <span style="font-family:var(--mono);font-weight:800;color:var(--brand);font-size:1.1rem">{i + 1}</span>
+              <div style="min-width:0">
+                <a href={`/papers/${p.id}/`} style="font-weight:700;font-size:.92rem;color:var(--text)">{p.titleZh}</a>
+                <div class="small muted">{p.venue} · 被引 {p.citations}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   </section>
 
   <div class="toolbar" id="toolbar">

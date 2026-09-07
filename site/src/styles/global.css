@@ -503,3 +503,10 @@ html[data-theme="dark"] .report-hero .big { background: linear-gradient(135deg, 
 .kw { display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 10px; border-radius: 999px;
   background: var(--brand-soft); color: var(--brand); font-weight: 700; }
 .kw i { font-style: normal; font-family: var(--mono); font-size: .72rem; color: var(--text-3); }
+
+/* 库情分析增强布局 */
+.insight-row { display: flex; gap: 16px; align-items: stretch; }
+.insight-row > .panel { flex: 1; min-width: 0; }
+.insight-panel h2 { font-size: .96rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.insight-row + .insight-row, .section > .insight-row { margin-top: 14px; }
+@media (max-width: 900px) { .insight-row { flex-direction: column; } }
