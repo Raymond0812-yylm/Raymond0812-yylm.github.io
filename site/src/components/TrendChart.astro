@@ -1,0 +1,40 @@
+---
+// 月度收录趋势折线图(构建时生成 SVG,自适应深浅主题)
+interface Props { data: { month: string; count: number }[]; height?: number; color?: string }
+const { data, height = 150 } = Astro.props;
+const W = 640, H = height, padL = 30, padB = 26, padT = 12;
+const max = Math.max(...data.map((d) => d.count), 1);
+const n = data.length;
+const x = (i: number) => padL + (n <= 1 ? (W - padL) / 2 : (i * (W - padL - 10)) / (n - 1));
+const y = (v: number) => H - padB - (v / max) * (H - padB - padT);
+const pts = data.map((d, i) => `${x(i)},${y(d.count)}`).join(' ');
+const area = `${padL},${H - padB} ${pts} ${x(n - 1)},${H - padB}`;
+const labels = data.filter((_, i) => n <= 8 || i % Math.ceil(n / 8) === 0 || i === n - 1);
+---
+
+<svg viewBox={`0 0 ${W} ${H}`} class="trend-svg" role="img" aria-label="月度收录趋势">
+  <defs>
+    <linearGradient id={`tg-${height}-${max}`} x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="var(--brand)" stop-opacity="0.32" />
+      <stop offset="1" stop-color="var(--brand)" stop-opacity="0.02" />
+    </linearGradient>
+  </defs>
+  {data.length > 1 && <polygon points={area} fill={`url(#tg-${height}-${max})`} />}
+  {data.length > 1 && <polyline points={pts} fill="none" stroke="var(--brand)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" />}
+  {data.map((d, i) => (
+    <g>
+      <circle cx={x(i)} cy={y(d.count)} r="3" fill="var(--card)" stroke="var(--brand)" stroke-width="1.8" />
+      {d.count > 0 && <text x={x(i)} y={y(d.count) - 7} text-anchor="middle" class="tv">{d.count}</text>}
+    </g>
+  ))}
+  {labels.map((d) => (
+    <text x={x(data.indexOf(d))} y={H - 8} text-anchor="middle" class="tl">{d.month.slice(2)}</text>
+  ))}
+  <line x1={padL - 8} y1={H - padB} x2={W - 4} y2={H - padB} stroke="var(--line-2)" stroke-width="1" />
+</svg>
+
+<style>
+  .trend-svg { width: 100%; height: auto; }
+  .trend-svg .tv { font-size: 11px; fill: var(--text-2); font-weight: 700; }
+  .trend-svg .tl { font-size: 10px; fill: var(--text-3); font-family: var(--mono); }
+</style>

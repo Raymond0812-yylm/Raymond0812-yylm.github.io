@@ -1,8 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
+import TrendChart from '../../components/TrendChart.astro';
+import HBars from '../../components/HBars.astro';
 import site from '../../data/site.json';
 import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
+import { monthlyTrend, distOf } from '../../lib/analytics.js';
 
 const data: any = site;
 export function getStaticPaths() {
@@ -27,8 +30,23 @@ const list = data.papers
   {list.length === 0 ? (
     <div class="empty" style="display:block">该领域论文正在充实中,每日凌晨自动扩库会持续补充。</div>
   ) : (
-    <div class="grid">
-      {list.map((p: any) => <PaperCard paper={p} />)}
-    </div>
+    <>
+      <div class="panel" style="margin:14px 0 6px">
+        <h2>领域画像</h2>
+        <div class="insight-grid">
+          <div>
+            <p class="small muted" style="margin:0 0 4px">月度收录趋势</p>
+            <TrendChart data={monthlyTrend(list)} height={130} />
+          </div>
+          <div>
+            <p class="small muted" style="margin:0 0 4px">交叉的方法方向(一篇论文可属多个方向)</p>
+            <HBars items={distOf(list, (p: any) => p.topics, data.topics).slice(0, 6)} color="#0891b2" />
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        {list.map((p: any) => <PaperCard paper={p} />)}
+      </div>
+    </>
   )}
 </Base>

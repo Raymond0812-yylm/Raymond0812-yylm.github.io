@@ -207,11 +207,41 @@ def main():
             }
             add(sp, s, "fill", -1)
 
-    # ---- 量子相关性硬过滤:与量子计算无关的纯经典论文一律剔除(卫星与航天领域豁免)----
-    QUANT = re.compile(r"quantum|QAOA|anneal|Ising|adiabatic|rydberg|trapped[- ]ion|superconducting qubit|photonic quantum|VQE|variational quantum|QUBO|量子|退火|绝热|里德堡|离子阱", re.I)
-    before = len(papers)
-    papers = [p for p in papers if QUANT.search(" ".join([p.get("title",""), p.get("titleZh",""), p.get("summaryZh",""), p.get("abstract","")])) or "satellite" in (p.get("domains") or [])]
-    culled = before - len(papers)
+    # ---- 应用领域标注(收紧:仅依据标题+摘要开头的明确应用证据;纯方法论文不再误挂领域)----
+    def match_key(text, rules):
+        hits = []
+        low = text.lower()
+        for key, pats in rules:
+            if any(re.search(pt, low, re.I) for pt in pats):
+                hits.append(key)
+        return hits
+
+    def domain_text(p):
+        return " ".join([p.get("title", ""), p.get("titleZh", ""), (p.get("summaryZh") or "")[:140], (p.get("abstract") or "")[:240]])
+
+    for p in papers:
+        p["domains"] = [d for d in match_key(domain_text(p), DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
+
+    # ---- 量子相关性硬过滤(二次严格审查;卫星与航天领域文献豁免)----
+    QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|量子", re.I)
+    CRYPTO = re.compile(r"post-quantum|quantum[- ]resistant|cryptograph|cryptanalysis", re.I)
+    def is_quantum(p):
+        title, text = p.get("title", ""), ((p.get("summaryZh") or "") + " " + (p.get("abstract") or ""))[:700]
+        if CRYPTO.search(title) and not re.search(r"QAOA|anneal|QUBO", title, re.I):
+            return False
+        if QS.search(title):
+            return True
+        core = text[:650]
+        if not QS.search(core):
+            return False
+        n = len(re.findall(r"quantum", core, re.I)) + len(re.findall(r"QAOA|QUBO|Ising machine|quantum anneal|variational quantum|量子退火|量子计算|量子优化|量子启发", core, re.I))
+        return n >= 2
+
+    kept, culled_list = [], []
+    for p in papers:
+        (kept if is_quantum(p) or "satellite" in (p.get("domains") or []) else culled_list).append(p)
+    papers = kept
+    culled = len(culled_list)
 
     papers.sort(key=lambda r: r["date"], reverse=True)
 
@@ -248,7 +278,6 @@ def main():
         else:
             hits = match_key(text, AUTO_TOPIC_RULES)
             p["topics"] = hits[:3] if hits else ["quantum"]
-        p["domains"] = [d for d in match_key(text, DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
         # 已废弃方向键(ml4co/llm4co)重映射:量子×AI 交叉归 quantum-ai,其余按规则重判
         if any(t in ("ml4co", "llm4co") for t in p["topics"]):
             auto = match_key(text, AUTO_TOPIC_RULES)
@@ -266,6 +295,8 @@ def main():
         json.dump(db, f, ensure_ascii=False, indent=1)
     from collections import Counter
     print("papers:", len(papers), "| culled non-quantum:", culled)
+    for t in culled_list[:10]:
+        print("  x", t["title"][:72])
     print("primary topics:", dict(Counter(p["topics"][0] for p in papers)))
     print("tags:", dict(Counter(t for p in papers for t in p["tags"])))
     print("years:", dict(sorted(Counter(p["year"] for p in papers).items())))

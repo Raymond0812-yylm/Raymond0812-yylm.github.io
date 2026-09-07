@@ -1,8 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
+import HBars from '../../components/HBars.astro';
+import NetGraph from '../../components/NetGraph.astro';
 import siteData from '../../data/site.json';
 import { SPECIALS } from '../../lib/specials.js';
+import { topAuthors, coAuthorPairs } from '../../lib/analytics.js';
 
 const data: any = siteData;
 export function getStaticPaths() {
@@ -14,6 +17,14 @@ const { papers } = data;
 const list = papers.filter((p: any) => spec.match(p));
 const featured = list.filter((p: any) => p.featured);
 const rest = list.filter((p: any) => !p.featured).sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
+const authors = topAuthors(list, 8);
+const authorNames = new Set(authors.map((a: any) => a.name));
+const netEdges = coAuthorPairs(list, authorNames, 1).slice(0, 14).map((e: any) => ({ a: e.a, b: e.b, count: e.count }));
+const netNodes = authors.map((a: any) => ({ name: a.name, count: a.count }));
+const authorProfiles = authors.slice(0, 3).map((a: any) => ({
+  ...a,
+  best: [...a.papers].sort((x: any, y: any) => (y.citations || 0) - (x.citations || 0))[0],
+}));
 ---
 
 <Base active="specials" title={spec.title} description={spec.desc}>
@@ -32,6 +43,34 @@ const rest = list.filter((p: any) => !p.featured).sort((a: any, b: any) => (a.da
       <div class="grid">{featured.map((p: any) => <PaperCard paper={p} />)}</div>
     </section>
   )}
+
+  <section class="section">
+    <div class="section-head"><h2><span class="bar"></span>权威作者与合作网络</h2><span class="more">基于本专题论文作者元数据自动统计 · 随库更新</span></div>
+    <div class="insight-grid">
+      <div class="panel" style="margin-bottom:0">
+        <h2>高产作者 Top {authors.length}</h2>
+        <HBars items={authors.map((a: any) => ({ label: a.name, value: a.count }))} unit="篇" />
+      </div>
+      <div class="panel" style="margin-bottom:0">
+        <h2>合作网络(节点大小=论文数,连线=合著)</h2>
+        <NetGraph nodes={netNodes} edges={netEdges} color={spec.color} />
+      </div>
+    </div>
+    {authorProfiles.length > 0 && (
+      <div class="panel" style="margin-top:16px">
+        <h2>代表学者与代表作</h2>
+        {authorProfiles.map((a: any) => (
+          <div class="toc-row">
+            <span class="no">{a.count}篇</span>
+            <div style="min-width:0">
+              <div style="font-weight:700">{a.name}</div>
+              {a.best && <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">代表作:《{a.best.titleZh}》{a.best.venue ? ` · ${a.best.venue}` : ''}</div>}
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
 
   <section class="section">
     <div class="section-head"><h2><span class="bar"></span>专题论文</h2><span class="more">按时间排序</span></div>

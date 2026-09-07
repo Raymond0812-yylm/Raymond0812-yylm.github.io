@@ -1,8 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
+import TrendChart from '../../components/TrendChart.astro';
 import siteData from '../../data/site.json';
 import { TOPIC_COLOR } from '../../lib/utils.js';
+import { monthlyTrend, titleKeywords, topCited } from '../../lib/analytics.js';
 
 const data: any = siteData;
 export function getStaticPaths() {
@@ -24,6 +26,29 @@ const recent = inTopic.filter((p: any) => !p.tags.includes('foundational')).sort
     <h1 style={`color:${TOPIC_COLOR[topic]}`}>{meta.label}</h1>
     <p class="lead">{meta.desc}</p>
     <p class="small muted">共 {inTopic.length} 篇 · 其中日报精选 {featured.length} 篇 · 领域奠基 {foundational.length} 篇</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h2>方向画像</h2>
+    <div class="insight-grid">
+      <div>
+        <p class="small muted" style="margin:0 0 4px">月度收录趋势</p>
+        <TrendChart data={monthlyTrend(inTopic)} height={130} />
+      </div>
+      <div>
+        <p class="small muted" style="margin:0 0 4px">高频研究关键词(标题词频)</p>
+        <div class="kw-cloud">
+          {titleKeywords(inTopic).map((k: any) => (
+            <span class="kw" style={`font-size:${0.8 + Math.min(k.count, 8) * 0.07}rem`}>{k.word}<i>{k.count}</i></span>
+          ))}
+        </div>
+      </div>
+    </div>
+    {topCited(inTopic, 3).length > 0 && (
+      <p class="small muted" style="margin:12px 2px 0">
+        方向内高被引:{topCited(inTopic, 3).map((p: any) => `《${p.titleZh.slice(0, 20)}…》(${p.citations} 引)`).join(' · ')}
+      </p>
+    )}
   </div>
 
   {featured.length > 0 && (

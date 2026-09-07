@@ -493,3 +493,13 @@ html[data-theme="dark"] .report-hero .big { background: linear-gradient(135deg, 
 .archive-entry .ae-date { font-family: var(--mono); font-size: .76rem; color: var(--text-3); flex-shrink: 0; }
 .archive-entry .ae-title { overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .archive-entry .cnt { color: var(--text-3); font-size: .74rem; margin-left: 4px; }
+
+/* 库情分析 */
+.insight-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px; align-items: stretch; }
+@media (max-width: 900px) { .insight-grid { grid-template-columns: 1fr; } }
+
+/* 关键词云 */
+.kw-cloud { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.kw { display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 10px; border-radius: 999px;
+  background: var(--brand-soft); color: var(--brand); font-weight: 700; }
+.kw i { font-style: normal; font-family: var(--mono); font-size: .72rem; color: var(--text-3); }

@@ -1,0 +1,27 @@
+---
+// 横向条形分布图(纯 CSS,自适应)
+interface Props { items: { label: string; value: number }[]; color?: string; unit?: string }
+const { items, color = 'var(--brand)', unit = '篇' } = Astro.props;
+const max = Math.max(...items.map((d) => d.value), 1);
+---
+
+<div class="hbars">
+  {items.map((d) => (
+    <div class="hb-row">
+      <span class="hb-label">{d.label}</span>
+      <div class="hb-track">
+        <div class="hb-fill" style={`width:${Math.max(4, (d.value / max) * 100)}%;background:${color}`} />
+      </div>
+      <span class="hb-val">{d.value}{unit}</span>
+    </div>
+  ))}
+</div>
+
+<style>
+  .hbars { display: flex; flex-direction: column; gap: 7px; }
+  .hb-row { display: grid; grid-template-columns: minmax(96px, 150px) 1fr 52px; gap: 10px; align-items: center; font-size: .86rem; }
+  .hb-label { color: var(--text-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; }
+  .hb-track { height: 12px; background: var(--bg-2); border-radius: 999px; overflow: hidden; }
+  .hb-fill { height: 100%; border-radius: 999px; opacity: .85; }
+  .hb-val { color: var(--text-3); font-family: var(--mono); font-size: .78rem; text-align: right; }
+</style>

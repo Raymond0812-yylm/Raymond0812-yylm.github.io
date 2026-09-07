@@ -1,14 +1,14 @@
 ---
 // 日报板块归档面板:顶部 日报/周报/月报 切换标签 + 月份归档树(当前查看项高亮、所在月默认展开)
 import siteData from '../data/site.json';
-import { groupByWeek } from '../lib/periods.js';
+import { groupByWeek, inPeriod } from '../lib/periods.js';
 
 interface Props { mode: 'daily' | 'weekly' | 'monthly'; current?: string }
 const { mode, current = '' } = Astro.props;
 const data: any = siteData;
 
-// 日报树条目(按月分组的全部日报)
-const dailyEntries = (data.reports || []).map((r: any) => ({ key: r.slug, date: r.date, title: r.titleZh }));
+// 日报树条目(按月分组,仅日报启动日之后)
+const dailyEntries = (data.reports || []).filter((r: any) => inPeriod(r)).map((r: any) => ({ key: r.slug, date: r.date, title: r.titleZh }));
 // 周树条目
 const weekObjs = groupByWeek(data.papers);
 // 月树条目

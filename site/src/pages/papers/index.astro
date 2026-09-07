@@ -1,11 +1,18 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PaperCard from '../../components/PaperCard.astro';
+import TrendChart from '../../components/TrendChart.astro';
+import HBars from '../../components/HBars.astro';
 import site from '../../data/site.json';
+import { monthlyTrend, distOf, yearDist, topCited } from '../../lib/analytics.js';
+import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
 
-const { topics, papers } = site as any;
-// 默认按时间倒序(数据已是);初始高亮最新
+const { topics, domains, papers } = site as any;
 const initial = papers as any[];
+const trend = monthlyTrend(initial);
+const topicBars = Object.entries(topics).map(([k, t]: any) => ({ label: t.label, value: initial.filter((p: any) => p.topics.includes(k)).length })).sort((a, b) => b.value - a.value);
+const domainBars = Object.entries(domains).map(([k, t]: any) => ({ label: `${DOMAIN_ICON[k] ?? ''} ${t.label}`, value: initial.filter((p: any) => (p.domains || []).includes(k)).length })).sort((a, b) => b.value - a.value);
+const hot = topCited(initial, 3);
 ---
 
 <Base active="papers" title="论文库" description="量子优化领域论文库:按方向、年份、影响力筛选,支持全文检索">
@@ -14,6 +21,27 @@ const initial = papers as any[];
     <h1>论文库</h1>
     <p class="lead">共 {initial.length} 篇 · 覆盖 {site.stats.yearMin}–{site.stats.yearMax} 年 · 支持按研究方向、年份、标签与关键词筛选。</p>
   </div>
+
+  <section class="section" style="margin-top:18px">
+    <div class="section-head"><h2><span class="bar"></span>库情分析</h2><span class="more">构建时自动生成 · 随库更新</span></div>
+    <div class="insight-grid">
+      <div class="panel" style="margin-bottom:0">
+        <h2>月度收录趋势</h2>
+        <TrendChart data={trend} />
+      </div>
+      <div class="panel" style="margin-bottom:0">
+        <h2>研究方向分布</h2>
+        <HBars items={topicBars} />
+        <h2 style="margin-top:16px">应用领域分布</h2>
+        <HBars items={domainBars} color="#0891b2" />
+      </div>
+    </div>
+    {hot.length > 0 && (
+      <p class="small muted" style="margin:10px 2px 0">
+        库内高被引:{hot.map((p: any) => `《${p.titleZh.slice(0, 18)}…》(${p.citations} 引)`).join(' · ')}
+      </p>
+    )}
+  </section>
 
   <div class="toolbar" id="toolbar">
     <div class="row">

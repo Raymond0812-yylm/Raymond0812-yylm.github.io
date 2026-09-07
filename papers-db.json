@@ -480,65 +480,6 @@
    "summaryZh": "面向灾后通信基础设施恢复,论文研究连续空间中的无人机联合激活与部署问题,提出HKQEA框架:K-means引导初始化、校准罚项可行性目标与量子启发进化算子相结合,在最小化部署数量的同时满足覆盖与最小间隔约束,是量子启发元启发式在应急组网中的落地案例。",
    "abstract": "In post-disaster environments, the failure of terrestrial communication infrastructure necessitates the rapid deployment of unmanned aerial vehicles (UAVs) as aerial base stations to restore wireless connectivity. This paper addresses the joint UAV activation-and-placement problem in continuous space, with the objective of minimizing the number of deployed UAVs while satisfying coverage and minimum-separation constraints. To solve this problem, we propose a Hybrid K-means Quantum-Inspired Evolutionary Algorithm (HKQEA) that combines K-means-guided initialization, a calibrated penalty-based feasibility objective, non-elitist evolutionary search, and a quantum-inspired learning update. Experimental results over 50 independent runs show that HKQEA attains a best fully feasible solution with 8 UAVs, while achieving average values of 98.94% for coverage, 99.94% for non-overlap, and 99.68% for minimum-distance satisfaction. Comparative evaluation against standard Non-dominated Sorting Genetic Algorithm II (NSGA-II), Particle Swarm Optimization algorithm (PSO) and an elitist variant of HKQEA further shows that the proposed method provides a more favorable balance among exploration, convergence behavior, and reliable feasibility preservation in constrained deployment problems. An illustrative procurement-level cost analysis also indicates that reducing the fleet from 10 UAVs to 8 can yield a 20% reduction in hardware count, corresponding to a simplified savings ratio of 25% for the s",
    "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
-  },
-  {
-   "id": "large-language-models-design-structure-matrix-sequencing-08144",
-   "title": "Large language models for design structure matrix sequencing as combinatorial optimization",
-   "titleZh": "面向设计结构矩阵排序组合优化的大语言模型方法",
-   "authors": [
-    "Shuo Jiang",
-    "Min Xie",
-    "Jianxi Luo"
-   ],
-   "venue": "Research in Engineering Design",
-   "date": "2026-08-31",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1007/s00163-026-00494-0",
-   "url": "https://doi.org/10.1007/s00163-026-00494-0",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "复杂工程系统中组件依赖关系常用设计结构矩阵(DSM)建模,重排元素顺序以最小化反馈回路是典型的组合优化问题。论文将大语言模型引入DSM排序,利用其对工程上下文语义的理解弥补纯数学启发式的不足,为LLM辅助工程设计优化提供了新场景与基准。",
-   "abstract": "Abstract In complex engineering systems, the dependencies among components or development activities are often modeled and analyzed using the Design Structure Matrix (DSM). Reorganizing the sequence of elements within a DSM to minimize feedback loops, thereby improving process efficiency and reducing rework, constitutes a challenging Combinatorial Optimization (CO) problem in engineering design and operations. As problem sizes increase and dependency networks become more intricate, traditional optimization methods that rely solely on mathematical heuristics often fail to capture the contextual nuances and struggle to deliver effective solutions. In this study, we explore the potential of Large Language Models (LLMs) to address such problems by leveraging their capabilities for advanced reasoning and contextual understanding. We propose a novel LLM-based framework that integrates network topology with contextual domain knowledge for iterative optimization of DSM sequencing, a representative CO problem in this domain. Experiments on various DSM cases demonstrate that our proposed method consistently achieves faster convergence and superior solution quality compared to both stochastic and deterministic baselines. Notably, incorporating contextual domain knowledge significantly enhances optimization performance regardless of the chosen LLM backbone. This study demonstrates the potential of LLMs as a promising foundation for advancing knowledge-informed optimization in engineering",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "graph-coloring-algorithms-their-applications-combinatorial-optimization-14e66",
-   "title": "Graph Coloring Algorithms and Their Applications in Combinatorial Optimization: A Survey",
-   "titleZh": "图着色算法及其在组合优化中的应用综述",
-   "authors": [
-    "Jisha Ann Abraham",
-    "C. Bazil Wilfred",
-    "Thomaskutty Stephen"
-   ],
-   "venue": "International Journal of Computer Information Systems and Industrial Management Applications",
-   "date": "2026-08-30",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.70917/ijcisim-2026-5339",
-   "url": "https://doi.org/10.70917/ijcisim-2026-5339",
-   "topics": [
-    "qinspired",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "该综述系统梳理了图着色这一经典NP难问题的理论内核(顶点/边/面/列表/全着色)、算法演进脉络——从精确与贪心方法(Welsh-Powell、DSATUR、回溯)到元启发式与现代混合算法,并覆盖考试排课、频谱分配等产业应用,适合作为进入组合优化领域的入门综述。",
-   "abstract": "Coloring the vertices, edges or faces of a graph so that no two adjacent elements share a label is among the oldest problems in graph theory, and one of the few whose reach extends into exam timetables and wireless spectrum allocation as it does into pure combinatorics. This survey draws together the problem’s theoretical core – vertex, edge, face, list and total coloring – with the algorithms built to solve it and the industries that now depend on those algorithms. Because coloring is NP-hard, we trace the field’s progression from exact and greedy methods (Welsh-Powell, DSATUR, backtracking) through metaheuristics that trade optimality for scale (genetic algorithms, tabu search, simulated annealing, ant colony and artificial bee colony optimization), to the graph neural network and quantum-inspired solvers that have emerged in recent years. Rather than treating theory, algorithms and applications as separate literatures, we connect them directly: each application – examination and crew scheduling, frequency assignment, compiler register allocation, cartographic map coloring – is traced back to the specific coloring variant and algorithm family the literature actually uses, while the algorithm families themselves are compared head-to-head on complexity, solution quality and scalability rather than catalogued one at a time. This comparative structure, together with its coverage of recent learning-based solvers, is what distinguishes this survey from the standard references on ",
-   "source": "backfill",
    "domains": []
   },
   {
@@ -1449,9 +1390,7 @@
    "summaryZh": "提出将粒子群、遗传算法与量子算法混合的决策优化框架,利用互补优势缓解各自的可扩展性短板,属于量子启发混合优化的系统性尝试。",
    "abstract": "Quantum computing is a big change in how to do calculations, especially good for solving complex problems that are hard for traditional computers. These problems often get worse quickly as they grow bigger, making them very difficult to solve efficiently. Although quantum computers have some big advantages, they still have some issues like limited number of qubits, noise, and problems with staying stable for long periods. To deal with these problems and make the best use of both quantum and classical methods, this research proposes a new system that mixes classical methods such as Particle Swarm Optimization (PSO) and Genetic Algorithms (GA) with quantum methods like Quantum Approximate Optimization Algorithm (QAOA) and different versions of Grover's search. [14] [15] [1] [5]The classical methods are good at finding good solutions and working reliably, while the quantum parts can help in certain tasks, like searching or improving calculations. The new system is tested on real problems in areas like logistics (like planning delivery routes), network routing (like finding the fastest paths), and job scheduling (like assigning tasks with limited resources). A way is developed to turn these problems into a form that quantum computers can understand, called QUBO. [10]The tests use real data and simulated quantum setups (like Qiskit and D-Wave Ocean SDK). The results show that this new system works better than using only classical or only quantum methods in terms of the quality of ",
    "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "hardware-aware-sparse-qubo-encoding-cvrptw-coherent-7c162",
@@ -1512,9 +1451,7 @@
    "summaryZh": "针对约束优化中软罚项系数难调的痛点,提出带罚项调度的可行性驱动 QAOA:动态调整罚项强度,使解先进入可行域再逼近最优,缓解约束型 QUBO 的参数敏感性与不可行解问题。",
    "abstract": "Most available quantum algorithms address constrained optimization problems by treating constraints as soft penalty terms within a QUBO formulation. This approach requires careful adjustment of the penalty coefficients, which scales poorly with the number of constraints and lacks a proper strategy to balance feasibility and solution quality. In this work, we introduce two extensions of standard linear-ramp QAOA (lr-QAOA) tailored to problems with multiple heterogeneous constraints. We first construct $Λ$-lr-QAOA, in which each penalty term is assigned its own linear-ramp schedule, promoting penalty weights from external hyperparameters to internal variational parameters of QAOA, similarly to the objective and mixer parameters. By optimizing all schedules jointly in a single run, this approach eliminates nested penalty tuning and scales more efficiently to multiple constraints. The optimization is guided by a feasibility-driven loss function that pushes the quantum state towards high-quality feasible solutions. As a further refinement, we introduce piecewise-ramp QAOA, in which the linear ramps are replaced by two-segment piecewise schedules, enhancing the expressiveness of the Ansatz at the cost of a small parameter overhead independent of the circuit depth. We benchmark both methods on Earth-observation satellite mission planning tasks formulated as budget-constrained Maximum Weight Independent Set problems. Numerical results show that piecewise-ramp QAOA consistently outper",
    "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
+   "domains": []
   },
   {
    "id": "trev-python-library-efficient-implementations-variational-quantum-4aa44",
@@ -1544,9 +1481,7 @@
    "summaryZh": "VQA的可扩展性受参数移位法梯度评估成本制约。TREV利用张量网络高效计算梯度与期望值,显著降低深电路或大哈密顿量下的运行时间,并提供面向优化问题的高层接口。它为在经典端大规模研究QAOA/VQE行为提供了实用工具。",
    "abstract": "Variational Quantum Algorithms (VQAs) are a central class of hybrid quantum–classical methods for optimization on noisy intermediate-scale quantum (NISQ) hardware. Their scalability is constrained by the cost of gradient evaluation via the parameter-shift rule, whose complexity grows with both the number of circuit parameters and Pauli terms in the Hamiltonian, quickly dominating runtime for deep circuits or large qubit counts. We present TREV (Tensor-Ring Evaluated Variational algorithms), a Python library that accelerates VQA simulation through batched parameter evaluation within tensor-ring state representations . By amortizing contraction and sampling costs across multiple parameter shifts, TREV exploits GPU-parallel tensor contractions to achieve substantial runtime reduction with tunable memory–throughput trade-offs. Implemented in PyTorch, the framework supports both deterministic contraction-based and stochastic sampling-based evaluations. Benchmarks on Max-Cut, Traveling Salesperson Problem (TSP), and molecular ground-state energy estimation (H 2 , H 4 , LiH, BeH 2 ) show comparable accuracy and up to 97% runtime reduction over sequential evaluation, while outperforming PennyLane, TensorCircuit, and Qiskit in runtime scalability. The chemistry benchmarks further demonstrate that TREV handles arbitrary Pauli Hamiltonians beyond QUBO formulations, broadening its applicability to quantum chemistry.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "satellite-mission-planning-rydberg-atoms-2ab09",
@@ -1580,42 +1515,7 @@
    "abstract": "Quantum computers relying on cold atoms are being built and promise a high flexibility in the way information in encoded into the physical system. In particular, the analog mode is spiking interest in the field of optimization as a classically intractable number of configurations can be tackled. In this work, we investigate a problem that requires every-day scheduling of critical tasks involving a large number of actors. Namely, fixing the planning for a Earth Observation satellite fleet composed of several of units exposed to a high density of targets to be scanned. We explore numerical schemes that convert the formulated problem into a cold-atoms friendly setup. We begin by a naive formulation of the Satellite Mission Planning problem without taking account for the agility of the satellites. We then extend the problem to take it into account based on the literature. By formulating the planning problem as a Maximum Independent Set problem, we are able to solve the problem with a QPU based on Rydberg atoms. We explore two ways of solving the MIS problem on the QPU, one relying on the graphs and on the Quadratic Unconstrained Binary Optimization Framework (QUBO). We show that the QUBO methodology is the most relevant and explore it more deeply with numerical experiments. We conclude on the potential utility of using a QPU to solve the Satellite Mission Planning problem in an operational context.",
    "source": "backfill",
    "domains": [
-    "satellite",
-    "logistics"
-   ]
-  },
-  {
-   "id": "interpreting-neural-combinatorial-optimization-evolving-programmatic-bottlenecks-284cd",
-   "title": "Interpreting Neural Combinatorial Optimization via Evolving Programmatic Bottlenecks",
-   "titleZh": "通过进化程序化瓶颈解释神经组合优化",
-   "authors": [
-    "Haocheng Duan",
-    "Yi Guo",
-    "Jieyi Bi",
-    "Anqi Xie",
-    "Sirui Li",
-    "Yining Ma",
-    "C E Wu"
-   ],
-   "venue": "arXiv",
-   "date": "2026-06-18",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2606.19741",
-   "doi": "10.48550/arxiv.2606.19741",
-   "url": "https://arxiv.org/abs/2606.19741",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "NCO的黑箱特性阻碍部署与科学诊断,而标准可解释工具(如概念瓶颈模型)不适用于其动态、状态依赖的决策。论文提出进化程序化瓶颈(EPB):用LLM进化出可读的程序化概念作为决策瓶颈,使NCO策略的行为可被人类理解与诊断,开辟了神经求解器可解释性的新路径。",
-   "abstract": "Neural Combinatorial Optimization (NCO) achieves strong performance, yet its black-box nature remains a key roadblock to deployment and scientific diagnosis. Standard interpretability tools, such as Concept Bottleneck Models (CBMs), are ill-equipped for NCO, whose decisions are dynamic, state-dependent, and lack proper concept vocabulary definition. To close this gap, we introduce Evolving Programmatic Bottlenecks (EPB), to our knowledge, the first framework for interpreting NCO policies by distilling black-box NCO models into human-readable program portfolios. EPB employs an LLM to autonomously evolve a bank of programs, where each program's per-step action distribution serves as the bottleneck. EPB works through an iterative framework: Block I fixes program bank capacity and introduces a hybrid textual-numerical gradient descent scheme that couples numerical gradients for student router updates and textual gradients for LLM-based program revision; Block II dynamically adapts bank capacity via fault-targeted expansion and redundancy pruning. Extensive experiments demonstrate EPB's effectiveness and broad applicability, where the distilled program portfolios largely match original performance. EPB also reveals that NCO behavior shifts across optimization stages and can be approximated as a composition of classic heuristic variants. Our work advances interpretable NCO and establishes EPB as a promising tool for interpreting sequential decision-making models.",
-   "source": "backfill",
-   "domains": [
-    "finance"
+    "satellite"
    ]
   },
   {
@@ -1645,9 +1545,7 @@
    "summaryZh": "VQA的经典优化受含噪测量困扰,高斯过程模型可对代价景观建模以提升优化效率,但其性能高度依赖核函数选择。论文系统研究适配VQA景观特性(周期性、噪声结构)的核函数设计,给出在有限采样预算下更鲁棒的贝叶斯优化方案。",
    "abstract": "Variational quantum algorithms (VQAs) aim at solving classical or quantum optimization problems by optimizing parametrized trial states on a quantum device, based on the outcomes of noisy projective measurements. The associated optimization process benefits from an accurate modeling of the cost function landscape using Gaussian process models (GPMs), whose performance is critically affected by the choice of their kernel. Here, we introduce specialized trigonometric kernels, inspired by the observation that typical VQA cost functions display oscillatory behavior with only few frequencies. Appropriate scores to benchmark the reliability of a GPM are defined, and a systematic comparison between different kernels is carried out on prototypical problems from quantum chemistry and combinatorial optimization. We further introduce RotoGP, a sequential line-search optimizer equipped with a GPM, and test how different kernels can help mitigate noise and improve optimization convergence. Overall, we observe that the trigonometric kernels show the best performance in most of the cases under study.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "q-ready-predictive-feasibility-assessment-hybrid-quantum-c697f",
@@ -1713,33 +1611,6 @@
    ]
   },
   {
-   "id": "baseline-free-policy-optimization-neural-combinatorial-optimization-d0baf",
-   "title": "Baseline-Free Policy Optimization for Neural Combinatorial Optimization",
-   "titleZh": "神经组合优化的免基线策略优化",
-   "authors": [
-    "Carlos S. Sepúlveda",
-    "Gonzalo A. Ruz"
-   ],
-   "venue": "arXiv",
-   "date": "2026-06-09",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2606.10321",
-   "doi": "10.48550/arxiv.2606.10321",
-   "url": "https://arxiv.org/abs/2606.10321",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "NCO标准训练算法REINFORCE依赖冻结策略副本作为rollout基线以降方差,但在困难实例上基线质量差会导致梯度噪声与训练不稳定。论文提出免基线的策略优化方法,消除这一结构性脆弱点,在路径问题上实现更稳定高效的训练。",
-   "abstract": "Neural combinatorial optimization (NCO) trains autoregressive policies to solve routing problems. The standard training algorithm, REINFORCE with a rollout baseline, requires maintaining and periodically updating a frozen copy of the policy for variance reduction. This baseline introduces a structural vulnerability: on harder instances, a poor baseline produces noisy gradient estimates that can destabilize training. We evaluate Group Relative Policy Optimization (GRPO), an algorithm from large language model alignment that eliminates the baseline entirely by normalizing advantages within groups of sampled trajectories. In a controlled comparison of five RL algorithms on TSP and CVRP benchmarks within the RL4CO framework, we find that: (i) GRPO avoids the training collapse observed with REINFORCE on TSP-100, where performance degrades from cost 9.8 to 52.1 immediately after the warmup phase and does not recover under extended training; (ii) at matched gradient updates, GRPO achieves solution quality within 2% of POMO, a strong AM-based multi-start baseline, while requiring no external baseline; and (iii) P3O, a pairwise preference algorithm also from the alignment literature, is competitive on TSP but shows higher variability on CVRP. These results identify GRPO as a promising baseline-free alternative for NCO, particularly in settings where baseline-dependent training becomes fragile.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
    "id": "hybrid-quantum-inspired-intelligent-computing-model-real-ed75e",
    "title": "Hybrid Quantum-Inspired Intelligent Computing Model for Real-Time Optimization of Massive Heterogeneous Climate Datasets",
    "titleZh": "面向海量异构气候数据实时优化的混合量子启发智能计算模型",
@@ -1800,9 +1671,7 @@
    "summaryZh": "针对QAOA在高维问题上比特数与电路深度的双重瓶颈,论文提出分布式QAOA:将大规模组合优化问题分解到多个量子处理单元上并行求解,并通过经典协调整合,在\"量子中心超算\"架构下实现可扩展性。该工作契合IBM等提出的量子-经典异构计算路线,为超越单芯片规模的量子优化提供了系统级方案。",
    "abstract": "Abstract Quantum approximate optimization algorithm (QAOA) has shown promise in solving combinatorial optimization problems by providing quantum speedup on near-term gate-based quantum computing systems. However, QAOA faces challenges for high-dimensional problems due to the large number of qubits required and the complexity of deep circuits, limiting its scalability for real-world applications. In this study, we present a distributed QAOA (DQAOA), which leverages distributed computing strategies to decompose a large computational workload into smaller tasks that require fewer qubits and shallower circuits than are necessary to solve the original problem. These sub-problems are processed using a combination of high-performance and quantum computing resources. The global solution is iteratively updated by aggregating sub-solutions, allowing convergence toward the optimal solution. We demonstrate that DQAOA can handle considerably large-scale optimization problems (e.g., 1000-bit problem), achieving a high solution quality and short time-to-solution, outperforming existing strategies. Furthermore, we realize DQAOA on a quantum-centric supercomputing architecture, paving the way for practical applications of gate-based quantum computers in real-world optimization tasks. To extend DQAOA’s applicability to materials science, we further develop an active learning algorithm integrated with our DQAOA (AL-DQAOA), which involves machine learning, DQAOA, and active data production in an",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "assessing-efficacy-hybrid-quantum-classical-computing-combinatorial-b1841",
@@ -1997,9 +1866,7 @@
    "summaryZh": "将变分神经网络(深度玻尔兹曼量子态)推广到经典与量子自旋玻璃基态求解,应对无序与阻挫导致的能量势垒挑战,是神经网络求解Ising类问题的新进展。",
    "abstract": "Variational neural network models have achieved remarkable success in solving ground-state problems of quantum many-body systems. However, addressing classical and quantum spin glasses remains challenging, as disorder and energy frustration give rise to an exponentially large number of local energy minima separated by high-energy barriers, hindering the efficiency of conventional Metropolis-based Monte Carlo methods. To bridge this gap, we introduce Deep Boltzmann Quantum States, a class of neural quantum states inspired by deep Boltzmann machines that inherit efficient block Gibbs sampling. We also propose two key advances in the training algorithm. Firstly, we combine natural-gradient updates with state-of-the-art stochastic optimizers. Secondly, we gradually tune the hardness of the problem Hamiltonian by interpolating from an easy to a hard regime, without the need to closely approximate the instantaneous adiabatic state at intermediate times. We match the exact solution or the best available estimate for several instances of classical and quantum Ising spin-glass models with infinite-range interactions and hundreds of spins. We also solve instances of the NP-hard Job Shop Scheduling Problem exceeding the current limitations of quantum annealing hardware. To summarize, deep neural architectures with efficient global update rules and trained within an annealing-like scheme, provide a powerful framework for solving real-world hard combinatorial optimization and for investig",
    "source": "backfill",
-   "domains": [
-    "manufacturing"
-   ]
+   "domains": []
   },
   {
    "id": "universal-quantum-computer-simulation-50-qubits-europe-aa1ab",
@@ -2032,9 +1899,7 @@
    "summaryZh": "JUQCS-50 模拟器利用 GH200 超算芯片的异构 CPU-GPU 架构首次实现 50 比特通用量子计算机的全态模拟,为大规模量子优化算法提供经典验证平台,发表于 FGCS。",
    "abstract": "We have developed a new version of the high-performance Jülich universal quantum computer simulator (JUQCS-50) that leverages key features of the GH200 superchips as used in the JUPITER supercomputer, enabling simulations of a 50-qubit universal quantum computer for the first time. JUQCS-50 achieves this through three key innovations: (1) extending usable memory beyond GPU limits via high-bandwidth CPU–GPU interconnects and LPDDR5 memory; (2) adaptive data encoding to reduce memory footprint with acceptable trade-offs in precision and compute effort; and (3) an on-the-fly network traffic optimizer. These advances result in an 16.6-fold speedup over the previous 48-qubit record on the K computer.",
    "source": "backfill",
-   "domains": [
-    "transport"
-   ]
+   "domains": []
   },
   {
    "id": "qtis-qaoa-based-quantum-time-interval-scheduler-aae0a",
@@ -2100,9 +1965,7 @@
    "summaryZh": "JPMorgan团队利用最优QAOA参数随层数变化的平滑性,提出迭代插值方法:从低深度最优参数出发,逐步插值生成高深度初始参数并微调,将需优化的2p个参数问题转化为少量插值节点的优化。该方法大幅降低了大深度QAOA的训练成本,是当前深层QAOA参数设定的实用标准做法之一。",
    "abstract": "Quantum Approximate Optimization Algorithm (QAOA) is a promising quantum heuristic with empirical evidence of speedup over classical state-of-the-art for some problems. QAOA uses a parameterized circuit with p layers, where higher p yields better solutions, but requires optimizing 2p independent parameters, which is challenging at large p . We present an iterative interpolation method that exploits the smoothness of optimal parameter schedules by expressing them in a basis of orthogonal functions, generalizing the work of Zhou et al. By optimizing a small number of basis coefficients and iteratively increasing both circuit depth and coefficient count until convergence, our method constructs high-quality schedules for large p . We provide theoretical justification using Jackson’s theorem and Lipschitz continuity to bound the required number of basis coefficients for a given accuracy. Our approach achieves better performance with fewer optimization steps than existing methods across three benchmark problems: the Sherrington-Kirkpatrick (SK) model, portfolio optimization, and Low Autocorrelation Binary Sequences (LABS). For the largest LABS instance, we achieve near-optimal merit factors with schedules exceeding 1,000 layers, an order of magnitude beyond previous methods. Additionally, we observe that a mild growth in QAOA depth suffices to solve the SK model exactly, a result of independent theoretical interest.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "quacod-quantum-optimization-coordinate-descent-scalable-drone-3c83f",
@@ -2162,9 +2025,7 @@
    "summaryZh": "提出面向信息物理系统(CPS)的可扩展量子启发数据处理架构,应对数据指数增长、时延约束与动态不确定性,支撑自主决策智能。",
    "abstract": "This paper presents a scalable quantum inspired data processing architecture designed specifically for real-time cyber physical systems (CPS) and autonomous decision intelligence.Classical computing paradigms struggle with the exponential growth of data, latency constraints, and dynamic uncertainties inherent in CPS such as autonomous vehicles, smart grids, and industrial robotics.By leveraging quantum inspired algorithms-including quantum annealing emulation, tensor networks, and amplitude amplification on classical hardware-we propose a hybrid pipeline that achieves O(√N) speedup for search and optimization tasks without requiring actual quantum hardware.The architecture incorporates a five-layer framework: perception, quantum inspired encoding, parallel interference engine, decision fusion, and actuation feedback.Simulation results on three CPS testbeds (autonomous intersection management, real time power distribution, and drone swarm coordination) demonstrate 42% reduction in decision latency, 37% improvement in resource utilization, and Scalable Quantum Inspired Data Processing Architecture for Real Time Cyber Physical Systems and Autonomous Decision Intelligence in Computer Science and Engineering Applications https://iaeme.com/Home/journal/IJCET 2",
    "source": "backfill",
-   "domains": [
-    "energy"
-   ]
+   "domains": []
   },
   {
    "id": "structured-parameterization-non-stabilizerness-hypergraph-qaoa-5c7d1",
@@ -2258,9 +2119,7 @@
    "summaryZh": "为组合优化配置变分量子算法需要在求解器族、ansatz、目标与优化器间做协调选择,高度依赖专家经验。AutoQResearch用LLM引导闭环实验,把配置任务建模为策划设计空间上的序贯策略搜索,自动迭代改进配置。这是\"LLM自动化量子优化算法研究\"的前沿尝试,恰好处于用户关注的三个方向交汇点。",
    "abstract": "Configuring variational quantum algorithms for combinatorial optimization remains a difficult, expert-driven process requiring coordinated choices over solver family, ansatz, objective, and optimizer. We present AutoQResearch, an LLM-guided closed-loop experimentation framework that casts this task as sequential policy search over a curated design space. Instead of a single static configuration, the framework searches for adaptive solver-control policies that condition future decisions on diagnostics such as feasibility, optimality gap, and convergence stagnation. The system operates through a structured workflow: an LLM agent edits a small policy surface under a fixed evaluation harness, candidate policies are screened using cheap scout evaluations, and only the strongest candidates are promoted to full confirmation. This enables controlled autonomous exploration while guarding against proxy overfitting and unstable selection. We evaluate the framework on Maximum Independent Set (MIS) and the Capacitated Vehicle Routing Problem (CVRP). On MIS instances (16--64 vertices), discovered policies substantially outperform static baselines and reveal scale-dependent behavior: CVaR objectives are effective at small scale, while QRAO-based qubit compression provides the most effective explored scaling path. On CVRP curricula (8--12 customers) and a held-out E-n13-k4 benchmark, the framework discovers adaptations involving sampling budget, penalty design, and hybrid repair protocols, y",
    "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "data-driven-quantum-simulation-artificial-quantum-materials-4f907",
@@ -2290,34 +2149,6 @@
    "domains": [
     "materials"
    ]
-  },
-  {
-   "id": "ncogap-neural-combinatorial-optimization-solving-large-scale-7f3c5",
-   "title": "NCOGAP: Neural Combinatorial Optimization for Solving Large-Scale Airport Gate Assignment Problems",
-   "titleZh": "NCOGAP:求解大规模机场登机口分配问题的神经组合优化",
-   "authors": [
-    "Zhuoming Du",
-    "Sebastian Wandelt",
-    "Xiaoqian Sun"
-   ],
-   "venue": "IEEE Transactions on Intelligent Transportation Systems",
-   "date": "2026-04-23",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.1109/tits.2026.3682207",
-   "url": "https://doi.org/10.1109/tits.2026.3682207",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "登机口分配是机场运营的基础难题,现有方法多依赖特定启发式或商业求解器,易陷入局部最优或耗时过长。论文提出NCOGAP神经组合优化框架,在大规模实例上以远低于求解器的时间获得高质量分配方案,展示了NCO在航空运营真实场景的落地价值。",
-   "abstract": "The gate assignment problem (GAP) is a fundamental operational challenge for airport management, given that its solution has direct impacts on airport efficiencies, passenger experience, and resource utilization. Current studies are predominantly focused on devising problem-specific heuristics, using exact algorithms / commercial solvers, which frequently suffer from getting stuck in local optima and excessive computational times, respectively. In this paper, we propose a neural combinatorial optimization (NCO) framework to solve the GAP, which can reach a balance between computational efficiency and optimality. We embed flight and gate information into hidden states, using a multilayer transformer-based encoder-decoder policy network to assign gates in an auto-regressive manner. We train multiple NCO models using reinforcement learning and compare them to traditional exact and heuristic methods. Results show that our framework, NCOGAP, can provide practical real-time decision support with superior optimality, which we believe can greatly reduce the operator’s workload, while balancing global gate assignment operational efficiency and robustness, subject to realistic constraints and rules.",
-   "source": "backfill",
-   "domains": []
   },
   {
    "id": "empirical-study-quantum-annealing-methods-robust-time-cda54",
@@ -2501,9 +2332,7 @@
    "summaryZh": "量子比特误差导致量子退火求解全局最优的时间随规模指数增长。论文提出SEMO(面向优化的自旋误差缓解)后处理技术,系统修正退火输出中的自旋错误,在多类组合优化问题上显著缩短达到最优解的时间,朝着退火机的实际\"求解时间优势\"迈进。",
    "abstract": "ABSTRACT Quantum annealing (QA) has the potential to solve complex optimization problems, but its broad adoption is hindered by qubit errors, which cause an exponential slowdown in computing the global optimal solution as problem size increases. To address this limitation, we present a novel post‐processing error mitigation for optimization technique, known as SEMO (spin‐error mitigation for optimization), designed to improve QA computational efficiency. Its effectiveness is demonstrated through a correlated 3D image segmentation model for material microstructures, formulated as a quadratic unconstrained binary optimization (QUBO) problem. The technique significantly reduces the computing time required to reach the global optimum solution, demonstrating a time‐to‐solution advantage over the standard D‐Wave Systems Advantage QA, simulated annealing (SA), and other post‐processing techniques. Because it operates at the fundamental QUBO level, this approach is applicable to a wide range of discrete combinatorial optimization problems that can be expressed in QUBO format. As the number of qubits in quantum computers continues to increase, this method will become increasingly impactful.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "brief-review-quantum-machine-learning-techniques-financial-50a2d",
@@ -2940,9 +2769,7 @@
    "summaryZh": "发表于 Nature Machine Intelligence 的前沿工作:用大语言模型自动\"元设计\"量子实验方案,并通过可解释性分析弥补 AI 生成方案黑箱难懂的缺陷。是\"大模型×量子科学\"交叉的标志性成果。",
    "abstract": "Abstract Artificial intelligence can solve complex scientific problems beyond human capabilities, but the resulting solutions offer little insight into the underlying physical principles. One prominent example is quantum physics, where computers can discover experiments for the generation of specific quantum states, but it is unclear how finding general design concepts can be automated. Here we address this challenge by training a transformer-based language model to create human-readable Python code that generates entire families of experiments. The model is trained on millions of synthetic examples of quantum states and their corresponding experimental blueprints, enabling it to infer general construction rules rather than isolated solutions. This strategy, which we call meta-design, enables scientists to gain a deeper understanding and to extrapolate to larger experiments without additional optimization. We demonstrate that the approach can rediscover known design principles and uncover previously unknown generalizations of important quantum states, such as those from condensed-matter physics. Beyond quantum optics, the methodology provides a blueprint for applying language models to interpretable, generalizable scientific discovery across disciplines such as materials science and engineering.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "minor-embedding-quantum-annealing-reinforcement-learning-44809",
@@ -3070,7 +2897,6 @@
    "abstract": "Quantum computing introduces powerful computational paradigms capable of addressing optimization and machine learning challenges that are increasingly critical in transportation engineering. This paper presents a comprehensive survey of how quantum algorithms and models are being applied across transportation domains, including intelligent transportation systems, traffic management, vehicle routing, logistics, and autonomous systems. Unlike prior reviews that primarily introduce quantum theory, we systematically connect fundamental quantum principles-qubits, superposition, entanglement, and quantum gates-with specific transportation use cases. We synthesize recent findings showing that the Quantum Approximate Optimization Algorithm, Grover’s search, and hybrid quantum–classical solvers can improve performance in combinatorial problems such as vehicle routing and dynamic traffic signal control, while quantum machine learning models (e.g., Quantum Convolutional Neural Networks, Quantum Generative Adversarial Networks, and clustering algorithms) demonstrate promise in traffic prediction, anomaly detection, and autonomous vehicle perception. Our review highlights that although quantum hardware limitations (noise, scalability, connectivity) remain significant, empirical studies already suggest measurable improvements in solution quality and computational efficiency when compared to classical heuristics. The key contribution of this survey is to map the landscape of quantum computi",
    "source": "backfill",
    "domains": [
-    "logistics",
     "transport"
    ]
   },
@@ -3100,8 +2926,7 @@
    "abstract": "Resilience of the supply chain has turned out to be a critical national concern due to the revelations of vulnerabilities in the global networks of logistics that cannot be sufficiently managed by traditional optimization tools. Artificial intelligence and quantum computing can provide revolutionary answers to complex supply chain challenges, addressing them using new computational paradigms. Quantum algorithms use superposition and entanglement to search a solution space that is exponentially larger than the space available to classical computers, and Ireland enables optimal resource allocation in large networks. Hybrid quantum-classical systems are a strategic allocation of computational workload where quantum processors are processing combinatorial optimization kernels and classical systems are doing data preprocessing and solution validation. The quantum algorithms used to optimize the transportation network during disruption conditions are useful in optimizing the network due to the presence of multiple routing strategies in various circumstances of failures. Manufacturing coordination deals with the issue of production scheduling, inventory distribution, and supplier redundancy by quantum formulations that trade off conflicting operational goals. Existing hardware limits put a lower bound on the achievable practical implementation, but the current fast development of qubit quality, connectivity, and error correction implies that a practical quantum advantage soon will b",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "manufacturing"
+    "logistics"
    ]
   },
   {
@@ -3129,8 +2954,6 @@
    "abstract": "Quantum computing promises computational advantages for solving complex optimization problems; however, current Noisy Intermediate-Scale Quantum (NISQ) devices suffer from limited qubit counts, short coherence times, and high error rates. Fully fault-tolerant quantum algorithms remain impractical in the near term, necessitating hybrid approaches that integrate classical and quantum computation. This paper proposes a Hybrid Quantum–Classical Machine Learning Framework (HQC-MLF) for large-scale combinatorial and continuous optimization tasks. The framework leverages parameterized quantum circuits (PQCs) embedded within classical optimization loops, enabling efficient search in high-dimensional spaces while mitigating hardware constraints. We introduce adaptive ansatz selection, classical preconditioning, error mitigation strategies, and resource-aware scheduling to enhance scalability. Experimental evaluations on logistics routing, portfolio optimization, and energy load balancing demonstrate improved convergence speed and solution quality compared to purely classical baselines under realistic NISQ simulations. The proposed architecture provides a practical pathway toward near-term quantum advantage in real-world optimization problems",
    "source": "backfill",
    "domains": [
-    "finance",
-    "logistics",
     "materials"
    ]
   },
@@ -3194,11 +3017,7 @@
    "summaryZh": "系统梳理量子优化方法在运营管理/运筹学(OM/OR)核心 NP 难问题上的形式化与应用图谱,发表于 Engineering Reports,是连接 OR 社区与量子社区的应用地图。",
    "abstract": "ABSTRACT This study examines the fragmented and rapidly evolving body of knowledge on the application of quantum computing to NP‐hard decision problems in Operations Management (OM) and Operations Research (OR). It aims to systematically map how quantum optimization approaches are formulated and applied across core OM/OR problem classes, highlighting current advances and unresolved challenges for research and practice. A systematic mapping review was conducted using peer‐reviewed studies indexed in Scopus and Web of Science from 2014 to 2026. The literature was classified by problem type, mathematical formulation, quantum technique, and application domain, with attention to the alignment between quantum models and established OM/OR decision frameworks. The review reveals a strong predominance of QUBO‐based formulations and annealing‐oriented approaches, mainly applied to logistics, manufacturing, and financial optimization problems. Applications remain largely exploratory, with limited empirical validation, weak theoretical integration with OM/OR decision‐making models, and persistent challenges related to scalability and hybrid quantum‐classical performance. Only a small subset of studies demonstrates how quantum formulations can support real‐world scheduling and resource coordination problems. This study proposes an analytical framework linking quantum optimization paradigms to canonical OM/OR NP‐hard problem classes, identifying key research gaps and methodological tension",
    "source": "backfill",
-   "domains": [
-    "finance",
-    "logistics",
-    "manufacturing"
-   ]
+   "domains": []
   },
   {
    "id": "conceptual-review-quantum-enhanced-resource-allocation-strategies-65db2",
@@ -3304,9 +3123,7 @@
    "summaryZh": "发表于 Light Science & Applications 的相干Ising计算平台:针对噪声诱导局部极小等挑战实现求解优势,展示多问题类型的通用可编程能力。",
    "abstract": "Coherent Ising machines (CIMs) have emerged as a hybrid form of quantum computing devices designed to solve NP-complete problems, offering an exciting opportunity for discovering optimal solutions. Despite challenges such as susceptibility to noise-induced local minima, we achieved notable advantages in improving the computational accuracy and stability of CIMs. We conducted a successful experimental demonstration of CIM via femtosecond laser pumping that integrates optimization strategies across optical and structural dimensions, resulting in significant performance enhancements. The results are particularly promising. An average success rate of 55% was achieved to identify optimal solutions within a Möbius Ladder graph comprising 100 vertices. Compared with other alternatives, the femtosecond pulse results in significantly higher peak power, leading to more pronounced quantum effects and lower pump power in optical fiber-based CIMs. In addition, we have maintained an impressive success rate for a continuous period of 8 hours, emphasizing the practical applicability of CIMs in real-world scenarios. Furthermore, our research extends to the application of these principles in practical applications such as molecular docking and credit scoring. The results presented substantiate the theoretical promise of CIMs, paving the way for their integration into large-scale practical applications.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "extrapolation-method-optimize-linear-ramp-quantum-approximate-5e7f4",
@@ -3337,9 +3154,7 @@
    "summaryZh": "论文提出对线性斜坡QAOA(LR-QAOA)参数进行外推优化的方法:在小规模问题上优化斜坡参数后外推到大规模、大深度实例,几乎免除昂贵的变分循环,并系统评估了运行时间标度。该方法进一步巩固了\"固定调度QAOA\"作为可扩展量子优化路线的可行性。",
    "abstract": "The quantum approximate optimization algorithm (QAOA) has been suggested as a promising candidate for the solution of combinatorial optimization problems. Yet, whether—or under what conditions—it may offer an advantage compared with classical algorithms remains to be proven. Using the standard variational form of QAOA requires a high number of circuit parameters that have to be optimized at a sufficiently large depth, which constitutes a bottleneck for achieving a potential scaling advantage. The linear-ramp QAOA has been proposed to address this issue, as it relies on only two parameters that have to be optimized. Based on this, we develop a method to estimate suitable values for those parameters through extrapolation, starting from smaller problem sizes (number of qubits) toward larger problem sizes. We apply this method to several use cases, such as portfolio optimization, feature selection, clustering, and weighted maxcut. From results obtained on a noiseless quantum emulator, we evaluate the quantum runtime scaling for finding the optimal solution and compare it with that of classical methods. In the case of portfolio optimization, we demonstrate superior scaling compared with the classical runtime for the problem sizes of up to 28 qubits that we consider in this work.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "quasi-combinatorial-microgrid-energy-optimization-secure-affine-3f3ff",
@@ -3372,6 +3187,41 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "evolutionary-algorithm-memory-guidance-data-transmission-scheduling-49f8b",
+   "title": "An Evolutionary Algorithm With Memory Guidance for Data Transmission Scheduling Optimization in Communication Satellite Network",
+   "titleZh": "带记忆引导的进化算法用于通信卫星网络数据传输调度优化",
+   "authors": [
+    "Yingying Ren",
+    "Qiuli Li",
+    "Yue Zhang",
+    "Jiting Li",
+    "Witold Pedrycz",
+    "Ponnuthurai Nagaratnam Suganthan",
+    "Rammohan Mallipeddi",
+    "Yanjie Song"
+   ],
+   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
+   "date": "2026-01-12",
+   "year": 2026,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1109/tsmc.2025.3647265",
+   "url": "https://doi.org/10.1109/tsmc.2025.3647265",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "通信卫星数量激增使星地数据传输调度成为瓶颈。论文提出带记忆引导的进化算法优化数据传输调度方案,2026 年发表于 IEEE TSMC,是卫星网络调度与先进进化算法结合的最新成果。",
+   "abstract": "With the rapid development of satellite technology, communication satellites have become an indispensable part of modern infrastructure. They serve as a key pillar for the future integrated communication satellite network (CSN). However, the increasing number of communication satellites presents significant challenges for data transmission between the satellite and ground station. This article focuses on transmitting communication data by scheduling resources for communication tasks. The goal of data transmission scheduling optimization in CSN (DTSOCSN) is to design a scheduling scheme that maximizes task profit across satellite–ground links, considering the constraints of the two working modes of communication satellites. To solve DTSOCSN, a mixed-integer programming model is developed, which incorporates various constraints such as the conditions for feed switching operation and the limitations of task execution windows. Based on the complexity of the problem, we propose an evolutionary algorithm with memory guidance (MGEA). The algorithm takes into account the memory dependence of Caputo fractional-order differential and innovatively designs a crossover operator, called Caputo crossover (CX). This crossover method uses the genetic information stored in memory to guide the crossover operation of the next generation, thereby forming a smooth optimization path and improving the search efficiency of the algorithm. In addition, an elite opposition-based heuristic initialization",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {
@@ -3408,42 +3258,6 @@
    ]
   },
   {
-   "id": "neural-combinatorial-optimization-algorithms-solving-vehicle-routing-a1bf4",
-   "title": "Neural Combinatorial Optimization Algorithms for Solving Vehicle Routing Problems: A Comprehensive Survey With Perspectives",
-   "titleZh": "求解车辆路径问题的神经组合优化算法:综合综述与展望",
-   "authors": [
-    "Xuan Wu",
-    "Lijie Wen",
-    "Yubin Xiao",
-    "C E Wu",
-    "Chunguo Wu",
-    "Yuesong Wu",
-    "Douglas L. Maskell",
-    "You Zhou",
-    "Wang Dw"
-   ],
-   "venue": "IEEE Transactions on Neural Networks and Learning Systems",
-   "date": "2026-01-01",
-   "year": 2026,
-   "citations": 3,
-   "arxivId": "",
-   "doi": "10.1109/tnnls.2026.3713193",
-   "url": "https://doi.org/10.1109/tnnls.2026.3713193",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "IEEE TNNLS上的这篇综述建立了面向VRP的NCO求解器最新分类体系:按构造式/改进式、学习范式与结构类型归纳四大类方法,系统比较了近期SOTA求解器的性能、泛化性与效率,并指出规模泛化、约束处理与真实场景落地等开放挑战,是VRP神经求解方向的全景图。",
-   "abstract": "Although several surveys on neural combinatorial optimization (NCO) solvers specifically designed to solve vehicle routing problems (VRPs) have been conducted, they did not cover the state-of-the-art (SOTA) NCO solvers emerged recently. More importantly, to establish a comprehensive and up-to-date taxonomy of NCO solvers, we systematically review relevant publications and preprints, categorizing them into four distinct types, namely learning to construct (L2C), learning to improve (L2I), learning to predict (L2P)-once, and L2P-multiplicity (L2P-M) solvers. Subsequently, we present the inadequacies of the SOTA solvers, including poor generalization, incapability to solve large-scale VRPs, inability to address most types of VRP variants simultaneously, and difficulty in comparing these NCO solvers with the conventional operations research (OR) algorithms. Simultaneously, we discuss ongoing efforts, identify open inadequacies, and propose promising and viable directions to overcome these inadequacies. Notably, existing efforts focus on only one or two of these inadequacies, with none attempting to address all of them concurrently. In addition, we compare the performance of representative NCO solvers from the reinforcement, supervised, and unsupervised learning (UL) paradigms across VRPs of varying scales. Finally, following the proposed taxonomy, we provide an accompanying web page as a live repository for NCO solvers. Through this survey and the live repository, we aim to foste",
-   "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
-  },
-  {
    "id": "quantum-inspired-fast-algorithm-circuit-realization-constrained-2decd",
    "title": "Quantum-Inspired Fast Algorithm and Circuit Realization for Constrained Combinatorial Optimization Problem",
    "titleZh": "约束组合优化问题的量子启发快速算法及其电路实现",
@@ -3470,9 +3284,7 @@
    "summaryZh": "针对约束组合优化(CCO)中经典算法复杂度指数增长、易陷局部最优,而量子算法受硬件限制的双重困境,论文提出量子启发的快速算法并给出可物理实现的电路方案,在多类约束问题上展示了速度与解质量优势,发表于Research期刊。",
    "abstract": "Constrained combinatorial optimization (CCO) problems are prevalent across various fields and represent key challenges in computational science and engineering. Although numerous classical and quantum algorithms have been proposed to tackle these problems, substantial limitations still persist. Classical algorithms exhibit exponential computational complexity growth with scale and persistent vulnerability to local minima traps. Quantum computing, while offering theoretical advantages through global superposition, faces practical barriers such as short decoherence times and current hardware limitations. To address these challenges, we propose a quantum-inspired fast algorithm for solving CCO problems. Our approach enhances global search capability with superposition encoding and avoids constraint-induced local minima​​ via a project-feedback strategy. Particularly, our method aligns with mature electronics manufacturing and demonstrates a proof-of-concept implementation in classical systems, indicating high-efficiency potential for solving constrained optimization problems.",
    "source": "backfill",
-   "domains": [
-    "manufacturing"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-algorithm-path-optimization-autonomous-underwater-vehicle-58999",
@@ -3594,7 +3406,6 @@
    "abstract": "Optimization is central to enterprise decision support, yet solver selection is increasingly complex in the era of classical, quantum-inspired, and heuristic approaches.This paper conducts a rigorous, reproducible benchmarking study across enterprise-relevant optimization benchmarks-job shop scheduling, vehicle routing, and resource allocation-to compare classical exact solvers, quantum-inspired heuristics, and traditional heuristics.We evaluate solution quality, runtime, memory footprint, and scalability across problem size tiers, constraint structures, and instance varieties.Our results reveal trade-offs and performance patterns that inform enterprise decision-making in DSS, ERP, and operations planning contexts.The study emphasizes reproducibility through open benchmarks, transparent configurations, and detailed reporting, contributing both theoretically (taxonomy, benchmarking protocol) and practically (decision guidance, enterprise-ready evaluation model).",
    "source": "backfill",
    "domains": [
-    "logistics",
     "manufacturing"
    ]
   },
@@ -3694,9 +3505,7 @@
    "summaryZh": "发表于 Light Science & Applications 的高性能可编程光电Ising机(OEIM),并将该硬件应用于真实世界组合优化问题,弥补了多数Ising机实现停留在基准测试的空白。",
    "abstract": "Ising machines offer a paradigm shift from traditional computing methods, tackling complex combinatorial optimization problems (COPs). Despite the proliferation of various Ising machine implementations, their application to solve real-world COPs has been limited. Here, we introduce a high-performance optoelectronic Ising machine (OEIM), based on optoelectronic parametric oscillators, that represents a significant advancement in this field. With 4096 Ising spins, arbitrary coupling capabilities, and unparalleled long-term stability, our OEIM outperforms traditional computing approaches in both accuracy and speed. By solving the benchmark maximum cut problem, we demonstrate its superior performance. More importantly, we apply the OEIM to a real-world traffic optimization problem, using real traffic data and a classical traffic model, and achieve results that far surpass those of conventional computers. This work not only validates the OEIM's capability to solve complex practical challenges but also heralds a new era in real-time traffic management, where high-performance optoelectronic Ising machines enable rapid and efficient solutions to critical societal issues.",
    "source": "backfill",
-   "domains": [
-    "transport"
-   ]
+   "domains": []
   },
   {
    "id": "end-end-portfolio-optimization-hybrid-quantum-annealing-0b434",
@@ -3879,11 +3688,7 @@
    "summaryZh": "系统研究 QCaaS 在企业云中的集成框架:混合设计策略、编排策略与风险治理,为企业级量子优化应用的上云路线提供参考。",
    "abstract": "Quantum Computing as a Service (QCaaS) is changing the face of enterprise IT by providing access to quantum processing on cloud interfaces without having to invest in specialized hardware. The article offers a quantum-classical integration framework that considers architectural issues such as hybrid design policies, orchestration policies, workload abstraction and scheduling, and error resilience in probabilistic environments. The challenges mentioned in the implementation, such as API stability problems, limited resources, security, talent staffing, risk mitigation, and financial services, present real-world applications. Applications: Enterprise optimization, Enterprise supply chain and logistics optimization, Enterprise quantum-enhanced machine learning, Enterprise cryptography and security, Enterprise materials science simulation, Enterprise ROI assessment frameworks. Strategic adoption guidelines include criteria in the selection of pilot projects, strategies in vendor partnerships, development of an integration roadmap, approaches to performance benchmarking, and alignment with enterprise IT strategies. The QCaaS integration will present a viable channel through which organizations can tap into the benefits of quantum without disrupting their operations with respect to the current cloud infrastructure.",
    "source": "backfill",
-   "domains": [
-    "finance",
-    "logistics",
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "scheduling-quantum-satellite-networks-fairness-performance-optimization-a0ae5",
@@ -4098,8 +3903,7 @@
    "abstract": "Humanity’s exploration of space has reached unprecedented levels of complexity. Launching satellites, deploying rovers, and conducting manned missions require extreme precision, accurate anomaly prediction, and resource optimization. This research presents a hybrid Quantum Neural Network (QNN) and Classical Explainable AI (XAI) system, integrating Generative AI (GenAI) capabilities, designed to predict anomalies, human errors, and mechanical failures in space missions. The system leverages PyTorch-based classical models, QNN layers for high-dimensional embedding, and vector database storage for mission-critical data. By simulating 100 missions, we demonstrate a theoretical predictive accuracy of 88.5%, while providing interpretable recommendations for mission control. Anomaly classification is prioritized into Minor, Medium, and Severe, allowing preemptive mitigation strategies. The system further optimizes launch site selection using DGGS and UTM geospatial algorithms, predicts material and time requirements, and adapts over successive missions. This work establishes a foundation for fully autonomous, quantum-enhanced space mission planning, capable of both prediction and explanation in highly uncertain environments.",
    "source": "backfill",
    "domains": [
-    "satellite",
-    "materials"
+    "satellite"
    ]
   },
   {
@@ -4221,7 +4025,6 @@
    "abstract": "The advent of quantum computing is redefining the computational landscape of industrial manufacturing, introducing new paradigms for simulation, optimization, and adaptive decision-making. This study investigates the integration of quantum computing–enhanced service ecosystems within industrial manufacturing frameworks, focusing on how quantum algorithms can accelerate workflow optimization, supply chain coordination, and process simulation in large-scale production environments. Traditional simulation and optimization techniques often struggle with the combinatorial complexity of modern manufacturing systems, leading to inefficiencies in resource allocation, scheduling, and predictive maintenance. The proposed framework leverages hybrid quantum–classical computation to simulate high-dimensional manufacturing workflows through quantum annealing, Quantum Approximate Optimization Algorithm (QAOA), and quantum-inspired reinforcement learning. These techniques enable more efficient exploration of multi-objective optimization spaces, facilitating near-real-time decision support and improved throughput under uncertain production conditions. The model also emphasizes the development of service-oriented architectures that integrate quantum computation with industrial Internet of Things (IIoT) infrastructures, digital twins, and cloud-based manufacturing services. Results from conceptual modeling and early simulation experiments suggest that quantum-enhanced service ecosystems outperf",
    "source": "backfill",
    "domains": [
-    "logistics",
     "manufacturing"
    ]
   },
@@ -4353,7 +4156,6 @@
    "abstract": "The convergence of quantum computing and decentralized energy systems presents a transformative opportunity to address the scalability, security, and real-time intelligence challenges of modern smart grids. This paper provides a comprehensive review of how quantum technologies-including quantum optimization, quantum machine learning (QML), and quantum cryptography-can be integrated into big data-driven smart grid architectures. First, we classify the diverse data sources, analytics bottlenecks, and cyber-physical risks intrinsic to decentralized grids, highlighting the limitations of classical methods under high-dimensional, real-time constraints. Next, we examine the state-of-the-art in quantum optimization techniques, such as quantum approximate optimization algorithm (QAOA), quantum annealing (QA), and hybrid variational methods, for unit commitment (UC), market clearing, mobility scheduling, and state estimation. We then survey quantum-enhanced cybersecurity approaches, including quantum key distribution (QKD), post-quantum cryptography (PQC), and blockchain-integrated control systems, mapping them to grid communication and access control layers. Furthermore, we present a taxonomy of quantum-enabled peer-to-peer (P2P) energy trading platforms, emphasizing cryptographic trust, privacy preservation, and decentralized consensus mechanisms. Cross-domain analysis reveals how quantum modules can augment classical infrastructure to enable secure, scalable, and privacy-preserving",
    "source": "backfill",
    "domains": [
-    "finance",
     "energy"
    ]
   },
@@ -4478,6 +4280,36 @@
    "abstract": "Achieving superpolynomial speed-ups for optimization has long been a central goal for quantum algorithms1. Here we introduce decoded quantum interferometry (DQI), a quantum algorithm that uses the quantum Fourier transform to reduce optimization problems to decoding problems. When approximating optimal polynomial fits over finite fields, DQI achieves a superpolynomial speed-up over known classical algorithms. The speed-up arises because the algebraic structure of the problem is reflected in the decoding problem, which can be solved efficiently. We then investigate whether this approach can achieve a speed-up for optimization problems that lack an algebraic structure but have sparse clauses. These problems reduce to decoding low-density parity-check codes, for which powerful decoders are known2,3. To test this, we construct a max-XORSAT instance for which DQI finds an approximate optimum substantially faster than general-purpose classical heuristics, such as simulated annealing. Although a tailored classical solver can outperform DQI on this instance, our results establish that combining quantum Fourier transforms with powerful decoding primitives provides a promising new path towards quantum speed-ups for hard optimization problems. Decoded quantum interferometry is a quantum algorithm that uses the quantum Fourier transform to reduce optimization problems to decoding problems.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "scheduling-multiple-agile-earth-observation-satellites-multiple-4813e",
+   "title": "Scheduling multiple agile Earth observation satellites with multiple observations",
+   "titleZh": "多次观测约束下的多颗敏捷对地观测卫星调度",
+   "authors": [
+    "Xinwei Wang",
+    "Chao Han",
+    "Roel Leus"
+   ],
+   "venue": "Advances in Space Research",
+   "date": "2025-10-17",
+   "year": 2025,
+   "citations": 12,
+   "arxivId": "",
+   "doi": "10.1016/j.asr.2025.10.042",
+   "url": "https://doi.org/10.1016/j.asr.2025.10.042",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "论文研究带多次观测要求的敏捷对地观测卫星调度问题——目标函数与约束较经典模型更贴近实际遥感任务。建立了相应的混合整数模型并设计高效求解算法,发表于 Advances in Space Research。",
+   "abstract": "Earth observation satellites (EOSs) are specially designed to collect images according to user requirements. Agile EOSs (AEOSs), with stronger attitude maneuverability, greatly improve the observation capability, while increasing the complexity of scheduling the observations. In this paper, we address the problem of scheduling multiple AEOSs with multiple observations where the objective function aims to maximize the entire observation profit over a fixed horizon. The profit attained by multiple observations for each target is nonlinear in the number of observations. Our model is a specific interval scheduling problem, with each satellite orbit represented as a machine. A column-generation-based framework is developed for this problem, in which the pricing problems are solved using a label-setting algorithm. Extensive computational experiments are conducted on the basis of one of China’s AEOS constellations. The results indicate that our optimality gap is less than 3 % on average, which validates our framework. We also evaluate the performance of the framework for conventional EOS scheduling.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "quantum-driven-chaos-informed-deep-learning-framework-37342",
@@ -4899,8 +4731,7 @@
    "source": "backfill",
    "domains": [
     "energy",
-    "materials",
-    "it-cloud"
+    "materials"
    ]
   },
   {
@@ -5072,8 +4903,6 @@
    "abstract": "The coupling of quantum computing with multi-agent reinforcement learning (MARL) provides an exciting direction to tackle intricate decision-making tasks in high-dimensional spaces. This work introduces a new quantum-inspired multi-agent reinforcement learning (QiMARL) model, utilizing quantum parallelism to achieve learning efficiency and scalability improvement. The QiMARL model is tested on an energy distribution task, which optimizes power distribution between generating and demanding nodal power stations. We compare the convergence time, reward performance, and scalability of QiMARL with traditional Multi-Armed Bandit (MAB) and Multi-Agent Reinforcement Learning methods, such as Greedy, Upper Confidence Bound (UCB), Thompson Sampling, MADDPG, QMIX, and PPO methods with a comprehensive ablation study. Our findings show that QiMARL yields better performance in high-dimensional systems, decreasing the number of training epochs needed for convergence while enhancing overall reward maximization. We also compare the algorithm’s computational complexity, indicating that QiMARL is more scalable to high-dimensional quantum environments. This research opens the door to future studies of quantum-enhanced reinforcement learning (RL) with potential applications to energy optimization, traffic management, and other multi-agent coordination problems.",
    "source": "backfill",
    "domains": [
-    "energy",
-    "transport",
     "materials"
    ]
   },
@@ -5136,9 +4965,7 @@
    "summaryZh": "Nature Communications 工作:综述并实验对比电流式图计算与量子启发图计算在大规模图数据处理上的前景,两类方案均与组合优化求解直接相关。",
    "abstract": "Graph data is crucial for modeling complex relationships in various fields, but conventional graph computing methods struggle to handle increasingly intricate and large-scale graph data. Electric current-based graph computing and Quantum-inspired graph computing offer innovative hardware-based solutions to these challenges. Electric current-based graph computing has progressed from Euclidean graph data to non-Euclidean ones using the memristive crossbar arrays. This Perspective introduces various crossbar array-based electric current-based graph computings, which offer flexibility in representing complex graphs, enabling a wide range of graphical applications in materials, biology, and social science. It also discusses quantum-inspired graph computing, employing probabilistic bits, oscillatory neural networks, and related architectures to solve complex optimization problems. Electric current-based and quantum-inspired graph computing remain in their early stages of evolution, requiring further work to advance materials, devices, and architectures to fully realize their potential. These advancements will open opportunities for more diverse and complex real-world applications. Graphs are widely adopted in optimization, physical modeling, and network analysis. In this Perspective, the authors discuss various physical systems for graph representation and computation, highlighting each system’s strengths, technical challenges, and future developments.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-computing-intelligent-transportation-systems-vqe-based-75a3d",
@@ -5577,10 +5404,7 @@
    "summaryZh": "研究混合量子-经典优化降低大语言模型推理能耗的框架,连接量子计算与绿色 AI 两大方向。",
    "abstract": "The rapid evolution of Large Language Models (LLMs) has transformed natural language processing, enabling sophisticated applications across various sectors. However, the substantial computational demands associated with training and deploying LLMs result in significant energy consumption and carbon emissions. This study introduces an optimized hybrid quantum-classical framework that integrates variational quantum algorithms (VQAs) with accelerated classical learning techniques. By harnessing quantum computing for complex non-linear optimization and employing prompt learning to minimize full model retraining, the proposed approach enhances both computational efficiency and sustainability. Simulation outcomes indicate that the hybrid method can reduce energy usage by up to 30% and shorten computation time by 25% relative to conventional classical approaches, without diminishing model accuracy. These improvements are substantiated through quantitative analysis and visualized energy metrics. The adaptability of the framework supports its application in diverse areas, including sustainable energy management, supply chain optimization, and environmentally conscious transportation systems. Nevertheless, the broader implementation of such hybrid solutions remains constrained by current quantum hardware capabilities and integration challenges with classical infrastructure. The findings underscore the potential of hybrid quantum-classical optimization as a pathway toward sustainable AI",
    "source": "backfill",
-   "domains": [
-    "energy",
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-computing-foundations-architecture-applications-a47c5",
@@ -5612,7 +5436,6 @@
    "abstract": "ABSTRACT Quantum computing exploits the principles of quantum mechanics to address computational problems that are intractable to classical systems. This study examines the evolution, architecture, and applications of the field, with a focus on foundational principles, hardware advancements, and algorithmic progress. Recent quantum processors, such as Google's Willow and IBM's Heron, represent significant advancements in qubit count and gate fidelity; however, they remain constrained by qubit instability, environmental noise, and limitations of current error correction techniques. Quantum algorithms, including Shor's, Grover's, and HHL algorithms, have demonstrated substantial speedups in cryptography, optimization, and machine learning. Nevertheless, the realization of this potential in real‐world problems encounters major bottlenecks related to low qubit counts and error correction. Applications span domains such as cryptography, drug discovery, precision medicine, financial modeling, and materials science, in which quantum computation offers potential breakthroughs. However, the development of practical quantum systems presents a substantial challenge. Key programming languages, such as Q#, Qiskit, and Cirq, facilitate algorithmic development and deployment; however, the efficiency of current quantum algorithms is limited by hardware constraints. The future of quantum computing lies in interdisciplinary collaboration, the development of resource‐efficient error‐correction ",
    "source": "backfill",
    "domains": [
-    "finance",
     "materials"
    ]
   },
@@ -5777,9 +5600,7 @@
    "summaryZh": "发表于 npj Quantum Information 的重要方法工作:指出传统 QUBO 转换器会夸大约束罚项权重(经典 Big-M 问题在量子求解器上更致命),并提出缓解方案,直接改善约束型组合优化的可解性。",
    "abstract": "Abstract A major obstacle for quantum optimizers is the reformulation of constraints as a quadratic unconstrained binary optimization (QUBO). Current QUBO translators exaggerate the weight M of the penalty terms. Classically known as the “Big- M ” problem, the issue becomes even more daunting for quantum solvers, since it affects the physical energy scale. We take a systematic, encompassing look at the quantum big- M problem, revealing NP-hardness in finding the optimal M and establishing bounds on the Hamiltonian spectral gap Δ as a function of the weight M , inversely related to the expected run-time of quantum solvers. We propose a practical translation algorithm, based on SDP relaxation, that outperforms previous methods in numerical benchmarks. Our algorithm gives values of Δ orders of magnitude greater, e.g. for portfolio optimization instances. Solving such instances with an adiabatic algorithm on 6-qubits of an IonQ device, we observe significant advantages in time to solution and average solution quality. Our findings are relevant to quantum and quantum-inspired solvers alike.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-embedded-graph-neural-network-architecture-molecular-206b5",
@@ -5874,9 +5695,7 @@
    "summaryZh": "发表于 Foundations and Trends in Machine Learning 的长篇综述:系统梳理 AI for Science 在量子系统、原子尺度与连续介质系统的模型与方法,包含量子机器学习与优化交叉的大量内容。",
    "abstract": "Advances in artificial intelligence (AI) are fueling a new paradigm of discoveries in natural sciences. Today, AI has started to advance natural sciences by improving, accelerating, and enabling our understanding of natural phenomena at a wide range of spatial and temporal scales, giving rise to a new area of research known as AI for science (AI4Science). Being an emerging research paradigm, AI4Science is unique in that it is an enormous and highly interdisciplinary area. Thus, a unified and technical treatment of this field is needed, yet challenging. This work aims to provide a technically thorough account of a subarea of AI4Science; namely, AI for quantum, atomistic, and continuum systems. These areas aim at understanding the physical world from the subatomic (wavefunctions and electron density), atomic (molecules, proteins, materials, and interactions), to macro (fluids, climate, and subsurface) scales and form an important subarea of AI4Science. A unique advantage of focusing on these areas is that they largely share a common set of challenges, thereby allowing a unified and foundational treatment. A key common challenge is how to capture physics first principles, especially symmetries, in natural systems by deep learning methods. We provide an in-depth yet intuitive account of techniques to achieve equivariance to symmetry transformations. We also discuss other common technical challenges, including explainability, out-of-distribution generalization, knowledge transfer ",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-inspired-algorithms-perspectives-optimization-a4712",
@@ -6222,6 +6041,37 @@
    "domains": []
   },
   {
+   "id": "deep-reinforcement-learning-based-two-phase-hybrid-30661",
+   "title": "Deep Reinforcement Learning-Based Two-Phase Hybrid Optimization for Scheduling Agile Earth Observation Satellites",
+   "titleZh": "基于深度强化学习的两阶段混合优化敏捷对地观测卫星调度",
+   "authors": [
+    "Guanghui Zhou",
+    "Jin Zhi-cheng",
+    "D. Liu"
+   ],
+   "venue": "Remote Sensing",
+   "date": "2025-06-06",
+   "year": 2025,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.3390/rs17121972",
+   "url": "https://doi.org/10.3390/rs17121972",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向多颗敏捷对地观测卫星调度的大解空间与大规模任务量,论文提出 DRL 两阶段混合框架:先由马尔可夫决策过程生成观测方案,再混合优化平衡解质量与计算效率。",
+   "abstract": "The multi-agile Earth observation satellite scheduling problem is challenging because of its large solution space and substantial task volume. This study generates observation schemes for static tasks over an execution period. To balance solution quality and computational efficiency, a deep reinforcement learning (DRL)-based algorithmic framework is proposed. A Markov decision process (MDP) is formulated as the foundational model for the DRL architecture. To mitigate problem complexity, the action space is decomposed into two interdependent decision layers: task sequencing and resource allocation. Given the resource occupation constraints during action execution, a novel reward function is designed by integrating resource occupation utility into the immediate reward mechanism. Corresponding to these dual decision layers, a Two-Phase Hybrid Optimization (TPHO) framework is developed. The task sequencing subproblem is addressed through an encoder–decoder architecture based on sequence-to-sequence learning. To preserve resource diversity throughout the scheduling horizon, a maximum residual capacity (MRC) heuristic is introduced. A comprehensive experimental suite is constructed, incorporating multi-satellite scheduling scenarios with capacity and temporal constraints. The experimental results demonstrate that the TPHO framework with MRC rules achieves superior performance, yielding a total reward improvement exceeding 16% compared with the A-ALNS algorithm in the most complex s",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-computing-space-applications-selective-review-perspectives-67ca9",
    "title": "Quantum computing for space applications: a selective review and perspectives",
    "titleZh": "面向空间应用的量子计算:选择性综述与展望",
@@ -6377,8 +6227,7 @@
    "source": "backfill",
    "domains": [
     "energy",
-    "logistics",
-    "manufacturing"
+    "logistics"
    ]
   },
   {
@@ -6478,9 +6327,7 @@
    "summaryZh": "发表于 Applied Physics Reviews:综述图论与随机网络在量子信息中的角色,并提出量子图学习算法用于量子现象预测与图像分类任务。",
    "abstract": "Graph and network theory play a fundamental role in quantum computer sciences, including quantum information and computation. Random graphs and complex network theory are pivotal in predicting novel quantum phenomena, where entangled links are represented by edges. Quantum algorithms have been developed to enhance solutions for various network problems, giving rise to quantum graph computing and quantum graph learning (QGL). In this review, we explore graph theory and graph learning methods as powerful tools for quantum computers to generate efficient solutions to problems beyond the reach of classical systems. We delve into the development of quantum complex network theory and its applications in quantum computation, materials discovery, and research. We also discuss quantum machine learning (QML) methodologies for effective image classification using qubits, quantum gates, and quantum circuits. Additionally, the paper addresses the challenges of QGL and algorithms, emphasizing the steps needed to develop flexible QGL solvers. This review presents a comprehensive overview of the fields of QGL and QML, highlights recent advancements, and identifies opportunities for future research.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-ai-urbanism-redefining-future-artificial-intelligence-a9835",
@@ -6904,8 +6751,7 @@
    "abstract": "Quantum computing (QC) stands at the cusp of revolutionizing computation, yet its near-term potential, constrained by Noisy Intermediate-Scale Quantum (NISQ) devices, remains underexplored. This dissertation investigates how hybrid quantum-classical algorithms can address combinatorial optimization challenges in logistics, focusing on vehicle routing and drone delivery—NP-hard problems with exponential solution spaces that defy classical exhaustive methods. Amidst NISQ limitations like limited qubits and high noise, we confront key challenges: encoding complex constraints, e.g., time windows, battery capacity, into quantum models, balancing quantum and classical components for scalability, and accessing scarce quantum resources. By integrating quantum annealing (QA) and the Quantum Approximate Optimization Algorithm (QAOA) with classical heuristics, this work demonstrates QC’s practical utility, advancing both optimization theory and real-world logistics applications. The dissertation unfolds across four core contributions. First, the Hybrid Quantum Tabu Search (HQTS) optimally solves the 50-location Capacitated Vehicle Routing Problem (CVRP), achieving a 4.72% optimality gap. Secondly, we refine HQTS to reach a 2.15% gap with enhanced QA utilization, outperforming prior hybrids on standard datasets. Third, adapting HQTS for the CVRPTWwith D-Wave’s Constrained Quadratic Model solver yields a 3.85% gap on 100-location instances, leveraging a novel heuristic to ensure time-wind",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "materials"
+    "logistics"
    ]
   },
   {
@@ -7031,10 +6877,7 @@
    "summaryZh": "发表于 MethodsX 的 QML 全面综述(被引 56):覆盖叠加、纠缠、干涉原理在数据处理中的加速机制与各类 QML 模型,是量子×AI 方向的高被引参考。",
    "abstract": "Quantum Machine Learning (QML) is the emerging confluence of quantum computing and artificial intelligence that promises to solve computational problems inaccessible to classical systems. Using quantum principles such as superposition, entanglement, and interference, QML promises exponential speed-ups and new paradigms for data processing in machine learning tasks. This review gives an overview of QML, from advancements in quantum-enhanced classical ML to native quantum algorithms and hybrid quantum-classical frameworks. It varies from applications in optimization, drug discovery, and quantum-secured communications, showcasing how QML can change healthcare, finance, and logistics industries. Even though this approach holds so much promise, significant challenges remain to be addressed-noisy qubits, error correction, and limitations in data encoding-that must be overcome by interdisciplinary research soon. The paper tries to collate the state of the art of QML in theoretical underpinnings, practical applications, and directions into the future.",
    "source": "backfill",
-   "domains": [
-    "finance",
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "agent-q-fine-tuning-large-language-models-59d4f",
@@ -7213,7 +7056,6 @@
    "abstract": "Securing big data in power plants is an important and fundamental step in the infrastructure of smart cities. In addition, it becomes a barrier if it is not controlled from the beginning. Security must be a combination of fast and robust properties. This research presents a traffic security system (TSS) in a smart city (SC). It is a novel paradigm meant to improve data security and integrity by means of a multilayered method. Advanced fault analysis, dual-stage pseudonymizing, quantum key distribution via the BB84 protocol, and Falcon signatures (FS) are combined in the proposed system. TSS enhances data security by enhancing privacy, supporting resilience against quantum computing threats, and not burdening the network with complex and large keys. The proposed system has been tested against several recently known attacks, such as replay, supply chain, Sybil, blackhole, eavesdropping, advanced persistent threat (APT), tampering, ransomware identity fraud, and desynchronization, and it has been proven to overcome them. In terms of performance evaluation, the average signing time was approximately 0.002 milliseconds. In comparison, the average signature verification time was approximately 0.004 milliseconds, with an average execution time of approximately 0.54 milliseconds and a precision of approximately 93.6 %, a recall of approximately 97.8 %, and an F1_score of approximately 95.6 %, which are considered low compared with those of state-of-the-art research. Thus, the propose",
    "source": "backfill",
    "domains": [
-    "logistics",
     "transport"
    ]
   },
@@ -7365,9 +7207,7 @@
    "summaryZh": "用机器学习替代局部搜索优化 CV-QKD 系统的调制方差参数,提升低时延、受限算力场景下的协议性能,发表于 New Journal of Physics。",
    "abstract": "Abstract For a practical continuous-variable quantum key distribution (CV-QKD) system, the optimization of modulation variance is crucial for promoting protocol performance. The optimization relies on algorithms like local search in general. But the efficiency of local search methods is limited in low latency and limited computing power scenarios due to their high computational consumption. Hence, this optimization approach is infeasible for satellite-based CV-QKD due to satellites’ low power feature. In this paper, a neural network model that directly predicting the optimal modulation variance in nearly real time is proposed for free space gaussian modulated CV-QKD protocols. This work enhances the feasibility of implementing CV-QKD in low-Earth-orbit satellite scenarios, where typical link durations of few seconds demand rapid parameter optimization. Moreover, a simulation platform for free space CV-QKD protocol, which employs the precise orbital model to extract the elevation angle and the transmission length, is designed and developed to generate training sets that make the neural network model more practical. Our work can be used as a foundation to support parameter prediction for future quantum communication satellite missions.",
    "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
+   "domains": []
   },
   {
    "id": "transcription-optimization-interplanetary-trajectory-through-quantum-annealing-16c18",
@@ -7433,8 +7273,7 @@
    "abstract": "Quantum computing holds transformative potential for optimizing large-scale drone fleet operations, yet its near-term limitations necessitate hybrid approaches blending classical and quantum techniques. This work introduces Quantum Unmanned Aerial Delivery Routing Optimization (QUADRO), a novel hybrid framework addressing the Energy-Constrained Capacitated Unmanned Aerial Vehicle Routing Problem and the Unmanned Aerial Vehicle Scheduling Problem. By formulating these challenges as Quadratic Unconstrained Binary Optimization problems, QUADRO leverages the Quantum Approximate Optimization Algorithm for routing and scheduling, enhanced by classical heuristics and post-processing. We minimize total transit time in routing, considering payload and battery constraints, and optimize makespan scheduling across various drone fleets. Evaluated on adapted Augerat benchmarks (16-51 nodes), QUADRO competes against classical and prior hybrid methods, achieving scalable solutions with fewer than one hundred qubits. The proposed results underscore the viability of hybrid quantum-classical strategies for real-world drone logistics, paving the way for quantum-enhanced optimization in the Noisy Intermediate Scale Quantum era.",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "materials"
+    "logistics"
    ]
   },
   {
@@ -7790,9 +7629,7 @@
    "summaryZh": "将量子 LSTM 与经典模型混合用于降水预报,并以贝叶斯优化超参数,服务于洪涝减灾、农业与水资源调配等场景。",
    "abstract": "Abstract Precipitation forecasting has important applications in meteorological research. Accurate forecasting is of great significance for reducing the impact of floods, optimizing crop planting plans, rationally allocating water resources, and ensuring traffic safety. However, the factors affecting precipitation are complex and nonlinear, and have spatiotemporal variability, making rainfall forecasting extremely challenging. In response to these challenges, this paper proposes a hybrid model based on temporal convolutional network, quantum long short-term memory network (QLSTM), and random forest regression (RFR) to achieve more accurate rainfall forecasting. The hyperparameters of the model are optimized using the Bayesian optimization algorithm to obtain the best performance. Experiments are conducted on meteorological datasets from Seattle and Ukraine, and the results are verified using mean absolute error (MAE), root mean square error (RMSE), and bias evaluation indicators. The results show that the proposed hybrid model outperforms traditional models such as RFR, support vector machine, K-nearest neighbor, LSTM, and QLSTM in terms of MAE, RMSE, and bias. The proposed model achieves improvements of 1.89 % MAE, 2.65 % RMSE, and 31 % Bias, respectively. These results highlight the improved forecast accuracy and robustness of the proposed hybrid model. This research provides a new approach to weather forecasting and demonstrates the potential of combining quantum computing",
    "source": "backfill",
-   "domains": [
-    "transport"
-   ]
+   "domains": []
   },
   {
    "id": "manufacturable-platform-photonic-quantum-computing-37253",
@@ -7847,6 +7684,39 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
+   ]
+  },
+  {
+   "id": "rcm-neural-policy-model-reconstruction-mechanism-construct-54549",
+   "title": "RCM: A Neural Policy Model With Reconstruction Mechanism to Construct a Solution for the Agile Satellite Scheduling Problem",
+   "titleZh": "RCM:带重构机制的神经策略模型用于敏捷卫星调度解构造",
+   "authors": [
+    "Ming Chen",
+    "Jie Chun",
+    "Witold Pedrycz",
+    "Yong‐Ming He",
+    "Xiaolu Liu",
+    "Guohua Wu"
+   ],
+   "venue": "IEEE Transactions on Cybernetics",
+   "date": "2025-02-25",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1109/tcyb.2025.3535777",
+   "url": "https://doi.org/10.1109/tcyb.2025.3535777",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对 DRL 调度模型可能产生不可行动作的问题,论文提出带重构机制的神经策略模型 RCM,在构造解的过程中即时修复违反约束的动作,发表于 IEEE TCyb,提升了学习式卫星调度的可靠性与泛化性。",
+   "abstract": "The agile Earth observation satellite scheduling problem (AEOSSP) with time-dependent transition time is a combinatorial optimization challenge. Due to its NP-hardness, problem-tailored methods are sensitive to instances and require massive computational overhead. Recently, deep reinforcement learning (DRL) models have shown promise in efficiently addressing the AEOSSP. However, these models may make decision mistakes in specific scenarios due to prioritizing maximizing average reward expectation over individual decision accuracy during DRL training, directly leading to resource wastage. To address these issues, we propose a reconstruction model (RCM), which is a DRL-based two-stage construction model (CM), including a CM and a reconstruction mechanism (RM). RCM constructs solutions initially using a DRL-trained CM, which are subsequently refined by RM. CM utilizes a more efficient network for policy representation to make decisions. RM applies two operators, \"repair\" and \"removal,\" with a \"repair-removal-repair\" solution reconstruction process to identify and rectify decision mistakes from CM, offering a modular component to enhance the stability and solution quality. Experimental results demonstrate that the proposed RCM outperforms the state-of-the-art AEOSSP iterative search method, achieving such performance within a computational time of 0.1 s. Additionally, CM surpasses the state-of-the-art DRL policy model and RM can effectively rectify decision errors or suboptimalit",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {
@@ -7911,8 +7781,7 @@
    "abstract": "The global shift towards decentralized energy systems, driven by the integration of distributed generation technologies and renewable energy sources, underscores the critical need for effective energy management strategies in microgrids. This study proposes a novel multi-objective optimization framework for grid-connected microgrids using quantum particle swarm optimization (QPSO) to address the dual challenges of minimizing operational costs and reducing environmental emissions. The microgrid configuration analyzed includes renewable energy sources like photovoltaic panels and wind turbines, along with conventional energy sources and battery storage. By incorporating quantum-inspired mechanics, QPSO overcomes limitations such as premature convergence and solution stagnation, often seen in traditional methods. Simulation results demonstrate that QPSO achieves a 9.67% reduction in operational costs, equating to savings of €158.87, and a 13.23% reduction in carbon emissions, lowering emissions to 513.70 kg of CO 2 equivalent in the economic scheduling scenario. In the environmentally constrained economic scheduling scenario, the method delivers a balanced solution with operational costs of €174.11 and emissions of 401.63 kg of CO 2 . The algorithm’s performance is validated across various microgrid configurations, including standard low-voltage setups. These results highlight QPSO’s potential as an efficient tool for optimizing microgrid energy management, promoting both econom",
    "source": "backfill",
    "domains": [
-    "energy",
-    "materials"
+    "energy"
    ]
   },
   {
@@ -8632,8 +8501,8 @@
    "source": "backfill",
    "domains": [
     "finance",
-    "energy",
-    "logistics"
+    "logistics",
+    "transport"
    ]
   },
   {
@@ -9041,7 +8910,6 @@
    "abstract": "Artificial Intelligence (AI) and quantum computing are converging to form a new era of ultra-fast computational problem-solving. Quantum optimization algorithms—when integrated with AI-driven heuristics, reinforcement learning, and neural-guided search models—offer unprecedented capabilities for tackling complex problems such as NP-hard optimization, logistics scheduling, cryptographic analysis, and large-scale simulation tasks. This research investigates the combined potential of AI-augmented quantum algorithms, focusing on how machine learning enhances qubit efficiency, error mitigation, quantum annealing performance, and adaptive gate-level optimization. A practical case study evaluates hybrid AI-quantum models applied to combinatorial optimization tasks, demonstrating significant reductions in computational time and improved solution accuracy. Findings highlight a future in which AI-enhanced quantum systems redefine computation, enabling breakthroughs in science, industry, and national innovation systems",
    "source": "backfill",
    "domains": [
-    "logistics",
     "materials"
    ]
   },
@@ -9614,7 +9482,6 @@
    "abstract": "Abstract The design of advanced materials for applications in areas of photovoltaics, energy storage, and structural engineering has made significant strides. However, the rapid proliferation of candidate materials—characterized by structural complexity that complicates the relationships between features—presents substantial challenges in manufacturing, fabrication, and characterization. This review introduces a comprehensive methodology for materials design using cutting‐edge quantum computing, with a particular focus on quadratic unconstrained binary optimization (QUBO) and quantum machine learning (QML). We introduce the loop framework for QUBO‐empowered materials design, including constructing high‐quality datasets that capture critical material properties, employing tailored computational methods for precise material modeling, developing advanced figures of merit to evaluate performance metrics, and utilizing quantum optimization algorithms to discover optimal materials. In addition, we delve into the core principles of QML and illustrate its transformative potential in accelerating material discovery through a range of quantum simulations and innovative adaptations. The review also highlights advanced active learning strategies that integrate quantum artificial intelligence, offering a more efficient pathway to explore the vast, complex material design space. Finally, we discuss the key challenges and future opportunities for QML in material design, emphasizing their po",
    "source": "backfill",
    "domains": [
-    "manufacturing",
     "materials"
    ]
   },
@@ -9703,9 +9570,7 @@
    "summaryZh": "面向灾后应急救援车辆与民用车流的道路冲突,提出量子启发双层优化算法设计救援网络,发表于 INFORMS Journal on Computing,是量子启发方法在应急运筹中的高水平应用。",
    "abstract": "In the aftermath of a sudden catastrophe, first responders (FRs) strive to reach and rescue immobile victims. Simultaneously, civilians use the same roads to evacuate, access medical facilities and shelters, or reunite with their relatives via private vehicles. The escalated traffic congestion can significantly hinder critical FR operations. A proposal from the Türkiye Ministry of Transportation and Infrastructure is to allocate a lane on specific road segments exclusively for FR use, mark them clearly, and precommunicate them publicly. For a successful implementation of this proposal, an FR path should exist from designated entry points to each FR demand point in the network. The reserved FR lanes along these paths will be inaccessible to evacuees, potentially increasing evacuation times. Hence, in this study, we aim to determine a subset of links along which an FR lane should be reserved and analyze the resulting evacuation flow under evacuees’ selfish routing behavior. We introduce this problem as the first responder network design problem (FRNDP) and formulate it as a mixed-integer nonlinear program. To efficiently solve FRNDP, we introduce a novel bilevel nested heuristic, the Graver augmented multiseed algorithm (GAMA) within GAMA, called GAGA. We test GAGA on synthetic graph instances of various sizes as well as scenarios related to a potential Istanbul earthquake. Our comparisons with a state-of-the-art exact algorithm for network design problems demonstrate that GAGA",
    "source": "backfill",
-   "domains": [
-    "transport"
-   ]
+   "domains": []
   },
   {
    "id": "deep-reinforcement-learning-based-attention-decision-network-d087e",
@@ -10560,10 +10425,7 @@
    "summaryZh": "将软件测试用例优化(TCO)映射为 QUBO 并用 QAOA 求解,降低大规模软件系统的测试成本,发表于 IEEE TSE,是量子优化进入软件工程的代表作。",
    "abstract": "Test case optimization (TCO) reduces the software testing cost while preserving its effectiveness. However, to solve TCO problems for large-scale and complex software systems, substantial computational resources are required. Quantum approximate optimization algorithms (QAOAs) are promising combinatorial optimization algorithms that rely on quantum computational resources, with the potential to offer increased efficiency compared to classical approaches. Several proof-of-concept applications of QAOAs for solving combinatorial problems, such as portfolio optimization, energy optimization in power systems, and job scheduling, have been proposed. Given the lack of investigation into QAOA's application for TCO problems, and motivated by the computational challenges of TCO problems and the potential of QAOAs, we present IGDec-QAOA to formulate a TCO problem as a QAOA problem and solve it on both ideal and noisy quantum computer simulators, as well as on a real quantum computer. To solve bigger TCO problems that require many qubits, which are unavailable these days, we integrate a problem decomposition strategy with the QAOA. We performed an empirical evaluation with five TCO problems and four publicly available industrial datasets from ABB, Google, and Orona to compare various configurations of IGDec-QAOA, assess its decomposition strategy of handling large datasets, and compare its performance with classical algorithms (i.e., Genetic Algorithm (GA) and Random Search). Based on th",
    "source": "backfill",
-   "domains": [
-    "finance",
-    "energy"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-algorithms-infeasible-solution-constraints-collision-avoidance-a5399",
@@ -10791,7 +10653,6 @@
    "abstract": "Accurately solving discrete optimization problems is still a serious challenge for classical computing systems. Despite significant progress, it is still impossible to optimally solve examples of the size found in real-world applications. This article examines the problem of scheduling tasks on one machine. Each task has an associated execution time, desired completion date, and a late penalty feature weight. The order of executing tasks should be determined in a manner that minimizes the sum of delay costs. Despite the simplicity of the formulation, this problem is NP-hard and is representative of optimization challenges encountered in the practice of production control, management, and logistics.In this work, we propose using a quantum computing environment to solve it. The main disadvantage of calculations on quantum computers is their nondeterminism. Therefore, there is no guarantee of optimality of solutions to discrete optimization problems determined on a quantum computer.We propose a novel approach to constructing hybrid algorithms that guarantee the optimality of the solution. The algorithm for solving the task scheduling problem considered here is based on the branch and bound method. Calculations are performed alternately on a classical computer and a quantum computer. The lower and upper bounds of the criterion function are determined on a quantum computer. Computational experiments were performed on the D-Wave quantum computer. In small examples, the algorithm ru",
    "source": "backfill",
    "domains": [
-    "logistics",
     "manufacturing"
    ]
   },
@@ -10909,8 +10770,7 @@
    "abstract": "Combinatorial optimization problems pose significant computational challenges across various fields, from logistics to cryptography. Traditional computational methods often struggle with their exponential complexity, motivating exploration into alternative paradigms such as quantum computing. In this paper, we investigate the application of photonic quantum computing to solve combinatorial optimization problems. Leveraging the principles of quantum mechanics, we demonstrate how photonic quantum computers can efficiently explore solution spaces and identify optimal solutions for a range of combinatorial problems. We provide an overview of quantum algorithms tailored for combinatorial optimization for different quantum architectures (boson sampling, quantum annealing and gate-based quantum computing). Additionally, we discuss the advantages and challenges of implementing those algorithms on photonic quantum hardware. Through experiments run on an 8-qumode photonic quantum device, as well as numerical simulations, we evaluate the performance of photonic quantum computers in solving representative combinatorial optimization problems, such as the Max-Cut problem and the Job Shop Scheduling Problem.",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "manufacturing"
+    "logistics"
    ]
   },
   {
@@ -10974,8 +10834,7 @@
    "abstract": "Motivated by recent efforts to develop quantum computing for practical, industrial-scale challenges, we demonstrate the effectiveness of state-of-the-art hybrid (not necessarily quantum) solvers in addressing the business-centric optimization problem of scheduling Automatic Guided Vehicles (AGVs). Some solvers can already leverage noisy intermediate-scale quantum (NISQ) devices. In our study, we utilize D-Wave hybrid solvers that implement classical heuristics with potential assistance from a quantum processing unit. This hybrid methodology performs comparably to existing classical solvers. However, due to the proprietary nature of the software, the precise contribution of quantum computation remains unclear. Our analysis focuses on a practical, business-oriented scenario: scheduling AGVs within a factory constrained by limited space, simulating a realistic production setting. Our approach maps a realistic AGVs problem onto one reminiscent of railway scheduling and demonstrates that the AGVs problem is better suited to quantum computing than its railway counterpart, the latter being denser in terms of the average number of constraints per variable. The main idea here is to highlight the potential usefulness of a hybrid approach for handling AGVs scheduling problems of practical sizes. We show that a scenario involving up to 21 AGVs, significant due to possible deadlocks, can be efficiently addressed by a hybrid solver in seconds.",
    "source": "backfill",
    "domains": [
-    "logistics",
-    "transport"
+    "logistics"
    ]
   },
   {
@@ -11115,8 +10974,6 @@
    "abstract": "Quantum technologies have emerged as a transformative force, poised to revolutionize industries beyond the constraints of conventional technologies. The 2023 Quantum Technology Monitor forecasts substantial economic benefits of up to $1.3 trillion by 2035 across sectors like automotive, chemicals, finance, and life sciences through quantum computing applications. Quantum mechanics, once confined to theoretical realms, now garners widespread attention for its practical implications. Quantum physics delves into the fundamental nature of matter, showcasing phenomena that defy classical intuition, with applications ranging from MRI scanners to cutting edge technologies like solar cells. The evolution of quantum mechanics has birthed quantum computing, a multidisciplinary field merging computer science, physics, and mathematics to tackle complex computational challenges at unparalleled speeds. Industries such as Healthcare, Drug Development, Financial Services, Data Security, and Logistics are poised to reap significant rewards from quantum computing advancements. In the transportation sector, quantum computing offers transformative potential, particularly in traffic engineering, where it can optimize route planning and resource allocation. The exploration of quantum-inspired algorithms for solving fundamental challenges like the shortest path problem further underscores the promise of quantum computing in transportation optimization. Companies like D-Wave lead the charge in quant",
    "source": "backfill",
    "domains": [
-    "finance",
-    "logistics",
     "transport"
    ]
   },
@@ -11171,9 +11028,7 @@
    "summaryZh": "系统研究路径问题(车辆路径、共享出行)的 QUBO 建模方法,并应用于网约车实时调度场景,发表于 Scientific Reports。",
    "abstract": "Many emerging commercial services are based on the sharing or pooling of resources for common use with the aim of reducing costs. Businesses such as delivery-, mobility-, or transport-as-a-service have become standard in many parts of the world, fulfilling on-demand requests for customers in live settings. However, it is known that many of these problems are NP-hard, and therefore both modeling and solving them accurately is a challenge. Here we focus on one such routing problem, the Ride Pooling Problem (RPP), where multiple customers can request on-demand pickups and drop-offs from shared vehicles within a fleet. The combinatorial optimization task is to optimally pool customer requests using the limited set of vehicles, akin to a small-scale flexible bus route. In this work, we propose a quadratic unconstrained binary optimization (QUBO) program and introduce efficient formulation methods for the RPP to be solved using metaheuristics, and specifically emerging quantum optimization algorithms.",
    "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "evolutionary-task-scheduling-algorithm-fuzzy-fitness-evaluation-8cd8c",
@@ -11204,34 +11059,6 @@
    "source": "backfill",
    "domains": [
     "satellite"
-   ]
-  },
-  {
-   "id": "integrated-coupled-oscillator-network-solve-optimization-problems-f80f8",
-   "title": "An integrated coupled oscillator network to solve optimization problems",
-   "titleZh": "用集成耦合振子网络求解优化问题",
-   "authors": [
-    "Markus Graber",
-    "Klaus Hofmann"
-   ],
-   "venue": "Communications Engineering",
-   "date": "2024-08-23",
-   "year": 2024,
-   "citations": 23,
-   "arxivId": "",
-   "doi": "10.1038/s44172-024-00261-w",
-   "url": "https://doi.org/10.1038/s44172-024-00261-w",
-   "topics": [
-    "qinspired",
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "提出基于振荡器耦合网络的Ising机实现:利用电气振荡器间的模拟耦合并行探索解空间,以低时间和能耗代价求解组合优化,是振荡器硬件路线的代表性进展。",
-   "abstract": "Solving combinatorial optimization problems is essential in scientific, technological, and engineering applications, but can be very time and energy-consuming using classical algorithms executed on digital processors. Oscillator-based Ising machines offer a promising alternative by exploiting the analog coupling between electrical oscillators to solve such optimization problems more efficiently. Here we present the design and the capabilities of our scalable approach to solve Ising and quadratic unconstrained binary optimization problems. This approach includes routable oscillator connections to simplify the time-consuming embedding of the problem into the oscillator network. Our manufactured silicon chip, featuring 1440 oscillators implemented in a 28 nm technology, demonstrates the ability to solve optimization problems in 950 ns while consuming typically 319 μW per node. A frequency, phase, and delay calibration ensures robustness against manufacturing variations. The system is evaluated with multiple sets of benchmark problems to analyze the sensitivity for parameters such as the coupling strength or frequency.",
-   "source": "backfill",
-   "domains": [
-    "manufacturing"
    ]
   },
   {
@@ -11455,8 +11282,7 @@
    "abstract": "The rapid proliferation of quantum information technologies, spanning theoretical investigations to practical experiments, has generated a number of research papers and documents in quantum algorithms. Consequently, the current research serves as a gateway for interested readers to comprehend the status quo of quantum algorithms, with a specific focus on vehicular network optimization. It aims to explore the research patterns and latest trends by analyzing the dataset sourced from the Scopus and Web of Science databases. The scientometric implications offer valuable insights into publication patterns, keyword co-occurrence, author co-citation, country collaboration, and burst reference. These analyses delineate the temporal progression, prominent research topics, emerging research areas, leading collaborative nations, prolific authors, and research trends within this knowledge domain. The results reveal that smart power grids, traveling salesman problem, electric vehicle charging, battery life estimation, and air traffic control are emerging research areas. Similarly, quantum approximate optimization algorithms, adiabatic quantum computing, quantum-inspired evolutionary algorithms, and quantum annealing emerge as prominent quantum algorithms employed for vehicular network optimization problems. In addition, systematic literature analysis is objectively conducted to discern key insights, research challenges and future research directions in the current knowledge domain.",
    "source": "backfill",
    "domains": [
-    "transport",
-    "materials"
+    "transport"
    ]
   },
   {
@@ -11836,8 +11662,39 @@
    "abstract": "The determination of the material suppliers for additive manufacturing (AM) centers is a typical facility location problem (FLP). Current methods for solving the FLP in AM network design mainly focus on improving the cost, distance, and supply chain aspects and neglect market segmentation. However, AM feedstock suppliers need to understand the market size they serve so they can better prepare their inventory plans. Therefore, in this paper, we propose a new approach for the FLP with geographic market segmentation of AM material supplier networks, in which the facility locations and market segments of AM material suppliers are optimized in a multi-objective optimization problem. In order to confirm the feasibility of the proposed method, a simplified design case for a German state has been carried out.",
    "source": "backfill",
    "domains": [
-    "logistics",
     "manufacturing",
+    "materials"
+   ]
+  },
+  {
+   "id": "learning-construct-solution-agile-satellite-scheduling-problem-31c32",
+   "title": "Learning to Construct a Solution for the Agile Satellite Scheduling Problem With Time-Dependent Transition Times",
+   "titleZh": "面向时间相关转移时间敏捷卫星调度问题的解构造学习方法",
+   "authors": [
+    "Ming Chen",
+    "Yonghao Du",
+    "Ke Tang",
+    "Lining Xing",
+    "Yuning Chen",
+    "Yingwu Chen"
+   ],
+   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
+   "date": "2024-07-09",
+   "year": 2024,
+   "citations": 48,
+   "arxivId": "",
+   "doi": "10.1109/tsmc.2024.3411640",
+   "url": "https://doi.org/10.1109/tsmc.2024.3411640",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "敏捷对地观测卫星调度(AEOSSP)是大规模星座管理带来的复杂组合优化问题。论文提出基于深度强化学习的解构造模型(DRL-CM),以马尔可夫决策过程建模含时间相关转移时间的调度决策,被引 48 次,是\"学习构造可行调度\"路线的代表作。",
+   "abstract": "The agile earth observation satellite scheduling problem (AEOSSP) with time-dependent transition times is a complex combinational optimization problem that has emerged from the development of large-scale satellite management techniques. To address this problem, we propose a deep reinforcement learning-based construction model (DRL-CM) that consists of five parts: 1) a Markov decision process (MDP); 2) a feature engineering; 3) a constructive heuristic neural network (CHNN); 4) an RL training method; and 5) an evaluation system. Specifically, the CHNN comprises six modules containing three special components that we propose: a dynamic encoder, a dynamic global layer, and a two-stage attention layer. First, we build the MDP of the AEOSSP and the feature engineering with effective features required for decision-making. Second, we design the CHNN to function as the MDP policy and train it with an RL model. Finally, we propose a comprehensive evaluation system for the validation of our model. The experimental results indicate that the proposed DRL-CM outperforms the state-of-the-art algorithm in terms of both optimization speed and quality. In addition, the feature engineering and network architecture built in our model are verified to be effective in comprehensive experiments.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
     "materials"
    ]
   },
@@ -11923,32 +11780,6 @@
    "tags": [],
    "summaryZh": "硬件高效Ansatz(HEA)使用原生门与连接以降低噪声影响,但深层时受贫瘠高原困扰、浅层时又能避免,评价长期存在分歧。Cerezo团队给出系统分析:明确HEA在何种任务/数据/深度组合下真正有用、何时注定失败,为变分量子优化中ansatz的选择提供了理论依据。",
    "abstract": "Variational Quantum Algorithms (VQAs) and Quantum Machine Learning (QML) models train a parametrized quantum circuit to solve a given learning task. The success of these algorithms greatly hinges on appropriately choosing an ansatz for the quantum circuit. Perhaps one of the most famous ansatzes is the one-dimensional layered Hardware Efficient Ansatz (HEA), which seeks to minimize the effect of hardware noise by using native gates and connectives. The use of this HEA has generated a certain ambivalence arising from the fact that while it suffers from barren plateaus at long depths, it can also avoid them at shallow ones. In this work, we attempt to determine whether one should, or should not, use a HEA. We rigorously identify scenarios where shallow HEAs should likely be avoided (e.g., VQA or QML tasks with data satisfying a volume law of entanglement). More importantly, we identify a Goldilocks scenario where shallow HEAs could achieve a quantum speedup: QML tasks with data satisfying an area law of entanglement. We provide examples for such scenario (such as Gaussian diagonal ensemble random Hamiltonian discrimination), and we show that in these cases a shallow HEA is always trainable and that there exists an anti-concentration of loss function values. Our work highlights the crucial role that input states play in the trainability of a parametrized quantum circuit, a phenomenon that is verified in our numerics.",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "qhopnn-investigating-quantum-advantage-cryptanalysis-quantum-hopfield-f8902",
-   "title": "QHopNN: investigating quantum advantage in cryptanalysis using a quantum hopfield neural network",
-   "titleZh": "QHopNN:用量子Hopfield神经网络研究密码分析的量子优势",
-   "authors": [
-    "S. Hariharasitaraman",
-    "Nilamadhab Mishra",
-    "D Vishnuvardhanan"
-   ],
-   "venue": "Physica Scripta",
-   "date": "2024-07-03",
-   "year": 2024,
-   "citations": 23,
-   "arxivId": "",
-   "doi": "10.1088/1402-4896/ad5ed1",
-   "url": "https://doi.org/10.1088/1402-4896/ad5ed1",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "构建量子 Hopfield 神经网络 QHopNN 执行密码分析任务,实证考察其相对经典方法的量子优势,发表于 Physica Scripta。",
-   "abstract": "Abstract Cryptanalysis is crucial for securing cryptographic systems, particularly with the advent of quantum computing, which threatens traditional encryption methods. Advanced cryptanalytic techniques are essential for developing robust systems that can withstand quantum attacks, ensuring encrypted data remains secure and accessible only to authorized parties. This paper introduces the Quantum Hopfield Neural Network (QHopNN) as a novel approach to enhance key recovery in symmetric ciphers. This research provides valuable insights into integrating quantum principles with neural network architectures, paving the way for more secure and efficient cryptographic systems. By leveraging quantum principles like superposition and entanglement, along with Hopfield networks’ pattern recognition and optimization capabilities, QHopNN achieves superior accuracy and efficiency in deciphering encrypted data. Additionally, integrating unitary quantum evolution with dissipative dynamics further enhances the cryptographic robustness and efficiency of QHopNN. The proposed framework is rigorously evaluated using prominent symmetric ciphers, including S-AES and S-DES, and benchmarked against existing state-of-the-art techniques. Experimental results compellingly demonstrate the superiority of QHopNN in key recovery, with a mean Bit Accuracy Probability (BAP) of 0.9706 for S-AES and 0.9815 for S-DES, significantly outperforming current methods. This breakthrough opens new avenues for advancing c",
    "source": "backfill",
    "domains": []
   },
@@ -12179,9 +12010,7 @@
    "summaryZh": "提出三项算法改进(自适应学习率等)降低神经网络量子态(NQS)变分蒙特卡洛优化的计算开销,并在铬二聚体上验证,发表于 JCP。",
    "abstract": "The advent of Neural-network Quantum States (NQS) has significantly advanced wave function ansatz research, sparking a resurgence in orbital space variational Monte Carlo (VMC) exploration. This work introduces three algorithmic enhancements to reduce computational demands of VMC optimization using NQS: an adaptive learning rate algorithm, constrained optimization, and block optimization. We evaluate the refined algorithm on complex multireference bond stretches of H2O and N2 within the cc-pVDZ basis set and calculate the ground-state energy of the strongly correlated chromium dimer (Cr2) in the Ahlrichs SV basis set. Our results achieve superior accuracy compared to coupled cluster theory at a relatively modest CPU cost. This work demonstrates how to enhance optimization efficiency and robustness using these strategies, opening a new path to optimize large-scale restricted Boltzmann machine-based NQS more effectively and marking a substantial advancement in NQS's practical quantum chemistry applications.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "investigation-quantum-inspired-algorithms-portfolio-optimization-across-74c20",
@@ -12728,9 +12557,7 @@
    "summaryZh": "提出近似复幅度编码算法,规避经典数据加载到量子态的指数级门开销,并在数据分类任务中验证效果,发表于 Physical Review A。",
    "abstract": "Quantum computing has a potential to accelerate data processing efficiency, especially in machine learning, by exploiting special features such as the quantum interference. The major challenge in this application is that, in general, the task of loading a classical data vector into a quantum state requires an exponential number of quantum gates. The approximate amplitude encoding (AAE) method, which uses a variational means to approximately load a given real-valued data vector into the amplitude of a quantum state, was recently proposed as a general approach to this problem mainly for near-term devices. However, AAE cannot load a complex-valued data vector, which narrows its application range. In this work, we extend AAE so that it can handle a complex-valued data vector. The key idea is to employ the fidelity distance as a cost function for optimizing a parametrized quantum circuit, where the classical shadow technique is used to efficiently estimate the fidelity and its gradient. We apply this algorithm to realize the complex-valued-kernel binary classifier called the compact Hadamard classifier, and then we present a numerical experiment showing that it enables classification of the Iris dataset and credit card fraud detection.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "variational-quantum-circuit-learning-enabled-robust-optimization-1018a",
@@ -12756,7 +12583,6 @@
    "abstract": "As the demand for artificial intelligence (AI) models and applications continues to grow, data centers that handle AI workloads are experiencing a rise in energy consumption and associated carbon footprint. This work proposes a variational quantum computing-based robust optimization (VQC-RO) framework for control and energy management in large-scale data centers to address the computational challenges and overcome limitations of conventional model-based and model-free strategies. The VQC-RO framework integrates variational quantum circuits (VQCs) with classical optimization to enable efficient and uncertainty-aware control of energy systems in AI data centers. Quantum algorithms executed on noisy intermediate-scale quantum (NISQ) devices are used for value function estimation trained with Q-learning, leading to the formulation of a robust optimization problem with uncertain coefficients. The quantum computing-based robust control strategy is designed to address uncertainties associated with weather conditions and renewable energy generation while optimizing energy consumption in AI data centers. This work also outlines the computational experiments conducted at various AI data center locations in the United States to analyze the reduction in power consumption and carbon emission levels associated with the proposed quantum computing-based robust control framework. This work contributes a novel approach to energy-efficient and sustainable data center operation, promising to red",
    "source": "backfill",
    "domains": [
-    "energy",
     "it-cloud"
    ]
   },
@@ -13330,9 +13156,7 @@
    "summaryZh": "Nature Communications 工作:提出生成器增强优化(GEO)框架,可用任意经典、量子或量子启发生成模型探索解空间,并在 MaxCut、Ising 等问题上验证,是\"生成式 AI×组合优化\"的标志性论文。",
    "abstract": "Devising an efficient exploration of the search space is one of the key challenges in the design of combinatorial optimization algorithms. Here, we introduce the Generator-Enhanced Optimization (GEO) strategy: a framework that leverages any generative model (classical, quantum, or quantum-inspired) to solve optimization problems. We focus on a quantum-inspired version of GEO relying on tensor-network Born machines, and referred to hereafter as TN-GEO. To illustrate our results, we run these benchmarks in the context of the canonical cardinality-constrained portfolio optimization problem by constructing instances from the S&P 500 and several other financial stock indexes, and demonstrate how the generalization capabilities of these quantum-inspired generative models can provide real value in the context of an industrial application. We also comprehensively compare state-of-the-art algorithms and show that TN-GEO is among the best; a remarkable outcome given the solvers used in the comparison have been fine-tuned for decades in this real-world industrial application. Also, a promising step toward a practical advantage with quantum-inspired models and, subsequently, with quantum generative models.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "self-consistent-field-approach-variational-quantum-eigensolver-af3e3",
@@ -13487,9 +13311,7 @@
    "summaryZh": "针对加密货币市场中环路套利这一组合优化任务(代价景观多局部极小),提出差分进化 VQE 方案并验证其对贫瘠高原的鲁棒性,发表于 Digital Signal Processing。",
    "abstract": "Crypto-currency markets are known to exhibit inefficiencies, which presents opportunities for profitable cyclic transactions or arbitrage, where one currency is traded for another in a way that results in a net gain without incurring any risk. Quantum computing has shown promise in financial applications, particularly in resolving optimization problems like arbitrage. In this paper, we introduce a differential evolution (DE) optimization algorithm for Variational Quantum Eigensolver (VQE) using Qiskit framework. We elucidate the application of crypto-currency arbitrage using different VQE optimizers. Our findings indicate that the proposed DE-based method effectively converges to the optimal solution in scenarios where other commonly used optimizers, such as COBYLA, struggle to find the global minimum. We further test this procedure's feasibility on IBM's real quantum machines up to 127 qubits. With a scenario of three currencies, the algorithm converged in 417 steps over a 12 hour period on the \"ibm_geneva\" machine. These results suggest the potential to achieve a quantum advantage in solving increasingly complex problems.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "scalable-chip-optoelectronic-ising-machine-utilizing-thin-2536e",
@@ -13554,6 +13376,38 @@
    "domains": []
   },
   {
+   "id": "energy-efficient-satellite-range-scheduling-reinforcement-learning-841e3",
+   "title": "Energy-Efficient Satellite Range Scheduling Using a Reinforcement Learning-Based Memetic Algorithm",
+   "titleZh": "基于强化学习模因算法的节能卫星测控资源调度",
+   "authors": [
+    "Yanjie Song",
+    "Ponnuthurai Nagaratnam Suganthan",
+    "Witold Pedrycz",
+    "Ran Yan",
+    "Dongming Fan",
+    "Yue Zhang"
+   ],
+   "venue": "IEEE Transactions on Aerospace and Electronic Systems",
+   "date": "2024-03-12",
+   "year": 2024,
+   "citations": 20,
+   "arxivId": "",
+   "doi": "10.1109/taes.2024.3371964",
+   "url": "https://doi.org/10.1109/taes.2024.3371964",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "频繁任务执行带来的高能耗已成为未来卫星管理系统设计必须考量因素。论文提出强化学习驱动的模因算法求解卫星测控区间调度,在优化调度的同时最小化能耗,把\"绿色调度\"目标引入卫星资源管理。",
+   "abstract": "The rapid expansion of the satellite industry has presented numerous opportunities across various sectors and significantly transformed people's daily lives. However, the high energy consumption resulting from frequent task execution poses challenges for satellite management. Energy consumption has become an important factor to be considered in the design of future satellite management systems. The energy-efficient satellite range scheduling problem (EESRSP) aims to optimize task sequencing profits within the satellite management system while simultaneously conserving energy. To address this problem, a mixed-integer scheduling model is constructed, taking into account the energy consumption of ground stations during telemetry, tracking and command (TT&C) operations. Then, we propose a reinforcement learning-based memetic algorithm (RL-MA) that incorporates a heuristic initialization method (HIM). The HIM enables the algorithm to rapidly generate high-quality initial solutions by leveraging task features associated with EESRSRP. RL-MA employs both population search and local search techniques to explore the satellite TT&C task plan. RL-MA incorporates two genetic operators, crossover and mutation, into the population-based search. In the local search stage, multiple random and heuristic local search operators are incorporated through an ensemble local search strategy (ELSS). To improve search performance, Q-learning, a classical class of reinforcement learning (RL) methods tai",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "materials"
+   ]
+  },
+  {
    "id": "circumventing-superexponential-runtimes-hard-instances-quantum-adiabatic-1f19e",
    "title": "Circumventing superexponential runtimes for hard instances of quantum adiabatic optimization",
    "titleZh": "绕过量子绝热优化困难实例的超指数运行时间",
@@ -13580,31 +13434,6 @@
    "tags": [],
    "summaryZh": "Physical Review Research 工作(被引 19):以最大独立集为对象,研究绝热优化在小能隙困难实例上的超指数运行时间成因与规避策略。",
    "abstract": "Classical optimization problems can be solved by adiabatically preparing the ground state of a quantum Hamiltonian that encodes the problem. The performance of this approach is determined by the smallest gap encountered during the evolution. Here, we consider the maximum independent set problem, which can be efficiently encoded in the Hamiltonian describing a Rydberg atom array. We present a general construction of instances of the problem for which the minimum gap decays superexponentially with system size, implying a superexponentially large time to solution via adiabatic evolution. The small gap arises from locally independent choices which cause the system to initially evolve and localize into a configuration far from the solution in terms of Hamming distance. We investigate remedies to this problem. Specifically, we show that quantum quenches in these models can exhibit signatures of quantum many-body scars, which in turn, can circumvent the superexponential gaps. By quenching from a suboptimal configuration, states with a larger ground-state overlap can be prepared, illustrating the utility of quantum quenches as an algorithmic tool. Published by the American Physical Society 2024",
-   "source": "backfill",
-   "domains": []
-  },
-  {
-   "id": "variational-monte-carlo-large-patched-transformers-f7404",
-   "title": "Variational Monte Carlo with large patched transformers",
-   "titleZh": "使用大型分块Transformer的变分蒙特卡洛",
-   "authors": [
-    "Kyle Sprague",
-    "Stefanie Czischek"
-   ],
-   "venue": "Communications Physics",
-   "date": "2024-03-11",
-   "year": 2024,
-   "citations": 34,
-   "arxivId": "",
-   "doi": "10.1038/s42005-024-01584-y",
-   "url": "https://doi.org/10.1038/s42005-024-01584-y",
-   "topics": [
-    "hardware"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "将大语言模型的 Transformer 架构迁移为量子多体波函数 ansatz:分块注意力机制有效捕捉自旋构型中的长程关联,发表于 Communications Physics、被引 34 次,是\"大模型架构×量子物理\"的代表作。",
-   "abstract": "Abstract Large language models, like transformers, have recently demonstrated immense powers in text and image generation. This success is driven by the ability to capture long-range correlations between elements in a sequence. The same feature makes the transformer a powerful wavefunction ansatz that addresses the challenge of describing correlations in simulations of qubit systems. Here we consider two-dimensional Rydberg atom arrays to demonstrate that transformers reach higher accuracies than conventional recurrent neural networks for variational ground state searches. We further introduce large, patched transformer models, which consider a sequence of large atom patches, and show that this architecture significantly accelerates the simulations. The proposed architectures reconstruct ground states with accuracies beyond state-of-the-art quantum Monte Carlo methods, allowing for the study of large Rydberg systems in different phases of matter and at phase transitions. Our high-accuracy ground state representations at reasonable computational costs promise new insights into general large-scale quantum many-body systems.",
    "source": "backfill",
    "domains": []
   },
@@ -13665,7 +13494,6 @@
    "abstract": "Many modern manufacturing companies have evolved from a single production facility to a multi-factory production environment that must manage both regionally dispersed production orders and their multi-site production steps. The availability of a range of machines in different locations capable of performing the same operation and shipping times between factories have transformed planning systems from the classic Job Shop Scheduling Problem (JSSP) to the Distributed Flexible Job Shop Scheduling Problem (DFJSP). Consequently, the complexity of production planning has increased significantly. We employ Quantum Annealing (QA) to solve the DFJSP in our research. In addition to assigning production orders to production sites, production steps are also assigned to these sites. This requirement is based on a real use case of a wool textile manufacturing company. To investigate the applicability of this method to large problem instances, problems ranging from 50 variables up to 250 variables, the largest problem that could be embedded into a D-Wave quantum annealer Quantum Processing Unit (QPU), are formulated and solved. Special Attention is dedicated to determining the Lagrange parameters of the Quadratic Unconstrained Binary Optimization (QUBO) model and the QPU configuration parameters, as these factors can significantly impact solution quality. The obtained solutions are compared to solutions obtained by Simulated Annealing (SA), both in terms of solution quality and calculation",
    "source": "backfill",
    "domains": [
-    "logistics",
     "manufacturing"
    ]
   },
@@ -13970,8 +13798,7 @@
    "abstract": "The aim of this paper is to report on the state of the art of the literature on the most recent challenges in the energy domain that can be addressed through the use of quantum computing technology. More in detail, to the best of the authors’ knowledge, the scope of the literature review considered in this paper is specifically limited to forecasting, grid management (namely, scheduling, dispatching, stability, and reliability), battery production, solar cell production, green hydrogen and ammonia production, and carbon capture. These challenges have been identified as the most relevant business needs currently expressed by energy companies on their path towards a net-zero economy. A critical discussion of the most relevant methodological approaches and experimental setups is provided, together with an overview of future research directions. Overall, the key finding of the paper, based on the proposed literature review, is twofold: namely, (1) quantum computing has the potential to trigger significant transformation in the energy domain by drastically reducing CO2 emissions, especially those relative to battery production, solar cell production, green hydrogen and ammonia production, as well as point-source and direct-air carbon capture technology; and (2) quantum computing offers enhanced optimization capability relative to relevant challenges that concern forecasting solar and wind resources, as well as managing power demand, facility allocation, and ensuring reliability an",
    "source": "backfill",
    "domains": [
-    "energy",
-    "materials"
+    "energy"
    ]
   },
   {
@@ -14053,9 +13880,7 @@
    "summaryZh": "研究 QAOA 参数优化的迁移学习:在小规模问题上学到的最优参数可迁移至同类新实例,显著降低变分训练成本,发表于 arXiv。",
    "abstract": "Solving combinatorial optimization problems (COPs) is a promising application of quantum computation, with the Quantum Approximate Optimization Algorithm (QAOA) being one of the most studied quantum algorithms for solving them. However, multiple factors make the parameter search of the QAOA a hard optimization problem. In this work, we study transfer learning (TL), a methodology to reuse pre-trained QAOA parameters of one problem instance into different COP instances. This methodology can be used to alleviate the necessity of classical optimization to find good parameters for individual problems. To this end, we select small cases of the traveling salesman problem (TSP), the bin packing problem (BPP), the knapsack problem (KP), the weighted maximum cut (MaxCut) problem, the maximal independent set (MIS) problem, and portfolio optimization (PO), and find optimal $β$ and $γ$ parameters for p layers. We compare how well the parameters found for one problem adapt to the others. Among the different problems, BPP is the one that produces the best transferable parameters, maintaining the probability of finding the optimal solution above a quadratic speedup over random guessing for problem sizes up to 42 qubits and p = 10 layers. Using the BPP parameters, we perform experiments on IonQ Harmony and Aria, Rigetti Aspen-M-3, and IBM Brisbane of MIS instances for up to 18 qubits. The results indicate that IonQ Aria yields the best overlap with the ideal probability distribution. Addition",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "effects-quantum-hardware-properties-performances-variational-quantum-8b584",
@@ -14085,9 +13910,7 @@
    "summaryZh": "系统研究量子硬件属性(拓扑、噪声、采样)对变分量子算法(VQA)性能的影响机制,发表于 Quantum Machine Intelligence。",
    "abstract": "Abstract In-depth theoretical and practical research is nowadays being performed on variational quantum algorithms (VQAs), which have the potential to surpass traditional, classical, algorithms on a variety of problems, in physics, chemistry, biology, and optimization. Because they are hybrid quantum-classical algorithms, it takes a certain set of optimal conditions for their full potential to be exploited. For VQAs, the construction of an appropriate ansatz in particular is crucial, since it lays the ground for efficiently solving the particular problem being addressed. To prevent severe negative effects that hamper quantum computation, the substantial noise, together with the structural limitations, characteristic of currently available devices must be also taken into consideration while building the ansatz. In this work the effect of the quantum hardware structure, namely the topological properties emerging from the couplings between the physical qubits and the basis gates of the device itself, on the performances of VQAs is addressed. Specifically, it is here experimentally shown that a complex connectivity in the ansatz, albeit being beneficial for exploring wider sets of solutions, introduces an overhead of gates during the transpilation on a quantum computer that increases the overall error rate, thus undermining the quality of the training. It is hence necessary, when implementing a variation quantum learning algorithm, to find the right balance between a sufficiently",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "hamiltonian-variational-ansatz-without-barren-plateaus-6f704",
@@ -14877,9 +14700,7 @@
    "summaryZh": "针对Ising机难以原生处理不等式约束的问题,提出退火辅助列生成框架:主问题分解 + Ising 机求解子问题,为约束优化上Ising机提供了一条实用化路径。",
    "abstract": "Ising machines are expected to solve combinatorial optimization problems faster than the existing integer programming solvers. These problems, particularly those encountered in practical situations, typically involve inequality constraints. However, owing to the hardware limitations of the current Ising machines, solving combinatorial optimization problems with inequality constraints remains challenging. The Capacitated Vehicle Routing Problem (CVRP) is a typical example of a problem with inequality constraints. The CVRP is classified as${\\mathcal {NP}}$-hard and, thus, is commonly solved using heuristic algorithms, such as column generation. Column generation attempts to iteratively generate only the promising routes, as the number of feasible routes increases exponentially. Within this framework, the CVRP is formulated as a set cover problem. The corresponding dual solutions are used to define the pricing subproblem, which is intended to create a new route. By applying Ising machines to this pricing subproblem, the overall computation time can be reduced. This study aims to solve combinatorial optimization problems with inequality constraints using a hybrid algorithm that combines column generation and Ising machines, thereby extending the applications of the latter. Additionally, we introduced limited column generation, wherein we fixed the decision variables to eliminate the overlap between the generated columns. By reducing unnecessary variables, our proposed method can ",
    "source": "backfill",
-   "domains": [
-    "logistics"
-   ]
+   "domains": []
   },
   {
    "id": "solving-nonnative-combinatorial-optimization-problems-hybrid-quantum-55eb6",
@@ -15187,9 +15008,7 @@
    "summaryZh": "IBM的Egger、Mareček与Woerner提出\"温启动\"QAOA:先用经典松弛(如半定规划或连续松弛)得到高质量近似解,再据此构造初始态与调整后的混合器,使量子算法从经典最优邻域出发而非均匀叠加态。理论上继承了经典松弛的近似比保证,实践中显著提升低深度QAOA的解质量,是量子-经典混合优化的经典范式之一。",
    "abstract": "There is an increasing interest in quantum algorithms for problems of integer programming and combinatorial optimization. Classical solvers for such problems employ relaxations, which replace binary variables with continuous ones, for instance in the form of higher-dimensional matrix-valued problems (semidefinite programming). Under the Unique Games Conjecture, these relaxations often provide the best performance ratios available classically in polynomial time. Here, we discuss how to warm-start quantum optimization with an initial state corresponding to the solution of a relaxation of a combinatorial optimization problem and how to analyze properties of the associated quantum algorithms. In particular, this allows the quantum algorithm to inherit the performance guarantees of the classical algorithm. We illustrate this in the context of portfolio optimization, where our results indicate that warm-starting the Quantum Approximate Optimization Algorithm (QAOA) is particularly beneficial at low depth. Likewise, Recursive QAOA for MAXCUT problems shows a systematic increase in the size of the obtained cut for fully connected graphs with random weights, when Goemans-Williamson randomized rounding is utilized in a warm start. It is straightforward to apply the same ideas to other randomized-rounding schemes and optimization problems.",
    "source": "backfill",
-   "domains": [
-    "finance"
-   ]
+   "domains": []
   },
   {
    "id": "quantum-approximate-optimization-non-planar-graph-problems-3ae49",
@@ -15498,9 +15317,7 @@
    "summaryZh": "Peruzzo等人2014年在光子量子处理器上首次实现变分量子本征求解器(VQE),用参数化ansatz态制备与经典优化循环替代对相干演化要求极高的量子相位估计,大幅降低了对硬件的要求。这篇被引近5000次的论文开创了变分量子算法这一近期量子计算的核心范式。",
    "abstract": "Quantum computers promise to efficiently solve important problems that are intractable on a conventional computer. For quantum systems, where the physical dimension grows exponentially, finding the eigenvalues of certain operators is one such intractable problem and remains a fundamental challenge. The quantum phase estimation algorithm efficiently finds the eigenvalue of a given eigenvector but requires fully coherent evolution. Here we present an alternative approach that greatly reduces the requirements for coherent evolution and combine this method with a new approach to state preparation based on ansätze and classical optimization. We implement the algorithm by combining a highly reconfigurable photonic quantum processor with a conventional computer. We experimentally demonstrate the feasibility of this approach with an example from quantum chemistry—calculating the ground-state molecular energy for He–H+. The proposed approach drastically reduces the coherence time requirements, enhancing the potential of quantum resources available today and in the near future. Quantum computers promise to efficiently solve problems that would be practically impossible with a normal computer. Peruzzo et al. develop a variational computation approach that uses any available quantum resources and, with a photonic quantum processing unit, find the ground-state molecular energy of He–H+.",
    "source": "backfill",
-   "domains": [
-    "materials"
-   ]
+   "domains": []
   },
   {
    "id": "ising-formulations-many-np-problems-ef40c",

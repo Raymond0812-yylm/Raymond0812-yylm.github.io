@@ -1,4 +1,10 @@
 // 周期(周/月)分组工具
+export const PERIOD_START = '2026-08-31'; // 日报启动日:周报/月报仅统计此后收录的内容
+
+export function inPeriod(p) {
+  return (p.date || '') >= PERIOD_START;
+}
+
 export function isoWeekOf(dateStr) {
   if (!dateStr) return null;
   const dt = new Date(dateStr + 'T12:00:00Z');
@@ -26,7 +32,7 @@ export function weekRangeOf(year, week) {
 export function groupByWeek(papers) {
   const map = new Map();
   for (const p of papers) {
-    if (!p.date) continue;
+    if (!p.date || !inPeriod(p)) continue;
     const w = isoWeekOf(p.date);
     if (!w) continue;
     if (!map.has(w.key)) {
@@ -41,7 +47,7 @@ export function groupByWeek(papers) {
 export function groupByMonth(papers) {
   const map = new Map();
   for (const p of papers) {
-    if (!p.date) continue;
+    if (!p.date || !inPeriod(p)) continue;
     const m = p.date.slice(0, 7);
     if (!map.has(m)) map.set(m, { key: m, papers: [] });
     map.get(m).papers.push(p);

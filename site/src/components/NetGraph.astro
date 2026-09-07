@@ -1,0 +1,53 @@
+---
+// 作者合作网络图(构建时生成 SVG:节点=作者,边=合著关系)
+interface Props {
+  nodes: { name: string; count: number }[];
+  edges: { a: string; b: string; count: number }[];
+  color?: string;
+}
+const { nodes, edges, color = 'var(--brand)' } = Astro.props;
+const W = 640, H = 300, CX = W / 2, CY = H / 2, R = Math.min(H, W) / 2 - 64;
+const pos: Record<string, { x: number; y: number }> = {};
+nodes.forEach((nd, i) => {
+  const ang = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
+  pos[nd.name] = { x: CX + R * Math.cos(ang), y: CY + R * Math.sin(ang) };
+});
+const maxCount = Math.max(...nodes.map((n) => n.count), 1);
+const rOf = (n: { count: number }) => 7 + (n.count / maxCount) * 9;
+const shortName = (s: string) => {
+  const parts = s.split(/\s+/);
+  return parts.length > 2 ? `${parts[0]} ${parts[1][0]}.` : s;
+};
+const labelOffset = (name: string) => {
+  const p = pos[name];
+  const dx = p.x - CX, dy = p.y - CY;
+  const len = Math.hypot(dx, dy) || 1;
+  return { x: p.x + (dx / len) * 26, y: p.y + (dy / len) * 26, anchor: Math.abs(dx) < R * 0.3 ? 'middle' : dx > 0 ? 'start' : 'end' };
+};
+---
+
+<svg viewBox={`0 0 ${W} ${H}`} class="net-svg" role="img" aria-label="作者合作网络">
+  {edges.map((e) => {
+    const pa = pos[e.a], pb = pos[e.b];
+    if (!pa || !pb) return null;
+    return <line x1={pa.x} y1={pa.y} x2={pb.x} y2={pb.y} stroke={color} stroke-width={Math.min(3.5, 0.8 + e.count * 0.7)} stroke-opacity="0.35" />;
+  })}
+  {nodes.map((n) => {
+    const p = pos[n.name];
+    if (!p) return null;
+    const lp = labelOffset(n.name);
+    return (
+      <g>
+        <circle cx={p.x} cy={p.y} r={rOf(n)} fill={color} fill-opacity="0.9" stroke="var(--card)" stroke-width="2" />
+        <text x={lp.x} y={lp.y} text-anchor={lp.anchor} class="nl" style={`font-size:${0.62 + (n.count / maxCount) * 0.22}rem`}>{shortName(n.name)}</text>
+        <text x={p.x} y={p.y + 3.5} text-anchor="middle" class="nv">{n.count}</text>
+      </g>
+    );
+  })}
+</svg>
+
+<style>
+  .net-svg { width: 100%; height: auto; }
+  .net-svg .nl { fill: var(--text); font-weight: 700; paint-order: stroke; stroke: var(--card); stroke-width: 3px; }
+  .net-svg .nv { font-size: 10px; fill: #fff; font-weight: 700; font-family: var(--mono); }
+</style>
