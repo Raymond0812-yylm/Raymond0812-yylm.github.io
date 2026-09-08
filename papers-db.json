@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-08",
+ "updated": "2026-09-09",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -4735,6 +4735,41 @@
    ]
   },
   {
+   "id": "quantum-machine-learning-6g-space-air-ground-841b3",
+   "title": "Quantum Machine Learning for 6G Space–Air–Ground Integrated Networks: A Comprehensive Tutorial and Survey",
+   "titleZh": "面向6G空天地一体化网络的量子机器学习:全面教程与综述",
+   "authors": [
+    "Sheikh Salman Hassan",
+    "Latif U. Khan",
+    "Yu Min Park",
+    "Mohsen Guizani",
+    "Zhu Han",
+    "Tharmalingam Ratnarajah",
+    "Choong Seon Hong"
+   ],
+   "venue": "IEEE Communications Surveys & Tutorials",
+   "date": "2025-09-16",
+   "year": 2025,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1109/comst.2025.3610357",
+   "url": "https://doi.org/10.1109/comst.2025.3610357",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Communications Surveys & Tutorials 长篇教程与综述(被引 13):覆盖量子机器学习在空天地一体化网络(SAGIN)中的应用——包括卫星通信优化、资源分配与网络管理,是该交叉方向的权威参考文献。",
+   "abstract": "Space-air-ground integrated networks (SAGINs) are emerging as a fundamental architecture for 6G systems to enable massive connectivity, novel applications, extreme data rates, ultra-low latency, and multi-dimensional networking. The complex nature of SAGINs has driven researchers to explore classical machine learning (CML) as a powerful tool for modeling and optimizing these multi-layer networks. Although CML offers many benefits, it will suffer from exponential complexity for SAGIN design, mainly due to high-dimensional data and problem spaces. Therefore, the NP-hard problems are challenging for CML to enable SAGINs efficiently. To address this critical challenge, we present a comprehensive survey examining the integration of quantum ML (QML) with SAGINs. We systematically evaluate quantum-enhanced SAGIN technologies through detailed performance metrics and create a new classification system for hybrid network architectures. We thoroughly examine key integration strategies and analyze major technical challenges, which include how quantum states degrade in space, how to distribute resources optimally, and how to develop security protocols. We show how QML can solve the growing complexity of 6G networks by improving network capacity, intelligence, and security. The research also creates a comprehensive framework for quantum-enhanced SAGINs that researchers and industry professionals can use as a guide when developing next-generation communication systems. Our findings examine ",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "symmetry-based-quantum-algorithms-open-shop-scheduling-41459",
    "title": "Symmetry-based quantum algorithms for open-shop scheduling with hard constraints",
    "titleZh": "基于对称性的硬约束开放车间调度量子算法",
@@ -7753,6 +7788,39 @@
    "domains": []
   },
   {
+   "id": "neural-network-based-frequency-optimization-superconducting-quantum-98da5",
+   "title": "Neural Network-Based Frequency Optimization for Superconducting Quantum Chips",
+   "titleZh": "基于神经网络的超导量子芯片频率优化",
+   "authors": [
+    "Bin-Han Lu",
+    "Qing-Song Li",
+    "Peng Wang",
+    "Zhao‐Yun Chen",
+    "Yu-Chun Wu",
+    "Guo-Ping Guo"
+   ],
+   "venue": "Chinese Physics Letters",
+   "date": "2025-02-24",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1088/0256-307x/42/3/030204",
+   "url": "https://doi.org/10.1088/0256-307x/42/3/030204",
+   "topics": [
+    "vqa",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出神经网络代理模型方法预测频率误差并优化超导量子芯片的频率配置,将 NP 完全的频率分配问题转化为可学习的优化任务,发表于 Chinese Physics Letters。",
+   "abstract": "Abstract Optimizing frequency configurations for qubits and gates in superconducting quantum chips presents a complex NP-complete challenge, critical for mitigating decoherence and crosstalk. This paper introduces a neural network-based approach, leveraging the network as a surrogate model to predict frequency errors. The method employs a closed-loop Bayesian optimization framework to iteratively refine configurations, guided by the network’s knowledge of nonlinear error mechanisms. By focusing on localized chip windows, the optimization identifies optimal frequency settings that minimize errors. The approach is validated through randomized and cross-entropy benchmarking, showing improved energy calculations when optimizing frequency configurations for a crosstalk-aware hardware-efficient ansatz in variational quantum eigensolvers on superconducting quantum chips.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimizing-sustainable-energy-management-grid-connected-microgrids-e9cc1",
    "title": "Optimizing sustainable energy management in grid connected microgrids using quantum particle swarm optimization for cost and emission reduction",
    "titleZh": "基于量子粒子群优化的并网微电网可持续能源管理:成本与排放双目标降低",
@@ -8349,6 +8417,34 @@
    "tags": [],
    "summaryZh": "ADAPT-QAOA虽改进了QAOA的参数化电路结构,但深度依然较大。论文提出RE-ADAPT-VQA,从新设计的门池中增量式选取并集成参数化门以构建更浅的电路,在组合优化基准上以更少的量子资源达到同等或更优的解质量,是自适应变分算法向NISQ资源约束靠拢的代表工作。",
    "abstract": "Abstract Variational quantum algorithms (VQAs) are quantum‐classical hybrid algorithms that are promising for the near future. The Quantum Approximate Optimization Algorithm (QAOA) is a representative VQA for solving combinatorial optimization problems. However, the parameterized quantum circuit (PQC) of QAOA still has room for improvement. The existing method, called ADAPT‐QAOA, has improved the PQC of QAOA, but the circuit depth remains deep. A Resource‐Efficient Adaptive VQA (RE‐ADAPT‐VQA) that utilizes gates from a new gate pool is proposed to construct a PQC. RE‐ADAPT‐VQA incrementally integrates parameterized quantum gates based on the gradient until the predefined stopping criteria are satisfied, and a rollback mechanism is proposed to ensure that the circuit remains shallow. The algorithm is experimentally simulated to solve Max‐Cut problem and the maximum independent set problem. The results show that RE‐ADAPT‐VQA significantly reduces circuit depth, single‐qubit gates, and CNOT gates compared to existing methods, while maintaining the same level of energy error.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "efficient-frequency-allocation-superconducting-quantum-processors-improved-52ebc",
+   "title": "Efficient frequency allocation for superconducting quantum processors using improved optimization techniques",
+   "titleZh": "超导量子处理器的改进频率分配优化技术",
+   "authors": [
+    "Zewen Zhang",
+    "Pranav Gokhale",
+    "Jeffrey Larson"
+   ],
+   "venue": "Physical Review A",
+   "date": "2025-01-17",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1103/physreva.111.012619",
+   "url": "https://doi.org/10.1103/physreva.111.012619",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "超导量子处理器的频率分配是一个 NP 完全问题——频率冲突导致串扰与退相干。论文引入约束条件与边差异约束改进优化结果,直接服务大规模超导量子优化芯片的设计。",
+   "abstract": "Building on previous research on frequency allocation optimization for superconducting circuit quantum processors, this work incorporates several techniques to improve overall solution quality. We introduce constraints and imposed edgewise differences help to improve the optimization results. We also introduce optimization variables for the orientation of each edge, defined as the direction from the control qubit to the target qubit, to be chosen during optimization. To scale up to larger processors, multimodule designs are employed with various boundary conditions, thereby enhancing the collective yield. These enhancements allow for greater flexibility in processor design by eliminating the need for handpicked orientations. We support the efficient assembly of large processors with dense connectivity by choosing the best boundary conditions. Examples demonstrate that, at low computational cost, this optimization approach finds a frequency configuration for a square chip with over 1000 qubits and over 10% yield at much larger dispersion levels than required by previous approaches.",
    "source": "backfill",
    "domains": []
   },
@@ -10401,6 +10497,39 @@
    ]
   },
   {
+   "id": "quantum-annealing-complex-optimization-satellite-communication-systems-08763",
+   "title": "Quantum Annealing for Complex Optimization in Satellite Communication Systems",
+   "titleZh": "量子退火用于卫星通信系统中的复杂优化",
+   "authors": [
+    "Thinh Quang Dinh",
+    "Son Hoang Dau",
+    "Eva Lagunas",
+    "Symeon Chatzinotas",
+    "Diep N. Nguyen",
+    "Dinh Thai Hoang"
+   ],
+   "venue": "IEEE Internet of Things Journal",
+   "date": "2024-10-16",
+   "year": 2024,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.1109/jiot.2024.3481373",
+   "url": "https://doi.org/10.1109/jiot.2024.3481373",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "将卫星通信系统中的波束配置与频率分配两个关键资源分配问题映射为 QUBO 并在量子退火机上求解,发表于 IEEE IoT Journal。卫星通信资源优化是量子退火最贴近商用的应用场景之一。",
+   "abstract": "Satellite communication (SatCom) systems play a vital role in providing global connectivity and enable a wide range of applications, including Internet of Things (IoT) connectivity for remote areas, such as forests and oceans. Two crucial resource allocation challenges in SatCom are beam placement (BP) and frequency assignment (FA) problems, which involve the clique covering (CC) and graph coloring (GC) problems, respectively. Conventional solutions for these problems incur excessive computational cost, which is intractable for classical computers. A promising approach is to formulate these problems using the Ising model, construct their Hamiltonians, and then solve them efficiently by a quantum computer. However, the current quantum computers have very limited hardware and can only handle rather small inputs. To overcome this limitation, we propose a hybrid-quantum-classical-computational pipeline where an efficient hamiltonian reduction method is the key for solving large CC/GC instances. Through experiments on real quantum computers, our reduction method outperforms commercial solutions, allowing quantum annealers to handle significantly larger BP/FA instances while maintaining high probability to achieve feasible solutions and near-optimal performance. Although the inherent hardness of the CC/GC problems cannot be overcome by quantum computing, our research contributes to the early exploration of quantum computing in the context of the complex optimization problems in Sat",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "it-cloud"
+   ]
+  },
+  {
    "id": "quantum-approximate-optimization-algorithm-test-case-optimization-3de57",
    "title": "Quantum Approximate Optimization Algorithm for Test Case Optimization",
    "titleZh": "用于测试用例优化的量子近似优化算法",
@@ -10682,6 +10811,33 @@
    "tags": [],
    "summaryZh": "提出 QuST 方法优化受空间-时间噪声偏置影响的量子神经网络,提升含噪硬件上 QNN 的实用精度,发表于 IEEE TCAD。",
    "abstract": "Quantum neural networks (QNNs) hold immense potential for complex tasks by harnessing quantum entanglement and superposition, such as physics simulation, artificial intelligence, and cryptography. However, the presence of quantum noise, stemming from hardware imperfections and environmental interactions, significantly reduces their practical performance. Moreover, the noise varies from different devices and shifts over time, necessitating continuous retraining models to chase and cater to the evolving noise, leading to high-computation costs. In this article, we presentQuST, a novel QNN robust training framework designed to handle the noise in a once-and-for-all manner, which can tackle both spatial and temporal biases to maintain the QNN model accuracy under ever-changing noise conditions. Our approach consists of three key components. First, we propose a metric called circuit sequence correctness (CSC) to characterize QNN circuit reliability in noisy environments. Then, we model CSC as a training weight to incorporate loss integration and utilize KL divergence to align noise inference with noise-free inference, thereby improving anti-noise capabilities. Furthermore, we introduce multiscale noise-aware training to enhance the model’s noise tolerance at various noise magnitudes. We conduct experiments on MNIST and fashion-MNIST datasets, along with 190-day historical noise simulations and one case study on 7 real IBMQ quantum computers. The results demonstrate 8.1%–15.1% and ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "active-robustness-against-detuning-error-rydberg-quantum-82e15",
+   "title": "Active robustness against detuning error for Rydberg quantum gates",
+   "titleZh": "里德堡量子门的主动失谐误差鲁棒性",
+   "authors": [
+    "Qing-Ling Hou",
+    "Han Wang",
+    "Jing Qian"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2024-09-24",
+   "year": 2024,
+   "citations": 6,
+   "arxivId": "",
+   "doi": "10.1103/physrevapplied.22.034054",
+   "url": "https://doi.org/10.1103/physrevapplied.22.034054",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review Applied 工作:针对里德堡原子阵列中两比特门的失谐误差,提出基于最优控制的单调制脉冲方案实现主动鲁棒性,超越仅被动消除误差的传统方法。",
+   "abstract": "Error suppression to the experimental imperfections is a central challenge for useful quantum computing. Recent studies have shown the advantages of using single-modulated pulses based on optimal control, which can realize high-fidelity two-qubit gates in neutral-atom arrays. However, typical optimization minimizes only the ideal gate error in the absence of any decay, which allows the gate to be passively influenced by all error sources leading to an exponential increase of the insensitivity when error becomes larger. In the present work, we propose the realization of two-qubit ${C}_{Z}$ gates with active robustness against two-photon detuning errors. Our method depends on a modified cost function in numerical optimization for shaping gate pulses, which minimizes, not only the ideal gate error but also the fluctuations of gate infidelity over a wide error range. We introduce a family of Rydberg blockade gates with active robustness towards the impacts of versatile noise sources such as Doppler dephasing and ac Stark shifts. The resulting gates with robust pulses can significantly increase the insensitivity to any type of errors acting on the two-photon detuning, benefiting from a relaxed requirement of colder atomic temperatures or more stable lasers for current experimental technology.",
    "source": "backfill",
    "domains": []
   },
@@ -11396,6 +11552,59 @@
    "tags": [],
    "summaryZh": "把软件工程中的测试用例最小化问题映射为 QUBO 并在 D-Wave 量子退火机上求解,发表于 ACM TOSEM,展示了量子退火在软件测试优化中的实用价值。",
    "abstract": "Quantum annealers are specialized quantum computers for solving combinatorial optimization problems with special quantum computing characteristics, e.g., superposition and entanglement. Theoretically, quantum annealers can outperform classic computers. However, current quantum annealers are constrained by a limited number of qubits and cannot demonstrate quantum advantages. Nonetheless, research is needed to develop novel mechanisms to formulate combinatorial optimization problems for quantum annealing (QA). However, QA applications in software engineering remain unexplored. Thus, we propose BootQA , the very first effort at solving test case minimization (TCM) problems on classical software with QA. We provide a novel TCM formulation for QA and utilize bootstrap sampling to optimize the qubit usage. We also implemented our TCM formulation in three other optimization processes: simulated annealing (SA), QA without problem decomposition, and QA with an existing D-Wave problem decomposition strategy, and conducted an empirical evaluation with three real-world TCM datasets. Results show that BootQA outperforms QA without problem decomposition and QA with the existing decomposition strategy regarding effectiveness. Moreover, BootQA ’s effectiveness is similar to SA. Finally, BootQA has higher efficiency in terms of time when solving large TCM problems than the other three optimization processes.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "arquin-architectures-multinode-superconducting-quantum-computers-d319d",
+   "title": "ARQUIN: Architectures for Multinode Superconducting Quantum Computers",
+   "titleZh": "ARQUIN:多节点超导量子计算机架构",
+   "authors": [
+    "James Ang",
+    "G. Carini",
+    "Yanzhu Chen",
+    "Isaac L. Chuang",
+    "M. DeMarco",
+    "Sophia E. Economou",
+    "Alec Eickbusch",
+    "Andrei Faraon",
+    "Kai‐Mei C. Fu",
+    "S. M. Girvin",
+    "Michael Hatridge",
+    "Andrew Houck",
+    "Paul Hilaire",
+    "Kevin Krsulich",
+    "Ang Li",
+    "Chenxu Liu",
+    "Yuan Liu",
+    "Margaret Martonosi",
+    "David McKay",
+    "J. Misewich",
+    "Mark A. Ritter",
+    "Robert Schoelkopf",
+    "Samuel Stein",
+    "Sara Sussman",
+    "Hong X. Tang",
+    "Wei Tang",
+    "Teague Tomesh",
+    "Norm M. Tubman",
+    "Chen Wang",
+    "Nathan Wiebe"
+   ],
+   "venue": "ACM Transactions on Quantum Computing",
+   "date": "2024-07-26",
+   "year": 2024,
+   "citations": 38,
+   "arxivId": "",
+   "doi": "10.1145/3674151",
+   "url": "https://doi.org/10.1145/3674151",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "发表于 ACM TQC 的多节点超导量子计算机架构设计(被引 38):利用光学互连将多个超导量子处理节点链接为大规模量子计算机,并提供了开源仿真框架 ARQUIN 用于评估架构性能。模块化扩展是量子优化硬件突破比特数瓶颈的关键路线。",
+   "abstract": "Many proposals to scale quantum technology rely on modular or distributed designs wherein individual quantum processors, called nodes, are linked together to form one large multinode quantum computer (MNQC). One scalable method to construct an MNQC is using superconducting quantum systems with optical interconnects. However, internode gates in these systems may be two to three orders of magnitude noisier and slower than local operations. Surmounting the limitations of internode gates will require improvements in entanglement generation, use of entanglement distillation, and optimized software and compilers. Still, it remains unclear what performance is possible with current hardware and what performance algorithms require. In this article, we employ a systems analysis approach to quantify overall MNQC performance in terms of hardware models of internode links, entanglement distillation, and local architecture. We show how to navigate tradeoffs in entanglement generation and distillation in the context of algorithm performance, lay out how compilers and software should balance between local and internode gates, and discuss when noisy quantum internode links have an advantage over purely classical links. We find that a factor of 10–100× better link performance is required and introduce a research roadmap for the co-design of hardware and software towards the realization of early MNQCs. While we focus on superconducting devices with optical interconnects, our approach is general",
    "source": "backfill",
    "domains": []
   },
@@ -12872,6 +13081,44 @@
    "domains": []
   },
   {
+   "id": "surpassing-millisecond-coherence-chip-superconducting-quantum-memories-bd437",
+   "title": "Surpassing millisecond coherence in on chip superconducting quantum memories by optimizing materials and circuit design",
+   "titleZh": "超越毫秒相干时间的片上超导量子存储器",
+   "authors": [
+    "Suhas Ganjam",
+    "Yanhao Wang",
+    "Yao Lu",
+    "Archan Banerjee",
+    "Chan U Lei",
+    "Lev Krayzman",
+    "Kim Kisslinger",
+    "Chenyu Zhou",
+    "Ruoshui Li",
+    "Yichen Jia",
+    "Mingzhao Liu",
+    "Luigi Frunzio",
+    "Robert Schoelkopf"
+   ],
+   "venue": "Nature Communications",
+   "date": "2024-05-01",
+   "year": 2024,
+   "citations": 89,
+   "arxivId": "",
+   "doi": "10.1038/s41467-024-47857-6",
+   "url": "https://doi.org/10.1038/s41467-024-47857-6",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Nature Communications 里程碑(被引 89):通过材料优化与电路设计协同,将超导量子存储器的相干时间推过毫秒大关。相干时间直接决定量子优化算法可用的电路深度上限,是该领域最重要的硬件进展之一。",
+   "abstract": "The performance of superconducting quantum circuits for quantum computing has advanced tremendously in recent decades; however, a comprehensive understanding of relaxation mechanisms does not yet exist. In this work, we utilize a multimode approach to characterizing energy losses in superconducting quantum circuits, with the goals of predicting device performance and improving coherence through materials, process, and circuit design optimization. Using this approach, we measure significant reductions in surface and bulk dielectric losses by employing a tantalum-based materials platform and annealed sapphire substrates. With this knowledge we predict the relaxation times of aluminum- and tantalum-based transmon qubits, and find that they are consistent with experimental results. We additionally optimize device geometry to maximize coherence within a coaxial tunnel architecture, and realize on-chip quantum memories with single-photon Ramsey times of 2.0 - 2.7 ms, limited by their energy relaxation times of 1.0 - 1.4 ms. These results demonstrate an advancement towards a more modular and compact coaxial circuit architecture for bosonic qubits with reproducibly high coherence.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "multi-objective-portfolio-optimization-quantum-annealer-d2fcc",
    "title": "Multi-Objective Portfolio Optimization Using a Quantum Annealer",
    "titleZh": "用量子退火机求解多目标投资组合优化",
@@ -12983,6 +13230,39 @@
    "tags": [],
    "summaryZh": "提出通用坐标变换策略加速并改进量子机器学习中基于梯度的优化算法,发表于 Physical Review Research、被引 12 次。",
    "abstract": "In this paper, we introduce a generic strategy to accelerate and improve the overall performance of machine-learning algorithms, both in their classical and quantum versions, heavily rely on optimization algorithms based on gradients, such as gradient descent. The overall performance is dependent on the appearance of local minima and barren plateaus, which slow down calculations and lead to nonoptimal solutions. In practice, this results in dramatic computational and energy costs for artificial intelligence applications. Our method is based on coordinate transformations, like variational rotations, adding extra directions in parameter space that depend on the cost function itself, and which allowus to explore the configuration landscape more efficiently. The validity of our method is benchmarked by boosting several quantum machine-learning algorithms, getting a very significant improvement in their performance. Published by the American Physical Society 2024",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "single-pulse-two-qubit-gates-rydberg-atoms-8b5c2",
+   "title": "Single-pulse two-qubit gates for Rydberg atoms with noncyclic geometric control",
+   "titleZh": "里德堡原子的单脉冲两比特门与非循环几何控制",
+   "authors": [
+    "Ziyuan Chen",
+    "Jia-Hao Liang",
+    "Zhao-Xin Fu",
+    "Hongzhi Liu",
+    "Ze-Rui He",
+    "Meng Wang",
+    "Zhi-Wei Han",
+    "Jiayi Huang",
+    "Qing-Xian Lv",
+    "Yan-Xiong Du"
+   ],
+   "venue": "Physical Review A",
+   "date": "2024-04-19",
+   "year": 2024,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1103/physreva.109.042621",
+   "url": "https://doi.org/10.1103/physreva.109.042621",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出在中性原子阵列上实现两比特受控相位门的便捷方案:利用非循环几何控制实现单脉冲操作,兼顾保真度与鲁棒性,为大规模里德堡优化处理器提供高效门操作基础。",
+   "abstract": "Arrays of neutral atoms have emerged as promising platforms for quantum computing. The realization of high-fidelity two-qubit gates with robustness is currently a significantly important task for large-scale operations. In this paper, we present a convenient approach for implementing a two-qubit controlled-phase gate with Rydberg blockade. We achieve noncyclic and geometric control within a single modulated pulse. Compared with the control scheme by cyclic evolution determined by dynamical parameters, the robustness of our proposal against systematic errors will be remarkably improved due to its geometric characteristics. Importantly, the noncyclic geometric control reduces the gate time for small rotation angles and is more insensitive to decoherence effects. Furthermore, we accelerate the adiabatic control with the aid of shortcuts to adiabaticity to further shorten the operation time. We apply our protocol to the quantum Fourier transformation algorithm to demonstrate the actual acceleration. Therefore, the proposed scheme provides analytical wave forms for arbitrary two-qubit gates and may play an important role in experiments involving atomic arrays.",
    "source": "backfill",
    "domains": []
   },
@@ -13100,6 +13380,35 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "nonadiabatic-geometric-quantum-gates-composite-pulses-based-d1777",
+   "title": "Nonadiabatic geometric quantum gates by composite pulses based on superconducting qubits",
+   "titleZh": "基于复合脉冲的非绝热几何量子门",
+   "authors": [
+    "Zi-Yu Fang",
+    "Hai Xu",
+    "Tao Chen",
+    "Kejin Wei",
+    "Chengxian Zhang"
+   ],
+   "venue": "Physical Review A",
+   "date": "2024-04-11",
+   "year": 2024,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1103/physreva.109.042615",
+   "url": "https://doi.org/10.1103/physreva.109.042615",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review A 工作:在超导量子比特上实现非绝热几何量子门,通过复合脉冲方案同时鲁棒 Rabi 误差与失谐误差,提升门保真度。高保真门是深层变分优化电路可靠执行的基础。",
+   "abstract": "The nonadiabatic geometric quantum gate (NGQG) is promising for the realization of high-fidelity operation for large-scale quantum processing. Normally, conventional NGQGs can be especially robust to either the Rabi error or the detuning error, which are two typical errors in many quantum computing platforms. However, it is difficult to suppress these two types of errors at the same time. This remains a big challenge for NGQGs. Here we present a general framework to implement the optimized geometric gate, where the evolution path is performed by using a family of optimized composite pulses. These composite pulses can reduce the sensitivity to the detuning error without introducing an extra Rabi error for this path. Thus, they help fulfill the cyclic evolution condition for the geometric gate. In addition, the inserted composite pulses would not introduce unwanted dynamical phase accumulation. As a result, the designed optimized geometric gate can simultaneously mitigate both the Rabi and detuning errors even in the presence of decoherence related to the real experiments. Our work paves a way to achieve geometric quantum computation robust against multiple errors.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "solving-optimization-problems-local-light-shift-encoding-fb235",
