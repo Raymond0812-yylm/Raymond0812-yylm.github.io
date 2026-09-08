@@ -7554,6 +7554,32 @@
    ]
   },
   {
+   "id": "beyond-nisq-megaquop-machine-52ec9",
+   "title": "Beyond NISQ: The Megaquop Machine",
+   "titleZh": "Beyond NISQ:Megaquop 机器与后NISQ时代量子计算",
+   "authors": [
+    "John Preskill"
+   ],
+   "venue": "ACM Transactions on Quantum Computing",
+   "date": "2025-03-12",
+   "year": 2025,
+   "citations": 38,
+   "arxivId": "",
+   "doi": "10.1145/3723153",
+   "url": "https://doi.org/10.1145/3723153",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "量子信息先驱 Preskill 的里程碑式概念论文(被引 38):提出\"Megaquop Machine\"概念——介于 NISQ 与大规模容错量子计算机之间的中间形态(百万级量子操作的容错机器)。该框架为量子优化算法从 NISQ demo 迈向实用化指明了硬件路径。",
+   "abstract": "Today’s Noisy Intermediate-Scale Quantum (NISQ) computers have scientific value, but quantum machines with broad practical value must be protected against noise using quantum error correction and fault-tolerant protocols. Recent studies of quantum error correction on actual hardware are opening a new era of quantum information processing. Error-corrected computers capable of performing one million quantum operations or more may be realized soon, raising a compelling question for the quantum community: What are the potential uses of these megaquop machines?",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-finance-exploring-implications-quantum-computing-financial-31272",
    "title": "Quantum Finance: Exploring the Implications of Quantum Computing on Financial Models",
    "titleZh": "量子金融:量子计算对金融模型的影响探析",
@@ -7817,6 +7843,37 @@
    ],
    "summaryZh": "提出神经网络代理模型方法预测频率误差并优化超导量子芯片的频率配置,将 NP 完全的频率分配问题转化为可学习的优化任务,发表于 Chinese Physics Letters。",
    "abstract": "Abstract Optimizing frequency configurations for qubits and gates in superconducting quantum chips presents a complex NP-complete challenge, critical for mitigating decoherence and crosstalk. This paper introduces a neural network-based approach, leveraging the network as a surrogate model to predict frequency errors. The method employs a closed-loop Bayesian optimization framework to iteratively refine configurations, guided by the network’s knowledge of nonlinear error mechanisms. By focusing on localized chip windows, the optimization identifies optimal frequency settings that minimize errors. The approach is validated through randomized and cross-entropy benchmarking, showing improved energy calculations when optimizing frequency configurations for a crosstalk-aware hardware-efficient ansatz in variational quantum eigensolvers on superconducting quantum chips.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "benchmarking-fidelity-response-theory-high-fidelity-rydberg-d53a2",
+   "title": "Benchmarking and Fidelity Response Theory of High-Fidelity Rydberg Entangling Gates",
+   "titleZh": "高保真里德堡纠缠门的基准测试与保真度响应理论",
+   "authors": [
+    "Richard Bing-Shiun Tsai",
+    "Xiangkai Sun",
+    "Adam L. Shaw",
+    "Ran Finkelstein",
+    "Manuel Endres"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2025-02-19",
+   "year": 2025,
+   "citations": 66,
+   "arxivId": "",
+   "doi": "10.1103/prxquantum.6.010331",
+   "url": "https://doi.org/10.1103/prxquantum.6.010331",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "PRX Quantum 长文(被引 66):对中性原子里德堡纠缠门进行完整的误差源分析与基准测试,建立保真度响应理论框架。门保真度直接决定量子优化算法在里德堡平台上的可靠执行深度。",
+   "abstract": "The fidelity of entangling operations is a key figure of merit in quantum information processing, especially in the context of quantum error correction. High-fidelity entangling gates in neutral atoms have seen remarkable advancement recently. A full understanding of error sources and their respective contributions to gate infidelity will enable the prediction of fundamental limits on quantum gates in neutral atom platforms with realistic experimental constraints. In this work, we implement the time-optimal Rydberg controlled-Z (CZ) gate, design a circuit to benchmark its fidelity, and achieve a fidelity, averaged over symmetric input states, of 0.9971 ( 5 ) , downward corrected for leakage error, which together with our recent work [Nature 634, 321–327 (2024)] forms a new state of the art for neutral atoms. The remaining infidelity is explained by an error model, consistent with our experimental results over a range of gate speeds, with varying contributions from different error sources. Further, we develop a fidelity response theory to efficiently predict infidelity from laser noise with nontrivial power spectral densities and derive scaling laws of infidelity with gate speed. Besides its capability of predicting gate fidelity, we also utilize the fidelity response theory to compare and optimize gate protocols, to learn laser frequency noise, and to study the noise response for quantum simulation tasks. Finally, we predict that a CZ gate fidelity of ≳ 0.999 is feasible with",
    "source": "backfill",
    "domains": []
   },
@@ -8445,6 +8502,43 @@
    ],
    "summaryZh": "超导量子处理器的频率分配是一个 NP 完全问题——频率冲突导致串扰与退相干。论文引入约束条件与边差异约束改进优化结果,直接服务大规模超导量子优化芯片的设计。",
    "abstract": "Building on previous research on frequency allocation optimization for superconducting circuit quantum processors, this work incorporates several techniques to improve overall solution quality. We introduce constraints and imposed edgewise differences help to improve the optimization results. We also introduce optimization variables for the orientation of each edge, defined as the direction from the control qubit to the target qubit, to be chosen during optimization. To scale up to larger processors, multimodule designs are employed with various boundary conditions, thereby enhancing the collective yield. These enhancements allow for greater flexibility in processor design by eliminating the need for handpicked orientations. We support the efficient assembly of large processors with dense connectivity by choosing the best boundary conditions. Examples demonstrate that, at low computational cost, this optimization approach finds a frequency configuration for a square chip with over 1000 qubits and over 10% yield at much larger dispersion levels than required by previous approaches.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "spectroscopy-modeling-yb-171-rydberg-states-high-b379f",
+   "title": "Spectroscopy and Modeling of Yb 171 Rydberg States for High-Fidelity Two-Qubit Gates",
+   "titleZh": "Yb 171 里德堡态的光谱学与建模用于高保真两比特门",
+   "authors": [
+    "Michael Peper",
+    "Yiyi Li",
+    "Daniel Y. Knapp",
+    "Mila Bileska",
+    "Shuo Ma",
+    "Genyue Liu",
+    "Pai Peng",
+    "Bichen Zhang",
+    "Sebastian P. Horvath",
+    "A. P. Burgers",
+    "Jeff D. Thompson"
+   ],
+   "venue": "Physical Review X",
+   "date": "2025-01-17",
+   "year": 2025,
+   "citations": 50,
+   "arxivId": "",
+   "doi": "10.1103/physrevx.15.011009",
+   "url": "https://doi.org/10.1103/physrevx.15.011009",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review X 工作(被引 50):对 Yb-171 的里德堡态进行精密光谱测量与建模,为高保真两比特门设计提供理论基础,是中性原子平台门保真度优化的重要进展。",
+   "abstract": "Highly excited Rydberg states and their interactions play an important role in quantum computing and simulation. These properties can be predicted accurately for alkali atoms with simple Rydberg level structures. However, an extension of these methods to more complex atoms such as alkaline-earth atoms has not been demonstrated or experimentally validated. Here, we present multichannel quantum defect models for highly excited Yb 174 and Yb 171 Rydberg states with L ≤ 2 . The models are developed using a combination of existing literature data and new, high-precision laser and microwave spectroscopy in an atomic beam, and validated by detailed comparison with experimentally measured Stark shifts and magnetic moments. We then use these models to compute interaction potentials between two Yb atoms, and find excellent agreement with direct measurements in an optical tweezer array. From the computed interaction potential, we identify an anomalous Förster resonance that likely degraded the fidelity of previous entangling gates in Yb 171 using F = 3 / 2 Rydberg states. We then identify a more suitable F = 1 / 2 state, and achieve a state-of-the-art controlled- gate fidelity of F = 0.994 ( 1 ) , with the remaining error fully explained by known sources. This work establishes a solid foundation for the continued development of quantum computing, simulation, and entanglement-enhanced metrology with Yb neutral atom arrays.",
    "source": "backfill",
    "domains": []
   },
@@ -9788,6 +9882,38 @@
    "domains": []
   },
   {
+   "id": "architectural-design-topological-cluster-state-quantum-computer-94a0f",
+   "title": "Architectural design for a topological cluster state quantum computer",
+   "titleZh": "拓扑簇态量子计算机的架构设计",
+   "authors": [
+    "Simon J. Devitt",
+    "Austin G. Fowler",
+    "Ashley M. Stephens",
+    "Andrew D. Greentree",
+    "Lloyd C. L. Hollenberg",
+    "William J. Munro",
+    "Kae Nemoto"
+   ],
+   "venue": "Figshare",
+   "date": "2024-11-23",
+   "year": 2024,
+   "citations": 73,
+   "arxivId": "",
+   "doi": "",
+   "url": "https://scholar.google.com/scholar?q=Architectural+design+for+a+topological+cluster+state+quantum+computer",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "被引 73 的架构设计工作:提出基于拓扑簇态的大规模量子计算机架构,解决可扩展性中的制造、控制与纠错集成问题,为容错量子优化提供硬件蓝图。",
+   "abstract": "The development of a large scale quantum computer is a highly sought after goal of fundamental research and consequently a highly nontrivial problem. Scalability in quantum information processing is not just a problem of qubit manufacturing and control but it crucially depends on the ability to adapt advanced techniques in quantum information theory, such as error correction, to the experimental restrictions of assembling qubit arrays into the millions. In this paper, we introduce a feasible architectural design for large scale quantum computation in optical systems. We combine the recent developments in topological cluster state computation with the photonic module, a simple chip-based device that can be used as a fundamental building block for a large-scale computer. The integration of the topological cluster model with this comparatively simple operational element addresses many significant issues in scalable computing and leads to a promising modular architecture with complete integration of active error correction, exhibiting high fault-tolerant thresholds.",
+   "source": "backfill",
+   "domains": [
+    "manufacturing"
+   ]
+  },
+  {
    "id": "instance-dependence-parameter-initialization-quantum-approximate-optimization-9fe8d",
    "title": "On the Instance Dependence of Parameter Initialization for the Quantum Approximate Optimization Algorithm: Insights via Instance Space Analysis",
    "titleZh": "QAOA 参数初始化的实例依赖性:实例空间分析视角",
@@ -9812,6 +9938,47 @@
    "tags": [],
    "summaryZh": "用实例空间分析(ISA)方法研究 QAOA 参数初始化效果的实例依赖性,发表于 INFORMS Journal on Computing,把运筹学的实例分析工具引入量子算法调优。",
    "abstract": "The quantum approximate optimization algorithm (QAOA) tackles combinatorial optimization problems in a quantum computing context, where achieving globally optimal and exact solutions is not always feasible because of classical computational constraints or problem complexity. The performance of QAOA generally depends on finding sufficiently good parameters that facilitate competitive approximate solutions. However, this is fraught with challenges, such as “barren plateaus,” making the search for effective parameters a nontrivial endeavor. More recently, the question of whether such an optimal parameter search is even necessary has been posed, with some studies showing that optimal parameters tend to be concentrated on certain values for specific types of problem instances. However, these existing studies have only examined specific instance classes of Maximum Cut, so it is uncertain if the claims of instance independence apply to a diverse range of instances. In this paper, we use instance space analysis to study QAOA parameter initialization strategies for the first time, providing a comprehensive study of how instance characteristics affect the performance of initialization strategies across a diverse set of graph types and weight distributions. Unlike previous studies that focused on specific graph classes (e.g., d-regular or Erdős–Rényi), our work examines a much broader range of instance types, revealing insights about parameter transfer between different graph classes. W",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "learning-high-accuracy-error-decoding-quantum-processors-b51ed",
+   "title": "Learning high-accuracy error decoding for quantum processors",
+   "titleZh": "用机器学习实现量子处理器的高精度误差译码",
+   "authors": [
+    "Johannes Bausch",
+    "Andrew Senior",
+    "Francisco J. H. Heras",
+    "Thomas Edlich",
+    "Alex Davies",
+    "Michael Newman",
+    "Cody Jones",
+    "Kevin J. Satzinger",
+    "Murphy Yuezhen Niu",
+    "Sam Blackwell",
+    "George Holland",
+    "Dvir Kafri",
+    "Juan Atalaya",
+    "Craig Gidney",
+    "Demis Hassabis",
+    "Sergio Boixo",
+    "Hartmut Neven",
+    "Pushmeet Kohli"
+   ],
+   "venue": "Nature",
+   "date": "2024-11-20",
+   "year": 2024,
+   "citations": 80,
+   "arxivId": "",
+   "doi": "10.1038/s41586-024-08148-8",
+   "url": "https://doi.org/10.1038/s41586-024-08148-8",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Nature 工作(被引 80):用机器学习方法学习量子处理器的高精度误差译码策略,显著提升纠错性能。高效的量子纠错是量子优化算法在容错时代可扩展运行的前提。",
+   "abstract": "Abstract Building a large-scale quantum computer requires effective strategies to correct errors that inevitably arise in physical quantum systems 1 . Quantum error-correction codes 2 present a way to reach this goal by encoding logical information redundantly into many physical qubits. A key challenge in implementing such codes is accurately decoding noisy syndrome information extracted from redundancy checks to obtain the correct encoded logical information. Here we develop a recurrent, transformer-based neural network that learns to decode the surface code, the leading quantum error-correction code 3 . Our decoder outperforms other state-of-the-art decoders on real-world data from Google’s Sycamore quantum processor for distance-3 and distance-5 surface codes 4 . On distances up to 11, the decoder maintains its advantage on simulated data with realistic noise including cross-talk and leakage, utilizing soft readouts and leakage information. After training on approximate synthetic data, the decoder adapts to the more complex, but unknown, underlying error distribution by training on a limited budget of experimental samples. Our work illustrates the ability of machine learning to go beyond human-designed algorithms by learning from data directly, highlighting machine learning as a strong contender for decoding in quantum computers.",
    "source": "backfill",
    "domains": []
   },
@@ -9845,6 +10012,33 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "quantum-computing-navigating-future-computation-challenges-technological-55a41",
+   "title": "Quantum Computing: Navigating the Future of Computation, Challenges, and Technological Breakthroughs",
+   "titleZh": "量子计算:导航计算的未来、挑战与技术突破",
+   "authors": [
+    "Qurban A. Memon",
+    "Mahmoud Al Ahmad",
+    "Michael Pecht"
+   ],
+   "venue": "Quantum Reports",
+   "date": "2024-11-16",
+   "year": 2024,
+   "citations": 85,
+   "arxivId": "",
+   "doi": "10.3390/quantum6040039",
+   "url": "https://doi.org/10.3390/quantum6040039",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "被引 85 的综合综述:覆盖超导量子比特规模化、错误率降低、纠错进展、量子优化算法演进等核心方向,全面评估量子计算的技术现状与未来突破路径。",
+   "abstract": "Quantum computing stands at the precipice of technological revolution, promising unprecedented computational capabilities to tackle some of humanity’s most complex problems. The field is highly collaborative and recent developments such as superconducting qubits with increased scaling, reduced error rates, and improved cryogenic infrastructure, trapped-ion qubits with high-fidelity gates and reduced control hardware complexity, and photonic qubits with exploring room-temperature quantum computing are some of the key developments pushing the field closer to demonstrating real-world applications. However, the path to realizing this promise is fraught with significant obstacles across several key platforms, including sensitivity to errors, decoherence, scalability, and the need for new materials and technologies. Through an exploration of various quantum systems, this paper highlights both the potential and the challenges of quantum computing and discusses the essential role of middleware, quantum hardware development, and the strategic investments required to propel the field forward. With a focus on overcoming technical hurdles through innovation and interdisciplinary research, this review underscores the transformative impact quantum computing could have across diverse sectors.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "efficient-digitized-counterdiabatic-quantum-optimization-algorithm-within-8e493",
@@ -10090,6 +10284,44 @@
    "tags": [],
    "summaryZh": "用量子启发生成模型自动搜索量子神经网络的超参数——将超参选择这一组合优化问题交给生成式优化,缓解维度灾难,发表于 Advanced Quantum Technologies。",
    "abstract": "Abstract The potential of quantum neural networks (QNN) for applications in several fields has been widely demonstrated, but hyperparameter selection remains a technical challenge. The complexity of combinatorial optimization rises dramatically as the dimensionality of the hyperparameter space increases, making hyperparameter selection exceptionally complex. Traditional manual trial‐and‐error methods are both time‐consuming and expensive. To break through this bottleneck, the Ansatz structure set is proposed and the Hyperband algorithm is utilized to combine the structure set with the stacking number and algorithmic hyperparameters to propose the Hyperband‐QNN model. The model can intelligently generate QNN according to the actual data features, and in practical applications in many fields such as medicine and agriculture, it performs well compared with the traditional machine learning algorithms as well as the quantum algorithms QSVM and QKNN, and when it is used to deal with the large‐scale data, the efficiency advantage becomes more obvious with the increase of the number of samples. This not only proves the advantages of Hyperband‐QNN model in practical applications but also provides useful exploration and reference for the integration of traditional algorithms and quantum algorithms in practical problems and the play of their respective advantages.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "modular-quantum-processor-all-all-reconfigurable-router-8301c",
+   "title": "Modular Quantum Processor with an All-to-All Reconfigurable Router",
+   "titleZh": "具有全连接可重构路由器的模块化量子处理器",
+   "authors": [
+    "Xuntao Wu",
+    "Haoxiong Yan",
+    "Gustav Andersson",
+    "Alexander Anferov",
+    "Ming-Han Chou",
+    "Christopher R. Conner",
+    "Joel Grebel",
+    "Yash J. Joshi",
+    "Shiheng Li",
+    "Jacob M. Miller",
+    "Rhys G. Povey",
+    "Hong Qiao",
+    "A. N. Cleland"
+   ],
+   "venue": "Physical Review X",
+   "date": "2024-11-04",
+   "year": 2024,
+   "citations": 31,
+   "arxivId": "",
+   "doi": "10.1103/physrevx.14.041030",
+   "url": "https://doi.org/10.1103/physrevx.14.041030",
+   "topics": [
+    "qaoa",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review X 工作:提出可重构全连接路由器的模块化超导量子处理器架构,突破平面限制的比特连接性,对 QAOA 等需要非平凡连接拓扑的优化算法尤为重要。",
+   "abstract": "Superconducting qubits provide a promising approach to large-scale fault-tolerant quantum computing. However, qubit connectivity on a planar surface is typically restricted to only a few neighboring qubits. Achieving longer-range and more flexible connectivity, which is particularly appealing in light of recent developments in error-correcting codes, however, usually involves complex multilayer packaging and external cabling, which is resource intensive and can impose fidelity limitations. Here, we propose and realize a high-speed on-chip quantum processor that supports reconfigurable all-to-all coupling with a large on-off ratio. We implement the design in a four-node quantum processor, built with a modular design comprising a wiring substrate coupled to two separate qubit-bearing substrates, each including two single-qubit nodes. We use this device to demonstrate reconfigurable controlled- Z gates across all qubit pairs, with a benchmarked average fidelity of 96.00 % ± 0.08 % and best fidelity of 97.14 % ± 0.07 % , limited mainly by dephasing in the qubits. We also generate multiqubit entanglement, distributed across the separate modules, demonstrating GHZ-3 and GHZ-4 states with fidelities of 88.15 % ± 0.24 % and 75.18 % ± 0.11 % , respectively. This approach promises efficient scaling to larger-scale quantum circuits and offers a pathway for implementing quantum algorithms and error-correction schemes that benefit from enhanced qubit connectivity. Published by the America",
    "source": "backfill",
    "domains": []
   },
@@ -10754,6 +10986,39 @@
    "domains": []
   },
   {
+   "id": "efficient-photon-pair-generation-layer-poled-lithium-fb204",
+   "title": "Efficient photon-pair generation in layer-poled lithium niobate nanophotonic waveguides",
+   "titleZh": "层极化铌酸锂纳米光子波导中的高效光子对生成",
+   "authors": [
+    "Xiaodong Shi",
+    "Sakthi Sanjeev Mohanraj",
+    "Veerendra Dhyani",
+    "Angela Anna Baiju",
+    "Sihao Wang",
+    "Jiapeng Sun",
+    "Lin Zhou",
+    "Anna V. Paterova",
+    "Victor Leong",
+    "Di Zhu"
+   ],
+   "venue": "Light Science & Applications",
+   "date": "2024-10-03",
+   "year": 2024,
+   "citations": 65,
+   "arxivId": "",
+   "doi": "10.1038/s41377-024-01645-5",
+   "url": "https://doi.org/10.1038/s41377-024-01645-5",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Light Science & Applications 工作(被引 65):在薄膜铌酸锂纳米光子波导中实现高效光子对生成,是可扩展光量子计算与量子通信的关键器件进展。",
+   "abstract": "Abstract Integrated photon-pair sources are crucial for scalable photonic quantum systems. Thin-film lithium niobate is a promising platform for on-chip photon-pair generation through spontaneous parametric down-conversion (SPDC). However, the device implementation faces practical challenges. Periodically poled lithium niobate (PPLN), despite enabling flexible quasi-phase matching, suffers from poor fabrication reliability and device repeatability, while conventional modal phase matching (MPM) methods yield limited efficiencies due to inadequate mode overlaps. Here, we introduce a layer-poled lithium niobate (LPLN) nanophotonic waveguide for efficient photon-pair generation. It leverages layer-wise polarity inversion through electrical poling to break spatial symmetry and significantly enhance nonlinear interactions for MPM, achieving a notable normalized second-harmonic generation (SHG) conversion efficiency of 4615% W −1 cm −2 . Through a cascaded SHG and SPDC process, we demonstrate photon-pair generation with a normalized brightness of 3.1 × 10 6 Hz nm −1 mW −2 in a 3.3 mm long LPLN waveguide, surpassing existing on-chip sources under similar operating configurations. Crucially, our LPLN waveguides offer enhanced fabrication reliability and reduced sensitivity to geometric variations and temperature fluctuations compared to PPLN devices. We expect LPLN to become a promising solution for on-chip nonlinear wavelength conversion and non-classical light generation, with immed",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimal-solving-scheduling-problem-quantum-annealing-metaheuristics-89d79",
    "title": "Optimal Solving of a Scheduling Problem Using Quantum Annealing Metaheuristics on the D-Wave Quantum Solver",
    "titleZh": "在D-Wave量子求解器上用退火元启发式最优求解调度问题",
@@ -10928,6 +11193,89 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "reducing-leakage-single-qubit-gates-superconducting-quantum-f9bda",
+   "title": "Reducing Leakage of Single-Qubit Gates for Superconducting Quantum Processors Using Analytical Control Pulse Envelopes",
+   "titleZh": "利用解析控制脉冲包络减少超导量子处理器单比特门的泄漏",
+   "authors": [
+    "Eric Hyyppä",
+    "Antti Vepsäläinen",
+    "Miha Papič",
+    "Chun Fai Chan",
+    "Sinan Inel",
+    "Alessandro Landra",
+    "Wei Liu",
+    "Jürgen Luus",
+    "Fabian Marxer",
+    "Caspar Ockeloen-Korppi",
+    "Sebastian Orbell",
+    "Brian Tarasinski",
+    "Johannes Heinsoo"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2024-09-19",
+   "year": 2024,
+   "citations": 60,
+   "arxivId": "",
+   "doi": "10.1103/prxquantum.5.030353",
+   "url": "https://doi.org/10.1103/prxquantum.5.030353",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRX Quantum 工作(被引 60):提出解析控制脉冲包络方案,在加速量子逻辑门的同时显著减少泄漏错误。泄漏是 transmon 量子比特执行深层变分优化电路的主要障碍之一。",
+   "abstract": "Improving the speed and fidelity of quantum logic gates is essential to reach quantum advantage with future quantum computers. However, fast logic gates lead to increased leakage errors in superconducting quantum processors based on qubits with low anharmonicity, such as transmons. To reduce leakage errors, we propose and experimentally demonstrate two new analytical methods, Fourier ansatz spectrum tuning derivative removal by adiabatic gate (FAST DRAG) and higher-derivative (HD) DRAG, both of which enable shaping single-qubit control pulses in the frequency domain to achieve stronger suppression of leakage transitions compared to previously demonstrated pulse shapes. Using the new methods to suppress the e f transition of a transmon qubit with an anharmonicity of − 212 MHz, we implement R X ( π / 2 ) gates achieving a leakage error below 3.0 × 10 − 5 down to a gate duration of 6.25 ns without the need for iterative closed-loop optimization. The obtained leakage error represents a 20-fold reduction in leakage compared to a conventional cosine DRAG pulse. Employing the FAST DRAG method, we further achieve an error per gate of ( 1.56 ± 0.07 ) × 10 − 4 at a 7.9-ns gate duration, outperforming conventional pulse shapes both in terms of error and gate speed. Furthermore, we study error-amplifying measurements for the characterization of temporal microwave control-pulse distortions, and demonstrate that non-Markovian coherent errors caused by such distortions may be a significant ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "high-fidelity-teleportation-logical-qubit-transversal-gates-0033f",
+   "title": "High-fidelity teleportation of a logical qubit using transversal gates and lattice surgery",
+   "titleZh": "逻辑量子比特的高保真传送:使用横向门与晶格手术",
+   "authors": [
+    "Ciarán Ryan-Anderson",
+    "Natalie C. Brown",
+    "Charles H. Baldwin",
+    "Joan Dreiling",
+    "C. B. Foltz",
+    "John Gaebler",
+    "Thomas M. Gatterman",
+    "Nathan Hewitt",
+    "C. A. Holliman",
+    "Chandler V. Horst",
+    "Jacob Johansen",
+    "Dominic Lucchetti",
+    "Tanner Mengle",
+    "Mitchell Matheny",
+    "Y. Matsuoka",
+    "Karl Mayer",
+    "Michael Mills",
+    "Steven A. Moses",
+    "B. Neyenhuis",
+    "Juan Miguel Rey Pino",
+    "Peter Siegfried",
+    "Russell Stutz",
+    "J. Walker",
+    "David Hayes"
+   ],
+   "venue": "Science",
+   "date": "2024-09-19",
+   "year": 2024,
+   "citations": 50,
+   "arxivId": "",
+   "doi": "10.1126/science.adp6016",
+   "url": "https://doi.org/10.1126/science.adp6016",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Science 里程碑:在 Quantinuum H2 离子阱处理器上演示容错量子态传送,使用 Steane 码达 30 物理比特。逻辑级操作的演示标志着容错量子优化时代的硬件基础正在成熟。",
+   "abstract": "Quantum state teleportation is commonly used in designs for large-scale quantum computers. Using Quantinuum's H2 trapped-ion quantum processor, we demonstrate fault-tolerant state teleportation circuits for a quantum error correction code-specifically the Steane code. The circuits use up to 30 qubits at the physical level and employ real-time quantum error correction. We conducted experiments on several variations of logical teleportation circuits using both transversal gates and lattice surgery. We measured the logical process fidelity to be 0.975 ± 0.002 for the transversal teleportation implementation and 0.851 ± 0.009 for the lattice surgery teleportation implementation as well as 0.989 ± 0.002 for an implementation of Knill-style quantum error correction.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "purification-scheduling-control-throughput-maximization-quantum-networks-681e1",
@@ -11384,6 +11732,39 @@
    "domains": []
   },
   {
+   "id": "demonstration-fault-tolerant-steane-quantum-error-correction-ee561",
+   "title": "Demonstration of Fault-Tolerant Steane Quantum Error Correction",
+   "titleZh": "容错 Steane 量子纠错的实验演示",
+   "authors": [
+    "Lukas Postler",
+    "Friederike Butt",
+    "Ivan Pogorelov",
+    "Christian D. Marciniak",
+    "Sascha Heußen",
+    "R. Blatt",
+    "Philipp Schindler",
+    "Manuel Rispler",
+    "Markus Müller",
+    "Thomas Monz"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2024-08-07",
+   "year": 2024,
+   "citations": 62,
+   "arxivId": "",
+   "doi": "10.1103/prxquantum.5.030326",
+   "url": "https://doi.org/10.1103/prxquantum.5.030326",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRX Quantum 工作(被引 62):实验演示 Steane 码的容错量子纠错,所有关键操作(编码、校验、解码)均实现容错。容错纠错是量子优化算法摆脱 NISQ 噪声限制的必经之路。",
+   "abstract": "Encoding information redundantly using quantum error-correcting (QEC) codes allows one to overcome the inherent sensitivity to noise in quantum computers to ultimately achieve large-scale quantum computation. The Steane QEC method involves preparing an auxiliary logical qubit of the same QEC code as used for the data register. The data and auxiliary registers are then coupled with a logical controlled- () gate, enabling a measurement of the auxiliary register to reveal the error syndrome. This study presents the implementation of multiple rounds of fault-tolerant (FT) Steane QEC on a trapped-ion quantum computer. Various QEC codes are employed and the results are compared to a previous experimental approach utilizing flag qubits. Our experimental findings show improved logical fidelities for Steane QEC and accompanying numerical simulations indicate an even larger performance advantage for quantum processors limited by entangling-gate errors. This establishes experimental Steane QEC as a competitive paradigm for FT quantum computing. Published by the American Physical Society 2024",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "simple-linear-algebra-identity-optimize-large-scale-010c4",
    "title": "A simple linear algebra identity to optimize large-scale neural network quantum states",
    "titleZh": "优化大规模神经网络量子态的一个简单线性代数恒等式",
@@ -11605,6 +11986,48 @@
    "tags": [],
    "summaryZh": "发表于 ACM TQC 的多节点超导量子计算机架构设计(被引 38):利用光学互连将多个超导量子处理节点链接为大规模量子计算机,并提供了开源仿真框架 ARQUIN 用于评估架构性能。模块化扩展是量子优化硬件突破比特数瓶颈的关键路线。",
    "abstract": "Many proposals to scale quantum technology rely on modular or distributed designs wherein individual quantum processors, called nodes, are linked together to form one large multinode quantum computer (MNQC). One scalable method to construct an MNQC is using superconducting quantum systems with optical interconnects. However, internode gates in these systems may be two to three orders of magnitude noisier and slower than local operations. Surmounting the limitations of internode gates will require improvements in entanglement generation, use of entanglement distillation, and optimized software and compilers. Still, it remains unclear what performance is possible with current hardware and what performance algorithms require. In this article, we employ a systems analysis approach to quantify overall MNQC performance in terms of hardware models of internode links, entanglement distillation, and local architecture. We show how to navigate tradeoffs in entanglement generation and distillation in the context of algorithm performance, lay out how compilers and software should balance between local and internode gates, and discuss when noisy quantum internode links have an advantage over purely classical links. We find that a factor of 10–100× better link performance is required and introduce a research roadmap for the co-design of hardware and software towards the realization of early MNQCs. While we focus on superconducting devices with optical interconnects, our approach is general",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "operating-semiconductor-quantum-processors-hopping-spins-a12aa",
+   "title": "Operating semiconductor quantum processors with hopping spins",
+   "titleZh": "跳跃自旋操控的半导体量子处理器",
+   "authors": [
+    "Chien-An Wang",
+    "Valentin John",
+    "Hanifa Tidjani",
+    "Cécile X. Yu",
+    "Alexander Ivlev",
+    "Corentin Déprez",
+    "F. van Riggelen",
+    "Benjamin D. Woods",
+    "Nico W. Hendrickx",
+    "William I. L. Lawrie",
+    "Lucas E. A. Stehouwer",
+    "Stefan D. Oosterhout",
+    "Amir Sammak",
+    "Mark Friesen",
+    "Giordano Scappucci",
+    "Sander L. de Snoo",
+    "Maximilian Russ",
+    "Francesco Borsoi",
+    "Menno Veldhorst"
+   ],
+   "venue": "Science",
+   "date": "2024-07-25",
+   "year": 2024,
+   "citations": 80,
+   "arxivId": "",
+   "doi": "10.1126/science.ado5915",
+   "url": "https://doi.org/10.1126/science.ado5915",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Science 里程碑(被引 80):展示通过跳跃自旋方案操控半导体量子处理器,规避传统共振控制的大规模可扩展性瓶颈(高频信号集成、串扰与发热),为硅基量子优化硬件提供了新的操控范式。",
+   "abstract": "Qubits that can be efficiently controlled are essential for the development of scalable quantum hardware. Although resonant control is used to execute high-fidelity quantum gates, the scalability is challenged by the integration of high-frequency oscillating signals, qubit cross-talk, and heating. Here, we show that by engineering the hopping of spins between quantum dots with a site-dependent spin quantization axis, quantum control can be established with discrete signals. We demonstrate hopping-based quantum logic and obtain single-qubit gate fidelities of 99.97%, coherent shuttling fidelities of 99.992% per hop, and a two-qubit gate fidelity of 99.3%, corresponding to error rates that have been predicted to allow for quantum error correction. We also show that hopping spins constitute a tuning method by statistically mapping the coherence of a 10-quantum dot system. Our results show that dense quantum dot arrays with sparse occupation could be developed for efficient and high-connectivity qubit registers.",
    "source": "backfill",
    "domains": []
   },
@@ -13440,6 +13863,59 @@
    "domains": []
   },
   {
+   "id": "demonstration-logical-qubits-repeated-error-correction-better-00248",
+   "title": "Demonstration of logical qubits and repeated error correction with better-than-physical error rates",
+   "titleZh": "逻辑量子比特的演示与重复纠错:优于物理错误率",
+   "authors": [
+    "Paetznick, A.",
+    "Marcus P. da Silva",
+    "Ciarán Ryan-Anderson",
+    "Juan M. Bello‐Rivas",
+    "Campora, J. P.",
+    "A. Chernoguzov",
+    "Joan Dreiling",
+    "Clémence Foltz",
+    "F. Frachon",
+    "John Gaebler",
+    "Thomas Gatterman",
+    "Linnea Grans-Samuelsson",
+    "Gresh, D.",
+    "David Hayes",
+    "Nathan Hewitt",
+    "Holliman, C.",
+    "Horst, C. V.",
+    "Jacob Johansen",
+    "Dominic Lucchetti",
+    "Matsuoka, Y.",
+    "Michael Mills",
+    "Steven A. Moses",
+    "Brian Neyenhuis",
+    "Adriano Rolim da Paz",
+    "Juan Miguel Rey Pino",
+    "Siegfried, P.",
+    "A. K. Sundaram",
+    "Dennis Tom",
+    "Stefan Wernli",
+    "Maximilian Zanner"
+   ],
+   "venue": "arXiv",
+   "date": "2024-04-02",
+   "year": 2024,
+   "citations": 39,
+   "arxivId": "2404.02280",
+   "doi": "10.48550/arxiv.2404.02280",
+   "url": "https://arxiv.org/abs/2404.02280",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "实现逻辑量子比特错误率低于物理比特错误率的重复纠错实验,是容错量子计算的关键里程碑。逻辑比特错误率的压制使得运行深量子优化电路(百万级操作)成为可能。",
+   "abstract": "The promise of quantum computers hinges on the ability to scale to large system sizes, e.g., to run quantum computations consisting of more than 100 million operations fault-tolerantly. This in turn requires suppressing errors to levels inversely proportional to the size of the computation. As a step towards this ambitious goal, we present experiments on a trapped-ion QCCD processor where, through the use of fault-tolerant encoding and error correction, we are able to suppress logical error rates to levels below the physical error rates. In particular, we entangled logical qubits encoded in the [[7,1,3]] code with error rates 9.8 times to 500 times lower than at the physical level, and entangled logical qubits encoded in a [[12,2,4]] code based on Knill's C4/C6 scheme with error rates 4.7 times to 800 times lower than at the physical level, depending on the judicious use of post-selection. Moreover, we demonstrate repeated error correction with the [[12,2,4]] code, with logical error rates below physical circuit baselines corresponding to repeated CNOTs, and show evidence that the error rate per error correction cycle, which consists of over 100 physical CNOTs, approaches the error rate of two physical CNOTs. These results signify a transition from noisy intermediate scale quantum computing to reliable quantum computing, and demonstrate advanced capabilities toward large-scale fault-tolerant quantum computing.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "enhancing-combinatorial-optimization-classical-quantum-generative-models-a688a",
    "title": "Enhancing combinatorial optimization with classical and quantum generative models",
    "titleZh": "用经典与量子生成模型增强组合优化(GEO框架)",
@@ -13498,6 +13974,129 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "heralded-three-photon-entanglement-from-single-photon-2b42b",
+   "title": "Heralded Three-Photon Entanglement from a Single-Photon Source on a Photonic Chip",
+   "titleZh": "光子芯片上的单光子源实现的三个光子 heralded 纠缠",
+   "authors": [
+    "Si Chen",
+    "Lichao Peng",
+    "Yingqi Guo",
+    "Xuemei Gu",
+    "Xing Ding",
+    "Runze Liu",
+    "Jian Zhao",
+    "Xin You",
+    "Jian Qin",
+    "Y.-F. Wang",
+    "Yuming He",
+    "Jelmer J. Renema",
+    "Yong-Heng Huo",
+    "Hui Wang",
+    "Chao‐Yang Lu",
+    "Jian-Wei Pan"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2024-03-28",
+   "year": 2024,
+   "citations": 43,
+   "arxivId": "",
+   "doi": "10.1103/physrevlett.132.130603",
+   "url": "https://doi.org/10.1103/physrevlett.132.130603",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review Letters 工作:在光子芯片上的单光子源中实现三个光子的 heralded 纠缠,是基于融合的光量子计算路线的重要器件进展。",
+   "abstract": "In the quest to build general-purpose photonic quantum computers, fusion-based quantum computation has risen to prominence as a promising strategy. This model allows a ballistic construction of large cluster states which are universal for quantum computation, in a scalable and loss-tolerant way without feed forward, by fusing many small n-photon entangled resource states. However, a key obstacle to this architecture lies in efficiently generating the required essential resource states on photonic chips. One such critical seed state that has not yet been achieved is the heralded three-photon Greenberger-Horne-Zeilinger (3-GHZ) state. Here, we address this elementary resource gap, by reporting the first experimental realization of a heralded 3-GHZ state. Our implementation employs a low-loss and fully programmable photonic chip that manipulates six indistinguishable single photons of wavelengths in the telecommunication regime. Conditional on the heralding detection, we obtain the desired 3-GHZ state with a fidelity 0.573±0.024. Our Letter marks an important step for the future fault-tolerant photonic quantum computing, leading to the acceleration of building a large-scale optical quantum computer.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "high-threshold-low-overhead-fault-tolerant-quantum-a172f",
+   "title": "High-threshold and low-overhead fault-tolerant quantum memory",
+   "titleZh": "高阈值低开销的容错量子存储器",
+   "authors": [
+    "Sergey Bravyi",
+    "Andrew W. Cross",
+    "Jay Gambetta",
+    "Dmitri Maslov",
+    "Patrick Rall",
+    "Theodore J. Yoder"
+   ],
+   "venue": "Nature",
+   "date": "2024-03-27",
+   "year": 2024,
+   "citations": 433,
+   "arxivId": "",
+   "doi": "10.1038/s41586-024-07107-7",
+   "url": "https://doi.org/10.1038/s41586-024-07107-7",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Nature 里程碑(被引 433!):Google 量子团队展示量子纠错码的高阈值低开销容错存储——增加码距时逻辑错误率指数下降,首次跨越盈亏平衡点。这是量子优化从 NISQ demo 走向实用化最重要的硬件突破。",
+   "abstract": "Abstract The accumulation of physical errors 1–3 prevents the execution of large-scale algorithms in current quantum computers. Quantum error correction 4 promises a solution by encoding k logical qubits onto a larger number n of physical qubits, such that the physical errors are suppressed enough to allow running a desired computation with tolerable fidelity. Quantum error correction becomes practically realizable once the physical error rate is below a threshold value that depends on the choice of quantum code, syndrome measurement circuit and decoding algorithm 5 . We present an end-to-end quantum error correction protocol that implements fault-tolerant memory on the basis of a family of low-density parity-check codes 6 . Our approach achieves an error threshold of 0.7% for the standard circuit-based noise model, on par with the surface code 7–10 that for 20 years was the leading code in terms of error threshold. The syndrome measurement cycle for a length- n code in our family requires n ancillary qubits and a depth-8 circuit with CNOT gates, qubit initializations and measurements. The required qubit connectivity is a degree-6 graph composed of two edge-disjoint planar subgraphs. In particular, we show that 12 logical qubits can be preserved for nearly 1 million syndrome cycles using 288 physical qubits in total, assuming the physical error rate of 0.1%, whereas the surface code would require nearly 3,000 physical qubits to achieve said performance. Our findings bring dem",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "versatile-single-photon-based-quantum-computing-platform-04ce4",
+   "title": "A versatile single-photon-based quantum computing platform",
+   "titleZh": "多功能单光子量子计算平台",
+   "authors": [
+    "Nicolas Maring",
+    "Andreas Fyrillas",
+    "Mathias Pont",
+    "Edouard Ivanov",
+    "Petr Stepanov",
+    "Nico Margaria",
+    "William Hease",
+    "Anton Pishchagin",
+    "A. Lemaı̂tre",
+    "I. Sagnes",
+    "Thi Huong Au",
+    "Sébastien Boissier",
+    "Eric Bertasi",
+    "Aurélien Baert",
+    "Mario Valdivia",
+    "Marie Billard",
+    "Ozan Acar",
+    "Alexandre Brieussel",
+    "Rawad Mezher",
+    "Stephen C. Wein",
+    "Alexia Salavrakos",
+    "Patrick Sinnott",
+    "Dario Fioretto",
+    "Pierre-Emmanuel Emeriau",
+    "Nadia Belabas",
+    "Shane Mansfield",
+    "P. Senellart",
+    "Jean Sénellart",
+    "Niccolò Somaschi"
+   ],
+   "venue": "Nature Photonics",
+   "date": "2024-03-26",
+   "year": 2024,
+   "citations": 235,
+   "arxivId": "",
+   "doi": "10.1038/s41566-024-01403-4",
+   "url": "https://doi.org/10.1038/s41566-024-01403-4",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Nature Photonics 里程碑(被引 235):演示基于单光子的多功能量子计算平台,整合低退相干、室温操作与网络化优势。该平台在变分量子算法与量子优化中具有天然适配性。",
+   "abstract": "Abstract Quantum computing aims at exploiting quantum phenomena to efficiently perform computations that are unfeasible even for the most powerful classical supercomputers. Among the promising technological approaches, photonic quantum computing offers the advantages of low decoherence, information processing with modest cryogenic requirements, and native integration with classical and quantum networks. So far, quantum computing demonstrations with light have implemented specific tasks with specialized hardware, notably Gaussian boson sampling, which permits the quantum computational advantage to be realized. Here we report a cloud-accessible versatile quantum computing prototype based on single photons. The device comprises a high-efficiency quantum-dot single-photon source feeding a universal linear optical network on a reconfigurable chip for which hardware errors are compensated by a machine-learned transpilation process. Our full software stack allows remote control of the device to perform computations via logic gates or direct photonic operations. For gate-based computation, we benchmark one-, two- and three-qubit gates with state-of-the art fidelities of 99.6 ± 0.1%, 93.8 ± 0.6% and 86 ± 1.2%, respectively. We also implement a variational quantum eigensolver, which we use to calculate the energy levels of the hydrogen molecule with chemical accuracy. For photon native computation, we implement a classifier algorithm using a three-photon-based quantum neural network an",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "unbalanced-penalization-new-approach-encode-inequality-constraints-3c401",
@@ -13681,6 +14280,40 @@
    "tags": [],
    "summaryZh": "用张量网络方法系统校准纠缠在变分量子线路性能中的角色,回答\"纠缠到底带来多少算法优势\"这一变分量子优化基础问题,发表于 Physical Review A。",
    "abstract": "Entanglement is a key property of quantum computing that separates it from its classical counterpart; however, its exact role in the performance of quantum algorithms, especially variational quantum algorithms, is not well understood. In this work, we utilize tensor network methods to systematically probe the role of entanglement in the working of two variational quantum algorithms, the quantum approximate optimization algorithm (QAOA) and quantum neural networks (QNNs), on prototypical problems under controlled entanglement environments. We find that for the max-cut problem solved using QAOA, the fidelity as a function of entanglement is highly dependent on the number of layers, layout of edges in the graph, and edge density, generally exhibiting that a high number of layers indicates a higher resilience to truncation of entanglement. This is in contrast to previous studies based on no more than four QAOA layers which show that the fidelity of QAOA follows a scaling law for circuits. Contrarily, in the case of QNNs, trained circuits with high test accuracies are underpinned by higher entanglement, with any enforced limitation in entanglement resulting in a sharp decline in test accuracy. This is corroborated by the entanglement entropy of these circuits which is consistently high suggesting that, unlike QAOA, QNNs may require quantum devices capable of generating highly entangled states. Overall, our work provides a deeper understanding of the role of entanglement in the wor",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "penning-micro-trap-quantum-computing-953e2",
+   "title": "Penning micro-trap for quantum computing",
+   "titleZh": "用于量子计算的 Penning 微型阱",
+   "authors": [
+    "Shreyans Jain",
+    "Tobias Sägesser",
+    "Pavel Hrmo",
+    "Celeste Torkzaban",
+    "M. Stadler",
+    "R. Oswald",
+    "Chris Axline",
+    "A. Bautista-Salvador",
+    "C. Ospelkaus",
+    "Daniel Kienzler",
+    "Jonathan Home"
+   ],
+   "venue": "Nature",
+   "date": "2024-03-13",
+   "year": 2024,
+   "citations": 31,
+   "arxivId": "",
+   "doi": "10.1038/s41586-024-07111-x",
+   "url": "https://doi.org/10.1038/s41586-024-07111-x",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Nature 工作:提出微型 Penning 阱方案,克服传统射频阱在大规模扩展中面临的高电压兼容性与发热挑战。Penning 阱路线的大规模扩展直接关系量子优化算法的比特数上限。",
+   "abstract": "Abstract Trapped ions in radio-frequency traps are among the leading approaches for realizing quantum computers, because of high-fidelity quantum gates and long coherence times1–3. However, the use of radio-frequencies presents several challenges to scaling, including requiring compatibility of chips with high voltages4, managing power dissipation5 and restricting transport and placement of ions6. Here we realize a micro-fabricated Penning ion trap that removes these restrictions by replacing the radio-frequency field with a 3 T magnetic field. We demonstrate full quantum control of an ion in this setting, as well as the ability to transport the ion arbitrarily in the trapping plane above the chip. This unique feature of the Penning micro-trap approach opens up a modification of the quantum charge-coupled device architecture with improved connectivity and flexibility, facilitating the realization of large-scale trapped-ion quantum computing, quantum simulation and quantum sensing.",
    "source": "backfill",
    "domains": []
   },
@@ -14456,6 +15089,40 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "photon-noise-tolerant-dispersive-readout-superconducting-qubit-f29fe",
+   "title": "Photon-Noise-Tolerant Dispersive Readout of a Superconducting Qubit Using a Nonlinear Purcell Filter",
+   "titleZh": "使用非线性 Purcell 滤波器的光子噪声容忍超导量子比特色散读出",
+   "authors": [
+    "Yoshiki Sunada",
+    "K. Yuki",
+    "Zhiling Wang",
+    "Takeaki Miyamura",
+    "Jesper Ilves",
+    "Kohei Matsuura",
+    "Peter Spring",
+    "Shuhei Tamate",
+    "S. Kono",
+    "Yasunobu Nakamura"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2024-01-19",
+   "year": 2024,
+   "citations": 31,
+   "arxivId": "",
+   "doi": "10.1103/prxquantum.5.010307",
+   "url": "https://doi.org/10.1103/prxquantum.5.010307",
+   "topics": [
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRX Quantum 工作(被引 31):提出非线性 Purcell 滤波器方案,在快速高保真色散读出中抑制残余噪声光子引起的退相干。高质量读出是变分量子优化中精确测量期望值的前提。",
+   "abstract": "Residual noise photons in a readout resonator become a major source of dephasing for a superconducting qubit when the resonator is optimized for a fast, high-fidelity dispersive readout. Here, we propose and demonstrate a nonlinear Purcell filter that suppresses such an undesirable dephasing process without sacrificing the readout performance. When a readout pulse is applied, the filter automatically reduces the effective linewidth of the readout resonator, increasing the sensitivity of the qubit to the input field. The noise tolerance of the device we have fabricated is shown to be enhanced by a factor of 3 relative to a device with a linear filter. The measurement rate is enhanced by another factor of 3 by utilizing the bifurcation of the nonlinear filter. A readout fidelity of 99.4% and a quantum nondemolition fidelity of 99.2% are achieved using a 40-ns readout pulse. The nonlinear Purcell filter will be an effective tool for realizing a fast, high-fidelity readout without compromising the coherence time of the qubit. Published by the American Physical Society 2024",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "parameter-setting-quantum-approximate-optimization-weighted-problems-9249a",
