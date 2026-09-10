@@ -25289,5 +25289,1174 @@
   "doi": "10.1109/tgrs.2025.3634242",
   "citations": 1,
   "theme": "quantum computing satellite task plannin"
+ },
+ {
+  "fid": "8794120508f6",
+  "title": "LLM-Driven Synthesis Planning for Quantum Dot Materials Development",
+  "authors": [
+   "So Eun Choi",
+   "MiYoung Jang",
+   "SoHee Yoon",
+   "Sanghyun Yoo",
+   "Jooyeon Ahn",
+   "Minho Kim",
+   "Ho-Gyeong Kim",
+   "Yebin Jung",
+   "S.S. Park",
+   "Y. C. Kim",
+   "Taekhoon Kim"
+  ],
+  "abstract": "The application of large language models in materials science has opened new avenues for accelerating materials development. Building on this advancement, we propose a novel framework leveraging large language models to optimize experimental procedures for synthesizing quantum dot materials with multiple desired properties. Our framework integrates the synthesis protocol generation model and the property prediction model, both fine-tuned on open-source large language models using parameter-efficient training techniques with in-house synthesis protocol data. Once the synthesis protocol with target properties and a masked reference protocol is generated, it undergoes validation through the property prediction models, followed by assessments of its novelty and human evaluation. Our synthesis experiments demonstrate that among the six synthesis protocols derived from the entire framework, three successfully update the Pareto front, and all six improve at least one property. Through empirical validation, we confirm the effectiveness of our fine-tuned large language model-driven framework for synthesis planning, showcasing strong performance under multitarget optimization.",
+  "date": "2025-03-12",
+  "venue": "Journal of Chemical Information and Modeling",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jcim.4c01529",
+  "citations": 7,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "4fc99fd1a752",
+  "title": "Distributed hybrid quantum-classical performance prediction for hyperparameter optimization",
+  "authors": [
+   "Eric Wulff",
+   "Juan Pablo García Amboage",
+   "Marcel Aach",
+   "Þorsteinn Elí Gíslason",
+   "Thorsteinn Kristinn Ingolfsson",
+   "Tomas Kristinn Ingolfsson",
+   "Edoardo Pasetto",
+   "Amer Delilbasic",
+   "Morris Riedel",
+   "Rakesh Sarma",
+   "Maria Girone",
+   "Andreas Lintermann"
+  ],
+  "abstract": "Abstract Hyperparameter optimization (HPO) of neural networks is a computationally expensive procedure, which requires a large number of different model configurations to be trained. To reduce such costs, this work presents a distributed, hybrid workflow, that runs the training of the neural networks on multiple graphics processing units (GPUs) on a classical supercomputer, while predicting the configurations’ performance with quantum-trained support vector regression (QT-SVR) on a quantum annealer (QA). The workflow is shown to run on up to 50 GPUs and a QA at the same time, completely automating the communication between the classical and the quantum systems. The approach is evaluated extensively on several benchmarking datasets from the computer vision (CV), high-energy physics (HEP), and natural language processing (NLP) domains. Empirical results show that resource costs for performing HPO can be reduced by up to 9% when using the hybrid workflow with performance prediction, compared to using a plain HPO algorithm without performance prediction. Additionally, the workflow obtains similar and in some cases even better accuracy of the final hyperparameter configuration, when combining multiple heuristically obtained predictions from the QA, compared to using just a single classically obtained prediction. The results highlight the potential of hybrid quantum-classical machine learning algorithms. The workflow code is made available open-source to foster adoption in the community.",
+  "date": "2024-09-14",
+  "venue": "Quantum Machine Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s42484-024-00198-5",
+  "citations": 3,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "06d2090346b8",
+  "title": "Exploring the Synergy Between Neuro-Inspired Algorithms and Quantum Computing in Machine Learning",
+  "authors": [
+   "G Nithya",
+   "Praveen Kumar R",
+   "V. Dineshbabu",
+   "P. Umamaheswari",
+   "T. Kalaivani"
+  ],
+  "abstract": "The integration of neuro-inspired algorithms and quantum computing in machine learning presents a promising frontier for addressing complex computational challenges in modern AI. Neuro-inspired algorithms, such as artificial neural networks (ANNs), deep learning (DL), and spiking neural networks (SNNs), have demonstrated impressive performance in various domains, including image recognition, natural language processing, and autonomous systems. This research explores the synergy between neuro-inspired algorithms and quantum computing, focusing on how quantum-enhanced machine learning models can accelerate training and inference processes in neuro-inspired systems. Quantum neural networks (QNNs) leverage quantum principles, such as superposition and entanglement, to represent and manipulate data in ways that classical systems cannot. By combining quantum computing's parallelism with the flexibility and learning capability of neuro-inspired algorithms, the proposed hybrid models can provide exponential speedups in tasks involving large-scale data processing and optimization. To evaluate the performance of these hybrid models, experiments were conducted using a quantum-enhanced deep learning model applied to image classification and a neuro-inspired algorithm augmented by quantum optimization techniques for optimization tasks. The quantum-enhanced deep learning model achieved a 45% reduction in training time compared to classical deep learning models while maintaining similar accuracy levels. These findings highlight the significant potential of combining quantum computing with neuro-inspired algorithms, opening new avenues for faster, more efficient machine learning models capable of solving previously unsolvable problems. The synergy between these two domains could lead to breakthroughs in areas like artificial general intelligence (AGI), drug discovery, and autonomous systems, where large-scale optimization and pattern recognition are critical.",
+  "date": "2025-06-14",
+  "venue": "International Journal of Computational and Experimental Science and Engineering",
+  "arxiv_id": "",
+  "doi": "10.22399/ijcesen.2484",
+  "citations": 5,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "29c5e9b124cb",
+  "title": "Enhanced quantum long short-term memory neural network based multi-task learning for sentimental analysis and cyberbullying detection",
+  "authors": [
+   "K. Subhashree",
+   "Samir Kumar"
+  ],
+  "abstract": "Increasing usage of social media by individuals led to a significant rise in cyberbullying. Detecting sarcasm is challenging because many comments contain sarcasm or aggressive language. Text sentiment classification helps in the identification of abusive words using some beneficial features. Several machine learning algorithms are used in the detection of cyberbullying by using natural language processing mechanism. However, Deep Learning (DL) algorithms provides significant improvement in outcomes due to various reasons such as effectively segments text and image data , handling of large dataset, automatic extraction of features. Hence, a novel DL method Hybrid averaged and weighted averaged review vector Quantum long short-term memory neural based Multi-task Learning with Black-winged kite Optimization (HQMLBO) is proposed. Pre-processing is performed to clean the raw data. Next, features are extracted using hybrid multi-scale with hash vectorization, and relevant features are selected via the hybrid pine cone geyser-inspired optimization algorithm. Finally, sentiment classification and cyberbullying detection are performed using HQMLBO. Various DL methods are analysed and compared over three datasets using Python software. The proposed model outperforms existing methods in terms of accuracy of 95.68% for internet movie database, 92.5% for yelp polarity and 97.86% for cyberbullying classification dataset.",
+  "date": "2025-04-21",
+  "venue": "Expert Systems with Applications",
+  "arxiv_id": "",
+  "doi": "10.1016/j.eswa.2025.127555",
+  "citations": 9,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "aa54acd4f219",
+  "title": "Large Language Models to Accelerate Organic Chemistry Synthesis",
+  "authors": [
+   "Yu Zhang",
+   "Han, Yang",
+   "Shuai Chen",
+   "Ruijie Yu",
+   "Xin Zhao",
+   "Liu, Xianbin",
+   "Kaipeng Zeng",
+   "Mengdi Yu",
+   "Jidong Tian",
+   "Feng Zhu",
+   "Xiaokang Yang",
+   "Yaohui Jin",
+   "Yanyan Xu"
+  ],
+  "abstract": "Chemical synthesis, as a foundational methodology in the creation of transformative molecules, exerts substantial influence across diverse sectors from life sciences to materials and energy. Current chemical synthesis practices emphasize laborious and costly trial-and-error workflows, underscoring the urgent need for advanced AI assistants. Nowadays, large language models (LLMs), typified by GPT-4, have been introduced as an efficient tool to facilitate scientific research. Here, we present Chemma, a fully fine-tuned LLM with 1.28 million pairs of Q&A about reactions, as an assistant to accelerate organic chemistry synthesis. Chemma surpasses the best-known results in multiple chemical tasks, e.g., single-step retrosynthesis and yield prediction, which highlights the potential of general AI for organic chemistry. Via predicting yields across the experimental reaction space, Chemma significantly improves the reaction exploration capability of Bayesian optimization. More importantly, integrated in an active learning framework, Chemma exhibits advanced potential for autonomous experimental exploration and optimization in open reaction spaces. For an unreported Suzuki-Miyaura cross-coupling reaction of cyclic aminoboronates and aryl halides for the synthesis of $α$-Aryl N-heterocycles, the human-AI collaboration successfully explored suitable ligand and solvent (1,4-dioxane) within only 15 runs, achieving an isolated yield of 67%. These results reveal that, without quantum-chemical calculations, Chemma can comprehend and extract chemical insights from reaction data, in a manner akin to human experts. This work opens avenues for accelerating organic chemistry synthesis with adapted large language models.",
+  "date": "2025-04-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2504.18340",
+  "doi": "10.48550/arxiv.2504.18340",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "a5682ecff545",
+  "title": "Multi-Agent Large Language Models for Traditional Finance and Decentralized Finance",
+  "authors": [
+   "Antio De La Cruz"
+  ],
+  "abstract": "This paper investigates the application of multi-agent large language models (LLMs) in traditional finance (TradFi) and decentralized finance (DeFi), with a focus on addressing challenges such as inefficiencies, security vulnerabilities, and regulatory requirements. We propose a conceptual framework for implementing multi-agent LLMs, which combines the advanced reasoning and language capabilities of LLMs with the collaborative nature of multi-agent systems. Through detailed case studies, we demonstrate the effectiveness of this framework in portfolio management, fraud detection, smart contract optimization, and regulatory compliance. Empirical data from these case studies show significant improvements in performance metrics such as accuracy, speed, and cost efficiency compared to traditional approaches. For instance, in portfolio management, multi-agent LLMs achieved a 3.8% increase in average returns and a 0.6 improvement in the Sharpe ratio. In DeFi, smart contract optimization reduced vulnerabilities by 66%, while decentralized lending protocols saw a 17% increase in liquidity utilization. This paper concludes with recommendations on how to improve effectiveness of LLMs and outlines future research directions, including the integration of quantum computing and the development of explainable AI techniques.",
+  "date": "2025-02-11",
+  "venue": "Journal of Industrial Engineering and Applied Science",
+  "arxiv_id": "",
+  "doi": "10.70393/6a69656173.323634",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "96b3f4a5432e",
+  "title": "Further N-Frame networking dynamics of conscious observer-self agents via a functional contextual interface: predictive coding, double-slit quantum mechanical experiment, and decision-making fallacy modeling as applied to the measurement problem in humans and AI",
+  "authors": [
+   "Darren J. Edwards"
+  ],
+  "abstract": "Artificial intelligence (AI) has made some remarkable advances in recent years, particularly within the area of large language models (LLMs) that produce human-like conversational abilities via utilizing transformer-based architecture. These advancements have sparked growing calls to develop tests not only for intelligence but also for consciousness. However, existing benchmarks assess reasoning abilities across various domains but fail to directly address consciousness. To bridge this gap, this paper introduces the functional contextual N -Frame model, a novel framework integrating predictive coding, quantum Bayesian (QBism), and evolutionary dynamics. This comprehensive model explicates how conscious observers, whether human or artificial, should update beliefs and interact within a quantum cognitive system. It provides a dynamic account of belief evolution through the interplay of internal observer states and external stimuli. By modeling decision-making fallacies such as the conjunction fallacy and conscious intent collapse experiments within this quantum probabilistic framework, the N -Frame model establishes structural and functional equivalence between cognitive processes identified within these experiments and traditional quantum mechanics (QM). It is hypothesized that consciousness serves as an active participant in wavefunction collapse (or actualization of the physical definite states we see), bridging quantum potentiality and classical outcomes via internal observer states and contextual interactions via a self-referential loop. This framework formalizes decision-making processes within a Hilbert space, mapping cognitive states to quantum operators and contextual dependencies, and demonstrates structural and functional equivalence between cognitive and quantum systems in order to address the measurement problem. Furthermore, the model extends to testable predictions about AI consciousness by specifying informational boundaries, contextual parameters, and a conscious-time dimension derived from Anti-de Sitter/Conformal Field Theory correspondence (AdS/CFT). This paper theorizes that human cognitive biases reflect adaptive, evolutionarily stable strategies that optimize predictive accuracy (i.e., evolved quantum heuristic strategies rather than errors relative to classical rationality) under uncertainty within a quantum framework, challenging the classical interpretation of irrationality. The N -Frame model offers a unified account of consciousne",
+  "date": "2025-04-01",
+  "venue": "Frontiers in Computational Neuroscience",
+  "arxiv_id": "",
+  "doi": "10.3389/fncom.2025.1551960",
+  "citations": 9,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "40add16cdd9b",
+  "title": "Aitomia: Your Intelligent Assistant for AI-Driven Atomistic and Quantum Chemical Simulations",
+  "authors": [
+   "Jinming Hu",
+   "Hassan Nawaz",
+   "Yuting Rui",
+   "Lijie Chi",
+   "Arif Ullah",
+   "Pavlo O. Dral"
+  ],
+  "abstract": "We have developed Aitomia – a platform powered by AI to assist in performing AI-driven atomistic and quantum chemical (QC) simulations. This evolving intelligent assistant platform is equipped with chatbots and AI agents to help experts and guide non-experts in setting up and running the atomistic simulations, monitoring their computation status, analyzing the simulation results, and summarizing them for the user in text and graphical forms. We achieve these goals by exploiting open-source large language models (LLMs, original and fine-tuned), rule-based agents, and a retrieval-augmented generation (RAG) system. Aitomia leverages the versatility of our MLatom ecosystem, supporting AI-enhanced computational chemistry tasks ranging from ground- to excited-state calculations such as geometry optimizations, thermochemistry, and spectra calculations. Aitomia is the first intelligent assistant publicly accessible online on a cloud computing platform for atomistic simulations of broad scope (Aitomistic Hub at https://aitomistic.xyz), while it may also be deployed locally as described at http://mlatom.com/aitomia. Aitomia is expected to lower the barrier to performing atomistic simulations, democratizing simulations, and accelerating research and development in the relevant fields.",
+  "date": "2025-07-04",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2025-gnf13-v2",
+  "citations": 5,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "6cf449e1dbe4",
+  "title": "Quantum Neural Networks the Next Leap in Artificial Intelligence",
+  "authors": [
+   "Adedoyin Adetoun Samuel"
+  ],
+  "abstract": "One of the most promising new directions in quantum computing and artificial intelligence convergence is the Quantum Neural Networks (QNNs) that can potentially revolutionize the manner in which intelligent systems are designed, trained, and implemented. Although traditional deep learning models have proven to be incredibly successful in fields like computer vision, natural language processing and autonomous systems, they are becoming limited by computational bottlenecks, energy use, and scalability constraints when operating on large high-dimensional data. The distinctive principles of quantum mechanics (superposition, entanglement, and quantum parallelism) may be applied to the QNNs to provide a distinct computational paradigm with the ability to execute exponentially complicated computations more effectively than his classical counterparts. This article gives an in-depth analysis of QNNs as the new frontier of artificial intelligence. We start with the description of the theoretical foundations of quantum computation and their realization in the form of neural networks. We then examine state-of-the-art QNN architectures, such as hybrid quantum-classical models that help overcome present quantum hardware limitations in relation to the capabilities of classical machine learning. Some of the upcoming applications are showcased including molecular simulation and drug discovery and financial modeling, optimization, cryptography and intelligent automation. Such applications reveal the revolutionary power of QNNs to tackle the issues that cannot be tackled by traditional systems. Nonetheless, there are also major obstacles on the way to a practical implementation of QNN. Problems that still remain a barrier to widespread adoption include quantum decoherence, noise in near-term quantum devices, and the inability to scale qubit architectures or to train large-scale quantum models. In order to overcome these obstacles, we speak about the current research work on the topic of error correction, variational algorithms, and hybrid system designs. Also we examine the ethical and societal ramifications of quantum-accelerated AI, such as security, data sovereignty, and technological equity globally.",
+  "date": "2024-09-30",
+  "venue": "Journal of Science Technology and Engineering Research",
+  "arxiv_id": "",
+  "doi": "10.64206/896gx364",
+  "citations": 2,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "e3100338abe4",
+  "title": "Generative artificial intelligence in chemical engineering spans multiple scales",
+  "authors": [
+   "Benjamin Decardi‐Nelson",
+   "Abdulelah S. Alshehri",
+   "Fengqi You"
+  ],
+  "abstract": "Recent advances in generative artificial intelligence (GenAI), particularly large language models (LLMs), are profoundly impacting many fields. In chemical engineering, GenAI plays a pivotal role in the design, scale-up, and optimization of chemical and biochemical processes. The natural language understanding capabilities of LLMs enable the interpretation of complex chemical and biological data. Given the rapid developments of GenAI, this paper explores the extensive applications of GenAI in multiscale chemical engineering, spanning from quantum mechanics to macro-level optimization. At quantum and molecular levels, GenAI accelerates the discovery of novel products and enhances the understanding of fundamental phenomena. At larger scales, GenAI improves process design and operational efficiency, contributing to sustainable practices. We present several examples to demonstrate the role of GenAI, including its impact on nanomaterial hardness enhancement, novel catalyst generation, protein design, and the development of autonomous experimental platforms. This multiscale integration demonstrates the potential of GenAI to address complex challenges, drive innovation, and foster advancements in chemical engineering.",
+  "date": "2024-08-29",
+  "venue": "Frontiers in Chemical Engineering",
+  "arxiv_id": "",
+  "doi": "10.3389/fceng.2024.1458156",
+  "citations": 13,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "a95dc1f773c4",
+  "title": "PHOENIX – Paderborn highly optimized and energy efficient solver for two-dimensional nonlinear Schrödinger equations with integrated extensions",
+  "authors": [
+   "Jan Wingenbach",
+   "David Bauch",
+   "Xuekai Ma",
+   "Robert Schade",
+   "Christian Plessl",
+   "Stefan Schumacher"
+  ],
+  "abstract": "In this work, we introduce PHOENIX, a highly optimized explicit open-source solver for two-dimensional nonlinear Schrödinger equations with extensions. The nonlinear Schrödinger equation and its extensions (Gross-Pitaevskii equation) are widely studied to model and analyze complex phenomena in fields such as optics, condensed matter physics, fluid dynamics, and plasma physics. It serves as a powerful tool for understanding nonlinear wave dynamics, soliton formation, and the interplay between nonlinearity, dispersion, and diffraction. By extending the nonlinear Schrödinger equation, various physical effects such as non-Hermiticity, spin-orbit interaction, and quantum optical aspects can be incorporated. PHOENIX is designed to accommodate a wide range of applications by a straightforward extendability without the need for user knowledge of computing architectures or performance optimization. The high performance and power efficiency of PHOENIX are demonstrated on a wide range of entry-class to high-end consumer and high-performance computing GPUs and CPUs. Compared to a more conventional MATLAB implementation, a speedup of up to three orders of magnitude and energy savings of up to 99.8% are achieved. The performance is compared to a performance model showing that PHOENIX performs close to the relevant performance bounds in many situations. The possibilities of PHOENIX are demonstrated with a range of practical examples from the realm of nonlinear (quantum) photonics in planar microresonators with active media including exciton-polariton condensates. Examples range from solutions on very large grids, the use of local optimization algorithms, to Monte Carlo ensemble evolutions with quantum noise enabling the tomography of the system's quantum state. Program summary Program Title: PHOENIX CPC Library link to program files: https://doi.org/10.17632/kthy8wj3n5.1 Developer's repository link: https://github.com/Schumacher-Group-UPB/PHOENIX/ Licensing provision: MIT Programming language: C++, CUDA Nature of problem: Time evolution of two-dimensional nonlinear systems such as Bose-Einstein condensates, nonlinear optical systems or hybrid light-matter systems (e.g., exciton-polariton condensates). Solution method: Solving the extended two-dimensional nonlinear Schrödinger equation (Gross-Pitaevskii equation) on uniformly discretized grids in real-space with a fourth-order Runge-Kutta scheme. The use of CPU and GPU and the precision used (fp32/fp64) can be set when co",
+  "date": "2025-05-29",
+  "venue": "Computer Physics Communications",
+  "arxiv_id": "",
+  "doi": "10.1016/j.cpc.2025.109689",
+  "citations": 5,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "ad5b439fd404",
+  "title": "A Contemporary Survey on Semantic Communications: Theory of Mind, Generative AI, and Deep Joint Source-Channel Coding",
+  "authors": [
+   "Loc X. Nguyen",
+   "Avi Deb Raha",
+   "Pyae Sone Aung",
+   "Dusit Niyato",
+   "Zhu Han",
+   "Choong Seon Hong"
+  ],
+  "abstract": "Semantic communication is emerging as a key pillar of wireless communication technology, owing to its capabilities in reducing communication overhead, enhancing resilience to channel noise, and supporting a large number of users. However, it still encounters various challenging obstacles that need to be solved before real-world deployment. The major challenge is the lack of standardization across different directions, leading to variations in interpretations and objectives. In the survey, we provide detailed explanations of three leading directions in semantic communications, namelyTheory of Mind,Generative AI,Deep Joint Source-Channel Coding. These directions have been widely studied, developed, and verified by institutes worldwide, and their effectiveness has increased along with the advancement in technology. We provide explanations of the concepts and background for each direction. Firstly, we introduce the Theory of Mind-based semantic communication, in which communication agents gradually develop a shared, minimal-length language through interactions within a shared environment. Subsequently, we present works on Generative AI-based semantic communication, which leverage the creativity of generative models to produce high-quality data for goal-oriented tasks, as well as their powerful data encoding capabilities to represent transmitted information with minimal redundancy. For the final direction, we highlight the importance of deep learning (DL) models in jointly optimizing source and channel coding, demonstrating their ability to overcome the cliff effect associated with traditional separate coding approaches. Then, we present a comprehensive survey of existing works in each direction, thereby offering readers an overview of past achievements and potential avenues for further contribution. Moreover, for each direction, we identify and discuss the existing challenges that must be addressed before these approaches can be effectively deployed in real-world scenarios. These challenges encompass a range of technical, computational, and practical issues. For instance, scalability and adaptability remain critical barriers in real-world deployment, particularly in dynamic environments with diverse user demands. Additionally, the possibility of applying emerging technology, specifically quantum computing, in semantic communication is discussed in this survey.",
+  "date": "2025-10-03",
+  "venue": "IEEE Communications Surveys & Tutorials",
+  "arxiv_id": "",
+  "doi": "10.1109/comst.2025.3616973",
+  "citations": 38,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "fc60ff5209a0",
+  "title": "Generative Artificial Intelligence-Guided Quantum Group Consensus Based on Incentive Behavioral Optimization Under Multi-Scale Environments for Consumer Electronics in Smart Cities",
+  "authors": [
+   "Rui Li",
+   "Chao Zhang",
+   "Arun Kumar Sangaiah",
+   "Jaya Subalakshmi Ramamoorthi",
+   "Turki Alghamdi",
+   "Majed Aborokbah"
+  ],
+  "abstract": "In the development of smart cities, consumer electronics, especially cameras, and generative artificial intelligence (GAI), especially large language models (LLMs), are being integrated into agricultural disease prevention. To prevent wheat stripe rust (WSR), an agricultural disease, decision-makers (DMs) need to evaluate disease conditions across different regions and reach a consensus to scientifically select optimal wheat planting regions. However, current group consensus methods struggle with representing multi-source information and lack personalized incentives to engage diverse DMs. Therefore, an LLM-guided group consensus method for the location selection of wheat planting regions (LS-WPR) under structured multi-scale information systems (MSISs) is explored. First, ChatGPT-4o converts wheat images into numerical forms, which is used to build an MSIS by hierarchical clustering and select optimal scale combinations by three-way decisions (TWD). Second, trust weights are calculated via McKinsey trust equation, and quantum-like Bayesian networks (QBNs) model interference among DMs to refine their weights. Third, DMs are classified based on their behavioral characteristics using three-way clustering (TWC), and a personalized behavior optimization mechanism with trust-driven incentive strategies is applied to achieve LS-WPR consensus. Fourth, quantum frameworks are used to maximize differentiation among regions. Finally, the method is validated by experiments to demonstrate its advantages in LS-WPR.",
+  "date": "2025-10-22",
+  "venue": "IEEE Transactions on Consumer Electronics",
+  "arxiv_id": "",
+  "doi": "10.1109/tce.2025.3624313",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "075dcc2640f3",
+  "title": "QUASAR: Quantum Assembly Code Generation Using Tool-Augmented LLMs via Agentic RL",
+  "authors": [
+   "Cong Yu",
+   "Valter Uotila",
+   "S. Deng",
+   "Qingyuan Wu",
+   "Shi, Tuo",
+   "Jiang, Songlin",
+   "Lei You",
+   "Zhao, Bo"
+  ],
+  "abstract": "Designing and optimizing task-specific quantum circuits are crucial to leverage the advantage of quantum computing. Recent large language model (LLM)-based quantum circuit generation has emerged as a promising automatic solution. However, the fundamental challenges remain unaddressed: (i) parameterized quantum gates require precise numerical values for optimal performance, which also depend on multiple aspects, including the number of quantum gates, their parameters, and the layout/depth of the circuits. (ii) LLMs often generate low-quality or incorrect quantum circuits due to the lack of quantum domain-specific knowledge. We propose QUASAR, an agentic reinforcement learning (RL) framework for quantum circuits generation and optimization based on tool-augmented LLMs. To align the LLM with quantum-specific knowledge and improve the generated quantum circuits, QUASAR designs (i) a quantum circuit verification approach with external quantum simulators and (ii) a sophisticated hierarchical reward mechanism in RL training. Extensive evaluation shows improvements in both syntax and semantic performance of the generated quantum circuits. When augmenting a 4B LLM, QUASAR has achieved the validity of 99.31% in Pass@1 and 100% in Pass@10, outperforming industrial LLMs of GPT-4o, GPT-5 and DeepSeek-V3 and several supervised-fine-tuning (SFT)-only and RL-only baselines.",
+  "date": "2025-10-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.00967",
+  "doi": "10.48550/arxiv.2510.00967",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "919c876128c3",
+  "title": "Optimizing Tensor Contraction Paths: A Greedy Algorithm Approach With Improved Cost Functions",
+  "authors": [
+   "Sheela Orgler",
+   "Mark Blacher"
+  ],
+  "abstract": "Finding efficient tensor contraction paths is essential for a wide range of problems, including model counting, quantum circuits, graph problems, and language models. There exist several approaches to find efficient paths, such as the greedy and random greedy algorithm by Optimized Einsum (opt_einsum), and the greedy algorithm and hypergraph partitioning approach employed in cotengra. However, these algorithms require a lot of computational time and resources to find efficient contraction paths. In this paper, we introduce a novel approach based on the greedy algorithm by opt_einsum that computes efficient contraction paths in less time. Moreover, with our approach, we are even able to compute paths for large problems where modern algorithms fail.",
+  "date": "2024-05-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2405.09644",
+  "doi": "10.48550/arxiv.2405.09644",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "44390357ae9e",
+  "title": "Quantum-entangled neuro-symbolic swarm federation for privacy-preserving IoMT-driven multimodal healthcare",
+  "authors": [
+   "Soufiane Ben Othman",
+   "Obaid Ali"
+  ],
+  "abstract": "The integration of Internet of Medical Things (IoMT) ecosystems with multimodal data, real-time sensors, fMRI/EEG, genomics, and clinical text, holds transformative potential for rare disease diagnostics and personalized medicine. However, ultra-scarce datasets ([Formula: see text] per institution), quantum-era threats (e.g., Shor and Grover algorithms), and stringent regulatory requirements expose critical limitations in centralized AI and classical federated learning. To address these challenges, we propose the Quantum-Entangled Neuro-Symbolic Swarm Federation (QENSSF), a pioneering framework that unifies quantum-entangled differential privacy (QEDP), neuro-symbolic swarm intelligence, and privacy-aware large language model (LLM) fine-tuning within an IoMT-driven architecture. QENSSF introduces four foundational innovations: (1) QEDP, leveraging 9-qubit W-states and variational quantum circuits to achieve [Formula: see text]-differential privacy with [Formula: see text]-0.17 and [Formula: see text], resilient to quantum inference attacks; (2) Neuro-symbolic swarm agents that fuse CNNs, GNNs, LSTMs, and Transformers with symbolic logic, optimized via Quantum-Entangled Particle Swarm Optimization for [Formula: see text] convergence; (3) Federated LLM adaptation using QEDP-masked gradients and symbolic guards to prevent hallucination-induced leaks; and (4) Ethical, explainable AI via dynamic knowledge graphs secured by quantum multi-party computation. Evaluated on IBM's 127-qubit Eagle processor ([Formula: see text], [Formula: see text]) and 128 NVIDIA A100 GPUs across synthetic and real-world datasets (ADNI, UK Biobank, MIMIC-IV), QENSSF achieves 45% higher F1-score, 30% improved ROUGE-L, and [Formula: see text] attack success rate under membership inference. It delivers 6.3 million ops/s (58% faster than FedAvg), consumes only 0.38 kWh (52% less energy), reduces communication overhead to 2.1 Mb/iter (66% lower), and attains 99% fault recovery, all while ensuring regulatory compliance and clinician-trustworthy explanations. QENSSF sets a new standard for secure, efficient, and interpretable AI in resource-constrained, privacy-sensitive healthcare environments.",
+  "date": "2025-12-09",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-025-31820-6",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "cdfeb8a1b837",
+  "title": "Are queries and keys always relevant? A case study on transformer wave functions",
+  "authors": [
+   "Riccardo Rende",
+   "Luciano Loris Viteritti"
+  ],
+  "abstract": "Abstract The dot product attention mechanism, originally designed for natural language processing tasks, is a cornerstone of modern Transformers. It adeptly captures semantic relationships between word pairs in sentences by computing a similarity overlap between queries and keys. In this work, we explore the suitability of Transformers, focusing on their attention mechanisms, in the specific domain of the parametrization of variational wave functions to approximate ground states of quantum many-body spin Hamiltonians. Specifically, we perform numerical simulations on the two-dimensional J 1 – J 2 Heisenberg model, a common benchmark in the field of quantum many-body systems on lattice. By comparing the performance of standard attention mechanisms with a simplified version that excludes queries and keys, relying solely on positions, we achieve competitive results while reducing computational cost and parameter usage. Furthermore, through the analysis of the attention maps generated by standard attention mechanisms, we show that the attention weights become effectively input-independent at the end of the optimization. We support the numerical results with analytical calculations, providing physical insights of why queries and keys should be, in principle, omitted from the attention mechanism when studying large systems.",
+  "date": "2024-12-19",
+  "venue": "Machine Learning Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.1088/2632-2153/ada1a0",
+  "citations": 9,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "0f8539a23310",
+  "title": "An analytical review of optimization techniques in information retrieval for enhanced decision support",
+  "authors": [
+   "Kemal Lazović",
+   "Filipe Madeira",
+   "Eftim Zdravevski",
+   "Luís Augusto Silva",
+   "Paulo Jorge Coelho",
+   "Ivan Miguel Pires"
+  ],
+  "abstract": "As digital content continues to evolve, enhancing Information Retrieval (IR) systems is crucial to improve their performance, relevance, and ability to handle increasingly large datasets. This systematic review examines current advancements in IR optimization strategies, with a focus on the paradigm shift from traditional heuristics to AI-driven models. Following the PRISMA 2020 guidelines, an exhaustive literature search was conducted for publications between January 2013 and June 2025, employing a hybrid screening approach that combined Natural Language Processing (NLP) automated filtering with manual expert review. Our findings underscore the growing importance of hybrid models that leverage deep learning, particularly transformer architectures, for tasks such as personalization and relevance feedback, which have demonstrated significant performance improvements. However, significant challenges such as algorithmic bias, computational complexity, and domain-specificity impede wider implementation. This review provides a comprehensive roadmap of the IR optimization landscape, identifies persistent ethical challenges, and explores emerging research frontiers, such as quantum IR and generative models, thereby offering actionable insights for both researchers and practitioners in the decision analytics field. • Apply a structured review methodology to examine optimization strategies in information retrieval systems. • Analyze 32 empirical studies from a decade of research on retrieval efficiency and relevance. • Identify major techniques such as feedback, suggestion, and personalization to enhance search outcomes. • Examine how retrieval strategies improve accuracy, recall, and user satisfaction across applications. • Highlight emerging challenges in scalability, ethics, and domain-specific optimization practices.",
+  "date": "2025-11-20",
+  "venue": "Decision Analytics Journal",
+  "arxiv_id": "",
+  "doi": "10.1016/j.dajour.2025.100657",
+  "citations": 1,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "941fa6187af8",
+  "title": "The Road to Affordable Accuracy beyond Small Molecules: From Energetics toward Molecular Structures",
+  "authors": [
+   "Vincenzo Barone",
+   "Luigi Crisci",
+   "Federico Lazzari"
+  ],
+  "abstract": "Conspectus Accurate equilibrium geometries are fundamental to predictive spectroscopy, reliable thermochemistry, and rational molecular design. Yet achieving high accuracy beyond small molecules remains a formidable challenge. High-level wave function methods, while exceptionally accurate, are computationally prohibitive for systems containing dozens of atoms. Density functional approaches, though efficient, often lack consistent reliability across diverse chemical environments. Though reduced-scaling strategies have enabled precise energy calculations for large systems, equivalent progress in the determination of equilibrium structures has been slower, leaving a persistent gap between the predictive accuracy and computational feasibility. This Account presents an integrated framework that tries to bridge this gap by combining composite quantum-chemical methods, data-driven corrections and fragment-based modeling. At its core lie explicitly correlated composite schemes capable of delivering mÅ/mrad accuracy (usually referred to as spectroscopic accuracy) for the geometrical parameters of molecules with up to about 20 atoms. These methods underpin the construction of a benchmark-quality geometry library (LCB25), comprising nearly 400 fragments encompassing all major functional groups and ring systems relevant to chemical, biological and pharmaceutical applications. Building on this reference, systematic bond-based corrections derived from LCB25 transfer spectroscopic-level accuracy to more affordable double-hybrid and hybrid functionals. Linear regressions suffice for double-hybrid models, while machine-learning Δ-corrections extend the same accuracy to hybrid functionals. Together, these refinements lead to geometries of near-spectroscopic accuracy for medium and large molecules (50–100 atoms) at a fraction of the cost of high-level composite methods. For larger architectures, the Nano-LEGO platform automates the assembly of accurate molecular geometries from preoptimized fragments, preserving the local structural fidelity within complex frameworks. Within this modular and hierarchical approach, continuous chemically meaningful descriptors known as synthons serve as the common language linking fragment-based modeling, data-driven corrections, and machine-learning predictions. This representation facilitates the transfer of local structural information across chemical families and supports the exploration of vast regions of chemical space with controlled ac",
+  "date": "2025-12-26",
+  "venue": "Accounts of Chemical Research",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.accounts.5c00718",
+  "citations": 20,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "0e95d41e4dfc",
+  "title": "A Robust Model for Integrating Artificial Intelligence into Financial Risk Management: Addressing Compliance, Accuracy, and Scalability Issues",
+  "authors": [
+   "Nurudeen Yemi Hussain",
+   "Faith Ibukun Babalola",
+   "Eseoghene Kokogho",
+   "Princess Eloho Odio"
+  ],
+  "abstract": "The integration of Artificial Intelligence (AI) into financial risk management has transformed the industry by enabling real-time analysis, enhanced decision-making, and predictive insights. However, challenges related to compliance with regulatory frameworks, the accuracy of AI models, and the scalability of these solutions persist. This study proposes a robust model that systematically integrates AI into financial risk management while addressing these critical issues. The model combines machine learning (ML) algorithms, natural language processing (NLP), and explainable AI (XAI) techniques to optimize risk assessment and mitigation. By leveraging supervised and unsupervised ML models, the framework achieves higher predictive accuracy in identifying risks such as fraud, credit default, and market volatility. To address compliance challenges, the model incorporates regulatory-aware AI components that ensure adherence to international financial standards, such as Basel III, GDPR, and other jurisdiction-specific requirements. These components employ real-time data analysis and automated reporting mechanisms to facilitate regulatory alignment. Furthermore, explainable AI methodologies, including SHAP (SHapley Additive exPlanations) values and LIME (Local Interpretable Model-agnostic Explanations), are employed to enhance transparency and interpretability, fostering trust among stakeholders and regulatory bodies. Scalability is achieved through the implementation of cloud-based AI infrastructure and edge computing technologies, enabling financial institutions to handle large datasets and high transaction volumes without compromising performance. The proposed model is validated using a hybrid dataset comprising real-world financial transactions, synthetic data, and regulatory guidelines. Results demonstrate significant improvements in predictive accuracy, regulatory compliance rates, and operational scalability. This research contributes to the field of financial risk management by providing a practical, scalable, and compliant framework for AI integration. It highlights the potential of AI to revolutionize risk management processes while mitigating the associated challenges. The study concludes with recommendations for future research to explore emerging technologies such as quantum computing and their applications in enhancing financial risk management systems.",
+  "date": "2025-01-01",
+  "venue": "International Journal of Research and Innovation in Social Science",
+  "arxiv_id": "",
+  "doi": "10.47772/ijriss.2025.9020283",
+  "citations": 2,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "2996d185640a",
+  "title": "Transforming Disease Surveillance through Artificial Intelligence",
+  "authors": [
+   "Purushottam Giri",
+   "Manoj Kumar Gupta"
+  ],
+  "abstract": "Artificial intelligence (AI), or machine learning, is an ancient concept based on the assumption that human thought and reasoning can be mechanized. In an era where rapid disease detection and response are critical, Artificial Intelligence (AI) offers unique opportunities to enhance disease surveillance. Traditional disease surveillance methods, often limited by manual data collection and slow reporting, can be significantly improved by AI’s ability to analyze vast amounts of data in real-time. AI-driven disease surveillance can predict outbreaks early, monitor disease spread, and provide timely information to health authorities, improving public health outcomes. ENHANCING OUTBREAK PREDICTION AI can help predict outbreaks, identify high-risk areas and monitor disease progression. Predicting disease outbreaks accurately and promptly is crucial for effective public health responses. Traditional methods of outbreak prediction often rely on historical data and manual reporting, which can be slow and reactive. AI can transform this landscape with its capacity to analyze vast amounts of real-time data from diverse sources such as social media, internet searches, and Electronic Health Records (EHRs). These sources provide real-time insights into disease trends, enabling AI to detect early signs of outbreaks. For instance, AI models can predict flu outbreaks one to two weeks earlier than traditional surveillance methods by combining data from search engines, social media, and traditional surveillance sources.[1] Evidence suggests that Twitter data can be used to predict flu outbreaks by establishing a strong correlation between tweet volumes related to flu symptoms and actual outbreak data, indicating the potential of social media as an early warning system.[2] AI can also leverage Wikipedia data to monitor global disease activity by analyzing page views related to diseases and can provide valuable insights into outbreak patterns, highlighting the potential of unconventional data sources for disease surveillance.[3] Utilizing this early detection capability allows for timely preventive measures, reducing the spread and impact of diseases. AI can also assist in vaccine development by predicting how a virus or other causative agents will evolve and mutate over time. Researchers can use this data to develop targeted and effective vaccines. MONITORING DISEASE SPREAD Once an outbreak occurs, monitoring its spread is crucial for effective containment. AI can track disea",
+  "date": "2024-08-13",
+  "venue": "Indian Journal of Community Medicine",
+  "arxiv_id": "",
+  "doi": "10.4103/ijcm.ijcm_459_24",
+  "citations": 20,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "4393093fd85f",
+  "title": "Quantum combinatorial reasoning for large language models",
+  "authors": [
+   "Carlos Flores-Garrigos",
+   "Gaurav Dev",
+   "Michael Falkenthal",
+   "Alejandro Gomez Cadavid",
+   "Anton Simen",
+   "Shubham Kumar",
+   "E. Solano",
+   "Narendra N. Hegade"
+  ],
+  "abstract": "We design and implement a quantum combinatorial reasoning framework for large language models (QCR-LLM), integrating a real quantum computer in the hybrid workflow. QCR-LLM reformulates reasoning aggregation as a higher-order unconstrained binary optimization problem. In this sense, reasoning fragments are represented as binary variables and their interactions encode statistical relevance, logical coherence, and semantic redundancy. We tackle the resulting high-order optimization problem both classically, via simulated annealing, and quantumly, through the bias-field digitized counterdiabatic quantum optimizer executed on IBM's superconducting digital quantum processors. Experiments on BIG-Bench Extra Hard benchmarks demonstrate that our QCR-LLM consistently improves reasoning accuracy across multiple LLM backbones, surpassing reasoning-native systems such as o3-high and DeepSeek R1 by up to + 9 pp. At a matched sampling budget, QCR-LLM also outperforms standard chain-of-thought aggregation baselines (majority vote and self-consistency), as well as a pairwise Quadratic Unconstrained Binary Optimization restriction of our formulation, indicating that the improvement arises from the higher-order energy landscape rather than from multisampling alone. Despite requiring multiple reasoning samples per query, our QCR-LLM reduces the number of generated tokens and the associated LLM-side energy relative to long hidden chain-of-thought models such as o3-high; we emphasize, however, that once the energy of the quantum backend is accounted for, we are not yet in an energy-saving or sustainability regime. These results constitute the first experimental evidence of quantum-assisted reasoning, showing that hybrid quantum-classical optimization can efficiently enhance reasoning coherence and interpretability in large-scale language models. We have opened the doors to the emergence of quantum intelligence, where the higher-order structure of harder prompts maps naturally onto quantum optimizers, opening a paradigm toward genuine quantum reasoning; while we observe a small accuracy gain of the quantum solver over simulated annealing, this result is not conclusive and may stem from statistical fluctuations.",
+  "date": "2026-06-05",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/kk5d-tb9b",
+  "citations": 0,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "925f2779bd5f",
+  "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search",
+  "authors": [
+   "George Tsoukalas",
+   "Anton Kovsharov",
+   "Sergey Shirobokov",
+   "Anja Surina",
+   "Moritz Firsching",
+   "Gergely Bérczi",
+   "Francisco J. R. Ruiz",
+   "Arun Suggala",
+   "Ascher Wagner",
+   "Eric Wieser",
+   "Lei Yu",
+   "Aja Huang",
+   "Miklós Z. Horváth",
+   "Andrew Ferrauiolo",
+   "Henryk Michalewski",
+   "Edward Lockhart",
+   "Codruţ Grosu",
+   "Thomas Hubert",
+   "Matej Balog",
+   "Pushmeet Kohli",
+   "Swarat Chaudhuri"
+  ],
+  "abstract": "Large language models (LLMs) increasingly excel at mathematical reasoning, but their unreliability limits their utility in mathematics research. A mitigation is using LLMs to generate formal proofs in languages like Lean. We perform the first large-scale evaluation of this method's ability to solve open problems. Our most capable agent autonomously resolved 9 of 353 open Erdős problems at the per-problem cost of a few hundred dollars, proved 44/492 OEIS conjectures, and is being deployed in combinatorics, optimization, graph theory, algebraic geometry, and quantum optics research. A basic agent alternating LLM-based generation with Lean-based verification replicated the Erdős successes but proved costlier on the hardest problems. These findings demonstrate the power of AI-aided formal proof search and shed light on the agent designs that enable it.",
+  "date": "2026-05-21",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.22763",
+  "doi": "10.48550/arxiv.2605.22763",
+  "citations": 2,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "204224a561e9",
+  "title": "Large Language Model Scaling Laws for Neural Quantum States in Quantum Chemistry",
+  "authors": [
+   "Oliver Knitter",
+   "Dan Zhao",
+   "Stefan Leichenauer",
+   "Shravan Veerapaneni"
+  ],
+  "abstract": "Scaling laws have been used to describe how large language model (LLM) performance scales with model size, training data size, or amount of computational resources. Motivated by the fact that neural quantum states (NQS) has increasingly adopted LLM-based components, we seek to understand NQS scaling laws, thereby shedding light on the scalability and optimal performance--resource trade-offs of NQS ansatze. In particular, we identify scaling laws that predict the performance, as measured by absolute error and V-score, for transformer-based NQS as a function of problem size in second-quantized quantum chemistry applications. By performing analogous compute-constrained optimization of the obtained parametric curves, we find that the relationship between model size and training time is highly dependent on loss metric and ansatz, and does not follow the approximately linear relationship found for language models.",
+  "date": "2025-09-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2509.12679",
+  "doi": "10.48550/arxiv.2509.12679",
+  "citations": 0,
+  "theme": "quantum large language model optimizatio"
+ },
+ {
+  "fid": "d3c4545ada3a",
+  "title": "Solving combinatorial optimization and machine learning problems on hybrid near-term quantum photonic computers",
+  "authors": [
+   "Mateusz Slysz",
+   "Łukasz Grodzki",
+   "Piotr Rydlichowski",
+   "Dawid Siera",
+   "Krzysztof Kurowski",
+   "Grzegorz Waligóra",
+   "Jan Węglarz"
+  ],
+  "abstract": "Quantum computers are increasingly being integrated into classical computing environments, particularly within supercomputing and data centers, where they serve as accelerators for solving a wide range of specific problems. Previous research has indicated that quantum computers have the potential to resolve optimization problems with theoretically lower computational complexity than classical algorithms. However, in practical scenarios, even minor instances of these problems often require substantial computational resources, enhanced quality quantum hardware, and the results may not always be optimal. In this paper, we highlight the importance of hybrid systems, combining quantum and classical computations to address growing problem sizes and computational demands. We focus on optimization problems using hardware and software-enhanced quantum computers operational within a novel quantum–classical hybrid setup, incorporating GPUs and photonic quantum computers. The study specifically addresses combinatorial optimization problems, such as the Max-Cut and the Job Shop Scheduling Problem, in addition to selected machine learning classification use cases. Notably, the quantum algorithm in Max-Cut optimization outperformed complete solution searches, especially for larger problem instances. For the Job-Shop Scheduling Problem, we made a significant advancement by successfully solving substantially larger instances compared to our previous previous work. Furthermore, selected hybrid neural networks incorporating quantum layers showed improved stability, though without a clear quality advantage over classical models. The paper also highlights the rapid progress and technological achievements in both hardware and software used in near-term photonic quantum computers, suggesting a promising future for quantum–classical hybrid systems in useful applications.",
+  "date": "2025-06-23",
+  "venue": "Future Generation Computer Systems",
+  "arxiv_id": "",
+  "doi": "10.1016/j.future.2025.107934",
+  "citations": 6,
+  "theme": "quantum machine learning combinatorial o"
+ },
+ {
+  "fid": "6ee4580956e6",
+  "title": "Large-scale quantum approximate optimization on nonplanar graphs with machine learning noise mitigation",
+  "authors": [
+   "Stefan Sack",
+   "Daniel J. Egger"
+  ],
+  "abstract": "Quantum computers are increasing in size and quality but are still very noisy. Error mitigation extends the size of the quantum circuits that noisy devices can meaningfully execute. However, state-of-the-art error mitigation methods are hard to implement and the limited qubit connectivity in superconducting qubit devices restricts most applications to the hardware's native topology. Here we show a quantum approximate optimization algorithm (QAOA) on nonplanar random regular graphs with up to 40 nodes enabled by a machine learning-based error mitigation. We use a swap network with careful decision-variable-to-qubit mapping and a feed-forward neural network to optimize a depth-two QAOA on up to 40 qubits. We observe a meaningful parameter optimization for the largest graph which requires running quantum circuits with 958 two-qubit gates. Our paper emphasizes the need to mitigate samples, and not only expectation values, in quantum approximate optimization. These results are a step towards executing quantum approximate optimization at a scale that is not classically simulable. Reaching such system sizes is key to properly understanding the true potential of heuristic algorithms like QAOA. Published by the American Physical Society 2024",
+  "date": "2024-03-01",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.6.013223",
+  "citations": 41,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "6f28f99a0448",
+  "title": "A Quantum-Hybrid Framework for Enhanced Deepfake Detection: Integrating QAOA-Based Feature Selection With Quantum-Inspired Attention Mechanisms",
+  "authors": [
+   "Farhaan Khan",
+   "Aditya Sareen",
+   "Akash Suresh Kumar",
+   "M. Bhuvaneswari"
+  ],
+  "abstract": "Deepfake technology has created major new challenges to the authentication of digital media and the security of digital information. The traditional methods using deep learning to detect deepfakes have shown good results. However, many of these traditional methods suffer from redundant features, imbalanced classes, and poor interpretability. This paper introduces a new hybrid quantum-classical framework for detecting deepfakes that combines InceptionResnetV1 to extract high dimensional representation with a Convolutional Neural Network (CNN), and a Quantum Inspired Attention Mechanism to select the most important features to process. Additionally, this paper proposes a Quantum Approximate Optimization Algorithm (QAOA) for feature selection based on high dimensional representations of images obtained from an InceptionResnetV1. QAOA selects the most informative features to be input into the CNN and helps reduce dimensionality while maintaining the ability to discriminate between classes of data. The selected features are then passed to a Multi-Head Quantum Inspired Attention Layer that utilizes quantum interference patterns to re-weight feature importance dynamically. The use of a focal Loss function with label smoothing and confidence penalty is also proposed to balance the class distribution in the deepfake datasets. Experiments conducted on the FaceForensics++ benchmark dataset show that the quantum-hybrid method outperforms classical methods in terms of accuracy, precision, recall, and calibration metrics. Grad-CAM is used as a visualization tool to provide interpretable output by showing which facial areas the model is focusing on when identifying forensic evidence.",
+  "date": "2026-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2026.3659021",
+  "citations": 2,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "807c723ac46e",
+  "title": "Quantum Machine Learning: Leveraging Quantum Computing for Enhanced Learning Algorithms",
+  "authors": [
+   "Sonia Rani -",
+   "Ravinder Kaur -",
+   "Chitra Desai",
+   "R. P. Ambilwade"
+  ],
+  "abstract": "The paper \"Quantum Machine Learning: Leveraging Quantum Computing for Enhanced Learning Algorithms\" explores the integration of quantum computing principles into classical machine learning techniques, aiming to address limitations such as scalability and computational inefficiency. It presents the foundational concepts of quantum computing, including superposition and entanglement, and their application in accelerating machine learning processes. The study emphasizes the potential for quantum algorithms to significantly improve the performance of machine learning tasks by processing large datasets more efficiently and exploring larger hypothesis spaces. Key quantum machine learning algorithms discussed include Quantum Support Vector Machines (QSVM), Quantum Principal Component Analysis (QPCA), and Quantum Neural Networks (QNN), each of which leverages quantum mechanics to overcome the computational barriers faced by classical algorithms. The Quantum Approximate Optimization Algorithm (QAOA) is also highlighted for its ability to optimize machine learning models more effectively. While the theoretical benefits of Quantum Machine Learning (QML) are promising, the practical application of these techniques is currently limited by the constraints of existing quantum hardware. This research contributes to the emerging field of QML by examining its potential advantages and future implications in addressing complex data processing challenges.",
+  "date": "2024-09-13",
+  "venue": "International Journal For Multidisciplinary Research",
+  "arxiv_id": "",
+  "doi": "10.36948/ijfmr.2024.v06i05.27450",
+  "citations": 3,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "eab736bfb933",
+  "title": "Hybrid GRU-CNN bilinear parameters initialization for quantum approximate optimization algorithm",
+  "authors": [
+   "Zuyu Xu",
+   "Pengnian Cai",
+   "Kang Shen",
+   "Tao Yang",
+   "Yuanming Hu",
+   "Maogao Gong",
+   "Yunlai Zhu",
+   "Zuheng Wu",
+   "Yuehua Dai",
+   "Fei Yang"
+  ],
+  "abstract": "Abstract The Quantum Approximate Optimization Algorithm (QAOA), a pivotal paradigm in the realm of variational quantum algorithms (VQAs), offers promising computational advantages for tackling combinatorial optimization problems. Well-defined initial circuit parameters, responsible for preparing a parameterized quantum state encoding the solution, play a key role in optimizing QAOA. However, classical optimization techniques encounter challenges in discerning optimal parameters that align with the optimal solution. In this work, we propose a hybrid optimization approach that integrates Gated Recurrent Units (GRU), Convolutional Neural Networks (CNN), and a bilinear strategy as an innovative alternative to conventional optimizers for predicting optimal parameters of QAOA circuits. GRU serves to stochastically initialize favorable parameters for depth-1 circuits, while CNN predicts initial parameters for depth-2 circuits based on the optimized parameters of depth-1 circuits. To assess the efficacy of our approach, we conducted a comparative analysis with traditional initialization methods using QAOA on Erdős-Rényi graph instances, revealing superior optimal approximation ratios. We employ the bilinear strategy to initialize QAOA circuit parameters at greater depths, with reference parameters obtained from GRU-CNN optimization. This approach allows us to forecast parameters for a depth-12 QAOA circuit, yielding a remarkable approximation ratio of 0.998 across 10 qubits, which surpasses that of the random initialization strategy and the PPN2 method at a depth of 10. The proposed hybrid GRU-CNN bilinear optimization method significantly improves the effectiveness and accuracy of parameters initialization, offering a promising iterative framework for QAOA that elevates its performance.",
+  "date": "2024-06-20",
+  "venue": "Physica Scripta",
+  "arxiv_id": "",
+  "doi": "10.1088/1402-4896/ad5a50",
+  "citations": 2,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "bb799324f535",
+  "title": "Quantum-Circuit Framework for Two-Stage Stochastic Programming via QAOA Integrated with a Quantum Generative Neural Network",
+  "authors": [
+   "Taihei Kuroiwa",
+   "Daiki Yamazaki",
+   "Keita Takahashi",
+   "Kodai Shiba",
+   "Chih-Chieh Chen",
+   "Tomah Sogabe"
+  ],
+  "abstract": "Two-stage stochastic programming often discretizes uncertainty into scenarios, but scenario enumeration makes expected recourse evaluation scale at least linearly in the scenario count. We propose qGAN-QAOA, a unified quantum-circuit workflow in which a pre-trained quantum generative adversarial network encodes the scenario distribution and QAOA optimizes first-stage decisions by minimizing the full two-stage objective, including expected recourse cost. With the qGAN parameters fixed after training, we evaluate the objective as the expectation value of a problem Hamiltonian and optimize only the QAOA variational parameters. We interpret non-anticipativity as a condition on measurement outcome statistics and prove that the first-stage measurement marginal is independent of the scenario. For uniformly discretized uncertainty, the diagonal operator encoding the uncertainty admits a sparse Pauli-Z expansion via the Walsh--Hadamard transform, yielding polylogarithmic scaling of gate count and circuit depth with the number of scenarios. Numerical experiments on the stochastic unit commitment problem (UCP) with photovoltaic (PV) uncertainty compare the expected cost of the proposed method with classical expected-value and two-stage stochastic programming baselines, demonstrating the effectiveness of qGAN-QAOA as a two-stage decision model.",
+  "date": "2025-12-27",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.22434",
+  "doi": "10.48550/arxiv.2512.22434",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "81069d883a9b",
+  "title": "Quantum Computing for Precision Agriculture in Challenging Environments: A Case Study from Northern Morocco",
+  "authors": [
+   "Mohamed Ben Ahmed",
+   "Anouar A. Boudhir",
+   "Aziz Mahboub"
+  ],
+  "abstract": "Abstract. The legalization of medical cannabis in Morocco’s northern Rif region requires precision agriculture systems capable of supporting highly controlled, traceable and quality-driven cultivation. Medical cannabis is biologically sensitive to micro-variations in soil moisture, vapor pressure deficit (VPD), canopy temperature and nutrient levels, which makes it a demanding testbed for advanced decision-support methods. In this work, we propose and numerically evaluate an end-to-end hybrid quantum–classical framework that combines IoT sensor networks, Sentinel-2 and UAV imagery, GIS integration and quantum-enhanced analytics for regulated medical cannabis cultivation in the Al-Hoceïma region. The framework instantiates three quantum modules: (i) a variational quantum linear solver (VQLS) for Kriging-based spatial interpolation under sparse sensing, (ii) a variational quantum classifier (VQC) for early stress detection from multi-source features, and (iii) a Quantum Approximate Optimization Algorithm (QAOA) for constrained irrigation scheduling. All experiments are conducted on synthetic yet agro-ecologically calibrated data generated for a 4-hectare virtual plot; no real cannabis-field data or quantum hardware are used. In this controlled simulation setting, the quantum-inspired modules achieve moderate improvements over classical baselines (Kriging, Random Forest, neural networks, MILP), for example reducing interpolation RMSE by about 20% and improving early-stress F1-score by several percentage points. We explicitly do not claim hardware-level quantum advantage, nor do we provide a formal proof that VQLS or VQC must outper- form classical Kriging or machine learning in this regime. Instead, the contribution is a transparent formulation and simulation- based assessment of quantum-compatible workflows for precision agriculture in regulated contexts, together with a critical discus- sion of their current limitations and the conditions under which they might become competitive in practice.",
+  "date": "2026-03-03",
+  "venue": "The international archives of the photogrammetry, remote sensing and spatial information sciences/International archives of the photogrammetry, remote sensing and spatial information sciences",
+  "arxiv_id": "",
+  "doi": "10.5194/isprs-archives-xlviii-4-w19-2025-29-2026",
+  "citations": 1,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "4d436aecbce8",
+  "title": "Neural QAOA$^{2}$: Differentiable Joint Graph Partitioning and Parameter Initialization for Quantum Combinatorial Optimization",
+  "authors": [
+   "Zubin Zheng",
+   "Jiahao Wu",
+   "Shengcai Liu"
+  ],
+  "abstract": "The quantum approximate optimization algorithm (QAOA) holds promise for combinatorial optimization but is constrained by limited qubits. While divide-and-conquer frameworks like QAOA$^{2}$ address scalability by partitioning graphs into subgraphs, existing methods suffer from two fundamental limitations: i) misalignment between heuristic partitioning metrics and quantum optimization goals, and ii) topology-blind parameter initialization that leads to optimization cold starts. To bridge these gaps, we propose Neural QAOA$^{2}$, an end-to-end differentiable framework that jointly generates graph partitions and initial parameters. By integrating a generative evaluative network (GEN), our method utilizes a differentiable quantum evaluator as a high-fidelity performance surrogate to provide direct gradient guidance, enabling the joint generator to learn the intrinsic mapping from graph topology to high-quality partition and parameter configurations. Extensive experiments on 183 QUBO, Ising, and MaxCut instances (21 to 1000 variables) demonstrate that our gradient-driven approach broadly outperforms heuristic baselines, ranking first on 101 instances. It exhibits zero-shot generalization across out-of-distribution graph topologies and scales.",
+  "date": "2026-05-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.13072",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "6ae2adf661ea",
+  "title": "EVALUATING QAOA AND QSVM FOR OPTIMIZATION AND MACHINE LEARNING ON CLASSICAL AND QUANTUM",
+  "authors": [
+   "Dr. R BOOPATHI, Dr. KALYANAPU SRINIVAS, Dr. N PUSHPALATHA, V V RAMA KRISHNA, V LAKSHMI SAILAJA, Dr. A MUTHUKRISHNAN, SHAIK JILANI BASHA, Dr. R BALAMURUGA"
+  ],
+  "abstract": "The ability of quantum computing to transform multiple domains, such as cryptography, optimization, and machine learning, has been recognized. This paper describes how quantum algorithms, such as QAOA, can be applied to solve the TSP and QSVM for MNIST. We want to examine how quantum algorithms compute complex problems and distinguish their performance from classical computing systems. We use quantum processors from IBM and classical computing to tackle simulation and optimization tasks, respectively. The research revealed that QAOA gives close-to-optimal outcomes for the TSP, running much faster than classical algorithms. At the same time, QSVM still performs well in digit classification with only a slight decrease in accuracy. Nevertheless, training quantum neural networks requires more time, showing that hardware should be upgraded. This work points out how quantum computing might play a significant role in helping with optimization and machine learning while explaining the present problems and possibilities for quantum algorithms and hardware. This study indicates that if error correction techniques and hardware are improved, quantum computing can help solve everyday challenges.",
+  "date": "2026-03-31",
+  "venue": "Journal of Theoretical and Applied Information Technology",
+  "arxiv_id": "",
+  "doi": "10.5281/zenodo.19366502",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "b7cca59edb30",
+  "title": "Hybrid Quantum-Classical Ridgelet Neural Networks for Portfolio Optimization",
+  "authors": [
+   "Bahadur Yadav",
+   "Sanjay Kumar Mohanty"
+  ],
+  "abstract": "In this study, we introduce a quantum computing method that incorporates Ridglet transforms into quantum processing pipelines for financial time-series forecasting with Quantum Approximate Optimization Algorithm (QAOA)-based portfolio optimization. We propose a Quantum Ridgelet Neural Network (QRNN) model for forecasting time-series data that integrates Parametrized Quantum Circuits (PQCs) with ridgelet-based feature transformations and QAOA-based portfolio optimization for asset selection. By breaking down financial time-series data into multi-resolution components, the ridgelet transform enables the identification of both local and global trends. Ridgelet-based features improve the scalability and accuracy of quantum computing by significantly reducing the number of qubits needed. However, the predicted results are turned into a QUBO-based mean-variance optimization problem and solved with QAOA to select the best stocks. Our study begins with a theoretical formulation of the single-qubit system for our proposed model. This formulation is further extended to a multi-qubit system, and we show that it captures a significant fraction of the predictive signal.",
+  "date": "2026-01-07",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2601.03654",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "3271807c24e2",
+  "title": "QSeer: A Quantum-Inspired Graph Neural Network for Parameter Initialization in Quantum Approximate Optimization Algorithm Circuits",
+  "authors": [
+   "Lei Jiang",
+   "Chi Zhang",
+   "Fan Chen"
+  ],
+  "abstract": "To mitigate the barren plateau problem, effective parameter initialization is crucial for optimizing the Quantum Approximate Optimization Algorithm (QAOA) in the near-term Noisy Intermediate-Scale Quantum (NISQ) era. Prior physics-driven approaches leveraged the optimal parameter concentration phenomenon, utilizing medium values of previously optimized QAOA parameters stored in databases as initialization for new graphs. However, this medium-value-based strategy lacks generalization capability. Conversely, prior computer-science-based approaches employed graph neural networks (GNNs) trained on previously optimized QAOA parameters to predict initialization values for new graphs. However, these approaches neglect key physics-informed QAOA principles, such as parameter concentration, symmetry, and adiabatic evolution, resulting in suboptimal parameter predictions and limited performance improvements. Furthermore, no existing GNN-based methods support parameter initialization for QAOA circuits with variable depths or for solving weighted Max-Cut problems. This paper introduces QSeer, a quantum-inspired GNN designed for accurate QAOA parameter prediction. Compared to prior physics- and computer-science-driven methods, QSeer improves the initial approximation ratio and convergence speed of QAOA circuits across diverse graphs by 6%-68% and 5x-10x, respectively.",
+  "date": "2025-05-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2505.06810",
+  "doi": "10.48550/arxiv.2505.06810",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "658ec9f6dd00",
+  "title": "Hamiltonian-based Quantum Reinforcement Learning for Neural Combinatorial Optimization",
+  "authors": [
+   "Georg Kruse",
+   "Rodrigo Coehlo",
+   "Andreas Roßkopf",
+   "Robert Wille",
+   "J. Lorenz"
+  ],
+  "abstract": "Advancements in Quantum Computing (QC) and Neural Combinatorial Optimization (NCO) represent promising steps in tackling complex computational challenges. On the one hand, Variational Quantum Algorithms such as QAOA can be used to solve a wide range of combinatorial optimization problems. On the other hand, the same class of problems can be solved by NCO, a method that has shown promising results, particularly since the introduction of Graph Neural Networks. Given recent advances in both research areas, we introduce Hamiltonian-based Quantum Reinforcement Learning (QRL), an approach at the intersection of QC and NCO. We model our ansatzes directly on the combinatorial optimization problem's Hamiltonian formulation, which allows us to apply our approach to a broad class of problems. Our ansatzes show favourable trainability properties when compared to the hardware efficient ansatzes, while also not being limited to graph-based problems, unlike previous works. In this work, we evaluate the performance of Hamiltonian-based QRL on a diverse set of combinatorial optimization problems to demonstrate the broad applicability of our approach and compare it to QAOA.",
+  "date": "2024-05-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2405.07790",
+  "doi": "10.48550/arxiv.2405.07790",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "ccdbcf2e8c99",
+  "title": "QAOA-Predictor: Forecasting Success Probabilities and Minimal Depths for Efficient Fixed-Parameter Optimization",
+  "authors": [
+   "Rodrigo Coelho",
+   "Georg Kruse",
+   "Jeanette Miriam Lorenz"
+  ],
+  "abstract": "Quantum Computing promises to solve complex combinatorial optimization problems more efficiently than classical methods, with the Quantum Approximate Optimization Algorithm (QAOA) being a leading candidate. Recent fixed-parameter variations of QAOA eliminate costly run-time optimization, but determining their optimal initialization as well as the number of required layers (p) for a target solution remains a critical, unsolved challenge. In this work, we propose a novel approach using a Graph Neural Network (GNN) to predict QAOA performance: Based on a graph representation of the problem, the GNN forecasts the probability of the optimal solution in the resulting distribution across different parameter initializations and layer depths for a wide variety of combinatorial optimization problems. We demonstrate that the GNN accurately predicts QAOA performance within a 10% margin of the true values. Furthermore, the model exhibits strong generalization capabilities across unseen problem classes, larger problem sizes, and higher layer counts. Our approach allows to identify viable problem instances for QAOA and to select an adequate parameter initialization strategy with minimal layer depth, without the need of costly parameter optimization.",
+  "date": "2026-03-03",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.02990",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "a89e69aead1d",
+  "title": "Divide-and-Conquer Neural Network Surrogates for Quantum Sampling: Accelerating Markov Chain Monte Carlo in Large-Scale Constrained Optimization Problems",
+  "authors": [
+   "Yuya Kawamata",
+   "Yuichiro Nakano",
+   "Keisuke Fujii"
+  ],
+  "abstract": "Sampling problems are promising candidates for demonstrating quantum advantage, and one approach known as quantum-enhanced Markov chain Monte Carlo [Layden, D. et al., Nature 619, 282-287 (2023)] uses quantum samples as a proposal distribution to accelerate convergence to a target distribution. On the other hand, many practical problems are large-scale and constrained, making it difficult to construct efficient proposal distributions in classical methods and slowing down MCMC mixing. In this work, we propose a divide-and-conquer neural network surrogate framework for quantum sampling to accelerate MCMC under fixed Hamming weight constraints. Our method divides the interaction graph for an Ising problem into subgraphs, generates samples using QAOA for those subproblems with an XY mixer, and trains neural network surrogates conditioned on the Hamming weight to provide proposal distributions for each subset while preserving the constraint. In numerical experiments of Boltzmann sampling on 3-regular graphs, our method consistently accelerated mixing as the system size $N$ increased, with average improvements in the autocorrelation decay rate constant by speedup factors of about $20.3$ and $7.6$ over classical pair-flip methods based on nearest-neighbor and non-nearest-neighbor exchanges, respectively. We also applied the method to an MNIST feature mask optimization problem with $N=784$, obtaining faster energy convergence and a $2.03\\%$ higher classification accuracy. These results show that our method enables efficient and scalable MCMC and can outperform classical methods for practical applications on NISQ devices.",
+  "date": "2026-04-22",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.20701",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "3c430572a066",
+  "title": "Quantum Graph Optimization Algorithm",
+  "authors": [
+   "Yuhan Huang",
+   "Ferris Prima Nugraha",
+   "Siyuan Jin",
+   "Yichi Zhang",
+   "Bei Zeng",
+   "Qiming Shao"
+  ],
+  "abstract": "Quadratic unconstrained binary optimization (QUBO) tasks are very important in chemistry, finance, job scheduling, and so on, which can be represented using graph structures, with the variables as nodes and the interaction between them as edges. Variational quantum algorithms, especially the Quantum Approximate Optimization Algorithm (QAOA) and its variants, present a promising way, potentially exceeding the capabilities of classical algorithms, for addressing QUBO tasks. However, the possibility of using message-passing machines, inspired by classical graph neural networks, to enhance the power and performance of these quantum algorithms for QUBO tasks was not investigated. This study introduces a novel variational quantum graph optimization algorithm that integrates the message-passing mechanism, which demonstrates significant improvements in performance for solving QUBO problems in terms of resource efficiency and solution precision, compared to QAOA, its variants, and other quantum graph neural networks. Furthermore, in terms of scalability on QUBO tasks, our algorithm shows superior performance compared to QAOA, presenting a substantial advancement in the field of quantum approximate optimization.",
+  "date": "2024-04-09",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2404.06434",
+  "doi": "10.48550/arxiv.2404.06434",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "691cfa4a142c",
+  "title": "Quantum Approximate Optimization Algorithm for Spatiotemporal Forecasting of HIV Clusters",
+  "authors": [
+   "Don Roosan",
+   "Saif Nirzhor",
+   "Rubayat Khan",
+   "Fahmida Hai",
+   "Mohammad Haidar"
+  ],
+  "abstract": "HIV epidemiological data is increasingly complex, requiring advanced computation for accurate cluster detection and forecasting. We employed quantum-accelerated machine learning to analyze HIV prevalence at the ZIP-code level using AIDSVu and synthetic SDoH data for 2022. Our approach compared classical clustering (DBSCAN, HDBSCAN) with a quantum approximate optimization algorithm (QAOA), developed a hybrid quantum-classical neural network for HIV prevalence forecasting, and used quantum Bayesian networks to explore causal links between SDoH factors and HIV incidence. The QAOA-based method achieved 92% accuracy in cluster detection within 1.6 seconds, outperforming classical algorithms. Meanwhile, the hybrid quantum-classical neural network predicted HIV prevalence with 94% accuracy, surpassing a purely classical counterpart. Quantum Bayesian analysis identified housing instability as a key driver of HIV cluster emergence and expansion, with stigma exerting a geographically variable influence. These quantum-enhanced methods deliver greater precision and efficiency in HIV surveillance while illuminating critical causal pathways. This work can guide targeted interventions, optimize resource allocation for PrEP, and address structural inequities fueling HIV transmission.",
+  "date": "2025-07-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2507.00848",
+  "doi": "10.48550/arxiv.2507.00848",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "5c9eb761d5c7",
+  "title": "Design of an Improved Model for DDoS Mitigation in SDN-IoT Using TGNN, QAOA, and the Federated Adversarial Learning Process",
+  "authors": [
+   "B. Jyothsna",
+   "V. Jyothsna"
+  ],
+  "abstract": "The rapid growth of IoT devices and the dynamic nature of Software Defined Networks (SDNs) present significant challenges for traditional Distributed Denial of Service (DDoS) detection systems. Existing methods often rely on static thresholds and centralized models, limiting their adaptability and effectiveness, especially against stealthy or low-rate DDoS attacks. To address these limitations, this paper presents a novel hybrid framework that integrates temporal learning, quantum-inspired optimization, and federated adversarial training. The system begins with advanced data preprocessing to extract both packet-level and flow-level features. An adaptive reinforcement learning filter dynamically adjusts detection thresholds, reducing false alarms and latency. Temporal and structural correlations across network flows are captured using a temporal graph neural network with time-aware attention mechanisms. Quantum-geometric embedding maps high-dimensional network flow features into a lower-dimensional space using quantum-inspired geometric principles, preserving relational structure for more efficient and scalable analysis. Quantum-geometric embedding techniques compress high-dimensional flow data while preserving structural integrity and improving scalability. Furthermore, a quantum-inspired feature selection algorithm optimizes the feature set for efficient processing. Finally, federated adversarial learning combines local model training with adversarial robustness enhancements to build a secure, decentralized detection system. Experimental evaluations demonstrate a detection accuracy of 97.2%, a 22% improvement in detecting stealth attacks, and a 28% enhancement in adversarial robustness, making this framework highly suitable for modern SDN-IoT ecosystems.",
+  "date": "2025-12-08",
+  "venue": "Engineering Technology & Applied Science Research",
+  "arxiv_id": "",
+  "doi": "10.48084/etasr.12295",
+  "citations": 0,
+  "theme": "quantum neural network QAOA"
+ },
+ {
+  "fid": "4594e64481b8",
+  "title": "Leveraging Artificial Intelligence for Enhanced Sustainable Energy Management",
+  "authors": [
+   "Swapandeep Kaur",
+   "Raman Kumar",
+   "Kanwardeep Singh",
+   "Yinglai Huang"
+  ],
+  "abstract": "The integration of Artificial Intelligence (AI) into sustainable energy management presents a transformative opportunity to elevate the sustainability, reliability, and efficiency of energy systems.This article conducts an exhaustive analysis of the critical aspects concerning the AI-sustainable energy nexus, encompassing the challenges in technological integration and the facilitation of intelligent decision-making processes pivotal for sustainable energy frameworks.It is demonstrated that AI applications, ranging from optimization algorithms to predictive analytics, possess a revolutionary capacity to bolster intelligent decision-making in sustainable energy.However, this integration is not without its challenges, which span technological complexities and socio-economic impacts.The article underscores the imperative for deploying AI in a manner that is transparent, equitable, and inclusive.Best practices and solutions are proposed to navigate these challenges effectively.Additionally, the discourse extends to recent advancements in AI, including edge computing, quantum computing, and explainable AI, offering insights into the evolving landscape of sustainable energy.Future research directions are delineated, emphasizing the importance of enhancing explainability, mitigating bias, advancing privacy-preserving techniques, examining socio-economic ramifications, exploring models of human-AI collaboration, fortifying security measures, and evaluating the impact of emerging technologies.This comprehensive analysis aims to inform academics, practitioners, and policymakers, guiding the creation of a resilient and sustainable energy future.",
+  "date": "2024-02-04",
+  "venue": "Journal of Sustainability for Energy",
+  "arxiv_id": "",
+  "doi": "10.56578/jse030101",
+  "citations": 42,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "b9c1852d04db",
+  "title": "Optimization and Safety Research on Autonomous Vehicles Based on Blockchain, Quantum Computing, and Artificial Intelligence",
+  "authors": [
+   "Siying Li"
+  ],
+  "abstract": "The field of autonomous vehicles is undergoing rapid development, with research focused on enhancing safety, efficiency, and intelligence to drive the full realization and transformation of intelligent transportation systems. This paper explores the potential applications and challenges of blockchain technology, quantum computing, and artificial intelligence in the realm of autonomous vehicles. The study finds that integrating blockchain with autonomous vehicles significantly improves data encryption security through quantum hash algorithms. However, the advancement of quantum computers still faces challenges in technological maturity, stability, and cost. In the operating mechanisms of autonomous vehicles, quantum reinforcement learning demonstrates unique advantages in path optimization, while quantum annealing and quantum optimization algorithms improve decision-making efficiency and precision. This research highlights the innovative opportunities brought by blockchain, quantum computing, and artificial intelligence to the field of autonomous vehicles, while also addressing the challenges of technology integration, providing valuable insights for the development of intelligent transportation systems.",
+  "date": "2024-12-06",
+  "venue": "Applied and Computational Engineering",
+  "arxiv_id": "",
+  "doi": "10.54254/2755-2721/2025.18111",
+  "citations": 1,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "e81fa5be7a88",
+  "title": "Quantum Computing in Artificial Intelligence: A Paradigm Shift",
+  "authors": [
+   "Sanket Hadap",
+   "Manthan Patil"
+  ],
+  "abstract": "Quantum computing and artificial intelligence (AI) are two of the most transformative technologies of the 21st century. The convergence of these fields promises unprecedented advancements in computational capabilities, enabling solutions to complex problems that are currently intractable for classical computers. This paper explores the intersection of quantum computing and AI, examining the potential impacts, current research, challenges, and future directions. By leveraging quantum phenomena such as superposition, entanglement, and quantum parallelism, quantum computing can enhance AI algorithms, offering exponential speedups and new methodologies for machine learning, optimization, and data analysis.",
+  "date": "2024-06-25",
+  "venue": "International Journal of Advanced Research in Science Communication and Technology",
+  "arxiv_id": "",
+  "doi": "10.48175/ijarsct-18957",
+  "citations": 8,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "f290f987c1ec",
+  "title": "Artificial intelligence (AI) in drug design and discovery: A comprehensive review",
+  "authors": [
+   "Ajmal R. Bhat",
+   "Sumeer Ahmed"
+  ],
+  "abstract": "Artificial Intelligence (AI) has emerged as a transformative force in drug design and discovery, accelerating and enhancing various stages of pharmaceutical research and development. This comprehensive review explores the integration of advanced AI techniques including Machine Learning (ML), Deep Learning (DL), Natural Language Processing (NLP), Reinforcement Learning (RL), and emerging methods like Quantum Computing (QC), in key areas such as target identification, lead discovery, drug repurposing, lead optimization, and toxicity prediction. The review highlights the pivotal role of AI-driven models like AlphaFold in accurately predicting protein structures, revolutionizing our understanding of molecular interactions. Additionally, it discusses the growing use of AI in identifying novel drug repurposing candidates and optimizing therapeutic pipelines. Despite these advances, the review also addresses the methodological limitations, data-related challenges, and potential risks associated with AI applications in pharmaceutical R&D. Overall, the paper provides a critical overview of the current landscape, capabilities, and future directions of AI-powered drug discovery.",
+  "date": "2025-01-01",
+  "venue": "In Silico Research in Biomedicine",
+  "arxiv_id": "",
+  "doi": "10.1016/j.insi.2025.100049",
+  "citations": 37,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "5d21fc97ae6d",
+  "title": "Utilizing Quantum Computing to Enhance Artificial Intelligence in Healthcare for Predictive Analytics and Personalized Medicine",
+  "authors": [
+   "Sudheer Panyaram"
+  ],
+  "abstract": "Advancements in quantum computing hold the potential to revolutionize artificial intelligence (AI), particularly in the field of healthcare. This paper explores how quantum computing can be leveraged to improve predictive analytics and facilitate personalized medicine. Through enhanced computational capacity, quantum computing enables faster processing and analysis of large, complex datasets, essential for predictive models in healthcare. This integration can lead to more precise diagnostics, treatment options, and disease prevention strategies by refining AI’s capability to handle vast data. Quantum algorithms such as quantum neural networks and quantum support vector machines can significantly optimize machine learning models, reducing the time required for data processing and improving predictive accuracy. Personalized medicine, an emerging trend in healthcare, relies heavily on detailed patient data to tailor treatments. The combination of quantum computing and AI promises to make this process faster, more accurate, and scalable. This study presents a detailed review of the current state of quantum AI in healthcare, highlights methodologies for data analysis, and showcases a comprehensive architecture for integrating quantum computing in AI healthcare systems. We analyse relevant data from case studies to demonstrate the advantages and challenges of adopting quantum computing for AI-driven healthcare applications.",
+  "date": "2024-03-01",
+  "venue": "FMDB transactions on sustainable computing systems.",
+  "arxiv_id": "",
+  "doi": "10.69888/ftscs.2024.000194",
+  "citations": 13,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "d2788c751393",
+  "title": "Quantum Artificial Intelligence Scalability in the NISQ Era: Pathways to Quantum Utility",
+  "authors": [
+   "G. Moreau",
+   "Lorenzo Pisani",
+   "Manuela Profir",
+   "Carlo Podda",
+   "Lidia Leoni",
+   "Giacomo Cao"
+  ],
+  "abstract": "Abstract Quantum computing has immense potential to advance the field of Artificial Intelligence (AI), promising faster processing, better optimization, and the ability to handle complex data structures more effectively. However, several challenges need to be addressed, including hardware limitations, algorithm development, and integration with existing AI workflows. This work provides a comprehensive overview of the current state of quantum AI research, covering key areas such as quantum machine learning, quantum deep learning, quantum natural language processing, quantum problem solving, quantum fuzzy logic, quantum evolutionary computation, and quantum decision making. It also presents a collection of interesting use cases targeted at different vertical sectors. The research methodology involves a thorough literature review to capture the most impactful developments from the standpoint of algorithm scalability in the 2020–2024 timeframe. The review highlights the benefits of quantum approaches, such as improved learning capacity, robustness to overfitting and, in some specific cases, quantum speedups for solving various problems. The interdisciplinary research landscape demonstrates a discernible trajectory toward the implementation of practical, large‐scale quantum computational intelligence. This progression is contingent upon the adoption of scalable algorithms that can deliver a quantum advantage, diverging from the replication of classical AI workflows.",
+  "date": "2025-05-28",
+  "venue": "Advanced Quantum Technologies",
+  "arxiv_id": "",
+  "doi": "10.1002/qute.202400716",
+  "citations": 13,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "6dbfff9a4dbf",
+  "title": "Progressive role of artificial intelligence in treatment decision-making in the field of medical oncology",
+  "authors": [
+   "Archana Reddy Bongurala",
+   "Dhaval Save",
+   "Ankit Virmani"
+  ],
+  "abstract": "This article explores the role of artificial intelligence (AI) in medical oncology, emphasizing its impact on treatment decision-making for adult and pediatric cancer care. AI applications, including advanced imaging, drug discovery, and clinical decision support systems, enhance precision, personalization, and efficiency. Pediatric oncology benefits from improved diagnostics, risk stratification, and targeted therapies, despite unique challenges. AI-driven personalized medicine optimizes treatment strategies, improving patient outcomes and reducing costs. Ethical considerations, such as data privacy, algorithmic bias, and explainability, remain critical for responsible AI integration. Future advancements, including explainable AI and quantum computing, promise to redefine cancer care through data-driven insights.",
+  "date": "2025-02-13",
+  "venue": "Frontiers in Medicine",
+  "arxiv_id": "",
+  "doi": "10.3389/fmed.2025.1533910",
+  "citations": 29,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "92cd0df8270d",
+  "title": "Overview of Startups Developing Artificial Intelligence for the Energy Sector",
+  "authors": [
+   "Naiyer Mohammadi Lanbaran",
+   "Darius Naujokaitis",
+   "Gediminas Kairaitis",
+   "Gabrielė Jenciūtė",
+   "Neringa Radziukynienė"
+  ],
+  "abstract": "The energy industry is experiencing a major change due to fast progress in artificial intelligence (AI). Startup companies in this revolution use AI technologies like Machine Learning (ML), predictive analytics, and optimization algorithms to improve energy efficiency, optimize grid management, and incorporate renewable energy sources. AI-powered solutions allow for a more accurate prediction of demand, immediate monitoring, and automated decision-making processes, significantly enhancing operational efficiency and sustainability. Through promoting a more effective energy system, these advancements play a vital role in the worldwide battle against climate change and carbon dioxide emissions. Adding to the progress of AI, quantum computing (QC) shows great potential despite being a nascent area. The collaboration of AI and QC is poised to transform the energy industry by offering unmatched computational capabilities. This blend of technologies can tackle intricate energy obstacles like enhancing power grids and enhancing battery storage, which traditional computers cannot currently handle. Combining QC with AI speeds up innovation, providing advanced solutions that improve the resilience and efficiency of energy networks. This paper discusses the latest advancements, possible effects, and upcoming paths of new companies leading in AI and QC innovations within the energy industry. Their joint responsibility is highlighted in advancing a sustainable and intelligent energy future, as well as tackling crucial environmental issues and lessening the impact of climate change.",
+  "date": "2024-09-14",
+  "venue": "Applied Sciences",
+  "arxiv_id": "",
+  "doi": "10.3390/app14188294",
+  "citations": 24,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "5f0966a113d1",
+  "title": "Artificial Intelligence (AI) in renewable energy forecasting and optimization",
+  "authors": [
+   "E. Smart",
+   "Lois Oyindamola Olanrewaju",
+   "Joseph Usman",
+   "Kabiru Otaru",
+   "Dauda Umar Muhammad",
+   "Prince Nnamdi Amalu",
+   "Emmanuel Toba Popoola"
+  ],
+  "abstract": "The integration of Artificial Intelligence (AI) in renewable energy forecasting and optimization has significantly enhanced the efficiency and reliability of energy systems. The use of AI methods like reinforcement learning, deep learning, and machine learning, to increase the precision of forecasting energy from solar, wind, hydropower, and biomass is examined in this research. AI-driven optimization techniques have proven essential for grid integration, load balancing, energy storage management, and hybrid energy systems. Compared to conventional forecasting methods, AI models demonstrate superior accuracy by effectively processing large-scale, heterogeneous data. Additionally, AI facilitates real-time energy management and predictive maintenance, thereby increasing the sustainability of renewable energy infrastructures. Despite its advantages, challenges such as data quality, computational complexity, cybersecurity risks, and the need for explainable AI remain critical barriers to large-scale adoption. The paper further discusses emerging trends, including the potential of quantum computing and blockchain integration, in advancing AI-driven renewable energy solutions. In order to secure the ethical deployment of AI, future research should concentrate on creating more interpretable AI models, improving energy efficiency, and putting strong regulatory frameworks in place. The insights from this study provide valuable guidance for researchers, policymakers, and industry stakeholders in optimizing renewable energy systems.",
+  "date": "2025-05-11",
+  "venue": "World Journal of Advanced Engineering Technology and Sciences",
+  "arxiv_id": "",
+  "doi": "10.30574/wjaets.2025.15.2.0300",
+  "citations": 12,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "d9bbb8f34d57",
+  "title": "Synergizing Quantum Computing and Machine Learning: A Pathway Toward Quantum-Enhanced Intelligence",
+  "authors": [
+   "Gustina Alfa Trisnapradika",
+   "Muhamad Akrom"
+  ],
+  "abstract": "The convergence of quantum computing and artificial intelligence has introduced a new paradigm in computational science known as Quantum Artificial Intelligence (QAI). By leveraging quantum mechanical principles such as superposition, entanglement, and quantum parallelism, QAI aims to overcome the limitations of classical machine learning, particularly in handling high-dimensional data, complex optimization, and scalability issues. This paper presents a comprehensive review of foundational concepts in both classical machine learning and quantum computing, followed by an in-depth discussion of emerging quantum algorithms tailored for AI applications, such as quantum neural networks, quantum support vector machines, and variational quantum classifiers. We explore the practical implications of these approaches across key sectors, including healthcare, finance, cybersecurity, and logistics. Furthermore, we identify critical challenges related to hardware limitations, algorithmic stability, data encoding, and ethical considerations. Finally, we outline research directions necessary to advance the field, highlighting the transformative potential of QAI in shaping the next generation of intelligent technologies",
+  "date": "2025-06-14",
+  "venue": "Journal of Multiscale Materials Informatics",
+  "arxiv_id": "",
+  "doi": "10.62411/jimat.v2i1.12947",
+  "citations": 9,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "eaf8d7e7931f",
+  "title": "Research on the Application of Quantum Computing in Artificial Intelligence",
+  "authors": [
+   "Kun Shen"
+  ],
+  "abstract": "This paper aims to explore the application of quantum computing in the field of artificial intelligence (AI). The continuous development of AI technology has brought revolutionary changes to various industries, but traditional computers may encounter bottlenecks when facing complex problems. Quantum computing, as an emerging computing paradigm, has the potential to address complex issues. This paper first introduces the fundamentals of AI and quantum computing, then discusses the application cases of quantum computing in AI, including quantum neural networks, quantum optimization algorithms, and quantum reinforcement learning. It also analyzes the current technical challenges and solutions, and prospects the future development direction of quantum computing in the field of AI. Through research in this emerging field, we can better understand and utilize quantum computing technology to promote progress and innovation in the field of AI.",
+  "date": "2024-05-27",
+  "venue": "Journal of Computing and Electronic Information Management",
+  "arxiv_id": "",
+  "doi": "10.54097/4cg2am4s",
+  "citations": 4,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "76ae66c6728d",
+  "title": "Artificial Immune Systems: A Bio-Inspired Paradigm for Computational Intelligence",
+  "authors": [
+   "Praveen Kumar Myakala",
+   "Chiranjeevi Bura",
+   "Anil Kumar Jonnalagadda"
+  ],
+  "abstract": "Artificial Immune Systems (AIS) are bio-inspired computational frameworks that emulate the adaptive mechanisms of the human immune system, such as self/non-self discrimination, clonal selection, and immune memory. These systems have demonstrated significant potential in addressing complex challenges across optimization, anomaly detection, and adaptive system control. This paper provides a comprehensive exploration of AIS applications in domains such as cybersecurity, resource allocation, and autonomous systems, highlighting the growing importance of hybrid AIS models. Recent advancements, including integrations with machine learning, quantum computing, and bioinformatics, are discussed as solutions to scalability, high-dimensional data processing, and efficiency challenges. Core algorithms, such as the Negative Selection Algorithm (NSA) and Clonal Selection Algorithm (CSA), are examined, along with limitations in interpretability and compatibility with emerging AI paradigms. The paper concludes by proposing future research directions, emphasizing scalable hybrid frameworks, quantum-inspired approaches, and real-time adaptive systems, underscoring AIS's transformative potential across diverse computational fields.",
+  "date": "2025-01-10",
+  "venue": "Journal of Artificial Intelligence and Big Data",
+  "arxiv_id": "",
+  "doi": "10.31586/jaibd.2025.1233",
+  "citations": 23,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "3774051e5d04",
+  "title": "Sustainable AI With Quantum-Inspired Optimization: Enabling End-to-End Automation in Cloud-Edge Computing",
+  "authors": [
+   "Andreas Andreou",
+   "Constandinos X. Mavromoustakis",
+   "Evangelos Markakis",
+   "Athina Bourdena",
+   "George Mastorakis"
+  ],
+  "abstract": "The rapid advancement of Artificial Intelligence (AI) is reshaping industries and driving global innovation. However, the increasing complexity of AI models demands substantial data and computational resources, leading to significant energy consumption and environmental impact. This article explores the integration of quantum computing and end-to-end automation strategies in cloud-edge architectures. It proposes a hybrid quantum-classical AI framework that enhances training efficiency and reduces data and processing intensity by minimizing energy consumption. The framework leverages automated model orchestration, adaptive resource allocation, and intelligent data processing at the edge to improve system efficiency. In addition, it addresses ethical considerations, including privacy, fairness, and trustworthiness, to ensure alignment with human values. This approach significantly improves AI performance while fostering a sustainable and ethical AI ecosystem.",
+  "date": "2025-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2025.3554024",
+  "citations": 19,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "a14a20a6a122",
+  "title": "Telecom’s Artificial General Intelligence (AGI) Vision: Beyond the GenAI Frontier",
+  "authors": [
+   "Christina Chaccour",
+   "Athanasios Karapantelakis",
+   "Timothy Murphy",
+   "Mischa Döhler"
+  ],
+  "abstract": "This paper unveils the groundbreaking impact of Generative AI (GenAI) as the dawn of a transformative era in 5G/6G networks and beyond. Exploring its disruptive potential across the value chain—from network design to agile and robust automation—we showcase GenAI as a catalyst for innovation and unparalleled efficiency. While tracing its historical journey from conception to practical implementation, the paper positions GenAI not as the sole solution but as the inception of a new era shaping network design, deployment strategies, and synchronous optimization dynamics. We also scrutinize the role of causal AI and transparent frameworks, such as explainable AI and neuro-symbolic AI in fostering trust and seamlessly integrating domain knowledge. Looking ahead beyond GenAI, we envision a future AI landscape composed of semantic communications, collaborative GenAI and discriminative agents. We also examine the challenges related to scalability and complexity that must be overcome to achieve sustainable AI deployments. Finally, we highlight the significance of emerging computing technologies and frameworks, such as quantum and neuromorphic computing, that play a pivotal role in the broader trajectory towards artificial general intelligence.",
+  "date": "2024-07-15",
+  "venue": "IEEE Network",
+  "arxiv_id": "",
+  "doi": "10.1109/mnet.2024.3425594",
+  "citations": 16,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "e06c9bc72b95",
+  "title": "Quantum Computing: Implications for Artificial Intelligence and Machine Learning",
+  "authors": [
+   "V. Rama Krishna",
+   "Ravi Kumar Jalli",
+   "Kallakuri N V P S Brahma Ramesh",
+   "N. Vishwanath",
+   "Neha Purohit"
+  ],
+  "abstract": "Quantum computing has transformed into a revolutionary technology which can revolutionize artificial intelligence (AI) and machine learning (ML). The processing capabilities of quantum systems rely on the principles of superposition and entanglement to complete operations at quantum-fast speeds which drives solutions for optimization problems and pattern detection along with deep learning breakthroughs. The document analyzes quantum computing fundamentals and its leadership over conventional systems and their applications toward enhancing AI and ML capabilities. This paper examines modern advancements as well as present obstacles and future prospects of this fast-growing field.",
+  "date": "2025-01-22",
+  "venue": "Metallurgical and Materials Engineering",
+  "arxiv_id": "",
+  "doi": "10.63278/1251",
+  "citations": 3,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "fa1817e72243",
+  "title": "Hybrid Quantum Classical Optimization for Low-Carbon Sustainable Edge Architecture in RIS-Assisted AIoT Healthcare Systems",
+  "authors": [
+   "Keping Yu",
+   "Chinmay Chakraborty",
+   "Dongyang Xu",
+   "Tiantian Zhang",
+   "Honghao Zhu",
+   "Osama Alfarraj",
+   "Amr Tolba"
+  ],
+  "abstract": "Healthcare systems, empowered by the integration of Artificial Intelligence (AI) and Internet of Things networks, are undergoing significant advancements, ushering in a new era of enhanced treatment experiences and improved quality of life. Edge computing plays a pivotal role as an architectural enabler; however, it also presents numerous energy-related challenges spanning sensors, communication, and edge devices. One of the most formidable challenges is the proliferation of complex communication protocols across various devices, including sensors, reconfigurable intelligent surfaces, smart devices, and edge servers, leading to substantial carbon emissions and energy consumption. To address this challenge, this paper introduces a low-carbon, sustainable edge architecture leveraging AI techniques. Specifically, we develop a deep learning-based radio frequency fingerprint access protocol to facilitate real-time and energy-efficient device access between smart devices and edge gateways. Building upon this foundation, we propose a hybrid quantum-classical optimization algorithm to achieve green data transmission at lower layers for artificial intelligence of things healthcare systems. Simulation results demonstrate that our optimized architecture achieves over 99% identification accuracy using a signal dataset of 50GB obtained from real-world smart devices and practical gateways in a real-world environment, all while maintaining energy-efficient data delivery.",
+  "date": "2024-05-10",
+  "venue": "IEEE Internet of Things Journal",
+  "arxiv_id": "",
+  "doi": "10.1109/jiot.2024.3399234",
+  "citations": 25,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "20bdd035ffb8",
+  "title": "Quantum Computing in Artificial Intelligence: Enhancing Machine Learning Algorithms with Linear Regression, Random Forest Regression, Support Vector Machines",
+  "authors": [
+   "Nitesh Kumar Ramancha"
+  ],
+  "abstract": "Quantum computing is revolutionizing artificial intelligence (AI) by offering exponential speed-ups for complex computations. Quantum computing differs from classical computing, which uses bits leverages qubits that enable parallelism and superposition. This advancement enhances AI activities including pattern detection, optimization, and deep learning. By integrating quantum computing into AI, researchers aim to achieve superior computational power, driving breakthroughs in fields like healthcare, finance, and cryptography. In AI applications, machine learning techniques are essential., and their efficiency can be significantly improved using quantum computing. Linear Regression predicts continuous values, Random Forest Regression enhances prediction robustness by averaging multiple decision trees, and Support Vector Machines classify data by finding optimal hyperplanes. Quantum computing accelerates these algorithms by reducing computational complexity and improving model accuracy. Key input parameters for evaluating quantum AI performance include Quantum Bit Processing Speed (GHz), which determines data processing rate, Qubit Coherence Time (µs), which affects stability, and Quantum Gate Fidelity (%), which measures the accuracy of quantum operations. These parameters directly influence AI model efficiency and reliability. The AI Performance Score serves as a comprehensive evaluation metric, assessing computational efficiency, prediction accuracy, and overall robustness of quantum AI models. Keywords: Quantum Computing, Machine Learning, Qubit Coherence Time, AI Performance Score",
+  "date": "2024-01-01",
+  "venue": "Journal of Computer Science Applications and Information Technology",
+  "arxiv_id": "",
+  "doi": "10.15226/2474-9257/9/1/00166",
+  "citations": 7,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "259efc152342",
+  "title": "Advancing Economic Recovery with Artificial Intelligence, Quantum Computing Technologies, and Strategic Management in Small Businesses",
+  "authors": [
+   "Rula AbuShanab"
+  ],
+  "abstract": "This abstract introduces a comprehensive approach to fostering economic recovery through the integration of cutting-edge technologies and strategic management in small businesses. In the wake of global economic challenges, the utilization of Artificial Intelligence (AI) and Quantum Computing (QC) emerges as a pivotal strategy. AI offers unparalleled capabilities in data analysis, customer engagement, and operational efficiency, empowering small businesses to adapt swiftly to market demands and optimize resource allocation. Concurrently, QC revolutionizes data processing by exponentially enhancing computational power, enabling small enterprises to tackle complex problems and innovate at unprecedented speeds. However, the effective deployment of these technologies necessitates astute strategic management. Strategic foresight and agile decision-making are crucial in harnessing AI and QC to their fullest potential, ensuring alignment with business objectives and mitigating risks. This abstract advocates for a holistic approach wherein small businesses integrate AI and QC technologies seamlessly into their operational frameworks while fostering a culture of strategic innovation. By leveraging these advancements in tandem with strategic management principles, small enterprises can not only navigate economic uncertainties but also unlock new growth opportunities, catalyzing sustainable economic recovery and long-term prosperity.",
+  "date": "2024-08-11",
+  "venue": "Journal of Artificial Intelligence General science (JAIGS) ISSN 3006-4023",
+  "arxiv_id": "",
+  "doi": "10.60087/jaigs.v5i1.201",
+  "citations": 5,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "5441ca910c6a",
+  "title": "Optimization of Quantum Circuits for Stabilizer Codes",
+  "authors": [
+   "Arijit Mondal",
+   "Keshab K. Parhi"
+  ],
+  "abstract": "Quantum computing is an emerging technology that has the potential to achieve exponential speedups over their classical counterparts. To achieve quantum advantage, quantum principles are being applied to fields such as communications, information processing, and artificial intelligence. However, quantum computers face a fundamental issue since quantum bits are extremely noisy and prone to decoherence. Keeping qubits error free is one of the most important steps towards reliable quantum computing. Different stabilizer codes for quantum error correction have been proposed in past decades and several methods have been proposed to import classical error correcting codes to the quantum domain. Design of encoding and decoding circuits for the stabilizer codes have also been proposed. Optimization of these circuits in terms of the number of gates is critical for reliability of these circuits. In this paper, we propose a procedure for optimization of encoder circuits for stabilizer codes. Using the proposed method, we optimize the encoder circuit in terms of the number of 2-qubit gates used. The proposed optimized eight-qubit encoder uses 18 CNOT gates and 4 Hadamard gates, as compared to 14 single qubit gates, 33 2-qubit gates, and 6 CCNOT gates in a prior work. The encoder and decoder circuits are verified using IBM Qiskit. We also present encoder circuits for the Steane code and a 13-qubit code, that are optimized with respect to the number of gates used, leading to a reduction in number of CNOT gates by 1 and 8, respectively.",
+  "date": "2024-04-17",
+  "venue": "IEEE Transactions on Circuits and Systems I Regular Papers",
+  "arxiv_id": "",
+  "doi": "10.1109/tcsi.2024.3384436",
+  "citations": 10,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "9295d662b816",
+  "title": "Quantum Circuit Synthesis and Compilation Optimization: Overview and Prospects",
+  "authors": [
+   "Yan Ge",
+   "Wu Wenjie",
+   "Chen Yuheng",
+   "Pan Kaisen",
+   "Lu Xudong",
+   "Zhou Zixiang",
+   "Yuhan Wang",
+   "Wang Ruocheng",
+   "Junchi Yan"
+  ],
+  "abstract": "Quantum computing is a promising paradigm that may overcome the current computational power bottlenecks. The increasing maturity of quantum processors provides more possibilities for the development and implementation of quantum algorithms. As the crucial stages for quantum algorithm implementation, the logic circuit design and quantum compiling have also received significant attention, which covers key technologies, e.g., quantum logic circuit synthesis (also widely known as quantum architecture search) and optimization, as well as qubit mapping and routing. Recent studies suggest that the scale and precision of related algorithms are steadily increasing, especially with the integration of artificial intelligence methods. In this survey, we systematically review and summarize a vast body of literature, exploring the feasibility of an integrated design and optimization scheme that spans from the algorithmic level to quantum hardware, combining the steps of logic circuit design and compilation optimization. Leveraging the exceptional cognitive and learning capabilities of AI algorithms, it becomes more possible to reduce manual design costs, enhance the precision and efficiency of execution, and facilitate the implementation and validation of the superiority of quantum algorithms on hardware.",
+  "date": "2024-06-30",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2407.00736",
+  "doi": "10.48550/arxiv.2407.00736",
+  "citations": 11,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "a4da8540063f",
+  "title": "Healthcare 5.0-Driven Clinical Intelligence: The Learn-Predict-Monitor-Detect-Correct Framework for Systematic Artificial Intelligence Integration in Critical Care",
+  "authors": [
+   "Hanene Boussi Rahmouni",
+   "Nesrine Ben El Hadj Hassine",
+   "Mariem Chouchen",
+   "Halil İbrahim Ceylan",
+   "Raul Ioan Muntean",
+   "Nicola Luigi Bragazzi",
+   "Ismail Dergaa"
+  ],
+  "abstract": "Background: Healthcare 5.0 represents a shift toward intelligent, human-centric care systems. Intensive care units generate vast amounts of data that require real-time decisions, but current decision support systems lack comprehensive frameworks for safe integration of artificial intelligence. Objective: We developed and validated the Learn–Predict–Monitor–Detect–Correct (LPMDC) framework as a methodology for systematic artificial intelligence integration across the critical care workflow. The framework improves predictive analytics, continuous patient monitoring, intelligent alerting, and therapeutic decision support while maintaining essential human clinical oversight. Methods: Framework development employed systematic theoretical modeling integrating Healthcare 5.0 principles, comprehensive literature synthesis covering 2020–2024, clinical workflow analysis across 15 international ICU sites, technology assessment of mature and emerging AI applications, and multi-round expert validation by 24 intensive care physicians and medical informaticists. Each LPMDC phase was designed with specific integration requirements, performance metrics, and safety protocols. Results: LPMDC implementation and aggregated evidence from prior studies demonstrated significant clinical improvements: 30% mortality reduction, 18% ICU length-of-stay decrease (7.5 to 6.1 days), 45% clinician cognitive load reduction, and 85% sepsis bundle compliance improvement. Machine learning algorithms achieved an 80% sensitivity for sepsis prediction three hours before clinical onset, with false-positive rates below 15%. Additional applications demonstrated effectiveness in predicting respiratory failure, preventing cardiovascular crises, and automating ventilator management. Digital twins technology enabled personalized treatment simulations, while the integration of the Internet of Medical Things provided comprehensive patient and environmental surveillance. Implementation challenges were systematically addressed through phased deployment strategies, staff training programs, and regulatory compliance frameworks. Conclusions: The Healthcare 5.0-enabled LPMDC framework provides the first comprehensive theoretical foundation for systematic AI integration in critical care while preserving human oversight and clinical safety. The cyclical five-phase architecture enables processing beyond traditional cognitive limits through continuous feedback loops and system optimization. Clinical validation dem",
+  "date": "2025-10-10",
+  "venue": "Healthcare",
+  "arxiv_id": "",
+  "doi": "10.3390/healthcare13202553",
+  "citations": 16,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "a849c4f01e11",
+  "title": "Quantum computing-artificial intelligence synergy for adaptive urban morphogenesis: Modeling China’s hyper-growth cities under uncertainty",
+  "authors": [
+   "Ehsan Dorostkar"
+  ],
+  "abstract": "China’s hyper-growth cities face unprecedented uncertainty arising from intertwined economic, social, and environmental stresses that challenge traditional static approaches to urban planning. This article introduces the novel concept of adaptive urban morphogenesis—an evolving and dynamic configuration of urban structure and function—enabled by the synergistic integration of quantum computing (QC) and artificial intelligence (AI). We propose employing QC to manage inherent uncertainties and to deliver computationally feasible multi-objective combinatorial optimization solutions, such as dynamic resource allocation and resilient infrastructure design. In parallel, AI processes extensive urban datasets, extracts complex patterns, and generates real-time predictive insights. Together, these technologies establish a closed-loop feedback system: AI feeds QC simulations with predictions, while QC delivers the best adaptive solutions under uncertainty that subsequently inform AI models. This framework is designed to capture the rapid evolution of China’s urban economies and offers a paradigm shift toward forward-thinking, simulation-driven urban planning.",
+  "date": "2025-09-19",
+  "venue": "Journal of Chinese Architecture and Urbanism",
+  "arxiv_id": "",
+  "doi": "10.36922/jcau025250046",
+  "citations": 5,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "1e4917acadd2",
+  "title": "Security in Post-Quantum Era: A Comprehensive Survey on Lattice-Based Algorithms",
+  "authors": [
+   "Hien D. Nguyen",
+   "Samsul Huda",
+   "Yasuyuki Nogami",
+   "Tuy Tan Nguyen"
+  ],
+  "abstract": "Lattice-based post-quantum cryptography (PQC) has attracted significant attention as a promising solution to the security challenges posed by quantum computing. Unlike traditional cryptographic algorithms, lattice-based schemes are expected to remain secure even in the face of quantum attacks, making them essential for future-proofing data security. Despite their strong theoretical foundations, lattice-based schemes face several practical challenges, particularly in optimizing performance and scalability for real-world applications. This survey provides a novel taxonomy that categorizes lattice-based PQC designs, emphasizing computational paradigms and security considerations. We systematically evaluated lattice-based PQC implementations on both software platforms, including central processing units and graphics processing units, as well as hardware platforms like field-programmable gate arrays and application-specific integrated circuits, highlighting their strengths and limitations. In addition, we explored the practical applications of lattice-based cryptography in fields such as secure communication, critical infrastructure, privacy-preserving data analytics, artificial intelligence, and trust and authentication systems. By offering a comprehensive overview of the current state of lattice-based PQC, this survey aims to provide valuable insights into the ongoing advancements and future research directions in the field as we transition to a post-quantum era.",
+  "date": "2025-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2025.3571307",
+  "citations": 31,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "ddecc53ee73c",
+  "title": "Artificial Intelligence Empowering Robo-Advisors: A Data-Driven Wealth Management Model Analysis",
+  "authors": [
+   "Zepeng Shen",
+   "Zhiyuan Wang",
+   "Jiajia Chew",
+   "Ke Hu",
+   "Yong Wang"
+  ],
+  "abstract": "In the digital age, the rapid development of financial technology has brought new opportunities to wealth management, especially with the emergence of robo-advisors as an innovative wealth management model that is increasingly favored by investors. The application of artificial intelligence (AI) in robo-advisors has transformed the traditional wealth management model, making it more intelligent, personalized, and automated. This paper aims to explore how artificial intelligence empowers robo-advisors and analyze the data-driven wealth management model. First, the definition and development history of robo-advisors demonstrate their evolution in the financial market. Robo-advisors, by providing low-cost and fully automated investment services, break down the high barriers of traditional wealth management, offering more investors the opportunity to participate in capital markets. Compared to traditional wealth management, robo-advisors integrate various data sources and use AI technologies to provide personalized investment advice and asset allocation plans to investors. In terms of the core technologies of artificial intelligence, machine learning and deep learning are the key drivers of robo-advisors. By applying deep learning models (such as LSTM), robo-advisors can effectively capture long-term dependencies in market fluctuations, significantly improving prediction accuracy. At the same time, natural language processing (NLP) technology is used to analyze market news and social media sentiment, providing users with a more comprehensive market analysis. Furthermore, the application of reinforcement learning enables robo-advisors to dynamically adjust investment strategies, adapting to market changes. The data-driven wealth management model emphasizes the importance of big data in robo-advisors. Robo-advisors integrate market data, user data, and social media data to identify potential investment opportunities and perform multi-dimensional analysis. In addition, the introduction of quantitative investment models optimizes traditional investment strategies, enhancing overall investment returns. AI technology also plays a crucial role in risk management by improving investment security through dynamic risk management strategies and market volatility predictions. Despite the many advantages of AI-powered robo-advisors, there are still several challenges. Data quality issues, insufficient model interpretability, and regulatory and compliance challenges in fint",
+  "date": "2025-03-04",
+  "venue": "International Journal of Management Science Research",
+  "arxiv_id": "",
+  "doi": "10.53469/ijomsr.2025.08(03).01",
+  "citations": 14,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "b7977892877b",
+  "title": "Integrating Artificial Intelligence with Blockchain: A Literature Review on Opportunities, Challenges, and Applications",
+  "authors": [
+   "Adu Emmanuel Ifedayo",
+   "Damola Olugbade",
+   "Shazia Hamid"
+  ],
+  "abstract": "The integration of Artificial Intelligence (AI) and Blockchain represents a paradigm shift in digital transformation, offering enhanced security, scalability, and automation. While previous research has explored these technologies independently, this study provides a comprehensive review of their convergence, synthesizing insights across multiple domains such as finance, healthcare, and supply chain management. The findings highlight the bidirectional enhancement of AI-Blockchain integration: Blockchain reinforces AI’s reliability by ensuring data immutability and transparency, whereas AI optimizes Blockchain efficiency through intelligent consensus mechanisms and fraud detection. However, significant challenges remain, including scalability constraints, computational overhead, and regulatory concerns. This study contributes to the theoretical understanding of AI-Blockchain synergy by integrating concepts from Computational Trust Theory and Decentralized Ledger Theory. Practically, it provides actionable insights for industry stakeholders, particularly in decentralized finance, privacy-preserving AI models, and secure digital transactions. The novelty of this research lies in its examination of AI-Blockchain integration through geographical and temporal trends, revealing disparities in adoption and regulatory responses. Despite its potential, real-world implementation remains limited, necessitating further empirical validation and exploration of emerging technologies such as quantum computing and the Internet of Things (IoT). By addressing these gaps, this study serves as a foundation for future research and policy development, advocating for interdisciplinary collaboration to ensure secure, efficient, and ethical AI-Blockchain ecosystems. The implications extend beyond academia, offering strategic guidance for practitioners and policymakers navigating the complexities of this technological convergence.",
+  "date": "2025-02-27",
+  "venue": "Blockchain Artificial Intelligence and Future Research",
+  "arxiv_id": "",
+  "doi": "10.70211/bafr.v1i1.179",
+  "citations": 11,
+  "theme": "quantum computing artificial intelligenc"
+ },
+ {
+  "fid": "9f254001d8b4",
+  "title": "Transforming Modern Computing With Quantum and AI",
+  "authors": [
+   "Emir Sahin Hatay",
+   "Muhammed Golec",
+   "Sukhpal Singh Gill"
+  ],
+  "abstract": "Modern computing systems are undergoing rapid transformation through theoretical advances and technical innovations. This article explores the technological and application trends in quantum-driven artificial intelligence (AI) innovations. The authors explore the mathematical frameworks underlying AI and quantum computing systems, with a particular focus on the role of algebraic topology in quantum circuit optimization and error correction. From neural networks to transformers, they investigate how AI architectures are reshaping computational capabilities, such as in healthcare, autonomous systems, and real-time computing. They highlight key hardware advances such as 3D stacked memory, neuromorphic chips, and quantum computing integration. They identify key challenges and limitations by focusing on ethical considerations, computation constraints, and scaling issues. This article looks ahead at research in quantum and AI, highlighting emerging technologies, potential breakthroughs and emerging trends, and spotlighting technological convergence and research trajectories.",
+  "date": "2025-06-05",
+  "venue": "International Journal of Information Technology Project Management",
+  "arxiv_id": "",
+  "doi": "10.4018/ijitpm.379718",
+  "citations": 6,
+  "theme": "quantum computing artificial intelligenc"
  }
 ]

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-10",
+ "updated": "2026-09-11",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -4629,6 +4629,41 @@
    "domains": []
   },
   {
+   "id": "quasar-quantum-assembly-code-generation-tool-augmented-97edc",
+   "title": "QUASAR: Quantum Assembly Code Generation Using Tool-Augmented LLMs via Agentic RL",
+   "titleZh": "QUASAR:基于工具增强LLM与智能体强化学习的量子汇编代码生成",
+   "authors": [
+    "Cong Yu",
+    "Valter Uotila",
+    "S. Deng",
+    "Qingyuan Wu",
+    "Shi, Tuo",
+    "Jiang, Songlin",
+    "Lei You",
+    "Zhao, Bo"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-01",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2510.00967",
+   "doi": "10.48550/arxiv.2510.00967",
+   "url": "https://arxiv.org/abs/2510.00967",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 QUASAR 框架:用工具增强的 LLM 智能体通过强化学习自动生成量子汇编代码,解决参数化量子门的自动设计挑战。是\"LLM×量子线路设计\"交叉的前沿工作,发表于 arXiv 2025。",
+   "abstract": "Designing and optimizing task-specific quantum circuits are crucial to leverage the advantage of quantum computing. Recent large language model (LLM)-based quantum circuit generation has emerged as a promising automatic solution. However, the fundamental challenges remain unaddressed: (i) parameterized quantum gates require precise numerical values for optimal performance, which also depend on multiple aspects, including the number of quantum gates, their parameters, and the layout/depth of the circuits. (ii) LLMs often generate low-quality or incorrect quantum circuits due to the lack of quantum domain-specific knowledge. We propose QUASAR, an agentic reinforcement learning (RL) framework for quantum circuits generation and optimization based on tool-augmented LLMs. To align the LLM with quantum-specific knowledge and improve the generated quantum circuits, QUASAR designs (i) a quantum circuit verification approach with external quantum simulators and (ii) a sophisticated hierarchical reward mechanism in RL training. Extensive evaluation shows improvements in both syntax and semantic performance of the generated quantum circuits. When augmenting a 4B LLM, QUASAR has achieved the validity of 99.31% in Pass@1 and 100% in Pass@10, outperforming industrial LLMs of GPT-4o, GPT-5 and DeepSeek-V3 and several supervised-fine-tuning (SFT)-only and RL-only baselines.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-optimization-multi-target-active-debris-removal-10288",
    "title": "Quantum optimization for multi-target Active Debris Removal missions",
    "titleZh": "多目标主动碎片清除任务的量子优化",
@@ -5165,6 +5200,37 @@
    "domains": []
   },
   {
+   "id": "subuniversal-variational-circuits-combinatorial-optimization-problems-a64d7",
+   "title": "Subuniversal variational circuits for combinatorial optimization problems",
+   "titleZh": "面向组合优化问题的亚通用变分量子线路",
+   "authors": [
+    "Gal Weitz",
+    "Lirandë Pira",
+    "Christopher Ferrie",
+    "Joshua Combes"
+   ],
+   "venue": "Physical Review A",
+   "date": "2025-08-19",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1103/v1sh-fg6f",
+   "url": "https://doi.org/10.1103/v1sh-fg6f",
+   "topics": [
+    "quantum-ai",
+    "qaoa",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review A 工作:提出亚通用变分量子线路类,用于生成组合优化问题的近似解。该方法的线路深度与参数数低于通用变分线路,同时保持良好的近似质量。",
+   "abstract": "Quantum variational circuits have gained significant attention due to their applications in the quantum approximate optimization algorithm and quantum machine learning research. This work introduces a novel class of classical probabilistic circuits designed for generating approximate solutions to combinatorial optimization problems constructed using two-bit stochastic matrices. Through a numerical study, we investigate the performance of our proposed variational circuits in solving the Max-Cut problem on various graphs of increasing sizes. Our classical algorithm demonstrates improved performance for several graph types to the quantum approximate optimization algorithm. Our findings suggest that evaluating the performance of quantum variational circuits against variational circuits with subuniversal gate sets is a valuable benchmark for identifying areas where quantum variational circuits can excel.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-computing-applications-supply-chain-information-optimization-ee93e",
    "title": "Quantum Computing Applications in Supply Chain Information and Optimization: Future Scenarios and Opportunities",
    "titleZh": "量子计算在供应链信息与优化中的应用:未来场景与机遇",
@@ -5606,6 +5672,37 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "exact-quantum-algorithm-unit-commitment-optimization-based-c2099",
+   "title": "Exact quantum algorithm for unit commitment optimization based on partially connected quantum neural networks",
+   "titleZh": "基于部分连接量子神经网络的机组组合优化精确求解",
+   "authors": [
+    "Jian Liu",
+    "Xu 旭 Zhou 周",
+    "Zhuojun 卓俊 Zhou 周",
+    "Le Luo"
+   ],
+   "venue": "Chinese Physics B",
+   "date": "2025-07-28",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1088/1674-1056/adf4aa",
+   "url": "https://doi.org/10.1088/1674-1056/adf4aa",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将电力系统机组组合(unit commitment)问题映射为 QUBO 后用部分连接量子神经网络精确求解,发表于 Chinese Physics B,是量子神经优化在能源电力核心调度问题中的直接应用。",
+   "abstract": "Abstract The quantum hybrid algorithm has recently become a very promising and speedy method for solving larger-scale optimization problems in the noisy intermediate-scale quantum (NISQ) era. The unit commitment (UC) problem is a fundamental problem in the field of power systems that aims to satisfy the power balance constraint with minimal cost. In this paper, we focus on the implementation of the UC solution using exact quantum algorithms based on the quantum neural network (QNN). This method is tested with a ten-unit system under the power balance constraint. In order to improve computing precision and reduce network complexity, we propose a knowledge-based partially connected quantum neural network (PCQNN). The results show that exact solutions can be obtained by the improved algorithm and that the depth of the quantum circuit can be reduced simultaneously.",
+   "source": "backfill",
+   "domains": [
+    "energy"
    ]
   },
   {
@@ -6428,6 +6525,39 @@
    ],
    "summaryZh": "发表于 Applied Physics Reviews:综述图论与随机网络在量子信息中的角色,并提出量子图学习算法用于量子现象预测与图像分类任务。",
    "abstract": "Graph and network theory play a fundamental role in quantum computer sciences, including quantum information and computation. Random graphs and complex network theory are pivotal in predicting novel quantum phenomena, where entangled links are represented by edges. Quantum algorithms have been developed to enhance solutions for various network problems, giving rise to quantum graph computing and quantum graph learning (QGL). In this review, we explore graph theory and graph learning methods as powerful tools for quantum computers to generate efficient solutions to problems beyond the reach of classical systems. We delve into the development of quantum complex network theory and its applications in quantum computation, materials discovery, and research. We also discuss quantum machine learning (QML) methodologies for effective image classification using qubits, quantum gates, and quantum circuits. Additionally, the paper addresses the challenges of QGL and algorithms, emphasizing the steps needed to develop flexible QGL solvers. This review presents a comprehensive overview of the fields of QGL and QML, highlights recent advancements, and identifies opportunities for future research.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-artificial-intelligence-scalability-nisq-era-pathways-e0444",
+   "title": "Quantum Artificial Intelligence Scalability in the NISQ Era: Pathways to Quantum Utility",
+   "titleZh": "量子人工智能在NISQ时代的可扩展性:通往量子效用之路",
+   "authors": [
+    "G. Moreau",
+    "Lorenzo Pisani",
+    "Manuela Profir",
+    "Carlo Podda",
+    "Lidia Leoni",
+    "Giacomo Cao"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2025-05-28",
+   "year": 2025,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1002/qute.202400716",
+   "url": "https://doi.org/10.1002/qute.202400716",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统综述量子机器学习在 NISQ 时代的可扩展性挑战:贫瘠高原、量子数据加载瓶颈、硬件噪声对 QML 精度的影响,并给出通往量子效用的可能路径。发表于 Advanced Quantum Technologies、被引 13 次。",
+   "abstract": "Abstract Quantum computing has immense potential to advance the field of Artificial Intelligence (AI), promising faster processing, better optimization, and the ability to handle complex data structures more effectively. However, several challenges need to be addressed, including hardware limitations, algorithm development, and integration with existing AI workflows. This work provides a comprehensive overview of the current state of quantum AI research, covering key areas such as quantum machine learning, quantum deep learning, quantum natural language processing, quantum problem solving, quantum fuzzy logic, quantum evolutionary computation, and quantum decision making. It also presents a collection of interesting use cases targeted at different vertical sectors. The research methodology involves a thorough literature review to capture the most impactful developments from the standpoint of algorithm scalability in the 2020–2024 timeframe. The review highlights the benefits of quantum approaches, such as improved learning capacity, robustness to overfitting and, in some specific cases, quantum speedups for solving various problems. The interdisciplinary research landscape demonstrates a discernible trajectory toward the implementation of practical, large‐scale quantum computational intelligence. This progression is contingent upon the adoption of scalable algorithms that can deliver a quantum advantage, diverging from the replication of classical AI workflows.",
    "source": "backfill",
    "domains": []
   },
@@ -7535,6 +7665,36 @@
    "domains": []
   },
   {
+   "id": "designing-robust-quantum-neural-networks-optimized-circuit-fa3ab",
+   "title": "Designing Robust Quantum Neural Networks via Optimized Circuit Metrics",
+   "titleZh": "基于优化线路度量的鲁棒量子神经网络设计",
+   "authors": [
+    "Walid El Maouaki",
+    "Alberto Marchisio",
+    "Taoufik Said",
+    "Muhammad Shafique",
+    "М. Беннаи"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2025-03-17",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1002/qute.202400601",
+   "url": "https://doi.org/10.1002/qute.202400601",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "研究量子神经网络(QuNN)对抗 FGSM 与 PGD 两种对抗攻击的鲁棒性,与经典 CNN 进行系统对比。发表于 Advanced Quantum Technologies,为 NISQ 设备上的 QML 应用提供安全评估框架。",
+   "abstract": "Abstract In this study, the robustness of Quanvolutional Neural Networks (QuNNs) is investigated in comparison to their classical counterparts, Convolutional Neural Networks (CNNs), against two adversarial attacks: the Fast Gradient Sign Method (FGSM) and the Projected Gradient Descent (PGD), for the image classification task on both the Modified National Institute of Standards and Technology (MNIST) and Fashion‐MNIST (FMNIST) datasets. To enhance the robustness of QuNNs, a novel methodology is developed that utilizes three quantum circuit metrics: expressibility, entanglement capability, and controlled rotation gate selection. This analysis shows that these metrics significantly influence data representation within the Hilbert space, thereby directly affecting QuNN robustness. It is rigorously established that circuits with higher expressibility and lower entanglement capability generally exhibit enhanced robustness under adversarial conditions, particularly at low‐spectrum perturbation strengths where most attacks occur. Furthermore, these findings challenge the prevailing assumption that expressibility alone dictates circuit robustness; instead, it is demonstrated that the inclusion of controlled rotation gates around the Z‐axis generally enhances the resilience of QuNNs. These results demonstrate that QuNNs exhibit up to 60% greater robustness on the MNIST dataset and 40% on the Fashion‐MNIST dataset compared to CNNs. Collectively, this work elucidates the relationship be",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "beyond-classical-computation-quantum-simulation-5a081",
    "title": "Beyond-classical computation in quantum simulation",
    "titleZh": "量子模拟中超越经典的计算",
@@ -7703,6 +7863,40 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "optimizing-quantum-convolutional-neural-network-architectures-arbitrary-6410e",
+   "title": "Optimizing quantum convolutional neural network architectures for arbitrary data dimension",
+   "titleZh": "优化任意输入尺寸的量子卷积神经网络架构",
+   "authors": [
+    "Chang Won Lee",
+    "Israel F. Araujo",
+    "Dong-Ha Kim",
+    "Jung-Han Lee",
+    "Siheon Park",
+    "Ju-Young Ryu",
+    "Daniel K. Park"
+   ],
+   "venue": "Frontiers in Physics",
+   "date": "2025-03-03",
+   "year": 2025,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.3389/fphy.2025.1529188",
+   "url": "https://doi.org/10.3389/fphy.2025.1529188",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "解决量子卷积神经网络(QCNN)对输入尺寸固定的限制:提出自适应池化与参数共享策略处理可变尺寸输入。QCNN 天然规避贫瘠高原问题,是该方向的重要进展,发表于 Frontiers in Physics。",
+   "abstract": "Quantum convolutional neural networks (QCNNs) represent a promising approach in quantum machine learning, paving new directions for both quantum and classical data analysis. This approach is particularly attractive due to the absence of the barren plateau problem, a fundamental challenge in training quantum neural networks (QNNs), and its feasibility. However, a limitation arises when applying QCNNs to classical data. The network architecture is most natural when the number of input qubits is a power of two, as this number is reduced by a factor of two in each pooling layer. The number of input qubits determines the dimensions (i.e., the number of features) of the input data that can be processed, restricting the applicability of QCNN algorithms to real-world data. To address this issue, we propose a QCNN architecture capable of handling arbitrary input data dimensions while optimizing the allocation of quantum resources such as ancillary qubits and quantum gates. This optimization is not only important for minimizing computational resources, but also essential in noisy intermediate-scale quantum (NISQ) computing, as the size of the quantum circuits that can be executed reliably is limited. Through numerical simulations, we benchmarked the classification performance of various QCNN architectures across multiple datasets with arbitrary input data dimensions, including MNIST, Landsat satellite, Fashion-MNIST, and Ionosphere. The results validate that the proposed QCNN architect",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-ai-future-machine-learning-optimization-d506c",
@@ -13021,6 +13215,34 @@
    ]
   },
   {
+   "id": "quixer-quantum-transformer-model-b22de",
+   "title": "Quixer: A Quantum Transformer Model",
+   "titleZh": "Quixer:量子Transformer模型",
+   "authors": [
+    "Nikhil Khatri",
+    "Gabriel Matos",
+    "Luuk Coopmans",
+    "Stephen R. L. Clark"
+   ],
+   "venue": "arXiv",
+   "date": "2024-06-06",
+   "year": 2024,
+   "citations": 4,
+   "arxivId": "2406.04305",
+   "doi": "10.48550/arxiv.2406.04305",
+   "url": "https://arxiv.org/abs/2406.04305",
+   "topics": [
+    "quantum-ai",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "首个端到端的量子 Transformer 模型:利用线性组合酉算子(LCU)与量子奇异值变换(QSVT)作为构建模块实现自注意力机制,在语言建模任务上验证可行性。是\"量子×大模型\"交叉最直接的架构实现。",
+   "abstract": "Progress in the realisation of reliable large-scale quantum computers has motivated research into the design of quantum machine learning models. We present Quixer: a novel quantum transformer model which utilises the Linear Combination of Unitaries and Quantum Singular Value Transform primitives as building blocks. Quixer operates by preparing a superposition of tokens and applying a trainable non-linear transformation to this mix. We present the first results for a quantum transformer model applied to a practical language modelling task, obtaining results competitive with an equivalent classical baseline. In addition, we include resource estimates for evaluating the model on quantum hardware, and provide an open-source implementation for classical simulation. We conclude by highlighting the generality of Quixer, showing that its parameterised components can be substituted with fixed structures to yield new classes of quantum transformers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-computing-applications-challenges-prospects-financial-portfolio-82798",
    "title": "Quantum computing applications, challenges, and prospects in financial portfolio optimization",
    "titleZh": "量子计算在金融投资组合优化中的应用、挑战与前景",
@@ -13309,6 +13531,36 @@
    "tags": [],
    "summaryZh": "面向自动导引车(AGV)大规模调度的算力瓶颈,将多种 AGV 调度模型映射为 QUBO 并用量子计算求解,发表于 Scientific Reports。",
    "abstract": "Due to the high degree of automation, automated guided vehicles (AGVs) have been widely used in many scenarios for transportation, and traditional computing power is stretched in large-scale AGV scheduling. In recent years, quantum computing has shown incomparable performance advantages in solving specific problems, especially Combinatorial optimization problem. In this paper, quantum computing technology is introduced into the study of the AGV scheduling problem. Additionally two types of quadratic unconstrained binary optimisation (QUBO) models suitable for different scheduling objectives are constructed, and the scheduling scheme is coded into the ground state of Hamiltonian operator, and the problem is solved by using optical coherent Ising machine (CIM). The experimental results show that compared with the traditional calculation method, the optical quantum computer can save 92% computation time on average. It has great application potential.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "optimizing-variational-quantum-neural-networks-based-collective-0152c",
+   "title": "Optimizing Variational Quantum Neural Networks Based on Collective Intelligence",
+   "titleZh": "基于群体智能的变分量子神经网络优化",
+   "authors": [
+    "Zitong Li",
+    "Tailong Xiao",
+    "Xiaoyang Deng",
+    "Guihua Zeng",
+    "Weimin Li"
+   ],
+   "venue": "Mathematics",
+   "date": "2024-05-22",
+   "year": 2024,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.3390/math12111627",
+   "url": "https://doi.org/10.3390/math12111627",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "将群体智能优化算法(粒子群、蚁群等)应用于变分量子神经网络的参数优化,缓解经典优化器在贫瘠高原上的收敛困难,发表于 Mathematics。",
+   "abstract": "Quantum machine learning stands out as one of the most promising applications of quantum computing, widely believed to possess potential quantum advantages. In the era of noisy intermediate-scale quantum, the scale and quality of quantum computers are limited, and quantum algorithms based on fault-tolerant quantum computing paradigms cannot be experimentally verified in the short term. The variational quantum algorithm design paradigm can better adapt to the practical characteristics of noisy quantum hardware and is currently one of the most promising solutions. However, variational quantum algorithms, due to their highly entangled nature, encounter the phenomenon known as the “barren plateau” during the optimization and training processes, making effective optimization challenging. This paper addresses this challenging issue by researching a variational quantum neural network optimization method based on collective intelligence algorithms. The aim is to overcome optimization difficulties encountered by traditional methods such as gradient descent. We study two typical applications of using quantum neural networks: random 2D Hamiltonian ground state solving and quantum phase recognition. We find that the collective intelligence algorithm shows a better optimization compared to gradient descent. The solution accuracy of ground energy and phase classification is enhanced, and the optimization iterations are also reduced. We highlight that the collective intelligence algorithm h",
    "source": "backfill",
    "domains": []
   },
