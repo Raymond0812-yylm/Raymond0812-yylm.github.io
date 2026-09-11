@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>芯片级时空复用高斯玻色采样处理器：光子数突破一万 · 量子优化日报</title><meta name="description" content="高斯玻色采样（GBS）是光量子计算展示&#34;量子计算优越性&#34;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&#34;一次性优越性演示&#34;走向&#34;可规模化工程部署&#34;，现有 GBS 装置存在三道现实障碍：苛刻的光学对准（分立光学元件拼装）、相位不稳定性（大体积光路长期漂移）、有限的可编程性（难以重构用于不同任务）。"><meta property="og:title" content="芯片级时空复用高斯玻色采样处理器：光子数突破一万 · 量子优化日报"><meta property="og:description" content="高斯玻色采样（GBS）是光量子计算展示&#34;量子计算优越性&#34;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&#34;一次性优越性演示&#34;走向&#34;可规模化工程部署&#34;，现有 GBS 装置存在三道现实障碍：苛刻的光学对准（分立光学元件拼装）、相位不稳定性（大体积光路长期漂移）、有限的可编程性（难以重构用于不同任务）。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.CAmUjb2B.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-11</div> <h1>芯片级时空复用高斯玻色采样处理器：光子数突破一万</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-11 · arXiv 预印本 · arXiv:2609.11922 / 2609.10838 / 2609.10932 · Yu-Xuan Fu, He-Yu Shen, Ke-Ming Hu 等 5 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/chip-scale-space-time-multiplexed-gaussian-boson-8f8ba/" style="font-weight:700">芯片级时空复用高斯玻色采样处理器：光子数突破一万</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">高斯玻色采样（GBS）是光量子计算展示&quot;量子计算优越性&quot;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&quot;一次性优越性演示&quot;走向&quot;可规模化工程部署&quot;，现有 GBS 装置存在三道现实障碍：苛刻的光学对准（分立光学元件拼装）、相位不稳定性（大体积光路长期漂移）、有限的可编程性（难以重构用于不同任务）。</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/quantum-overlap-gap-property-algorithmic-hardness-quantum-8f8b3/" style="font-weight:700">量子重叠间隙性质与量子超图最大割问题的算法难度</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">重叠间隙性质（Overlap Gap Property, OGP） 是经典平均情形复杂性理论的主力工具：对随机组合优化问题（如随机 Max-Cut、k-SAT），若近优解在构型空间中&quot;聚类且互斥&quot;（任意两个近优解重叠度要么高要么低、不存在中间地带），则一大类&quot;稳定&quot;算法（对输入扰动不敏感的算法，涵盖局部算法、低深度电路等）在平均情形下无法逼近最优。OGP 已成功解释了为何许多问题在大规模随机实例上算法性能集体停滞。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/distributed-variational-quantum-computing-deterministic-entanglement-tuning-8f8b3/" style="font-weight:700">确定性纠缠调谐的分布式变分量子计算</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">分布式量子计算（把多台空间分离的小型量子处理器用纠缠连接成一台&quot;虚拟大机器&quot;）是绕开单芯片比特数瓶颈的主流扩容思路。但标准方案基于门传送（gate teleportation）：每执行一个非局域门就要消耗一对高保真贝尔态、外加辅助比特与实时前馈，开销大且保真度随门数累积劣化——为&quot;通用性&quot;付出的代价沉重。</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-11）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 11 日（周五，北京时间）</strong>。检索渠道：paper-distill MCP 多库聚合 + arXiv 官方新提交列表（Friday, 11 September 2026 公告批次，含 09-09/09-10 提交、09-11 公开的全部 91 篇 quant-ph 新作 + cs.LG 跨类扫描）。</p>
+<ul>
+<li>本批次主题高度聚焦&quot;<strong>光子规模里程碑 + 量子优化理论边界</strong>&quot;：上海交大金贤敏团队的芯片级万光子高斯玻色采样处理器（深度解读，北京时间今日凌晨提交）、量子重叠间隙性质对量子超图最大割的算法难度结果（简推）、确定性纠缠调谐的分布式变分量子计算（简推，PRApplied 正刊）。</li>
+<li><strong>机器学习/大模型求解组合优化方向</strong>：扫描本日 cs.LG 新作，与 LLM 求解组合优化直接相关的论文缺位（最接近的是量子启发去量子化方法、生成式回放量子架构搜索等，均偏量子 ML 而非组合优化求解），故今日以量子方向为主，如实说明。</li>
+<li>时间戳均为 arXiv 官方记录（UTC），北京时间 = UTC+8。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：芯片级时空复用高斯玻色采样处理器——光子数突破一万</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>A Chip-scale Space-time Multiplexed Gaussian Boson Sampling Processor Beyond 10,000 Photons</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>芯片级时空复用高斯玻色采样处理器：光子数突破一万</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Yu-Xuan Fu, He-Yu Shen, Ke-Ming Hu, Jun-Jie He, Yun-Long Nie 等 37 位作者（通讯作者：Xian-Min Jin 金贤敏）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；上海交通大学金贤敏教授团队为主）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11922（v1，2026-09-10 17:58 UTC 提交，即北京时间 09-11 凌晨；随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11922">https://arxiv.org/abs/2609.11922</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>高斯玻色采样（GBS）是光量子计算展示&quot;量子计算优越性&quot;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&quot;一次性优越性演示&quot;走向&quot;可规模化工程部署&quot;，现有 GBS 装置存在三道现实障碍：<strong>苛刻的光学对准</strong>（分立光学元件拼装）、<strong>相位不稳定性</strong>（大体积光路长期漂移）、<strong>有限的可编程性</strong>（难以重构用于不同任务）。</p>
+<p>时空复用（space-time multiplexing）架构被寄望于同时解决上述三题：用芯片上的延迟线把时间维度上高速循环的光脉冲&quot;折叠&quot;为等效的大规模模式网络，从原理上以紧凑芯片换取规模、稳定与可编程。但这条路线对芯片工艺提出了近乎苛刻的复合要求——<strong>低损耗、高精度、高速调制必须同时</strong>在晶圆级尺度上达成，任何一项短板都会让光子在芯片内循环时损耗殆尽。这正是本文要正面攻克的工程-科学双重难题。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>论文的技术核心是<strong>首次把时空复用 GBS 完整地搬到一块芯片上</strong>，全部关键构件在薄膜铌酸锂（TFLN）平台上单片集成：</p>
+<ol>
+<li><strong>高速电光调制器阵列</strong>：TFLN 平台以其业界领先的电光系数著称，芯片以 <strong>4 GHz 时钟频率</strong>驱动光脉冲注入与调制，这是把&quot;时间维复用&quot;做实的速度基础——每个时钟周期等效产生一个新的可编程模式；</li>
+<li><strong>片上延迟线 + 时空复用干涉网络</strong>：光脉冲在片上延迟线中循环往复，与不同时刻注入的脉冲在干涉网络中发生受控干涉，单片上&quot;时间换空间&quot;地展开出大规模等效线性光学网络，避免了分立元件的对准与漂移问题；</li>
+<li><strong>面向应用的硬件重构</strong>：同一套光子硬件被重新配置为&quot;GBS 驱动的世界模型&quot;（world model）——把 GBS 作为物理动力学的随机特征生成器，仅在输出端训练轻量读出层，用于建模复杂物理系统的演化。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>万光子级采样规模</strong>：系统在 <strong>1 毫秒</strong>内记录到高达 <strong>11,059 个光子</strong>的探测事件，时钟速率 4 GHz——这一探测光子数已进入此前只有&quot;九章&quot;级大体积光路装置才触及的量级，而本工作把规模门槛换到了芯片尺度；</li>
+<li><strong>首个芯片级时空复用 GBS 系统</strong>：在单块 TFLN 芯片上同时实现低损耗、高精度与高速调制三大指标，验证了时空复用架构在晶圆级工艺下的工程可行性；</li>
+<li><strong>向应用迈出一步——GBS 世界模型</strong>：将硬件重构为 GBS 驱动的世界模型后，对物理动力学的预测误差<strong>低于</strong>经典回声状态网络（ESN）基线，且所需可训练读出参数更少——说明 GBS 输出的高维量子特征对下游学习任务具有真实的表达能力，而非仅仅是&quot;难模拟的随机性&quot;。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>光量子优越性的&quot;工程化转折点&quot;</strong>：从九章系列的超大体积光路到芯片级系统，光子数规模没有掉队（破万）而对准、稳定、可编程三大约束被结构性解除。这意味着 GBS 从&quot;实验室演示&quot;走向&quot;可部署硬件&quot;的路径被打通，对光量子计算路线的产业化信心是实质性提振；</li>
+<li><strong>薄膜铌酸锂平台的高光时刻</strong>：本文证明 TFLN 能同时扛住高速电光调制（4 GHz）与低损耗大规模集成的双重要求，进一步巩固了 TFLN 作为光量子芯片&quot;硅&quot;级基础平台的地位；</li>
+<li><strong>与组合优化/机器学习主线的连接</strong>：GBS 与图组合优化存在天然桥接——GBS 等价于特定图上厄米多项式的采样，已被用于图相似性、分子对接等组合任务的量子启发求解。本文的&quot;GBS 世界模型&quot;进一步示范了量子采样硬件作为<strong>机器学习特征生成器</strong>的使用范式：量子部分负责高维非线性特征，经典部分只做轻量读出。这一&quot;量子内核 + 经典读出&quot;架构与本报长期跟踪的量子-经典混合优化主线（QAOA、变分算法）在方法论上同构，值得量子优化研究者关注其可迁移性。</li>
+</ol>
+<hr>
+<h2>论文二：量子重叠间隙性质与量子超图最大割的算法难度</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>The Quantum Overlap Gap Property and Algorithmic Hardness for the Quantum Hypergraph Max-Cut Problem</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子重叠间隙性质与量子超图最大割问题的算法难度</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Mikhail Mints, Eric R. Anschuetz</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；跨类 cs.CC 计算复杂性）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.10838（v1，2026-09-09 21:18 UTC 提交；随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.10838">https://arxiv.org/abs/2609.10838</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p><strong>重叠间隙性质（Overlap Gap Property, OGP）</strong> 是经典平均情形复杂性理论的主力工具：对随机组合优化问题（如随机 Max-Cut、k-SAT），若近优解在构型空间中&quot;聚类且互斥&quot;（任意两个近优解重叠度要么高要么低、不存在中间地带），则一大类&quot;稳定&quot;算法（对输入扰动不敏感的算法，涵盖局部算法、低深度电路等）在平均情形下无法逼近最优。OGP 已成功解释了为何许多问题在大规模随机实例上算法性能集体停滞。</p>
+<p>量子版本的问题随之而来：<strong>当优化变量从比特换成量子比特、问题从图升级为超图相互作用时，OGP 硬度论证还成立吗？</strong> 量子超图最大割（Quantum Hypergraph Max-Cut）把 k-均匀超图上的最大割映射为多体相互作用哈密顿量的基态制备问题，是量子近似优化（QAOA 类算法向高阶相互作用的自然推广）的核心测试床。本文系统回答了这一问题。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>论文以 <strong>量子重叠间隙性质（QOGP）</strong> 为理论框架，关键工具是两套<strong>量子 Wasserstein 距离</strong>（刻画量子态/量子过程对局域扰动敏感度的度量）：</p>
+<ol>
+<li><strong>稳定量子算法的弱硬度</strong>：对满足二阶（order-2）量子 Wasserstein 距离 Lipschitz 稳定性的一大类量子算法，证明对任意 Lipschitz 常数 L，都存在均匀度 k，使得 L-稳定算法无法在平均情形下近似 k-均匀超图上的量子超图最大割最优解——但此处 k 依赖 L，故称&quot;弱硬度&quot;；</li>
+<li><strong>局域量子算法的强硬度</strong>：改用 ∞ 阶量子 Wasserstein 距离定义更受限的&quot;局域量子算法&quot;类，证明存在<strong>与 L 无关</strong>的一致 k，使该类算法在 k-均匀超图上平均情形不可近似——这是更强的普适障碍；</li>
+<li><strong>落地为深度下界</strong>：把上述抽象稳定性结果应用于制备近优态的常用量子算法（此类问题上的典型代表即 QAOA 型浅深度变分电路），得到<strong>具体的电路深度下界</strong>。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li>弱硬度定理（order-2 稳定算法，k 依赖 L）与强硬度定理（order-∞ 局域算法，k 与 L 无关）双双得证，构成量子超图最大割平均情形难度的分层刻画；</li>
+<li>稳定性→硬度的论证链条完整落地：稳定量子算法在该问题族上存在原理性性能天花板；</li>
+<li>给出了常见近优态制备量子算法的<strong>具体深度下界</strong>，把&quot;这类算法在随机超图实例上需要多深才可能逼近最优&quot;变成可计算的量。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>为 QAOA 族算法画出理论天花板</strong>：与本报 09-10 期追踪的&quot;[[4,2,2]] 码保护 QAOA&quot;（工程侧：让 QAOA 在噪声下保住性能）恰好互补——本文从理论上证明：即便完全无噪声，随机超图相互作用下浅深度稳定/局域量子算法也逼近不了最优。工程上&quot;更抗噪的 QAOA&quot;与理论上&quot;更深的电路&quot;必须双管齐下；</li>
+<li><strong>经典复杂性工具的量子化范式</strong>：量子 Wasserstein 距离 + OGP 的组合展示了经典平均情形复杂性方法向量子多体问题迁移的系统路径，预计将被复制到量子自旋玻璃、量子约束满足等更广的问题族；</li>
+<li><strong>对基准测试的提醒</strong>：QOGP 型结果提示，在随机实例上评测量子优化算法时要区分&quot;算法不行&quot;与&quot;问题本身对这类算法就是难的&quot;——随机超图基准上的性能停滞可能恰恰是理论预言的硬度信号，而非工程缺陷。</li>
+</ol>
+<hr>
+<h2>论文三：确定性纠缠调谐的分布式变分量子计算</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Distributed variational quantum computing with deterministic entanglement tuning</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>确定性纠缠调谐的分布式变分量子计算</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Ilhwan Kim, Yong-Su Kim, Kwang Jo Lee, Hyukjoon Kwon, Yosep Kim, Hyang-Tag Lim</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>Physical Review Applied 26, 034017（2026）正刊发表；arXiv 同步公开</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.10932（v1，2026-09-10 00:36 UTC 提交；随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.10932">https://arxiv.org/abs/2609.10932</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机（含核心内容）</h3>
+<p>分布式量子计算（把多台空间分离的小型量子处理器用纠缠连接成一台&quot;虚拟大机器&quot;）是绕开单芯片比特数瓶颈的主流扩容思路。但标准方案基于<strong>门传送（gate teleportation）</strong>：每执行一个非局域门就要消耗一对高保真贝尔态、外加辅助比特与实时前馈，开销大且保真度随门数累积劣化——为&quot;通用性&quot;付出的代价沉重。</p>
+<p>韩国标准与科学研究院（KRISS）Hyang-Tag Lim 团队注意到一个被忽视的切入点：<strong>变分量子算法并不需要通用性，只需要足够的表达力</strong>去探索解空间。据此提出&quot;确定性纠缠调谐&quot;协议：不做概率性的贝尔对过滤，而是对<strong>预共享的纠缠资源</strong>用局域操作 + 经典通信（LOCC）做确定性的幅度/相位调制，按问题需要&quot;调&quot;出任意纠缠水平，再在各节点上执行变分线路。原理验证实验估算了 He-H⁺ 分子与 Schwinger 模型的基态能量，证明不同纠缠水平可被精准定制以匹配问题需求。</p>
+<h3>三、对研究领域的意义与启示</h3>
+<p>这是&quot;分布式量子计算 × 变分算法&quot;交叉带上一项务实的顶层设计：与其追求昂贵的分布式通用计算，不如为 VQE/QAOA 这类只需表达力的算法定制廉价的分布式纠缠资源。随着量子网络连接多台 NISQ 处理器成为现实（本批次亦有多台处理器互联的硬件进展），该协议为&quot;跨处理器跑变分优化&quot;提供了低开销的近期能行路线，与本报跟踪的量子-经典混合优化主线在系统架构层形成呼应。</p>
+<hr>
+<p><em>本报告由 paper-distill 学术检索工具 + arXiv 公告列表核验生成；三篇论文均为 2026-09-11（周五）arXiv 公告批次新作。</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-10/">← 上一期(2026-09-10)</a> <a class="btn" href="https://arxiv.org/abs/2609.11922" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-11</span> · 共收录 556 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
