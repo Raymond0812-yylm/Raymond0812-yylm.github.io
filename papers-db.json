@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-11",
+ "updated": "2026-09-12",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -897,6 +897,37 @@
    "abstract": "Quantum annealing correction (QAC) models provide a promising approach for mitigating errors in quantum annealers. Previous studies have established that QAC models are crucial for ensuring the robustness of the ground state of the Ising model on hardware. In this work, the effects of QAC models incorporating replicas with additional interactions, specifically, the and the , are investigated for problems characterized by a small energy gap between the ground and first excited states during quantum annealing, a well-known bottleneck to reaching the ground state. The results demonstrate that these QAC models can obtain the optimal solution within short annealing times by exploiting diabatic transitions, even for problems with a small energy gap. These findings highlight the potential of QAC models as practical near-term algorithms for hardware subject to runtime limitations and control noise.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "benchmarking-quantum-solvers-noisy-digital-simulations-financial-a456a",
+   "title": "Benchmarking Quantum Solvers in Noisy Digital Simulations for Financial Portfolio Optimization",
+   "titleZh": "含噪数字仿真中金融投资组合的量子求解器基准测试",
+   "authors": [
+    "Ruizhe Shen",
+    "Zichang Hao",
+    "Ching Hua Lee"
+   ],
+   "venue": "Entropy",
+   "date": "2026-08-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.3390/e28080916",
+   "url": "https://doi.org/10.3390/e28080916",
+   "topics": [
+    "qaoa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在含噪数字仿真环境中系统基准测试多种量子求解器(退火机、门型线路)在金融投资组合问题上的表现,为实际部署提供决策依据。",
+   "abstract": "In this work, we benchmark two prominent quantum algorithms: Quantum Imaginary-Time Evolution (QITE) and the Quantum Approximate Optimization Algorithm (QAOA) for obtaining the ground state of Ising-type Hamiltonians. Specifically, we apply them to the Markowitz portfolio optimization problem in quantitative finance, on both digital quantum computers and local quantum simulators with controllable two-qubit errors (noise). In noiseless settings, we find that QAOA achieves excellent convergence to the optimal results. Under noisy conditions, the QITE method exhibits greater robustness and stability, though it incurs substantially more classical numerical cost. In contrast, we demonstrate that QAOA offers better scalability and can still yield robust results if the noise can be effectively mitigated. Our findings provide valuable insights into the trade-offs between scalability and noise tolerance and demonstrate the practical potential of quantum algorithms for solving real-world optimization problems on near-term quantum devices.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "quantum-approximate-optimization-algorithm-fixed-number-parameters-e4b62",
@@ -2057,6 +2088,35 @@
    "domains": []
   },
   {
+   "id": "two-step-quantum-approximate-optimization-algorithm-portfolio-d0a45",
+   "title": "A Two-Step Quantum Approximate Optimization Algorithm for Portfolio Optimization and Risk Assessment",
+   "titleZh": "两步QAOA用于投资组合优化",
+   "authors": [
+    "Boxuan Wu",
+    "Lei Wang"
+   ],
+   "venue": "Quantum Reports",
+   "date": "2026-05-07",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.3390/quantum8020045",
+   "url": "https://doi.org/10.3390/quantum8020045",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出两步 QAOA 求解投资组合优化:先优化资产选择,再优化权重分配,分步降低问题复杂度。",
+   "abstract": "Quantum finance represents a pivotal and cutting-edge application domain within the burgeoning field of quantum computing. In this work, we propose a two-step quantum approximate optimization algorithm (two-step QAOA) for portfolio optimization and risk assessment. The algorithm initiates by formulating the stock selection problem as a quadratic unconstrained binary optimization (QUBO) problem and employs a classical-quantum hybrid method to find the ground state of the Hamiltonian. We then introduce an energy-based characteristic indicator U∈[0,1), which quantitatively evaluates portfolio performance under customizable investment preferences, effectively capturing the trade-off between expected return and risk. The number of qubits required scales with the number of stocks N in the pool, and the number of Hamiltonian terms is O(N2). Numerical simulations show that the algorithm provides consistent and reasonable assessment results on both training and test datasets under different investment preferences (aggressive or conservative), validating the capability of the characteristic indicator to extract intrinsic information from the portfolios. Additionally, by incorporating warm-starting and digitized counterdiabatic techniques, the algorithm achieves improved scalability and faster convergence. Our work presents a flexible and practical algorithmic framework for applying quantum computing in the financial domain.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "structured-parameterization-non-stabilizerness-hypergraph-qaoa-5c7d1",
    "title": "Structured Parameterization and Non-Stabilizerness in Hypergraph QAOA",
    "titleZh": "超图QAOA的结构化参数化与非稳定子资源",
@@ -2707,6 +2767,37 @@
    ]
   },
   {
+   "id": "quantifying-advantages-applying-quantum-approximate-algorithms-portfolio-de0be",
+   "title": "Quantifying the advantages of applying quantum approximate algorithms to portfolio optimisation",
+   "titleZh": "量化量子近似算法在投资组合优化中的优势",
+   "authors": [
+    "Haomu Yuan",
+    "Christopher K. Long",
+    "Hugo V. Lepage",
+    "Crispin H.W. Barnes"
+   ],
+   "venue": "Quantum Science and Technology",
+   "date": "2026-02-25",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1088/2058-9565/ae4a48",
+   "url": "https://doi.org/10.1088/2058-9565/ae4a48",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统量化 QAOA 在投资组合优化问题中相对于经典方法的性能差异:定义了公平比较的指标体系,并分析了电路深度、问题规模与最优解质量之间的定量关系。被引 1 次。",
+   "abstract": "Abstract We present a quantum algorithm for portfolio optimisation. Specifically, We present an end-to-end quantum approximate optimisation algorithm to solve the discrete global minimum variance portfolio model. This model finds a portfolio of risky assets with the lowest possible risk contingent on the number of traded assets being discrete. We provide a complete pipeline for this model and analyse its viability for noisy intermediate-scale quantum computers. We design initial states, a cost operator, and ansätze within a binary encoding. Further, we perform numerical simulations to analyse several optimisation routines, including layerwise optimisation, utilising constrained optimisation by linear approximation and dual annealing. Finally, we consider the impacts of thermal relaxation and stochastic measurement noise. We find dual annealing with a layerwise optimisation routine provides the most robust performance. We observe that realistic thermal relaxation noise levels preclude quantum advantage. However, stochastic measurement noise will dominate when hardware sufficiently improves. Within this regime, we numerically demonstrate a favourable scaling in the number of shots required to obtain the global minimum—an indication of quantum advantage in portfolio optimisation.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "applications-classical-quantum-machine-learning-manufacturing-predictive-d6221",
    "title": "Applications of classical and quantum machine learning in manufacturing: predictive maintenance, scheduling and tribology",
    "titleZh": "经典与量子机器学习在制造业中的应用:预测性维护与摩擦学综述",
@@ -3184,6 +3275,40 @@
    "abstract": "The quantum approximate optimization algorithm (QAOA) has been suggested as a promising candidate for the solution of combinatorial optimization problems. Yet, whether—or under what conditions—it may offer an advantage compared with classical algorithms remains to be proven. Using the standard variational form of QAOA requires a high number of circuit parameters that have to be optimized at a sufficiently large depth, which constitutes a bottleneck for achieving a potential scaling advantage. The linear-ramp QAOA has been proposed to address this issue, as it relies on only two parameters that have to be optimized. Based on this, we develop a method to estimate suitable values for those parameters through extrapolation, starting from smaller problem sizes (number of qubits) toward larger problem sizes. We apply this method to several use cases, such as portfolio optimization, feature selection, clustering, and weighted maxcut. From results obtained on a noiseless quantum emulator, we evaluate the quantum runtime scaling for finding the optimal solution and compare it with that of classical methods. In the case of portfolio optimization, we demonstrate superior scaling compared with the classical runtime for the problem sizes of up to 28 qubits that we consider in this work.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "artificial-intelligence-financial-market-prediction-advancements-machine-41cee",
+   "title": "Artificial intelligence in financial market prediction: advancements in machine learning for stock price forecasting",
+   "titleZh": "金融市场预测中的AI:机器学习与量子计算进展综述",
+   "authors": [
+    "Arafat Rohan",
+    "Md. Deluar Hossen",
+    "Md. Nuruzzaman Pranto",
+    "Balayet Hossain",
+    "Areyfin Mohammed Yoshi",
+    "Rakibul Islam"
+   ],
+   "venue": "Frontiers in Artificial Intelligence",
+   "date": "2026-01-13",
+   "year": 2026,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.3389/frai.2025.1696423",
+   "url": "https://doi.org/10.3389/frai.2025.1696423",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "综述 AI(含量子机器学习)在金融市场预测中的进展,分析量子计算在时序预测中的理论优势与当前局限。被引 8 次。",
+   "abstract": "This study reviews the advancements in AI-driven methods for predicting stock prices, tracing their evolution from traditional approaches to modern finance. The role of AI in the market extends beyond predictive systems to encompass the intersection of financial markets with emerging technologies, such as blockchain, and the potential influence of quantum computing on economic modeling. A decentralized finance system examines the application of Reinforcement Learning in financial market prediction, highlighting its potential for continuous learning from dynamic market conditions. The study discusses the development of hybrid prediction models, stock market machine learning systems, and AI-driven investment portfolio management. The potential of quantum computing enhances portfolio analysis, fraud detection, optimization, and asset valuation for complex market predictions, as well as the impact of blockchain technologies on transparency, security, and efficiency. Machine learning techniques can significantly automate data collection and purification. Financial decision-making and the application of time-series analysis techniques can be readily learned through deep reinforcement learning for stock price prediction. Deep Neural Networks and Strategic Asset Allocation can be managed by evaluating performance and portfolio using real-time market insights from AI models. Although there are numerous ethical, sentimental, regulatory, and data quality issues in market prediction, the",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "quasi-combinatorial-microgrid-energy-optimization-secure-affine-3f3ff",
@@ -5608,6 +5733,50 @@
    ]
   },
   {
+   "id": "solving-multiple-discretization-portfolio-optimization-problem-quantum-fa614",
+   "title": "Solving Multiple Discretization Portfolio Optimization Problem with Quantum-Classical Hybrid Algorithms",
+   "titleZh": "多离散化投资组合优化问题的量子-经典混合求解",
+   "authors": [
+    "Haijing Wei",
+    "Yanbo J. Wang",
+    "Haoxiang Yang",
+    "Xuan Yang",
+    "Mingming Cao",
+    "Qi Xu",
+    "Minglei Cai",
+    "Yiduo Wang",
+    "Zhichao Mao",
+    "Xiaofeng Cao",
+    "Quanxin Mei",
+    "Jie Wang",
+    "Xiaojun Zhou",
+    "Lin Yao",
+    "W.-D. Zhao"
+   ],
+   "venue": "Computational Economics",
+   "date": "2025-07-31",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1007/s10614-025-11061-5",
+   "url": "https://doi.org/10.1007/s10614-025-11061-5",
+   "topics": [
+    "annealing",
+    "hardware",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "研究投资组合优化中资产离散化粒度对量子求解的影响:提出多离散化框架,在不同粒度层级下利用量子-经典混合求解器进行迭代优化。被引 1 次。",
+   "abstract": "Portfolio optimization (PO) plays a central role in finance, encompassing both resource allocation and risk management. While numerous algorithms have been developed for continuous-variable PO, the inclusion of large, indivisible assets such as real estate transforms the task into a combinatorial optimization problem, which is NP-hard for classical computers. This study explores using quantum-classical hybrid algorithms for multi-discretized portfolio optimization, addressing the needs of real-world applications. We propose a flexible theoretical model that can solve PO problems with various types of discrete assets and constraints, which is compatible with both quantum and classical computing paradigms. Then, we use the D-Wave quantum processor and classical solver to determine optimal investment strategies. Experimental results indicate that the hybrid quantum algorithm outperforms both classical computing methods and quantum annealing algorithms in terms of return and risk management. This research enhances quantum computing applications in finance and provides insights into future algorithm design.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "joint-optimal-design-speed-routing-maritime-logistics-c4271",
    "title": "Joint Optimal Design for Speed and Routing in Maritime Logistics for Green Supply Chain: A Quantum Approximate Optimization Algorithm Approach",
    "titleZh": "绿色供应链海运速度与路由的联合优化:QAOA方法",
@@ -6172,6 +6341,40 @@
    "abstract": "Abstract This study proposes a novel structural optimization framework based on quantum variational circuits, in which the multiplier acting on the cross-sectional area of each rod in a truss structure as an updater is used as a design variable. Specifically, we employ a classical processor for structural analysis with the finite element method, and the Quantum Approximate Optimization Algorithm (QAOA) is subsequently performed to update the cross-sectional area so that the compliance is minimized. The advantages of this framework can be seen in three key aspects. First, by defining design variables as multipliers, rather than simply reducing the design variable to a binary candidate of inclusion or exclusion (corresponding to qubit states, “0” and “1”), it provides greater flexibility in adjusting the cross-sectional area of the rod at each iteration of the optimization process. Second, the multipliers acting on rods are encoded with on-off encoding, eliminating additional constraints in the convergence judgement. As a result, the objective function is in a simple format, enabling efficient optimization using QAOA. Third, a fixed linear ramp schedule (FLRS) for variational parameter setting bypasses the classical optimization process, thereby improving the operational efficiency of the framework. In the two structural cases investigated in this study, the proposed approach highlights the feasibility and applicability potential of quantum computing in advancing engineering de",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "qfdnn-resource-efficient-variational-quantum-feature-deep-6a576",
+   "title": "QFDNN: A Resource-Efficient Variational Quantum Feature Deep Neural Networks for Fraud Detection and Loan Prediction",
+   "titleZh": "QFDNN:面向金融信用评分的资源高效变分量子特征深度神经网络",
+   "authors": [
+    "Subham Das",
+    "Ashtakala Meghanath",
+    "Bikash K. Behera",
+    "Shahid Mumtaz",
+    "Saif Al‐Kuwari",
+    "Ahmed Farouk"
+   ],
+   "venue": "IEEE Transactions on Computational Social Systems",
+   "date": "2025-06-18",
+   "year": 2025,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1109/tcss.2025.3568618",
+   "url": "https://doi.org/10.1109/tcss.2025.3568618",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出变分量子特征深度神经网络(QFDNN)用于金融信用评分:用量子特征映射增强输入表示,在资源受限条件下实现可比或更优的分类性能。被引 10 次。",
+   "abstract": "Social financial technology focuses on trust, sustainability, and social responsibility, which require advanced technologies to address complex financial tasks in the digital era. With the rapid growth in online transactions, automating credit card fraud detection and loan eligibility prediction has become increasingly challenging. Classical machine learning (ML) models have been used to solve these challenges; however, these approaches often encounter scalability, overfitting, and high computational costs due to complexity and high-dimensional financial data. Quantum computing (QC) and quantum machine learning (QML) provide a promising solution to efficiently processing high-dimensional datasets and enabling real-time identification of subtle fraud patterns. However, existing quantum algorithms lack robustness in noisy environments and fail to optimize performance with reduced feature sets. To address these limitations, we propose a quantum feature deep neural network (QFDNN), a novel, resource efficient, and noise-resilient quantum model that optimizes feature representation while requiring fewer qubits and simpler variational circuits. The model is evaluated using credit card fraud detection and loan eligibility prediction datasets, achieving competitive accuracies of 82.2% and 74.4%, respectively, with reduced computational overhead. Furthermore, we test QFDNN against six noise models, demonstrating its robustness across various error conditions. Our findings highlight QF",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "optimization-distribution-networks-quantum-annealing-loss-reduction-d16c3",
@@ -7021,6 +7224,34 @@
    ]
   },
   {
+   "id": "quantum-computing-financial-risk-measurement-indian-perspective-fd41f",
+   "title": "Quantum Computing for Financial Risk Measurement: An Indian Perspective",
+   "titleZh": "量子计算用于金融风险度量:印度视角",
+   "authors": [
+    "R CHAITHRAKALA"
+   ],
+   "venue": "International Journal For Multidisciplinary Research",
+   "date": "2025-04-24",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.36948/ijfmr.2025.v07i02.41165",
+   "url": "https://doi.org/10.36948/ijfmr.2025.v07i02.41165",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "从印度金融市场的实际数据出发,评估量子计算在金融风险度量(VaR、CVaR)中的应用潜力与当前局限。被引 1 次。",
+   "abstract": "Quantum computing has the potential to significantly transform financial risk measurement in India. It can improve the accuracy of models and accelerate complex calculations, leading to enhanced risk assessments and decision-making for financial institutions. This technology allows for real-time analysis of large datasets, which supports more proactive risk management strategies. Additionally, quantum computing can optimize portfolio management and improve algorithmic trading. Its unique features may also provide advancements in cryptography, thereby protecting financial data. As India adopts this technology, it is essential to create a strong framework for integrating quantum solutions into current financial systems.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "optimization-quantum-dilated-convolutional-neural-networks-image-c6e90",
    "title": "Optimization of Quantum Dilated Convolutional Neural Networks: Image Recognition With Quantum Computing",
    "titleZh": "量子膨胀卷积神经网络的优化:量子计算图像识别",
@@ -7140,6 +7371,35 @@
    "abstract": "Large language models (LLMs) have achieved remarkable outcomes in complex problems, including math, coding, and analyzing large amounts of scientific reports. Yet, few works have explored the potential of LLMs in quantum computing. The most challenging problem is to leverage LLMs to automatically generate quantum circuits at a large scale. Fundamentally, the existing pre-trained LLMs lack the knowledge of quantum circuits. In this paper, we address this challenge by fine-tuning LLMs and injecting the domain-specific knowledge of quantum computing. We describe Agent-Q, an LLM fine-tuning system to generate and optimize quantum circuits. In particular, Agent-Q implements the mechanisms to generate training data sets and constructs an end-to-end pipeline to fine-tune pre-trained LLMs to generate parameterized quantum circuits for various optimization problems. Agent-Q provides 14,000 quantum circuits covering a large spectrum of the quantum optimization landscape: 12 optimization problem instances and their optimized QAOA, VQE, and adaptive VQE circuits. Based thereon, Agent-Q fine-tunes LLMs and constructs syntactically correct parametrized quantum circuits in OpenQASM 3.0. We have evaluated the quality of the LLM-generated circuits and parameters by comparing them to the optimized expectation values and distributions. Experimental results show superior performance of Agent-Q, compared to several state-of-the-art LLMs and better parameters than random. Agent-Q can be integrated",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-differential-machine-learning-c3cf8",
+   "title": "Quantum Differential Machine Learning",
+   "titleZh": "量子微分机器学习",
+   "authors": [
+    "Takayuki Sakuma"
+   ],
+   "venue": "Quantum Economics and Finance",
+   "date": "2025-04-15",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1177/29767032251334589",
+   "url": "https://doi.org/10.1177/29767032251334589",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出量子微分机器学习框架:将量子线路视为可微分函数,通过参数移位规则计算梯度并端到端训练,为金融时序分析提供量子-经典混合的建模工具。被引 4 次。",
+   "abstract": "The application of quantum computing to finance has become an increasingly active area of research. In this paper, we explore the expressive potential of quantum machine learning as an alternative to classical differential machine learning. Efficient computation of sensitivities remains the main issue in financial risk management and we discuss how parameter-shift rules used in gradient-based optimization of quantum machine learning help learning option prices and their sensitivities efficiently. The proposed method can be regarded as quantum analogous to classical differential machine learning, so we refer to it as quantum differential machine learning. Delta of European option and vega of Bermudan swaption as examples of learning in parametric space and delta of basket option as an example of learning in sample space are examined in numerical experiments. Our results show that our proposed method paves the way for using quantum machine learning for option pricing and sensitivity calculation in financial risk management.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "bias-field-digitized-counterdiabatic-quantum-optimization-b8acd",
@@ -7472,6 +7732,36 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "factoring-decision-support-system-based-optimized-quantum-90709",
+   "title": "Factoring Decision Support System Based on Optimized Quantum Algorithms QMC",
+   "titleZh": "基于优化量子算法的保理决策支持系统",
+   "authors": [
+    "Aleksandr V. Chuvakov",
+    "Rodion O. Boryaev"
+   ],
+   "venue": "Informatics and Automation",
+   "date": "2025-04-01",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.15622/ia.24.2.11",
+   "url": "https://doi.org/10.15622/ia.24.2.11",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将保理业务中的信用风险评估与决策支持构建为 QUBO 问题,用量子优化算法求解,为供应链金融的智能决策提供量子计算新路径。被引 1 次。",
+   "abstract": "The continuous growth of financial markets dictates the need for its participants to seek new approaches to financial analysis to gain competitive advantages, including through the use of new approaches in the field of computing. Quantum computing can be used as a tool for obtaining these advantages over competitors. In particular, Monte Carlo modeling, although widely used in financial risk management, requires significant computing resources due to the large number of scenarios required to obtain an accurate result. To optimize this approach, quantum amplitude estimation algorithms are used, which accelerate this process if pre-calculated probability distributions are used to initialize input quantum states. However, in the absence of these distributions in existing approaches to this topic, they are generated numerically using classical computing, which completely negates the advantage of the quantum approach. This article proposes a solution to this problem by using quantum computing, including for the generation of probability distributions. The article discusses the creation of quantum circuits for modeling the evolution of risk factors over time for capital flows, interest rates, and credit risks, and presents the combination of these models with quantum amplitude estimation algorithms as an example of using the obtained algorithms for credit risk management. In conclusion, the article analyzes the possibility of using the obtained circuits in financial analysis.",
+   "source": "backfill",
+   "domains": [
+    "finance",
+    "logistics"
    ]
   },
   {
@@ -8418,6 +8708,36 @@
    "source": "backfill",
    "domains": [
     "logistics"
+   ]
+  },
+  {
+   "id": "advancing-financial-prediction-through-quantum-machine-learning-6dbda",
+   "title": "ADVANCING FINANCIAL PREDICTION THROUGH QUANTUM MACHINE LEARNING",
+   "titleZh": "通过量子机器学习推进金融预测",
+   "authors": [
+    "Ananya (Ph.D. Candidate) Patel"
+   ],
+   "venue": "International Journal of Intelligent Data and Machine Learning",
+   "date": "2025-02-01",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.55640/ijidml-v02i02-01",
+   "url": "https://doi.org/10.55640/ijidml-v02i02-01",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "研究量子机器学习方法在金融预测中的应用:涵盖量子支持向量机、量子神经网络与量子核方法在金融市场时序预测任务中的表现对比。被引 2 次。",
+   "abstract": "The growing complexity, interdependencies, and rapid fluctuations inherent in modern financial markets create substantial challenges for accurate forecasting, portfolio optimization, and risk management. Conventional machine learning techniques, while powerful, often face limitations in capturing nonlinear relationships and processing high-dimensional datasets efficiently. Quantum machine learning (QML) has emerged as a promising paradigm that leverages quantum computing principles to enhance predictive modeling in finance. This study presents a comprehensive investigation into the application of QML methods—including variational quantum circuits, quantum kernel estimation, and quantum-enhanced support vector machines—for financial time-series prediction and asset price classification. We propose a hybrid quantum-classical framework that integrates quantum feature mapping with classical optimizers to improve model expressiveness and convergence. Empirical experiments are conducted using historical stock market data and synthetic datasets to benchmark QML approaches against established classical models such as long short-term memory networks and gradient boosting machines. The results demonstrate that QML techniques can achieve superior prediction accuracy and lower computational latency under certain data regimes, particularly when dealing with small-to-medium-sized datasets and high feature correlations. Additionally, the study examines scalability considerations, hardware c",
+   "source": "backfill",
+   "domains": [
+    "finance"
    ]
   },
   {
@@ -10384,6 +10704,34 @@
    "domains": []
   },
   {
+   "id": "research-financial-market-prediction-model-based-big-ba126",
+   "title": "Research on Financial Market Prediction Model Based on Big Data and Quantum Computing",
+   "titleZh": "基于大数据与量子计算的金融市场预测模型",
+   "authors": [
+    "Hongwu Wang",
+    "Cheng Hong",
+    "Shaotao Zhu"
+   ],
+   "venue": "SPIN",
+   "date": "2024-11-14",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1142/s2010324724400101",
+   "url": "https://doi.org/10.1142/s2010324724400101",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "结合大数据处理与量子计算方法构建金融市场预测模型,利用量子并行性处理高维金融时序数据。被引 1 次。",
+   "abstract": "A financial market is a trading system for financial assets such as derivatives, stocks, currencies, and bonds. Financial markets, which can be virtual or physical, are essential to the world economy. Financial forecasting has become an enormous difficulty due to the markets’ quick internationalization and the volume of data gathered from various sources growing at an accelerating rate. The study explores the creation of a model for stock market forecasting that leverages the power of big data analytics and quantum computing (QC). By handling multifaceted datasets and achieving high-accuracy forecasting, big data and QC improve market trends and insights. This is achieved by leveraging QC speed-driven problem-solving capabilities. In this study, we proposed a novel Hippopotamus Optimized Quantum Refined Support Vector Machine (HO-QRSVM) to predict the financial market. The financial dataset came from several places, such as economic databases and stock exchanges. The preprocessed data from the acquired data were cleaned and normalized. To remove dimensionality and extract features from preprocessed data, principle component analysis (PCA) is used. The capacity of QC to handle entanglement and superposition enables the simultaneous investigation of several potential market situations, leading to faster convergence and more precise forecasts. The result demonstrated the proposed method has significant improvements in prediction accuracy compared to other traditional algorithms.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "efficient-digitized-counterdiabatic-quantum-optimization-algorithm-within-8e493",
    "title": "Efficient digitized counterdiabatic quantum optimization algorithm within the impulse regime for portfolio optimization",
    "titleZh": "脉冲区间内高效数字化反绝热量子优化算法用于投资组合优化",
@@ -11481,6 +11829,36 @@
    "abstract": "Quantum neural networks (QNNs) hold immense potential for complex tasks by harnessing quantum entanglement and superposition, such as physics simulation, artificial intelligence, and cryptography. However, the presence of quantum noise, stemming from hardware imperfections and environmental interactions, significantly reduces their practical performance. Moreover, the noise varies from different devices and shifts over time, necessitating continuous retraining models to chase and cater to the evolving noise, leading to high-computation costs. In this article, we presentQuST, a novel QNN robust training framework designed to handle the noise in a once-and-for-all manner, which can tackle both spatial and temporal biases to maintain the QNN model accuracy under ever-changing noise conditions. Our approach consists of three key components. First, we propose a metric called circuit sequence correctness (CSC) to characterize QNN circuit reliability in noisy environments. Then, we model CSC as a training weight to incorporate loss integration and utilize KL divergence to align noise inference with noise-free inference, thereby improving anti-noise capabilities. Furthermore, we introduce multiscale noise-aware training to enhance the model’s noise tolerance at various noise magnitudes. We conduct experiments on MNIST and fashion-MNIST datasets, along with 190-day historical noise simulations and one case study on 7 real IBMQ quantum computers. The results demonstrate 8.1%–15.1% and ",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "impact-quantum-computing-financial-risk-management-business-f1d5d",
+   "title": "The Impact of Quantum Computing on Financial Risk Management: A Business Perspective",
+   "titleZh": "量子计算对金融风险管理的影响:商业视角",
+   "authors": [
+    "Md. Ariful Islam",
+    "Syed Kamrul Hasan -",
+    "S. Priya",
+    "Ayesha Islam Asha -",
+    "Nishat Margia Islam -"
+   ],
+   "venue": "International Journal For Multidisciplinary Research",
+   "date": "2024-09-26",
+   "year": 2024,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.36948/ijfmr.2024.v06i05.28080",
+   "url": "https://doi.org/10.36948/ijfmr.2024.v06i05.28080",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "从商业视角分析量子计算对金融风险管理的影响:涵盖蒙特卡洛模拟加速、组合优化与风险度量改进三大应用方向,并给出金融机构的量子准备度评估框架。被引 5 次。",
+   "abstract": "The rapid advancement of quantum computing is poised to revolutionize industries, particularly in areas requiring complex computational power. This paper explores the potential impact of quantum computing on financial risk management from a business perspective. Traditional risk management models struggle to cope with the increasing complexity of global financial systems, making quantum computing a promising solution. By leveraging quantum algorithms, financial institutions can optimize risk assessment, enhance portfolio management, and significantly improve predictive models. This paper examines key algorithms and their applications in finance, discusses the challenges and opportunities in adopting quantum solutions, and presents case studies of early adopters. The findings suggest that quantum computing can offer a competitive advantage to businesses by providing superior risk analysis capabilities. However, limitations in technology, infrastructure, and expertise remain significant hurdles. This study contributes to the growing discourse on quantum computing by providing actionable insights for businesses looking to integrate quantum solutions into their risk management strategies.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "active-robustness-against-detuning-error-rydberg-quantum-82e15",
@@ -12927,6 +13305,62 @@
    "abstract": "In the last decade, quantum computing has showcased its unique mechanism across diverse fields, highlighting significant potential for data-driven applications requiring substantial computational resources. Within this landscape, quantum machine learning emerges as a promising frontier, poised to harness the unique advantages of quantum computing for machine learning tasks. Nonetheless, the current generation of quantum hardware, typified by noisy intermediate-scale quantum (NISQ) devices, grapples with severe resource constraints, particularly in terms of qubit availability. While quantum computing offers tantalizing capabilities such as superposition and entanglement, which can be strategically leveraged to optimize the performance of quantum neural networks, the challenge remains in mitigating the resource limitations while upholding high recognition accuracy. To address this imperative, we introduce a pioneering face recognition method christened the Multi-Gate Quantum Convolutional Neural Network (MG-QCNN). This innovation is engineered to surmount the resource bottleneck endemic to NISQ devices while preserving exceptional recognition accuracy. Our empirical investigations conducted on benchmark datasets, including the Yale face dataset and the ORL face database, illuminate the remarkable potential of this approach. Specifically, our proposed variational quantum circuit architecture consistently achieves an impressive average accuracy of 96%, which is better than the 95",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "portfolio-optimization-based-quantum-linear-algorithm-677e4",
+   "title": "Portfolio optimization based on quantum linear algorithm",
+   "titleZh": "基于量子线性算法的投资组合优化",
+   "authors": [
+    "Zhengming Guo",
+    "Tingting Song",
+    "Ge Lin"
+   ],
+   "venue": "Physica Scripta",
+   "date": "2024-06-26",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1088/1402-4896/ad5c1d",
+   "url": "https://doi.org/10.1088/1402-4896/ad5c1d",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "利用量子线性求解算法加速投资组合优化中的矩阵运算,为均值-方差模型的高效求解提供量子加速路径。被引 1 次。",
+   "abstract": "Abstract The rapid development of quantum computation has brought new possibilities to many fields. Especially in finance, quantum computing offers significant advantages. Recently, the portfolio optimization problem has been solved by a quantum algorithm with a mean-variance model with sparse data. However, the mean-variance model does not match the practice, and furthermore, the data is mostly dense. To fill the gap, we propose the Quantum-Enhanced Portfolio Optimization based on the mean-semi-variance model, where the mean-semi-variance model incorporates an optimized risk definition. The algorithm also effectively reduces the time complexity of solving high-dimensional linear systems and achieves sparsity independence.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
+   "id": "ntegrating-quantum-inspired-principles-into-financial-data-de811",
+   "title": "ntegrating Quantum-Inspired Principles into Financial Data Science: Optimizing Reservoir Computing Models",
+   "titleZh": "将量子启发原理融入金融数据科学:优化实践",
+   "authors": [
+    "J Akshaya"
+   ],
+   "venue": "INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT",
+   "date": "2024-06-26",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.55041/ijsrem36112",
+   "url": "https://doi.org/10.55041/ijsrem36112",
+   "topics": [
+    "quantum-ai",
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "探索量子启发原理(量子退火、张量网络)在金融数据科学中的应用,覆盖特征选择、组合优化与时序预测等任务。被引 1 次。",
+   "abstract": "This research explores the integration of quantum-inspired principles into financial data science with a focus on optimizing Reservoir Computing (RC) models. This approach aims to achieve a more nuanced representation of market states, improving accuracy in predicting stock price movements and capturing complex interdependencies among financial assets. Utilizing historical data from Yahoo Finance, implement and optimize RC models enhanced by Quantum State Model (QSM) and Entangled Asset Model (EAM) techniques. The results demonstrate the potential benefits and challenges of applying these quantum-inspired methods to financial data analysis. Keywords: Computational Intelligence, Financial Data Science, Quantum Computing, Quantum Machine Learning (QML), Reservoir Computing",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "enhanced-cardiovascular-disease-prediction-through-self-improved-d4a2e",
@@ -15925,6 +16359,35 @@
    ]
   },
   {
+   "id": "design-simulation-quantum-approximate-optimization-algorithms-portfolio-39ec4",
+   "title": "Design and Simulation of Quantum Approximate Optimization Algorithms for Portfolio Problems",
+   "titleZh": "面向投资组合优化的QAOA线路设计与仿真",
+   "authors": [
+    "Chun-Han Wu",
+    "Tian-Xiang Wei",
+    "Jia Liu",
+    "Shao-Jie Cai"
+   ],
+   "venue": "Journal of Intelligent Computing and Mathematics",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.55571/jicm.2024.03032",
+   "url": "https://doi.org/10.55571/jicm.2024.03032",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "设计面向投资组合优化的 QAOA 线路与参数策略,通过仿真评估电路深度、问题规模与最优解质量之间的定量关系。被引 1 次。",
+   "abstract": "This paper studies the application of quantum approximate optimization algorithm in portfolio optimization problem, and focuses on the real stock market, analyzes and quantifies the real data of ten stocks, compares the performance of quantum approximate optimization algorithm and classical algorithm in solving this problem, and also analyzes the effect of noise on the solution using quantum approximate optimization, showing the performance of quantum approximate optimization algorithm in the financial stock market and the The performance and application value of the quantum approximate optimization algorithm in the financial stock market are shown.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "next-generation-power-system-planning-operation-quantum-8f92c",
    "title": "Next Generation Power System Planning and Operation With Quantum Computation",
    "titleZh": "量子计算赋能下一代电力系统规划与运行",
@@ -16330,6 +16793,66 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "quantum-autoencoder-enhanced-fraud-detection-imbalanced-credit-f19d8",
+   "title": "Quantum Autoencoder for Enhanced Fraud Detection in Imbalanced Credit Card Dataset",
+   "titleZh": "量子自编码器增强的不平衡信用卡欺诈检测",
+   "authors": [
+    "Chansreynich Huot",
+    "Sovanmonynuth Heng",
+    "Tae-Kyung Kim",
+    "Youngsun Han"
+   ],
+   "venue": "IEEE Access",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 19,
+   "arxivId": "",
+   "doi": "10.1109/access.2024.3496901",
+   "url": "https://doi.org/10.1109/access.2024.3496901",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "将量子自编码器用于信用卡欺诈检测中的类别不平衡问题:通过量子电路对少数类样本进行特征重构与增强,在高不平衡度数据集上显著提升欺诈检测召回率。被引 19 次。",
+   "abstract": "Credit card fraud detection is crucial for financial security which entails identifying unauthorized transactions that can result in significant financial losses. Detection is inherently challenging due to the rarity and indistinguishability of fraudulent transactions from genuine ones, which makes it an anomaly detection problem. Traditional detection systems struggle with the highly imbalanced nature of transaction datasets, where genuine transactions vastly outnumber fraudulent cases. In response to these challenges, we propose a novel detection model utilizing Quantum AutoEncoders-based Fraud Detection (QAE-FD). Our approach leverages quantum computing principles to enhance anomaly detection capabilities by encoding transaction data into compressed quantum states and optimizing the model against a loss function that evaluates the fidelity in flagging fraudulent transactions. The efficacy of the QAE-FD model is tested on a real-world credit card transaction dataset, achieving a G-mean of 0.946 and an AUC of 0.947 which demonstrates superior performance compared to existing models. Our results indicate that QAE-FD has not only higher accuracy in fraud detection but also better computational efficiency. The integration of quantum autoencoders is a promising advancement in the field of anomaly detection for credit card fraud, addressing the limitations of imbalanced datasets and offering a scalable solution for real-time detection systems.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
+   "id": "analysis-quantum-computing-s-applicability-data-analysis-c0cab",
+   "title": "Analysis of Quantum Computing’s Applicability in Data Analysis: Utilizing a Hybrid MCDM Approach With Quantum Spherical Fuzzy Sets",
+   "titleZh": "量子计算在数据分析中的适用性:混合量子-经典方法研究",
+   "authors": [
+    "Phi-Hung Nguyen",
+    "The-Vu Pham",
+    "Lan-Anh Thi Nguyen",
+    "Samayan Narayanamoorthy",
+    "Thu-Hoai Thi Nguyen",
+    "Tra-Giang Vu"
+   ],
+   "venue": "IEEE Access",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1109/access.2024.3439629",
+   "url": "https://doi.org/10.1109/access.2024.3439629",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "系统评估混合量子-经典方法在数据分析任务中的适用性,分析量子内核方法与经典流水线的集成路径。被引 10 次。",
+   "abstract": "Quantum computing offers transformative processing capabilities, particularly in data analysis. However, its adoption in developing countries like Vietnam faces significant barriers, such as financial constraints, infrastructural limitations, and skill shortages. This study aims to determine and analyze these barriers’ impact weights and evaluate and rank potential solutions for overcoming the most critical barriers. This study proposes a multi-faceted approach integrating Multi-Criteria Decision Making (MCDM) methods, including the Delphi Method (DELPHI), Decision Making Trial And Evaluation Laboratory (DEMATEL), Combined Compromise Solution (COCOSO), Technique for Order Performance by Similarity to Ideal Solution (TOPSIS), and the Multiplicative form of Multi-objective Optimization based on Ratio Analysis method (MULTIMOORA), alongside the Quantum Spherical Fuzzy (QSF) set analysis. This combination, especially integrating QSF DELPHI and QSF COCOSO models, represents a significant methodological contribution. Results indicate that Vietnam’s primary barriers to quantum computing are limited infrastructure, high costs, and a lack of skilled workforce. Correspondingly, the most highly rated solution strategies are cost reduction initiatives, investment in infrastructure, and training and education programs, which should be prioritized and considered to remove potential barriers. These findings highlight the need to prioritize addressing issues in facilities, human resources, a",
+   "source": "backfill",
+   "domains": [
+    "finance"
    ]
   },
   {
