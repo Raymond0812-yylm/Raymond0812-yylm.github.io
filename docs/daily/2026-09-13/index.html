@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化） · 量子优化日报</title><meta name="description" content="用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&#34;大模型求解组合优化&#34;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&#34;口算&#34;答案，而是承担算法设计者的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。"><meta property="og:title" content="RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化） · 量子优化日报"><meta property="og:description" content="用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&#34;大模型求解组合优化&#34;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&#34;口算&#34;答案，而是承担算法设计者的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.CAmUjb2B.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-13</div> <h1>RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化）</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-13 · arXiv 预印本 · arXiv:2609.11452 / 2609.11153 / 2609.11723 · Binghao Ji, Di Huang, Jiahui Fang 等 4 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/routerepair-instance-level-failure-diagnosis-targeted-repair-8f8b9/" style="font-weight:700">RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化）</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&quot;大模型求解组合优化&quot;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&quot;口算&quot;答案，而是承担算法设计者的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/optimal-t-count-block-encodings-fermionic-spin-8f8b8/" style="font-weight:700">费米子与自旋哈密顿量块编码的最优 T 门计数</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">块编码（block encoding）是容错时代量子算法的底座：把哈密顿量&quot;装载&quot;进酉矩阵的左上角，量子信号处理（QSP）、量子奇异值变换（QSVT）等统一框架才能在其上展开——既服务于量子化学与晶格模拟，也是 Ising 型优化哈密顿量走向容错实现的必经之路。而块编码的 T 门数（T-count）直接决定容错机器上的真实成本：每个 T 门都要靠魔术态蒸馏供给，代价以物理比特和时间计。此前文献只给出了各种构造的上界，下界（理论上不可能再省多少）长期缺位。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/lifted-surgery-fast-processing-qldpc-codes-8f8ba/" style="font-weight:700">提升手术：QLDPC 码的快速码处理</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">QLDPC 码被普遍视为&quot;后表面码时代&quot;最有希望的容错架构——IBM、Amazon 等均已在路线图中押注。但 QLDPC 码的非局域、非平面结构使其码手术（code surgery，通过联合测量逻辑算子在码块间执行逻辑门/分裂/合并）远比表面码的晶格手术困难：既要并行、常数时间完成（否则相关误差累积），又要保持码的良好参数。本文在&quot;lifted surgery&quot;理论基础上建立了 Abelian 群代数码上快速并行码手术的一般框架，引入偏迹手术（partial trace surgery）、带横向 CNOT 的新…</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-13）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 13 日（周日，北京时间早间）</strong>。检索渠道：paper-distill MCP 多库聚合（arXiv/OpenAlex/Semantic Scholar/CrossRef 等）+ arXiv 官方新提交列表核验。</p>
+<ul>
+<li><strong>今日为周日，arXiv 公告批次继续暂停</strong>（美东周末不出新公告）。截至本报告生成时点，arXiv 最新公告批次仍为 <strong>Friday, 11 September 2026 批</strong>（quant-ph 新作 67 篇 + 跨类 24 篇，共 91 篇），该批次的头部论文已在 09-11、09-12 两期报告中覆盖（万光子 GBS、量子重叠间隙性质、分布式变分量子计算、表面码算法到执行框架、量子谱特征学习、Rb–Yb 异核里德堡门）。全新批次预计北京时间 <strong>09-14（周一）早晨</strong> 公开。</li>
+<li><strong>今日亮点：机器学习/大模型求解组合优化主题在连续两期&quot;缺位&quot;后迎来强作</strong>——cs.AI 跨类批次中的 RouteRepair（LLM 自动化启发式设计 + 实例级失败诊断与修复，清华团队）作为深度解读主打；另从 09-11 批次 quant-ph 中补选两篇前两期未覆盖的容错资源理论（块编码 T 计数紧下界）与 QLDPC 码操作（lifted surgery）新作作简要推荐。</li>
+<li>三篇论文均为 <strong>2026-09-10 UTC 提交、随 09-11 公告批次公开</strong>，时间戳如实标注（arXiv 官方记录，UTC；北京时间 = UTC+8）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：RouteRepair——让大模型设计路由启发式时学会&quot;复盘失败&quot;</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>RouteRepair: Instance-Level Failure Diagnosis and Targeted Repair in LLM-Based Automated Heuristic Design for Routing Optimization</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化）</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Binghao Ji, Di Huang, Jiahui Fang, Zhiyuan Liu（Zhiyuan Liu 团队长期深耕 LLM × 运筹优化/调度交叉方向）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（cs.AI 主类，cs.LG 跨类）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11452（v1，2026-09-10 12:21 UTC 提交，随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11452">https://arxiv.org/abs/2609.11452</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&quot;大模型求解组合优化&quot;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&quot;口算&quot;答案，而是承担<strong>算法设计者</strong>的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。</p>
+<p>但本文点破了该范式的共性盲区：现有方法几乎都采用<strong>实例级粗粒度评价</strong>——用一个启发式在整个测试问题集上的平均适应度来驱动演化，&quot;一俊遮百丑&quot;。其后果是：最终启发式整体分数漂亮，却在<strong>部分实例上反复失败</strong>，且失败模式代代相传、无从修复。而工业求解场景恰恰是逐实例交付的：一个日均千单的配送系统，平均最优性间隙再好看，卡死在 5% 的疑难实例上就是事故。如何把软件工程中&quot;定位失败 → 根因分析 → 定向修复&quot;的调试闭环搬进 LLM 启发式设计环路，正是本文要回答的问题。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>RouteRepair 的核心是在演化式设计框架中植入一条<strong>失败案例记忆 + 诊断 + 定向修复</strong>的旁路，形成&quot;整体演化保均值、失败修复保下限&quot;的双引擎：</p>
+<ol>
+<li><strong>失败案例记忆（failure case memory）</strong>：持续记录当前启发式求解失败的实例及其因果分析——失败不再是被平均掉的分母，而是被显式留存的一等公民资产；</li>
+<li><strong>LLM 根因分析与修复算子生成</strong>：每一代中，让 LLM 分析记忆库中失败实例的失败原因（如局部搜索陷入特定结构的最优陷阱、构造顺序在密集需求点上贪心失效等），并据此<strong>生成针对性的修复算子</strong>（repair operators）；</li>
+<li><strong>修复算子嵌入与增强启发式生成</strong>：将修复算子嵌入原启发式，产出增强版本，与整体演化搜索共同进入下一代选择——修复不是推倒重来，而是外科手术式的增量改造；</li>
+<li><strong>双问题 × 双范式验证</strong>：在 TSP 上改进引导局部搜索（GLS）这一&quot;改进型&quot;范式，在 CVRP 上改进从零构造路线的&quot;构造式&quot;范式，验证方法对两类主流优化范式的通用性。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>TSP（GLS 改进型）</strong>：引入失败诊断与修复后，平均最优性间隙从此前约 1.75% 降至 <strong>0.7587%</strong>，相比使用人工设计算子的强基线<strong>提升 42.61%</strong>——对一个已被多年调优的成熟启发式，这是罕见的单工作增益；</li>
+<li><strong>CVRP（构造式）</strong>：LLM 设计的构造启发式较经典 savings（节省值）启发式取得 <strong>1.91%</strong> 的路径成本改进；</li>
+<li><strong>方法学结论</strong>：将失败诊断纳入设计环路（而非仅靠整体适应度选择），是上述增益的主要来源——&quot;会复盘失败的设计者&quot;显著优于&quot;只看平均分的设计者&quot;。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>补齐本报 LLM × 组合优化主线的空位</strong>：09-11、09-12 两期扫描均注明&quot;LLM 求解组合优化直接相关论文缺位&quot;，本文是该主题一周以来最强的专门新作，且方法论上把领域从&quot;LLM 能否设计好启发式&quot;推进到&quot;LLM 如何系统性修复启发式的失败案例&quot;；</li>
+<li><strong>&quot;诊断—修复&quot;范式的方法论外溢</strong>：失败记忆 + 根因分析 + 定向修复的闭环，天然可迁移到量子-经典混合求解栈——QAOA 的参数迁移失败实例、量子退火的嵌入（minor-embedding）失败实例，同样存在&quot;平均好、个体崩&quot;的现象，failure memory + targeted repair 是直接可借鉴的设计模式；</li>
+<li><strong>对工业落地的启示</strong>：运筹优化采购决策看的是最差实例与服务水平协议（SLA），不是基准平均分。本文用 42.61% 的提升证明：<strong>修复失败案例的边际收益，可能远高于继续堆高平均性能</strong>——这对量子求解器走向实用化评估同样成立。</li>
+</ol>
+<hr>
+<h2>论文二：费米子与自旋哈密顿量块编码的最优 T 门计数——容错量子优化的&quot;资源底价&quot;</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Optimal T-Count for Block Encodings of Fermionic and Spin Hamiltonians</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>费米子与自旋哈密顿量块编码的最优 T 门计数</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Jiaxin Ma, Kevin J. Joven, Yuan Liu（量子模拟与线路综合/资源估计方向团队）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11153（v1，2026-09-10 07:01 UTC 提交，随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11153">https://arxiv.org/abs/2609.11153</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机（含核心内容）</h3>
+<p>块编码（block encoding）是容错时代量子算法的底座：把哈密顿量&quot;装载&quot;进酉矩阵的左上角，量子信号处理（QSP）、量子奇异值变换（QSVT）等统一框架才能在其上展开——既服务于量子化学与晶格模拟，也是 Ising 型优化哈密顿量走向容错实现的必经之路。而块编码的 T 门数（T-count）直接决定容错机器上的真实成本：每个 T 门都要靠魔术态蒸馏供给，代价以物理比特和时间计。此前文献只给出了各种构造的上界，<strong>下界（理论上不可能再省多少）长期缺位</strong>。</p>
+<p>本文建立一般性的<strong>辅助比特压缩定理</strong>（对一大类费米/自旋 Pauli 算子乘积是紧的），据此给出关键结果。</p>
+<h3>三、主要理论结果与意义</h3>
+<ul>
+<li><strong>最坏情形紧下界</strong>：二次量子化哈密顿量块编码的 T 门数满足 Ω(n²√log(n⁴/ε))，<strong>与现有最优上界匹配</strong>——意味着这类构造已到理论极限；</li>
+<li><strong>稀疏局域相互作用紧界</strong>：对 Kitaev 蜂窝哈密顿量、Fermi-Hubbard 有限 V 项等局域项稀疏的对象，给出 Θ(n + log(1/ε)) 的紧刻画；</li>
+<li><strong>对 QSVT 哈密顿模拟的直接推论</strong>：模拟该类晶格哈密顿量的现有最优 T 门数，<strong>最多只能再改进一个对数因子</strong>；若限定 Pauli 旋转类算法，<strong>最多再改进常数因子</strong>。</li>
+</ul>
+<p><strong>意义</strong>：与昨日（09-12 期）深度解读的表面码&quot;算法到执行&quot;框架形成完美对仗——那边是<strong>工程视角把资源上界压下来</strong>（时空体积最高降 241.5 倍），这边是<strong>数学视角划定资源下界的天花板</strong>。两者相加，&quot;容错量子优化何时值得跑&quot;这一判断才同时有了工程账本与理论底价。自旋哈密顿量正是组合优化（Max-Cut/Ising）成本函数的容错载体，本工作为 QAOA 之外的容错优化路线（QSVT/相位处理类）提供了不可再压缩的成本基准。</p>
+<hr>
+<h2>论文三：Lifted surgery——QLDPC 码上的快速&quot;码手术&quot;，轮数比表面码少 10 倍</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Lifted surgery: Fast processing with QLDPC codes</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>提升手术：QLDPC 码的快速码处理</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Lucas Berent, Lawrence Z. Cohen, Armanda O. Quintavalle 等（QLDPC 码译码与码操作理论方向活跃团队）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；量子纠错理论）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11723（v1，2026-09-10 15:40 UTC 提交，随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11723">https://arxiv.org/abs/2609.11723</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机（含核心内容）</h3>
+<p>QLDPC 码被普遍视为&quot;后表面码时代&quot;最有希望的容错架构——IBM、Amazon 等均已在路线图中押注。但 QLDPC 码的非局域、非平面结构使其<strong>码手术（code surgery，通过联合测量逻辑算子在码块间执行逻辑门/分裂/合并）<strong>远比表面码的晶格手术困难：既要并行、常数时间完成（否则相关误差累积），又要保持码的良好参数。本文在&quot;lifted surgery&quot;理论基础上建立了 <strong>Abelian 群代数码上快速并行码手术的一般框架</strong>，引入偏迹手术（partial trace surgery）、带横向 CNOT 的新型双变量自行车码族，以及</strong>首批量子径向码</strong>（quantum radial codes）。</p>
+<h3>三、主要结果与意义</h3>
+<ul>
+<li>构造出 <strong>[[90,8,10]] 与 [[198,8,16]]</strong> 两个新码：在可比逻辑性能（单轮误差与最差误差）下，码手术所需的<strong>校验子测量轮数比表面码手术少约 10 倍</strong>；</li>
+<li>轮数缩减直接转化为逻辑门操作的时间预算优势——对退相干时间有限的硬件是真金白银。</li>
+</ul>
+<p><strong>意义</strong>：本报 09-05 期以来持续跟踪&quot;容错架构工程化&quot;主线（表面码编译框架、[[4,2,2]] 码保护 QAOA、Floquet 码漏热抑制等），本工作补上了其中最理论化也最关键的一环：<strong>QLDPC 机器上的逻辑门操作原语</strong>。当产业界普遍把 QLDPC 视为下一代纠错架构时，&quot;能不能在它上面高效做手术&quot;决定这条路能否走通——本文给出了迄今最系统的肯定答案之一。</p>
+<hr>
+<p><em>本报告由 paper-distill 学术检索工具 + arXiv 官方公告列表核验生成；三篇论文均为 2026-09-11（周五）arXiv 公告批次中前两期未覆盖的新作（09-10 UTC 提交）。周日 arXiv 无新公告批次，下一批预计北京时间 09-14（周一）早晨公开。</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-12/">← 上一期(2026-09-12)</a> <a class="btn" href="https://arxiv.org/abs/2609.11452" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-13</span> · 共收录 593 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
