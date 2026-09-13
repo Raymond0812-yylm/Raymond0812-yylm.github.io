@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>噪声哈密顿量模拟中算法误差与物理误差的联合抑制 · 量子优化日报</title><meta name="description" content="近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&#34;夹击&#34;：一是算法误差——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是物理误差——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。"><meta property="og:title" content="噪声哈密顿量模拟中算法误差与物理误差的联合抑制 · 量子优化日报"><meta property="og:description" content="近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&#34;夹击&#34;：一是算法误差——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是物理误差——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.CAmUjb2B.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-14</div> <h1>噪声哈密顿量模拟中算法误差与物理误差的联合抑制</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-14 · arXiv 预印本 · arXiv:2609.11508 / 2609.11847 / 2609.11248 · Shuo Zhou, Xinzhao Wang, Ruiqi Zhang 等 7 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/joint-mitigation-algorithmic-physical-errors-noisy-hamiltonian-8f8b9/" style="font-weight:700">噪声哈密顿量模拟中算法误差与物理误差的联合抑制</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&quot;夹击&quot;：一是算法误差——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是物理误差——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/cost-simulating-classically-tractable-quantum-circuits-dynamics-8f8ba/" style="font-weight:700">经典可模拟量子线路与动力学的模拟成本</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">&quot;某量子线路存在多项式时间经典模拟算法&quot;是去量子化（dequantization）与量子优势论证交锋的核心判据。但本文点破一个被长期混淆的概念：多项式可经典模拟 ≠ 经典模拟实际上更便宜。作者引入三资源指标——量子样本复杂度、量子时间复杂度、经典模拟时间复杂度——系统比较&quot;跑在量子硬件上&quot;与&quot;经典模拟&quot;两条路线的真实开销。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/generative-replay-mitigates-sample-starvation-quantum-architecture-8f8b9/" style="font-weight:700">生成式回放缓解量子架构搜索中的样本饥饿（GenQAS）</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">变分量子算法的性能高度依赖线路结构（ansatz）的选择，量子架构搜索（QAS）因此用深度强化学习自动设计线路。但搜索空间随比特数指数膨胀，而每一步与真实量子硬件/模拟器的交互都昂贵——RL 智能体陷入&quot;样本饥饿&quot;（sample starvation），这是 QAS 规模化的第一瓶颈。GenQAS 的方案是&quot;少样本真数据 + 生成模型合成数据&quot;：先用矩阵乘积态（MPS）热启动初始化，再训练一个局部一步转移模型，从少量真实 state-action 种子批量生成合成转移样本，混入 Double DQN 的经验回放…</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-14）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 14 日（周一，北京时间早间）</strong>。检索渠道：paper-distill MCP 多库聚合（arXiv/OpenAlex/Semantic Scholar/CrossRef 等）+ arXiv 官方新提交列表核验（无缓存实时抓取）。</p>
+<ul>
+<li><strong>今日为周一，截至报告生成时点，arXiv 官方新公告批次尚未上线</strong>（最新公告批次仍为 Friday, 11 September 2026 批：quant-ph 新作 67 篇 + 跨类 24 篇）。09-11、09-12、09-13 三期已从该批次覆盖 9 篇头部论文（万光子 GBS、量子重叠间隙性质、分布式变分量子计算、表面码框架、量子谱特征学习、Rb–Yb 里德堡门、RouteRepair、块编码 T 计数、lifted surgery 等），本期从中再精选 <strong>三篇前三期均未覆盖的高质量新作</strong>，时间戳如实标注（arXiv 官方记录，UTC；北京时间 = UTC+8）。</li>
+<li><strong>今日亮点</strong>：腾讯量子实验室（Shengyu Zhang 团队）&quot;算法误差与物理误差联合抑制&quot;工作作为深度解读主打——理论协议 + 真实超导硬件实验 + 100 比特经典模拟三重验证；另有 Cerezo/Holmes 团队&quot;经典可模拟 ≠ 经典更划算&quot;的资源账本理论与 BMW 量子团队参与 的 GenQAS（生成式回放加速量子架构搜索）作简要推荐。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：噪声哈密顿量模拟中算法误差与物理误差的联合抑制——一次外推同时消掉两类误差</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Joint Mitigation of Algorithmic and Physical Errors in Noisy Hamiltonian Simulation</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>噪声哈密顿量模拟中算法误差与物理误差的联合抑制</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Shuo Zhou, Xinzhao Wang, Ruiqi Zhang, Xiaoyang Wang, Yi-Cong Zheng, Tongang Li, Shengyu Zhang（腾讯量子实验室；另挂 RIKEN-iTHEMS 报告号，Shengyu Zhang 为腾讯量子实验室负责人）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；理论 + 超导硬件实验）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11508（v1，2026-09-10 13:15 UTC 提交，随 09-11 公告批次公开；32 页）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11508">https://arxiv.org/abs/2609.11508</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&quot;夹击&quot;：一是<strong>算法误差</strong>——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是<strong>物理误差</strong>——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。</p>
+<p>但两条线各自外推的代价是<strong>电路设置数随外推维度平方级增长</strong>（步长 × 噪声强度两个维度组合），且更隐蔽的风险是：<strong>噪声会污染 Trotter 外推所依赖的信号本身</strong>——在含噪数据上做步长外推，得到的&quot;无算法误差极限&quot;其实还混着物理误差的残余。此前虽有若干&quot;含噪 Trotter 外推&quot;方案，但普遍只做数值演示，既缺理论资源保证，也未在真实硬件上端到端验证。本文要回答的正是：能否设计一个<strong>单次外推同时消除两类主阶误差</strong>的协议，并给出严格的理论开销刻画与硬件级验证。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>噪声-步长绑定的联合外推协议</strong>：核心构造是把每个 Trotter 层的可调噪声强度与步长&quot;锁死&quot;——令 λ(s) = c·(sT)^{p+1}（p 阶乘积公式，s 为步长缩放参数）。沿这条一维路径演化，物理噪声修正与 Trotter 修正<strong>在同一阶 O(s^p) 进入期望值</strong>，于是对参数 s 做一次标准的 Richardson 外推，即可同时消掉两类主阶误差——把二维外推坍缩成一维，电路设置数大幅下降；</li>
+<li><strong>基于 BCH 截断界的资源保证</strong>：利用 Baker–Campbell–Hausdorff 展开的截断误差界，为协议建立&quot;交换子标度&quot;（commutator scaling）式的理论保证；并证明在<strong>局域哈密顿量 + 局域 Lindblad 噪声</strong>模型下，该含噪外推协议相对无噪声情形的 Trotter 外推只有<strong>常数因子的渐近开销</strong>（前提是协议所需的噪声放大水平高于器件本底噪声）——即&quot;联合抑制几乎不额外付钱&quot;；</li>
+<li><strong>学习型噪声放大（learned noise amplification）</strong>：在真实超导量子计算机上演示 Ising 动力学时，用数据驱动的学习型噪声放大实现 λ(s) 的精确缩放，替代传统手工设计的脉冲折叠/门折叠方案；</li>
+<li><strong>大规模经典模拟对照</strong>：配套实现 100 比特 Sparse Pauli Dynamics（SPD）经典模拟器复现实验条件，并以&quot;二维 Richardson 外推&quot;（步长、噪声分别外推）为基线，验证联合协议用<strong>更少的电路设置</strong>达到同等精度。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>理论侧</strong>：给出联合外推协议的完整误差阶刻画——两类误差在绑定路径下同阶进入、一次外推同时消除；对局域模型证明相对开销为常数因子，把&quot;联合抑制&quot;从启发式技巧提升为有资源保证的方法；</li>
+<li><strong>实验侧</strong>：在真实超导量子处理器上完成 Ising 动力学模拟的全流程验证（学习型噪声放大 → 绑定路径采样 → 一维外推），误差抑制效果与理论预测一致；</li>
+<li><strong>模拟对照侧</strong>：100 比特 SPD 经典模拟复现整个实验设定，并演示在同等精度目标下，联合协议所需的电路设置数显著少于&quot;步长 × 噪声&quot;二维 Richardson 外推。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>NISQ 应用的&quot;精度经济学&quot;</strong>：本报持续跟踪量子-经典混合栈的成本账本（09-12 期表面码时空体积账本、09-13 期容错 T 计数下界），本期补上了<strong>含噪执行的精度账本</strong>——当每个数据点都要真金白银地在云硬件上付费时，&quot;电路设置数&quot;直接就是钱，一维外推对二维外推的替代是实打实的成本削减；</li>
+<li><strong>对 QAOA/变分优化的直接可迁移性</strong>：QAOA 的 p 层线路本质上就是 Trotter 型 ansatz，其精度同样受&quot;ansatz 深度误差 × 硬件噪声&quot;双重制约。把噪声强度与层深绑定的联合外推思路，原则上可平移到深度受限的量子优化线路，为&quot;噪声硬件上把 QAOA 解质量做实&quot;提供新工具；</li>
+<li><strong>&quot;理论—真实硬件—大规模经典模拟&quot;三位一体的验证方法论</strong>：这一工作范式（协议有理论保证、硬件实验端到端、经典模拟可复现对照）值得国内量子软件团队借鉴——尤其是 SPD 模拟器作为&quot;数字孪生&quot;评估协议设计，正在成为变分/模拟类研究的标准配置。</li>
+</ol>
+<hr>
+<h2>论文二：经典可模拟量子线路的模拟成本——&quot;可经典模拟&quot;不等于&quot;经典更划算&quot;</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>The cost of simulating classically tractable quantum circuits and dynamics</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>经典可模拟量子线路与动力学的模拟成本</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Su Yeon Chang, Supanut Thanasilp, Zoë Holmes, M. Cerezo（洛斯阿拉莫斯国家实验室 + Velocity Lake Research；Cerezo 为变分量子算法/贫瘠高原理论代表学者）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；量子算法理论）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11847（v1，2026-09-10 17:34 UTC 提交，随 09-11 公告批次公开；50 页）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11847">https://arxiv.org/abs/2609.11847</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机（含核心内容）</h3>
+<p>&quot;某量子线路存在多项式时间经典模拟算法&quot;是去量子化（dequantization）与量子优势论证交锋的核心判据。但本文点破一个被长期混淆的概念：<strong>多项式可经典模拟 ≠ 经典模拟实际上更便宜</strong>。作者引入三资源指标——量子样本复杂度、量子时间复杂度、经典模拟时间复杂度——系统比较&quot;跑在量子硬件上&quot;与&quot;经典模拟&quot;两条路线的真实开销。</p>
+<p>主要发现：即便存在多项式时间经典模拟算法，量子硬件执行仍可能更快/更省；反过来经典模拟也可能大幅占优。关键变量包括：刻画未知输入态需要消耗大量量子测量样本（量子样本复杂度与经典模拟时间的此消彼长），以及在当前云量子硬件按时长计费的现实价格体系下，模拟类任务在硬件上执行的经济性常常被低估。<strong>结论：仅凭&quot;经典可模拟&quot;这一渐近判据，不足以决定实现路线的选择。</strong></p>
+<h3>三、主要结果与意义</h3>
+<ul>
+<li>给出&quot;可模拟性 vs 资源成本&quot;的分离式刻画：渐近可模拟性与实际资源优势是两个独立问题，必须看常数因子、采样成本与计费模型的组合；</li>
+<li>对本报读者的直接启示：评估量子优化/模拟应用（如 QAOA、VQE 基准实验）时，&quot;张量网络能模拟它&quot;的新闻式结论并不自动否定硬件路线——同理，&quot;硬件上跑通了&quot;也不等于经济上成立。这与本报 09-07 期（准蒙特卡洛的预渐近优势窗口）共同构成&quot;量子优势要看预渐近账本&quot;的方法论主线。</li>
+</ul>
+<hr>
+<h2>论文三：GenQAS——生成式回放缓解量子架构搜索中的&quot;样本饥饿&quot;</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Generative Replay Mitigates Sample Starvation in Quantum Architecture Search</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>生成式回放缓解量子架构搜索中的样本饥饿（GenQAS）</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Akash Kundu, Amit Kumar Jaiswal, Sebastian Feld, Prayag Tiwari（Sebastian Feld 属 BMW 集团量子技术团队）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph × 机器学习交叉）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.11248（v1，2026-09-10 22:15 UTC 提交，随 09-11 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.11248">https://arxiv.org/abs/2609.11248</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机（含核心内容）</h3>
+<p>变分量子算法的性能高度依赖线路结构（ansatz）的选择，量子架构搜索（QAS）因此用深度强化学习自动设计线路。但搜索空间随比特数指数膨胀，而每一步与真实量子硬件/模拟器的交互都昂贵——RL 智能体陷入&quot;样本饥饿&quot;（sample starvation），这是 QAS 规模化的第一瓶颈。GenQAS 的方案是&quot;<strong>少样本真数据 + 生成模型合成数据</strong>&quot;：先用矩阵乘积态（MPS）热启动初始化，再训练一个局部一步转移模型，从少量真实 state-action 种子批量生成合成转移样本，混入 Double DQN 的经验回放池，大幅降低真实交互需求。</p>
+<h3>三、主要结果与意义</h3>
+<ul>
+<li>在 6/8/10/12 比特化学哈密顿量基准上，固定交互预算内的基态搜索成功率显著提升，12 比特体系最高提升约 <strong>7 倍</strong>；15 比特横场 Ising（TFIM）基准成功率从 <strong>12% 提升到 21%</strong>；噪声 6 比特 BeH₂ 分子上达到化学精度所需步数减少 <strong>92.7%</strong>；</li>
+<li>与 09-13 期 RouteRepair 形成&quot;经典 ML 增强量子/优化设计环路&quot;的连续剧：那边用<strong>失败案例记忆</strong>修复 LLM 启发式，这边用<strong>生成式回放</strong>喂饱 RL 架构搜索——两者共同指向一个趋势：在量子-经典混合栈中，让经典机器学习承担尽可能多的试错成本，把昂贵的量子交互留给最终验证。</li>
+</ul>
+<hr>
+<p><em>本报告由 paper-distill 学术检索工具 + arXiv 官方公告列表核验生成；三篇论文均为 2026-09-11（周五）arXiv 公告批次中前三期（09-11/09-12/09-13）未覆盖的新作（2026-09-10 UTC 提交）。截至生成时点周一新公告批次尚未上线，下一批预计北京时间 09-15（周二）早晨公开。</em></p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-13/">← 上一期(2026-09-13)</a> <a class="btn" href="https://arxiv.org/abs/2609.11508" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-14</span> · 共收录 596 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
