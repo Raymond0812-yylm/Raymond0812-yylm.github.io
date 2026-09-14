@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>量子计算机算力的基准测试：QUOPS 跨平台度量体系与通往容错量子计算之路 · 量子优化日报</title><meta name="description" content="量子硬件正快速逼近&#34;utility（实用价值）规模&#34;，但各家平台的比特数、保真度、连通性、体系结构（超导/离子阱/中性原子）差异巨大，厂商宣传口径互不兼容——&#34;105 比特&#34;与&#34;56 比特&#34;谁更强？&#34;每秒门数&#34;高是否等于算力强？目前业界缺少一个与真实计算任务挂钩、可跨平台公平比较的算力度量。量子体积（QV）曾在 NISQ 早期承担这一角色，但其方形约束（宽度=深度）在高保真平台上迅速饱和，且无法回答&#34;这台机器离跑通 RSA 分解/量子化学还有多远&#34;这一工程决策最关心的问题。"><meta property="og:title" content="量子计算机算力的基准测试：QUOPS 跨平台度量体系与通往容错量子计算之路 · 量子优化日报"><meta property="og:description" content="量子硬件正快速逼近&#34;utility（实用价值）规模&#34;，但各家平台的比特数、保真度、连通性、体系结构（超导/离子阱/中性原子）差异巨大，厂商宣传口径互不兼容——&#34;105 比特&#34;与&#34;56 比特&#34;谁更强？&#34;每秒门数&#34;高是否等于算力强？目前业界缺少一个与真实计算任务挂钩、可跨平台公平比较的算力度量。量子体积（QV）曾在 NISQ 早期承担这一角色，但其方形约束（宽度=深度）在高保真平台上迅速饱和，且无法回答&#34;这台机器离跑通 RSA 分解/量子化学还有多远&#34;这一工程决策最关心的问题。"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.CAmUjb2B.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-15</div> <h1>量子计算机算力的基准测试：QUOPS 跨平台度量体系与通往容错量子计算之路</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-15 · arXiv 预印本 · arXiv:2609.12146 / 2609.13065 / 2609.12172 · Timothy Proctor, Oliver Hart, Oliver Widzowski Maupin 等 6 人 </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/benchmarking-computational-power-quantum-computers-8f8c0/" style="font-weight:700">量子计算机算力的基准测试：QUOPS 跨平台度量体系与通往容错量子计算之路</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">量子硬件正快速逼近&quot;utility（实用价值）规模&quot;，但各家平台的比特数、保真度、连通性、体系结构（超导/离子阱/中性原子）差异巨大，厂商宣传口径互不兼容——&quot;105 比特&quot;与&quot;56 比特&quot;谁更强？&quot;每秒门数&quot;高是否等于算力强？目前业界缺少一个与真实计算任务挂钩、可跨平台公平比较的算力度量。量子体积（QV）曾在 NISQ 早期承担这一角色，但其方形约束（宽度=深度）在高保真平台上迅速饱和，且无法回答&quot;这台机器离跑通 RSA 分解/量子化学还有多远&quot;这一工程决策最关心的问题。</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/error-correction-distributed-quantum-computer-8f8c7/" style="font-weight:700">分布式量子计算机中的纠错：两模块离子阱处理器间远程稳定子测量的首次实验演示</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">规模化容错量子计算机面临&quot;鱼与熊掌&quot;困境：单芯片物理比特数受控 制线缆与光学窗口拥挤的限制；而高效 qLDPC 码又需要非局域连通。把量子比特分布到多个处理器、用光子互联提供远程纠缠链路，被普遍视为兼顾两者的架构方向（Quantinuum、IonQ、PsiQuantum 均在推），但其前提——跨处理器的稳定子测量——此前从未在实验上实现过。本文补上了这块最关键的实验空白。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/parallel-circuit-execution-scalable-quantum-computation-8f8c0/" style="font-weight:700">面向可扩展量子计算的并行电路执行：误差与拓扑感知的多电路分区调度</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">### 一、论文基本信息</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-15）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 15 日（周二，北京时间）</strong>。检索渠道：paper-distill MCP 多库聚合（arXiv/OpenAlex/Semantic Scholar/CrossRef 等）+ arXiv 官方新公告列表核验（无缓存实时抓取）。</p>
+<ul>
+<li>arXiv 最新公告批次（美东 9 月 14 日 20:00 上线，即北京时间今晨）共含 quant-ph 新作 46 篇，09-11 至 09-14 各期均未覆盖该批次，本期从中精选三篇。<strong>如实说明</strong>：本批次中 QAOA/量子退火/量子组合优化方向无新作（此前批次的 GNN 引导 QUBO 车辆调度、Snapshot-QAOA 等已在此前各期与扩库中覆盖），大模型求解组合优化方向最新成果仍停留在 9 月上旬批次（RouteRepair 已于 09-13 期覆盖），故今日主打<strong>量子硬件平台</strong>方向：桑迪亚+Quantinuum+Google 的跨平台算力基准 QUOPS 作为深度解读，牛津大学分布式量子纠错首验、IBM 并行电路执行作简要推荐。时间戳如实标注（arXiv 官方记录，UTC；北京时间 = UTC+8）。</li>
+<li><strong>今日亮点</strong>：三大头部平台（Google Willow / IBM / Quantinuum）首次被同一把&quot;尺子&quot;量化——当前最好成绩距 RSA-2048 分解等实用挑战问题还差约 5 个数量级，且物理比特路线外推到 2050 年后也补不齐缺口，容错才是唯一通路；牛津团队则在两个离子阱模块间用光子互联完成了史上首次分布式量子纠错实验。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：量子计算机算力基准测试 QUOPS——用同一把尺子丈量 Google、IBM 与 Quantinuum，距实用挑战仍差五个数量级</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Benchmarking the computational power of quantum computers</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子计算机算力的基准测试：QUOPS 跨平台度量体系与通往容错量子计算之路</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Timothy Proctor, Oliver Hart, Oliver Widzowski Maupin, Matthew Girling, …, Robin Blume-Kohout（共 30 位作者；以美国桑迪亚国家实验室（Sandia）团队为核心，联合 Quantinuum 与 Google Quantum AI 研究人员）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph，交叉 cs.ET/cs.PF；跨平台实验基准工作）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.12146（v1，2026-09-10 19:24 UTC 提交，随美东 09-14 公告批次公开，北京时间 09-15 早间可检索）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.12146">https://arxiv.org/abs/2609.12146</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>量子硬件正快速逼近&quot;utility（实用价值）规模&quot;，但各家平台的比特数、保真度、连通性、体系结构（超导/离子阱/中性原子）差异巨大，厂商宣传口径互不兼容——&quot;105 比特&quot;与&quot;56 比特&quot;谁更强？&quot;每秒门数&quot;高是否等于算力强？目前业界缺少一个<strong>与真实计算任务挂钩、可跨平台公平比较</strong>的算力度量。量子体积（QV）曾在 NISQ 早期承担这一角色，但其方形约束（宽度=深度）在高保真平台上迅速饱和，且无法回答&quot;这台机器离跑通 RSA 分解/量子化学还有多远&quot;这一工程决策最关心的问题。</p>
+<p>本文的动机正是补上这块拼图：定义一个既能刻画&quot;最大可成功执行的计相关电路规模&quot;、又能刻画&quot;执行速度&quot;的双指标体系，并<strong>在同一套协议下实测三家头部平台</strong>——Google Willow（超导，105 比特）、IBM ibm_boston（超导，156 比特）、Quantinuum H2-1 与 Helios-1（离子阱，56/98 比特），进而把公认挑战问题（Shor 分解 RSA-2048、FeMoco 化学体系模拟）的资源需求折算到同一坐标上，给出&quot;距离实用还有多远&quot;的定量答案。这类工作的政策含义同样重大：它直接影响美国政府 CHIPS 量子专项与各大厂商容错路线图的投资节奏判断。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>QUOPS 指标定义</strong>：QUOPS（quantum universal operation performance system）测量机器能成功执行的&quot;最大计相关随机电路&quot;的规模 s。电路由随机单比特旋转 R_P(θ) 与 CNOT 交替层构成，宽度 w 与规模 s 需落在&quot;可采纳锥&quot; w² ≤ s ≤ w³ 内（排除过浅或过窄的&quot;表演型&quot;电路）。成功判据为平均过程极化度 γ̄ ≥ 1/√e（约 61%，即缩放的保真度）且置信度 95%；规模 s 按单比特门计 1、CNOT 计 2 折算为&quot;门当量&quot;。</li>
+<li><strong>QUOPS 速率（吞吐）指标</strong>：Ω = 2s·γ̄²/τ_wall 量级的形式，即原始每秒操作数乘以 γ̄²——刻意用极化度平方惩罚误差，以反映误差缓解所需的采样开销（误差越大，等价&quot;干净&quot;结果所需重跑次数越多）。</li>
+<li><strong>误差缓解扩展</strong>：把成功阈值放宽到 α &lt; 1/√e（如 α=1%，对应约 10⁴ 采样开销），得到&quot;误差缓解版&quot;QUOPS 分数——刻画 ZNE/概率误差消除等方法能把平台&quot;虚拟算力&quot;抬高多少。</li>
+<li><strong>挑战问题资源折算</strong>：将 Shor 算法分解 RSA-2048（宽 1399、约 7×10⁸ Toffoli）与 FeMoco 基态能量（宽 1459、约 10⁹ Toffoli）通过 Toffoli→T 门转化与非 Clifford 门旋转合成，折算成&quot;完成 5 天时限任务所需的 QUOPS 分数与速率&quot;目标线。</li>
+<li><strong>容错外推</strong>：在 Quantinuum Helios-1 上实际运行最多 8 个 ⟦7,1,3⟧ Steane 码逻辑比特的容错基准（Clifford 门横向实现、T 门经魔法态注入辅助块），并以 FLASQ 表面码模拟器与全连接容错架构模型外推下一代容错平台的 QUOPS 水平。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ul>
+<li><strong>物理比特实测分数</strong>（Table 1）：Google Willow 216 QUOPS @ 2.0×10⁷ QUOPS/s；IBM ibm_boston 204 @ 3.1×10⁵/s；Quantinuum H2-1 1320 @ 353/s；Helios-1 1504 @ 303/s（加漏热后选择可达 1824 @ 247/s）。呈现清晰格局：<strong>超导平台速率高出离子阱 3~5 个数量级，离子阱在&quot;能成功执行的电路规模&quot;上反超约一个数量级</strong>——两类路线的互补性首次被同一指标量化。</li>
+<li><strong>误差缓解抬分</strong>：α=1%（开销 10⁴）时分数提升 3<del>11 倍（Willow 651、ibm_boston 899、H2-1 7796、Helios-1 20442），但速率损失 3</del>4 个数量级（如 Helios-1 降至 0.29 QUOPS/s）——&quot;虚拟扩规模&quot;与&quot;实际吞吐&quot;不可兼得。</li>
+<li><strong>距实用挑战的缺口</strong>：RSA-2048 分解需约 2.5×10⁸ QUOPS、FeMoco 需约 3.4×10⁸ QUOPS，对照当前最高 1504 分，<strong>差距约五个数量级</strong>；而速率维度当前机器已接近或达到任务需求——瓶颈在&quot;规模&quot;而非&quot;速度&quot;。</li>
+<li><strong>物理比特天花板</strong>：物理（非容错）平台的 QUOPS 分数上限受错误率约束（约 1/(2ε)），与比特数量无关：度 4 格点架构约 330 QUOPS、全连接架构约 10⁴ QUOPS。按 Quantinuum 每 ~1.4 年、IBM 每 ~2.1 年的分数翻倍趋势外推，<strong>纯物理比特路线要到 2050–2070 年才能达到实用线</strong>——容错不是选项而是必经之路。</li>
+<li><strong>容错逻辑比特实测</strong>：Helios-1 上 8 个 ⟦7,1,3⟧ 逻辑比特取得 40 QUOPS @ 4.9 QUOPS/s（迭代改进：初版 24 分 → 优化魔法态与随机化后 40 分、速率 1.3→4.9）；外推显示 1000–5000 物理比特上 20–30 个逻辑比特即可突破 10⁴ QUOPS，超过物理架构理论上限。</li>
+</ul>
+<h3>五、对研究领域的意义与启示</h3>
+<p>这是<strong>首个由国家级实验室牵头、同时拿到 Google/IBM/Quantinuum 三大家头部真机数据的统一算力基准</strong>，其意义超出一次&quot;跑分&quot;：其一，QUOPS 把&quot;能跑多大的电路&quot;与&quot;跑多快&quot;解耦为双指标，戳破了单一维度营销话术——离子阱规模领先、超导速度领先，没有&quot;全能王&quot;；其二，&quot;五个数量级缺口 + 物理比特理论上限&quot;的定量结论，为&quot;容错优先&quot;的路线共识提供了硬数据支撑，也解释了美国商务部为何以 CHIPS 专项真金白银押注容错制造（PsiQuantum/Quantinuum/D-Wave/Rigetti 各 1 亿美元）；其三，对优化算法研究者，该基准给出了清醒的坐标——当前真机上&quot;能成功执行的最大计相关电路&quot;仍在千级门当量，QAOA/量子退火等组合优化方案在近期的价值在于小规模可验证原型与混合架构，大规模突破须与纠错/缓解协同设计。QUOPS 已开源进 Sandia 基准体系，大概率成为继 QV 之后新的行业事实标准，值得持续跟踪其年度更新曲线。</p>
+<hr>
+<h2>论文二：史上首次分布式量子纠错实验——牛津团队用光子互联&quot;缝合&quot;两台离子阱量子计算机</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Error Correction in a Distributed Quantum Computer</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>分布式量子计算机中的纠错：两模块离子阱处理器间远程稳定子测量的首次实验演示</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>E. M. Ainley, A. Agrawal, T. Araki, A. R. Martínez, D. Main, …, S. C. Benjamin, D. M. Lucas（共 15 位作者，英国牛津大学离子阱团队）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；实验演示，11 页）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.13065（v1，2026-09-11 17:03 UTC 提交，随美东 09-14 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.13065">https://arxiv.org/abs/2609.13065</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机 + 核心方法</h3>
+<p>规模化容错量子计算机面临&quot;鱼与熊掌&quot;困境：单芯片物理比特数受控 制线缆与光学窗口拥挤的限制；而高效 qLDPC 码又需要非局域连通。把量子比特分布到多个处理器、用<strong>光子互联</strong>提供远程纠缠链路，被普遍视为兼顾两者的架构方向（Quantinuum、IonQ、PsiQuantum 均在推），但其前提——<strong>跨处理器的稳定子测量</strong>——此前从未在实验上实现过。本文补上了这块最关键的实验空白。</p>
+<p>团队在两个独立的囚禁离子（⁴⁰Ca⁺）处理器模块之间建立远程纠缠，用网络比特的纠缠对作为&quot;总线&quot;，对分布在两个模块中的数据比特执行远程稳定子测量；进一步将中途电路测量（mid-circuit measurement）与实时前馈（real-time feedforward）结合。</p>
+<h3>三、主要结果与意义</h3>
+<p>实验实现了<strong>分布式 [[2,1,1]] 重复码</strong>：对一个&quot;半边在模块 A、半边在模块 B&quot;的逻辑比特实时捕获相位翻转错误并降低逻辑错误率；随后在中路测量+实时前馈加持下，对分布式 Bell 态上的任意单比特泡利错误实施主动纠正。作者将其定位为<strong>首个分布式量子纠错与检错的实验演示</strong>，为模块化量子架构（含高码率 qLDPC）铺路。与今日论文一的 QUOPS 结论互相印证：物理比特天花板确定后，&quot;多模块 + 容错&quot;是通往 10⁴ QUOPS 以上算力的工程主线；对国内离子阱与光互联团队（如中电信量子的天衍平台路线）亦有直接参考价值。</p>
+<hr>
+<h2>论文三：IBM 156 比特机上的&quot;并行电路执行&quot;——按拓扑切片同跑多任务，计费时间砍 3.5~5.5 倍</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Parallel Circuit Execution for Scalable Quantum Computation</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>面向可扩展量子计算的并行电路执行：误差与拓扑感知的多电路分区调度</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Avimita Chatterjee, W. Michael Brown, Siyuan Niu, W. Albert de Jong, Thomas Lubinski（IBM / QED-C 量子经济联盟基准工作组）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph；真机实验 + HPC 模拟）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.12172（v1，2026-09-10 20:00 UTC 提交，随美东 09-14 公告批次公开）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.12172">https://arxiv.org/abs/2609.12172</a></td>
+</tr>
+</tbody></table>
+<h3>二、方法与结果（简要）</h3>
+<p>现代量子处理器虽有上百物理比特，但能可靠执行任意线路的纠缠比特不足 30 个，大量芯片面积在单任务运行时被闲置。本文提出<strong>误差与拓扑感知的分区调度</strong>：把多条相互独立的电路映射到同一块大 QPU 的互不重叠区域上同时执行。在 IBM 156 比特 ibm_boston 上用 QED-C 应用基准与哈密顿量模拟负载实测：相较顺序执行，<strong>计费执行时间缩短 3.5<del>5.5 倍，同时保留 83%</del>92% 的顺序执行保真度</strong>。团队还在 NERSC Perlmutter 超算上用 CUDA-Q 做了 GPU 分布式模拟对照（16 块 GPU 加速 13.8 倍、并行效率 86%），该能力已作为运行时选项并入 QED-C 开源基准套件。</p>
+<h3>三、意义（简要）</h3>
+<p>这是&quot;用系统软件榨干硬件&quot;的典型工程红利：不改一行硬件、不增一个比特，仅靠调度就把云量子算力的单位成本压缩过半，对 QAOA 参数扫描、VQE 采样等&quot;多电路批处理&quot;型负载（恰是量子优化的主流形态）收益最直接；也与论文一 QUOPS 速率指标强调的&quot;吞吐才是实用瓶颈&quot;形成呼应——容错到来之前，编译器与调度器的角色被重新抬高。</p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-14/">← 上一期(2026-09-14)</a> <a class="btn" href="https://arxiv.org/abs/2609.12146" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-15</span> · 共收录 609 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
