@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-16",
+ "updated": "2026-09-17",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -1608,6 +1608,33 @@
    "domains": []
   },
   {
+   "id": "gatekeepers-hallucinations-layered-evaluation-framework-llm-driven-b3a38",
+   "title": "Gatekeepers and Hallucinations: A Layered Evaluation Framework for LLM-Driven Quantum Circuit Generation",
+   "titleZh": "Gatekeepers and Hallucinations:LLM驱动量子线路生成的分层评估框架",
+   "authors": [
+    "Christopher Coleman",
+    "Sharon Marfatia"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.18422",
+   "doi": "10.48550/arXiv.2606.18422",
+   "url": "https://arxiv.org/abs/2606.18422",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出针对 LLM 生成量子线路的分层评估框架:不仅检验功能正确性,还提前捕获结构化错误(幻觉门、无效参数组合)在其传播到昂贵流水线之前。该工作解决了 LLM 自动化量子算法设计中最关键的质量控制问题,发表于 arXiv 2026。",
+   "abstract": "As large language models (LLMs) become embedded in quantum simulation workflows (IDE copilots, notebook assistants, agentic pipelines), evaluation must move beyond functional correctness to anticipate and catch structured failures before they propagate through expensive pipelines. We present a layered evaluation framework for materials-informed Variational Quantum Eigensolver (VQE) circuit generation: (i) a gatekeeper screening rubric across seven physical and framework criteria; (ii) a circuit fidelity analysis comparing model outputs against analytical and reference-implementation values for H2/STO-3G/Jordan-Wigner/UCCSD, with ansatz classification and gate-composition breakdown; and (iii) design entropy, a run-to-run behavioral consistency metric. We surface a taxonomy of five distinct LLM failure modes (geometry hallucination, nonexistent API usage, runtime integration failures, constraint violations, and plausible-but-unverifiable output), each with distinct detectability profiles and structural to the task rather than to any one model. A forensic audit of the evaluation platform's own source code further establishes that two apparent model failures originated in the harness through silent fallback-template substitution, demonstrating that evaluation infrastructure belongs inside the same trust boundary as the models it tests. Applied across multiple foundation models on a Materials Project integrated pipeline, the framework shows that gatekeeper-style validation is nece",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "q-ready-predictive-feasibility-assessment-hybrid-quantum-c697f",
    "title": "Q-READY: Predictive Feasibility Assessment for Hybrid Quantum-Classical Applications",
    "titleZh": "Q-READY:混合量子-经典应用的预测式可行性评估",
@@ -2488,6 +2515,33 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "leveraging-classical-quantum-computing-process-systems-engineering-c86e2",
+   "title": "Leveraging Classical and Quantum Computing for Process Systems Engineering Applications: Decomposition Algorithm with Ising Solvers for Efficient Discrete Landscape Exploration",
+   "titleZh": "经典与量子计算用于过程系统工程:Ising求解器离散景观探索分解算法",
+   "authors": [
+    "Yirang Park",
+    "David E. Bernal Neira"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-19",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.19520",
+   "doi": "10.48550/arxiv.2603.19520",
+   "url": "https://arxiv.org/abs/2603.19520",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出将化工过程系统设计中的混合整数非线性规划(MINLP)分解为离散子问题交由Ising求解器处理、连续子问题由经典方法求解的分解算法。该框架为化工过程概念设计提供了量子计算加速的新路径。",
+   "abstract": "Conceptual process design is a crucial aspect of chemical engineering that involves process synthesis. Mixed-integer nonlinear programming is a powerful framework for modeling such design problems by combining discrete and continuous variables; however, the combinatorial complexity of discrete choices, coupled with nonlinearities, presents challenging monolithic problems. Using decomposition, discrete subproblems can potentially benefit from Ising solvers, while simulators and nonlinear solvers offer powerful tools for handling nonlinearities. This work aims to: evaluate use of Ising-based solvers for discrete optimization and holistic process optimization through two case studies: an ionic liquid selection and its process design, and a more complex problem of drug manufacturing process optimization. The discrete subproblem is formulated as an integer program or quadratic unconstrained binary optimization and solved using a commercial classical or Ising solvers such as simulated annealing (SA), quantum annealing (QA), and entropy computing (EC) respectively. The commercial classical solver had the shortest runtime, whereas EC took the longest, followed by QA and SA, in reaching feasible and optimal solutions. The heuristics identified all or most feasible solutions in a single run, demonstrating advantages in solution diversity and efficient and broad exploration of the solution space over the classical solver, while the classical solver provides an optimality guarantee and r",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "toward-solution-time-advantage-error-mitigated-quantum-13e3e",
@@ -3819,6 +3873,65 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "variational-quantum-eigensolver-based-method-band-structure-85dca",
+   "title": "A Variational Quantum Eigensolver-Based Method for Band Structure Design of Conductive Polymer Electrode Materials for Brain-Computer Interfaces (Open Source)",
+   "titleZh": "基于VQE的导电聚合物电极能带结构设计用于脑机接口(开源)",
+   "authors": [
+    " tong dai"
+   ],
+   "venue": "预印本",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.17605/osf.io/376be",
+   "url": "https://doi.org/10.17605/osf.io/376be",
+   "topics": [
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "开发基于 VQE 的导电聚合物电极材料(PEDOT:PSS、聚吡咯、聚苯胺)的电子能带结构计算与能带工程设计方法,面向植入式脑机接口(BCI)应用。该方法开源发布,是量子计算用于生物电子材料设计的前沿探索。",
+   "abstract": "This study aims to develop a Variational Quantum Eigensolver (VQE)-based method for the electronic band structure calculation and band engineering design of conductive polymer electrode materials for implantable brain-computer interfaces (BCI). Conductive polymers such as PEDOT:PSS, polypyrrole, and polyaniline are widely used as BCI electrode coatings, but their electrochemical performance is fundamentally determined by their electronic band structure — including HOMO/LUMO energy levels, band gap, polaron/bipolaron formation energy, and density of states distribution. Traditional Density Functional Theory (DFT) methods suffer from systematic band gap underestimation and cannot accurately describe strongly correlated electron effects in conductive polymer systems. We propose leveraging VQE, a hybrid quantum-classical algorithm, to perform high-precision electronic structure calculations on conductive polymers by constructing a dedicated Tight-Binding (TB) Hamiltonian that incorporates π-electron hopping along the polymer main chain, inter-chain coupling, dopant charge transfer effects, and conformational disorder. Expected outcomes include: a VQE-based electronic structure calculation framework for BCI conductive polymers; a band-performance correlation model linking HOMO/LUMO energy levels to electrode electrochemical performance; and a forward design paradigm of \"VQE band calculation → performance prediction → virtual screening → targeted synthesis\" that accelerates the dis",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
+   "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
+   "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
+   "titleZh": "用量子技术预测分子结构与性质",
+   "authors": [
+    "Ravuri Krishna"
+   ],
+   "venue": "American Journal of Physical Chemistry",
+   "date": "2025-12-31",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.11648/j.ajpc.20251404.14",
+   "url": "https://doi.org/10.11648/j.ajpc.20251404.14",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "综述量子技术(量子计算、量子启发的量子化学方法)在分子结构与性质预测中的应用:涵盖强关联体系、大基组与复杂势能面等经典方法受限的场景,评估了当前量子硬件条件下的可行方案。",
+   "abstract": "Accurate prediction of molecular structures and properties is vital for chemistry; materials science, and drug discovery, yet classical electronic-structure methods often fail for strongly correlated systems, large basis sets, and complex potential-energy landscapes. Quantum technology encompassing quantum computing, quantum machine learning, and hybrid quantum classical strategies offers a fundamentally new paradigm by encoding many-electron wave functions directly on qubits and exploiting superposition and entanglement to explore exponentially large Hilbert spaces. This review synthesizes recent algorithmic and hardware advances relevant to molecular modelling, including the Variational Quantum Eigensolver (VQE), Quantum Phase Estimation (QPE), quantum unitary coupled-cluster (q-UCC) families, equation-of-motion and subspace methods for excited states, tensor-network hybrids, and quantum kernel and variational QML approaches. We examine noise-aware hybrid workflows, error-mitigation techniques, symmetry-preserving ansätze, and operator-factorization methods that reduce measurement and gate overhead. Representative applications are discussed: ground- and excited-state energy prediction, potential-energy surface mapping, geometry and transition-state optimization, spectroscopic property estimation (IR, UV–Vis, NMR, EPR), and reaction-dynamics scenarios where non-adiabatic effects and conical intersections dominate. Resource estimates and scaling analyses clarify current NISQ ",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -17851,6 +17964,39 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
+   ]
+  },
+  {
+   "id": "quantum-classical-method-applied-material-design-photochromic-1e260",
+   "title": "A Quantum-Classical Method Applied to Material Design: Photochromic Materials Optimization for Photopharmacology Applications",
+   "titleZh": "量子-经典混合方法用于光致变色材料设计优化",
+   "authors": [
+    "Qi Gao",
+    "Michihiko Sugawara",
+    "Paul D. Nation",
+    "Takao Kobayashi",
+    "Yu‐ya Ohnishi",
+    "Hiroyuki Tezuka",
+    "Naoki Yamamoto"
+   ],
+   "venue": "Intelligent Computing",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.34133/icomputing.0108",
+   "url": "https://doi.org/10.34133/icomputing.0108",
+   "topics": [
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "发表于 Intelligent Computing:将量子化学、机器学习与优化计算集成,加速光致变色材料的大规模化学空间筛选,展示了量子-经典混合计算在新材料发现中的实用价值。",
+   "abstract": "The integration of quantum chemistry, machine learning, and optimization calculations is expected to accelerate materials discovery by making large chemical spaces amenable to computational study, a challenging task for classical computers. In this study, we develop a quantum-classical computing scheme involving the computational-basis variational quantum deflation (cVQD) method for calculating the excited states of a general classical Hamiltonian, such as an Ising Hamiltonian. We apply this scheme to the practical use case of generating photochromic diarylethene (DAE) derivatives for photopharmacology applications. Using a dataset of 384 DAE derivatives from quantum chemistry calculation results, we show that machine learning can accurately predict the wavelength of maximum absorbance, λ max , of 4,096 DAE derivatives. After screening over 4,096 molecules using the computing scheme, we identified 5 DAE candidates that have important applications in photopharmacology. In detail, a 12-qubit cVQD calculation provides the ground state and 4 excited states of an Ising Hamiltonian corresponding to DAE candidates possessing large λ max . On a quantum simulator, results are found to be in excellent agreement with those obtained by an exact eigensolver. Utilizing error suppression and mitigation techniques, cVQD on a real quantum device produces results with accuracy comparable to calculations on the simulator. Finally, we show that quantum chemistry calculations for the DAE candidat",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
