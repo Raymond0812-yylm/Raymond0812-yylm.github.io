@@ -1145,6 +1145,66 @@
    "domains": []
   },
   {
+   "id": "safe-machine-learning-variational-quantum-classifiers-9dbab",
+   "title": "SAFE machine learning with variational quantum classifiers",
+   "titleZh": "基于变分量子分类器的 SAFE 机器学习",
+   "authors": [
+    "Yuehua Chen",
+    "Paolo Giudici",
+    "Vasily Kolesnikov",
+    "Paolo Recchia",
+    "Syed Mujtaba Haider"
+   ],
+   "venue": "Statistics",
+   "date": "2026-07-17",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1080/02331888.2026.2703799",
+   "url": "https://doi.org/10.1080/02331888.2026.2703799",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "通过振幅编码将高维深度表征送入变分量子线路,并用可学习的经典预编码层稳定训练;归一化振幅嵌入与有界观测量相结合,构造出敏感性受控、结构光滑的假设类,提升模型的稳定性与泛化。",
+   "abstract": "We propose a variational quantum classifier operating on high-dimensional deep representations via amplitude encoding, stabilized by a learnable classical pre-encoding layer. By combining normalized amplitude embeddings with bounded quantum observables, the resulting model induces a structured and smooth hypothesis class with controlled sensitivity to input variations. Model reliability is assessed using SAFE-AI metrics derived from the Cramér–von Mises divergence, enabling consistent evaluation across accuracy, robustness, and explainability dimensions. Empirical results on the single brain tumor MRI classification task show that the proposed quantum model provides competitive predictive performance compared with strong classical baselines while exhibiting a more balanced SAFE reliability profile, with particularly strong robustness when perturbations are applied to the extracted deep feature representation and stability under structured feature removal. These findings suggest that variational quantum circuits offer a principled mechanism for stability-oriented SAFE learning in safety-critical settings.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "generative-ai-age-quantum-computing-taxonomy-architectural-dc119",
+   "title": "Generative AI in the age of quantum computing: A taxonomy, architectural elements and future directions",
+   "titleZh": "量子计算时代的生成式 AI:分类体系与架构要素",
+   "authors": [
+    "Siva Sai",
+    "Ishika Goyal",
+    "Vinay Chamola",
+    "Rajkumar Buyya"
+   ],
+   "venue": "Future Generation Computer Systems",
+   "date": "2026-07-17",
+   "year": 2026,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1016/j.future.2026.108714",
+   "url": "https://doi.org/10.1016/j.future.2026.108714",
+   "topics": [
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统综述量子计算与生成式 AI 的交叉方向(QGAI),建立分类体系并梳理架构要素,分析经典硬件算力与内存瓶颈下量子加速生成式模型的可行路径与开放问题。",
+   "abstract": "Generative AI has emerged as a transformative paradigm for diverse applications, yet the escalating scale of modern models exposes critical computational and memory bottlenecks in classical hardware. This paper investigates the intersection of quantum computing and generative artificial intelligence (QGAI) to address these limitations and scale modern generative models. As models grow to billions of parameters, classical systems face bottlenecks in memory, energy, and training efficiency, while quantum computing offers exponential representational benefits for high-dimensional data. The paper analyzes five core quantum generative architectures-Quantum Circuit Born Machines, Quantum Generative Adversarial Networks, Quantum Boltzmann Machines, Quantum Variational Autoencoders, and Quantum Diffusion models, highlighting their design principles, learning mechanisms, and applications. QGAI models have demonstrated significant promise in domains such as drug discovery, human-machine interaction, IoT security, and financial modelling. Despite these advances, QGAI remains constrained by qubit noise, barren plateaus, and integration challenges. We conclude by identifying ten open research challenges and propose directions for achieving scalable, interpretable, and energy-efficient quantum generative learning.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "near-optimal-parameter-tuning-level-1-qaoa-5e7e6",
    "title": "Near-Optimal Parameter Tuning of Level-1 QAOA for Ising Models",
    "titleZh": "Ising模型上一层QAOA的近最优参数调节",
@@ -1759,6 +1819,37 @@
    "abstract": "Abstract Quantum approximate optimization algorithm (QAOA) has shown promise in solving combinatorial optimization problems by providing quantum speedup on near-term gate-based quantum computing systems. However, QAOA faces challenges for high-dimensional problems due to the large number of qubits required and the complexity of deep circuits, limiting its scalability for real-world applications. In this study, we present a distributed QAOA (DQAOA), which leverages distributed computing strategies to decompose a large computational workload into smaller tasks that require fewer qubits and shallower circuits than are necessary to solve the original problem. These sub-problems are processed using a combination of high-performance and quantum computing resources. The global solution is iteratively updated by aggregating sub-solutions, allowing convergence toward the optimal solution. We demonstrate that DQAOA can handle considerably large-scale optimization problems (e.g., 1000-bit problem), achieving a high solution quality and short time-to-solution, outperforming existing strategies. Furthermore, we realize DQAOA on a quantum-centric supercomputing architecture, paving the way for practical applications of gate-based quantum computers in real-world optimization tasks. To extend DQAOA’s applicability to materials science, we further develop an active learning algorithm integrated with our DQAOA (AL-DQAOA), which involves machine learning, DQAOA, and active data production in an",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "comparative-analysis-noise-robustness-study-quantum-kernel-ae3c4",
+   "title": "Comparative Analysis and Noise Robustness Study of Quantum Kernel Methods and Variational Quantum Classifiers for Financial Fraud Detection",
+   "titleZh": "量子核方法与变分量子分类器的噪声鲁棒性对比研究",
+   "authors": [
+    "Ionuț-Cosmin Dinuț",
+    "Rodica Constantinescu",
+    "Bogdan Alexandrescu"
+   ],
+   "venue": "Electronics",
+   "date": "2026-06-05",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.3390/electronics15112489",
+   "url": "https://doi.org/10.3390/electronics15112489",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在贴近真实噪声的条件下系统对比量子支持向量机(QSVM/ZZ 特征映射量子核)与变分量子分类器(VQC)两种范式模型,补上了 QML 实证研究中\"实用数据 + 严格噪声对比\"长期缺失的一环。",
+   "abstract": "Quantum machine learning on near-term noisy quantum devices has generated substantial theoretical interest, but rigorous empirical comparisons under realistic noise on practically relevant data remain scarce. This paper compares two paradigmatic quantum learning models, a Quantum Support Vector Machine (QSVM) built on the ZZFeatureMap quantum kernel and a Variational Quantum Classifier (VQC) with an EfficientSU2/RealAmplitudes ansatz, against tuned classical baselines (SVM with four kernels, Random Forest, XGBoost, LightGBM and CatBoost) on the ULB Credit Card Fraud dataset (284,807 transactions, 0.17% fraud). All models share an identical 4-qubit PCA-reduced feature space, evaluated on the full unbalanced test fold over 15 fits (3 folds × 5 seeds) and reported as mean ± standard deviation with bootstrap confidence intervals, AUPRC as the primary metric. Noise robustness is assessed under depolarizing noise p∈{0,0.001,0.01,0.05}, with ranking preservation measured directly through Spearman ρ and Kendall τ between the noisy and noiseless decision scores rather than read off AUPRC, alongside the per-paradigm computational cost. At four qubits the classical baselines lead (AUPRC 0.60 to 0.74, CatBoost best), above the VQC (0.494) and the QSVM (0.240); the controlled QSVM-versus-RBF–SVM comparison puts the cost of the quantum kernel at about 0.45 AUPRC. Under noise the QSVM keeps its score ranking (ρ=0.998 at p=0.001, 0.906 at p=0.01) and an operational decision threshold (recall",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "assessing-efficacy-hybrid-quantum-classical-computing-combinatorial-b1841",
@@ -2672,6 +2763,33 @@
    "domains": []
   },
   {
+   "id": "noisy-optimization-mechanism-variational-quantum-classifiers-c295e",
+   "title": "A Noisy Optimization mechanism for variational quantum classifiers",
+   "titleZh": "面向变分量子分类器的噪声优化机制",
+   "authors": [
+    "Rodica Ioana Lung",
+    "Florin Duma"
+   ],
+   "venue": "Knowledge-Based Systems",
+   "date": "2026-03-07",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1016/j.knosys.2026.115659",
+   "url": "https://doi.org/10.1016/j.knosys.2026.115659",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对困扰变分量子分类器的贫瘠高原问题,提出一种基于噪声的优化机制:训练中通过噪声平移训练数据帮助参数逃离贫瘠高原,并在 BET 指数建模任务上验证了有效性。",
+   "abstract": "• existence of barren plateaux is one of the challenges in the practical use of variational quantum classifiers; • a noise-based mechanism that shifts training data during optimization, helping escape barren plateaux, is proposed; • the approach is tested with a variational quantum classifier modeling BET index changes using other indices from Europe and the United States; • simulations use the Pennylane framework. The barren plateaux phenomenon has been identified as a significant challenge for variational quantum algorithms, particularly for classification tasks. In this article, we propose a novel approach to mitigating this problem for variational quantum classifiers during the optimization phase. The noisy optimization mechanism shifts the training data by adding a small amount of uniform noise, thereby inducing changes in the parameters being searched. The effectiveness of the method is evaluated using real financial data, modeling the evolution of the BET index in relation to well-known indices from neighboring Central and Eastern European countries, as well as from Western Europe and the United States. The results demonstrate that this approach significantly improves upon the corresponding baseline quantum classifier and provides results comparable to those of established classical methods.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimizing-orbital-parameters-satellites-global-quantum-network-e4a64",
    "title": "Optimizing Orbital Parameters of Satellites for a Global Quantum Network",
    "titleZh": "卫星星座优化全球量子通信",
@@ -3072,6 +3190,38 @@
    ]
   },
   {
+   "id": "quantum-convolutional-neural-networks-are-effectively-classically-05e59",
+   "title": "Quantum Convolutional Neural Networks are Effectively Classically Simulable",
+   "titleZh": "量子卷积神经网络在效果上可被经典模拟",
+   "authors": [
+    "Pablo Bermejo",
+    "Paolo Braccia",
+    "Manuel S. Rudolph",
+    "Zoë Holmes",
+    "Łukasz Cincio",
+    "M. Cerezo"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2026-02-19",
+   "year": 2026,
+   "citations": 21,
+   "arxivId": "",
+   "doi": "10.1103/8qt9-72ts",
+   "url": "https://doi.org/10.1103/8qt9-72ts",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "PRX Quantum 重要理论工作:分析最常用的 QCNN 变体,指出其启发式成功源于随机初始化下只作用于输入态低 bodyness 观测量子空间、且常在\"局部容易\"数据集上评测;作者构造纯经典 QCNN 代理(基于张量网络与经典阴影),在至多 1024 比特的所有基准上追平甚至超越真 QCNN,警示 QML 研究必须转向非平凡数据集。",
+   "abstract": "Quantum convolutional neural networks (QCNNs) are widely regarded as a promising model for quantum machine learning (QML). In this work, we analyze the most widely used variants of these models (i.e., tracing out- and measurement-based QCNNs), and we relate their heuristic success to two facts. First, that when randomly initialized, they can only operate on the information encoded in low-bodyness measurements of their input states. And second, that they are commonly benchmarked on “locally easy” datasets whose states are precisely classifiable by the information encoded in these low-bodyness observables subspace. From these insights, we argue that the QCNN’s action on this subspace should be efficiently classically simulable. Indeed, we construct and train a purely classical QCNN surrogate—based on low-bodyness Pauli propagation, tensor networks, and classical shadows—that matches or outperforms standard QCNNs on all benchmark datasets and on up-to 1024 qubits, thereby empirically realizing our simulability claims. Our results can then be understood as highlighting a deeper symptom of QML: Models could only be showing heuristic success because they are benchmarked on simple problems, for which their action can be classically simulated. This insight points to the fact that nontrivial datasets are a truly necessary ingredient for moving forward with QML. To finish, we discuss how our results can be extrapolated to classically simulate other architectures.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "distributed-quantum-gaussian-processes-multi-agent-systems-257b2",
    "title": "Distributed Quantum Gaussian Processes for Multi-Agent Systems",
    "titleZh": "面向多智能体系统的分布式量子高斯过程",
@@ -3197,6 +3347,35 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "diabatic-quantum-annealing-training-energy-based-generative-923e1",
+   "title": "Diabatic quantum annealing for training energy-based generative models",
+   "titleZh": "用非绝热量子退火训练能量生成模型",
+   "authors": [
+    "Gilhan Kim",
+    "Ju-Yeon Gyhm",
+    "Daniel K. Park"
+   ],
+   "venue": "Physical review. E",
+   "date": "2026-02-06",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1103/2g6m-whm2",
+   "url": "https://doi.org/10.1103/2g6m-whm2",
+   "topics": [
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对 RBM 等能量生成模型依赖无偏玻尔兹曼采样、而经典 MCMC 收敛慢且样本相关的瓶颈,利用非绝热量子退火的解析对应关系直接获取玻尔兹曼样本,实现量子加速训练。",
+   "abstract": "Energy-based generative models, such as restricted Boltzmann machines (RBMs), require unbiased Boltzmann samples for effective training. Classical Markov chain Monte Carlo methods, however, converge slowly and yield correlated samples, making large-scale training difficult. We address this bottleneck by applying the analytic relation between annealing schedules and effective inverse temperature in diabatic quantum annealing. By implementing this prescription on a quantum annealer, we obtain temperature-controlled Boltzmann samples that enable RBM training with faster convergence and lower validation error than classical sampling. We further identify a systematic temperature misalignment intrinsic to analog quantum computers and propose an analytical rescaling method that mitigates this hardware noise, thereby enhancing the practicality of quantum annealers as Boltzmann samplers. In our method, the model's connectivity is set directly by the qubit connectivity, transforming the computational complexity inherent in classical sampling into a requirement on quantum hardware. This shift allows the approach to extend naturally from RBMs to fully connected Boltzmann machines, opening opportunities inaccessible to classical training methods.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "hybrid-quantum-classical-learning-approaches-scalable-optimization-17ad4",
@@ -3393,6 +3572,70 @@
    "abstract": "Coherent Ising machines (CIMs) have emerged as a hybrid form of quantum computing devices designed to solve NP-complete problems, offering an exciting opportunity for discovering optimal solutions. Despite challenges such as susceptibility to noise-induced local minima, we achieved notable advantages in improving the computational accuracy and stability of CIMs. We conducted a successful experimental demonstration of CIM via femtosecond laser pumping that integrates optimization strategies across optical and structural dimensions, resulting in significant performance enhancements. The results are particularly promising. An average success rate of 55% was achieved to identify optimal solutions within a Möbius Ladder graph comprising 100 vertices. Compared with other alternatives, the femtosecond pulse results in significantly higher peak power, leading to more pronounced quantum effects and lower pump power in optical fiber-based CIMs. In addition, we have maintained an impressive success rate for a continuous period of 8 hours, emphasizing the practical applicability of CIMs in real-world scenarios. Furthermore, our research extends to the application of these principles in practical applications such as molecular docking and credit scoring. The results presented substantiate the theoretical promise of CIMs, paving the way for their integration into large-scale practical applications.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "variational-quantum-machine-learning-quantum-error-detection-c3af7",
+   "title": "Variational quantum machine learning with quantum error detection",
+   "titleZh": "结合量子错误检测的变分量子机器学习",
+   "authors": [
+    "Eromanga Adermann",
+    "Hajime Suzuki",
+    "Muhammad Usman"
+   ],
+   "venue": "Quantum Machine Intelligence",
+   "date": "2026-01-19",
+   "year": 2026,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1007/s42484-026-00347-y",
+   "url": "https://doi.org/10.1007/s42484-026-00347-y",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在变分量子机器学习流程中引入量子错误检测(QED)机制,不依赖完整量子纠错即可识别并缓解硬件噪声的影响,提升 NISQ 设备上 QML 模型训练与推理的可靠性。",
+   "abstract": "Abstract Quantum machine learning (QML) is an emerging field that promises advantages such as faster training, improved reliability and superior feature extraction over classical counterparts. However, its implementation on quantum hardware is challenging due to the noise inherent in these systems, necessitating the use of quantum error correction (QEC) codes. Current QML research remains primarily theoretical, often assuming noise-free environments and offering little insight into the integration of QEC with QML implementations. To address this, we investigate the performance of a simple, parity-classifying Variational Quantum Classifier (VQC) implemented with the [[4,2,2]] error-detecting stabiliser code in a simulated noisy environment. To our knowledge, this is the first implementation of a stabiliser-based error detection code to a QML algorithm. We invoke ancilla qubits to logically encode rotation gates, and classically simulate the logically-encoded VQC under two simple noise models representing gate noise and environmental noise. We demonstrate that the stabiliser code improves the training accuracy at convergence compared to noisy implementations without error detection. However, we find that the effectiveness and reliability of error detection is contingent upon keeping the ancilla qubit error rates below a specific threshold, due to the propagation of ancilla errors to the physical qubits. Our results provide an important insight that extends to QML implemented wi",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-generative-modeling-financial-time-series-temporal-e6978",
+   "title": "Quantum generative modeling for financial time series with temporal correlations",
+   "titleZh": "面向金融时间序列的量子生成建模",
+   "authors": [
+    "David Dechant",
+    "Eliot Jan Etienne Schwander",
+    "Lucas Van Drooge",
+    "Charles Moussa",
+    "Diego Garlaschelli",
+    "Vedran Dunjko",
+    "Jordi Tura"
+   ],
+   "venue": "Machine Learning Science and Technology",
+   "date": "2026-01-16",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1088/2632-2153/ae39a2",
+   "url": "https://doi.org/10.1088/2632-2153/ae39a2",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用量子生成对抗网络为金融时间序列生成带时间相关性的合成数据,应对金融领域\"只能观测到一条历史轨迹\"的数据稀缺难题,可用于增强下游神经网络的训练数据。",
+   "abstract": "Abstract Quantum generative adversarial networks (QGANs) have been investigated as a method for generating synthetic data with the goal of augmenting training data sets for neural networks. This is especially relevant for financial time series, since we only ever observe one realization of the process, namely the historical evolution of the market, which is further limited by data availability and the age of the market. However, for classical GANs it has been shown that generated data may (often) not exhibit desired properties (also called stylized facts ), such as matching a certain distribution or showing specific temporal correlations. Here, we investigate whether quantum correlations in quantum inspired models of QGANs can help in the generation of financial time series. We train QGANs, composed of a quantum generator and a classical discriminator, and investigate two approaches for simulating the quantum generator: a full simulation of the quantum circuits, and an approximate simulation using tensor network methods. We tested how the choice of hyperparameters, such as the circuit depth and bond dimensions, influenced the quality of the generated time series. The QGANs that we trained generate synthetic financial time series that not only match the target distribution but also exhibit the desired temporal correlations, with the quality of each property depending on the hyperparameters and simulation method.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "extrapolation-method-optimize-linear-ramp-quantum-approximate-5e7f4",
@@ -3903,6 +4146,38 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "quantum-generative-diffusion-model-fully-quantum-mechanical-d24c9",
+   "title": "Quantum Generative Diffusion Model: A Fully Quantum-Mechanical Model for Generating Quantum State Ensemble",
+   "titleZh": "量子生成扩散模型:面向量子态生成的全量子力学模型",
+   "authors": [
+    "Chuangtao Chen",
+    "Qinglin Zhao",
+    "MengChu Zhou",
+    "Zhimin He",
+    "Zhili Sun",
+    "Haozhen Situ"
+   ],
+   "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1109/tpami.2026.3718311",
+   "url": "https://doi.org/10.1109/tpami.2026.3718311",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": true,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 IEEE TPAMI:提出全量子力学的生成扩散模型,构造能直接生成密度算子的扩散过程,并保证每一步逆过程物理有效,为混合量子态生成这一量子信息基础任务提供了新范式。",
+   "abstract": "Mixed quantum states are the native description of many physically important quantum systems, making their generation a fundamental task in quantum information processing. However, constructing a diffusion process that generates density operators while keeping every reverse step physically valid remains nontrivial. This work introduces Quantum Generative Diffusion Model (QGDM), a fully quantum-mechanical model whose forward and backward processes are grounded in quantum channel theory. Through a non-unitary forward process, any target quantum state can be transformed into a completely mixed state. A trainable backward process recovers the former from the latter. We introduce partial trace to make the backward process non-unitary, and share parameters across timesteps by incorporating temporal information as an input. We present QGDM's resource-efficient version to reduce auxiliary qubits while preserving generative capabilities. We theoretically analyze the denoising design, showing it avoids a low-loss shortcut that traps training and cause generation failure. Simulations confirm that QGDM outperforms quantum generative adversarial networks on random pure- and mixed-state generation, with better noise robustness than other quantum generative models and a task-specialized approach for practical Gibbs state generation. Hence, QGDM provides a channel-based diffusion framework for learning fixed mixed-state targets, extending quantum generative modeling toward realistic quantum ",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
@@ -4489,6 +4764,49 @@
    ]
   },
   {
+   "id": "photonic-quantum-convolutional-neural-networks-adaptive-state-89d57",
+   "title": "Photonic quantum convolutional neural networks with adaptive state injection",
+   "titleZh": "具有自适应态注入的光量子卷积神经网络",
+   "authors": [
+    "Léo Monbroussou",
+    "Beatrice Polacchi",
+    "Verena Yacoub",
+    "Eugenio Caruccio",
+    "Giovanni Rodari",
+    "Francesco Hoch",
+    "Gonzalo Carvacho",
+    "Nicolò Spagnolo",
+    "Taira Giordani",
+    "Mattia Bossi",
+    "Abhiram Rajan",
+    "Niki Di Giano",
+    "Riccardo Albiero",
+    "Francesco Ceccarelli",
+    "Roberto Osellame",
+    "Elham Kashefi",
+    "Fabio Sciarrino"
+   ],
+   "venue": "Advanced Photonics",
+   "date": "2025-11-18",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1117/1.ap.7.6.066012",
+   "url": "https://doi.org/10.1117/1.ap.7.6.066012",
+   "topics": [
+    "quantum-ai",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "结合线性光学平台粒子数守恒特性与自适应态注入机制,设计出兼具表达力与可扩展性的光量子卷积神经网络架构,推动 QML 向真实光学硬件落地。",
+   "abstract": "Recent photonic quantum machine learning proposals combined linear optics with adaptivity to enhance expressivity and improve algorithm performance and scalability. The particle-number-preserving property of linear optical platforms was recently employed to design a quantum convolutional neural network architecture with advantages in terms of resource complexity and the number of parameters needed. Here, we design and experimentally implement a photonic quantum convolutional neural network (PQCNN) based on linear optics equipped with adaptive state injection, a tool that increases the linear optical circuits controllability. We validate the PQCNN for a binary image classification on a photonic platform utilizing a semiconductor quantum dot-based single-photon source and programmable integrated photonic interferometers comprising 8 and 12 modes. To investigate the scalability of the PQCNN design, we performed numerical simulations on datasets of different sizes. These findings demonstrate potential utilities of a simple adaptive technique for a nonlinear boson sampling task, compatible with near-term quantum devices.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-computing-enhanced-service-ecosystems-industrial-manufacturing-f3f21",
    "title": "Quantum Computing–Enhanced Service Ecosystems for Industrial Manufacturing Simulation and Workflow Optimization",
    "titleZh": "量子计算增强的工业制造仿真与工作流优化服务生态",
@@ -4546,6 +4864,35 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "quantum-convolutional-neural-network-phase-recognition-two-3fae9",
+   "title": "Quantum convolutional neural network for phase recognition in two dimensions",
+   "titleZh": "面向二维量子相识别的量子卷积神经网络",
+   "authors": [
+    "Leon C. Sander",
+    "Nathan A. McMahon",
+    "Petr Zapletal",
+    "Michael J. Hartmann"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2025-11-07",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1103/vpyw-nszk",
+   "url": "https://doi.org/10.1103/vpyw-nszk",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将量子卷积神经网络从一维凝聚态体系推广到二维,以低采样成本实现二维量子相识别,显著扩展 QCNN 在量子多体物理中的应用范围。",
+   "abstract": "Quantum convolutional neural networks (QCNNs) are quantum circuits for characterizing complex quantum states. They have been proposed for recognizing quantum phases of matter at low sampling cost and have been designed for condensed matter systems in one dimension. Here we construct a QCNN that can perform phase recognition in two dimensions and correctly identify the phase transition from a toric code phase with Z 2 topological order to the paramagnetic phase. The network also exhibits a noise threshold up to which the topological order is recognized. Furthermore, it captures correlations between all stabilizer elements of the toric code, which cannot be accessed by direct measurements. This increases the threshold for errors leading to such correlations and allows for correctly identifying the topological phase in the presence of strong correlated errors. Our work generalizes phase recognition with QCNNs to higher spatial dimensions and intrinsic topological order, where exploration and characterization via classical numerics become challenging.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-classical-hybrid-algorithm-quantum-annealing-multi-5c3ee",
@@ -6276,6 +6623,37 @@
    ]
   },
   {
+   "id": "enhancing-performance-variational-quantum-classifiers-hybrid-autoencoders-2cbf0",
+   "title": "Enhancing the performance of variational quantum classifiers with hybrid autoencoders",
+   "titleZh": "混合自编码器增强的变分量子分类器",
+   "authors": [
+    "Georgios Maragkopoulos",
+    "Aikaterini Mandilara",
+    "Antonia Tsili",
+    "Dimitris Syvridis"
+   ],
+   "venue": "Quantum Information Processing",
+   "date": "2025-07-30",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1007/s11128-025-04864-w",
+   "url": "https://doi.org/10.1007/s11128-025-04864-w",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用混合量子-经典自编码器做降维预处理,破解角度编码下量子比特数无法容纳高维数据的瓶颈,使变分量子线路得以处理真实规模的数据集并提升分类表现。",
+   "abstract": "Abstract Variational quantum circuits (VQC) lie at the forefront of quantum machine learning research. Still, the use of quantum networks for real data processing remains challenging as the number of available qubits cannot accommodate a large dimensionality of data—if the usual angle encoding scenario is used. To achieve dimensionality reduction, Principal Component Analysis is routinely applied as a pre-processing method before the embedding of the classical features on qubits. In this work, we propose an alternative method which reduces the dimensionality of a given dataset by taking into account the specific quantum embedding that comes after. This method aspires to make quantum machine learning with VQCs more versatile and effective on datasets of high dimension. At a second step, we propose a quantum-inspired classical autoencoder model which can be used to encode information in low latent spaces. The power of our proposed models is exhibited via numerical tests. We show that our targeted dimensionality reduction method considerably boosts VQC’s performance, and we also identify cases for which the second model outperforms classical autoencoders in terms of reconstruction loss.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "integrated-agile-earth-observation-satellite-scheduling-problem-faea8",
    "title": "The integrated agile Earth observation satellite scheduling problem",
    "titleZh": "集成敏捷对地观测卫星调度问题",
@@ -6473,6 +6851,70 @@
    ]
   },
   {
+   "id": "adversarial-attacks-hybrid-classical-quantum-deep-learning-5008a",
+   "title": "Adversarial attacks on hybrid classical-quantum deep learning models for histopathological cancer detection",
+   "titleZh": "混合经典-量子深度学习模型的对抗攻击分析",
+   "authors": [
+    "Biswaraj Baral",
+    "Bhavika Bhalgamiya",
+    "Reek Majumder",
+    "Divya Dutta Roy",
+    "Taposh Dutta Roy"
+   ],
+   "venue": "APL Machine Learning",
+   "date": "2025-07-25",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1063/5.0270673",
+   "url": "https://doi.org/10.1063/5.0270673",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在组织病理学癌症检测任务上系统评估混合量子-经典模型在对抗攻击下的表现,证明 QML 在恶劣环境下仍能增强诊断性能,为量子机器学习模型的安全性研究提供早期实证。",
+   "abstract": "We analyzed the application of quantum machine learning in histopathological cancer detection under adversarial attacks, demonstrating its potential to enhance diagnostic performance in adverse circumstances. Adversarial attacks are one of the major concerns in any image classification machine learning model and are responsible for perturbing the original input images, which, therefore, results in misclassification. To encounter this problem, we first developed the hybrid quantum transfer learning model by incorporating multiple transfer learning architectures such as ResNet-18, VGG-16, Inception-v3, and AlexNet with variational quantum circuits for histopathological cancer detection. Second, we introduced white-box adversarial attacks using the Fast Gradient Sign Method (FGSM) and DeepFool and projected gradient descent (PGD) methods in this model and evaluated each model’s performance against these adversarial attacks. We analyzed that the Hybrid Classical Quantum Deep Learning model (HCQ-DL) with ResNet-18 provides 78.05% accuracy compared to the Classical ResNet-18 model with the highest accuracy of 50.84% for FGSM attacks. Similarly, for DeepFool attacks, HCQ-DL with ResNet-18 performs 52.12% accurately compared to the Classical ResNet-18 model with the highest accuracy of 37.87% and for PGD attacks, HCQ-DL with ResNet-18 has 52.94% performance accuracy compared to the Classical Inception-V3 model with the highest accuracy of 32.05%. As a result, we observed that HCQ-DL ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "hybrid-quantum-convolutional-neural-network-aided-pilot-30fc9",
+   "title": "Hybrid Quantum Convolutional Neural Network-Aided Pilot Assignment in Cell-Free Massive MIMO Systems",
+   "titleZh": "混合量子卷积网络辅助无蜂窝大规模 MIMO 导频分配",
+   "authors": [
+    "Doan Hieu Nguyen",
+    "Nguyen Xuan Tung",
+    "Seon-Geun Jeong",
+    "Trinh Van Chien",
+    "Lajos Hanzo",
+    "Won–Joo Hwang"
+   ],
+   "venue": "IEEE Transactions on Vehicular Technology",
+   "date": "2025-07-23",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1109/tvt.2025.3588212",
+   "url": "https://doi.org/10.1109/tvt.2025.3588212",
+   "topics": [
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将混合量子卷积神经网络(HQCNN)用于无蜂窝大规模 MIMO 的导频分配,以最大化遍历和吞吐为目标,克服模型化方法效率低、传统深度网络计算开销大的缺陷。",
+   "abstract": "A sophisticated hybrid quantum convolutional neural network (HQCNN) is conceived for handling the pilot assignment task in cell-free massive MIMO systems, while maximizing the total ergodic sum throughput. The existing model-based solutions found in the literature are inefficient and/or computationally demanding. Similarly, conventional deep neural networks may struggle in the face of high-dimensional inputs, require complex architectures, and their convergence is slow due to training numerous hyperparameters. The proposed HQCNN leverages parameterized quantum circuits (PQCs) relying on superposition for enhanced feature extraction. Specifically, we exploit the same PQC across all the convolutional layers for customizing the neural network and for accelerating the convergence. Our numerical results demonstrate that the proposed HQCNN offers a total network throughput close to that of the excessive-complexity exhaustive search and outperforms the state-of-the-art benchmarks.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "artificial-intelligence-science-quantum-atomistic-continuum-systems-02fbd",
    "title": "Artificial intelligence for science in quantum, atomistic, and continuum systems",
    "titleZh": "量子、原子与连续系统中的科学人工智能",
@@ -6525,6 +6967,33 @@
    ],
    "summaryZh": "发表于 Foundations and Trends in Machine Learning 的长篇综述:系统梳理 AI for Science 在量子系统、原子尺度与连续介质系统的模型与方法,包含量子机器学习与优化交叉的大量内容。",
    "abstract": "Advances in artificial intelligence (AI) are fueling a new paradigm of discoveries in natural sciences. Today, AI has started to advance natural sciences by improving, accelerating, and enabling our understanding of natural phenomena at a wide range of spatial and temporal scales, giving rise to a new area of research known as AI for science (AI4Science). Being an emerging research paradigm, AI4Science is unique in that it is an enormous and highly interdisciplinary area. Thus, a unified and technical treatment of this field is needed, yet challenging. This work aims to provide a technically thorough account of a subarea of AI4Science; namely, AI for quantum, atomistic, and continuum systems. These areas aim at understanding the physical world from the subatomic (wavefunctions and electron density), atomic (molecules, proteins, materials, and interactions), to macro (fluids, climate, and subsurface) scales and form an important subarea of AI4Science. A unique advantage of focusing on these areas is that they largely share a common set of challenges, thereby allowing a unified and foundational treatment. A key common challenge is how to capture physics first principles, especially symmetries, in natural systems by deep learning methods. We provide an in-depth yet intuitive account of techniques to achieve equivariance to symmetry transformations. We also discuss other common technical challenges, including explainability, out-of-distribution generalization, knowledge transfer ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "exploring-biological-neuronal-correlations-quantum-generative-models-be508",
+   "title": "Exploring biological neuronal correlations with quantum generative models",
+   "titleZh": "用量子生成模型探索生物神经元相关性",
+   "authors": [
+    "Vinicius Hernandes",
+    "Eliška Greplová"
+   ],
+   "venue": "Cell Reports Physical Science",
+   "date": "2025-07-16",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1016/j.xcrp.2025.102682",
+   "url": "https://doi.org/10.1016/j.xcrp.2025.102682",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "借助量子生成模型(量子玻尔兹曼机思路)建模生物神经元群体活动的高阶相关性,以远少于经典模型的参数刻画神经计算结构,展示量子模型在神经科学中的建模优势。",
+   "abstract": "Understanding how biological neural networks process information is one of the biggest open scientific questions of our time. Advances in machine learning and artificial neural networks have enabled the modeling of neuronal behavior, but classical models often require a large number of parameters and highly task-specific architectures, which can complicate model design and scalability. Quantum computing offers an alternative approach through quantum machine learning, which can achieve efficient training with fewer parameters. In this work, we introduce a quantum generative model framework for generating synthetic data that captures the spatial and temporal correlations of biological neuronal activity. Our model demonstrates the ability to achieve reliable outcomes with fewer trainable parameters compared to classical methods. These findings highlight the potential of quantum generative models to provide new tools for modeling and understanding neuronal behavior, offering a promising avenue for future research in neuroscience.",
    "source": "backfill",
    "domains": []
   },
@@ -6683,6 +7152,33 @@
    ]
   },
   {
+   "id": "parameter-efficient-quantum-denoising-diffusion-probabilistic-models-2542c",
+   "title": "Parameter-efficient Quantum Denoising Diffusion Probabilistic Models with temporal encoding",
+   "titleZh": "参数高效的时间编码量子去噪扩散模型",
+   "authors": [
+    "Xuefen Zhang",
+    "Chuangtao Chen"
+   ],
+   "venue": "Future Generation Computer Systems",
+   "date": "2025-07-01",
+   "year": 2025,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.1016/j.future.2025.107981",
+   "url": "https://doi.org/10.1016/j.future.2025.107981",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对量子去噪扩散概率模型(QuDDPM)线路参数开销大的问题,引入时间步编码机制设计参数高效变体,在保持生成质量的同时大幅压缩量子线路资源消耗。",
+   "abstract": "Quantum generative models have attracted growing interest for their potential to transform generative learning through the principles of quantum computing. The recently proposed Quantum Denoising Diffusion Probabilistic Models (QuDDPM) represent a significant advancement by integrating classical diffusion mechanisms with quantum computation. However, QuDDPM suffers from a key scalability bottleneck: its parameter count grows linearly with the number of denoising steps, as each step requires independent optimization. To overcome this limitation, we propose a Temporal-aware Quantum Denoising Diffusion Probabilistic Model (TQuDDPM), a parameter-sharing framework that incorporates temporal encoding into the denoising process. Our numerical simulations show that TQuDDPM significantly reduces parameter requirements by up to 94% and training time by up to 90%, all while preserving or even improving generative performance. This work introduces a novel approach to timestep representation in quantum generative learning and demonstrates that TQuDDPM achieves substantial computational efficiency alongside high-fidelity generation.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-compilation-toolkit-rydberg-atom-arrays-implications-80db8",
    "title": "Quantum compilation toolkit for Rydberg atom arrays with implications for problem hardness and quantum speedups",
    "titleZh": "里德堡原子阵列求解最大独立集的量子编译工具链",
@@ -6774,6 +7270,36 @@
    ],
    "summaryZh": "Physical Review Letters 工作:用图神经网络加速大规模超导量子芯片的计算机辅助设计,直接服务于量子优化硬件的设计自动化。",
    "abstract": "To demonstrate supremacy of quantum computing, increasingly large-scale superconducting quantum computing chips are being designed and fabricated. However, the complexity of simulating quantum systems poses a significant challenge to computer-aided design of quantum chips, especially for large-scale chips. Harnessing the scalability of graph neural networks (GNNs), we here propose a parameter designing algorithm for large-scale superconducting quantum circuits. The algorithm depends on the so-called \"three-stair scaling\" mechanism, which comprises two neural-network models: an evaluator supervisedly trained on small-scale circuits for applying to medium-scale circuits, and a designer unsupervisedly trained on medium-scale circuits for applying to large-scale ones. We demonstrate our algorithm in mitigating quantum crosstalk errors. Frequencies for both single- and two-qubit gates (corresponding to the parameters of nodes and edges) are considered simultaneously. Numerical results indicate that the well-trained designer achieves notable advantages in efficiency, effectiveness, and scalability. For example, for large-scale superconducting quantum circuits consisting of around 870 qubits, our GNNs-based algorithm achieves 51% of the errors produced by the state-of-the-art algorithm, with a time reduction from 90 min to 27 s. Overall, a better-performing and more scalable algorithm for designing parameters of superconducting quantum chips is proposed, which demonstrates the advan",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "dual-discriminators-quantum-generation-adversarial-network-based-b05d7",
+   "title": "Dual Discriminators Quantum Generation Adversarial Network Based on Quantum Convolutional Neural Network",
+   "titleZh": "基于量子卷积的双判别器量子生成对抗网络",
+   "authors": [
+    "Li‐Hua Gong",
+    "Yu‐Qi Chen",
+    "Shun Zhou",
+    "Qingwei Zeng"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2025-06-25",
+   "year": 2025,
+   "citations": 33,
+   "arxivId": "",
+   "doi": "10.1002/qute.202500224",
+   "url": "https://doi.org/10.1002/qute.202500224",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在量子卷积结构基础上引入双判别器机制,缓解量子 GAN 常见的梯度消失与模式坍塌问题,提升离散分布的生成质量,是量子生成模型架构层面的针对性改进。",
+   "abstract": "Abstract As a crucial component in quantum machine learning, quantum generative adversarial networks play a significant role in generating discrete distributions. However, due to issues such as the vanishing gradient and mode collapse, the results generated by quantum generative adversarial models are of suboptimal quality sometimes. Given the robust image feature extraction capabilities of quantum convolutional neural networks, a hybrid quantum convolutional neural network model is incorporated into the quantum generative adversarial network as a discriminator. Different from the traditional multi‐layer linear structure, this discriminator adopts a parallel structure. This parallel structure can analyze both the local and the global features of an image simultaneously. It can promptly detect the defects in the global distribution of generated data, prompting the generator to explore more data patterns and avoid falling into mode collapse. The feasibility of this solution is verified through generation experiments on the handwritten dataset, Fashion‐MNIST dataset, and CIFAR‐100 dataset. The experimental results show that the FID (Fréchet Inception Distance) scores of the generated results on these three datasets reach 14, 20, and 17 respectively, fully demonstrating the performance of this image generation algorithm.",
    "source": "backfill",
    "domains": []
   },
@@ -7966,6 +8492,69 @@
    "domains": []
   },
   {
+   "id": "lhqnn-sequential-non-sequential-layered-hybrid-quantum-1c5cd",
+   "title": "LHQNN: sequential and non-sequential layered hybrid quantum neural networks for image classification",
+   "titleZh": "LHQNN:序贯与非序贯分层混合量子神经网络",
+   "authors": [
+    "Monika Kabir",
+    "Mohammed Kaosar",
+    "Hamid Laga",
+    "Ferdous Sohel"
+   ],
+   "venue": "Quantum Machine Intelligence",
+   "date": "2025-04-09",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1007/s42484-025-00279-z",
+   "url": "https://doi.org/10.1007/s42484-025-00279-z",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "设计序贯与非序贯两种分层混合量子-经典架构用于图像分类,系统考察量子层放置位置与网络深度对混合模型性能的影响,为混合 QNN 架构设计提供设计准则。",
+   "abstract": "Abstract Quantum neural networks have emerged as a promising approach to solving complex problems across various domains, especially when integrated with classical methods. Several hybrid quantum-classical architectures have been developed to leverage the potential of quantum advantages for image classification tasks. The design of the quantum layer plays an important role in exploiting quantum properties such as superposition and entanglement. In this research, we propose hybrid quantum neural networks with multiple quantum layers, utilizing sequential circuits for enhanced feature representation through structured depth, and non-sequential circuits to reduce complexity and improve performance. Our experimental results demonstrate that stacking multiple layers in the quantum circuit enhances performance significantly. Furthermore, the results indicate that the optimal range of 6–10 qubits achieves the best trade-off between accuracy and computational efficiency. The results also show that amplitude embedding consistently outperformed angle embedding for image classification tasks. Notably, our proposed hybrid sequential model with amplitude embedding outperforms traditional convolutional neural networks on MNIST and Fashion-MNIST datasets, while requiring fewer parameters. These findings provide valuable insights for advancing quantum machine learning in real-world applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "harnessing-quantum-extreme-learning-machines-image-classification-67c0c",
+   "title": "Harnessing quantum extreme learning machines for image classification",
+   "titleZh": "用于图像分类的量子极限学习机",
+   "authors": [
+    "A. De Lorenzis",
+    "M. P. Casado",
+    "Marta P. Estarellas",
+    "N. Lo Gullo",
+    "T. Lux",
+    "Francesco Plastina",
+    "Arnau Riera",
+    "Jacopo Settino"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2025-04-09",
+   "year": 2025,
+   "citations": 20,
+   "arxivId": "",
+   "doi": "10.1103/physrevapplied.23.044024",
+   "url": "https://doi.org/10.1103/physrevapplied.23.044024",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "利用量子极限学习机(QELM)的随机特征映射能力处理图像分类,免去逐层变分训练的开销,为 NISQ 设备上的量子学习提供一条低成本的实用路线。",
+   "abstract": "Interest in quantum machine learning is growing due to its potential to offer more efficient solutions for problems that are difficult to tackle with classical methods. In this context, the research work presented here focuses on the use of quantum machine-learning techniques for image-classification tasks. We exploit a quantum extreme learning machine by taking advantage of its rich feature map provided by the quantum reservoir substrate. We systematically analyze different phases of the quantum extreme learning machine process, from dataset preparation to final image classification. In particular, we test different encodings, together with principal component analysis and the use of autoencoders, and we examine the dynamics of the model through the use of different Hamiltonians for the quantum reservoir. Our results show that the introduction of a quantum reservoir systematically improves the accuracy of the classifier. In addition, our findings indicate that variations in encoding methods can significantly influence performance and that Hamiltonians with distinct structures exhibit the same discrimination rate, depending on how their eigenstates are related to the encoding and measurement basis.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-inspired-multi-objective-optimization-framework-dynamic-bbb88",
    "title": "Quantum-Inspired Multi-Objective Optimization Framework for Dynamic Wireless Electric Vehicle Charging in Highway Networks Under Stochastic Traffic and Renewable Energy Variability",
    "titleZh": "随机交通与可再生能源波动下高速公路动态无线充电的量子启发多目标优化",
@@ -7997,6 +8586,35 @@
     "energy",
     "transport"
    ]
+  },
+  {
+   "id": "entanglement-detection-quantum-support-vector-machine-qsvm-5ad9f",
+   "title": "Entanglement detection with quantum support vector machine (QSVM) on near-term quantum devices",
+   "titleZh": "近期量子设备上基于量子支持向量机的纠缠检测",
+   "authors": [
+    "M. Mahdian",
+    "Zahra Mousavi"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2025-04-07",
+   "year": 2025,
+   "citations": 23,
+   "arxivId": "",
+   "doi": "10.1038/s41598-025-95897-9",
+   "url": "https://doi.org/10.1038/s41598-025-95897-9",
+   "topics": [
+    "quantum-ai",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "在 IBM 量子设备上实现量子支持向量机来识别与分类纠缠态,为 NISQ 时代\"纠缠检测与量化\"这一基础难题提供了量子机器学习方案与真机实验证据。",
+   "abstract": "Detecting and quantifying quantum entanglement remain significant challenges in the noisy intermediate-scale quantum (NISQ) era. This study presents the implementation of quantum support vector machines (QSVMs) on IBM quantum devices to identify and classify entangled states. By employing quantum variational circuits, the proposed framework achieves a runtime complexity of [Formula: see text], where N is the number of qubits, t is the number of iterations, and ε is the acceptable error margin. We investigate various quantum circuits with multiple blocks and obtain the accuracy of QSVM as measures of expressibility and entangling capability. Our results demonstrate that the QSVM framework achieves over 90% accuracy in distinguishing entangled states, despite hardware noise such as decoherence and gate errors. Benchmarks across superconducting qubit platforms (e.g., IBM Perth, Lagos, and Nairobi) highlight the robustness of the model. Furthermore, the QSVM framework effectively classifies two-qubit states and extends its predictive capabilities to three-qubit entangled states. This work marks a significant advancement in quantum machine learning for entanglement detection.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "observation-non-hermitian-supersonic-mode-trapped-ion-8349d",
@@ -8425,6 +9043,38 @@
    "domains": []
   },
   {
+   "id": "qcacnn-quantum-convolutional-neural-network-algorithm-traffic-cef10",
+   "title": "QCACNN: A Quantum Convolutional Neural Network Algorithm for Traffic Sign Recognition in Carbon-Intelligent Electric Vehicles",
+   "titleZh": "QCACNN:面向交通标志识别的量子卷积神经网络",
+   "authors": [
+    "Zhiguo Qu",
+    "Yichen Xia",
+    "Le Sun",
+    "Wenjie Liu",
+    "Ghulam Muhammad"
+   ],
+   "venue": "IEEE Internet of Things Journal",
+   "date": "2025-03-24",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1109/jiot.2025.3553897",
+   "url": "https://doi.org/10.1109/jiot.2025.3553897",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对自动驾驶交通标志识别对数据量与算力的高要求,提出量子通道注意力卷积网络 QCACNN,以更少的计算资源实现颜色与图案的高精度识别,适配边缘部署场景。",
+   "abstract": "Traffic sign recognition is essential for autonomous driving, enhancing driving efficiency and ensuring road safety. Traffic signs utilize colors and patterns to relay critical information, with color accuracy being especially significant. Traditional models, reliant on extensive data and computing resources, struggle to meet the efficiency demands of electric vehicles with carbon-intelligent computing. Leveraging the physical properties of quantum superposition states, quantum computing offers a solution with its unique parallel computing capabilities, potentially enhancing recognition efficiency and facilitating real-time processing. Quantum convolutional neural networks (QCNNs) show promise in processing large-scale image data with improved efficiency and accuracy. However, most of QCNN researches focus on grayscale image classification, with limited studies on multichannel data. This article introduces the quantum channel attention convolutional neural network (QCACNN), which incorporates a quantum channel attention layer (QCAL) to enhance multichannel data classification. The experimental results demonstrate that QCACNNs surpasses traditional QCNNs in traffic sign recognition, performing comparably to conventional CNNs and SENet models with fewer computing resources. Detailed performance analysis and ablation studies validate the effectiveness of each component within this architecture. Quantum noise resistance tests confirm the robustness of QCACNN, making it a viable s",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
    "id": "real-world-test-portfolio-optimization-quantum-annealing-490ab",
    "title": "A real-world test of portfolio optimization with quantum annealing",
    "titleZh": "量子退火投资组合优化的真实场景测试",
@@ -8549,6 +9199,39 @@
    "domains": []
   },
   {
+   "id": "qdcnn-quantum-deep-learning-enhancing-safety-reliability-0f5fe",
+   "title": "QDCNN: Quantum Deep Learning for Enhancing Safety and Reliability in Autonomous Transportation Systems",
+   "titleZh": "QDCNN:面向自动驾驶安全与可靠性的量子深度学习",
+   "authors": [
+    "Ashtakala Meghanath",
+    "Subham Das",
+    "Bikash K. Behera",
+    "Muhammad Attique Khan",
+    "Saif Al‐Kuwari",
+    "Ahmed Farouk"
+   ],
+   "venue": "IEEE Transactions on Intelligent Transportation Systems",
+   "date": "2025-03-18",
+   "year": 2025,
+   "citations": 12,
+   "arxivId": "",
+   "doi": "10.1109/tits.2025.3546353",
+   "url": "https://doi.org/10.1109/tits.2025.3546353",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 IEEE T-ITS:针对交通信息物理系统中实时决策的计算复杂度与模糊输入难题,提出量子深度卷积网络 QDCNN,用量子线路增强特征表达能力,提升自动驾驶决策的安全性与可靠性。",
+   "abstract": "In transportation cyber-physical systems (CPS), ensuring safety and reliability in real-time decision-making is essential for successfully deploying autonomous vehicles and intelligent transportation networks. However, these systems face significant challenges, such as computational complexity and the ability to handle ambiguous inputs like shadows in complex environments. This paper introduces a Quantum Deep Convolutional Neural Network (QDCNN) designed to enhance the safety and reliability of CPS in transportation by leveraging quantum algorithms. At the core of QDCNN is the UU$\\dagger $method, which is utilized to improve shadow detection through a propagation algorithm that trains the centroid value with preprocessing and postprocessing operations to classify shadow regions in images accurately. The proposed QDCNN is evaluated on three datasets on normal conditions and one road affected by rain to test its robustness. It outperforms existing methods in terms of computational efficiency, achieving a shadow detection time of just 0.0049352 seconds, faster than classical algorithms like intensity-based thresholding (0.03 seconds), chromaticity-based shadow detection (1.47 seconds), and local binary pattern techniques (2.05 seconds). This remarkable speed, superior accuracy, and noise resilience demonstrate QDCNN’s —key factors for safe navigation in autonomous transportation in real-time. This research demonstrates the potential of quantum-enhanced models in addressing criti",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
    "id": "designing-robust-quantum-neural-networks-optimized-circuit-fa3ab",
    "title": "Designing Robust Quantum Neural Networks via Optimized Circuit Metrics",
    "titleZh": "基于优化线路度量的鲁棒量子神经网络设计",
@@ -8575,6 +9258,35 @@
    ],
    "summaryZh": "研究量子神经网络(QuNN)对抗 FGSM 与 PGD 两种对抗攻击的鲁棒性,与经典 CNN 进行系统对比。发表于 Advanced Quantum Technologies,为 NISQ 设备上的 QML 应用提供安全评估框架。",
    "abstract": "Abstract In this study, the robustness of Quanvolutional Neural Networks (QuNNs) is investigated in comparison to their classical counterparts, Convolutional Neural Networks (CNNs), against two adversarial attacks: the Fast Gradient Sign Method (FGSM) and the Projected Gradient Descent (PGD), for the image classification task on both the Modified National Institute of Standards and Technology (MNIST) and Fashion‐MNIST (FMNIST) datasets. To enhance the robustness of QuNNs, a novel methodology is developed that utilizes three quantum circuit metrics: expressibility, entanglement capability, and controlled rotation gate selection. This analysis shows that these metrics significantly influence data representation within the Hilbert space, thereby directly affecting QuNN robustness. It is rigorously established that circuits with higher expressibility and lower entanglement capability generally exhibit enhanced robustness under adversarial conditions, particularly at low‐spectrum perturbation strengths where most attacks occur. Furthermore, these findings challenge the prevailing assumption that expressibility alone dictates circuit robustness; instead, it is demonstrated that the inclusion of controlled rotation gates around the Z‐axis generally enhances the resilience of QuNNs. These results demonstrate that QuNNs exhibit up to 60% greater robustness on the MNIST dataset and 40% on the Fashion‐MNIST dataset compared to CNNs. Collectively, this work elucidates the relationship be",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "mixed-state-quantum-denoising-diffusion-probabilistic-model-d102f",
+   "title": "Mixed-state quantum denoising diffusion probabilistic model",
+   "titleZh": "混合态量子去噪扩散概率模型",
+   "authors": [
+    "Gino Kwun",
+    "Bingzhi Zhang",
+    "Quntao Zhuang"
+   ],
+   "venue": "Physical Review A",
+   "date": "2025-03-14",
+   "year": 2025,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1103/physreva.111.032610",
+   "url": "https://doi.org/10.1103/physreva.111.032610",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将量子去噪扩散模型(QuDDPM)从纯态推广到混合态场景,使量子生成模型能够学习并采样一般混合量子态分布,显著拓宽其适用范围。",
+   "abstract": "Generative quantum machine learning has gained significant attention for its ability to produce quantum states with desired distributions. Among various quantum generative models, quantum denoising diffusion probabilistic models (QuDDPMs) [Zhang et al., Phys. Rev. Lett. 132, 100602 (2024)] provide a promising approach with stepwise learning that resolves the training issues. However, the requirement of high-fidelity scrambling unitaries in QuDDPMs poses a challenge to near-term implementation. We propose a mixed-state quantum denoising diffusion probabilistic model (MSQuDDPM) to eliminate the need for scrambling unitaries. Our approach focuses on adapting the quantum noise channels to the model architecture, which integrates depolarizing noise channels in the forward diffusion process and parameterized quantum circuits with projective measurements in the backward denoising steps. We also introduce several techniques to improve MSQuDDPM, including a cosine-exponent schedule of noise interpolation, the use of a single-qubit random ancilla, and superfidelity-based cost functions to enhance the convergence. We evaluate MSQuDDPM on quantum ensemble generation tasks, demonstrating its successful performance.",
    "source": "backfill",
    "domains": []
   },
@@ -8687,6 +9399,36 @@
    ],
    "summaryZh": "量子信息先驱 Preskill 的里程碑式概念论文(被引 38):提出\"Megaquop Machine\"概念——介于 NISQ 与大规模容错量子计算机之间的中间形态(百万级量子操作的容错机器)。该框架为量子优化算法从 NISQ demo 迈向实用化指明了硬件路径。",
    "abstract": "Today’s Noisy Intermediate-Scale Quantum (NISQ) computers have scientific value, but quantum machines with broad practical value must be protected against noise using quantum error correction and fault-tolerant protocols. Recent studies of quantum error correction on actual hardware are opening a new era of quantum information processing. Error-corrected computers capable of performing one million quantum operations or more may be realized soon, raising a compelling question for the quantum community: What are the potential uses of these megaquop machines?",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "subspace-preserving-quantum-convolutional-neural-network-architectures-29d73",
+   "title": "Subspace preserving quantum convolutional neural network architectures",
+   "titleZh": "保持子空间的量子卷积神经网络架构",
+   "authors": [
+    "Léo Monbroussou",
+    "Jonas Landman",
+    "Letao Wang",
+    "Alex B. Grilo",
+    "Elham Kashefi"
+   ],
+   "venue": "Quantum Science and Technology",
+   "date": "2025-03-11",
+   "year": 2025,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1088/2058-9565/adbf43",
+   "url": "https://doi.org/10.1088/2058-9565/adbf43",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将保持子空间(对称性守恒)电路设计引入量子卷积神经网络,依托计算中的对称性为训练提供可证理论保证,可实现多项式加速,并证明该类架构能够模拟经典机器学习算法的行为。",
+   "abstract": "Abstract Subspace preserving quantum circuits are a class of quantum algorithms that, relying on some symmetries in the computation, can offer theoretical guarantees for their training. Those algorithms have gained extensive interest as they can offer polynomial speed-up and can be used to mimic classical machine learning algorithms. In this work, we propose a novel convolutional neural network architecture model based on Hamming weight (HW) preserving quantum circuits. In particular, we introduce convolutional layers, and measurement based pooling layers that preserve the symmetries of the quantum states while realizing non-linearity using gates that are not subspace preserving. Our proposal offers significant polynomial running time advantages over classical deep-learning architecture. We provide an open source simulation library for HW preserving quantum circuits that can simulate our techniques more efficiently with GPU-oriented libraries. Using this code, we provide examples of architectures that highlight great performances on complex image classification tasks with a limited number of qubits, and with fewer parameters than classical deep-learning architectures.",
    "source": "backfill",
    "domains": []
   },
@@ -9581,6 +10323,37 @@
    "domains": []
   },
   {
+   "id": "generative-quantum-combinatorial-optimization-means-novel-conditional-3869d",
+   "title": "Generative quantum combinatorial optimization by means of a novel conditional generative quantum eigensolver",
+   "titleZh": "基于条件生成模型的生成式量子组合优化",
+   "authors": [
+    "Shunya Minami",
+    "Kouhei Nakaji",
+    "Yohichi Suzuki",
+    "Alán Aspuru‐Guzik",
+    "Tadashi Kadowaki"
+   ],
+   "venue": "arXiv",
+   "date": "2025-01-28",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2501.16986",
+   "doi": "10.48550/arxiv.2501.16986",
+   "url": "https://arxiv.org/abs/2501.16986",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": true,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出新型条件生成式模型辅助的混合量子-经典组合优化方法,通过学习解空间分布引导搜索,与站点关注的量子组合优化主线直接相关,为逻辑量子处理器时代的求解策略提供生成式新思路。",
+   "abstract": "Quantum computing is entering a transformative phase with the emergence of logical quantum processors, which hold the potential to tackle complex problems beyond classical capabilities. While significant progress has been made, applying quantum algorithms to real-world problems remains challenging. Hybrid quantum-classical techniques have been explored to bridge this gap, but they often face limitations in expressiveness, trainability, or scalability. In this work, we introduce conditional Generative Quantum Eigensolver (conditional-GQE), a context-aware quantum circuit generator powered by an encoder-decoder Transformer. Focusing on combinatorial optimization, we train our generator for solving problems with up to 10 qubits, exhibiting nearly perfect performance on new problems. By leveraging the high expressiveness and flexibility of classical generative models, along with an efficient preference-based training scheme, conditional-GQE provides a generalizable and scalable framework for quantum circuit generation. Our approach advances hybrid quantum-classical computing and contributes to accelerate the transition toward fault-tolerant quantum computing.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "modeling-prediction-demand-response-based-deep-quantum-2795e",
    "title": "Modeling and Prediction of Demand Response Based on Deep Quantum Neural Networks",
    "titleZh": "基于深度量子神经网络的需求响应建模与预测",
@@ -9640,6 +10413,34 @@
    ],
    "summaryZh": "提出面向图上组合优化问题(TSP、最长路径、最大独立集等 NP 难问题)的通用量子算法框架,发表于 Data Science and Engineering。",
    "abstract": "Abstract Combinatorial optimization problems over graphs, such as the traveling salesman problem, longest path problem, and maximum independent set problem, are well-known for being computationally costly, some even NP-hard problems. In this paper, we propose a general quantum algorithm framework searching for approximate solutions to combinatorial optimization problems with linear objective functions. Our framework provides APIs (application programming interfaces) that enable developers to encode weighted graph structures onto quantum circuits and utilize variational algorithms to generate approximate solutions. One key advantage of our framework is that it allows developers to design new graph algorithms for the graph problem represented as linear combinations of edge weights without requiring expertise in quantum programming. Besides, it only uses a logarithmic level of quantum bit scale, making our framework work on quantum computers with limited physical resources. Our experimental results demonstrate that our framework can provide good approximations for the traveling salesman problem compared to current quantum algorithm.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "tensor-based-binary-graph-encoding-variational-quantum-2c789",
+   "title": "Tensor-Based Binary Graph Encoding for Variational Quantum Classifiers",
+   "titleZh": "面向变分量子分类器的张量二进制图编码",
+   "authors": [
+    "Shiwen An",
+    "Konstantinos Slavakis"
+   ],
+   "venue": "arXiv",
+   "date": "2025-01-24",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2501.14185",
+   "doi": "10.48550/arxiv.2501.14185",
+   "url": "https://arxiv.org/abs/2501.14185",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出基于张量的二进制图编码方案,把图结构数据映射为适合变分量子线路处理的输入形式,拓展了量子机器学习在图分类类任务上的适用边界。",
+   "abstract": "Quantum computing has been a prominent research area for decades, inspiring transformative fields such as quantum simulation, quantum teleportation, and quantum machine learning (QML), which are undergoing rapid development. Within QML, hybrid classical-quantum algorithms like Quantum Neural Networks (QNNs) and Variational Quantum Classifiers (VQCs) have shown promise in leveraging quantum circuits and classical optimizers to classify classical data efficiently.Simultaneously, classical machine learning has made significant strides in graph classification, employing Graph Neural Networks (GNNs) to analyze systems ranging from large-scale structures like the Large Hadron Collider to molecular and biological systems like proteins and DNA. Combining the advancements in quantum computing and graph classification presents a unique opportunity to develop quantum algorithms capable of extracting features from graphs and performing their classification effectively. In this paper, we propose a novel quantum encoding framework for graph classification using VQCs. Unlike existing approaches such as PCA-VQC, which rely on dimensionality reduction techniques like Principal Component Analysis (PCA) and may lead to information loss, our method preserves the integrity of graph data. Furthermore, our encoding approach is optimized for Noise-Intermediate Scale Quantum (NISQ) devices, requiring a limited number of qubits while achieving comparable or superior classification performance to PCA-V",
    "source": "backfill",
    "domains": []
   },
@@ -10430,6 +11231,66 @@
    "domains": [
     "manufacturing"
    ]
+  },
+  {
+   "id": "hybrid-quantum-deep-learning-superpixel-encoding-earth-8e268",
+   "title": "Hybrid Quantum Deep Learning With Superpixel Encoding for Earth Observation Data Classification",
+   "titleZh": "超像素编码混合量子深度学习处理对地观测大数据",
+   "authors": [
+    "Fan Fan",
+    "Yilei Shi",
+    "Tobias Guggemos",
+    "Xiao Xiang Zhu"
+   ],
+   "venue": "IEEE Transactions on Neural Networks and Learning Systems",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.1109/tnnls.2024.3518108",
+   "url": "https://doi.org/10.1109/tnnls.2024.3518108",
+   "topics": [
+    "quantum-ai",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 IEEE TNNLS:面向对地观测大数据的算力瓶颈,提出超像素编码与混合量子深度学习相结合的分类框架,先用超像素压缩计算负载,再以量子线路提取特征,验证了量子加速遥感解译的可行性。",
+   "abstract": "Earth observation (EO) has inevitably entered the Big Data era. The computational challenge associated with analyzing large EO data using sophisticated deep learning models has become a significant bottleneck. To address this challenge, there has been a growing interest in exploring quantum computing as a potential solution. However, the process of encoding EO data into quantum states for analysis potentially undermines the efficiency advantages gained from quantum computing. This article introduces a hybrid quantum deep learning model that effectively encodes and analyzes EO data for classification tasks. The proposed model uses an efficient encoding approach called superpixel encoding, which reduces the quantum resources required for large image representation by incorporating the concept of superpixels. To validate the effectiveness of our model, we conducted evaluations on multiple EO benchmarks, including Overhead-MNIST, So2Sat LCZ42, and SAT-6 datasets. In addition, we studied the impacts of different interaction gates and measurements on classification performance to guide model optimization. The experimental results suggest the validity of our model for accurate classification of EO data. Our models and code are available on https://github.com/zhu-xlab/SEQNN.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
+   "id": "fedqcnn-privacy-preserving-federated-quantum-convolutional-neural-465c6",
+   "title": "FedQCNN: A Privacy‐Preserving Federated Quantum Convolutional Neural Network for Retinal Image Classification",
+   "titleZh": "FedQCNN:隐私保护的联邦量子卷积神经网络",
+   "authors": [
+    "Mahua Nandy Pal",
+    "Debashis De"
+   ],
+   "venue": "IET Quantum Communication",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1049/qtc2.70010",
+   "url": "https://doi.org/10.1049/qtc2.70010",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将联邦学习与量子卷积神经网络结合用于医学影像诊断,利用量子纠缠态的解空间表征能力,在不共享原始医疗数据的前提下完成分布式 QML 训练,兼顾隐私保护与诊断性能。",
+   "abstract": "ABSTRACT Quantum machine learning (QML) provides the opportunity for the success of an automated medical diagnostic system due to the effective representation of the solution space by quantum entangled states and faster optimisation through quantum superposition. Preserving medical data privacy is crucial while implementing an intelligent and efficient medical service provider system. The federated machine learning model is not only rich in diversified model experiences but also helps to protect patient data privacy. This paper proposes a secure, intelligent Internet of Healthcare Things (IoHT) application with a federated quantum convolutional neural network (FedQCNN) to classify medically significant retinal image patches. Following the gradient descent algorithm, we executed the model optimisation and performed the global aggregation using the weighted average of the local models' parameters. The proposed system achieves an evaluation accuracy of 96.8% on E‐Ophtha retinal image dataset. We suggest over‐the‐air distributed machine learning with wireless multiple access channels to significantly save the scaled‐up radio resource requirements for massive connectivity to ultra dense IoT devices. The research emphasises the significant progress of federated quantum machine learning and its prospects in the coming decades.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "role-quantum-computing-solving-optimization-problems-artificial-c49a4",
