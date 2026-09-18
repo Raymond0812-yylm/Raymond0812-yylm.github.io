@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-18",
+ "updated": "2026-09-19",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -1421,6 +1421,36 @@
    ]
   },
   {
+   "id": "accuracy-performance-evaluation-quantum-classical-hybrid-solvers-2b2cc",
+   "title": "Accuracy and performance evaluation of quantum, classical and hybrid solvers for the Max-Cut problem",
+   "titleZh": "量子、经典与混合求解器在 Max-Cut 问题上的精度与性能评估",
+   "authors": [
+    "Jaka Vodeb",
+    "Vid Eržen",
+    "Timotej Hrga",
+    "Janez Povh"
+   ],
+   "venue": "Quantum Information Processing",
+   "date": "2026-07-03",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1007/s11128-026-05263-5",
+   "url": "https://doi.org/10.1007/s11128-026-05263-5",
+   "topics": [
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "以 139 个 Max-Cut/QUBO 实例(100~10000 节点)为基准,对 D-Wave 退火 QPU 与混合求解器、经典模拟退火及东芝模拟分叉机(SBM)做横向对比,并以已知全局最优解为标尺量化解质量,是求解器选型的重要实证参考。",
+   "abstract": "Abstract This paper benchmarks quantum, classical, and hybrid solvers on NP-hard Max-Cut and QUBO problems, emphasizing solution quality relative to known global optima. We evaluate D-Wave’s fast annealing QPU and Hybrid solver against classical simulated annealing (SA) and Toshiba’s simulated bifurcation machine (SBM) using 139 Max-Cut instances (100 to 10,000 nodes). For small instances ( $$\\le $$ ≤ 250 nodes) with known global optima, Hybrid and SA consistently achieve optimal solutions, outperforming the QPU. For larger instances, SBM and slower SA yield superior solutions, while Hybrid and faster SA perform less effectively. Computation time varies across solvers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "qaoa-parameter-transfer-quantum-optimization-autonomous-mobility-57c55",
    "title": "QAOA Parameter Transfer for Quantum Optimization in Autonomous Mobility",
    "titleZh": "自动出行中量子优化的QAOA参数迁移",
@@ -2761,6 +2791,37 @@
    "domains": []
   },
   {
+   "id": "limits-quantum-run-time-advantage-d232f",
+   "title": "Limits of quantum run-time advantage",
+   "titleZh": "量子运行时优势的边界",
+   "authors": [
+    "Jan Tuziemski",
+    "Jakub Pawłowski",
+    "P. Tarasiuk",
+    "Łukasz Pawela",
+    "Bartłomiej Gardas"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2026-03-17",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1103/gpsf-pn1x",
+   "url": "https://doi.org/10.1103/gpsf-pn1x",
+   "topics": [
+    "hardware",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "指出当前量子硬件上\"纯计算\"与\"开销\"无法干净分离,常规运行时分析因此可能系统性高估量子优势;作者给出更稳健的量子运行时定义并推导优势消失的边界条件,为量子优势声明建立更严格的评估标尺。",
+   "abstract": "A robust definition of quantum runtime is essential for assessing the performance of quantum algorithms and claims of quantum advantage. While for most classical hardware the total runtime is well approximated by computation plus a weakly varying constant, on current quantum hardware a clean experimental separation between \"pure computation\" and \"overhead\" is often not justified. Consequently, conventional quantum runtime analyses excluding substantial system-level overheads can lead to biased performance assessments. In this work we introduce experimentally grounded, end-to-end definitions of quantum runtime for digital and analogue quantum computers, together with a methodology for selecting strong classical baselines for quantum-classical runtime comparisons. Within this framework, we evaluate recent claims of quantum advantage in annealing and gate-based algorithms. We examine three representative case studies. First, we revisit annealing for approximate QUBO problems PRL 134, 160601 (2025), which employs a well-motivated time-to-$ε$ metric but effectively uses annealing time as a proxy for runtime. Second, we analyze a restricted implementation of Simon's problem PRX 15, 021082 (2025), where the favorable scaling in oracle calls is undisputed; however, we show that the estimated runtime of the quantum experiment is approximately two orders of magnitude slower than a tuned classical baseline at the tested sizes. Finally, we find that the runtime advantage of the BF-DCQO h",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "toward-solution-time-advantage-error-mitigated-quantum-13e3e",
    "title": "Toward Solution‐Time Advantage With Error‐Mitigated Quantum Annealing for Combinatorial Optimization",
    "titleZh": "面向组合优化的误差缓解量子退火:迈向求解时间优势",
@@ -2885,6 +2946,37 @@
    ],
    "summaryZh": "DESY团队对面向组合优化的变分量子算法(VQE变体)进行了系统的实践基准测试,重点评估训练资源随问题规模的标度——发现常呈超多项式增长,并比较不同ansatz与优化策略在真实约束下的表现。该工作为\"浅层变分电路能否实用\"提供了冷静的量化证据。",
    "abstract": "Abstract Variational quantum algorithms, and in particular variants of the variational quantum eigensolver, have been proposed as approaches to combinatorial optimization (CO) problems. With only shallow ansatz circuits, these methods are considered suitable for current noisy intermediate-scale quantum hardware. Yet, the resources required to train variational circuits often scale superpolynomially with problem size. In this study, we numerically investigate the practical implications of this scaling for CO problems, using Max-Cut and random QUBO instances as benchmarks. For a fixed computational budget, we compare the average performance of training shallow variational circuits, sampling with replacement, and greedy local search. We identify the minimum problem size at which the quantum algorithms consistently outperform random sampling, and for each size, we characterize their separation from greedy local search. Beyond average-case performance, we analyze correlations between algorithms across individual problem instances. These results strengthen the case for intuitive yet meaningful benchmarks of variational quantum algorithms for CO problems under realistic resource constraints.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-inspired-dynamical-models-quantum-classical-annealers-2d30e",
+   "title": "Quantum-inspired dynamical models on quantum and classical annealers",
+   "titleZh": "量子与经典退火机上的量子启发动力学基准套件",
+   "authors": [
+    "Philipp Hanussek",
+    "Jakub Pawłowski",
+    "Zakaria Mzaouali",
+    "Bartłomiej Gardas"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2026-03-09",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1103/rrf3-jm5m",
+   "url": "https://doi.org/10.1103/rrf3-jm5m",
+   "topics": [
+    "annealing",
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出物理启发的实用基准测试套件:用并行时间编码把 n 比特(含非厄米)哈密顿量实时演化转成 QUBO 实例,以求解器无关方式在量子退火机与经典求解器上执行,为跨平台公平对决提供统一题库。",
+   "abstract": "We propose a practical, physics-inspired benchmarking suite to challenge both quantum and classical computers by mapping real-time quantum dynamics to a common optimization format. Using a parallel-in-time encoding, we convert the real-time propagator of an n -qubit, possibly non-Hermitian, Hamiltonian into quadratic unconstrained binary optimization (QUBO) instances that are executable in a solver-agnostic manner on quantum annealers and classical optimizers alike. This enables direct, like-for-like performance comparisons across fundamentally different computational paradigms. To stress-test the framework, we consider eight representative dynamical models spanning single-qubit rotations, multiqubit entangling gates (Bell, Greenberger-Horne-Zeilinger, cluster), and P T -symmetric and other non-Hermitian generators, and evaluate success probability and time to solution as standard benchmarking metrics. Applying this method to two generations of D-Wave quantum annealers and to state-of-the-art classical solvers (simulated annealing and the graphics-processing unit–accelerated VeloxQ), we find that Advantage2 consistently outperforms its predecessor, while VeloxQ retains the shortest absolute run-times, reflecting the maturity of classical heuristics. We further extend the benchmarks to large-scale instances ( N ≈ 10 5 ), establishing a demanding classical baseline for future hardware. Together, these results position the parallel-in-time QUBO framework as a versatile and physi",
    "source": "backfill",
    "domains": []
   },
@@ -4370,6 +4462,34 @@
    ]
   },
   {
+   "id": "variational-determination-penalty-parameters-quantum-annealing-31ace",
+   "title": "Variational determination of penalty parameters in quantum annealing",
+   "titleZh": "量子退火中罚参数的变分确定方法",
+   "authors": [
+    "Ji-Qian Qin",
+    "Yu Yunlong",
+    "Xiang‐Bin Wang"
+   ],
+   "venue": "Quantum Science and Technology",
+   "date": "2025-12-23",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1088/2058-9565/ae30a2",
+   "url": "https://doi.org/10.1088/2058-9565/ae30a2",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对约束组合优化编码为 Ising 哈密顿时罚参数难以选择的老问题,提出三级递进的变分确定框架,以系统化方法替代经验试错,提升约束优化问题在量子退火设备上的求解可靠性。",
+   "abstract": "Abstract Quantum annealing (QA) offers a promising approach for solving constrained combinatorial optimization on near-term quantum devices. It encodes solutions into the ground states of the Ising problem Hamiltonians through penalty terms and penalty parameters to enforce constraints. We propose a variational determination framework to address the issue of penalty parameter selection through three progressively generalized methods: the Frozen method variationally adjusts parameters in a tunable Hamiltonian to prepare evolved states minimizing the energy of a target Hamiltonian with Frozen parameters; the Time-Transfer method applies optimized parameters to longer annealing times; and the Full-Transfer method extends this approach across both system sizes and annealing durations. The effectiveness of these methods stems from energy minimization steering the evolution toward the low-energy subspace. Evaluated on vertex cover problems over 40 randomly generated 12-vertex 3-regular graphs, the Frozen method improves the average single-run success probability from 0.27 ± 0.02 to 0.62 ± 0.03 at t a = 10 , and reduces the average number of runs required for 99.9% success probability by 3.8 times at t a = 2 (including optimization overhead). Crucially, both Time-Transfer method and Full-Transfer method achieve single-run fidelity improvements comparable to the Frozen method, while reducing the number of runs required for 99.9% success probability at t a = 2.5 by 6.63 times and 6.4 ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "toward-sustainable-mobility-hybrid-quantum-llm-decision-1597f",
    "title": "Toward Sustainable Mobility: A Hybrid Quantum–LLM Decision Framework for Next-Generation Intelligent Transportation Systems",
    "titleZh": "迈向可持续出行:面向下一代智能交通系统的量子-大模型混合决策框架",
@@ -5759,6 +5879,35 @@
    ],
    "summaryZh": "针对量子差分进化(QDE)高维问题中变异过度、收敛差的缺陷,提出多策略混合增强框架,显著改善求解精度与稳定性。",
    "abstract": "Abstract Differential Evolution (DE) has been found to be inefficient and inaccurate for high-dimensional complex problems. Quantum-inspired Differential Evolution (QDE) possesses quantum computational properties, enabling effective handling of high-dimensional problems. However, QDE is plagued by issues of excessive mutation and poor convergence. Therefore, a hybrid enhanced Quantum-inspired Differential Evolution algorithm, termed QAHQDE, is proposed. Within QAHQDE, an improved chaotic strategy is designed. Non-repeating distributed quantum positions are generated, enhancing the diversity of initialized individuals. A quantum-adaptive mutation strategy is adopted to address the over-mutation problem inherent in QDE. The mutation degree is adaptively reduced, and convergence performance is thereby improved. A novel hybrid mutation strategy is constructed. Weighted mutation operators are combined with standard differential evolution. Local and global search capabilities are balanced, and convergence accuracy is enhanced. The performance of QAHQDE was evaluated against 38 algorithms using 48 benchmark functions from CEC2005, CEC2010, and CEC2013, across dimensions D=100, 500, 1000, and 3000. Experimental results demonstrate that QAHQDE outperforms QDE by at least three orders of magnitude. Superior convergence performance, higher convergence accuracy, and excellent stability are exhibited by QAHQDE on most functions.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "large-scale-multiple-query-optimisation-incremental-quantum-4a688",
+   "title": "Large-Scale Multiple Query Optimisation with Incremental Quantum(-Inspired) Annealing",
+   "titleZh": "增量量子(启发式)退火求解大规模多查询优化",
+   "authors": [
+    "Manuel Schönberger",
+    "Immanuel Trummer",
+    "Wolfgang Mauerer"
+   ],
+   "venue": "Proceedings of the ACM on Management of Data",
+   "date": "2025-09-22",
+   "year": 2025,
+   "citations": 6,
+   "arxivId": "",
+   "doi": "10.1145/3749171",
+   "url": "https://doi.org/10.1145/3749171",
+   "topics": [
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "数据库多查询优化(MQO)可大幅减少查询冗余但属 NP 难问题;作者借助富士通 Digital Annealer 等专用硬件将其扩展到此前不可及的规模,提出增量式量子/量子启发退火算法,是量子优化进入数据库系统领域的少见案例。",
+   "abstract": "Multiple-query optimization (MQO) seeks to reduce redundant work across query batches. While MQO offers opportunities for dramatic performance improvements, the problem is NP-hard, limiting the sizes of problems that can be solved on generic hardware. We propose to leverage specialized hardware solvers for optimization, such as Fujitsu's Digital Annealer (DA), to scale up MQO to problem sizes formerly out of reach. We present a novel incremental processing approach that combines classical computation with DA acceleration. By efficiently partitioning MQO problems into sets of partial problems, and by applying a dynamic search steering strategy that reapplies initially discarded information to incrementally process individual problems, our method overcomes capacity limitations, and scales to extremely large MQO instances (up to νm1000 queries). A thorough and comprehensive empirical evaluation finds our method substantially outperforms existing approaches. Our generalisable framework lays the ground for other database use-cases on quantum-inspired hardware, and bridges towards future quantum accelerators.",
    "source": "backfill",
    "domains": []
   },
@@ -7154,6 +7303,37 @@
    "domains": []
   },
   {
+   "id": "can-quantum-computing-surpass-classical-algorithms-optimizing-8296a",
+   "title": "Can quantum computing surpass classical algorithms in optimizing building performance? A benchmark study with 15,000 simulations",
+   "titleZh": "量子计算能否在建筑性能优化上超越经典算法:基准研究",
+   "authors": [
+    "Haidar Hosamo",
+    "Vagelis Plevris",
+    "Dimitrios Kraniotis",
+    "Christian Nordahl Rolfsen"
+   ],
+   "venue": "Energy and Buildings",
+   "date": "2025-07-16",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1016/j.enbuild.2025.116156",
+   "url": "https://doi.org/10.1016/j.enbuild.2025.116156",
+   "topics": [
+    "qaoa",
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "基于约 15000 次 IDA ICE 仿真训练代理模型,对量子方法与经典 NSGA-II 在建筑能耗-热舒适多目标优化上做基准对比:量子方法求解更快但解质量尚有差距,同时展望了实时建筑优化的应用前景。",
+   "abstract": "• Quantum and classical algorithms are benchmarked for building performance optimization. • A surrogate model is trained on 15,000 IDA ICE simulations for prediction. • NSGA-II achieves the best trade-offs between energy use and thermal comfort. • Quantum methods deliver faster results but with reduced solution quality. • Quantum computing shows potential for future real-time building optimization. Optimizing building performance is essential for enhancing energy efficiency and occupant comfort. This study evaluates the applicability of quantum computing–based optimization methods in the Architecture, Engineering, and Construction (AEC) industry by comparing the Quantum Approximate Optimization Algorithm (QAOA) and Quantum Annealing (QA) with classical multi-objective optimization algorithms, namely Non-dominated Sorting Genetic Algorithm II (NSGA-II) and Multi-Objective Particle Swarm Optimization (MOPSO). A dataset of 15,000 building simulations was used to train an Extreme Gradient Boosting (XGBoost) model for predicting total energy consumption (kWh/m 2 /year) and Predicted Percentage of Dissatisfied (PPD) occupants. These predictions were then used in the optimization phase. NSGA-II produced the best trade-offs, achieving energy consumption between 17.84 and 19.84 kWh/m 2 /year and PPD below 5.2 %, with strong diversity and convergence. QAOA executed faster (0.54 min) than NSGA-II (18.9 min) but resulted in higher energy values (31.85–55.62 kWh/m 2 /year) and weaker solu",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-inspired-algorithms-perspectives-optimization-a4712",
    "title": "Quantum-Inspired Algorithms and Perspectives for Optimization",
    "titleZh": "面向优化的量子启发算法与展望",
@@ -8169,6 +8349,37 @@
    "domains": []
   },
   {
+   "id": "limitations-tensor-network-approaches-optimization-sampling-comparison-bf55a",
+   "title": "Limitations of tensor-network approaches for optimization and sampling: A comparison to quantum and classical Ising machines",
+   "titleZh": "张量网络方法在优化与采样上的局限:与量子退火的对比",
+   "authors": [
+    "Anna Maria Dziubyna",
+    "Tomasz Śmierzchalski",
+    "Bartłomiej Gardas",
+    "Marek M. Rams",
+    "Masoud Mohseni"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2025-05-19",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1103/physrevapplied.23.054049",
+   "url": "https://doi.org/10.1103/physrevapplied.23.054049",
+   "topics": [
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统评估张量网络方法在组合优化与采样任务上的适用边界,并利用退火设备的高连通性设计实验与量子退火硬件直接对比,回答\"经典张量网络模拟何时够用、何时需要量子硬件\"这一求解器选型的关键问题。",
+   "abstract": "In the ever-evolving landscape of computational science, tensor networks have emerged as a versatile toolset to simulate both quantum and classical many-body systems. This study investigates their applicability to complex optimization problems, where quantum annealing devices have generated significant interest. A challenge in applying tensor networks here is the high connectivity of the devices, which this work effectively leverages by utilizing sparse structures in construction, plus hardware acceleration. The authors quantify the limitations of their deterministic approach, and find that in certain scenarios it might outperform quantum annealers or randomized classical solvers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-error-correction-qudits-beyond-break-even-64575",
    "title": "Quantum error correction of qudits beyond break-even",
    "titleZh": "超越盈亏平衡点的 qudit 量子纠错",
@@ -8642,6 +8853,63 @@
    ],
    "summaryZh": "发表于 MethodsX 的 QML 全面综述(被引 56):覆盖叠加、纠缠、干涉原理在数据处理中的加速机制与各类 QML 模型,是量子×AI 方向的高被引参考。",
    "abstract": "Quantum Machine Learning (QML) is the emerging confluence of quantum computing and artificial intelligence that promises to solve computational problems inaccessible to classical systems. Using quantum principles such as superposition, entanglement, and interference, QML promises exponential speed-ups and new paradigms for data processing in machine learning tasks. This review gives an overview of QML, from advancements in quantum-enhanced classical ML to native quantum algorithms and hybrid quantum-classical frameworks. It varies from applications in optimization, drug discovery, and quantum-secured communications, showcasing how QML can change healthcare, finance, and logistics industries. Even though this approach holds so much promise, significant challenges remain to be addressed-noisy qubits, error correction, and limitations in data encoding-that must be overcome by interdisciplinary research soon. The paper tries to collate the state of the art of QML in theoretical underpinnings, practical applications, and directions into the future.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "approximate-quantum-compiling-quantum-simulation-tensor-network-00586",
+   "title": "Approximate Quantum Compiling for Quantum Simulation: A Tensor Network Based Approach",
+   "titleZh": "面向量子模拟的张量网络近似量子编译",
+   "authors": [
+    "Niall Robertson",
+    "Albert Akhriev",
+    "Jiří Vala",
+    "Sergiy Zhuk"
+   ],
+   "venue": "ACM Transactions on Quantum Computing",
+   "date": "2025-04-18",
+   "year": 2025,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1145/3731251",
+   "url": "https://doi.org/10.1145/3731251",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 AQCtensor 算法:从矩阵乘积态(MPS)出发生成短深度量子线路,专门针对多体哈密顿量时间演化态制备,可同时优化线路的全部变分参数,相比通用 MPS→线路映射显著压缩深度,适配 NISQ 设备。",
+   "abstract": "We introduce AQCtensor , a novel algorithm to produce short-depth quantum circuits from Matrix Product States (MPS). Our approach is specifically tailored to the preparation of quantum states generated from the time evolution of quantum many-body Hamiltonians. This tailored approach has two clear advantages over previous algorithms that were designed to map a generic MPS to a quantum circuit. First, we optimise all parameters of a parametric circuit at once using Approximate Quantum Compiling (AQC)—this is to be contrasted with other approaches based on locally optimizing a subset of circuit parameters and “sweeping” across the system. We introduce an optimisation scheme to avoid the so-called “orthogonality catastrophe”—i.e., the fact that the fidelity of two arbitrary quantum states decays exponentially with the number of qubits—that would otherwise render a global optimisation of the circuit impractical. Second, the depth of our parametric circuit is constant in the number of qubits for a fixed simulation time and fixed error tolerance. This is to be contrasted with the linear circuit Ansatz used in generic algorithms whose depth scales linearly in the number of qubits. For simulation problems on 100 qubits, we show that AQCtensor thus achieves at least an order of magnitude reduction in the depth of the resulting optimized circuit, as compared with the best generic MPS to quantum circuit algorithms. We demonstrate our approach on simulation problems on Heisenberg-like Ham",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "addressing-minor-embedding-problem-quantum-annealing-evaluating-08ada",
+   "title": "Addressing the Minor-Embedding Problem in Quantum Annealing and Evaluating State-of-the-Art Algorithm Performance",
+   "titleZh": "量子退火次级嵌入问题及现有最优算法评估",
+   "authors": [
+    "Aitor Gomez-Tejedor",
+    "Eneko Osaba",
+    "Esther Villar-Rodríguez"
+   ],
+   "venue": "arXiv",
+   "date": "2025-04-17",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2504.13376",
+   "doi": "10.48550/arxiv.2504.13376",
+   "url": "https://arxiv.org/abs/2504.13376",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统研究 Ising 变量到退火硬件拓扑的次级嵌入(minor-embedding)问题:嵌入质量被证实直接影响求解表现。该工作分析嵌入质量对性能的影响机制并评估现有最优嵌入算法,是 QUBO 上机前处理的实用指南。",
+   "abstract": "This study addresses the minor-embedding problem, which involves mapping the variables of an Ising model onto a quantum annealing processor. The primary motivation stems from the observed performance disparity of quantum annealers when solving problems suited to the processor's architecture versus those with non-hardware-native topologies. Our research has two main objectives: i) to analyze the impact of embedding quality on the performance of D-Wave Systems quantum annealers, and ii) to evaluate the quality of the embeddings generated by Minorminer, the standard minor-embedding technique in the quantum annealing literature, provided by D-Wave. Regarding the first objective, our experiments reveal a clear correlation between the average chain length of embeddings and the relative errors of the solutions sampled. This underscores the critical influence of embedding quality on quantum annealing performance. For the second objective, we evaluate Minorminer's embedding capabilities, the quality and robustness of its embeddings, and its execution-time performance on Erdös-Rényi graphs. We also compare its performance with Clique Embedding, another algorithm developed by D-Wave, which is deterministic and designed to embed fully connected Ising models into quantum annealing processors, serving as a worst-case scenario. The results demonstrate that there is significant room for improvement for Minorminer, suggesting that more effective embedding strategies could lead to meaningful g",
    "source": "backfill",
    "domains": []
   },
@@ -10875,6 +11143,37 @@
    "tags": [],
    "summaryZh": "测量开销是变分量子算法的关键瓶颈。论文在给定总测量预算下寻找单比特测量的最优策略,建立能量经验估计的尾界作为核心工具,提出ShadowGrouping方法并给出可证明的精度保证。这对于降低QAOA/VQE每次迭代的采样成本具有直接价值。",
    "abstract": "Estimation of the energy of quantum many-body systems is a paradigmatic task in various research fields. In particular, efficient energy estimation may be crucial in achieving a quantum advantage for a practically relevant problem. For instance, the measurement effort poses a critical bottleneck for variational quantum algorithms. We aim to find the optimal strategy with single-qubit measurements that yields the highest provable accuracy given a total measurement budget. As a central tool, we establish tail bounds for empirical estimators of the energy. They are helpful for identifying measurement settings that improve the energy estimate the most. This task constitutes an NP-hard problem. However, we are able to circumvent this bottleneck and use the tail bounds to develop a practical, efficient estimation strategy, which we call ShadowGrouping. As the name indicates, it combines shadow estimation methods with grouping strategies for Pauli strings. In numerical experiments, we demonstrate that ShadowGrouping improves upon state-of-the-art methods in estimating the electronic ground-state energies of various small molecules, both in provable and practical accuracy benchmarks. Hence, this work provides a promising way, e.g., to tackle the measurement bottleneck associated with quantum many-body Hamiltonians.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "recursive-quantum-relaxation-combinatorial-optimization-problems-470ff",
+   "title": "Recursive Quantum Relaxation for Combinatorial Optimization Problems",
+   "titleZh": "面向组合优化问题的递归量子松弛",
+   "authors": [
+    "Ruho Kondo",
+    "Yuki Sato",
+    "Rudy Raymond",
+    "Naoki Yamamoto"
+   ],
+   "venue": "Quantum",
+   "date": "2025-01-15",
+   "year": 2025,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.22331/q-2025-01-15-1594",
+   "url": "https://doi.org/10.22331/q-2025-01-15-1594",
+   "topics": [
+    "qaoa",
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "证明若干现有量子优化方法可统一为\"寻找最优量子态下最可能被测得的二进制解\"这一求解框架,结合张量网络高效模拟提出递归量子松弛算法,在 MAX-CUT 等 NP 难问题上给出纯经典可执行的量子启发求解新路线。",
+   "abstract": "Quantum optimization methods use a continuous degree-of-freedom of quantum states to heuristically solve combinatorial problems, such as the MAX-CUT problem, which can be attributed to various NP-hard combinatorial problems. This paper shows that some existing quantum optimization methods can be unified into a solver to find the binary solution which is most likely measured from the optimal quantum state. Combining this finding with the concept of quantum random access codes (QRACs) for encoding bits into quantum states on fewer qubits, we propose an efficient recursive quantum relaxation method called recursive quantum random access optimization (RQRAO) for MAX-CUT. Experiments on standard benchmark graphs with several hundred nodes in the MAX-CUT problem, conducted in a fully classical manner using a tensor network technique, show that RQRAO not only outperforms the Goemans-Williamson and recursive QAOA methods, but also is comparable to state-of-the-art classical solvers. The code is available at https://github.com/ToyotaCRDL/rqrao.",
    "source": "backfill",
    "domains": []
   },
@@ -14375,6 +14674,31 @@
    "domains": []
   },
   {
+   "id": "quantum-annealer-accelerates-variational-quantum-eigensolver-triple-7b564",
+   "title": "Quantum annealer accelerates the variational quantum eigensolver in a triple-hybrid algorithm",
+   "titleZh": "量子退火机在三重混合算法中加速 VQE",
+   "authors": [
+    "Manpreet Singh Jattana"
+   ],
+   "venue": "Physica Scripta",
+   "date": "2024-08-16",
+   "year": 2024,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1088/1402-4896/ad6aea",
+   "url": "https://doi.org/10.1088/1402-4896/ad6aea",
+   "topics": [
+    "vqa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把经典计算机、门型量子计算机与量子退火机三种资源组合成三重混合算法:用量子退火加速 VQE 的参数优化环节,突破传统混合算法只用单一量子平台的框架,展示异构量子资源协同的算法设计新方向。",
+   "abstract": "Abstract Hybrid algorithms that combine quantum and classical resources have become commonplace in quantum computing. The variational quantum eigensolver (VQE) is routinely used to solve prototype problems. Currently, hybrid algorithms use no more than one kind of quantum computer connected to a classical computer. In this work, a novel triple-hybrid algorithm combines the effective use of a classical computer, a gate-based quantum computer, and a quantum annealer. The solution of a graph coloring problem found using a quantum annealer reduces the resources needed from a gate-based quantum computer to accelerate VQE by allowing simultaneous measurements within commuting groups of Pauli operators. We experimentally validate our algorithm by evaluating the ground state energy of H2 using different IBM Q devices and the DWave Advantage system requiring only half the resources of standard VQE. Other larger problems we consider exhibit even more significant VQE acceleration. Several examples of algorithms are provided to further motivate a new field of multi-hybrid algorithms that leverage different kinds of quantum computers to gain performance improvements.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "hybrid-quantum-classical-benders-decomposition-federated-learning-c6dd0",
    "title": "Hybrid Quantum–Classical Benders' Decomposition for Federated Learning Scheduling in Distributed Networks",
    "titleZh": "用于分布式网络联邦学习调度的混合量子-经典Benders分解",
@@ -14511,6 +14835,38 @@
    "source": "backfill",
    "domains": [
     "transport"
+   ]
+  },
+  {
+   "id": "quantum-annealing-based-algorithm-efficient-coalition-formation-58921",
+   "title": "Quantum Annealing-Based Algorithm for Efficient Coalition Formation Among LEO Satellites",
+   "titleZh": "基于量子退火的 LEO 卫星联盟高效构建算法",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Marlon Nuske",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "arXiv",
+   "date": "2024-08-12",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "2408.06007",
+   "doi": "10.48550/arxiv.2408.06007",
+   "url": "https://arxiv.org/abs/2408.06007",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "面向低轨巨型星座网络管理难题,将卫星分簇/联盟形成问题编码为 QUBO 并用量子退火求解,与站点卫星任务规划专题直接相关,是\"星座管理×量子优化\"方向的代表性实例。",
+   "abstract": "The increasing number of Low Earth Orbit (LEO) satellites, driven by lower manufacturing and launch costs, is proving invaluable for Earth observation missions and low-latency internet connectivity. However, as the number of satellites increases, the number of communication links to maintain also rises, making the management of this vast network increasingly challenging and highlighting the need for clustering satellites into efficient groups as a promising solution. This paper formulates the clustering of LEO satellites as a coalition structure generation (CSG) problem and leverages quantum annealing to solve it. We represent the satellite network as a graph and obtain the optimal partitions using a hybrid quantum-classical algorithm called GCS-Q. The algorithm follows a top-down approach by iteratively splitting the graph at each step using a quadratic unconstrained binary optimization (QUBO) formulation. To evaluate our approach, we utilize real-world three-line element set (TLE/3LE) data for Starlink satellites from Celestrak. Our experiments, conducted using the D-Wave Advantage annealer and the state-of-the-art solver Gurobi, demonstrate that the quantum annealer significantly outperforms classical methods in terms of runtime while maintaining the solution quality. The performance achieved with quantum annealers surpasses the capabilities of classical computers, highlighting the transformative potential of quantum computing in optimizing the management of large-scale sa",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "manufacturing"
    ]
   },
   {
@@ -15421,6 +15777,61 @@
    ]
   },
   {
+   "id": "mindspore-quantum-user-friendly-high-performance-ai-46a5d",
+   "title": "MindSpore Quantum: A User-Friendly, High-Performance, and AI-Compatible Quantum Computing Framework",
+   "titleZh": "MindSpore Quantum:用户友好、高性能且兼容 AI 的量子计算框架",
+   "authors": [
+    "Xusheng Xu",
+    "Jiangyu Cui",
+    "Zidong Cui",
+    "Run-Hong He",
+    "Qingyu Li",
+    "Xiaowei Li",
+    "Yanling Lin",
+    "Jiale Liu",
+    "Wuxin Liu",
+    "Jiale Lu",
+    "Maolin Luo",
+    "Chufan Lyu",
+    "Shi‐Jie Pan",
+    "M Gotovtsev Pavel",
+    "Runqiu Shu",
+    "Jialiang Tang",
+    "Ruoqian Xu",
+    "Shu Xu",
+    "Kang Yang",
+    "Fan Yu",
+    "Q. Zeng",
+    "Haiying Zhao",
+    "Qiang Zheng",
+    "Junyuan Zhou",
+    "Xu Zhou",
+    "Yikang Zhu",
+    "Zuoheng Zou",
+    "Abolfazl Bayat",
+    "Xi Hang Cao",
+    "Wei Cui"
+   ],
+   "venue": "arXiv",
+   "date": "2024-06-25",
+   "year": 2024,
+   "citations": 10,
+   "arxivId": "2406.17248",
+   "doi": "10.48550/arxiv.2406.17248",
+   "url": "https://arxiv.org/abs/2406.17248",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "华为开源的量子-经典混合计算框架,依托 MindSpore 深度学习底座,支持 NISQ 算法(尤其变分量子算法)在 CPU/GPU 上的高效设计与训练,与 AI 生态深度兼容,是国内量子软件工具链的代表作品。",
+   "abstract": "We introduce MindSpore Quantum, a pioneering hybrid quantum-classical framework with a primary focus on the design and implementation of noisy intermediate-scale quantum (NISQ) algorithms. Leveraging the robust support of MindSpore, an advanced open-source deep learning training/inference framework, MindSpore Quantum exhibits exceptional efficiency in the design and training of variational quantum algorithms on both CPU and GPU platforms, delivering remarkable performance. Furthermore, this framework places a strong emphasis on enhancing the operational efficiency of quantum algorithms when executed on real quantum hardware. This encompasses the development of algorithms for quantum circuit compilation and qubit mapping, crucial components for achieving optimal performance on quantum processors. In addition to the core framework, we introduce QuPack, a meticulously crafted quantum computing acceleration engine. QuPack significantly accelerates the simulation speed of MindSpore Quantum, particularly in variational quantum eigensolver (VQE), quantum approximate optimization algorithm (QAOA), and tensor network simulations, providing astonishing speed. This combination of cutting-edge technologies empowers researchers and practitioners to explore the frontiers of quantum computing with unprecedented efficiency and performance.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "integrated-photonic-structures-photon-mediated-entanglement-trapped-38dca",
    "title": "Integrated photonic structures for photon-mediated entanglement of trapped ions",
    "titleZh": "用于囚禁离子光子纠缠的集成光子结构",
@@ -16323,6 +16734,32 @@
    ]
   },
   {
+   "id": "isometric-tensor-network-optimization-extensive-hamiltonians-is-1d8e9",
+   "title": "Isometric tensor network optimization for extensive Hamiltonians is free of barren plateaus",
+   "titleZh": "广延哈密顿量的等距张量网络优化不存在贫瘠高原",
+   "authors": [
+    "Qiang Miao",
+    "Thomas Barthel"
+   ],
+   "venue": "Physical Review A",
+   "date": "2024-05-14",
+   "year": 2024,
+   "citations": 19,
+   "arxivId": "",
+   "doi": "10.1103/physreva.109.l050402",
+   "url": "https://doi.org/10.1103/physreva.109.l050402",
+   "topics": [
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "证明基于等距张量网络态的变分算法对广延哈密顿量不存在贫瘠高原(能量梯度不随系统尺寸指数衰减),为规避 VQA 最棘手的可训练性障碍给出理论保证,是量子-经典混合优化方向的重要理论进展。",
+   "abstract": "Strongly correlated quantum many-body systems from condensed matter and particle physics are very hard to study classically and variational quantum algorithms (VQAs) may be hampered by barren plateaus, where energy gradients decay exponentially in the system size. The authors prove that this critical problem can be resolved by employing VQAs based on suitable isometric tensor network states, establishing a new route for the investigation of strongly correlated quantum matter on NISQ devices.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "approximate-complex-amplitude-encoding-algorithm-application-data-003c5",
    "title": "Approximate complex amplitude encoding algorithm and its application to data classification problems",
    "titleZh": "近似复幅度编码算法及其在数据分类中的应用",
@@ -16984,6 +17421,32 @@
    "domains": []
   },
   {
+   "id": "generalization-metrics-practical-quantum-advantage-generative-models-94347",
+   "title": "Generalization metrics for practical quantum advantage in generative models",
+   "titleZh": "生成模型实用量子优势的泛化度量",
+   "authors": [
+    "Kaitlin Gili",
+    "Marta Mauri",
+    "Alejandro Perdomo‐Ortiz"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2024-04-17",
+   "year": 2024,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.1103/physrevapplied.21.044032",
+   "url": "https://doi.org/10.1103/physrevapplied.21.044032",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对生成建模这一公认的量子计算应用长期缺乏\"如何量化超越经典\"标准的问题,提出具体的泛化度量与评估方案,为实用性量子优势的严谨声明提供可复用的评价框架。",
+   "abstract": "As the quantum computing community gravitates towards understanding the practical benefits of quantum computers, having a clear definition and evaluation scheme for assessing practical quantum advantage in the context of specific applications is paramount. Generative modeling, for example, is a widely accepted natural use case for quantum computers, and yet has lacked a concrete approach for quantifying success of quantum models over classical ones. In this work, we construct a simple and unambiguous approach to probe practical quantum advantage for generative modeling by measuring the algorithm's generalization performance. Using the sample-based approach proposed here, any generative model, from state-of-the-art classical generative models such as generative adversarial networks (GANs) to quantum models such as quantum circuit born machines, can be evaluated under the same conditions on a concrete well-defined framework. In contrast to other sample-based metrics for probing practical generalization, we leverage constrained optimization problems (e.g., cardinality-constrained problems) and use these discrete datasets to define specific metrics capable of unambiguously measuring the quality of the samples and the model's generalization capabilities for generating data beyond the training set, but still within the valid solution space. Additionally, our metrics can diagnose trainability issues such as mode collapse and overfitting, as we illustrate when comparing GANs to quant",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "distributed-quantum-computing-framework-smart-grid-optimization-3c46a",
    "title": "Distributed Quantum Computing Framework for Smart Grid Optimization",
    "titleZh": "面向智能电网优化的分布式量子计算框架",
@@ -17127,6 +17590,32 @@
    "domains": []
   },
   {
+   "id": "how-experimentally-evaluate-adiabatic-condition-quantum-annealing-f8d38",
+   "title": "How to experimentally evaluate the adiabatic condition for quantum annealing",
+   "titleZh": "如何实验评估量子退火的绝热条件",
+   "authors": [
+    "Yuichiro Mori",
+    "Shiro Kawabata",
+    "Yuichiro Matsuzaki"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2024-04-08",
+   "year": 2024,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1038/s41598-024-58286-2",
+   "url": "https://doi.org/10.1038/s41598-024-58286-2",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出无需对角化哈密顿量的实验方法:通过注入微扰并测量时域信号功率谱,同时获得绝热条件的跃迁矩阵元与能隙两项信息,为实际问题求解中判断退火过程是否绝热提供可操作的实验方案。",
+   "abstract": "We propose an experimental method for evaluating the adiabatic condition during quantum annealing (QA), which will be essential for solving practical problems. The adiabatic condition consists of the transition matrix element and the energy gap, and our method simultaneously provides information about these components without diagonalizing the Hamiltonian. The key idea is to measure the power spectrum of a time domain signal by adding an oscillating field during QA, and we can estimate the values of the transition matrix element and energy gap from the measurement output. Our results provides a powerful experimental basis for analyzing the performance of QA.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-assisted-intelligent-decision-support-systems-trustworthy-effb6",
    "title": "Quantum-Assisted Intelligent Decision Support Systems for Trustworthy Renewable Energy Management in Consumer Devices",
    "titleZh": "titleZh",
@@ -17206,6 +17695,34 @@
    "tags": [],
    "summaryZh": "实现逻辑量子比特错误率低于物理比特错误率的重复纠错实验,是容错量子计算的关键里程碑。逻辑比特错误率的压制使得运行深量子优化电路(百万级操作)成为可能。",
    "abstract": "The promise of quantum computers hinges on the ability to scale to large system sizes, e.g., to run quantum computations consisting of more than 100 million operations fault-tolerantly. This in turn requires suppressing errors to levels inversely proportional to the size of the computation. As a step towards this ambitious goal, we present experiments on a trapped-ion QCCD processor where, through the use of fault-tolerant encoding and error correction, we are able to suppress logical error rates to levels below the physical error rates. In particular, we entangled logical qubits encoded in the [[7,1,3]] code with error rates 9.8 times to 500 times lower than at the physical level, and entangled logical qubits encoded in a [[12,2,4]] code based on Knill's C4/C6 scheme with error rates 4.7 times to 800 times lower than at the physical level, depending on the judicious use of post-selection. Moreover, we demonstrate repeated error correction with the [[12,2,4]] code, with logical error rates below physical circuit baselines corresponding to repeated CNOTs, and show evidence that the error rate per error correction cycle, which consists of over 100 physical CNOTs, approaches the error rate of two physical CNOTs. These results signify a transition from noisy intermediate scale quantum computing to reliable quantum computing, and demonstrate advanced capabilities toward large-scale fault-tolerant quantum computing.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "variational-quantum-eigensolver-embedded-entanglement-tensor-network-cf4b9",
+   "title": "Variational quantum eigensolver with embedded entanglement using a tensor-network ansatz",
+   "titleZh": "基于张量网络拟设嵌入纠缠的变分量子本征求解器",
+   "authors": [
+    "Ryo Watanabe",
+    "Keisuke Fujii",
+    "Hiroshi Ueda"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2024-04-02",
+   "year": 2024,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1103/physrevresearch.6.023009",
+   "url": "https://doi.org/10.1103/physrevresearch.6.023009",
+   "topics": [
+    "vqa",
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "将张量网络方案引入 VQE 的纠缠增强流程:先在经典计算机上按熵面积律优化张量网络变分解,再将其嵌入量子变分线路,为非均匀体系构建系统化的量子-经典协同优化管线。",
+   "abstract": "In this paper, we introduce a tensor network (TN) scheme into the entanglement augmentation process of the synergistic optimization framework by Rudolph [] to build its process systematically for inhomogeneous systems. Our synergistic approach first embeds the variational optimal solution of the TN state with the entropic area law, which can be perfectly optimized in conventional (classical) computers, in a quantum variational circuit ansatz inspired by the TN state with the entropic volume law. Next, the framework performs a variational quantum eigensolver (VQE) process with embedded states as the initial state. We applied the synergistic to the ground-state analysis of the all-to-all coupled random transverse-field Ising, XYZ, Heisenberg model, employing the binary multiscale entanglement renormalization ansatz (MERA) state and branching MERA states as TN states with entropic area law and volume law, respectively. We then show that the synergistic accelerates VQE calculations in the three models without an initial parameter guess of the branching-MERA-inspired ansatz and can avoid a local solution trapped by a standard VQE with the ansatz in the Ising model. The improvement of optimizers for MERA in all-to-all coupled inhomogeneous systems, enhancement, and potential synergistic applications are also discussed. Published by the American Physical Society 2024",
    "source": "backfill",
    "domains": []
   },
@@ -18142,6 +18659,32 @@
    "domains": []
   },
   {
+   "id": "effective-prime-factorization-quantum-annealing-modular-locally-ee242",
+   "title": "Effective prime factorization via quantum annealing by modular locally-structured embedding",
+   "titleZh": "基于模块化局部结构嵌入的量子退火素数分解",
+   "authors": [
+    "Jingwen Ding",
+    "Giuseppe Spallitta",
+    "Roberto Sebastiani"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2024-02-12",
+   "year": 2024,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1038/s41598-024-53708-7",
+   "url": "https://doi.org/10.1038/s41598-024-53708-7",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "设计乘法电路到 D-Wave Pegasus 拓扑的紧凑模块化编码:受控全加器压缩为 8 比特模块并经 Optimization Modulo Theories 综合,实现 21×12 比特级素数分解,展示了结构化嵌入策略对绕开硬件拓扑限制的价值。",
+   "abstract": "This paper investigates novel techniques to solve prime factorization by quantum annealing (QA). First, we present a very-compact modular encoding of a multiplier circuit into the architecture of current D-Wave QA devices. The key contribution is a compact encoding of a controlled full-adder into an 8-qubit module in the Pegasus topology, which we synthesized using Optimization Modulo Theories. This allows us to encode up to a 21 × 12-bit multiplier (and a 22 × 8-bit one) into the Pegasus 5760-qubit topology of current annealers. To the best of our knowledge, these are the largest factorization problems ever encoded into a quantum annealer. Second, we investigated the problem of actually solving encoded PF problems by running an extensive experimental evaluation on a D-Wave Advantage 4.1 quantum annealer. In the experiments we introduced different approaches to initialize the multiplier qubits and adopted several performance enhancement techniques. Overall, 8,219,999 = 32,749 × 251 was the highest prime product we were able to factorize within the limits of our QPU resources. To the best of our knowledge, this is the largest number which was ever factorized by means of a quantum annealer; also, this is the largest number which was ever factorized by means of any quantum device without relying on external search or preprocessing procedures run on classical computers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "experimental-implementation-quantum-walk-based-portfolio-optimization-e94af",
    "title": "Experimental implementation of quantum-walk-based portfolio optimization",
    "titleZh": "基于量子游走的投资组合优化实验实现",
@@ -18551,6 +19094,43 @@
    "tags": [],
    "summaryZh": "发表于 Quantum 的高被引(40)方法工作:研究加权组合优化问题中 QAOA 参数设定的难点,给出针对权重动态范围的参数策略,是 QAOA 工程化的关键参考。",
    "abstract": "Quantum Approximate Optimization Algorithm (QAOA) is a leading candidate algorithm for solving combinatorial optimization problems on quantum computers. However, in many cases QAOA requires computationally intensive parameter optimization. The challenge of parameter optimization is particularly acute in the case of weighted problems, for which the eigenvalues of the phase operator are non-integer and the QAOA energy landscape is not periodic. In this work, we develop parameter setting heuristics for QAOA applied to a general class of weighted problems. First, we derive optimal parameters for QAOA with depth p=1 applied to the weighted MaxCut problem under different assumptions on the weights. In particular, we rigorously prove the conventional wisdom that in the average case the first local optimum near zero gives globally-optimal QAOA parameters. Second, for p≥1 we prove that the QAOA energy landscape for weighted MaxCut approaches that for the unweighted case under a simple rescaling of parameters. Therefore, we can use parameters previously obtained for unweighted MaxCut for weighted problems. Finally, we prove that for p=1 the QAOA objective sharply concentrates around its expectation, which means that our parameter setting rules hold with high probability for a random weighted instance. We numerically validate this approach on general weighted graphs and show that on average the QAOA energy with the proposed fixed parameters is only 1.1 percentage points away from that w",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "verifying-quantum-advantage-experiments-multiple-amplitude-tensor-d7775",
+   "title": "Verifying Quantum Advantage Experiments with Multiple Amplitude Tensor Network Contraction",
+   "titleZh": "用多振幅张量网络收缩验证量子优越性实验",
+   "authors": [
+    "Yong Liu",
+    "Yaojian Chen",
+    "Chu Guo",
+    "Jiawei Song",
+    "Xinmin Shi",
+    "Lin Gan",
+    "Wenzhao Wu",
+    "Wei Wu",
+    "Haohuan Fu",
+    "Xin Liu",
+    "Dexun Chen",
+    "Zhifeng Zhao",
+    "Guangwen Yang",
+    "Jiangang Gao"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2024-01-16",
+   "year": 2024,
+   "citations": 14,
+   "arxivId": "",
+   "doi": "10.1103/physrevlett.132.030601",
+   "url": "https://doi.org/10.1103/physrevlett.132.030601",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRL:在新一代神威超算上以 8.5 天精确计算 3×10⁶ 个 Google Sycamore 实验输出比特串的振幅,完成对量子优越性实验的直接经典验证,是张量网络作为\"基准检验工具\"的标志性工作。",
+   "abstract": "The quantum supremacy experiment, such as Google Sycamore [F. Arute et al., Nature (London) 574, 505 (2019).NATUAS0028-083610.1038/s41586-019-1666-5], poses a great challenge for classical verification due to the exponentially increasing compute cost. Using a new-generation Sunway supercomputer within 8.5 d, we provide a direct verification by computing 3×10^{6} exact amplitudes for the experimentally generated bitstrings, obtaining a cross-entropy benchmarking fidelity of 0.191% (the estimated value is 0.224%). The leap of simulation capability is built on a multiple-amplitude tensor network contraction algorithm which systematically exploits the \"classical advantage\" (the inherent \"store-and-compute\" operation mode of von Neumann machines) of current supercomputers, and a fused tensor network contraction algorithm which drastically increases the compute efficiency on heterogeneous architectures. Our method has a far-reaching impact in solving quantum many-body problems, statistical problems, as well as combinatorial optimization problems.",
    "source": "backfill",
    "domains": []
   },
@@ -19313,6 +19893,36 @@
    "source": "backfill",
    "domains": [
     "materials"
+   ]
+  },
+  {
+   "id": "kernel-approximation-quantum-annealer-remote-sensing-regression-636fb",
+   "title": "Kernel Approximation on a Quantum Annealer for Remote Sensing Regression Tasks",
+   "titleZh": "量子退火机上的核逼近算法用于遥感回归任务",
+   "authors": [
+    "Edoardo Pasetto",
+    "Morris Riedel",
+    "Kristel Michielsen",
+    "Gabriele Cavallaro"
+   ],
+   "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1109/jstars.2024.3350385",
+   "url": "https://doi.org/10.1109/jstars.2024.3350385",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "在 D-Wave Advantage 上实现并行量子退火核逼近(AQKS)算法并应用于遥感回归任务,探索量子硬件在地球观测实际用例中的落地路径,与卫星遥感数据智能处理方向形成互补。",
+   "abstract": "The increased development of quantum computing hardware in recent years has led to increased interest in its application to various areas. Finding effective ways to apply this technology to real-world use-cases is a current area of research in the (RS) community. This paper proposes an (AQKS) kernel approximation algorithm with parallel quantum annealing on the D-Wave Advantage quantum annealer. The proposed implementation is applied to (SVR) and (GPR) algorithms. To evaluate its performance, a regression problem related to estimating chlorophyll concentration in water is considered. The proposed algorithm was tested on two real-world datasets and its results were compared with those obtained by a classical implementation of kernel-based algorithms and a (RKS) implementation. On average, the parallel (AQKS) achieved comparable results to the benchmark methods, indicating its potential for future applications.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {

@@ -32988,5 +32988,1147 @@
   "doi": "10.48550/arxiv.2606.17907",
   "citations": 0,
   "theme": "quantum chip frequency allocation crosst"
+ },
+ {
+  "fid": "630a64eeecf2",
+  "title": "Application of quantum-inspired tensor networks to optimize federated learning systems",
+  "authors": [
+   "Amandeep Singh Bhatia",
+   "Mandeep Kaur Saggi",
+   "Sabre Kais"
+  ],
+  "abstract": "Abstract Federated learning (FL) has gained significant traction across diverse industries, which allows multiple clients or institutions to enhance model performance and outcomes while preserving data privacy collaboratively. In recent years, tensor networks (TNs) have become important in machine learning because they allow the compact representation of high-dimensional tensors by decomposing them into lower-dimensional components with polynomial complexity. The application of TNs in FL is a natural extension because of its flexible framework for representing and optimizing models. Inspired by quantum computing principles, we have integrated a quantum-inspired tensor network into the FL framework. This framework focuses on a one-dimensional matrix product state (MPS) tensor network (TN) in a federated setting (FedTN), with data distributed across homogeneous and heterogeneous partitions among clients. Our experiments demonstrate that tensor network-based federated learning can be made practical, as FedTN is robust to the unbalanced and non-IID data distributions typically encountered in such settings. Our research assessed the effectiveness and feasibility of comparing quantum-inspired TN and conventional methods, evaluating their performance, and exploring the benefits of incorporating quantum principles in FL settings. Furthermore, we have investigated its performance when training for many local epochs (large E) between the averaging steps.",
+  "date": "2025-01-28",
+  "venue": "Quantum Machine Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s42484-025-00243-x",
+  "citations": 14,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "bea89eb9bc3c",
+  "title": "Resource Optimization for Quantum Dynamics with Tensor Networks: Quantum and Classical Algorithms",
+  "authors": [
+   "Anurag Dwivedi",
+   "Miguel Angel Lopez-Ruiz",
+   "Srinivasan S. Iyengar"
+  ],
+  "abstract": "The exponential scaling of the quantum degrees of freedom with the size of the system is one of the biggest challenges in computational chemistry and particularly in quantum dynamics. We present a tensor network approach for the time-evolution of the nuclear degrees of freedom of multiconfigurational chemical systems at a reduced storage and computational complexity. We also present quantum algorithms for the resultant dynamics. To preserve the compression advantage achieved via tensor network decompositions, we present an adaptive algorithm for the regularization of nonphysical bond dimensions, preventing the potentially exponential growth of these with time. While applicable to any quantum dynamical problem, our method is particularly valuable for dynamical simulations of nuclear chemical systems. Our algorithm is demonstrated using ab initio potentials obtained for a symmetric hydrogen-bonded system, namely, the protonated 2,2'-bipyridine, and compared to exact diagonalization numerical results.",
+  "date": "2024-08-05",
+  "venue": "The Journal of Physical Chemistry A",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpca.4c03407",
+  "citations": 5,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "dec8435fed0c",
+  "title": "Limitations of tensor-network approaches for optimization and sampling: A comparison to quantum and classical Ising machines",
+  "authors": [
+   "Anna Maria Dziubyna",
+   "Tomasz Śmierzchalski",
+   "Bartłomiej Gardas",
+   "Marek M. Rams",
+   "Masoud Mohseni"
+  ],
+  "abstract": "In the ever-evolving landscape of computational science, tensor networks have emerged as a versatile toolset to simulate both quantum and classical many-body systems. This study investigates their applicability to complex optimization problems, where quantum annealing devices have generated significant interest. A challenge in applying tensor networks here is the high connectivity of the devices, which this work effectively leverages by utilizing sparse structures in construction, plus hardware acceleration. The authors quantify the limitations of their deterministic approach, and find that in certain scenarios it might outperform quantum annealers or randomized classical solvers.",
+  "date": "2025-05-19",
+  "venue": "Physical Review Applied",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevapplied.23.054049",
+  "citations": 5,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "4ddc5d0c6436",
+  "title": "Tensor ring optimized quantum-enhanced tensor neural networks",
+  "authors": [
+   "Debanjan Konar",
+   "Dheeraj Peddireddy",
+   "Bijaya Ketan Panigrahi",
+   "Vaneet Aggarwal"
+  ],
+  "abstract": "Abstract Quantum machine learning researchers often rely on incorporating tensor networks (TN) into deep neural networks (DNN) and variational optimization. However, the standard optimization techniques used for training the contracted trainable weights of each model layer suffer from the correlations and entanglement structure between the model parameters in classical implementations. To address this issue, a multi-layer design of a tensor ring optimized variational quantum learning classifier (Quan-TR) comprising cascading entangling gates replacing the fully connected (dense) layers of a TN is proposed, and it is referred to as tensor ring optimized quantum-enhanced tensor neural networks (TR-QNet). TR-QNet parameters are optimized using the stochastic gradient descent algorithm on qubit measurements. The proposed TR-QNet is evaluated on three distinct datasets, namely Iris, MNIST, and CIFAR-10, to demonstrate the enhanced precision achieved for binary classification. In quantum simulations, the proposed TR-QNet achieves promising precision of $$94.5\\%$$ 94.5 % , $$86.16\\%$$ 86.16 % , and $$83.54\\%$$ 83.54 % on the Iris, MNIST, and CIFAR-10 datasets. Benchmark studies have been conducted on state-of-the-art quantum and classical implementations of TN models to show the efficacy of the proposed TR-QNet. Moreover, the scalability of TR-QNet highlights its potential for exhibiting in deep learning applications on a large scale. The PyTorch implementation of TR-QNet is available on Github https://github.com/konar1987/TR-QNet/ .",
+  "date": "2025-04-22",
+  "venue": "Quantum Machine Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s42484-025-00281-5",
+  "citations": 1,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "125ac30e96c8",
+  "title": "Bang-bang preparation of quantum many-body ground states in two dimensions: Optimization of the algorithm with a two-dimensional tensor network",
+  "authors": [
+   "Yintai Zhang",
+   "Jacek Dziarmaga"
+  ],
+  "abstract": "A bang-bang (BB) algorithm prepares the ground state of a two-dimensional (2D) quantum many-body Hamiltonian $H={H}_{1}+{H}_{2}$ by evolving an initial product state alternating between ${H}_{1}$ and ${H}_{2}$. We use the neighborhood tensor update to simulate the BB evolution with an infinite pair-entangled projected state (iPEPS). The alternating sequence is optimized with the final energy as a cost function. The energy is calculated with a tangent space power method for the sake of its stability. The method is benchmarked in the 2D transverse field quantum Ising model near its quantum critical point against a ground state obtained with variational optimization of the iPEPS. The optimal BB sequence differs nonperturbatively from a sequence simulating quantum annealing or adiabatic preparation (AP) of the ground state. The optimal BB energy converges with the number of bangs much faster than the optimal AP energy.",
+  "date": "2024-06-11",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevb.109.235124",
+  "citations": 3,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "29b1207130c8",
+  "title": "Hybrid Tree Tensor Networks for Quantum Simulation",
+  "authors": [
+   "Julian Schuhmacher",
+   "Marco Ballarin",
+   "Alberto Baiardi",
+   "Giuseppe Magnifico",
+   "Francesco Tacchino",
+   "Simone Montangero",
+   "Ivano Tavernelli"
+  ],
+  "abstract": "Hybrid tensor networks (hTNs) offer a promising solution for encoding variational quantum states beyond the capabilities of efficient classical methods or noisy quantum computers alone. However, their practical usefulness and many operational aspects of hTN-based algorithms, like the optimization of hTNs, the generalization of standard contraction rules to an hybrid setting, and the design of application-oriented architectures have not been thoroughly investigated yet. In this work, we introduce a novel algorithm to perform ground-state optimizations with hybrid tree tensor networks (hTTNs), discussing its advantages and roadblocks, and identifying a set of promising applications. We benchmark our approach on two paradigmatic models, namely the Ising model at the critical point and the Toric-code Hamiltonian. In both cases, we successfully demonstrate that hTTNs can improve upon classical equivalents with equal bond dimension in the classical part.",
+  "date": "2025-01-29",
+  "venue": "PRX Quantum",
+  "arxiv_id": "",
+  "doi": "10.1103/prxquantum.6.010320",
+  "citations": 10,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "05bb9f536114",
+  "title": "Verifying Quantum Advantage Experiments with Multiple Amplitude Tensor Network Contraction",
+  "authors": [
+   "Yong Liu",
+   "Yaojian Chen",
+   "Chu Guo",
+   "Jiawei Song",
+   "Xinmin Shi",
+   "Lin Gan",
+   "Wenzhao Wu",
+   "Wei Wu",
+   "Haohuan Fu",
+   "Xin Liu",
+   "Dexun Chen",
+   "Zhifeng Zhao",
+   "Guangwen Yang",
+   "Jiangang Gao"
+  ],
+  "abstract": "The quantum supremacy experiment, such as Google Sycamore [F. Arute et al., Nature (London) 574, 505 (2019).NATUAS0028-083610.1038/s41586-019-1666-5], poses a great challenge for classical verification due to the exponentially increasing compute cost. Using a new-generation Sunway supercomputer within 8.5 d, we provide a direct verification by computing 3×10^{6} exact amplitudes for the experimentally generated bitstrings, obtaining a cross-entropy benchmarking fidelity of 0.191% (the estimated value is 0.224%). The leap of simulation capability is built on a multiple-amplitude tensor network contraction algorithm which systematically exploits the \"classical advantage\" (the inherent \"store-and-compute\" operation mode of von Neumann machines) of current supercomputers, and a fused tensor network contraction algorithm which drastically increases the compute efficiency on heterogeneous architectures. Our method has a far-reaching impact in solving quantum many-body problems, statistical problems, as well as combinatorial optimization problems.",
+  "date": "2024-01-16",
+  "venue": "Physical Review Letters",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevlett.132.030601",
+  "citations": 14,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "547c2ddc3922",
+  "title": "Isometric tensor network optimization for extensive Hamiltonians is free of barren plateaus",
+  "authors": [
+   "Qiang Miao",
+   "Thomas Barthel"
+  ],
+  "abstract": "Strongly correlated quantum many-body systems from condensed matter and particle physics are very hard to study classically and variational quantum algorithms (VQAs) may be hampered by barren plateaus, where energy gradients decay exponentially in the system size. The authors prove that this critical problem can be resolved by employing VQAs based on suitable isometric tensor network states, establishing a new route for the investigation of strongly correlated quantum matter on NISQ devices.",
+  "date": "2024-05-14",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/physreva.109.l050402",
+  "citations": 19,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "1af8c6fb689a",
+  "title": "Approximate Quantum Compiling for Quantum Simulation: A Tensor Network Based Approach",
+  "authors": [
+   "Niall Robertson",
+   "Albert Akhriev",
+   "Jiří Vala",
+   "Sergiy Zhuk"
+  ],
+  "abstract": "We introduce AQCtensor , a novel algorithm to produce short-depth quantum circuits from Matrix Product States (MPS). Our approach is specifically tailored to the preparation of quantum states generated from the time evolution of quantum many-body Hamiltonians. This tailored approach has two clear advantages over previous algorithms that were designed to map a generic MPS to a quantum circuit. First, we optimise all parameters of a parametric circuit at once using Approximate Quantum Compiling (AQC)—this is to be contrasted with other approaches based on locally optimizing a subset of circuit parameters and “sweeping” across the system. We introduce an optimisation scheme to avoid the so-called “orthogonality catastrophe”—i.e., the fact that the fidelity of two arbitrary quantum states decays exponentially with the number of qubits—that would otherwise render a global optimisation of the circuit impractical. Second, the depth of our parametric circuit is constant in the number of qubits for a fixed simulation time and fixed error tolerance. This is to be contrasted with the linear circuit Ansatz used in generic algorithms whose depth scales linearly in the number of qubits. For simulation problems on 100 qubits, we show that AQCtensor thus achieves at least an order of magnitude reduction in the depth of the resulting optimized circuit, as compared with the best generic MPS to quantum circuit algorithms. We demonstrate our approach on simulation problems on Heisenberg-like Hamiltonians on up to 100 qubits and find optimized quantum circuits that have signficantly reduced depth as compared with standard Trotterized circuits.",
+  "date": "2025-04-18",
+  "venue": "ACM Transactions on Quantum Computing",
+  "arxiv_id": "",
+  "doi": "10.1145/3731251",
+  "citations": 9,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "5de8422d6677",
+  "title": "Tensor quantum programming",
+  "authors": [
+   "A. Termanova",
+   "Artem A. Melnikov",
+   "Egor Mamenchikov",
+   "Nikita Belokonev",
+   "Sergey Dolgov",
+   "A. V. Berezutskii",
+   "Roman Ellerbrock",
+   "Christopher William Mansell",
+   "Michael Perelshtein"
+  ],
+  "abstract": "Abstract Running quantum algorithms often involves implementing complex quantum circuits with such a large number of multi-qubit gates that the challenge of tackling practical applications appears daunting. In this article, we propose a novel approach called Tensor Quantum Programming, which leverages tensor networks (TNs) for hybrid quantum computing. Our key insight is that the primary challenge of algorithms based on TNs lies in their high ranks (bond dimensions). Quantum computing offers a potential solution to this challenge, as an ideal quantum computer can represent tensors with arbitrarily high ranks in contrast to classical counterparts, which indicates the way towards quantum advantage. While tensor-based vector-encoding and state-readout are known procedures, the matrix-encoding required for performing matrix-vector multiplications directly on quantum devices is much less studied. We introduce an algorithm that encodes matrix product operators into quantum circuits with a depth that scales linearly with the number of qubits. We demonstrate the algorithm’s performance for matrices commonly encountered in differential equations, optimization problems, and quantum chemistry, for systems involving up to 50 qubits.",
+  "date": "2024-11-28",
+  "venue": "New Journal of Physics",
+  "arxiv_id": "",
+  "doi": "10.1088/1367-2630/ad985b",
+  "citations": 7,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "c0bdde7fd45f",
+  "title": "Tensor Network Message Passing",
+  "authors": [
+   "Yijia Wang",
+   "Y. Zhang",
+   "Feng Pan",
+   "Pan Zhang"
+  ],
+  "abstract": "When studying interacting systems, computing their statistical properties is a fundamental problem in various fields such as physics, applied mathematics, and machine learning. However, this task can be quite challenging due to the exponential growth of the state space as the system size increases. Many standard methods have significant weaknesses. For instance, message-passing algorithms can be inaccurate and even fail to converge due to short loops, while tensor network methods can have exponential computational complexity in large graphs due to long loops. In this Letter, we propose a new method called \"tensor network message passing.\" This approach allows us to compute local observables like marginal probabilities and correlations by combining the strengths of tensor networks in contracting small subgraphs with many short loops and the strengths of message-passing methods in globally sparse graphs, thus addressing the crucial weaknesses of both approaches. Our algorithm is exact for systems that are globally treelike and locally dense-connected when the dense local graphs have a limited tree width. We have conducted numerical experiments on synthetic and real-world graphs to compute magnetizations of Ising models and spin glasses, and have demonstrated the superiority of our approach over standard belief propagation and the recently proposed loopy message-passing algorithm. In addition, we discuss the potential applications of our method in inference problems in networks, combinatorial optimization problems, and decoding problems in quantum error correction.",
+  "date": "2024-03-15",
+  "venue": "Physical Review Letters",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevlett.132.117401",
+  "citations": 11,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "70668c1054e7",
+  "title": "Variational Adiabatic Transport of Tensor Networks",
+  "authors": [
+   "Hyeongjin Kim",
+   "Matthew Fishman",
+   "Dries Sels"
+  ],
+  "abstract": "We discuss a tensor network method for constructing the adiabatic gauge potential—the generator of adiabatic transformations—as a matrix product operator, which allows us to adiabatically transport matrix product states. Adiabatic evolution of tensor networks offers a wide range of applications, of which two are explored in this paper: improving tensor network optimization and scanning phase diagrams. By efficiently transporting eigenstates to quantum criticality and performing intermediary density-matrix renormalization group (DMRG) optimizations along the way, we demonstrate that we can compute ground and low-lying excited states faster and more reliably than a standard DMRG method at or near quantum criticality. We demonstrate a simple automated step size adjustment and detection of the critical point based on the norm of the adiabatic gauge potential. Remarkably, we are able to reliably transport states through the critical point of the models we study. Published by the American Physical Society 2024",
+  "date": "2024-06-14",
+  "venue": "PRX Quantum",
+  "arxiv_id": "",
+  "doi": "10.1103/prxquantum.5.020361",
+  "citations": 9,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "3ff58a5dd62b",
+  "title": "Absence of Barren Plateaus and Scaling of Gradients in the Energy Optimization of Isometric Tensor Network States",
+  "authors": [
+   "Thomas Barthel",
+   "Qiang Miao"
+  ],
+  "abstract": "Abstract Vanishing gradients can pose substantial obstacles for high-dimensional optimization problems. Here we consider energy minimization problems for quantum many-body systems with extensive Hamiltonians and finite-range interactions, which can be studied on classical computers or in the form of variational quantum eigensolvers on quantum computers. Barren plateaus correspond to scenarios where the average amplitude of the energy gradient decreases exponentially with increasing system size. This occurs, for example, for quantum neural networks and for brickwall quantum circuits when the depth increases polynomially in the system size. Here we prove that the variational optimization problems for matrix product states, tree tensor networks, and the multiscale entanglement renormalization ansatz are free of barren plateaus. The derived scaling properties for the gradient variance provide an analytical guarantee for the trainability of randomly initialized tensor network states (TNS) and motivate certain initialization schemes. In a suitable representation, unitary tensors that parametrize the TNS are sampled according to the uniform Haar measure. We employ a Riemannian formulation of the gradient based optimizations which simplifies the analytical evaluation.",
+  "date": "2025-03-19",
+  "venue": "Communications in Mathematical Physics",
+  "arxiv_id": "",
+  "doi": "10.1007/s00220-024-05217-x",
+  "citations": 8,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "3a5242eba863",
+  "title": "Riemannian quantum circuit optimization for Hamiltonian simulation",
+  "authors": [
+   "Ayse Kotil",
+   "Rahul Banerjee",
+   "Qunsheng Huang",
+   "Christian B. Mendl"
+  ],
+  "abstract": "Abstract Hamiltonian simulation, i.e. simulating the real time evolution of a target quantum system, is a natural application of quantum computing. Trotter-Suzuki splitting methods can generate corresponding quantum circuits; however, a faithful approximation can lead to relatively deep circuits. Here we start from the insight that for translation invariant systems, the gates in such circuit topologies can be further optimized on classical computers to decrease the circuit depth and/or increase the accuracy. We employ tensor network techniques and devise a method based on the Riemannian trust-region algorithm on the unitary matrix manifold for this purpose. For the Ising and Heisenberg models on a one-dimensional lattice, we achieve orders of magnitude accuracy improvements compared to fourth-order splitting methods. The optimized circuits could also be of practical use for the time-evolving block decimation algorithm.",
+  "date": "2024-02-27",
+  "venue": "Journal of Physics A Mathematical and Theoretical",
+  "arxiv_id": "",
+  "doi": "10.1088/1751-8121/ad2d6e",
+  "citations": 11,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "4182a6af3ca3",
+  "title": "Variational quantum eigensolver with embedded entanglement using a tensor-network ansatz",
+  "authors": [
+   "Ryo Watanabe",
+   "Keisuke Fujii",
+   "Hiroshi Ueda"
+  ],
+  "abstract": "In this paper, we introduce a tensor network (TN) scheme into the entanglement augmentation process of the synergistic optimization framework by Rudolph [] to build its process systematically for inhomogeneous systems. Our synergistic approach first embeds the variational optimal solution of the TN state with the entropic area law, which can be perfectly optimized in conventional (classical) computers, in a quantum variational circuit ansatz inspired by the TN state with the entropic volume law. Next, the framework performs a variational quantum eigensolver (VQE) process with embedded states as the initial state. We applied the synergistic to the ground-state analysis of the all-to-all coupled random transverse-field Ising, XYZ, Heisenberg model, employing the binary multiscale entanglement renormalization ansatz (MERA) state and branching MERA states as TN states with entropic area law and volume law, respectively. We then show that the synergistic accelerates VQE calculations in the three models without an initial parameter guess of the branching-MERA-inspired ansatz and can avoid a local solution trapped by a standard VQE with the ansatz in the Ising model. The improvement of optimizers for MERA in all-to-all coupled inhomogeneous systems, enhancement, and potential synergistic applications are also discussed. Published by the American Physical Society 2024",
+  "date": "2024-04-02",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.6.023009",
+  "citations": 5,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "5e0e876d061a",
+  "title": "Image classification by combining quantum kernel learning and tensor networks",
+  "authors": [
+   "Nathan X. Kodama",
+   "Alex Bocharov",
+   "Marcus P. da Silva"
+  ],
+  "abstract": "Several variational quantum circuits for machine learning have been proposed in recent years, with one promising class of variational algorithms involving tensor networks operating on states resulting from local feature maps. In contrast, a random feature approach known as quantum kitchen sinks (C. M. Wilson et al., Quantum kitchen sinks: An algorithm for machine learning on near-term quantum computers, arXiv:1806.08321) provides comparable performance, but leverages nonlocal feature maps. Here we combine these two approaches by proposing a circuit Ansatz where a tree tensor network coherently processes the nonlocal feature maps of quantum kitchen sinks and we run numerical experiments to evaluate the performance of the Ansatz on image classification. From the perspective of classification performance, we find that simply combining quantum kitchen sinks with tensor networks yields no qualitative improvements. However, the addition of feature optimization greatly boosts performance, leading to state-of-the-art quantum circuits for image classification, requiring only shallow circuits and a small number of qubits, both well within reach of near-term quantum devices.",
+  "date": "2025-01-30",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/physreva.111.012630",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "24681f5975c4",
+  "title": "Hybrid Tensor Network and Neural Network Quantum States for Quantum Chemistry",
+  "authors": [
+   "Zibo Wu",
+   "Bohan Zhang",
+   "Wei‐Hai Fang",
+   "Zhendong Li"
+  ],
+  "abstract": "Neural network quantum states (NQS) have emerged as a powerful and flexible framework for addressing quantum many-body problems. While successful for model Hamiltonians, their application to molecular systems remains challenging for several reasons. In this work, we introduce three innovations to overcome some of the key limitations. (1) We develop a bounded-degree graph recurrent neural network (BDG–RNN) ansatz, which hybridizes the tensor network and neural network states and is more suitable to molecular electronic structure problems. As matrix product states (MPS) can be embedded into this ansatz, good initialization is possible for complex systems. (2) We introduce neural network correlators (NNCs) to further enhance expressivity and improve accuracy, without dramatically modifying the underlying variational Monte Carlo (VMC) optimization framework. Specifically, we introduce two types of restricted Boltzmann machine (RBM)-inspired correlators, namely, cos-RBM and Ising-RBM, which unlike previous correlators, such as Jastrow and real RBM, can adjust the sign structure of the wave function. (3) We introduce a semistochastic algorithm for local energy evaluation, which significantly reduces computational cost while maintaining high accuracy. Combining these advances, we demonstrate that our approaches can achieve chemical accuracy in challenging systems, including the one-dimensional hydrogen chain H 50, the iron–sulfur cluster [Fe 2 S 2 (SCH 3 ) 4 ] 2–, and a three-dimensional 3 × 3 × 2 hydrogen cluster H 18 . These methods are implemented in an open-source package, P y NQS ( https://github.com/Quantum-Chemistry-Group-BNU/PyNQS ), to advance NQS methodologies for quantum chemistry.",
+  "date": "2025-10-09",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.5c01228",
+  "citations": 3,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "775ae46bf948",
+  "title": "Stable and efficient differentiation of tensor network algorithms",
+  "authors": [
+   "Anna Francuz",
+   "Norbert Schuch",
+   "Bram Vanhecke"
+  ],
+  "abstract": "Gradient-based optimization methods are the established state-of-the-art paradigm to study strongly entangled quantum systems in two dimensions with projected entangled pair states. However, the key ingredient, the gradient itself, has proven challenging to calculate accurately and reliably in the case of a corner transfer matrix-based approach. Automatic differentiation (AD), which is the best known tool for calculating the gradient, still suffers some crucial shortcomings. Some of these are known, like the problem of excessive memory usage and the divergences which may arise when differentiating a singular value decomposition (SVD). Importantly, we find that there is also a fundamental inaccuracy in the currently used backpropagation of SVD that had not been noted before. In this paper, we describe all these problems and provide them with compact and easy to implement solutions. We analyze the impact of these changes and find that the last problem—the use of the correct gradient—is by far the dominant one and thus should be considered a crucial patch to any AD application that makes use of an SVD for truncation.",
+  "date": "2025-03-04",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.7.013237",
+  "citations": 11,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "d2c64677c606",
+  "title": "Recursive Quantum Relaxation for Combinatorial Optimization Problems",
+  "authors": [
+   "Ruho Kondo",
+   "Yuki Sato",
+   "Rudy Raymond",
+   "Naoki Yamamoto"
+  ],
+  "abstract": "Quantum optimization methods use a continuous degree-of-freedom of quantum states to heuristically solve combinatorial problems, such as the MAX-CUT problem, which can be attributed to various NP-hard combinatorial problems. This paper shows that some existing quantum optimization methods can be unified into a solver to find the binary solution which is most likely measured from the optimal quantum state. Combining this finding with the concept of quantum random access codes (QRACs) for encoding bits into quantum states on fewer qubits, we propose an efficient recursive quantum relaxation method called recursive quantum random access optimization (RQRAO) for MAX-CUT. Experiments on standard benchmark graphs with several hundred nodes in the MAX-CUT problem, conducted in a fully classical manner using a tensor network technique, show that RQRAO not only outperforms the Goemans-Williamson and recursive QAOA methods, but also is comparable to state-of-the-art classical solvers. The code is available at https://github.com/ToyotaCRDL/rqrao.",
+  "date": "2025-01-15",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2025-01-15-1594",
+  "citations": 8,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "ee0d5e4ef98f",
+  "title": "Combining matrix product states and noisy quantum computers for quantum simulation",
+  "authors": [
+   "Baptiste Anselme Martin",
+   "Thomas Ayral",
+   "François Jamet",
+   "Marko J. Rančić",
+   "Pascal Simon"
+  ],
+  "abstract": "Matrix product states (MPSs) and matrix product operators (MPOs) have been proven to be a powerful tool to study quantum many-body systems but are restricted to moderately entangled states as the number of parameters scales exponentially with the entanglement entropy. While MPSs can efficiently find ground states of one-dimensional systems, their capacities are limited when simulating their dynamics, where the entanglement can increase ballistically with time. On the other hand, quantum devices appear as a natural platform to encode and perform the time evolution of correlated many-body states. However, accessing the regime of long-time dynamics is hampered by quantum noise. In this paper we use the best of worlds: the short-time dynamics is efficiently performed by MPSs, compiled into short-depth quantum circuits, and performed further in time on a quantum computer thanks to efficient MPO-optimized quantum circuits. We quantify the capacities of this hybrid classical-quantum scheme in terms of fidelities taking into account a noise model. We show that using classical knowledge in the form of tensor networks provides a way to better use limited quantum resources and lowers the noise requirements to reach a practical quantum advantage. Finally, we successfully demonstrate our approach with an experimental realization of the technique. Combined with efficient circuit transpilation we simulate a ten-qubit system on an actual quantum device over a longer time scale than low-bond-dimension MPSs and purely quantum Trotter evolution.",
+  "date": "2024-06-27",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/physreva.109.062437",
+  "citations": 17,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "f170c44ff0d3",
+  "title": "Cons-training tensor networks: Embedding and optimization over discrete linear constraints",
+  "authors": [
+   "Javier Lopez Piqueres",
+   "Jing Chen"
+  ],
+  "abstract": "In this study, we introduce a novel family of tensor networks, termed constrained matrix product states (MPS), designed to incorporate exactly arbitrary discrete linear constraints, including inequalities, into sparse block structures. These tensor networks are particularly tailored for modeling distributions with support strictly over the feasible space, offering benefits such as reducing the search space in optimization problems, alleviating overfitting, improving training efficiency, and decreasing model size. Central to our approach is the concept of a quantum region, an extension of quantum numbers traditionally used in U(1) U ( 1 ) symmetric tensor networks, adapted to capture any linear constraint, including the unconstrained scenario. We further develop a novel canonical form for these new MPS, which allow for the merging and factorization of tensor blocks according to quantum region fusion rules and permit optimal truncation schemes. Utilizing this canonical form, we apply an unsupervised training strategy to optimize arbitrary objective functions subject to discrete linear constraints. Our method’s efficacy is demonstrated by solving the quadratic knapsack problem, achieving superior performance compared to a leading nonlinear integer programming solver. Additionally, we analyze the complexity and scalability of our approach, demonstrating its potential in addressing complex constrained combinatorial optimization problems.",
+  "date": "2025-06-17",
+  "venue": "SciPost Physics",
+  "arxiv_id": "",
+  "doi": "10.21468/scipostphys.18.6.192",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "75ee70f547f7",
+  "title": "Approximate encoding of quantum states using shallow circuits",
+  "authors": [
+   "Matan Ben-Dov",
+   "David Shnaiderov",
+   "Adi Makmal",
+   "Emanuele G. Dalla Torre"
+  ],
+  "abstract": "Abstract Quantum algorithms and simulations often require the preparation of complex states through sequences of 2-qubit gates. For a generic quantum state, the number of required gates grows exponentially with the number of qubits, becoming unfeasible on near-term quantum devices. Here, we aim at creating an approximate encoding of the target state using a limited number of gates. As a first step, we consider a quantum state that is efficiently represented classically, such as a one-dimensional matrix product state. Using tensor network techniques, we develop and implement an efficient optimization algorithm that approaches the optimal implementation, requiring a polynomial number of iterations. We, next, consider the implementation of the proposed optimization algorithm directly on a quantum computer and overcome inherent barren plateaus by employing a local cost function. Our work offers a universal method to prepare target states using local gates and represents a significant improvement over known strategies.",
+  "date": "2024-07-02",
+  "venue": "npj Quantum Information",
+  "arxiv_id": "",
+  "doi": "10.1038/s41534-024-00858-1",
+  "citations": 19,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "2632c692fade",
+  "title": "Efficient tensor networks for control-enhanced quantum metrology",
+  "authors": [
+   "Qiushi Liu",
+   "Yuxiang Yang"
+  ],
+  "abstract": "Optimized quantum control can enhance the performance and noise resilience of quantum metrology. However, the optimization quickly becomes intractable when multiple control operations are applied sequentially. In this work, we propose efficient tensor network algorithms for optimizing strategies of quantum metrology enhanced by a long sequence of control operations. Our approach covers a general and practical scenario where the experimenter applies N−1 interleaved control operations between N queries of the channel to estimate and uses no or bounded ancilla. Tailored to different experimental capabilities, these control operations can be generic quantum channels or variational unitary gates. Numerical experiments show that our algorithm has a good performance in optimizing the metrological strategy for as many as N=100 queries. In particular, our algorithm identifies a strategy that can outperform the state-of-the-art strategy when N is finite but large.",
+  "date": "2024-12-18",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2024-12-18-1571",
+  "citations": 2,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "81d6eeda4350",
+  "title": "Scalable simulation of nonequilibrium quantum dynamics via classically optimized unitary circuits",
+  "authors": [
+   "Luke Causer",
+   "F. Jung",
+   "Asimpunya Mitra",
+   "Frank Pollmann",
+   "Adam Smith"
+  ],
+  "abstract": "The advent of near-term digital quantum computers could offer us an exciting opportunity to investigate quantum many-body phenomena beyond that of classical computing. To make the best use of the hardware available, it is paramount that we have methods that accurately simulate Hamiltonian dynamics for limited circuit depths. In this paper, we propose a method to classically optimize unitary brickwall circuits to approximate quantum time evolution operators. Our method is scalable in system size through the use of tensor networks. We demonstrate that, for various three-body Hamiltonians, our approach produces quantum circuits that can outperform trotterization in both their accuracy and the quantum circuit depth needed to implement the dynamics, with the exact details being dependent on the Hamiltonian. We also explain how to choose an optimal time step that minimizes the combined errors of the quantum device and the brickwall circuit approximation. Published by the American Physical Society 2024",
+  "date": "2024-07-15",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.6.033062",
+  "citations": 9,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "5490c481c658",
+  "title": "Accelerating two-dimensional tensor network optimization by preconditioning",
+  "authors": [
+   "Xing-Yu Zhang",
+   "Qi Yang",
+   "Philippe Corboz",
+   "Jutho Haegeman",
+   "Wei Tang"
+  ],
+  "abstract": "We revisit gradient-based optimization for infinite projected entangled pair states (iPEPS), a tensor network ansatz for simulating many-body quantum systems. This approach is hindered by two major challenges: the high computational cost of evaluating energies and gradients, and an ill-conditioned optimization landscape that slows convergence. To reduce the number of optimization steps, we introduce an efficient preconditioner derived from the leading term of the metric tensor. We benchmark our method against standard optimization techniques on the Heisenberg and Kitaev models, demonstrating substantial improvements in overall computational efficiency. Our approach is broadly applicable across various contraction schemes, unit cell sizes, and Hamiltonians, highlighting the potential of preconditioned optimization to advance tensor network algorithms for strongly correlated systems.",
+  "date": "2026-02-13",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/h396-yc28",
+  "citations": 2,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "9297856e1e6e",
+  "title": "Improving the accuracy of the tree-tensor network approach by optimization of network structure",
+  "authors": [
+   "Toshiya Hikihara",
+   "Hiroshi Ueda",
+   "Kouichi Okunishi",
+   "Kenji Harada",
+   "Tomotoshi Nishino"
+  ],
+  "abstract": "Numerical methods based on tensor networks have been extensively explored in the research of quantum many-body systems in recent years. It has been recognized that the ability of tensor networks to describe a quantum many-body state crucially depends on the spatial structure of the network. In the previous work [T. Hikihara et al., Phys. Rev. Res. 5, 013031 (2023)], we proposed an algorithm based on tree-tensor networks (TTNs) that automatically optimizes the structure of a TTN according to the spatial profile of entanglement in the state of interest. In this paper, we apply the algorithm to the random $\\mathit{XY}$-exchange model under random magnetic fields and the Richardson model in order to analyze how the performance of the algorithm depends on the detailed updating schemes of the structural optimization. We then find that for the random $\\mathit{XY}$ model, on the one hand, the algorithm achieves improved accuracy, and the stochastic algorithm, which selects the local network structure probabilistically, is notably effective. For the Richardson model, on the other hand, the resulting numerical accuracy subtly depends on the initial TTN and the updating schemes. In particular, the algorithm without the stochastic updating scheme certainly improves the accuracy, while the one with the stochastic updates results in poor accuracy due to the effect of randomizing the network structure at the early stage of the calculation. These results indicate that the algorithm successfully improves the accuracy of the numerical calculations for quantum many-body states, while it is essential to appropriately choose the updating scheme as well as the initial TTN structure, depending on the systems treated.",
+  "date": "2025-09-22",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/ljj8-tkpc",
+  "citations": 2,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "e0df2f6e4248",
+  "title": "Integer factorization via tensor-network Schnorr's sieving",
+  "authors": [
+   "Marco Tesoro",
+   "Ilaria Siloi",
+   "Daniel Jaschke",
+   "Giuseppe Magnifico",
+   "Simone Montangero"
+  ],
+  "abstract": "Classical public-key cryptography standards rely on the Rivest-Shamir-Adleman (RSA) encryption protocol. The security of this protocol is based on the exponential computational complexity of the most efficient classical algorithms for factoring large semiprime numbers into their two prime components. Here, we address RSA factorization building on Schnorr's mathematical framework where factorization translates into a combinatorial optimization problem. We solve the optimization task via tensor network methods, a quantum-inspired classical numerical technique. This tensor network Schnorr's sieving algorithm displays numerical evidence of polynomial scaling of resources with the bit-length of the semiprime. We factorize RSA numbers up to 100 bits and assess how computational resources scale through numerical simulations up to 130 bits, encoding the optimization problem in quantum systems with up to 256 qubits. Only the high-order polynomial scaling of the required resources limits the factorization of larger numbers. Although these results do not currently undermine the security of the present communication infrastructure, they strongly highlight the urgency of implementing postquantum cryptography or quantum key distribution.",
+  "date": "2026-01-22",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/d9dl-ctt4",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "d5fb3de166d1",
+  "title": "Survey on Computational Applications of Tensor-Network Simulations",
+  "authors": [
+   "Marcos Diez García",
+   "A. M. Romero"
+  ],
+  "abstract": "Tensor networks are a popular and computationally efficient approach to simulate general quantum systems on classical computers and, in a broader sense, a framework for dealing with high-dimensional numerical problems. This paper presents a broad but not exhaustive literature review of state-of-the-art applications of tensor networks and related topics across many research domains, including: machine learning, mathematical optimization, materials science, quantum chemistry and quantum circuit simulation. This review aims to clarify which classes of relevant applications have been proposed for which class of tensor networks, as well as to highlight main application results and limitations compared with other classical or quantum simulation methods. We intend this review to be a high-level tour on tensor network applications that is easy to read by non-experts, so basic technical details of tensor networks are summarized.",
+  "date": "2024-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2024.3519676",
+  "citations": 3,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "24e0178beb59",
+  "title": "Riemannian quantum circuit optimization based on matrix product operators",
+  "authors": [
+   "Isabel Nha Minh Le",
+   "Shuo Sun",
+   "Christian B. Mendl"
+  ],
+  "abstract": "We significantly enhance the simulation accuracy of initial Trotter circuits for Hamiltonian simulation of quantum systems by integrating first-order Riemannian optimization with tensor network methods. Unlike previous approaches, our method imposes no symmetry assumptions, such as translational invariance, on the quantum systems. This technique is scalable to large systems through the use of a matrix product operator representation of the reference time evolution propagator. Our optimization routine is applied to various spin chains and fermionic systems described by the transverse-field Ising Hamiltonian, the Heisenberg Hamiltonian, and the spinful Fermi-Hubbard Hamiltonian. In these cases, our approach achieves a relative error improvement of up to four orders of magnitude for systems of 50 qubits, although our method is also applicable to larger systems. Furthermore, we demonstrate the versatility of our method by applying it to molecular systems, specifically lithium hydride, achieving an error improvement of up to eight orders of magnitude. This proof of concept highlights the potential of our approach for broader applications in quantum simulations.",
+  "date": "2025-08-27",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2025-08-27-1833",
+  "citations": 6,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "2a7f9271b43d",
+  "title": "Variational neural and tensor network approximations of thermal states",
+  "authors": [
+   "Sirui Lu",
+   "Giacomo Giudice",
+   "J. I. Cirac"
+  ],
+  "abstract": "We introduce a variational Monte Carlo algorithm for approximating finite-temperature quantum many-body systems, based on the minimization of a modified free energy. This approach directly approximates the state at a fixed temperature, allowing for systematic improvement of the expressiveness without accumulating errors from iterative imaginary-time evolution. We employ a variety of trial states—both tensor networks as well as neural networks—as variational for our numerical optimization. We benchmark and compare different constructions in the above classes, both for one- and two-dimensional problems, with systems made of up to N = 100 spins. Our results demonstrate that while restricted Boltzmann machines show limitations, string bond tensor network states exhibit systematic improvements with increasing bond dimensions and the number of strings.",
+  "date": "2025-02-03",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevb.111.075102",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "fb0438397c47",
+  "title": "Accurate numerical simulations of open quantum systems using spectral tensor trains",
+  "authors": [
+   "Ryan T. Grimm",
+   "Joel D. Eaves"
+  ],
+  "abstract": "Decoherence between qubits is a major bottleneck in quantum computations. Decoherence results from intrinsic quantum and thermal fluctuations as well as noise in the external fields that perform the measurement and preparation processes. With prescribed colored noise spectra for intrinsic and extrinsic noise, we present a numerical method, Quantum Accelerated Stochastic Propagator Evaluation (Q-ASPEN), to solve the time-dependent noise-averaged reduced density matrix in the presence of intrinsic and extrinsic noise. Q-ASPEN is arbitrarily accurate and can be applied to provide estimates for the resources needed to error-correct quantum computations. We employ spectral tensor trains, which combine the advantages of tensor networks and pseudospectral methods, as a variational ansatz to the quantum relaxation problem and optimize the ansatz using methods typically used to train neural networks. The spectral tensor trains in Q-ASPEN make accurate calculations with tens of quantum levels feasible. We present benchmarks for Q-ASPEN on the spin-boson model in the presence of intrinsic noise and on a quantum chain of up to 32 sites in the presence of extrinsic noise. In our benchmark, the memory cost of Q-ASPEN scales as a low-order polynomial in the size of the system once the number of system states surpasses the number of basis functions used in the spectral expansion.",
+  "date": "2024-12-18",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0228873",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "89341c55a7c6",
+  "title": "MindSpore Quantum: A User-Friendly, High-Performance, and AI-Compatible Quantum Computing Framework",
+  "authors": [
+   "Xusheng Xu",
+   "Jiangyu Cui",
+   "Zidong Cui",
+   "Run-Hong He",
+   "Qingyu Li",
+   "Xiaowei Li",
+   "Yanling Lin",
+   "Jiale Liu",
+   "Wuxin Liu",
+   "Jiale Lu",
+   "Maolin Luo",
+   "Chufan Lyu",
+   "Shi‐Jie Pan",
+   "M Gotovtsev Pavel",
+   "Runqiu Shu",
+   "Jialiang Tang",
+   "Ruoqian Xu",
+   "Shu Xu",
+   "Kang Yang",
+   "Fan Yu",
+   "Q. Zeng",
+   "Haiying Zhao",
+   "Qiang Zheng",
+   "Junyuan Zhou",
+   "Xu Zhou",
+   "Yikang Zhu",
+   "Zuoheng Zou",
+   "Abolfazl Bayat",
+   "Xi Hang Cao",
+   "Wei Cui"
+  ],
+  "abstract": "We introduce MindSpore Quantum, a pioneering hybrid quantum-classical framework with a primary focus on the design and implementation of noisy intermediate-scale quantum (NISQ) algorithms. Leveraging the robust support of MindSpore, an advanced open-source deep learning training/inference framework, MindSpore Quantum exhibits exceptional efficiency in the design and training of variational quantum algorithms on both CPU and GPU platforms, delivering remarkable performance. Furthermore, this framework places a strong emphasis on enhancing the operational efficiency of quantum algorithms when executed on real quantum hardware. This encompasses the development of algorithms for quantum circuit compilation and qubit mapping, crucial components for achieving optimal performance on quantum processors. In addition to the core framework, we introduce QuPack, a meticulously crafted quantum computing acceleration engine. QuPack significantly accelerates the simulation speed of MindSpore Quantum, particularly in variational quantum eigensolver (VQE), quantum approximate optimization algorithm (QAOA), and tensor network simulations, providing astonishing speed. This combination of cutting-edge technologies empowers researchers and practitioners to explore the frontiers of quantum computing with unprecedented efficiency and performance.",
+  "date": "2024-06-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2406.17248",
+  "doi": "10.48550/arxiv.2406.17248",
+  "citations": 10,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "863686a44abc",
+  "title": "A Survey on Continuous Variable Quantum Key Distribution for Secure Data Transmission: Toward the Future of Secured Quantum-Networks",
+  "authors": [
+   "Mobin Motaharifar",
+   "Mahmood Hasani",
+   "Hassan Kaatuzian"
+  ],
+  "abstract": "Abstract Quantum key distribution (QKD) represents a cornerstone of secure communication in the quantum era. While discrete-variable QKD (DV-QKD) protocols were historically the first to demonstrate secure key exchange, continuous-variable QKD (CV-QKD) has emerged as a more practical alternative due to its seamless compatibility with current telecommunications infrastructure. CV-QKD relies on coherent and squeezed states of light, offering significant advantages for integration into modern optical networks. This review comprehensively explores the theoretical underpinnings, technological advancements, and practical challenges of CV-QKD. Special attention is given to the role of photonic integrated circuits (PICs) in enabling scalable and efficient implementation of CV-QKD systems. Furthermore, recent advances in machine learning have been leveraged to optimize CV-QKD performance, with data-driven techniques enhancing noise estimation, parameter optimization, and system security. Additionally, tensor networks provide efficient computational tools for analyzing complex quantum correlations, improving the efficiency and robustness of quantum key distribution protocols. These developments, combined with ongoing improvements in quantum photonic integration, pave the way for the practical deployment of large-scale, high-speed quantum-secure networks.",
+  "date": "2025-05-01",
+  "venue": "Quantum Information and Computation",
+  "arxiv_id": "",
+  "doi": "10.2478/qic-2025-0009",
+  "citations": 5,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "74a13c6713c3",
+  "title": "High-Performance Tensor-Train Primitives Using GPU Tensor Cores",
+  "authors": [
+   "Xiao-Yang Liu",
+   "Hao Hong",
+   "Zeliang Zhang",
+   "Weiqin Tong",
+   "Jean Kossaifi",
+   "Xiaodong Wang",
+   "Anwar Walid"
+  ],
+  "abstract": "Learning tensor-train (TT) structure (a.k.a matrix product state (MPS) representation) from large-scale high-dimensional data has been a common task in big data analysis, deep learning, and quantum machine learning. However, tensor-train algorithms are compute-intensive, which hinders their real-world applications. In this paper, we present high-performance tensor-train primitives using GPU tensor cores and demonstrate three applications. First, we use GPU tensor cores to optimize tensor-train primitives, including tensor contraction, singular value decomposition, and data transfer and computing. Second, we utilize the optimized primitives to accelerate tensor-train decomposition algorithms for big data analysis. Further, we propose a shard mode for high-order tensor computations on multiple GPUs. Third, we apply the optimized primitives to accelerate the tensor-train layer for compressing deep neural networks. Last, we utilize the optimized primitives to accelerate a quantum machine learning algorithm calledDensity Matrix Renormalization Group (DMRG). In performance evaluations, our third-order TT tensor decomposition achieves up to$3.34\\times$and$6.91\\times$speedups over two popular libraries (namely T3F and tntorch) on an A100 GPU, respectively. The proposed sixth-order tensor-train decomposition achieves up to a speedup of$5.01\\times$over T3F on multiple A100 GPUs. Our tensor-train layer for a fully connected neural network achieves a compression ratio of$65.3\\times$at the cost of$0.3\\%$drop in accuracy and a speedup of$1.53\\times$over a PyTorch implementation on CUDA cores. The optimizedDMRGalgorithm achieves up to a speedup of$14.0\\times$over TensorNetwork, indicating the potential of the optimized tensor primitives for the classical simulation of quantum machine learning algorithms.",
+  "date": "2024-08-12",
+  "venue": "IEEE Transactions on Computers",
+  "arxiv_id": "",
+  "doi": "10.1109/tc.2024.3441831",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "c9cd684b0ead",
+  "title": "The State Preparation of Multivariate Normal Distributions using Tree Tensor Network",
+  "authors": [
+   "Hidetaka Manabe",
+   "Yuichi Sano"
+  ],
+  "abstract": "The quantum state preparation of probability distributions is an important subroutine for many quantum algorithms. When embedding D -dimensional multivariate probability distributions by discretizing each dimension into 2n points, we need a state preparation circuit comprising a total of nD qubits, which is often difficult to compile. In this study, we propose a scalable method to generate state preparation circuits for D -dimensional multivariate normal distributions, utilizing tree tensor networks (TTN). We establish theoretical guarantees that multivariate normal distributions with 1D correlation structures can be efficiently represented using TTN. Based on these analyses, we propose a compilation method that uses automatic structural optimization to find the most efficient network structure and compact circuit. We apply our method to state preparation circuits for various high-dimensional random multivariate normal distributions. The numerical results suggest that our method can dramatically reduce the circuit depth and CNOT count while maintaining fidelity compared to existing approaches.",
+  "date": "2025-05-28",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2025-05-28-1755",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "10b3d937e585",
+  "title": "Tensor network state methods and quantum information theory for strongly correlated molecular systems",
+  "authors": [
+   "Miklós Antal Werner",
+   "Andor Menczer",
+   "Örs Legeza"
+  ],
+  "abstract": "A brief pedagogical overview of recent advances in tensor network state methods are presented that have the potential to broaden their scope of application radically for strongly correlated molecular systems. These include global fermionic mode optimization, i.e., a general approach to find an optimal matrix product state (MPS) parametrization of a quantum many-body wave function with the minimum number of parameters for a given error margin, the restricted active space DMRG-RAS-X method, multi-orbital correlations and entanglement, developments on hybrid CPU-multiGPU parallelization, and an efficient treatment of non-Abelian symmetries on high-performance computing (HPC) infrastructures. Scaling analysis on NVIDIA DGX-A100 platform is also presented.",
+  "date": "2025-01-30",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2501.18263",
+  "doi": "10.48550/arxiv.2501.18263",
+  "citations": 2,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "2112b80711e1",
+  "title": "Scalably learning one-dimensional quantum many-body Hamiltonians from dynamical data",
+  "authors": [
+   "Frederik Wilde",
+   "Augustine Kshetrimayum",
+   "Ingo Roth",
+   "Dominik Hangleiter",
+   "Ryan Sweke",
+   "Jens Eisert"
+  ],
+  "abstract": "Abstract The physics of a closed quantum mechanical system is governed by its Hamiltonian. However, in most practical situations, this Hamiltonian is not precisely known, and ultimately all there is are data obtained from measurements on the system. In this work, we introduce a highly scalable, data-driven approach to learning families of interacting many-body Hamiltonians from dynamical data, by bringing together techniques from gradient-based optimization from machine learning with efficient quantum state representations in terms of tensor networks. Our approach is highly practical, experimentally friendly, and intrinsically scalable to allow for system sizes of above 100 spins. In particular, we demonstrate on synthetic data that the algorithm works even if one is restricted to one simple initial state, a small number of single-qubit observables, and time evolution up to relatively short times. For the concrete example of the one-dimensional Heisenberg model our algorithm exhibits an error constant in the system size and scaling as the inverse square root of the size of the data set.",
+  "date": "2026-05-19",
+  "venue": "Quantum Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.1088/2058-9565/ae6fe3",
+  "citations": 16,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "eab4a2288202",
+  "title": "Tensor-network-based variational Monte Carlo approach to the non-equilibrium steady state of open quantum systems",
+  "authors": [
+   "Dawid A. Hryniuk",
+   "M. H. Szymańska"
+  ],
+  "abstract": "We introduce a novel method of efficiently simulating the non-equilibrium steady state of large many-body open quantum systems with highly non-local interactions, based on a variational Monte Carlo optimization of a matrix product operator ansatz. Our approach outperforms and offers several advantages over comparable algorithms, such as an improved scaling of the computational cost with respect to the bond dimension for periodic systems. We showcase the versatility of our approach by studying the phase diagrams and correlation functions of the dissipative quantum Ising model with collective dephasing and long-ranged power law interactions for spin chains of up to N=100 spins.",
+  "date": "2024-09-17",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2024-09-17-1475",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "97d36ef8ff25",
+  "title": "Learning Topological States from Randomized Measurements Using Variational Tensor-Network Tomography",
+  "authors": [
+   "Yanting Teng",
+   "Rhine Samajdar",
+   "Katherine Van Kirk",
+   "Frederik Wilde",
+   "Subir Sachdev",
+   "Jens Eisert",
+   "Ryan Sweke",
+   "Khadijeh Najafi"
+  ],
+  "abstract": "Learning faithful representations of quantum states is crucial to fully characterizing the variety of many-body states created on quantum processors. While various tomographic methods, such as classical shadow and matrix product state (MPS) tomography have shown promise in characterizing a wide class of quantum states, they face unique limitations in detecting topologically ordered two-dimensional states. To address this problem, we implement and study a heuristic tomographic method that combines variational optimization on tensor networks with randomized measurement techniques. Using this approach, we demonstrate its ability to learn the ground state of the surface-code Hamiltonian as well as an experimentally realizable quantum spin liquid state. In particular, we perform numerical experiments using MPS ansätze and systematically investigate the sample complexity required to achieve high fidelities for systems with sizes of up to 48 qubits. In addition, we provide theoretical insights into the scaling of our learning algorithm by analyzing the statistical properties of maximum-likelihood estimation. Notably, our method is sample-efficient and experimentally friendly, only requiring snapshots of the quantum state measured randomly in the X or Z bases. Using this subset of measurements, our approach can effectively learn any real pure states represented by tensor networks, and we rigorously prove that random- X Z measurements are tomographically complete for such states.",
+  "date": "2025-06-18",
+  "venue": "PRX Quantum",
+  "arxiv_id": "",
+  "doi": "10.1103/qm7q-w9qj",
+  "citations": 4,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "5a48f59907a3",
+  "title": "FPGA acceleration of tensor network computing for quantum spin models",
+  "authors": [
+   "Yang Liang",
+   "Songtai Lv",
+   "Zhiping Tang",
+   "Liguo Zhou",
+   "Qibin Zheng",
+   "Haiyuan Zou"
+  ],
+  "abstract": "Increasing the degree of freedom for quantum entanglement within tensor networks can enhance the depiction of the essence in many-body systems. However, this enhancement comes with a significant increase in computational complexity and critical slowing down, which drastically increases time consumption. This work converts a quantum tensor network algorithm into a classical circuit on the Field Programmable Gate Arrays (FPGAs) and arranges the computing unit with a dense parallel design, efficiently optimizing the time consumption. Test results show that the FPGA-based design achieves a computational speed 1.7 times greater than that of the central processing unit and is comparable to the graphics processing unit. This work explores a scalable and reusable approach suitable for parallel tensor operations implemented on FPGA, advancing research in quantum physics for many-body computing and quantum technologies.",
+  "date": "2025-01-01",
+  "venue": "Review of Scientific Instruments",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0239473",
+  "citations": 1,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "87752ceef36f",
+  "title": "Generalization metrics for practical quantum advantage in generative models",
+  "authors": [
+   "Kaitlin Gili",
+   "Marta Mauri",
+   "Alejandro Perdomo‐Ortiz"
+  ],
+  "abstract": "As the quantum computing community gravitates towards understanding the practical benefits of quantum computers, having a clear definition and evaluation scheme for assessing practical quantum advantage in the context of specific applications is paramount. Generative modeling, for example, is a widely accepted natural use case for quantum computers, and yet has lacked a concrete approach for quantifying success of quantum models over classical ones. In this work, we construct a simple and unambiguous approach to probe practical quantum advantage for generative modeling by measuring the algorithm's generalization performance. Using the sample-based approach proposed here, any generative model, from state-of-the-art classical generative models such as generative adversarial networks (GANs) to quantum models such as quantum circuit born machines, can be evaluated under the same conditions on a concrete well-defined framework. In contrast to other sample-based metrics for probing practical generalization, we leverage constrained optimization problems (e.g., cardinality-constrained problems) and use these discrete datasets to define specific metrics capable of unambiguously measuring the quality of the samples and the model's generalization capabilities for generating data beyond the training set, but still within the valid solution space. Additionally, our metrics can diagnose trainability issues such as mode collapse and overfitting, as we illustrate when comparing GANs to quantum-inspired models built out of tensor networks. Our simulation results show that our quantum-inspired models have up to a 68 times enhancement in generating unseen unique and valid samples compared to the GANs explored here, and a ratio of 61:2 for generating samples with better quality than those observed in the training set. We foresee these metrics as valuable tools for rigorously defining practical quantum advantage in the domain of generative modeling, where finding a winning model remains an ongoing challenge as new architectures are developed.",
+  "date": "2024-04-17",
+  "venue": "Physical Review Applied",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevapplied.21.044032",
+  "citations": 11,
+  "theme": "tensor network quantum optimization"
+ },
+ {
+  "fid": "dfb1715bd349",
+  "title": "Performance of Quantum Annealing Machine Learning Classification Models on ADMET Datasets",
+  "authors": [
+   "Hadi Salloum",
+   "K Sabbagh",
+   "Vladislav Savchuk",
+   "Ruslan Lukin",
+   "Osama Orabi",
+   "Marat Isangulov",
+   "Manuel Mazzara"
+  ],
+  "abstract": "The Quantum Annealer built by D-Wave, known as Advantage, is currently the largest quantum computer in the world, featuring a topology called “Pegasus.” This groundbreaking system opens new possibilities for solving highly complex problems. The advancement of quantum annealers has spurred experimental demonstrations and intensified research interest, particularly in quantum machine learning. However, the application of quantum annealing in machine learning remains limited due to the lack of conclusive performance evaluations on real-world datasets. There is still no clear consensus on the efficacy of these models in practical scenarios. This work focuses on experimentally evaluating quantum annealing machine learning (QAML) classification methods, specifically Quantum Support Vector Machines (QSVM) and QBoost, on ADMET datasets—one of the most important datasets in the drug discovery domain. We compare QAML with classical machine learning to evaluate their relative performance. This study seeks to address this gap by rigorously comparing the performance of QBoost and QSVM models using ADMET datasets, employing D-Wave’s Quantum Annealer. This work provides a comprehensive analysis of the potential and limitations of quantum annealers in quantum machine learning, with a focus on their application to real-world data in the ADMET domain. The findings offer critical insights into the nuanced advantages and challenges of quantum annealers in advancing machine learning methodologies.",
+  "date": "2025-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2025.3531391",
+  "citations": 9,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "b1c37be8ba94",
+  "title": "Effective prime factorization via quantum annealing by modular locally-structured embedding",
+  "authors": [
+   "Jingwen Ding",
+   "Giuseppe Spallitta",
+   "Roberto Sebastiani"
+  ],
+  "abstract": "This paper investigates novel techniques to solve prime factorization by quantum annealing (QA). First, we present a very-compact modular encoding of a multiplier circuit into the architecture of current D-Wave QA devices. The key contribution is a compact encoding of a controlled full-adder into an 8-qubit module in the Pegasus topology, which we synthesized using Optimization Modulo Theories. This allows us to encode up to a 21 × 12-bit multiplier (and a 22 × 8-bit one) into the Pegasus 5760-qubit topology of current annealers. To the best of our knowledge, these are the largest factorization problems ever encoded into a quantum annealer. Second, we investigated the problem of actually solving encoded PF problems by running an extensive experimental evaluation on a D-Wave Advantage 4.1 quantum annealer. In the experiments we introduced different approaches to initialize the multiplier qubits and adopted several performance enhancement techniques. Overall, 8,219,999 = 32,749 × 251 was the highest prime product we were able to factorize within the limits of our QPU resources. To the best of our knowledge, this is the largest number which was ever factorized by means of a quantum annealer; also, this is the largest number which was ever factorized by means of any quantum device without relying on external search or preprocessing procedures run on classical computers.",
+  "date": "2024-02-12",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-024-53708-7",
+  "citations": 13,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "0632110d76cc",
+  "title": "How to experimentally evaluate the adiabatic condition for quantum annealing",
+  "authors": [
+   "Yuichiro Mori",
+   "Shiro Kawabata",
+   "Yuichiro Matsuzaki"
+  ],
+  "abstract": "We propose an experimental method for evaluating the adiabatic condition during quantum annealing (QA), which will be essential for solving practical problems. The adiabatic condition consists of the transition matrix element and the energy gap, and our method simultaneously provides information about these components without diagonalizing the Hamiltonian. The key idea is to measure the power spectrum of a time domain signal by adding an oscillating field during QA, and we can estimate the values of the transition matrix element and energy gap from the measurement output. Our results provides a powerful experimental basis for analyzing the performance of QA.",
+  "date": "2024-04-08",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-024-58286-2",
+  "citations": 5,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "e2083ad0c382",
+  "title": "Local Binary and Multiclass SVMs Trained on a Quantum Annealer",
+  "authors": [
+   "Enrico Zardini",
+   "Amer Delilbasic",
+   "Enrico Blanzieri",
+   "Gabriele Cavallaro",
+   "Davide Pastorello"
+  ],
+  "abstract": "Support vector machines (SVMs) are widely used machine learning models, with formulations for both classification and regression tasks. In the last years, with the advent of working quantum annealers, hybrid SVM models characterized by quantum training and classical execution have been introduced. These models have demonstrated comparable performance to their classical counterparts. However, they are limited in the training set size due to the restricted connectivity of the current quantum annealers. Hence, to take advantage of large datasets, a strategy is required. In the classical domain, local SVMs, namely, SVMs trained on the data samples selected by a$k$-nearest neighbors model, have already proven successful. Here, the local application of quantum-trained SVM models is proposed and empirically assessed. In particular, this approach allows overcoming the constraints on the training set size of the quantum-trained models while enhancing their performance. In practice, the fast local kernel support vector machine (FaLK-SVM) method, designed for efficient local SVMs, has been combined with quantum-trained SVM models for binary and multiclass classification. In addition, for comparison, FaLK-SVM has been interfaced for the first time with a classical single-step multiclass SVM model. Concerning the empirical evaluation, D-Wave's quantum annealers and real-world datasets taken from the remote sensing domain have been employed. The results have shown the effectiveness and scalability of the proposed approach, but also its practical applicability in a real-world large-scale scenario.",
+  "date": "2024-01-01",
+  "venue": "IEEE Transactions on Quantum Engineering",
+  "arxiv_id": "",
+  "doi": "10.1109/tqe.2024.3475875",
+  "citations": 7,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "29971ab54ed6",
+  "title": "Quantum annealer accelerates the variational quantum eigensolver in a triple-hybrid algorithm",
+  "authors": [
+   "Manpreet Singh Jattana"
+  ],
+  "abstract": "Abstract Hybrid algorithms that combine quantum and classical resources have become commonplace in quantum computing. The variational quantum eigensolver (VQE) is routinely used to solve prototype problems. Currently, hybrid algorithms use no more than one kind of quantum computer connected to a classical computer. In this work, a novel triple-hybrid algorithm combines the effective use of a classical computer, a gate-based quantum computer, and a quantum annealer. The solution of a graph coloring problem found using a quantum annealer reduces the resources needed from a gate-based quantum computer to accelerate VQE by allowing simultaneous measurements within commuting groups of Pauli operators. We experimentally validate our algorithm by evaluating the ground state energy of H2 using different IBM Q devices and the DWave Advantage system requiring only half the resources of standard VQE. Other larger problems we consider exhibit even more significant VQE acceleration. Several examples of algorithms are provided to further motivate a new field of multi-hybrid algorithms that leverage different kinds of quantum computers to gain performance improvements.",
+  "date": "2024-08-16",
+  "venue": "Physica Scripta",
+  "arxiv_id": "",
+  "doi": "10.1088/1402-4896/ad6aea",
+  "citations": 4,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "7cdf0f28f015",
+  "title": "Kernel Approximation on a Quantum Annealer for Remote Sensing Regression Tasks",
+  "authors": [
+   "Edoardo Pasetto",
+   "Morris Riedel",
+   "Kristel Michielsen",
+   "Gabriele Cavallaro"
+  ],
+  "abstract": "The increased development of quantum computing hardware in recent years has led to increased interest in its application to various areas. Finding effective ways to apply this technology to real-world use-cases is a current area of research in the (RS) community. This paper proposes an (AQKS) kernel approximation algorithm with parallel quantum annealing on the D-Wave Advantage quantum annealer. The proposed implementation is applied to (SVR) and (GPR) algorithms. To evaluate its performance, a regression problem related to estimating chlorophyll concentration in water is considered. The proposed algorithm was tested on two real-world datasets and its results were compared with those obtained by a classical implementation of kernel-based algorithms and a (RKS) implementation. On average, the parallel (AQKS) achieved comparable results to the benchmark methods, indicating its potential for future applications.",
+  "date": "2024-01-01",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "arxiv_id": "",
+  "doi": "10.1109/jstars.2024.3350385",
+  "citations": 5,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "0ec89e0d69d6",
+  "title": "Large-Scale Multiple Query Optimisation with Incremental Quantum(-Inspired) Annealing",
+  "authors": [
+   "Manuel Schönberger",
+   "Immanuel Trummer",
+   "Wolfgang Mauerer"
+  ],
+  "abstract": "Multiple-query optimization (MQO) seeks to reduce redundant work across query batches. While MQO offers opportunities for dramatic performance improvements, the problem is NP-hard, limiting the sizes of problems that can be solved on generic hardware. We propose to leverage specialized hardware solvers for optimization, such as Fujitsu's Digital Annealer (DA), to scale up MQO to problem sizes formerly out of reach. We present a novel incremental processing approach that combines classical computation with DA acceleration. By efficiently partitioning MQO problems into sets of partial problems, and by applying a dynamic search steering strategy that reapplies initially discarded information to incrementally process individual problems, our method overcomes capacity limitations, and scales to extremely large MQO instances (up to νm1000 queries). A thorough and comprehensive empirical evaluation finds our method substantially outperforms existing approaches. Our generalisable framework lays the ground for other database use-cases on quantum-inspired hardware, and bridges towards future quantum accelerators.",
+  "date": "2025-09-22",
+  "venue": "Proceedings of the ACM on Management of Data",
+  "arxiv_id": "",
+  "doi": "10.1145/3749171",
+  "citations": 6,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "f25126c5c997",
+  "title": "Electron-beam annealing of Josephson junctions for frequency tuning of quantum processors",
+  "authors": [
+   "Yashwanth Balaji",
+   "Narendra Acharya",
+   "Robert Armstrong",
+   "Kevin G. Crawford",
+   "Sergey Danilin",
+   "T.M. Dixon",
+   "Oscar W. Kennedy",
+   "Renuka Devi Pothuraju",
+   "Kowsar Shahbazi",
+   "Connor D. Shelly"
+  ],
+  "abstract": "Superconducting qubits are a promising route to achieving large-scale quantum computers. A key challenge in realising large-scale superconducting quantum processors involves mitigating frequency collisions. In this paper, we present an approach to tuning fixed-frequency qubits with the use of an electron beam to locally anneal the Josephson junction. We demonstrate the ability to both increase and decrease the junction barrier resistance. The technique shows an improvement in wafer scale frequency targetting by assessing the frequency collisions in our qubit architecture. Coherence measurements are also done to evaluate the performance before and after tuning. The tuning process utilises a standard electron beam lithography system, ensuring reproducibility and implementation by any group capable of fabricating these Josephson junctions. This technique has the potential to significantly improve the performance of large-scale quantum computing systems, thereby paving the way for the future of quantum computing.",
+  "date": "2024-02-27",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2402.17395",
+  "doi": "10.48550/arxiv.2402.17395",
+  "citations": 3,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "87d7791c0b65",
+  "title": "The QISG suite: High-performance codes for studying quantum Ising spin glasses",
+  "authors": [
+   "Massimo Bernaschi",
+   "I. González-Adalid Pemartín",
+   "V. Martı́n-Mayor",
+   "Giorgio Parisi"
+  ],
+  "abstract": "We release a set of GPU programs for the study of the Quantum (S=1/2) Spin Glass on a square lattice, with binary couplings. The library contains two main codes: MCQSG (that carries out Monte Carlo simulations using both the Metropolis and the Parallel Tempering algorithms, for the problem formulated in the Trotter-Suzuki approximation), and EDQSG (that obtains the extremal eigenvalues of the Transfer Matrix using the Lanczos algorithm). EDQSG has allowed us to diagonalize transfer matrices with size up to 236×236. From its side, MCQSG running on four NVIDIA A100 cards delivers a sub-picosecond time per spin-update, a performance that is competitive with dedicated hardware. We include as well in our library GPU programs for the analysis of the spin configurations generated by MCQSG. Finally, we provide two auxiliary codes: the first generates the lookup tables employed by the random number generator of MCQSG; the second one simplifies the execution of multiple runs using different input data. Program Title: QISG Suite CPC Library link to program files: https://doi.org/10.17632/g97sn2t8z2.1 Licensing provisions: MIT Programming language: CUDA-C Nature of problem: The critical properties of quantum disordered systems are known only in a few, simple, cases whereas there is a growing interest in gaining a better understanding of their behaviour due to the potential application of quantum annealing techniques for solving optimization problems. In this context, we provide a suite of codes, that we have recently developed, to the purpose of studying the 2D Quantum Ising Spin Glass. Solution method: We provide a highly tuned multi-GPU code for the Montecarlo simulation of the 2D QISG based on a combination of Metropolis and Parallel Tempering algorithms. Moreover, we provide a code for the evaluation of the eigenvalues of the transfer matrix of the 2D QISG for size up to L=6. The eigenvalues are computed by using the classic Lanczos algorithm that, however, relies on a custom multi-GPU-CPU matrix-vector product that speeds-up dramatically the execution of the algorithm.",
+  "date": "2024-01-26",
+  "venue": "Computer Physics Communications",
+  "arxiv_id": "",
+  "doi": "10.1016/j.cpc.2024.109101",
+  "citations": 8,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "4b3cf2ab5c16",
+  "title": "CdS quantum dot aerogels for photocatalytic hydrogen evolution",
+  "authors": [
+   "Vinícius Alevato",
+   "Daniel Streater",
+   "Cole Premtaj",
+   "Jier Huang",
+   "Stephanie L. Brock"
+  ],
+  "abstract": "CdS quantum dots (QDs) have been extensively studied as photocatalysts and sensitizers for visible-light-driven water reduction. However, their efficiencies are limited by the need to accumulate sufficient redox equivalents to produce H2 and consequent photocorrosion associated with slow hole-transfer rates. To address these limitations, we report the formation of CdS QD assemblies (aerogels, AGs) capable of facilitating energy/charge transport between individual QDs, and evaluate their performance as photocatalysts for hydrogen evolution as a function of structure, wurtzite (w-) vs. zincblende (zb-), and different annealing temperatures. The formation of AGs from QDs resulted in increased rates of H2 production under visible light illumination: from 1458 (QD) to 6650 (AG) µmolH2·h−1·g−1 on zbCdS and from 1221 (QD) to 3325 (AG) µmolH2·h−1·g−1 on wCdS. This is attributed to exciton delocalization between adjacent QDs facilitating charge/energy transport. Thermal processing of CdS AGs up to 250 °C improved their activity, increasing the degree of exciton delocalization, while annealing them to 300 °C caused sintering of the primary QD particles within the AGs and a decrease in activity associated with loss in surface area. The best photocatalyst, zbCdS AG annealed at 250°C, had an average H2 production rate of 13,604 ± 2017 µmolH2·h−1·g−1, an apparent quantum yield of 2.8% at 425 ± 12.5 nm, and was stable for 2 h before beginning to deactivate due to photocorrosion. This study confirms the potential of CdS AGs as matrixes for the design of more active and stable composite photocatalysts for water splitting.",
+  "date": "2024-11-22",
+  "venue": "Nano Research",
+  "arxiv_id": "",
+  "doi": "10.1007/s12274-024-7107-2",
+  "citations": 11,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "b9bff673d722",
+  "title": "Hybrid actor-critic algorithm for quantum reinforcement learning at CERN beam lines",
+  "authors": [
+   "Michael Schenk",
+   "Elías F. Combarro",
+   "Michele Grossi",
+   "Verena Kain",
+   "Kevin Shing Bruce Li",
+   "Mircea-Marian Popa",
+   "S. Vallecorsa"
+  ],
+  "abstract": "Abstract Free energy-based reinforcement learning (FERL) with clamped quantum Boltzmann machines (QBM) was shown to significantly improve the learning efficiency compared to classical Q-learning with the restriction, however, to discrete state-action space environments. In this paper, the FERL approach is extended to multi-dimensional continuous state-action space environments to open the doors for a broader range of real-world applications. First, free energy-based Q-learning is studied for discrete action spaces, but continuous state spaces and the impact of experience replay on sample efficiency is assessed. In a second step, a hybrid actor-critic (A-C) scheme for continuous state-action spaces is developed based on the deep deterministic policy gradient algorithm combining a classical actor network with a QBM-based critic. The results obtained with quantum annealing (QA), both simulated and with D-Wave QA hardware, are discussed, and the performance is compared to classical reinforcement learning methods. The environments used throughout represent existing particle accelerator beam lines at the European Organisation for Nuclear Research. Among others, the hybrid A-C agent is evaluated on the actual electron beam line of the Advanced Wakefield Experiment (AWAKE).",
+  "date": "2024-02-05",
+  "venue": "Quantum Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.1088/2058-9565/ad261b",
+  "citations": 15,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "20615cb09fa4",
+  "title": "Quantum annealing for CAD-based disassembly sequence optimization",
+  "authors": [
+   "José Azucena",
+   "Joao Paulo Jacomini Prioli"
+  ],
+  "abstract": "Abstract Disassembly is the core of sustainable recovery processes, enabling the reuse, remanufacturing, and recycling of end-of-life products. Disassembly Sequence Optimization (DSO) is the key to achieving practical and efficient disassembly applications in industrial scenarios. This study presents a novel approach to DSO by leveraging Quantum Annealing (QA) through Quadratic Unconstrained Binary Optimization (QUBO) and Constrained Quadratic Model (CQM) formulations integrated with CAD-based assembly designs. The proposed methods aim to address computational challenges in industrial disassembly applications. We evaluated these methods against classical heuristics using two distinct product designs. For a smaller, denser assembly, the hybrid CQM model demonstrated superior performance in terms of solution quality and computational time. Conversely, for a larger, sparser assembly, a classical heuristic achieved better results in solution quality when constraining computational time compared to the hybrid quantum approaches. The QUBO model, although did not overcome classical, showed promise in exploring solution spaces, obtaining better solution quality than CQM for the larger problem. These findings indicate that the current practical utility of quantum annealing for DSO is influenced by problem size, structure, and hybrid workflow efficiency. Future research should focus on optimizing the balance between classical and quantum resources to further enhance efficiency. As quantum hardware continues to advance, these formulations have the potential to revolutionize sustainable manufacturing by optimizing disassembly planning with greater efficiency and adaptability to large assemblies.",
+  "date": "2025-12-18",
+  "venue": "The International Journal of Advanced Manufacturing Technology",
+  "arxiv_id": "",
+  "doi": "10.1007/s00170-025-17182-3",
+  "citations": 2,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "7622ff413c91",
+  "title": "Quantum-inspired dynamical models on quantum and classical annealers",
+  "authors": [
+   "Philipp Hanussek",
+   "Jakub Pawłowski",
+   "Zakaria Mzaouali",
+   "Bartłomiej Gardas"
+  ],
+  "abstract": "We propose a practical, physics-inspired benchmarking suite to challenge both quantum and classical computers by mapping real-time quantum dynamics to a common optimization format. Using a parallel-in-time encoding, we convert the real-time propagator of an n -qubit, possibly non-Hermitian, Hamiltonian into quadratic unconstrained binary optimization (QUBO) instances that are executable in a solver-agnostic manner on quantum annealers and classical optimizers alike. This enables direct, like-for-like performance comparisons across fundamentally different computational paradigms. To stress-test the framework, we consider eight representative dynamical models spanning single-qubit rotations, multiqubit entangling gates (Bell, Greenberger-Horne-Zeilinger, cluster), and P T -symmetric and other non-Hermitian generators, and evaluate success probability and time to solution as standard benchmarking metrics. Applying this method to two generations of D-Wave quantum annealers and to state-of-the-art classical solvers (simulated annealing and the graphics-processing unit–accelerated VeloxQ), we find that Advantage2 consistently outperforms its predecessor, while VeloxQ retains the shortest absolute run-times, reflecting the maturity of classical heuristics. We further extend the benchmarks to large-scale instances ( N ≈ 10 5 ), establishing a demanding classical baseline for future hardware. Together, these results position the parallel-in-time QUBO framework as a versatile and physically motivated test bed for quantitatively tracking progress toward quantum-competitive simulation of dynamical systems.",
+  "date": "2026-03-09",
+  "venue": "Physical Review Applied",
+  "arxiv_id": "",
+  "doi": "10.1103/rrf3-jm5m",
+  "citations": 1,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "0f24927d00e9",
+  "title": "Variational determination of penalty parameters in quantum annealing",
+  "authors": [
+   "Ji-Qian Qin",
+   "Yu Yunlong",
+   "Xiang‐Bin Wang"
+  ],
+  "abstract": "Abstract Quantum annealing (QA) offers a promising approach for solving constrained combinatorial optimization on near-term quantum devices. It encodes solutions into the ground states of the Ising problem Hamiltonians through penalty terms and penalty parameters to enforce constraints. We propose a variational determination framework to address the issue of penalty parameter selection through three progressively generalized methods: the Frozen method variationally adjusts parameters in a tunable Hamiltonian to prepare evolved states minimizing the energy of a target Hamiltonian with Frozen parameters; the Time-Transfer method applies optimized parameters to longer annealing times; and the Full-Transfer method extends this approach across both system sizes and annealing durations. The effectiveness of these methods stems from energy minimization steering the evolution toward the low-energy subspace. Evaluated on vertex cover problems over 40 randomly generated 12-vertex 3-regular graphs, the Frozen method improves the average single-run success probability from 0.27 ± 0.02 to 0.62 ± 0.03 at t a = 10 , and reduces the average number of runs required for 99.9% success probability by 3.8 times at t a = 2 (including optimization overhead). Crucially, both Time-Transfer method and Full-Transfer method achieve single-run fidelity improvements comparable to the Frozen method, while reducing the number of runs required for 99.9% success probability at t a = 2.5 by 6.63 times and 6.4 times, respectively. The speedup of the Time-Transfer method excludes initial optimization at t a = 2 , whereas Full-Transfer method provides end-to-end acceleration. Our variational framework establishes that optimization-informed short-time QA can match the performance of extended schedules, offering a practical approach for current quantum devices.",
+  "date": "2025-12-23",
+  "venue": "Quantum Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.1088/2058-9565/ae30a2",
+  "citations": 1,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "628c205bcf42",
+  "title": "Self-powered high performance UV photodetectors based on spin coated n-ZnO/p-Si heterostructure",
+  "authors": [
+   "Swati Pujar",
+   "Gowrish K. Rao",
+   "M.G. Mahesha"
+  ],
+  "abstract": "Self-powered photodetectors with high responsivity and external quantum efficiency (EQE) are in great demand for various practical applications. This paper reports the fabrication and evaluation of self-powered, high-performing ultraviolet photodetectors with fast switching action. A p-n junction was formed by spin coating n-type ZnO on p-silicon substrates. The photodetector showed a responsivity of 0.15 A/W and an EQE of 52 %. The switching speed of devices was as low as 250 ms, even under zero bias. XRD analysis revealed the hexagonal wurtzite structure and AFM images confirmed the good quality of the films with roughness values as low as 2 nm. Defect analysis was done by photoluminescence studies. The molarity of the precursor solution and the annealing temperature were varied to optimize the performance. Sample with molarity 0.5 M annealed at 500 °C showed the best results.",
+  "date": "2024-09-24",
+  "venue": "Optical Materials",
+  "arxiv_id": "",
+  "doi": "10.1016/j.optmat.2024.116141",
+  "citations": 16,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "a9999a7e1167",
+  "title": "Integrating Environmental and Economic Considerations in Charging Station Planning: An Improved Quantum Genetic Algorithm",
+  "authors": [
+   "Dandan Hu",
+   "X.‐F. LI",
+   "Chen Liu",
+   "Zhi‐Wei Liu"
+  ],
+  "abstract": "China’s pursuit of carbon peak and carbon neutrality relies heavily on the widespread adoption of electric vehicles (EVs), necessitating the optimal location and sizing of charging stations (CSs). This study proposes a model for minimizing the overall social cost by considering CS construction and operation costs, EV user charging time costs, and associated carbon emissions costs. An improved quantum genetic algorithm, integrating a dynamic rotation angle and simulated annealing elements, addresses the optimization problem. Performance evaluation employs test functions and a case study using electric taxi trajectory data from Shenzhen. Findings reveal that higher charging power does not always yield better outcomes; appropriate power selection effectively reduces costs. Increasing the number of CSs beyond a threshold fails to significantly reduce carbon emission costs but enhances demand coverage.",
+  "date": "2024-01-30",
+  "venue": "Sustainability",
+  "arxiv_id": "",
+  "doi": "10.3390/su16031158",
+  "citations": 7,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "6f70a57fad2e",
+  "title": "Quantum Annealing-Based Algorithm for Efficient Coalition Formation Among LEO Satellites",
+  "authors": [
+   "Supreeth Mysore Venkatesh",
+   "Antonio Macaluso",
+   "Marlon Nuske",
+   "Matthias Klusch",
+   "Andreas Dengel"
+  ],
+  "abstract": "The increasing number of Low Earth Orbit (LEO) satellites, driven by lower manufacturing and launch costs, is proving invaluable for Earth observation missions and low-latency internet connectivity. However, as the number of satellites increases, the number of communication links to maintain also rises, making the management of this vast network increasingly challenging and highlighting the need for clustering satellites into efficient groups as a promising solution. This paper formulates the clustering of LEO satellites as a coalition structure generation (CSG) problem and leverages quantum annealing to solve it. We represent the satellite network as a graph and obtain the optimal partitions using a hybrid quantum-classical algorithm called GCS-Q. The algorithm follows a top-down approach by iteratively splitting the graph at each step using a quadratic unconstrained binary optimization (QUBO) formulation. To evaluate our approach, we utilize real-world three-line element set (TLE/3LE) data for Starlink satellites from Celestrak. Our experiments, conducted using the D-Wave Advantage annealer and the state-of-the-art solver Gurobi, demonstrate that the quantum annealer significantly outperforms classical methods in terms of runtime while maintaining the solution quality. The performance achieved with quantum annealers surpasses the capabilities of classical computers, highlighting the transformative potential of quantum computing in optimizing the management of large-scale satellite networks.",
+  "date": "2024-08-12",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2408.06007",
+  "doi": "10.48550/arxiv.2408.06007",
+  "citations": 1,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "4f4ab5b10ea9",
+  "title": "Effect of capping rate on the performance of InAs/GaAs quantum dot solar cell",
+  "authors": [
+   "Anjali Rai"
+  ],
+  "abstract": "Abstract The GaAs capping layer significantly influences the structural and optoelectronic characteristics of the InAs quantum dot (QD). The capping rate modifies the essential parameters, such as size, shape, and composition, that determine the optical properties of the QDs. In this work, we present a theoretical model to study the effects of the capping rate on the absorption spectra of InAs dots embedded in the GaAs capping layer. The proposed model can be used for optimizing the structural and optical characteristics of InAs/GaAs QDs without using an annealing procedure or any capping material other than GaAs. In addition, the impact of three different GaAs capping layer growth rates on the performance of quantum dot solar cells is evaluated.",
+  "date": "2024-07-05",
+  "venue": "Physica Scripta",
+  "arxiv_id": "",
+  "doi": "10.1088/1402-4896/ad5fc5",
+  "citations": 2,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "3b4996f527bd",
+  "title": "Can quantum computing surpass classical algorithms in optimizing building performance? A benchmark study with 15,000 simulations",
+  "authors": [
+   "Haidar Hosamo",
+   "Vagelis Plevris",
+   "Dimitrios Kraniotis",
+   "Christian Nordahl Rolfsen"
+  ],
+  "abstract": "• Quantum and classical algorithms are benchmarked for building performance optimization. • A surrogate model is trained on 15,000 IDA ICE simulations for prediction. • NSGA-II achieves the best trade-offs between energy use and thermal comfort. • Quantum methods deliver faster results but with reduced solution quality. • Quantum computing shows potential for future real-time building optimization. Optimizing building performance is essential for enhancing energy efficiency and occupant comfort. This study evaluates the applicability of quantum computing–based optimization methods in the Architecture, Engineering, and Construction (AEC) industry by comparing the Quantum Approximate Optimization Algorithm (QAOA) and Quantum Annealing (QA) with classical multi-objective optimization algorithms, namely Non-dominated Sorting Genetic Algorithm II (NSGA-II) and Multi-Objective Particle Swarm Optimization (MOPSO). A dataset of 15,000 building simulations was used to train an Extreme Gradient Boosting (XGBoost) model for predicting total energy consumption (kWh/m 2 /year) and Predicted Percentage of Dissatisfied (PPD) occupants. These predictions were then used in the optimization phase. NSGA-II produced the best trade-offs, achieving energy consumption between 17.84 and 19.84 kWh/m 2 /year and PPD below 5.2 %, with strong diversity and convergence. QAOA executed faster (0.54 min) than NSGA-II (18.9 min) but resulted in higher energy values (31.85–55.62 kWh/m 2 /year) and weaker solution quality. Quantum Annealing completed in 0.37 min but returned clustered solutions near 45.88 kWh/m 2 /year. While the current limitations of quantum methods constrain their effectiveness, the findings indicate their potential as fast solvers in future building performance optimization workflows, particularly as hardware and algorithmic capabilities mature.",
+  "date": "2025-07-16",
+  "venue": "Energy and Buildings",
+  "arxiv_id": "",
+  "doi": "10.1016/j.enbuild.2025.116156",
+  "citations": 2,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "e522d3e10e9f",
+  "title": "Accuracy and performance evaluation of quantum, classical and hybrid solvers for the Max-Cut problem",
+  "authors": [
+   "Jaka Vodeb",
+   "Vid Eržen",
+   "Timotej Hrga",
+   "Janez Povh"
+  ],
+  "abstract": "Abstract This paper benchmarks quantum, classical, and hybrid solvers on NP-hard Max-Cut and QUBO problems, emphasizing solution quality relative to known global optima. We evaluate D-Wave’s fast annealing QPU and Hybrid solver against classical simulated annealing (SA) and Toshiba’s simulated bifurcation machine (SBM) using 139 Max-Cut instances (100 to 10,000 nodes). For small instances ( $$\\le $$ ≤ 250 nodes) with known global optima, Hybrid and SA consistently achieve optimal solutions, outperforming the QPU. For larger instances, SBM and slower SA yield superior solutions, while Hybrid and faster SA perform less effectively. Computation time varies across solvers.",
+  "date": "2026-07-03",
+  "venue": "Quantum Information Processing",
+  "arxiv_id": "",
+  "doi": "10.1007/s11128-026-05263-5",
+  "citations": 1,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "8bbce82d765e",
+  "title": "Addressing the Minor-Embedding Problem in Quantum Annealing and Evaluating State-of-the-Art Algorithm Performance",
+  "authors": [
+   "Aitor Gomez-Tejedor",
+   "Eneko Osaba",
+   "Esther Villar-Rodríguez"
+  ],
+  "abstract": "This study addresses the minor-embedding problem, which involves mapping the variables of an Ising model onto a quantum annealing processor. The primary motivation stems from the observed performance disparity of quantum annealers when solving problems suited to the processor's architecture versus those with non-hardware-native topologies. Our research has two main objectives: i) to analyze the impact of embedding quality on the performance of D-Wave Systems quantum annealers, and ii) to evaluate the quality of the embeddings generated by Minorminer, the standard minor-embedding technique in the quantum annealing literature, provided by D-Wave. Regarding the first objective, our experiments reveal a clear correlation between the average chain length of embeddings and the relative errors of the solutions sampled. This underscores the critical influence of embedding quality on quantum annealing performance. For the second objective, we evaluate Minorminer's embedding capabilities, the quality and robustness of its embeddings, and its execution-time performance on Erdös-Rényi graphs. We also compare its performance with Clique Embedding, another algorithm developed by D-Wave, which is deterministic and designed to embed fully connected Ising models into quantum annealing processors, serving as a worst-case scenario. The results demonstrate that there is significant room for improvement for Minorminer, suggesting that more effective embedding strategies could lead to meaningful gains in quantum annealing performance.",
+  "date": "2025-04-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2504.13376",
+  "doi": "10.48550/arxiv.2504.13376",
+  "citations": 0,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "63f4d6413199",
+  "title": "Limits of quantum run-time advantage",
+  "authors": [
+   "Jan Tuziemski",
+   "Jakub Pawłowski",
+   "P. Tarasiuk",
+   "Łukasz Pawela",
+   "Bartłomiej Gardas"
+  ],
+  "abstract": "A robust definition of quantum runtime is essential for assessing the performance of quantum algorithms and claims of quantum advantage. While for most classical hardware the total runtime is well approximated by computation plus a weakly varying constant, on current quantum hardware a clean experimental separation between \"pure computation\" and \"overhead\" is often not justified. Consequently, conventional quantum runtime analyses excluding substantial system-level overheads can lead to biased performance assessments. In this work we introduce experimentally grounded, end-to-end definitions of quantum runtime for digital and analogue quantum computers, together with a methodology for selecting strong classical baselines for quantum-classical runtime comparisons. Within this framework, we evaluate recent claims of quantum advantage in annealing and gate-based algorithms. We examine three representative case studies. First, we revisit annealing for approximate QUBO problems PRL 134, 160601 (2025), which employs a well-motivated time-to-$ε$ metric but effectively uses annealing time as a proxy for runtime. Second, we analyze a restricted implementation of Simon's problem PRX 15, 021082 (2025), where the favorable scaling in oracle calls is undisputed; however, we show that the estimated runtime of the quantum experiment is approximately two orders of magnitude slower than a tuned classical baseline at the tested sizes. Finally, we find that the runtime advantage of the BF-DCQO hybrid algorithm arXiv:2505.08663 is not observed under more comprehensive benchmarking. Therefore, on current NISQ hardware, runtime-based quantum advantage has not yet been demonstrated under experimentally grounded performance metrics, and credible claims require careful time accounting, appropriate performance measures, and properly chosen classical reference implementations, as discussed in this work.",
+  "date": "2026-03-17",
+  "venue": "Physical Review Applied",
+  "arxiv_id": "",
+  "doi": "10.1103/gpsf-pn1x",
+  "citations": 1,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "eb3bc36fdd1a",
+  "title": "A comparative study of Q-Seg, quantum-inspired techniques, and U-Net for crack image segmentation",
+  "authors": [
+   "Akshaya Srinivasan",
+   "Alexander Geng",
+   "Antonio Macaluso",
+   "Maximilian Kiefer-Emmanouilidis",
+   "Ali Moghiseh"
+  ],
+  "abstract": "Abstract Exploring the potential of quantum hardware for enhancing classical and real-world applications is an ongoing challenge. This study evaluates the performance of quantum and quantum-inspired methods compared to classical models for crack segmentation. Using annotated grayscale image patches of concrete samples, we benchmark a classical mean Gaussian mixture technique, a quantum-inspired fermion-based method, Q-Seg – a quantum-annealing-based method, and a U-Net deep learning architecture. Our results indicate that quantum-inspired and quantum methods offer a promising alternative to image segmentation, particularly for complex crack patterns, and could be applied in near-future applications.",
+  "date": "2025-04-15",
+  "venue": "tm - Technisches Messen",
+  "arxiv_id": "",
+  "doi": "10.1515/teme-2025-0017",
+  "citations": 2,
+  "theme": "quantum annealing performance evaluation"
+ },
+ {
+  "fid": "5fd717a63b4b",
+  "title": "Hybrid Quantum–Classical Optimization for Cloud Resource Allocation: A Scalable Framework for Energy–Efficient Computing",
+  "authors": [
+   "K. Kalpana",
+   "S. Kavitha",
+   "S. Chinnapparaj",
+   "V. V. Terresa",
+   "C. Sincija",
+   "Guangda Liu"
+  ],
+  "abstract": "Cloud computing has transformed modern digital infrastructure by enabling on-demand access to scalable computational resources. However, the increasing complexity of dynamic workloads and the need for efficient resource allocation present persistent challenges in maintaining performance, cost efficiency, and energy sustainability. This paper introduces a Quantum-Driven Optimization (QDO) framework, a hybrid quantum-classical approach designed to enhance cloud resource allocation by integrating quantum computing techniques with classical optimization methods. The proposed framework leverages Quantum Annealing (QA) and the Variational Quantum Eigensolver (VQE) to optimize resource distribution, minimizing energy consumption and operational costs while maximizing throughput and utilization efficiency. Experimental evaluations demonstrate that the QDO framework achieves a 27% improvement in resource utilization, a 34% reduction in operational costs, and a 21% enhancement in task completion time compared to traditional heuristic-based approaches. Additionally, the hybrid model reduces Service Level Agreement (SLA) violations by 18%, ensuring robust Quality of Service (QoS) for cloud users. The framework employs classical algorithms for preprocessing and decision-making while delegating complex optimization tasks to quantum solvers, ensuring scalability across diverse cloud environments. This study highlights the transformative potential of hybrid quantum-classical computing in addressing cloud resource allocation challenges. The results indicate significant improvements in energy efficiency, cost-effectiveness, and system responsiveness, making the QDO framework a viable solution for next-generation cloud infrastructures. Future research directions include extending the framework to multi-cloud architectures and investigating advanced quantum algorithms for further optimization gains.",
+  "date": "2025-03-01",
+  "venue": "CompSci & AI Advances",
+  "arxiv_id": "",
+  "doi": "10.69626/cai.2025.0001",
+  "citations": 3,
+  "theme": "quantum annealing performance evaluation"
  }
 ]
