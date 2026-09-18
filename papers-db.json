@@ -3440,6 +3440,36 @@
    "domains": []
   },
   {
+   "id": "iterative-quantum-assisted-least-squares-optimization-convergence-6cab3",
+   "title": "Iterative quantum-assisted least squares optimization with convergence guarantees",
+   "titleZh": "带收敛保证的迭代量子辅助最小二乘优化",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Diego Arenas",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "Journal of Computational Science",
+   "date": "2026-02-18",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1016/j.jocs.2026.102814",
+   "url": "https://doi.org/10.1016/j.jocs.2026.102814",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "i-QLS 的期刊升级版:给出迭代量子辅助最小二乘的指数收敛速率证明(收敛保证),保持每迭代常数量子比特开销,并系统评估非线性回归场景下与经典求解器的精度对比,夯实了量子退火求解连续优化的理论基础。",
+   "abstract": "We introduce an iterative quantum-assisted least squares optimization method that refines the solution space iteration by iteration while requiring a constant number of qubits per iteration, achieving exponential convergence with convergence guarantees. Beyond linear regression, the method extends to non-linear approximation via splines, and experiments on a D-Wave quantum annealer show accuracy competitive with classical solvers on high-dimensional problems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "distributed-quantum-gaussian-processes-multi-agent-systems-257b2",
    "title": "Distributed Quantum Gaussian Processes for Multi-Agent Systems",
    "titleZh": "面向多智能体系统的分布式量子高斯过程",
@@ -4397,6 +4427,36 @@
    "domains": []
   },
   {
+   "id": "toward-quantum-utility-finance-robust-data-driven-1e22e",
+   "title": "Toward Quantum Utility in Finance: A Robust Data-Driven Algorithm for Asset Clustering",
+   "titleZh": "迈向金融量子实用性:鲁棒数据驱动的资产聚类算法",
+   "authors": [
+    "Shivam Sharma",
+    "Supreeth Mysore Venkatesh",
+    "Pushkin Kachroo"
+   ],
+   "venue": "Communications in computer and information science",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1007/978-3-032-13855-2_2",
+   "url": "https://doi.org/10.1007/978-3-032-13855-2_2",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把 GCS-Q 用于金融资产聚类:以收益率相关矩阵为图,量子退火直接处理带符号相关结构,自动确定簇数;在合成与真实金融数据上以 ARI 与结构平衡罚超越 SPONGE、k-Medoids 等经典基线,是\"近期量子计算实用性(quantum utility)\"在金融图学习的实证。",
+   "abstract": "Clustering financial assets by return correlations is a key task in portfolio optimization and statistical arbitrage, yet classical clustering methods often fall short on signed correlation structures, requiring lossy transformations or a pre-specified number of clusters. We apply GCS-Q, a graph-based coalition structure generation algorithm that formulates each partitioning step as a QUBO solved by quantum annealing, enabling efficient search of very large solution spaces without such transformations. Validated on synthetic and real-world financial data against SPONGE and k-Medoids, GCS-Q achieves higher quality (Adjusted Rand Index and structural balance penalties) while automatically determining the number of clusters, suggesting the practical utility of near-term quantum computing for graph-based unsupervised learning in finance.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -5171,6 +5231,39 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
+   ]
+  },
+  {
+   "id": "quantum-assisted-correlation-clustering-80f9b",
+   "title": "Quantum-Assisted Correlation Clustering",
+   "titleZh": "量子辅助相关性聚类",
+   "authors": [
+    "Antonio Macaluso",
+    "Supreeth Mysore Venkatesh",
+    "Diego Arenas",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "预印本",
+   "date": "2025-11-02",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1109/qai63978.2025.00009",
+   "url": "https://doi.org/10.1109/qai63978.2025.00009",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把相关性聚类(允许正负关联符号的图划分问题)重构为 QUBO 并用量子退火求解:不依赖经典方法对符号结构的损失式变换,自动确定簇数;该方法是随后金融资产聚类论文的方法内核。",
+   "abstract": "This work introduces a hybrid quantum-classical method to correlation clustering, a graph-based unsupervised learning task that seeks to partition the nodes in a graph based on pairwise agreement and disagreement. In particular, we adapt GCS-Q [1], a quantum-assisted solver originally designed for coalition structure generation, to maximize intra-cluster agreement in signed graphs through recursive divisive partitioning. The proposed method encodes each bipartitioning step as a quadratic unconstrained binary optimization problem, solved via quantum annealing. This integration of quantum optimization within a hierarchical clustering framework enables handling of graphs with arbitrary correlation structures, including negative edges, without relying on metric assumptions or a predefined number of clusters. Empirical evaluations on synthetic signed graphs and real-world hyperspectral imaging data demonstrate that, when adapted for correlation clustering, GCS-Q outperforms classical algorithms in robustness and clustering quality on real-world data and in scenarios with cluster size imbalance. Our results highlight the promise of hybrid quantum-classical optimization for advancing scalable and structurally-aware clustering techniques in graph-based unsupervised learning.",
+   "source": "backfill",
+   "domains": [
+    "finance"
    ]
   },
   {
@@ -8580,6 +8673,37 @@
    "domains": []
   },
   {
+   "id": "i-qls-quantum-supported-algorithm-least-squares-46062",
+   "title": "i-QLS: Quantum-supported Algorithm for Least Squares Optimization in Non-Linear Regression",
+   "titleZh": "i-QLS:非线性回归最小二乘优化的量子支持算法",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Diego Arenas",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-05",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.02788",
+   "doi": "10.48550/arxiv.2505.02788",
+   "url": "https://arxiv.org/abs/2505.02788",
+   "topics": [
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出迭代式量子辅助最小二乘 i-QLS:不做固定离散化的 QUBO 而是逐轮细化解空间,每轮只需常数个量子比特即可逼近指数收敛,支持 anytime 权衡;经样条扩展到非线性回归,D-Wave 实测精度逼近经典求解器、显著优于此前量子方法。",
+   "abstract": "We propose an iterative quantum-assisted least squares (i-QLS) optimization method that leverages quantum annealing to overcome the scalability and precision limitations of prior quantum least squares approaches. Unlike traditional QUBO-based formulations, which suffer from a qubit overhead due to fixed discretization, our approach refines the solution space iteratively, enabling exponential convergence while maintaining a constant qubit requirement per iteration. This iterative refinement transforms the problem into an anytime algorithm, allowing for flexible computational trade-offs. Furthermore, we extend our framework beyond linear regression to non-linear function approximation via spline-based modeling, demonstrating its adaptability to complex regression tasks. We empirically validate i-QLS on the D-Wave quantum annealer, showing that our method efficiently scales to high-dimensional problems, achieving competitive accuracy with classical solvers while outperforming prior quantum approaches. Experiments confirm that i-QLS enables near-term quantum hardware to perform regression tasks with improved precision and scalability, paving the way for practical quantum-assisted machine learning applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "financial-fraud-detection-hybrid-deep-belief-network-c6ca3",
    "title": "Financial fraud detection using a hybrid deep belief network and quantum optimization approach",
    "titleZh": "混合深度信念网络与量子优化的金融欺诈检测",
@@ -10495,6 +10619,38 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "nav-q-quantum-deep-reinforcement-learning-collision-cb0dc",
+   "title": "Nav-Q: quantum deep reinforcement learning for collision-free navigation of self-driving cars",
+   "titleZh": "Nav-Q:面向自动驾驶无碰撞导航的量子深度强化学习",
+   "authors": [
+    "Akash Sinha",
+    "Antonio Macaluso",
+    "Matthias Klusch"
+   ],
+   "venue": "Quantum Machine Intelligence",
+   "date": "2025-02-11",
+   "year": 2025,
+   "citations": 14,
+   "arxivId": "",
+   "doi": "10.1007/s42484-024-00226-4",
+   "url": "https://doi.org/10.1007/s42484-024-00226-4",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "将深度强化学习的_actor-critic_架构量子化:用变分量子电路替代策略网络组件,在 CARLA 级驾驶场景中训练无碰撞导航策略,发表于权威期刊(14 引用),是量子强化学习少有的完整自动驾驶实验闭环。",
+   "abstract": "The task of collision-free navigation (CFN) of self-driving cars is an NP-hard problem usually tackled using deep reinforcement learning (DRL). While DRL methods have proven to be effective, their implementation requires substantial computing resources and extended training periods to develop a robust agent. On the other hand, quantum reinforcement learning has recently demonstrated faster convergence and improved stability in simple, non-real-world environments. In this work, we propose Nav-Q, the first quantum-supported DRL algorithm for CFN of self-driving cars, that leverages quantum computation to improve training performance without the requirement for onboard quantum hardware. Nav-Q is based on the actor-critic approach, where the critic is implemented using a hybrid quantum-classical algorithm suitable for near-term quantum devices. We assess the performance of Nav-Q using the CARLA driving simulator, a de facto standard benchmark for evaluating state-of-the-art DRL methods. Our empirical evaluations suggest that Nav-Q shows potential to outperform its classical counterpart in terms of training stability, with reduced sensitivity to different weight initializations and slightly higher average cumulative reward during training. Furthermore, we assess Nav-Q in relation to effective dimension, unveiling that the incorporation of a quantum component results in a model with greater descriptive power compared to classical baselines. Finally, we evaluate the performance of N",
+   "source": "backfill",
+   "domains": [
+    "transport",
+    "materials"
    ]
   },
   {
@@ -13196,6 +13352,37 @@
    "domains": []
   },
   {
+   "id": "quantum-artificial-intelligence-brief-survey-37e5d",
+   "title": "Quantum Artificial Intelligence: A Brief Survey",
+   "titleZh": "量子人工智能:简要综述",
+   "authors": [
+    "Matthias Klusch",
+    "Jörg Lässig",
+    "Daniel Müssig",
+    "Antonio Macaluso",
+    "Frank K. Wilhelm"
+   ],
+   "venue": "K&uuml;nstliche Intell.",
+   "date": "2024-11-04",
+   "year": 2024,
+   "citations": 43,
+   "arxivId": "",
+   "doi": "10.1007/s13218-024-00871-8",
+   "url": "https://doi.org/10.1007/s13218-024-00871-8",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "对量子 AI(QAI)方向的紧凑综述:梳理量子机器学习、量子深度学习、量子强化学习与量子 NLP 的代表性工作与硬件现状,讨论\"有望产生优势的场景清单\",适合作为该方向入门导读。",
+   "abstract": "Abstract Quantum Artificial Intelligence (QAI) is the intersection of quantum computing and AI, a technological synergy with expected significant benefits for both. In this paper, we provide a brief overview of what has been achieved in QAI so far and point to some open questions for future research. In particular, we summarize some major key findings on the feasability and the potential of using quantum computing for solving computationally hard problems in various subfields of AI, and vice versa, the leveraging of AI methods for building and operating quantum computing devices.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "low-crosstalk-optical-addressing-system-atomic-qubits-2409f",
    "title": "Low-crosstalk optical addressing system for atomic qubits based on multiple objectives and acousto-optic deflectors",
    "titleZh": "基于声光偏转器的低串扰离子寻址系统",
@@ -14508,6 +14695,35 @@
    ]
   },
   {
+   "id": "q-seg-quantum-annealing-based-unsupervised-image-76548",
+   "title": "Q-Seg: Quantum Annealing-Based Unsupervised Image Segmentation",
+   "titleZh": "Q-Seg:基于量子退火的无监督图像分割",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Marlon Nuske",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "IEEE Computer Graphics and Applications",
+   "date": "2024-09-01",
+   "year": 2024,
+   "citations": 16,
+   "arxivId": "",
+   "doi": "10.1109/mcg.2024.3455012",
+   "url": "https://doi.org/10.1109/mcg.2024.3455012",
+   "topics": [
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出 Q-Seg 管线:把图像的层次区域图建成 Ising 能量模型,用量子退火做无监督分割,并在超像素、区域邻接图上系统比较不同编码粒度;发表于 IEEE Computer Graphics and Applications,是量子退火落地视觉任务的代表性工程实现。",
+   "abstract": "We present Q-Seg, a novel unsupervised image segmentation method based on quantum annealing, tailored for existing quantum hardware. We formulate the pixelwise segmentation problem, which assimilates spectral and spatial information of the image, as a graph-cut optimization task. Our method efficiently leverages the interconnected qubit topology of the D-wave advantage device, offering superior scalability over existing quantum approaches and outperforming several tested state-of-the-art classical methods. Empirical evaluations on synthetic datasets have shown that Q-Seg has better runtime performance than the state-of-the-art classical optimizer Gurobi. The method has also been tested on earth observation image segmentation, a critical area with noisy and unreliable annotations. In the era of noisy intermediate-scale quantum, Q-Seg emerges as a reliable contender for real-world applications in comparison to advanced techniques like Segment Anything. Consequently, Q-Seg offers a promising solution using available quantum hardware, especially in situations constrained by limited labeled data and the need for efficient computational runtime.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-informative-analysis-smart-power-distribution-ba556",
    "title": "Quantum Informative Analysis in Smart Power Distribution",
    "titleZh": "智能配电中的量子信息分析",
@@ -15434,6 +15650,51 @@
    "abstract": "Combinatorial optimization is anticipated to be one of the primary use cases for quantum computation in the coming years. The Quantum Approximate Optimization Algorithm and Quantum Annealing can potentially demonstrate significant run-time performance benefits over current state-of-the-art solutions. Inspired by existing methods to characterize classical optimization algorithms, we analyze the solution quality obtained by solving Max-cut problems using gate-model quantum devices and a quantum annealing device. This is used to guide the development of an advanced benchmarking framework for quantum computers designed to evaluate the trade-off between run-time execution performance and the solution quality for iterative hybrid quantum-classical applications. The framework generates performance profiles through compelling visualizations that show performance progression as a function of time for various problem sizes and illustrates algorithm limitations uncovered by the benchmarking approach. As an illustration, we explore the factors that influence quantum computing system throughput, using results obtained through execution on various quantum simulators and quantum hardware systems.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "mathrm-q-ai-2-quantum-artificial-intelligence-d6ab3",
+   "title": "$$\\mathrm{Q(AI)}^2$$: Quantum Artificial Intelligence for the Automotive Industry",
+   "titleZh": "Q(AI)²:面向汽车产业的量子人工智能",
+   "authors": [
+    "Tobias Stollenwerk",
+    "Somtapa Bhattacharya",
+    "Michele Cattelan",
+    "Alessandro Ciani",
+    "G. Compostella",
+    "David Headley",
+    "Johannes Klepsch",
+    "Matthias Klusch",
+    "Markus Leder",
+    "Antonio Macaluso",
+    "Kristel Michielsen",
+    "Dmytro Nabok",
+    "Anestis Papanikolaou",
+    "Alexander Rausch",
+    "Marco Schumann",
+    "Andrea Skolik",
+    "Sheir Yarkoni",
+    "Frank K. Wilhelm"
+   ],
+   "venue": "K&uuml;nstliche Intell.",
+   "date": "2024-07-17",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1007/s13218-024-00862-9",
+   "url": "https://doi.org/10.1007/s13218-024-00862-9",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "系统综述量子计算(优化、机器学习、模拟)在汽车产业的应用图景:整车排产、路径规划、电池材料模拟、自动驾驶感知等场景的量子方案与成熟度评估,由 DFKI 与产业界合作完成,是少见的行业级 QAI 地图。",
+   "abstract": "The goal of the project \\(\\mathrm{Q(AI)}^2\\) was to acquire a broader basis of quantum computing enhanced AI and optimization algorithms for potential applications in the automotive industry. In particular, we strove to assess the potential for quantum advantage for specific use cases from the automotive industry. For this, we developed quantum algorithmic solutions tailored both to the available hardware as well as to the industrial problems at hand. In addition, we ensured industrial relevance of the investigated applications by the constitution of the consortium, involving all three large German car manufactures VW, Mercedes-Benz and BMW as well as Bosch as a central component supplier. Forschungszentrum Jülich and the German Center for Artificial Intelligence (DFKI) provided the necessary expertise in AI and quantum computing methods.",
+   "source": "backfill",
+   "domains": [
+    "transport",
+    "materials"
+   ]
   },
   {
    "id": "mixed-integer-linear-programming-solver-benders-decomposition-a4e33",
@@ -16557,6 +16818,36 @@
    "tags": [],
    "summaryZh": "面向自动导引车(AGV)大规模调度的算力瓶颈,将多种 AGV 调度模型映射为 QUBO 并用量子计算求解,发表于 Scientific Reports。",
    "abstract": "Due to the high degree of automation, automated guided vehicles (AGVs) have been widely used in many scenarios for transportation, and traditional computing power is stretched in large-scale AGV scheduling. In recent years, quantum computing has shown incomparable performance advantages in solving specific problems, especially Combinatorial optimization problem. In this paper, quantum computing technology is introduced into the study of the AGV scheduling problem. Additionally two types of quadratic unconstrained binary optimisation (QUBO) models suitable for different scheduling objectives are constructed, and the scheduling scheme is coded into the ground state of Hamiltonian operator, and the problem is solved by using optical coherent Ising machine (CIM). The experimental results show that compared with the traditional calculation method, the optical quantum computer can save 92% computation time on average. It has great application potential.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "qubit-efficient-variational-quantum-algorithms-image-segmentation-6d628",
+   "title": "Qubit-efficient Variational Quantum Algorithms for Image Segmentation",
+   "titleZh": "面向图像分割的比特高效变分量子算法",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Marlon Nuske",
+    "Matthias Klusch",
+    "Andreas Dengel"
+   ],
+   "venue": "arXiv",
+   "date": "2024-05-23",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2405.14405",
+   "doi": "10.48550/arxiv.2405.14405",
+   "url": "https://arxiv.org/abs/2405.14405",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对 NISQ 设备比特数限制,设计比特高效的变分量子分割方案(基于 embedding 与参数压缩),在分割任务上以极少量量子比特逼近 Q-Seg 的效果,展示门型路线在视觉任务上的资源效率优化路径。",
+   "abstract": "Quantum computing is expected to transform a range of computational tasks beyond the reach of classical algorithms. In this work, we examine the application of variational quantum algorithms (VQAs) for unsupervised image segmentation to partition images into separate semantic regions. Specifically, we formulate the task as a graph cut optimization problem and employ two established qubit-efficient VQAs, which we refer to as Parametric Gate Encoding (PGE) and Ancilla Basis Encoding (ABE), to find the optimal segmentation mask. In addition, we propose Adaptive Cost Encoding (ACE), a new approach that leverages the same circuit architecture as ABE but adopts a problem-dependent cost function. We benchmark PGE, ABE and ACE on synthetically generated images, focusing on quality and trainability. ACE shows consistently faster convergence in training the parameterized quantum circuits in comparison to PGE and ABE. Furthermore, we provide a theoretical analysis of the scalability of these approaches against the Quantum Approximate Optimization Algorithm (QAOA), showing a significant cutback in the quantum resources, especially in the number of qubits that logarithmically depends on the number of pixels. The results validate the strengths of ACE, while concurrently highlighting its inherent limitations and challenges. This paves way for further research in quantum-enhanced computer vision.",
    "source": "backfill",
    "domains": []
   },
@@ -18487,6 +18778,32 @@
    "domains": []
   },
   {
+   "id": "qal-bp-augmented-lagrangian-quantum-approach-bin-ab201",
+   "title": "QAL-BP: an augmented Lagrangian quantum approach for bin packing",
+   "titleZh": "QAL-BP:装箱问题的增广拉格朗日量子方法",
+   "authors": [
+    "Lorenzo Cellini",
+    "Antonio Macaluso",
+    "Michele Lombardi"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2024-03-01",
+   "year": 2024,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1038/s41598-023-50540-3",
+   "url": "https://doi.org/10.1038/s41598-023-50540-3",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对装箱问题(Bin Packing)提出增广拉格朗日量子方法 QAL-BP:用拉格朗日乘子逐步处理约束而非硬编码罚项,降低 QUBO 罚参数整定的敏感性,在门型量子设备与模拟器上验证收敛性与解质量,是约束量子优化的方法论贡献。",
+   "abstract": "The bin packing is a well-known NP-Hard problem in the domain of artificial intelligence, posing significant challenges in finding efficient solutions. Conversely, recent advancements in quantum technologies have shown promising potential for achieving substantial computational speedup, particularly in certain problem classes, such as combinatorial optimization. In this study, we introduce QAL-BP, a novel Quadratic Unconstrained Binary Optimization (QUBO) formulation designed specifically for bin packing and suitable for quantum computation. QAL-BP utilizes the Augmented Lagrangian method to incorporate the bin packing constraints into the objective function while also facilitating an analytical estimation of heuristic, but empirically robust, penalty multipliers. This approach leads to a more versatile and generalizable model that eliminates the need for empirically calculating instance-dependent Lagrangian coefficients, a requirement commonly encountered in alternative QUBO formulations for similar problems. To assess the effectiveness of our proposed approach, we conduct experiments on a set of bin packing instances using a real Quantum Annealing device. Additionally, we compare the results with those obtained from two different classical solvers, namely simulated annealing and Gurobi. The experimental findings not only confirm the correctness of the proposed formulation, but also demonstrate the potential of quantum computation in effectively solving the bin packing probl",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "variational-quantum-algorithm-experimental-photonic-multiparameter-estimation-a2c9b",
    "title": "Variational quantum algorithm for experimental photonic multiparameter estimation",
    "titleZh": "用于实验光子多参数估计的变分量子算法",
@@ -18794,6 +19111,33 @@
    "tags": [],
    "summaryZh": "通过设备仿真系统刻画近期里德堡原子量子计算机的算法性能,设计三类量子算法相关测试并利用硬件动态重构比特连接的能力与其它架构横向对比,为量子优化算法的平台选型提供量化依据。",
    "abstract": "Neutral atom quantum processors provide a viable route to scalable quantum computing, with recent demonstrations of high-fidelity and parallel gate operations and initial implementation of quantum algorithms using both physical and logical qubit encodings. In this work we present a characterization of the algorithmic performance of near term Rydberg atom quantum computers through device simulation to enable comparison against competing architectures. We consider three different quantum algorithm related tests, exploiting the ability to dynamically update qubit connectivity and multi-qubit gates. We calculate a quantum volume of $\\mathbf{\\mathit{V_{Q}}=2^{9}}$ for 9 qubit devices with realistic parameters, which is the maximum achievable value for this device size and establishes a lower bound for larger systems. We also simulate highly efficient implementations of both the Bernstein-Vazirani algorithm with >0.95 success probability for 9 data qubits and 1 ancilla qubit without loss correction, and Grover's search algorithm with a loss-corrected success probability of 0.97 for an implementation of the algorithm using 6 data qubits and 3 ancilla qubits using native multi-qubit $\\mathbf{CCZ}$ gates. Our results indicate Rydberg atom processors are a highly competitive near-term platform which, bolstered by the potential for further scalability, can pave the way toward useful quantum computation.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "efficient-quantum-algorithm-ensemble-classification-bagging-5c7a7",
+   "title": "An efficient quantum algorithm for ensemble classification using bagging",
+   "titleZh": "基于 Bagging 的高效量子集成分类算法",
+   "authors": [
+    "Antonio Macaluso",
+    "L. Clissa",
+    "Stefano Lodi",
+    "Claudio Sartori"
+   ],
+   "venue": "IET Quantum Communication",
+   "date": "2024-02-02",
+   "year": 2024,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1049/qtc2.12087",
+   "url": "https://doi.org/10.1049/qtc2.12087",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把经典集成学习的 bagging 思想引入量子分类:训练多个量子弱分类器并聚合投票,降低单一变分线路的方差与噪声敏感性,在多个基准数据集上以更浅线路获得更稳的分类精度。",
+   "abstract": "Abstract Ensemble methods aggregate predictions from multiple models, typically demonstrating improved accuracy and reduced variance compared to individual classifiers. However, they often come with significant memory usage and computational time requirements. A novel quantum algorithm that leverages quantum superposition, entanglement, and interference to construct an ensemble of classification models using bagging as an aggregation strategy is introduced. Through the generation of numerous quantum trajectories in superposition, the authors achieve B transformations of the training set with only operations, allowing an exponential enlargement of the ensemble size while linearly increasing the depth of the corresponding circuit. Moreover, when assessing the algorithm's overall cost, the authors demonstrate that the training of a single weak classifier contributes additively to the overall time complexity, as opposed to the multiplicative impact commonly observed in classical ensemble methods. To illustrate the efficacy of the authors’ approach, experiments on reduced real‐world datasets utilising the IBM qiskit environment to demonstrate the functionality and performance of the proposed algorithm are introduced.",
    "source": "backfill",
    "domains": []
   },
@@ -19957,6 +20301,153 @@
    "domains": []
   },
   {
+   "id": "quacs-fe20a",
+   "title": "QuACS",
+   "titleZh": "QuACS:诱导子图博弈联盟结构生成的 QAOA 求解",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Matthias Klusch"
+   ],
+   "venue": "预印本",
+   "date": "2023-05-09",
+   "year": 2023,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1145/3587135.3592192",
+   "url": "https://doi.org/10.1145/3587135.3592192",
+   "topics": [
+    "qaoa",
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "该团队 CSG 系列的 QAOA 路线:从全体智能体同一联盟出发,每步把\"最优二分\"重构为 QUBO 并用 QAOA 求解,递归得到诱导子图博弈的联盟结构;在真实 Starlink TLE 数据的卫星网络分簇任务上验证,是 GCS-Q 量子退火路线的门型电路对应版本。",
+   "abstract": "Coalition Structure Generation (CSG) is an NP-Hard problem in which agents are partitioned into mutually exclusive groups to maximize their social welfare. In this work, we propose QuACS, a novel hybrid quantum-classical algorithm for Coalition Structure Generation in Induced Subgraph Games (ISGs). Starting from a coalition structure where all the agents belong to a single coalition, QuACS recursively identifies the optimal partition into two disjoint subsets. This problem is reformulated as a QUBO and then solved using QAOA. Given an n-agent ISG, we show that the proposed algorithm outperforms existing approximate classical solvers with a runtime of O(n2) and an expected approximation ratio of 92%. Furthermore, it requires a significantly lower number of qubits and allows experiments on medium-sized problems compared to existing quantum solutions. To show the effectiveness of QuACS we perform experiments on standard benchmark datasets using quantum simulation.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
+   "id": "maqa-quantum-framework-supervised-learning-4b5c6",
+   "title": "MAQA: a quantum framework for supervised learning",
+   "titleZh": "MAQA:量子监督学习框架",
+   "authors": [
+    "Antonio Macaluso",
+    "Matthias Klusch",
+    "Stefano Lodi",
+    "Claudio Sartori"
+   ],
+   "venue": "Quantum Information Processing",
+   "date": "2023-03-22",
+   "year": 2023,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1007/s11128-023-03901-w",
+   "url": "https://doi.org/10.1007/s11128-023-03901-w",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出系统的量子监督学习框架 MAQA:统一数据编码、变分线路训练与测量的完整流程,支持多类分类与回归任务,是该团队量子机器学习工具链的基座性工作,后续 Q-Seg、Nav-Q 等均沿用其组件思想。",
+   "abstract": "Abstract Quantum machine learning has the potential to improve traditional machine learning methods and overcome some of the main limitations imposed by the classical computing paradigm. However, the practical advantages of using quantum resources to solve pattern recognition tasks are still to be demonstrated. This work proposes a universal, efficient framework that can reproduce the output of a plethora of classical supervised machine learning algorithms exploiting quantum computation’s advantages. The proposed framework is namedMultiple Aggregator Quantum Algorithm(MAQA) due to its capability to combine multiple and diverse functions to solve typical supervised learning problems. In its general formulation, MAQA can be potentially adopted as the quantum counterpart of all those models falling into the scheme of aggregation of multiple functions, such as ensemble algorithms and neural networks. From a computational point of view, the proposed framework allows generating an exponentially large number of different transformations of the input at the cost of increasing the depth of the corresponding quantum circuit linearly. Thus, MAQA produces a model with substantial descriptive power to broaden the horizon of possible applications of quantum machine learning with a computational advantage over classical methods. As a second meaningful addition, we discuss the adoption of the proposed framework as hybrid quantum–classical and fault-tolerant quantum algorithm.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "enabling-non-linear-quantum-operations-through-variational-8ebd1",
+   "title": "Enabling Non-Linear Quantum Operations through Variational Quantum Splines",
+   "titleZh": "用变分量子样条实现非线性量子操作",
+   "authors": [
+    "Matteo Antonio Inajetovic",
+    "Filippo Orazi",
+    "Antonio Macaluso",
+    "Stefano Lodi",
+    "Sartori, Claudio"
+   ],
+   "venue": "arXiv",
+   "date": "2023-03-08",
+   "year": 2023,
+   "citations": 0,
+   "arxivId": "2303.04788",
+   "doi": "10.48550/arxiv.2303.04788",
+   "url": "https://arxiv.org/abs/2303.04788",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出变分量子样条:借鉴样条函数的分段思想,用参数化线路逼近非线性量子操作,为量子机器学习中的激活函数与非线性变换提供系统构造方法,是该团队\"量子函数逼近\"系列的代表工作。",
+   "abstract": "The postulates of quantum mechanics impose only unitary transformations on quantum states, which is a severe limitation for quantum machine learning algorithms. Quantum Splines (QSplines) have recently been proposed to approximate quantum activation functions to introduce non-linearity in quantum algorithms. However, QSplines make use of the HHL as a subroutine and require a fault-tolerant quantum computer to be correctly implemented. This work proposes the Generalised Hybrid Quantum Splines (GHQSplines), a novel method for approximating non-linear quantum activation functions using hybrid quantum-classical computation. The GHQSplines overcome the highly demanding requirements of the original QSplines in terms of quantum hardware and can be implemented using near-term quantum computers. Furthermore, the proposed method relies on a flexible problem representation for non-linear approximation and it is suitable to be embedded in existing quantum neural network architectures. In addition, we provide a practical implementation of the GHQSplines using Pennylane and show that our model outperforms the original QSplines in terms of quality of fitting.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "variational-algorithm-quantum-single-layer-perceptron-aa3fd",
+   "title": "A Variational Algorithm for Quantum Single Layer Perceptron",
+   "titleZh": "量子单层感知机的变分算法",
+   "authors": [
+    "Antonio Macaluso",
+    "Filippo Orazi",
+    "Matthias Klusch",
+    "Stefano Lodi",
+    "Claudio Sartori"
+   ],
+   "venue": "Lecture notes in computer science",
+   "date": "2023-01-01",
+   "year": 2023,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1007/978-3-031-25891-6_26",
+   "url": "https://doi.org/10.1007/978-3-031-25891-6_26",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "提出量子单层感知机 qSLP 的变分算法:设计执行线性组合的量子线路,产生与经典感知机输出等价的量子态,是\"从最简单的神经网络单元开始重建量子机器学习\"的代表性尝试,代码开源。",
+   "abstract": "Hybrid quantum-classical computation represents one of the most promising approaches to deliver novel machine learning models. In this work, we propose a novel variational algorithm for quantum Single Layer Perceptron (qSLP), which allows producing a quantum state equivalent to the output of a classical single layer perceptron. The work also designs a quantum circuit to perform linear combinations in quantum computation.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "gcs-q-quantum-graph-coalition-structure-generation-7d70e",
+   "title": "GCS-Q: Quantum Graph Coalition Structure Generation",
+   "titleZh": "GCS-Q:量子图联盟结构生成",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Matthias Klusch"
+   ],
+   "venue": "arXiv",
+   "date": "2022-12-21",
+   "year": 2022,
+   "citations": 0,
+   "arxivId": "2212.11372",
+   "doi": "10.48550/arxiv.2212.11372",
+   "url": "https://arxiv.org/abs/2212.11372",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "合作博弈 NP 难问题 CSG 的量子退火解法:把图划分的每一步二分写成 QUBO 交给 D-Wave 求解,自顶向下递归产生最优联盟结构,对图拓扑适应性强;发表于 IEEE QCE,是其后 LEO 卫星联盟、金融资产聚类等应用工作的方法基座。",
+   "abstract": "The problem of generating an optimal coalition structure for a given coalition game of rational agents is to find a partition that maximizes their social welfare and is known to be NP-hard. This paper proposes GCS-Q, a novel quantum-supported solution for Induced Subgraph Games (ISGs) in coalition structure generation. GCS-Q starts by considering the grand coalition as initial coalition structure and proceeds by iteratively splitting the coalitions into two nonempty subsets to obtain a coalition structure with a higher coalition value. In particular, given an $n$-agent ISG, the GCS-Q solves the optimal split problem $\\mathcal{O} (n)$ times using a quantum annealing device, exploring $\\mathcal{O}(2^n)$ partitions at each step. We show that GCS-Q outperforms the currently best classical solvers with its runtime in the order of $n^2$ and an expected worst-case approximation ratio of $93\\%$ on standard benchmark datasets.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "finance"
+   ]
+  },
+  {
    "id": "quantum-annealing-industry-applications-introduction-review-f4809",
    "title": "Quantum annealing for industry applications: introduction and review",
    "titleZh": "量子退火的工业应用:引论与综述",
@@ -20036,6 +20527,34 @@
    ],
    "summaryZh": "哈佛/QuEra团队在Science上的里程碑实验:用最多289个二维里德堡原子量子比特,借助里德堡阻塞的硬件高效编码求解最大独立集问题,实现闭环变分优化,并在最难实例上观察到相对模拟退火的超线性量子加速迹象。这是中性原子平台在组合优化上最具影响力的实验证据,催生了此后大量的MIS量子优化研究。",
    "abstract": "Realizing quantum speedup for practically relevant, computationally hard problems is a central challenge in quantum information science. Using Rydberg atom arrays with up to 289 qubits in two spatial dimensions, we experimentally investigate quantum algorithms for solving the maximum independent set problem. We use a hardware-efficient encoding associated with Rydberg blockade, realize closed-loop optimization to test several variational algorithms, and subsequently apply them to systematically explore a class of graphs with programmable connectivity. We find that the problem hardness is controlled by the solution degeneracy and number of local minima, and we experimentally benchmark the quantum algorithm's performance against classical simulated annealing. On the hardest graphs, we observe a superlinear quantum speedup in finding exact solutions in the deep circuit regime and analyze its origins.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "bilp-q-quantum-coalition-structure-generation-0f274",
+   "title": "BILP-Q: Quantum Coalition Structure Generation",
+   "titleZh": "BILP-Q:量子联盟结构生成",
+   "authors": [
+    "Supreeth Mysore Venkatesh",
+    "Antonio Macaluso",
+    "Matthias Klusch"
+   ],
+   "venue": "arXiv",
+   "date": "2022-04-28",
+   "year": 2022,
+   "citations": 3,
+   "arxivId": "2204.13802",
+   "doi": "10.48550/arxiv.2204.13802",
+   "url": "https://arxiv.org/abs/2204.13802",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把 CSG 建模为二元整数线性规划(BILP)再转为 QUBO,在门型量子计算机上用变分量子算法求解;与 GCS-Q 分别代表门型电路与量子退火两条硬件路线上的 CSG 求解方案,是该方向被引最多的早期工作之一。",
+   "abstract": "Quantum AI is an emerging field that uses quantum computing to solve typical complex problems in AI. In this work, we propose BILP-Q, the first-ever general quantum approach for solving the Coalition Structure Generation problem (CSGP), which is notably NP-hard. In particular, we reformulate the CSGP in terms of a Quadratic Binary Combinatorial Optimization (QUBO) problem to leverage existing quantum algorithms (e.g., QAOA) to obtain the best coalition structure. Thus, we perform a comparative analysis in terms of time complexity between the proposed quantum approach and the most popular classical baselines. Furthermore, we consider standard benchmark distributions for coalition values to test the BILP-Q on small-scale experiments using the IBM Qiskit environment. Finally, since QUBO problems can be solved operating with quantum annealing, we run BILP-Q on medium-size problems using a real quantum annealer (D-Wave).",
    "source": "backfill",
    "domains": []
   },
@@ -20200,6 +20719,33 @@
    ],
    "summaryZh": "Google量子AI团队在Sycamore超导处理器上实现了迄今最系统的QAOA硬件实验之一:在硬件原生图、以及需要路由编译的非平面图问题(Sherrington-Kirkpatrick模型、3正则MaxCut)上运行深度p≤5的QAOA,研究了噪声与编译开销对性能的影响。实验揭示了当前硬件在非原生连接问题上的显著性能衰减,为量子优化的实用化设定了现实基准。",
    "abstract": "",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-ensemble-classification-344da",
+   "title": "Quantum Ensemble for Classification",
+   "titleZh": "面向分类的量子集成学习",
+   "authors": [
+    "Antonio Macaluso",
+    "L. Clissa",
+    "Stefano Lodi",
+    "Sartori, Claudio"
+   ],
+   "venue": "arXiv",
+   "date": "2020-07-02",
+   "year": 2020,
+   "citations": 11,
+   "arxivId": "2007.01028",
+   "doi": "10.48550/arxiv.2007.01028",
+   "url": "https://arxiv.org/abs/2007.01028",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "较早的量子集成学习工作:构造多个量子分类器并对预测进行聚合,分析量子情形下集成的多样性与误差来源,是其后 bagging 量子集成论文的理论铺垫。",
+   "abstract": "A powerful way to improve performance in machine learning is to construct an ensemble that combines the predictions of multiple models. Ensemble methods are often much more accurate and lower variance than the individual classifiers that make them up but have high requirements in terms of memory and computational time. In fact, a large number of alternative algorithms is usually adopted, each requiring to query all available data. We propose a new quantum algorithm that exploits quantum superposition, entanglement and interference to build an ensemble of classification models. Thanks to the generation of the several quantum trajectories in superposition, we obtain $B$ transformations of the quantum state which encodes the training set in only $log\\left(B\\right)$ operations. This implies exponential growth of the ensemble size while increasing linearly the depth of the correspondent circuit. Furthermore, when considering the overall cost of the algorithm, we show that the training of a single weak classifier impacts additively the overall time complexity rather than multiplicatively, as it usually happens in classical ensemble methods. We also present small-scale experiments on real-world datasets, defining a quantum version of the cosine classifier and using the IBM qiskit environment to show how the algorithms work.",
    "source": "backfill",
    "domains": []
   },
