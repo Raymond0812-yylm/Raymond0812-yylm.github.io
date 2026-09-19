@@ -5,6 +5,10 @@
 
 ---
 
+### 2026-09-20(定时扩库)
+- 主题:卫星航天候选已挖尽(4 检索词 +0),按规则顺延至「量子计算×大模型与AI」:+20 篇(库总 692 篇)
+- 覆盖三条线:①QNLP(量子 RNN 低资源文本分类 IEEE TQ、囚禁离子首次文本级 QNLP、自监督预训练、全面综述、MOF 逆向设计交叉);②强化学习×量子线路(RL 辅助 RQAOA、AlphaTensor T-count 优化 Nature MI、KANQAS、Quarl、ZX-演算 RL、囚禁离子编译);③退火/Ising×ML4CO(退火机监督 GNN、绝热量子计算压缩 DNN、QNN 学习 CVRP 路由、CHARME 嵌入 RL);另含量子 RL 能源应用(燃料电池车 T-ITS、HVAC)
+
 ### 2026-09-19(追加:DFKI 团队专题)
 - 应用户要求,将德国 DFKI 量子计算团队(Macaluso/Nuske/Venkatesh)的量子相关论文整批入库:+18 篇
 - 覆盖:联盟结构生成三部曲(BILP-Q/GCS-Q/QuACS,QAOA 与量子退火双路线)、Q-Seg 图像分割系列、Nav-Q 量子深度强化学习自动驾驶、QAL-BP 装箱、i-QLS 迭代量子最小二乘系列(含收敛保证期刊版)、金融资产聚类(quantum utility)、量子 AI 综述与汽车产业应用

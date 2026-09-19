@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-19",
+ "updated": "2026-09-20",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -511,6 +511,37 @@
    ],
    "summaryZh": "面向灾后通信基础设施恢复,论文研究连续空间中的无人机联合激活与部署问题,提出HKQEA框架:K-means引导初始化、校准罚项可行性目标与量子启发进化算子相结合,在最小化部署数量的同时满足覆盖与最小间隔约束,是量子启发元启发式在应急组网中的落地案例。",
    "abstract": "In post-disaster environments, the failure of terrestrial communication infrastructure necessitates the rapid deployment of unmanned aerial vehicles (UAVs) as aerial base stations to restore wireless connectivity. This paper addresses the joint UAV activation-and-placement problem in continuous space, with the objective of minimizing the number of deployed UAVs while satisfying coverage and minimum-separation constraints. To solve this problem, we propose a Hybrid K-means Quantum-Inspired Evolutionary Algorithm (HKQEA) that combines K-means-guided initialization, a calibrated penalty-based feasibility objective, non-elitist evolutionary search, and a quantum-inspired learning update. Experimental results over 50 independent runs show that HKQEA attains a best fully feasible solution with 8 UAVs, while achieving average values of 98.94% for coverage, 99.94% for non-overlap, and 99.68% for minimum-distance satisfaction. Comparative evaluation against standard Non-dominated Sorting Genetic Algorithm II (NSGA-II), Particle Swarm Optimization algorithm (PSO) and an elitist variant of HKQEA further shows that the proposed method provides a more favorable balance among exploration, convergence behavior, and reliable feasibility preservation in constrained deployment problems. An illustrative procurement-level cost analysis also indicates that reducing the fleet from 10 UAVs to 8 can yield a 20% reduction in hardware count, corresponding to a simplified savings ratio of 25% for the s",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "hybrid-quantum-classical-neural-network-learning-route-4b8a3",
+   "title": "A hybrid quantum-classical neural network for learning to route",
+   "titleZh": "学习路由启发式的混合量子-经典神经网络",
+   "authors": [
+    "Marcus Ritt",
+    "Alexsandro Santos da Rosa Júnior",
+    "Marcos Vinicius Reballo",
+    "Cesar Augusto do Amaral",
+    "Fernando Augusto Caletti de Barros"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-31",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.00489",
+   "doi": "10.48550/arxiv.2609.00489",
+   "url": "https://arxiv.org/abs/2609.00489",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "研究小型量子神经网络能否替换注意力路由模型中的重型模块求解容量约束车辆路径问题(CVRP):编码器前馈层替换是最优设计,大幅减少参数量的同时保持解质量,为\"量子模块嵌入经典求解管线\"提供设计指南。",
+   "abstract": "This work studies hybrid quantum-classical neural networks for learning routing heuristics. Specifically, this paper asks whether small quantum neural networks can replace parameter-heavy modules inside a competitive attention-based routing model while maintaining solution quality. For the capacitated vehicle routing problem, encoder feed-forward replacement emerges as the most promising design: it reduces the number of model parameters by 56.6% while keeping the hybrid model close to the classical neural baseline at small and medium instance sizes, although the gap grows for larger instances. This work also compares to classical routing algorithms, which remain highly competitive and often superior on the fixed Euclidean test sets. Our results therefore do not indicate quantum advantage or solver dominance, but identify encoder feed-forward replacement as a viable hybrid-module compression strategy for neural combinatorial optimization.",
    "source": "backfill",
    "domains": []
   },
@@ -5334,6 +5365,35 @@
    ]
   },
   {
+   "id": "property-guided-inverse-design-metal-organic-frameworks-83708",
+   "title": "Property-guided inverse design of metal-organic frameworks using quantum natural language processing",
+   "titleZh": "用量子自然语言处理做金属有机框架的性质导向逆向设计",
+   "authors": [
+    "Shinyoung Kang",
+    "Jihan Kim"
+   ],
+   "venue": "npj Computational Materials",
+   "date": "2025-10-28",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1038/s41524-025-01806-z",
+   "url": "https://doi.org/10.1038/s41524-025-01806-z",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把 QNLP 用于材料逆向设计:对 450 个假设 MOF 结构按孔体积与 CO2 Henry 常数分类,用量子语言模型学习\"组成-性质\"映射并生成目标性质的新结构,展示 QNLP 超越文本任务的跨域能力(材料化工交叉)。",
+   "abstract": "In this study, we explore the potential of using quantum natural language processing (QNLP) for property-guided inverse design of metal-organic frameworks (MOFs) with targeted properties. Specifically, by analyzing 450 hypothetical MOF structures consisting of 3 topologies, 10 metal nodes and 15 organic ligands, we categorize these structures into four distinct classes for pore volume and CO 2 Henry’s constant values. We then compare various QNLP models (i.e., the bag-of-words, DisCoCat (Distributional Compositional Categorical), and sequence-based models) to identify the most effective approach to process the MOF dataset. Using a classical simulator provided by the IBM Qiskit, the bag-of-words model is identified to be the optimum model, achieving validation accuracies of 88.6% and 78.0% for binary classification tasks on pore volume and CO 2 Henry’s constant, respectively. Further, we developed multi-class classification models tailored to the probabilistic nature of quantum circuits, with average test accuracies of 92% and 80% across different classes for pore volume and CO 2 Henry’s constant datasets. Finally, the performance of generating MOF with target properties showed accuracies of 97.75% for pore volume and 90% for CO 2 Henry’s constant, respectively. Although our investigation covers only a fraction of the vast MOF search space, it marks a promising first step towards using quantum computing for materials design, offering a new perspective through which to explore ",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-computing-big-data-optimization-decentralized-smart-07523",
    "title": "Quantum Computing for Big Data Optimization in Decentralized Smart Grids: A Comprehensive Review of Computation, Security, and P2P Energy Transactions",
    "titleZh": "去中心化智能电网大数据优化的量子计算:计算、安全与P2P能源交易综述",
@@ -5427,6 +5487,40 @@
    "abstract": "Programmable quantum systems based on Rydberg atom arrays have recently emerged as a promising test bed for combinatorial optimization. Indeed, the maximum weighted independent set problem on unit-disk graphs can be efficiently mapped to such systems due to their geometric constraints. However, extending this capability to arbitrary graph instances typically necessitates the use of reduction gadgets, which introduce additional experimental overhead and complexity. Here, we analyze the complexity\\penalty1000-\\hskip0pttheoretic limits of polynomial reductions from arbitrary graphs to unit\\penalty1000-\\hskip0ptdisk instances. We prove any such reduction incurs a quadratic blow up in vertex count and degrades solution approximation guarantees. As a practical alternative, we propose a divide\\penalty1000-\\hskip0ptand\\penalty1000-\\hskip0ptconquer heuristic with only linear overhead, which leverages precalibrated atomic layouts. We benchmark it on Erd\\\"os-R\\'enyi graphs, and demonstrate feasibility on the Orion Alpha processor.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "charme-chain-based-reinforcement-learning-approach-minor-d56ee",
+   "title": "CHARME: A Chain-based Reinforcement Learning Approach for the Minor Embedding Problem",
+   "titleZh": "CHARME:基于链式强化学习的次级嵌入问题求解",
+   "authors": [
+    "Hoang M. Ngo",
+    "Nguyen Do Hoang Khoi",
+    "Minh N. Vu",
+    "Tre’ R. Jeter",
+    "Tamer Kahveci",
+    "My T. Thai"
+   ],
+   "venue": "ACM Transactions on Quantum Computing",
+   "date": "2025-10-24",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1145/3763244",
+   "url": "https://doi.org/10.1145/3763244",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "次级嵌入(逻辑问题图到 QPU 硬件拓扑的映射)是量子退火效果的决定性环节且本身 NP 难;CHARME 用强化学习学习链式嵌入策略,与库内已有的嵌入基准评估论文互补,是\"用 AI 解决量子计算自身瓶颈\"的又一实例。",
+   "abstract": "Quantum annealing (QA) has great potential to solve combinatorial optimization problems efficiently. However, the effectiveness of QA algorithms is heavily based on the embedding of problem instances, represented as logical graphs, into the quantum processing unit (QPU) whose topology is in the form of a limited connectivity graph, known as the minor embedding problem. Because the minor embedding problem is an NP-hard problem [ 11 ], existing methods for the minor embedding problem suffer from scalability issues when faced with larger problem sizes. In this article, we propose a novel approach utilizing Reinforcement Learning (RL) techniques to address the minor embedding problem, named CHARME. CHARME includes three key components: a Graph Neural Network (GNN) architecture for policy modeling, a state transition algorithm that ensures solution validity, and an order exploration strategy for effective training. Through comprehensive experiments on synthetic and real-world instances, we demonstrate the efficiency of our proposed order exploration strategy as well as our proposed RL framework, CHARME. In particular, CHARME yields superior solutions in terms of qubit usage compared to fast embedding methods such as Minorminer and ATOM. Moreover, our method surpasses the OCT-based approach, known for its slower runtime but high-quality solutions, in several cases. In addition, our proposed exploration enhances the efficiency of the training of the CHARME framework by providing bet",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "modular-quantum-network-architecture-integrating-network-scheduling-d2319",
@@ -7827,6 +7921,39 @@
    ]
   },
   {
+   "id": "continuous-variable-quantum-reinforcement-learning-hvac-control-31c89",
+   "title": "Continuous variable quantum reinforcement learning for HVAC control and power management in residential building",
+   "titleZh": "连续变量量子强化学习用于建筑 HVAC 控制与功率管理",
+   "authors": [
+    "Sarvar Hussain Nengroo",
+    "Dongsoo Har",
+    "Hoon Jeong",
+    "Taewook Heo",
+    "Sangkeum Lee"
+   ],
+   "venue": "Energy and AI",
+   "date": "2025-06-16",
+   "year": 2025,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1016/j.egyai.2025.100541",
+   "url": "https://doi.org/10.1016/j.egyai.2025.100541",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对住宅 HVAC 控制中建筑动态特性与热负荷/天气不确定性,引入连续变量量子强化学习联合优化舒适度与能耗,是 QRL 在智能建筑能源管理方向的应用实例(能源领域交叉)。",
+   "abstract": "The use of occupancy information for heating, ventilation, and air conditioning (HVAC) control in smart buildings has become increasingly important for enhancing energy efficiency and occupant comfort. However, residential HVAC control presents significant challenges due to the complex dynamic nature of buildings and the uncertainties associated with heat loads and weather conditions. This study addresses this gap in adaptive and energy efficient HVAC control by introducing a quantum reinforcement learning (QRL) based approach. Unlike conventional reinforcement learning techniques, QRL leverages quantum computing principles to efficiently handle high dimensional state and action spaces, enabling more precise HVAC control in multi-zone residential buildings. The proposed framework integrates real-time occupancy detection using deep learning with operational data, including power consumption patterns, air conditioner control data, and external temperature variations. To evaluate the effectiveness of the proposed approach, simulations were conducted using real world data from 26 residential households over a three month period. The results demonstrate that the QRL based HVAC control significantly reduces energy consumption and electricity costs while maintaining thermal comfort. Compared to the deep deterministic policy gradient method, the QRL approach achieved a 63% reduction in power consumption and a 64.4% decrease in electricity costs. Similarly, it outperformed the proxima",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "materials"
+   ]
+  },
+  {
    "id": "optimization-distribution-networks-quantum-annealing-loss-reduction-d16c3",
    "title": "Optimization of distribution networks using quantum annealing for loss reduction and voltage improvement in electrical vehicle parking management",
    "titleZh": "用量子退火优化配电网:降低损耗与改善电动车停车管理电压",
@@ -8215,6 +8342,38 @@
    "domains": []
   },
   {
+   "id": "reinforcement-learning-based-quantum-circuit-optimization-zx-f1e07",
+   "title": "Reinforcement Learning Based Quantum Circuit Optimization via ZX-Calculus",
+   "titleZh": "基于 ZX-演算的强化学习量子线路优化",
+   "authors": [
+    "Jordi Riu",
+    "Jan Nogué",
+    "Gerard Vilaplana",
+    "Artur García-Sáez",
+    "Marta P. Estarellas"
+   ],
+   "venue": "Quantum",
+   "date": "2025-05-28",
+   "year": 2025,
+   "citations": 12,
+   "arxivId": "",
+   "doi": "10.22331/q-2025-05-28-1758",
+   "url": "https://doi.org/10.22331/q-2025-05-28-1758",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用 PPO + 图神经网络在 ZX-图上学习化简策略,让 RL 智能体掌握图重写规则,性能比肩最强 ZX 演算优化算法;把\"图重写搜索\"变成可学习的策略问题,思路可迁移到一般图结构搜索问题。",
+   "abstract": "We propose a novel Reinforcement Learning (RL) method for optimizing quantum circuits using graph-theoretic simplification rules of ZX-diagrams. The agent, trained using the Proximal Policy Optimization (PPO) algorithm, employs Graph Neural Networks to approximate the policy and value functions. We demonstrate the capacity of our approach by comparing it against the best performing ZX-Calculus-based algorithm for the problem in hand. After training on small Clifford+T circuits of 5-qubits and few tenths of gates, the agent consistently improves the state-of-the-art for this type of circuits, for at least up to 80-qubit and 2100 gates, whilst remaining competitive in terms of computational performance. Additionally, we illustrate the versatility of the agent by incorporating additional optimization routines on the workflow during training, improving the two-qubit gate count state-of-the-art on multiple structured quantum circuits for relevant applications of much larger dimension and different gate distributions than the circuits the agent trains on. This conveys the potential of tailoring the reward function to the specific characteristics of each application and hardware backend. Our approach is a valuable tool for the implementation of quantum algorithms in the near-term intermediate-scale range (NISQ).",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-ai-urbanism-redefining-future-artificial-intelligence-a9835",
    "title": "Quantum AI Urbanism: Redefining the Future of Artificial Intelligence in Cities",
    "titleZh": "量子AI城市主义:重新定义人工智能在城市中的未来",
@@ -8347,6 +8506,38 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "is-quantum-optimization-ready-effort-towards-neural-46926",
+   "title": "Is Quantum Optimization Ready? An Effort Towards Neural Network Compression using Adiabatic Quantum Computing",
+   "titleZh": "量子优化准备好了吗:用绝热量子计算压缩深度神经网络",
+   "authors": [
+    "Zhehui Wang",
+    "Benjamin Chen Ming Choong",
+    "Tian Huang",
+    "Daniel Gerlinghoff",
+    "Rick Siow Mong Goh",
+    "Cheng Liu",
+    "Tao Luo"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-22",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.16332",
+   "doi": "10.48550/arxiv.2505.16332",
+   "url": "https://arxiv.org/abs/2505.16332",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把深度神经网络的剪枝压缩(结构化稀疏)表述为 QUBO 用绝热量子计算求解,正面回答\"量子优化在深度学习工程任务上是否已可用\";给出问题规模、嵌入开销与解质量的实测边界,标题之问本身就是论文看点。",
+   "abstract": "Quantum optimization is the most mature quantum computing technology to date, providing a promising approach towards efficiently solving complex combinatorial problems. Methods such as adiabatic quantum computing (AQC) have been employed in recent years on important optimization problems across various domains. In deep learning, deep neural networks (DNN) have reached immense sizes to support new predictive capabilities. Optimization of large-scale models is critical for sustainable deployment, but becomes increasingly challenging with ever-growing model sizes and complexity. While quantum optimization is suitable for solving complex problems, its application to DNN optimization is not straightforward, requiring thorough reformulation for compatibility with commercially available quantum devices. In this work, we explore the potential of adopting AQC for fine-grained pruning-quantization of convolutional neural networks. We rework established heuristics to formulate model compression as a quadratic unconstrained binary optimization (QUBO) problem, and assess the solution space offered by commercial quantum annealing devices. Through our exploratory efforts of reformulation, we demonstrate that AQC can achieve effective compression of practical DNN models. Experiments demonstrate that adiabatic quantum computing (AQC) not only outperforms classical algorithms like genetic algorithms and reinforcement learning in terms of time efficiency but also excels at identifying global op",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-enhanced-cognitive-modeling-advanced-logistics-route-37760",
@@ -9097,6 +9288,35 @@
    ]
   },
   {
+   "id": "quantum-natural-language-processing-comprehensive-review-models-75dc2",
+   "title": "Quantum Natural Language Processing: A Comprehensive Review of Models, Methods, and Applications",
+   "titleZh": "量子自然语言处理:模型、方法与应用全面综述",
+   "authors": [
+    "Farha Nausheen",
+    "Khandakar Ahmed",
+    "Mumit Khan",
+    "Riaz, Farina"
+   ],
+   "venue": "arXiv",
+   "date": "2025-04-14",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2504.09909",
+   "doi": "10.48550/arxiv.2504.09909",
+   "url": "https://arxiv.org/abs/2504.09909",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "从\"深度学习性能提升但数据/资源代价剧增\"的悖论出发,系统梳理 QNLP 的模型、编码方法、硬件平台与应用版图,讨论其对大模型时代的潜在意义,是 QNLP 方向目前最全面的入门综述。",
+   "abstract": "In recent developments, deep learning methodologies applied to Natural Language Processing (NLP) have revealed a paradox: They improve performance but demand considerable data and resources for their training. Alternatively, quantum computing exploits the principles of quantum mechanics to overcome the computational limitations of current methodologies, thereby establishing an emerging field known as quantum natural language processing (QNLP). This domain holds the potential to attain a quantum advantage in the processing of linguistic structures, surpassing classical models in both efficiency and accuracy. In this paper, it is proposed to categorise QNLP models based on quantum computing principles, architecture, and computational approaches. This paper attempts to provide a survey on how quantum meets language by mapping state-of-the-art in this area, embracing quantum encoding techniques for classical data, QNLP models for prevalent NLP tasks, and quantum optimisation techniques for hyper parameter tuning. The landscape of quantum computing approaches applied to various NLP tasks is summarised by showcasing the specific QNLP methods used, and the popularity of these methods is indicated by their count. From the findings, it is observed that QNLP approaches are still limited to small data sets, with only a few models explored extensively, and there is increasing interest in the application of quantum computing to natural language processing tasks.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "bias-field-digitized-counterdiabatic-quantum-optimization-b8acd",
    "title": "Bias-field digitized counterdiabatic quantum optimization",
    "titleZh": "偏置场数字化反绝热量子优化(BF-DCQO)",
@@ -9774,6 +9994,46 @@
    "domains": []
   },
   {
+   "id": "quantum-circuit-optimization-alphatensor-1c9d9",
+   "title": "Quantum circuit optimization with AlphaTensor",
+   "titleZh": "用 AlphaTensor 做量子线路优化",
+   "authors": [
+    "Francisco J. R. Ruiz",
+    "Tuomas Laakkonen",
+    "Johannes Bausch",
+    "Matej Balog",
+    "Mohammadamin Barekatain",
+    "Francisco J. H. Heras",
+    "Alexander Novikov",
+    "Nathan Fitzpatrick",
+    "Bernardino Romera‐Paredes",
+    "John van de Wetering",
+    "Alhussein Fawzi",
+    "Konstantinos Meichanetzidis",
+    "Pushmeet Kohli"
+   ],
+   "venue": "Nature Machine Intelligence",
+   "date": "2025-03-20",
+   "year": 2025,
+   "citations": 31,
+   "arxivId": "",
+   "doi": "10.1038/s42256-025-01001-1",
+   "url": "https://doi.org/10.1038/s42256-025-01001-1",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature Machine Intelligence:DeepMind 把 AlphaTensor 强化学习框架用于 T-count 优化(最小化容错计算中最昂贵的 T 门数量),结合合成数据与代数结构在多个基准上刷新已知最优,代表 AI 驱动量子线路压缩的最高水平。",
+   "abstract": "A key challenge in realizing fault-tolerant quantum computers is circuit optimization. Focusing on the most expensive gates in fault-tolerant quantum computation (namely, the T gates), we address the problem of T-count optimization, that is, minimizing the number of T gates needed to implement a given circuit. To achieve this, we develop AlphaTensor-Quantum, a method based on deep reinforcement learning that exploits the relationship between optimizing the T-count and tensor decomposition. Unlike existing methods for T-count optimization, AlphaTensor-Quantum can incorporate domain-specific knowledge about quantum computation and leverage gadgets, which substantially reduces the T-count of the optimized circuits. AlphaTensor-Quantum outperforms the existing methods for T-count optimization on a set of arithmetic benchmarks (even when compared without using gadgets). Remarkably, it discovers an efficient algorithm akin to Karatsuba’s method for multiplication in finite fields. AlphaTensor-Quantum also finds the best human-designed solutions for relevant arithmetic computations used in Shor’s algorithm and for quantum chemistry simulation, thus demonstrating that it can save hundreds of hours of research by optimizing relevant quantum circuits in a fully automated way. Ruiz and colleagues introduce AlphaTensor-Quantum, a deep reinforcement learning method for optimizing quantum circuits. It outperforms existing methods and is capable of finding the best human-designed solutions ",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-adaptive-learning-coverage-optimization-leo-satellite-8813d",
    "title": "Quantum Adaptive Learning for Coverage Optimization in LEO Satellite Network",
    "titleZh": "低轨卫星网络覆盖优化的量子自适应学习",
@@ -10038,6 +10298,39 @@
    "abstract": "Today’s Noisy Intermediate-Scale Quantum (NISQ) computers have scientific value, but quantum machines with broad practical value must be protected against noise using quantum error correction and fault-tolerant protocols. Recent studies of quantum error correction on actual hardware are opening a new era of quantum information processing. Error-corrected computers capable of performing one million quantum operations or more may be realized soon, raising a compelling question for the quantum community: What are the potential uses of these megaquop machines?",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-reinforcement-learning-continuous-action-space-1ea65",
+   "title": "Quantum reinforcement learning in continuous action space",
+   "titleZh": "连续动作空间的量子强化学习",
+   "authors": [
+    "Shaojun Wu",
+    "Shan Jin",
+    "Dingding Wen",
+    "D. J. Han",
+    "Xiaoting Wang"
+   ],
+   "venue": "Quantum",
+   "date": "2025-03-12",
+   "year": 2025,
+   "citations": 17,
+   "arxivId": "",
+   "doi": "10.22331/q-2025-03-12-1660",
+   "url": "https://doi.org/10.22331/q-2025-03-12-1660",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出量子版深度确定性策略梯度(QDDPG),解决 QRL 从离散动作空间扩展到连续动作空间时离散化带来的维度灾难,为机器人控制与能源调度类连续决策任务的量子化提供算法基础。",
+   "abstract": "Quantum reinforcement learning (QRL) is a promising paradigm for near-term quantum devices. While existing QRL methods have shown success in discrete action spaces, extending these techniques to continuous domains is challenging due to the curse of dimensionality introduced by discretization. To overcome this limitation, we introduce a quantum Deep Deterministic Policy Gradient (DDPG) algorithm that efficiently addresses both classical and quantum sequential decision problems in continuous action spaces. Moreover, our approach facilitates single-shot quantum state generation: a one-time optimization produces a model that outputs the control sequence required to drive a fixed initial state to any desired target state. In contrast, conventional quantum control methods demand separate optimization for each target state. We demonstrate the effectiveness of our method through simulations and discuss its potential applications in quantum control.",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "materials"
+   ]
   },
   {
    "id": "subspace-preserving-quantum-convolutional-neural-network-architectures-29d73",
@@ -10525,6 +10818,46 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "optimal-energy-management-multistack-fuel-cell-vehicles-a2f56",
+   "title": "Optimal Energy Management for Multistack Fuel Cell Vehicles Based on Hybrid Quantum Reinforcement Learning",
+   "titleZh": "基于混合量子深度强化学习的多电堆燃料电池车能量管理",
+   "authors": [
+    "Wenzhuo Shi",
+    "Xianzhuo Sun",
+    "Zelong Zhang",
+    "Junyu Chen",
+    "Yuhua Du",
+    "Jiaqi Ruan",
+    "Yibo Ding",
+    "Lei Wang",
+    "Yigeng Huangfu",
+    "Zhao Xu"
+   ],
+   "venue": "IEEE Transactions on Transportation Electrification",
+   "date": "2025-02-14",
+   "year": 2025,
+   "citations": 24,
+   "arxivId": "",
+   "doi": "10.1109/tte.2025.3542021",
+   "url": "https://doi.org/10.1109/tte.2025.3542021",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出驾驶工况识别 + 混合量子 DDPG(HQDDPG)的多电堆燃料电池车能量管理方法,并给出 DSP 量子仿真部署方案;发表于 IEEE T-ITS(24 引用),是量子强化学习在车载能源系统落地的代表工作(交通/能源交叉)。",
+   "abstract": "This article proposes a driving condition recognition (DCR)-based hybrid quantum deep deterministic policy gradient (HQDDPG) method for energy management in multistack fuel cell vehicle hybrid power systems (MFCV HPSs) and its quantum simulation setup on digital signal processors (DSPs). Driving conditions are initially segmented into microtrips and clustered into three types. The DCR method, using a learning vector quantization neural network (LVQNN), is then developed, thus accurately and efficiently identifying driving condition types. Subsequently, quantum reinforcement learning (RL) is proposed to achieve optimal energy management of MFCV HPSs, i.e., power allocation among the multiple fuel cells to minimize the economic metrics based on the DCR results. Compared to classical large-scale neural networks, quantum RL reduces parameters by combining a parameterized quantum circuit (PQC) with a single-layer classical neural network. The PQC encodes and processes state information through quantum mechanics for enhanced computational expressiveness, while the classical neural network transforms the quantum measurement expectations into actionable outputs for energy management. The trained hybrid quantum circuits are implemented on DSPs through quantum simulations. The method is validated through controller hardware-in-the-loop (CHIL) experiments, demonstrating superior performance in optimizing economic metrics compared to conventional methods.",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "transport",
+    "materials"
    ]
   },
   {
@@ -11392,6 +11725,40 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "annealing-machine-assisted-learning-graph-neural-network-89b05",
+   "title": "Annealing Machine-assisted Learning of Graph Neural Network for Combinatorial Optimization",
+   "titleZh": "退火机辅助的图神经网络组合优化学习",
+   "authors": [
+    "Pablo Loyola",
+    "Kento Hasegawa",
+    "Andres Hoyos-Idobro",
+    "Kazuo Ōno",
+    "Toyotaro Suzumura",
+    "Yu Hirate",
+    "Masanao Yamaoka"
+   ],
+   "venue": "arXiv",
+   "date": "2025-01-10",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2501.05845",
+   "doi": "10.48550/arxiv.2501.05845",
+   "url": "https://arxiv.org/abs/2501.05845",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把退火机与 GNN 结合求解组合优化:用退火机生成的高质量解作为 GNN 的训练监督信号,克服 GNN 端到端训练缺乏标签的困境,兼具 ML4CO 的可扩展性与退火机的解质量,是 ML4CO 与量子硬件协同的新范式。",
+   "abstract": "While Annealing Machines (AM) have shown increasing capabilities in solving complex combinatorial problems, positioning themselves as a more immediate alternative to the expected advances of future fully quantum solutions, there are still scaling limitations. In parallel, Graph Neural Networks (GNN) have been recently adapted to solve combinatorial problems, showing competitive results and potentially high scalability due to their distributed nature. We propose a merging approach that aims at retaining both the accuracy exhibited by AMs and the representational flexibility and scalability of GNNs. Our model considers a compression step, followed by a supervised interaction where partial solutions obtained from the AM are used to guide local GNNs from where node feature representations are obtained and combined to initialize an additional GNN-based solver that handles the original graph's target problem. Intuitively, the AM can solve the combinatorial problem indirectly by infusing its knowledge into the GNN. Experiments on canonical optimization problems show that the idea is feasible, effectively allowing the AM to solve size problems beyond its original limits.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -12526,6 +12893,32 @@
    "domains": []
   },
   {
+   "id": "self-supervised-pre-trained-neural-network-quantum-7f99e",
+   "title": "Self-supervised pre-trained neural network for quantum natural language processing",
+   "titleZh": "面向量子自然语言处理的自监督预训练神经网络",
+   "authors": [
+    "Ben Yao",
+    "Prayag Tiwari",
+    "Qiuchi Li"
+   ],
+   "venue": "Neural Networks",
+   "date": "2024-12-06",
+   "year": 2024,
+   "citations": 17,
+   "arxivId": "",
+   "doi": "10.1016/j.neunet.2024.107004",
+   "url": "https://doi.org/10.1016/j.neunet.2024.107004",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "指出量子计算架构的高线性性限制了 QNLP 表达能力,引入自监督预训练范式为量子语言模型提供高质量先验表示,显著提升下游任务表现,把 NLP 的\"预训练-微调\"经验移植到量子线路。",
+   "abstract": "Quantum computing models have propelled advances in many application domains. However, in the field of natural language processing (NLP), quantum computing models are limited in representation capacity due to the high linearity of the underlying quantum computing architecture. This work attempts to address this limitation by leveraging the concept of self-supervised pre-training, a paradigm that has been propelling the rocketing development of NLP, to increase the power of quantum NLP models on the representation level. Specifically, we present a self-supervised pre-training approach to train quantum encodings of sentences, and fine-tune quantum circuits for downstream tasks on its basis. Experiments show that pre-trained mechanism brings remarkable improvement over end-to-end pure quantum models, yielding meaningful prediction results on a variety of downstream text classification datasets.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "designing-unit-ising-models-logic-gate-simulation-99472",
    "title": "Designing unit Ising models for logic gate simulation through integer linear programming",
    "titleZh": "通过整数线性规划设计逻辑门仿真的单位Ising模型",
@@ -13127,6 +13520,32 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "kanqas-kolmogorov-arnold-network-quantum-architecture-search-27bed",
+   "title": "KANQAS: Kolmogorov-Arnold Network for Quantum Architecture Search",
+   "titleZh": "KANQAS:基于 KAN 网络的量子架构搜索",
+   "authors": [
+    "Akash Kundu",
+    "Aritra Sarkar",
+    "Abhishek Sadhu"
+   ],
+   "venue": "EPJ Quantum Technology",
+   "date": "2024-11-12",
+   "year": 2024,
+   "citations": 49,
+   "arxivId": "",
+   "doi": "10.1140/epjqt/s40507-024-00289-z",
+   "url": "https://doi.org/10.1140/epjqt/s40507-024-00289-z",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "用可解释性更强的 Kolmogorov-Arnold Network(KAN)替代 MLP 作为深度 Q 网络的函数逼近器做量子架构搜索(QAS):参数更少、可解释性更好,在 Grover/QAOA 类线路自动设计任务上验证,被引 49 是 QAS 方向热点。",
+   "abstract": "Abstract Quantum architecture Search (QAS) is a promising direction for optimization and automated design of quantum circuits towards quantum advantage. Recent techniques in QAS emphasize Multi-Layer Perceptron (MLP)-based deep Q-networks. However, their interpretability remains challenging due to the large number of learnable parameters and the complexities involved in selecting appropriate activation functions. In this work, to overcome these challenges, we utilize the Kolmogorov-Arnold Network (KAN) in the QAS algorithm, analyzing their efficiency in the task of quantum state preparation and quantum chemistry. In quantum state preparation, our results show that in a noiseless scenario, the probability of success is 2× to 5× higher than MLPs. In noisy environments, KAN outperforms MLPs in fidelity when approximating these states, showcasing its robustness against noise. In tackling quantum chemistry problems, we enhance the recently proposed QAS algorithm by integrating curriculum reinforcement learning with a KAN structure. This facilitates a more efficient design of parameterized quantum circuits by reducing the number of required 2-qubit gates and circuit depth. Further investigation reveals that KAN requires a significantly smaller number of learnable parameters compared to MLPs; however, the average time of executing each episode for KAN is higher.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "benchmarking-trapped-ion-quantum-computer-30-qubits-07e5c",
@@ -14606,6 +15025,38 @@
    "tags": [],
    "summaryZh": "QMI(5引):DisCoCat模型+量子NLP做代词消解。",
    "abstract": "Abstract Natural language consists of words, sentences, and larger units. Guided by grammatical structure, words compose with each other to form sentences. Similarly, guided by discourse structure, sentences compose with each other to form dialogues and documents. Classical machine learning algorithms have achieved significant success in learning the meanings of words. When it comes to meanings of sentences and discourse units, they however fall short of being compositional. The DisCoCat model of meaning, introduced by Clark, Coecke, and Sadrzadeh in 2010, provides a solution—at the sentence level—using higher-order tensors, the learning of which has been a challenge. A recent initiative known as Quantum Natural Language Processing (QNLP) introduces a translation between the DisCoCat tensors and Variational Quantum Circuits (VQC). This offers the potential of learning these higher-order tensors more efficiently when the circuits are executed on quantum computers. In previous work, we lifted the DisCoCat framework from the sentence level to the discourse level using a Fock space semantics. In this paper, we extend the DisCoCat-VQC translation to this semantics and experiment with it in a discourse task. We develop a massive dataset with 16,400 entries inspired by a major coreference resolution task, known as the Winograd Schema Challenge, proposed as a test of machine intelligence. Noisy and noiseless simulations were executed on IBMQ software, and the parameters of the discou",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "scalable-interpretable-quantum-natural-language-processing-implementation-80851",
+   "title": "Scalable and interpretable quantum natural language processing: an implementation on trapped ions",
+   "titleZh": "可扩展可解释的量子自然语言处理:囚禁离子硬件实现",
+   "authors": [
+    "Tiffany Duneau",
+    "S. L. BRUHN",
+    "Gabriel Matos",
+    "Tuomas Laakkonen",
+    "Katerina Saiti",
+    "Anna Pearson",
+    "Konstantinos Meichanetzidis",
+    "Bob Coecke"
+   ],
+   "venue": "arXiv",
+   "date": "2024-09-13",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2409.08777",
+   "doi": "10.48550/arxiv.2409.08777",
+   "url": "https://arxiv.org/abs/2409.08777",
+   "topics": [
+    "quantum-ai",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "首次在囚禁离子量子计算机上实现文本级 QNLP:基于 QDisCoCirc 组合式语言模型,以\"整体行为可由部分行为复合理解\"获得原生可解释性,是 QNLP 从模拟器走向真实硬件的标志性一步。",
+   "abstract": "We present the first implementation of text-level quantum natural language processing, a field where quantum computing and AI have found a fruitful intersection. We focus on the QDisCoCirc model, which is underpinned by a compositional approach to rendering AI interpretable: the behaviour of the whole can be understood in terms of the behaviour of parts, and the way they are put together. Interpretability is crucial for understanding the unwanted behaviours of AI. By leveraging the compositional structure in the model's architecture, we introduce a novel setup which enables 'compositional generalisation': we classically train components which are then composed to generate larger test instances, the evaluation of which asymptotically requires a quantum computer. Another key advantage of our approach is that it bypasses the trainability challenges arising in quantum machine learning. The main task that we consider is the model-native task of question-answering, and we handcraft toy scale data that serves as a proving ground. We demonstrate an experiment on Quantinuum's H1-1 trapped-ion quantum processor, which constitutes the first proof of concept implementation of scalable compositional QNLP. We also provide resource estimates for classically simulating the model. The compositional structure allows us to inspect and interpret the word embeddings the model learns for each word, as well as the way in which they interact. This improves our understanding of how it tackles the que",
    "source": "backfill",
    "domains": []
   },
@@ -16502,6 +16953,32 @@
    ]
   },
   {
+   "id": "comparing-natural-language-processing-quantum-natural-processing-f68b3",
+   "title": "Comparing Natural Language Processing and Quantum Natural Processing approaches in text classification tasks",
+   "titleZh": "经典 NLP 与量子自然语言处理在文本分类上的对比",
+   "authors": [
+    "David Peral García",
+    "Juan Cruz-Benito",
+    "Francisco José García‐Peñalvo"
+   ],
+   "venue": "Expert Systems with Applications",
+   "date": "2024-06-06",
+   "year": 2024,
+   "citations": 21,
+   "arxivId": "",
+   "doi": "10.1016/j.eswa.2024.124427",
+   "url": "https://doi.org/10.1016/j.eswa.2024.124427",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "在近期量子设备上系统对比经典 NLP 与 QNLP 的文本分类表现,给出两类方法在精度、资源与训练成本上的实证边界,正面回答\"QNLP 现在到底比经典好还是差\"这一常见疑问。",
+   "abstract": "Quantum physics and mechanics have demonstrated significant advances and promising results in different areas using the current near-term devices. One emerging subarea in quantum machine learning is quantum natural language processing, which combines quantum computing advantages and speedups with language processing algorithms to create and perform natural language tasks such as text classification or generation. The libraries and toolboxes used in this subarea include DisCoPy and lambeq, which are used to transform sentences into string diagrams or monoidal functors, convert these diagrams into quantum circuits or ansatz and embed it into a quantum model. In this study, we used both libraries with different text-based datasets to perform sentiment analysis via classification. To do so, we create synthetic datasets to train the different models. After we obtain satisfactory results, we test the resulting models with known datasets. Despite its promising results, quantum natural language processing is far from achieving its full potential. To achieve this potential, the quantum software and hardware must be improved to make them suitable for use with more extensive and complex datasets and other tasks.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "efficient-qudit-based-scheme-photonic-quantum-computing-ae971",
    "title": "Efficient qudit based scheme for photonic quantum computing",
    "titleZh": "基于量子比特(qudit)的高效光量子计算方案",
@@ -16758,6 +17235,34 @@
    "tags": [],
    "summaryZh": "JPMorgan团队在Science Advances的重量级工作:对经典上即使中等规模也难解的低自相关二元序列(LABS)问题,进行了高达40比特的无噪声QAOA大规模数值研究,发现固定参数QAOA的运行时间标度优于最先进的分支定界精确求解器,并在Quantinuum离子阱硬件上完成验证。这是迄今关于QAOA规模优势最具影响力的实证之一。",
    "abstract": "The quantum approximate optimization algorithm (QAOA) is a leading candidate algorithm for solving optimization problems on quantum computers. However, the potential of QAOA to tackle classically intractable problems remains unclear. Here, we perform an extensive numerical investigation of QAOA on the low autocorrelation binary sequences (LABS) problem, which is classically intractable even for moderately sized instances. We perform noiseless simulations with up to 40 qubits and observe that the runtime of QAOA with fixed parameters scales better than branch-and-bound solvers, which are the state-of-the-art exact solvers for LABS. The combination of QAOA with quantum minimum finding gives the best empirical scaling of any algorithm for the LABS problem. We demonstrate experimental progress in executing QAOA for the LABS problem using an algorithm-specific error detection scheme on Quantinuum trapped-ion processors. Our results provide evidence for the utility of QAOA as an algorithmic component that enables quantum speedups.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "pretrained-quantum-inspired-deep-neural-network-natural-97201",
+   "title": "Pretrained Quantum-Inspired Deep Neural Network for Natural Language Processing",
+   "titleZh": "面向自然语言处理的预训练量子启发深度神经网络",
+   "authors": [
+    "Jinjing Shi",
+    "Tian Chen",
+    "Wei Lai",
+    "Shichao Zhang",
+    "Xuelong Li"
+   ],
+   "venue": "IEEE Transactions on Cybernetics",
+   "date": "2024-05-29",
+   "year": 2024,
+   "citations": 36,
+   "arxivId": "",
+   "doi": "10.1109/tcyb.2024.3398692",
+   "url": "https://doi.org/10.1109/tcyb.2024.3398692",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对量子启发 NLP 模型忽视先验知识与预训练特征的问题,把预训练文本表示与量子启发建模结合,用词向量复用与量子态编码改善表达与可解释性;发表于 IEEE TCyb(36 引用),是量子启发路线(非真量子硬件)的代表作。",
+   "abstract": "Natural language processing (NLP) may face the inexplicable \"black-box\" problem of parameters and unreasonable modeling for lack of embedding of some characteristics of natural language, while the quantum-inspired models based on quantum theory may provide a potential solution. However, the essential prior knowledge and pretrained text features are often ignored at the early stage of the development of quantum-inspired models. To attacking the above challenges, a pretrained quantum-inspired deep neural network is proposed in this work, which is constructed based on quantum theory for carrying out strong performance and great interpretability in related NLP fields. Concretely, a quantum-inspired pretrained feature embedding (QPFE) method is first developed to model superposition states for words to embed more textual features. Then, a QPFE-ERNIE model is designed by merging the semantic features learned from the prevalent pretrained model ERNIE, which is verified with two NLP downstream tasks: 1) sentiment classification and 2) word sense disambiguation (WSD). In addition, schematic quantum circuit diagrams are provided, which has potential impetus for the future realization of quantum NLP with quantum device. Finally, the experiment results demonstrate QPFE-ERNIE is significantly better for sentiment classification than gated recurrent unit (GRU), BiLSTM, and TextCNN on five datasets in all metrics and achieves better results than ERNIE in accuracy, F1-score, and precision on",
    "source": "backfill",
    "domains": []
   },
@@ -17049,6 +17554,38 @@
    "abstract": "Strongly correlated quantum many-body systems from condensed matter and particle physics are very hard to study classically and variational quantum algorithms (VQAs) may be hampered by barren plateaus, where energy gradients decay exponentially in the system size. The authors prove that this critical problem can be resolved by employing VQAs based on suitable isometric tensor network states, establishing a new route for the investigation of strongly correlated quantum matter on NISQ devices.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "hybrid-discrete-continuous-compilation-trapped-ion-quantum-50ae6",
+   "title": "Hybrid discrete-continuous compilation of trapped-ion quantum circuits with deep reinforcement learning",
+   "titleZh": "深度强化学习混合离散-连续编译囚禁离子量子线路",
+   "authors": [
+    "Francesco Preti",
+    "Michael Schilling",
+    "Sofiène Jerbi",
+    "Lea M. Trenkwalder",
+    "Hendrik Poulsen Nautrup",
+    "Felix Motzoi",
+    "Hans J. Briegel"
+   ],
+   "venue": "Quantum",
+   "date": "2024-05-14",
+   "year": 2024,
+   "citations": 12,
+   "arxivId": "",
+   "doi": "10.22331/q-2024-05-14-1343",
+   "url": "https://doi.org/10.22331/q-2024-05-14-1343",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对连续门集合的囚禁离子硬件,把线路编译分解为离散门选择(DRL 决策)与连续参数优化(梯度法)交替进行,并按硬件拓扑定制实现,显著缩短线路深度以对抗退相干。",
+   "abstract": "Shortening quantum circuits is crucial to reducing the destructive effect of environmental decoherence and enabling useful algorithms. Here, we demonstrate an improvement in such compilation tasks via a combination of using hybrid discrete-continuous optimization across a continuous gate set, and architecture-tailored implementation. The continuous parameters are discovered with a gradient-based optimization algorithm, while in tandem the optimal gate orderings are learned via a deep reinforcement learning algorithm, based on projective simulation. To test this approach, we introduce a framework to simulate collective gates in trapped-ion systems efficiently on a classical device. The algorithm proves able to significantly reduce the size of relevant quantum circuits for trapped-ion computing. Furthermore, we show that our framework can also be applied to an experimental setup whose goal is to reproduce an unknown unitary process.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "approximate-complex-amplitude-encoding-algorithm-application-data-003c5",
@@ -17498,6 +18035,38 @@
    "tags": [],
    "summaryZh": "Nature Communications 里程碑(被引 89):通过材料优化与电路设计协同,将超导量子存储器的相干时间推过毫秒大关。相干时间直接决定量子优化算法可用的电路深度上限,是该领域最重要的硬件进展之一。",
    "abstract": "The performance of superconducting quantum circuits for quantum computing has advanced tremendously in recent decades; however, a comprehensive understanding of relaxation mechanisms does not yet exist. In this work, we utilize a multimode approach to characterizing energy losses in superconducting quantum circuits, with the goals of predicting device performance and improving coherence through materials, process, and circuit design optimization. Using this approach, we measure significant reductions in surface and bulk dielectric losses by employing a tantalum-based materials platform and annealed sapphire substrates. With this knowledge we predict the relaxation times of aluminum- and tantalum-based transmon qubits, and find that they are consistent with experimental results. We additionally optimize device geometry to maximize coherence within a coaxial tunnel architecture, and realize on-chip quantum memories with single-photon Ramsey times of 2.0 - 2.7 ms, limited by their energy relaxation times of 1.0 - 1.4 ms. These results demonstrate an advancement towards a more modular and compact coaxial circuit architecture for bosonic qubits with reproducibly high coherence.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
+   "id": "quarl-learning-based-quantum-circuit-optimizer-4a8b8",
+   "title": "Quarl: A Learning-Based Quantum Circuit Optimizer",
+   "titleZh": "Quarl:基于学习的量子线路优化器",
+   "authors": [
+    "Zikun Li",
+    "Jinjun Peng",
+    "Yixuan Mei",
+    "Sina Lin",
+    "Yi Wu",
+    "Oded Padon",
+    "Zhihao Jia"
+   ],
+   "venue": "Proceedings of the ACM on Programming Languages",
+   "date": "2024-04-29",
+   "year": 2024,
+   "citations": 20,
+   "arxivId": "",
+   "doi": "10.1145/3649831",
+   "url": "https://doi.org/10.1145/3649831",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把强化学习用于量子线路优化的系统实现:以等价变换搜索树为动作空间,设计剪枝与奖励机制应对\"先变差才能变优\"的转换,在标准基准上显著超越 IBM Qiskit 原生优化器,是学习型线路编译的代表作。",
+   "abstract": "Optimizing quantum circuits is challenging due to the very large search space of functionally equivalent circuits and the necessity of applying transformations that temporarily decrease performance to achieve a final performance improvement. This paper presents Quarl, a learning-based quantum circuit optimizer. Applying reinforcement learning (RL) to quantum circuit optimization raises two main challenges: the large and varying action space and the non-uniform state representation. Quarl addresses these issues with a novel neural architecture and RL-training procedure. Our neural architecture decomposes the action space into two parts and leverages graph neural networks in its state representation, both of which are guided by the intuition that optimization decisions can be mostly guided by local reasoning while allowing global circuit-wide reasoning. Our evaluation shows that Quarl significantly outperforms existing circuit optimizers on almost all benchmark circuits. Surprisingly, Quarl can learn to perform rotation merging—a complex, non-local circuit optimization implemented as a separate pass in existing optimizers.",
    "source": "backfill",
    "domains": [
     "materials"
@@ -19442,6 +20011,36 @@
    "domains": []
   },
   {
+   "id": "reinforcement-learning-assisted-recursive-qaoa-7da6a",
+   "title": "Reinforcement learning assisted recursive QAOA",
+   "titleZh": "强化学习辅助的递归 QAOA",
+   "authors": [
+    "Yash J. Patel",
+    "Sofiène Jerbi",
+    "Thomas Bäck",
+    "Vedran Dunjko"
+   ],
+   "venue": "EPJ Quantum Technology",
+   "date": "2024-01-17",
+   "year": 2024,
+   "citations": 25,
+   "arxivId": "",
+   "doi": "10.1140/epjqt/s40507-023-00214-w",
+   "url": "https://doi.org/10.1140/epjqt/s40507-023-00214-w",
+   "topics": [
+    "qaoa",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对递归 QAOA(RQAOA)中关联选择依赖启发式的问题,用强化学习替换其核心的关联挑选环节,在 MaxCut 等基准上超越标准 RQAOA 与 QAOA;是\"AI 改进量子优化算法本身\"的直接范例,与站点 QAOA 主线强相关。",
+   "abstract": "In recent years, variational quantum algorithms such as the Quantum Approximation Optimization Algorithm (QAOA) have gained popularity as they provide the hope of using NISQ devices to tackle hard combinatorial optimization problems. It is, however, known that at low depth, certain locality constraints of QAOA limit its performance. To go beyond these limitations, a non-local variant of QAOA, namely recursive QAOA (RQAOA), was proposed to improve the quality of approximate solutions. The RQAOA has been studied comparatively less than QAOA, and it is less understood, for instance, for what family of instances it may fail to provide high-quality solutions. However, as we are tackling NP-hard problems (specifically, the Ising spin model), it is expected that RQAOA does fail, raising the question of designing even better quantum algorithms for combinatorial optimization. In this spirit, we identify and analyze cases where (depth-1) RQAOA fails and, based on this, propose a reinforcement learning enhanced RQAOA variant (RL-RQAOA) that improves upon RQAOA. We show that the performance of RL-RQAOA improves over RQAOA: RL-RQAOA is strictly better on these identified instances where RQAOA underperforms and is similarly performing on instances where RQAOA is near-optimal. Our work exemplifies the potentially beneficial synergy between reinforcement learning and quantum (inspired) optimization in the design of new, even better heuristics for complex problems.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "verifying-quantum-advantage-experiments-multiple-amplitude-tensor-d7775",
    "title": "Verifying Quantum Advantage Experiments with Multiple Amplitude Tensor Network Contraction",
    "titleZh": "用多振幅张量网络收缩验证量子优越性实验",
@@ -20268,6 +20867,35 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "application-quantum-recurrent-neural-network-low-resource-e0a91",
+   "title": "Application of Quantum Recurrent Neural Network in Low-Resource Language Text Classification",
+   "titleZh": "量子循环神经网络在低资源语言文本分类中的应用",
+   "authors": [
+    "Wenbin Yu",
+    "Lei Yin",
+    "Chengjun Zhang",
+    "Yadang Chen",
+    "Alex X. Liu"
+   ],
+   "venue": "IEEE Transactions on Quantum Engineering",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 40,
+   "arxivId": "",
+   "doi": "10.1109/tqe.2024.3373903",
+   "url": "https://doi.org/10.1109/tqe.2024.3373903",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "面向孟加拉语等低资源语言的情感分析难题,提出量子循环神经网络(QRNN)文本分类方案,以量子线路增强特征表达缓解低资源场景数据与算力双重受限;发表于 IEEE TQ,是 QNLP 应用方向被引最高的工作之一(40 引用)。",
+   "abstract": "Text sentiment analysis is an important task in natural language processing and has always been a hot research topic. However, in low-resource regions such as South Asia, where languages like Bengali are widely used, the research interest is relatively low compared to high-resource regions due to limited computational resources, flexible word order, and high inflectional nature of the language. With the development of quantum technology, quantum machine learning models leverage the superposition property of qubits to enhance model expressiveness and achieve faster computation compared to classical systems. To promote the development of quantum machine learning in low-resource language domains, we propose a quantum-classical hybrid architecture. This architecture utilizes a pre-trained multilingual BERT model to obtain vector representations of words and combines the proposed Batched Upload Quantum Recurrent Neural Network (BUQRNN) and Parameter Non-shared Batched Upload Quantum Recurrent Neural Network (PN-BUQRNN) as feature extraction models for sentiment analysis in Bengali. Our numerical results demonstrate that the proposed BUQRNN structure achieves a maximum accuracy improvement of 0.993% in Bengali text classification tasks while reducing average model complexity by 12%. The PN-BUQRNN structure surpasses the BUQRNN structure once again and outperforms classical architectures in certain tasks.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-enhanced-markov-chain-monte-carlo-387ea",
