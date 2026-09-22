@@ -5,6 +5,14 @@
 
 ---
 
+### 2026-09-23(定时扩库)
+- 主题轮换至「能源电力」:+20 篇(库总 712 篇)
+- 核心是「量子×机组组合(UC)」完整簇:+12 篇(IEEE TPS×3、Grover 准最优、量子退火、DQAOA-ADMM、qRBM、Pauli 关联编码、D2-UC、QRL 两阶段、QAOA 结构定制、MWIS 核+中性原子验证、UC 量子应用综述)
+- 另含:微电网量子退火能量管理(IEEE TII)、QSVM 能耗预测(32 引用)、负荷预测、容量扩展时间聚合、量子联邦学习电压稳定(ESQFL)、退火理论三篇(Learning-Driven Annealing/Quantum、无绝热原理连续时间量子优化/PRA、导向量子行走/PRR)
+- 剔除说明:本批混入大量抗量子密码(PQC/QPUF/区块链安全)论文,按站点口径(不收密码安全类)全部排除
+- 修复:build_db.py 量子信号判定补充 neutral-atom/中性原子 关键词,救回被误剔的 MWIS 核论文(09-02 日报主论文此前未入库)及另外 2 篇误剔论文(库 712→713)
+- 环境备注:python 命令被 WindowsApps stub 劫持(退出码 49),改用 py -3 执行
+
 ### 2026-09-20(定时扩库)
 - 主题:卫星航天候选已挖尽(4 检索词 +0),按规则顺延至「量子计算×大模型与AI」:+20 篇(库总 692 篇)
 - 覆盖三条线:①QNLP(量子 RNN 低资源文本分类 IEEE TQ、囚禁离子首次文本级 QNLP、自监督预训练、全面综述、MOF 逆向设计交叉);②强化学习×量子线路(RL 辅助 RQAOA、AlphaTensor T-count 优化 Nature MI、KANQAS、Quarl、ZX-演算 RL、囚禁离子编译);③退火/Ising×ML4CO(退火机监督 GNN、绝热量子计算压缩 DNN、QNN 学习 CVRP 路由、CHARME 嵌入 RL);另含量子 RL 能源应用(燃料电池车 T-ITS、HVAC)

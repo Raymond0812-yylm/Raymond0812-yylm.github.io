@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-20",
+ "updated": "2026-09-23",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -511,6 +511,36 @@
    ],
    "summaryZh": "面向灾后通信基础设施恢复,论文研究连续空间中的无人机联合激活与部署问题,提出HKQEA框架:K-means引导初始化、校准罚项可行性目标与量子启发进化算子相结合,在最小化部署数量的同时满足覆盖与最小间隔约束,是量子启发元启发式在应急组网中的落地案例。",
    "abstract": "In post-disaster environments, the failure of terrestrial communication infrastructure necessitates the rapid deployment of unmanned aerial vehicles (UAVs) as aerial base stations to restore wireless connectivity. This paper addresses the joint UAV activation-and-placement problem in continuous space, with the objective of minimizing the number of deployed UAVs while satisfying coverage and minimum-separation constraints. To solve this problem, we propose a Hybrid K-means Quantum-Inspired Evolutionary Algorithm (HKQEA) that combines K-means-guided initialization, a calibrated penalty-based feasibility objective, non-elitist evolutionary search, and a quantum-inspired learning update. Experimental results over 50 independent runs show that HKQEA attains a best fully feasible solution with 8 UAVs, while achieving average values of 98.94% for coverage, 99.94% for non-overlap, and 99.68% for minimum-distance satisfaction. Comparative evaluation against standard Non-dominated Sorting Genetic Algorithm II (NSGA-II), Particle Swarm Optimization algorithm (PSO) and an elitist variant of HKQEA further shows that the proposed method provides a more favorable balance among exploration, convergence behavior, and reliable feasibility preservation in constrained deployment problems. An illustrative procurement-level cost analysis also indicates that reducing the fleet from 10 UAVs to 8 can yield a 20% reduction in hardware count, corresponding to a simplified savings ratio of 25% for the s",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "backend-agnostic-mwis-kernel-stochastic-unit-commitment-e8511",
+   "title": "A Backend-Agnostic MWIS Kernel for Stochastic Unit Commitment with Neutral-Atom Hardware Validation",
+   "titleZh": "面向随机机组组合的硬件无关 MWIS 求解核及中性原子验证",
+   "authors": [
+    "Jiying Chen",
+    "Min Lin",
+    "Jingwei Wen",
+    "Zhihong Zhang",
+    "Chuixiong Wu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.01248",
+   "doi": "10.48550/arxiv.2609.01248",
+   "url": "https://arxiv.org/abs/2609.01248",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "打通量子优化落地的两个断点——\"运营模型到硬件实例的映射\"与\"含噪硬件输出到可行决策的还原\":提出硬件无关的编译接口,把随机机组组合(UC)的离散决策层编译为移动式最大权独立集(MWIS)问题,连续出力与可行性恢复留在经典侧,并在中性原子量子硬件上完成端到端验证。",
+   "abstract": "Quantum hardware is beginning to address structured combinatorial optimisation, but two steps still block practical use: mapping real operational models onto hardware-compatible instances, and converting noisy hardware output back into feasible decisions. Here we introduce a backend-agnostic computational interface that compiles the discrete decision layer of stochastic unit commitment into a move-based maximum-weight independent set (MWIS) problem, while retaining continuous dispatch and feasibility recovery in the classical computational layer. We validate the approach in a green hydrogen scheduling setting and deploy it on the QuEra Aquila neutral-atom quantum processor. This is the first end-to-end industrial scheduling workflow that connects real operational decisions to programmable neutral-atom hardware through a solver-agnostic MWIS representation. Across a 15-day hardware campaign on 50-node instances, hardware-generated solutions after classical refinement match or exceed the dispatch margins obtained from exact MWIS on every day. When scaling to 144 nodes, encoding quality remains stable, while the probability that the full atom array survives, rather than graph embedding, emerges as the dominant bottleneck to further scaling. Together, these results establish a hardware-compatible computational pathway toward larger problem scales, and lay the groundwork for exploring regimes in which exact classical optimisation may no longer scale efficiently.",
    "source": "backfill",
    "domains": []
   },
@@ -1142,6 +1172,36 @@
    "domains": []
   },
   {
+   "id": "distributed-quantum-approximate-optimization-algorithm-unit-commitment-d829a",
+   "title": "A Distributed Quantum Approximate Optimization Algorithm For Unit Commitment",
+   "titleZh": "分布式量子近似优化算法求解机组组合的 ADMM 框架",
+   "authors": [
+    "Ali Rajabi",
+    "Milad Hasanzadeh",
+    "Amin Kargarian"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.04159",
+   "doi": "10.48550/arXiv.2608.04159",
+   "url": "https://arxiv.org/abs/2608.04159",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 DQAOA 使能的三块 ADMM 框架:调度变量的连续二次规划块用经典方法求解,二进制启停块表述为 QUBO 用分布式 QAOA 求解,兼顾分布式电网的隐私/规模需求与量子加速。",
+   "abstract": "This paper presents a distributed quantum approximate optimization algorithm (DQAOA)-enabled three-block alternating direction method of multipliers (ADMM) framework for unit commitment (UC). The relaxed commitment and dispatch variables are solved in a continuous quadratic programming block, while the binary commitment block is formulated as a quadratic unconstrained binary optimization (QUBO) problem. The DQAOA interface allows this QUBO to be solved using brute-force enumeration, monolithic QAOA, or distributed QAOA, while the remaining ADMM updates are kept unchanged. In the distributed mode, the logical commitment qubits are allocated across multiple capacity-constrained quantum processing units (QPU), avoiding the requirement that the complete binary problem fits on a single device. The framework is evaluated on a five-unit UC instance containing 15 binary variables. All three solver modes reduce the ADMM primal residual below a certain tolerance and recover the same commitment schedule, dispatch, and operating cost. The results demonstrate solution consistency across the three solver modes and the multi-QPU capacity accommodation provided by the distributed QAOA method.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
    "id": "quantum-ensemble-variational-optimization-algorithm-applications-molecular-85317",
    "title": "The quantum ensemble variational optimization algorithm: Applications to molecular inverse design",
    "titleZh": "量子集成变分优化算法:在分子逆向设计中的应用",
@@ -1760,6 +1820,35 @@
    ]
   },
   {
+   "id": "quantum-restricted-boltzmann-machine-fast-unit-commitment-2d9ed",
+   "title": "Quantum Restricted Boltzmann Machine for Fast Unit Commitment",
+   "titleZh": "用量子受限玻尔兹曼机加速网络约束机组组合",
+   "authors": [
+    "Yuji Cao",
+    "Yue Chen"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-21",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.22542",
+   "doi": "10.48550/arxiv.2606.22542",
+   "url": "https://arxiv.org/abs/2606.22542",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对电网约束 UC 需要反复快速求解的痛点,提出量子受限玻尔兹曼机(qRBM)方法:用量子硬件兼容的能量打分预测解模式并恢复可行调度,以\"学习历史解结构\"的方式加速实时 UC 求解。",
+   "abstract": "Network-constrained unit commitment (UC) problems must be solved repeatedly to ensure power system reliability, yet face computational challenges from the growing system scale and fast response requirements. This letter proposes a quantum restricted Boltzmann machine (qRBM) method to accelerate UC solution by predicting solution patterns via quantum-hardware-compatible energy scoring and recovering optimal solutions through affine mapping. This method reduces the computation time for UC by 99.96%. Compared to existing quantum methods, it cuts the number of qubits needed by 276 times.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
    "id": "gaussian-process-model-kernels-noisy-optimization-variational-81978",
    "title": "Gaussian process model kernels for noisy optimization in variational quantum algorithms",
    "titleZh": "变分量子算法含噪优化中的高斯过程模型核函数",
@@ -2266,6 +2355,36 @@
     "finance",
     "logistics",
     "manufacturing"
+   ]
+  },
+  {
+   "id": "scaling-quantum-optimization-unit-commitment-pauli-correlation-f13e8",
+   "title": "Scaling Quantum Optimization for Unit Commitment via Pauli Correlation Encoding",
+   "titleZh": "基于 Pauli 关联编码的机组组合量子优化扩展",
+   "authors": [
+    "Kien X. Nguyen",
+    "Ilya Safro",
+    "Xiaoyuan Liu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.17145",
+   "doi": "10.48550/arxiv.2605.17145",
+   "url": "https://arxiv.org/abs/2605.17145",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向带时序约束的机组组合,提出 Pauli 关联编码以压缩问题哈密顿量的表示规模,配合混合量子-经典优化流程处理机组启停与出力决策,是编码层面推动 UC 规模化的最新尝试。",
+   "abstract": "Unit commitment is an important optimization problem in power system operations, classified as NP-hard. This paper presents a hybrid quantum-classical method for the unit commitment problem with time-dependent constraints, where decisions must be made about which generators to turn on/off and how much power they should produce over a planning horizon. We use a hybrid quantum-classical optimization procedure to determine the on/off schedules of the generating units and the corresponding power dispatch that satisfies operational constraints such as load balance, generator limits, ramping, and reserve requirements. We frame the optimization loop as a leader-follower structure, where the quantum optimizer leads to give the on/off decisions, and the classical optimizer follows to produce the power level schedule. Leveraging Pauli-Correlation Encoding, our method scales to horizon-wide unit commitment schedules by encoding the binary variables with far fewer qubits. By combining these components, the method can handle multi-period settings while using far fewer qubits than straightforward quantum encodings that allocate one qubit per decision variable as in prior approaches. We evaluate the approach on both small- and large-scale instances, up to 312 binary variables, and show that it reliably produces feasible schedules with competitive operating costs.",
+   "source": "backfill",
+   "domains": [
+    "energy"
    ]
   },
   {
@@ -3948,6 +4067,34 @@
    "domains": []
   },
   {
+   "id": "machine-learning-enhanced-quantum-classical-benders-decomposition-2f4da",
+   "title": "Machine Learning–Enhanced Quantum–Classical Benders Decomposition for Stochastic Unit Commitment",
+   "titleZh": "机器学习增强的量子-经典 Benders 分解求解随机机组组合",
+   "authors": [
+    "Reza Mahroo",
+    "Amin Kargarian"
+   ],
+   "venue": "IEEE Transactions on Power Systems",
+   "date": "2026-01-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/tpwrs.2026.3653867",
+   "url": "https://doi.org/10.1109/tpwrs.2026.3653867",
+   "topics": [
+    "hardware",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE TPS 2026:用 LSTM 近似子问题成本、SVM 分类器筛选主导 Benders 割以压缩问题规模,再把简化后的核心交给量子计算求解,形成\"ML 降维 + 量子求解\"的两级加速架构,是混合框架设计的漂亮范例。",
+   "abstract": "This paper proposes a learning-based quantum-classical Benders decomposition method for solving large-scale two-stage stochastic unit commitment (UC) problems. The approach integrates a long short-term memory (LSTM) network to approximate subproblem costs and a support vector machine (SVM) classifier to filter dominant Benders cuts, thereby reducing problem size, facilitating quantum computing implementation, and improving scalability. The master problem is reformulated into a quadratic unconstrained binary optimization (QUBO) problem, enabling its solution on quantum hardware. The key contributions are: (i) a quantum-classical decomposition framework tailored for stochastic UC, (ii) an LSTM-based subproblem proxy to facilitate iterations, (iii) an SVM-based cut filtering method to retain only dominant cuts, and (iv) a QUBO reformulation suitable for quantum solvers. Numerical experiments demonstrate that the proposed method significantly reduces computational overhead and quantum resource requirements compared with conventional approaches.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "artificial-intelligence-financial-market-prediction-advancements-machine-41cee",
    "title": "Artificial intelligence in financial market prediction: advancements in machine learning for stock price forecasting",
    "titleZh": "金融市场预测中的AI:机器学习与量子计算进展综述",
@@ -4113,6 +4260,38 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
+   ]
+  },
+  {
+   "id": "survey-applications-quantum-computing-unit-commitment-c6853",
+   "title": "A Survey on Applications of Quantum Computing for Unit Commitment",
+   "titleZh": "量子计算求解机组组合的应用综述",
+   "authors": [
+    "Milad Hasanzadeh",
+    "ALI AKBAR RAJABI",
+    "Amin Kargarian"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.01777",
+   "doi": "10.48550/arxiv.2601.01777",
+   "url": "https://arxiv.org/abs/2601.01777",
+   "topics": [
+    "quantum-ai",
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统综述量子计算在机组组合(UC)这一电力系统核心优化问题上的应用版图:问题建模、QUBO/哈密顿量编码、退火与门型两条硬件路线的进展与瓶颈,是进入\"量子 UC\"子领域最佳的导读文献。",
+   "abstract": "Unit Commitment (UC) is a core optimization problem in power system operation and electricity market scheduling. It determines the optimal on/off status and dispatch of generating units while satisfying system, operational, and market constraints. Traditionally, UC has been solved using mixed-integer programming, dynamic programming, or metaheuristic methods, all of which face scalability challenges as systems grow in size and uncertainty. Recent advances in quantum computing, spanning quantum annealing, variational algorithms, and hybrid quantum classical optimization, have opened new opportunities to accelerate UC solution processes by exploiting quantum parallelism and entanglement. This paper presents a comprehensive survey of existing research on the applications of quantum computing for solving the UC problem. The reviewed works are categorized based on the employed quantum paradigms, including annealing-based, variational hybrid, quantum machine learning, and quantum-inspired methods. Key modeling strategies, hardware implementations, and computational trade-offs are discussed, highlighting the current progress, limitations, and potential future directions for large-scale quantum-enabled UC.",
+   "source": "backfill",
+   "domains": [
+    "energy"
    ]
   },
   {
@@ -4485,6 +4664,36 @@
    "source": "backfill",
    "domains": [
     "finance"
+   ]
+  },
+  {
+   "id": "qubit-efficient-quantum-annealing-stochastic-unit-commitment-068ea",
+   "title": "Qubit-Efficient Quantum Annealing for Stochastic Unit Commitment",
+   "titleZh": "面向随机机组组合的比特高效量子退火方法",
+   "authors": [
+    "Wei Hong",
+    "W. Xu",
+    "Fei Teng"
+   ],
+   "venue": "IEEE Transactions on Power Systems",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/tpwrs.2026.3706404",
+   "url": "https://doi.org/10.1109/tpwrs.2026.3706404",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE TPS 2026:针对可再生能源不确定性导致的随机机组组合(SUC)计算复杂度爆炸,将 Benders 分解后的主问题(NP 难二元规划)交给量子退火,并重点优化量子比特效率,使问题规模适配当前硬件。",
+   "abstract": "Stochastic Unit Commitment (SUC) has been proposed to manage the uncertainties driven by renewable integration, but it leads to significant computational complexity. When accelerated by Benders Decomposition (BD), the master problem becomes binary integer programming, which is still NP-hard and computationally demanding for classical methods. Quantum Annealing (QA), known for efficiently solving Quadratic Unconstrained Binary Optimization (QUBO) problems, presents a potential solution. However, existing quantum algorithms rely on slack variables to handle linear binary inequality constraints, leading to increased qubit consumption and reduced computational efficiency. To solve the problem, this paper introduces the Powell-Hestenes-Rockafellar Augmented Lagrangian Multiplier (PHR-ALM) method to eliminate the need for slack variables, making qubit consumption independent of the increasing number of Benders cuts. To further reduce the qubit overhead, quantum ADMM is applied to break large-scale SUC into smaller blocks for sequential solutions, which does not scale with the number of generators. Finally, the simulation results on both 4-generator and the IEEE bus-118 systems demonstrate the feasibility and scalability of the proposed algorithm, indicating its superior qubit and runtime efficiency over classical and baseline quantum approaches on the D-Wave QPU platform.",
+   "source": "backfill",
+   "domains": [
+    "energy"
    ]
   },
   {
@@ -5100,6 +5309,38 @@
    ]
   },
   {
+   "id": "application-quantum-computing-temporal-aggregation-efficient-capacity-6ebb9",
+   "title": "Application of quantum computing to temporal aggregation for efficient capacity expansion in power systems",
+   "titleZh": "量子计算辅助的时间聚合方法用于电源容量扩展规划",
+   "authors": [
+    "Ankana Singha",
+    "Sambeet Mishra",
+    "Miadreza Shafie‐khah"
+   ],
+   "venue": "International Journal of Electrical Power & Energy Systems",
+   "date": "2025-11-20",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1016/j.ijepes.2025.111355",
+   "url": "https://doi.org/10.1016/j.ijepes.2025.111355",
+   "topics": [
+    "qaoa",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "容量扩展规划(CEP)需全年逐小时时序刻画负荷与新能源波动,计算代价高昂;该文把\"代表日选择\"重构为 QUBO 用量子-经典框架求解,在保留时序代表性的同时大幅压缩问题规模。",
+   "abstract": "Capacity expansion planning (CEP) requires full-year, hourly time series to capture variability in load and renewable generation, but this temporal resolution makes optimization problems computationally challenging. a quantum–classical temporal aggregation framework has been proposed that formulates representative-day selection as a Quadratic Unconstrained Binary Optimization (QUBO) problem and solves it using the Quantum Approximate Optimization Algorithm (QAOA). To keep each QUBO within practical simulator or near-term hardware limits (about 15 qubits), the year is partitioned into 24 half-month windows; each window is reduced to k representative days via QAOA-based clustering and assigned non-uniform weights proportional to the sizes of their clusters. The weighted days are then integrated into a CEP model built on PyPSA (Python for Power System Analysis) with linearized optimal power flow. Evaluations on IEEE 9, 30, and 118 bus systems show that small sets of QAOA-selected, non-uniformly weighted representative days preserve planning-cost fidelity within 4%–6% of the full-resolution benchmark while reducing the temporal dimension by over 75%. This yields substantially faster CEP solves after a one-time clustering step. Our contribution is a structured, optimization-based approach to temporal aggregation that embeds a QUBO–QAOA subroutine within a conventional CEP workflow. By bridging QUBO-based temporal aggregation with conventional CEP modeling, this work presents a pro",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
    "id": "photonic-quantum-convolutional-neural-networks-adaptive-state-89d57",
    "title": "Photonic quantum convolutional neural networks with adaptive state injection",
    "titleZh": "具有自适应态注入的光量子卷积神经网络",
@@ -5265,6 +5506,34 @@
    ]
   },
   {
+   "id": "d2-uc-distributed-distributed-quantum-classical-framework-7bdea",
+   "title": "D2-UC: A Distributed-Distributed Quantum-Classical Framework for Unit Commitment",
+   "titleZh": "D2-UC:面向机组组合的分布式-分布式量子经典框架",
+   "authors": [
+    "Hasanzadeh, Milad",
+    "Kargarian, Amin"
+   ],
+   "venue": "arXiv",
+   "date": "2025-11-05",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2511.03104",
+   "doi": "10.48550/arxiv.2511.03104",
+   "url": "https://arxiv.org/abs/2511.03104",
+   "topics": [
+    "vqa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 quantum-ready 的 D2-UC 框架:把确定性与随机 UC 重构为三块 ADMM,凸 QP 子块与 QUBO 二进制块分别分布式求解,量子执行亦按分区分布式部署,为近期混合量子-经典求解器预留接口。",
+   "abstract": "This paper introduces D2-UC, a quantum-ready framework for the unit commitment (UC) problem that prepares UC for near-term hybrid quantum-classical solvers by combining distributed classical decomposition with distributed quantum execution. We reformulate deterministic and stochastic UC into a three-block alternating direction method of multipliers (ADMM): (i) a convex quadratic subproblem for dispatch and reserves, (ii) a binary subproblem expressed as a quadratic unconstrained binary optimization (QUBO), and (iii) a proximal slack update for consensus. The core contributions are fivefold. First, we demonstrate how the full UC problem can be expressed as a single monolithic QUBO, establishing a direct interface to quantum solvers. Second, we decompose this large binary block into three type-specific QUBOs for commitment, startup, and shutdown, making the problem more tractable but revealing slower ADMM convergence. Third, we restore local logical couplings through per-unit-time micro-QUBOs, which accelerate convergence. Fourth, we batch micro-QUBOs into K non-overlapping block-diagonal problems, reducing many subproblems to a fixed number of solver-ready QUBOs per iteration, compatible with distributed variational quantum eigensolvers (DVQE). Fifth, we integrate an accept-if-better safeguard with DVQE to stabilize hybrid updates and prevent oscillations. Case studies confirm that the proposed methods deliver feasible schedules, faster convergence, and QUBO sizes aligned with",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-assisted-correlation-clustering-80f9b",
    "title": "Quantum-Assisted Correlation Clustering",
    "titleZh": "量子辅助相关性聚类",
@@ -5331,6 +5600,35 @@
    "domains": [
     "manufacturing"
    ]
+  },
+  {
+   "id": "learning-driven-annealing-adaptive-hamiltonian-modification-solving-2adf9",
+   "title": "Learning-Driven Annealing with Adaptive Hamiltonian Modification for Solving Large-Scale Problems on Quantum Devices",
+   "titleZh": "学习驱动退火:自适应哈密顿量修改求解大规模问题",
+   "authors": [
+    "Sebastian Schulz",
+    "Dennis Willsch",
+    "Kristel F. L. Michielsen"
+   ],
+   "venue": "Quantum",
+   "date": "2025-10-29",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.22331/q-2025-10-29-1898",
+   "url": "https://doi.org/10.22331/q-2025-10-29-1898",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Quantum 期刊:提出 Learning-Driven Annealing(LDA)框架,把多次量子退火演化串成全局求解策略——不调整退火时间/调度,而是从测量结果中学习问题结构并自适应修改哈密顿量,以规避短退火时间与集成控制误差等硬件限制。",
+   "abstract": "We present Learning-Driven Annealing (LDA), a framework that links individual quantum annealing evolutions into a global solution strategy to mitigate hardware constraints such as short annealing times and integrated control errors. Unlike other iterative methods, LDA does not tune the annealing procedure (e.g. annealing time or annealing schedule), but instead learns about the problem structure to adaptively modify the problem Hamiltonian. By deforming the instantaneous energy spectrum, LDA suppresses transitions into high-energy states and focuses the evolution into low-energy regions of the Hilbert space. We demonstrate the efficacy of LDA by developing a hybrid quantum-classical solver for large-scale spin glasses. The hybrid solver is based on a comprehensive study of the internal structure of spin glasses, outperforming other quantum and classical algorithms (e.g., reverse annealing, cyclic annealing, simulated annealing, Gurobi, Toshiba's SBM, VeloxQ and D-Wave hybrid) on 5580-qubit problem instances in both runtime and lowest energy. LDA is a step towards practical quantum computation that enables today's quantum devices to compete with classical solvers.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "energy-aware-swarm-robotics-smart-microgrids-quantum-84910",
@@ -5420,6 +5718,37 @@
    ],
    "summaryZh": "综述量子优化、量子机器学习在去中心化智能电网的可扩展性、安全性与 P2P 能源交易中的应用,覆盖量子技术×能源的全景。",
    "abstract": "The convergence of quantum computing and decentralized energy systems presents a transformative opportunity to address the scalability, security, and real-time intelligence challenges of modern smart grids. This paper provides a comprehensive review of how quantum technologies-including quantum optimization, quantum machine learning (QML), and quantum cryptography-can be integrated into big data-driven smart grid architectures. First, we classify the diverse data sources, analytics bottlenecks, and cyber-physical risks intrinsic to decentralized grids, highlighting the limitations of classical methods under high-dimensional, real-time constraints. Next, we examine the state-of-the-art in quantum optimization techniques, such as quantum approximate optimization algorithm (QAOA), quantum annealing (QA), and hybrid variational methods, for unit commitment (UC), market clearing, mobility scheduling, and state estimation. We then survey quantum-enhanced cybersecurity approaches, including quantum key distribution (QKD), post-quantum cryptography (PQC), and blockchain-integrated control systems, mapping them to grid communication and access control layers. Furthermore, we present a taxonomy of quantum-enabled peer-to-peer (P2P) energy trading platforms, emphasizing cryptographic trust, privacy preservation, and decentralized consensus mechanisms. Cross-domain analysis reveals how quantum modules can augment classical infrastructure to enable secure, scalable, and privacy-preserving",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
+   "id": "problem-structure-informed-quantum-approximate-optimization-large-2407d",
+   "title": "Problem-structure-informed quantum approximate optimization for large-scale unit commitment with limited qubits",
+   "titleZh": "问题结构引导的量子近似优化求解大规模机组组合",
+   "authors": [
+    "Jingxian Zhou",
+    "Ziqing Zhu",
+    "Linghua Zhu",
+    "Siqi Bu"
+   ],
+   "venue": "iEnergy",
+   "date": "2025-10-27",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.23919/ien.2025.0025",
+   "url": "https://doi.org/10.23919/ien.2025.0025",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 iEnergy:提出 problem-structure-informed QAOA 框架,充分利用 UC 的物理结构(机组耦合、时序约束)设计哈密顿量与 mixer,在维度灾难下平衡计算效率与解的最优性,是 QAOA 领域问题定制化的代表工作。",
+   "abstract": "As power systems expand, solving the unit commitment problem (UCP) becomes increasingly challenging due to the curse of dimensionality, and traditional methods often struggle to balance computational efficiency and solution optimality. To tackle this issue, we propose a problem-structure-informed quantum approximate optimization algorithm (QAOA) framework that fully exploits the quantum advantage under extremely limited quantum resources. Specifically, we leverage the inherent topological structure of power systems to decompose large-scale UCP instances into smaller subproblems, which are solvable in parallel by limited number of qubits. This decomposition not only circumvents the current hardware limitations of quantum computing but also achieves higher performance as the graph structure of the power system becomes more sparse. Consequently, our approach can be extended to future power systems that are larger and more complex.",
    "source": "backfill",
    "domains": [
     "energy"
@@ -6068,6 +6397,38 @@
    "abstract": "Abstract Differential Evolution (DE) has been found to be inefficient and inaccurate for high-dimensional complex problems. Quantum-inspired Differential Evolution (QDE) possesses quantum computational properties, enabling effective handling of high-dimensional problems. However, QDE is plagued by issues of excessive mutation and poor convergence. Therefore, a hybrid enhanced Quantum-inspired Differential Evolution algorithm, termed QAHQDE, is proposed. Within QAHQDE, an improved chaotic strategy is designed. Non-repeating distributed quantum positions are generated, enhancing the diversity of initialized individuals. A quantum-adaptive mutation strategy is adopted to address the over-mutation problem inherent in QDE. The mutation degree is adaptively reduced, and convergence performance is thereby improved. A novel hybrid mutation strategy is constructed. Weighted mutation operators are combined with standard differential evolution. Local and global search capabilities are balanced, and convergence accuracy is enhanced. The performance of QAHQDE was evaluated against 38 algorithms using 48 benchmark functions from CEC2005, CEC2010, and CEC2013, across dimensions D=100, 500, 1000, and 3000. Experimental results demonstrate that QAHQDE outperforms QDE by at least three orders of magnitude. Superior convergence performance, higher convergence accuracy, and excellent stability are exhibited by QAHQDE on most functions.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "optimal-energy-management-microgrid-based-quantum-annealing-0426b",
+   "title": "Optimal Energy Management of Microgrid Based on Quantum Annealing Algorithm",
+   "titleZh": "基于量子退火算法的微电网最优能量管理",
+   "authors": [
+    "Baonan Wang",
+    "Hui Wang",
+    "Dan Zhang"
+   ],
+   "venue": "IEEE Transactions on Industrial Informatics",
+   "date": "2025-09-25",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1109/tii.2025.3606931",
+   "url": "https://doi.org/10.1109/tii.2025.3606931",
+   "topics": [
+    "annealing",
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE TII:针对风电等可再生能源并网带来的不确定性、成本优化与稳定运行难题,提出量子退火能量管理框架,配合扰动驱动的解生成策略提升搜索多样性,是微_grid EMS 量子化的工程化实现。",
+   "abstract": "The growing integration of wind and renewable energy into microgrids introduces critical operational challenges, including uncertainty in energy management, cost optimization complexities, and the maintenance of system stability. To address these challenges, this article proposes a quantum annealing (QA)-based optimization framework enhanced by a perturbation-driven solution generation strategy and an adaptive annealing mechanism. The improved QA algorithm is rigorously evaluated through six benchmark test functions, demonstrating a 19.2% increase in optimization accuracy and a 32.7% reduction in solution variability (measured by standard deviation) compared to conventional QA. For practical validation, the framework is applied to microgrid scheduling, where the enhanced QA achieves cost reductions of 21.5%, 18.3%, and 16.7% compared to particle swarm optimization, genetic algorithms, and classical simulated annealing, respectively. Notably, the proposed adaptive mechanism further reduces daily operational costs by 11.4% compared to the baseline QA, highlighting its effectiveness in balancing exploration–exploitation tradeoffs. These advancements underscore the potential of quantum-inspired algorithms in addressing high-dimensional, nonconvex optimization problems inherent to renewable energy systems, while providing a pathway toward scalable and interpretable solutions for real-world microgrid management.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "large-scale-multiple-query-optimisation-incremental-quantum-4a688",
@@ -10333,6 +10694,36 @@
    ]
   },
   {
+   "id": "continuous-time-quantum-optimization-without-adiabatic-principle-339d9",
+   "title": "Continuous-time quantum optimization without the adiabatic principle",
+   "titleZh": "无需绝热原理的连续时间量子优化",
+   "authors": [
+    "Robert Jackson Banks",
+    "Georgios S. Raftis",
+    "Dan E. Browne",
+    "Paul A. Warburton"
+   ],
+   "venue": "Physical Review A",
+   "date": "2025-03-12",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1103/physreva.111.032414",
+   "url": "https://doi.org/10.1103/physreva.111.032414",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review A:重新审视量子退火等连续时间量子算法的物理动机——以 Planck 原理(系统倾向低能态)替代绝热定理作为理论基础,为超出绝热机制的非绝热量子优化方法提供正当性框架,具有理论正本清源的意义。",
+   "abstract": "Continuous-time quantum algorithms for combinatorial optimization problems, such as quantum annealing, have previously been motivated by the adiabatic principle. A number of continuous-time approaches exploit dynamics, however, and therefore are no longer physically motivated by the adiabatic principle. In this work, we take Planck's principle as the underlying physical motivation for continuous-time quantum algorithms. Planck's principle states that the energy of an isolated system cannot decrease as the result of a cyclic process. We use this principle to justify monotonic schedules in quantum annealing, which are not adiabatic. This approach also highlights the limitations of reverse quantum annealing in an isolated system.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "subspace-preserving-quantum-convolutional-neural-network-architectures-29d73",
    "title": "Subspace preserving quantum convolutional neural network architectures",
    "titleZh": "保持子空间的量子卷积神经网络架构",
@@ -10453,6 +10844,39 @@
    "abstract": "Quantum convolutional neural networks (QCNNs) represent a promising approach in quantum machine learning, paving new directions for both quantum and classical data analysis. This approach is particularly attractive due to the absence of the barren plateau problem, a fundamental challenge in training quantum neural networks (QNNs), and its feasibility. However, a limitation arises when applying QCNNs to classical data. The network architecture is most natural when the number of input qubits is a power of two, as this number is reduced by a factor of two in each pooling layer. The number of input qubits determines the dimensions (i.e., the number of features) of the input data that can be processed, restricting the applicability of QCNN algorithms to real-world data. To address this issue, we propose a QCNN architecture capable of handling arbitrary input data dimensions while optimizing the allocation of quantum resources such as ancillary qubits and quantum gates. This optimization is not only important for minimizing computational resources, but also essential in noisy intermediate-scale quantum (NISQ) computing, as the size of the quantum circuits that can be executed reliably is limited. Through numerical simulations, we benchmarked the classification performance of various QCNN architectures across multiple datasets with arbitrary input data dimensions, including MNIST, Landsat satellite, Fashion-MNIST, and Ionosphere. The results validate that the proposed QCNN architect",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "electrical-load-forecasting-power-systems-based-quantum-14b93",
+   "title": "Electrical load forecasting in power systems based on quantum computing using time series-based quantum artificial intelligence",
+   "titleZh": "基于量子计算与时间序列的电力系统负荷预测",
+   "authors": [
+    "Mohammad Reza Habibi",
+    "Saeed Golestan",
+    "Yanpeng Wu",
+    "Josep Maria Guerrero",
+    "Juan C. Vásquez"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2025-03-03",
+   "year": 2025,
+   "citations": 15,
+   "arxivId": "",
+   "doi": "10.1038/s41598-025-89933-x",
+   "url": "https://doi.org/10.1038/s41598-025-89933-x",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对用户行为不可预测导致的负荷曲线高不确定性,用量子计算增强的时间序列方法做电力负荷预测,为能量管理策略提供更可靠的输入,是量子方法进入负荷预测主流任务的实证。",
+   "abstract": "A proper, reliable, and economic operation of a power system relies on a precise energy management strategy. For a reliable energy management strategy, information about the power system including power production and power consumption is required. However, consumer behaviour can be unpredictable, which can result to a high level of uncertainties for the load profile. So, this type of issue (existence of the uncertainty in power system) makes the energy management a complex task. The knowledge about the future state of the power system (e.g., the values of loads) can reduce the difficulty of this task, and it can lead to a more efficient energy management. This paper implements quantum computing-based artificial neural network to predict the future values of loads. For this purpose, this paper uses hybrid quantum/classical artificial neural network for a short-term forecasting of loads. The implemented quantum computing-based strategy is deployed using time series-based technique without using extra information (e.g., the weather condition, and behaviour of the consumer), and it only uses the current and historical values of the load to predict the future value of that. To examine the effectiveness of the hybrid quantum/classical artificial neural network, two different types of loads are selected from an experimental lab and the quantum-based approach is tested on those loads. The obtained results can proof the potential of quantum artificial intelligence to be used for fore",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "quantum-ai-future-machine-learning-optimization-d506c",
@@ -11354,6 +11778,37 @@
    "abstract": "Quantum computing is entering a transformative phase with the emergence of logical quantum processors, which hold the potential to tackle complex problems beyond classical capabilities. While significant progress has been made, applying quantum algorithms to real-world problems remains challenging. Hybrid quantum-classical techniques have been explored to bridge this gap, but they often face limitations in expressiveness, trainability, or scalability. In this work, we introduce conditional Generative Quantum Eigensolver (conditional-GQE), a context-aware quantum circuit generator powered by an encoder-decoder Transformer. Focusing on combinatorial optimization, we train our generator for solving problems with up to 10 qubits, exhibiting nearly perfect performance on new problems. By leveraging the high expressiveness and flexibility of classical generative models, along with an efficient preference-based training scheme, conditional-GQE provides a generalizable and scalable framework for quantum circuit generation. Our approach advances hybrid quantum-classical computing and contributes to accelerate the transition toward fault-tolerant quantum computing.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-embedded-robust-optimization-resilience-constrained-unit-5889f",
+   "title": "Quantum-Embedded Robust Optimization for Resilience-Constrained Unit Commitment",
+   "titleZh": "面向韧性约束机组组合的量子嵌入鲁棒优化",
+   "authors": [
+    "Wei Fu",
+    "Haipeng Xie",
+    "Chen Chen",
+    "Zhaohong Bie"
+   ],
+   "venue": "IEEE Transactions on Power Systems",
+   "date": "2025-01-27",
+   "year": 2025,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.1109/tpwrs.2025.3534156",
+   "url": "https://doi.org/10.1109/tpwrs.2025.3534156",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE TPS:把极端天气下的韧性约束机组组合(RCUC)嵌入量子计算框架,在鲁棒优化中引入 QC 降低规模导致的计算负担,兼顾安全约束与求解效率,是\"量子×电网韧性\"方向的代表作。",
+   "abstract": "Optimal resilience-constrained unit commitment (RCUC) enhances power system resilience during extreme weather events. As a remarkable disruptive methodology, the introduction of quantum computing (QC) can reduce scale-induced computational burdens and demonstrate enormous potential in solving combinatorial optimization problems, e.g., unit commitment. Considering the paramount importance of safety constraints and disaster uncertainty, this paper introduces a quantum-embedded robust optimization approach for RCUC. By leveraging duality theory, linearization, and decomposition techniques, RCUC is reformulated as a two-stage problem. A quantum alternating direction method of multipliers embedded column-and-constraint generation (QADMM-C&CG) algorithm is proposed, where the reconstructed quadratic unconstrained binary optimization model or Ising model can be integrated and solved by both universal and specialized quantum computers. The effectiveness and scalability of QADMM-C&CG algorithm are validated on the modified IEEE-39 system under spatiotemporal typhoon events. Comparative numerical experiments on quantum simulators and real quantum machine, alongside classical computing, highlight the potential advantages, current challenges and future directions of QC.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "modeling-prediction-demand-response-based-deep-quantum-2795e",
@@ -14077,6 +14532,40 @@
    "domains": []
   },
   {
+   "id": "quantum-reinforcement-learning-based-two-stage-unit-9a269",
+   "title": "Quantum Reinforcement Learning-Based Two-Stage Unit Commitment Framework for Enhanced Power Systems Robustness",
+   "titleZh": "基于量子强化学习的两阶段机组组合框架",
+   "authors": [
+    "Xiang Wei",
+    "Ziqing Zhu",
+    "Zhu, Linghua",
+    "Hu, Ze",
+    "Zhang, Xian",
+    "Wang, Guibin",
+    "Bu, Siqi",
+    "Chan, Ka Wing"
+   ],
+   "venue": "arXiv",
+   "date": "2024-10-28",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2410.21240",
+   "doi": "10.48550/arxiv.2410.21240",
+   "url": "https://arxiv.org/abs/2410.21240",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "在建模侧引入虚拟电厂(VPP)聚合,在算法侧用量子强化学习求解两阶段 UC:利用 QRL 处理可再生能源不确定性下的实时启停调度,展示 QRL 在电力系统时序决策中的应用路径。",
+   "abstract": "Unit commitment (UC) optimizes the start-up and shutdown schedules of generating units to meet load demand while minimizing costs. However, the increasing integration of renewable energy introduces uncertainties for real-time scheduling. Existing solutions face limitations both in modeling and algorithmic design. At the modeling level, they fail to incorporate widely adopted virtual power plants (VPPs) as flexibility resources, missing the opportunity to proactively mitigate potential real-time imbalances or ramping constraints through foresight-seeing decision-making. At the algorithmic level, existing probabilistic optimization, multi-stage approaches, and machine learning, face challenges in computational complexity and adaptability. To address these challenges, this study proposes a novel two-stage UC framework that incorporates foresight-seeing sequential decision-making in both day-ahead and real-time scheduling, leveraging VPPs as flexibility resources to proactively reserve capacity and ramping flexibility for upcoming renewable energy uncertainties over several hours. In particular, we develop quantum reinforcement learning (QRL) algorithms that integrate the foresight-seeing sequential decision-making and scalable computation advantages of deep reinforcement learning (DRL) with the parallel and high-efficiency search capabilities of quantum computing. Experimental results demonstrate that the proposed QRL-based approach outperforms in computational efficiency, real-",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "materials"
+   ]
+  },
+  {
    "id": "applying-quantum-approximate-optimization-heterogeneous-vehicle-routing-ec61a",
    "title": "Applying quantum approximate optimization to the heterogeneous vehicle routing problem",
    "titleZh": "量子近似优化算法应用于异构车辆路径问题",
@@ -16401,6 +16890,37 @@
    "domains": []
   },
   {
+   "id": "esqfl-digital-twin-driven-explainable-secured-quantum-a753e",
+   "title": "ESQFL: Digital Twin-Driven Explainable and Secured Quantum Federated Learning for Voltage Stability Assessment in Smart Grids",
+   "titleZh": "ESQFL:数字孪生驱动的可解释安全量子联邦学习用于电压稳定评估",
+   "authors": [
+    "Chao Ren",
+    "Zhao Yang Dong",
+    "Han Yu",
+    "Minrui Xu",
+    "Zehui Xiong",
+    "Dusit Tao Niyato"
+   ],
+   "venue": "IEEE Journal of Selected Topics in Signal Processing",
+   "date": "2024-07-01",
+   "year": 2024,
+   "citations": 27,
+   "arxivId": "",
+   "doi": "10.1109/jstsp.2024.3485878",
+   "url": "https://doi.org/10.1109/jstsp.2024.3485878",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对风电系统电压稳定评估(VSA)中传统集中式机器学习的隐私与单点风险,提出数字孪生 + 量子联邦学习框架 ESQFL,兼顾可解释性与安全性,是量子联邦学习在电网分析中的代表性架构。",
+   "abstract": "Voltage stability remains a pivotal concern in power systems, especially with the integration of renewable energy sources and high-demand loads that use induction motors. Recent blackouts have highlighted the vulnerability of wind power systems to voltage stability assessment (VSA) threats. Traditional machine learning-based VSA methods, while efficient, often rely on centralized storage systems, making them susceptible to single-point failures. The incorporation of Digital Twins (DT), providing real-time virtual representations of physical power system components, offers transformative capabilities in prediction, analysis, and profit allocation within smart grids. This paper introduces anExplainable andSecuredQuantumFederatedLearning (ESQFL) method for VSA, an innovative solution combining quantum techniques, differential privacy (DP), and Shapley value calculation. ESQFL, by leveraging the continuous insights from DT, emphasizes localized data analytics in a decentralized framework, integrating a Gaussian-based DP mechanism for enhanced data privacy and leveraging quantum teleportation for efficient Shapley value transmission. The paper systematically explores these concepts, compares the centralized and decentralized architectures, and provides comprehensive evaluations of ESQFL's efficacy on cross-out testing systems. The findings underscore ESQFL's potential as a pioneering solution in smart grid management, combining quantum computing with the advanced monitoring capabi",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
    "id": "quantum-face-recognition-multigate-quantum-convolutional-neural-fd17d",
    "title": "Quantum Face Recognition With Multigate Quantum Convolutional Neural Network",
    "titleZh": "基于多门量子卷积神经网络的量子人脸识别",
@@ -17499,6 +18019,36 @@
    "domains": []
   },
   {
+   "id": "quantum-support-vector-machine-forecasting-house-energy-6bc50",
+   "title": "Quantum support vector machine for forecasting house energy consumption: a comparative study with deep learning models",
+   "titleZh": "量子支持向量机用于家庭能耗预测:与经典方法的对比研究",
+   "authors": [
+    "Karan Kumar K",
+    "Mounica Nutakki",
+    "Suprabhath Koduru",
+    "Srihari Mandava"
+   ],
+   "venue": "Journal of Cloud Computing Advances Systems and Applications",
+   "date": "2024-05-20",
+   "year": 2024,
+   "citations": 32,
+   "arxivId": "",
+   "doi": "10.1186/s13677-024-00669-x",
+   "url": "https://doi.org/10.1186/s13677-024-00669-x",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把量子支持向量机(QSVM)应用于智慧电网家庭能源管理系统(HEMS)的能耗预测,与经典机器学习方法系统对比;发表于 J Cloud Computing(32 引用),是 QML 在能源负荷预测方向被引最多的实证工作之一。",
+   "abstract": "Abstract The Smart Grid operates autonomously, facilitating the smooth integration of diverse power generation sources into the grid, thereby ensuring a continuous, reliable, and high-quality supply of electricity to end users. One key focus within the realm of smart grid applications is the Home Energy Management System (HEMS), which holds significant importance given the fluctuating availability of generation and the dynamic nature of loading conditions. This paper presents an overview of HEMS and the methodologies utilized for load forecasting. It introduces a novel approach employing Quantum Support Vector Machine (QSVM) for predicting periodic power consumption, leveraging the AMPD2 dataset. In the establishment of a microgrid, various factors such as energy consumption patterns of household appliances, solar irradiance, and overall load are taken into account in dataset creation. In the realm of load forecasting in Home Energy Management Systems (HEMS), the Quantum Support Vector Machine (QSVM) stands out from other methods due to its unique approach and capabilities. Unlike traditional forecasting methods, QSVM leverages quantum computing principles to handle complex and nonlinear electricity consumption patterns. QSVM demonstrates superior accuracy by effectively capturing intricate relationships within the data, leading to more precise predictions. Its ability to adapt to diverse datasets and produce significantly low error values, such as RMSE and MAE, showcases its",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "it-cloud"
+   ]
+  },
+  {
    "id": "applications-quantum-machine-learning-quantitative-finance-93ed5",
    "title": "Applications of Quantum Machine Learning for Quantitative Finance",
    "titleZh": "量子机器学习在量化金融中的应用",
@@ -18421,6 +18971,42 @@
    "domains": []
   },
   {
+   "id": "coherent-control-fine-structure-qubit-single-alkaline-de9fd",
+   "title": "Coherent Control of the Fine-Structure Qubit in a Single Alkaline-Earth Atom",
+   "titleZh": "单个碱土原子精细结构量子比特的相干控制",
+   "authors": [
+    "Govind Unnikrishnan",
+    "P. Ilzhöfer",
+    "A. Scholz",
+    "Christian Hölzl",
+    "Aaron Götzelmann",
+    "Ratnesh Kumar Gupta",
+    "Jeffrey Zhao",
+    "Johann Krauter",
+    "Sebastian Weber",
+    "Nastasia Makki",
+    "Hans Peter Büchler",
+    "Tilman Pfau",
+    "Florian Meinert"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2024-04-11",
+   "year": 2024,
+   "citations": 46,
+   "arxivId": "",
+   "doi": "10.1103/physrevlett.132.150606",
+   "url": "https://doi.org/10.1103/physrevlett.132.150606",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRL:首次在光镊单个锶-88 原子上实现编码于自旋轨道耦合亚稳态 3P0/3P2 的新型中性原子量子比特,用相锁定时钟激光驱动跨越 17 THz 能隙的拉比振荡并演示拉姆齐干涉,单比特旋转速度有望比肩里德堡双比特门,为中性原子平台增添新比特类型。",
+   "abstract": "We report on the first realization of a novel neutral atom qubit encoded in the spin-orbit coupled metastable states ^{3}P_{0} and ^{3}P_{2} of a single ^{88}Sr atom trapped in an optical tweezer. Raman coupling of the qubit states promises rapid single-qubit rotations on par with the fast Rydberg-mediated two-body gates. We demonstrate preparation, readout, and coherent control of the qubit. In addition to driving Rabi oscillations bridging an energy gap of more than 17 THz using a pair of phase-locked clock lasers, we also carry out Ramsey spectroscopy to extract the transverse qubit coherence time T_{2}. When the tweezer is tuned into magic trapping conditions, which is achieved in our setup by tuning the tensor polarizability of the ^{3}P_{2} state via an external control magnetic field, we measure T_{2}=1.2 ms. A microscopic quantum mechanical model is used to simulate our experiments including dominant noise sources. We identify the main constraints limiting the observed coherence time and project improvements to our system in the immediate future. Our Letter opens the door for a so-far-unexplored qubit encoding concept for neutral atom-based quantum computing.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "solving-optimization-problems-local-light-shift-encoding-fb235",
    "title": "Solving optimization problems with local light-shift encoding on Rydberg quantum annealers",
    "titleZh": "里德堡量子退火机上局域光频移编码求解组合优化",
@@ -18766,6 +19352,33 @@
    "tags": [],
    "summaryZh": "Nature Photonics 里程碑(被引 235):演示基于单光子的多功能量子计算平台,整合低退相干、室温操作与网络化优势。该平台在变分量子算法与量子优化中具有天然适配性。",
    "abstract": "Abstract Quantum computing aims at exploiting quantum phenomena to efficiently perform computations that are unfeasible even for the most powerful classical supercomputers. Among the promising technological approaches, photonic quantum computing offers the advantages of low decoherence, information processing with modest cryogenic requirements, and native integration with classical and quantum networks. So far, quantum computing demonstrations with light have implemented specific tasks with specialized hardware, notably Gaussian boson sampling, which permits the quantum computational advantage to be realized. Here we report a cloud-accessible versatile quantum computing prototype based on single photons. The device comprises a high-efficiency quantum-dot single-photon source feeding a universal linear optical network on a reconfigurable chip for which hardware errors are compensated by a machine-learned transpilation process. Our full software stack allows remote control of the device to perform computations via logic gates or direct photonic operations. For gate-based computation, we benchmark one-, two- and three-qubit gates with state-of-the art fidelities of 99.6 ± 0.1%, 93.8 ± 0.6% and 86 ± 1.2%, respectively. We also implement a variational quantum eigensolver, which we use to calculate the energy levels of the hydrogen molecule with chemical accuracy. For photon native computation, we implement a classifier algorithm using a three-photon-based quantum neural network an",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "guided-quantum-walk-2e084",
+   "title": "Guided quantum walk",
+   "titleZh": "导向量子行走:绝热定理之外的量子退火动力学视角",
+   "authors": [
+    "Sebastian Schulz",
+    "Dennis Willsch",
+    "Kristel F. L. Michielsen"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2024-03-21",
+   "year": 2024,
+   "citations": 14,
+   "arxivId": "",
+   "doi": "10.1103/physrevresearch.6.013312",
+   "url": "https://doi.org/10.1103/physrevresearch.6.013312",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review Research:用局域振幅转移(LAT)理论分析量子行走与量子退火——把问题哈密顿量的本征空间表示为超立方体图,证明概率幅通过一系列局域 Rabi 振荡遍历搜索空间,为理解退火\"为何能找到解\"提供超越绝热定理的动力学图像。",
+   "abstract": "We utilize the theory of local amplitude transfer (LAT) to gain insights into quantum walks (QWs) and quantum annealing (QA) beyond the adiabatic theorem. By representing the eigenspace of the problem Hamiltonian as a hypercube graph, we demonstrate that probability amplitude traverses the search space through a series of local Rabi oscillations. We argue that the amplitude movement can be systematically guided towards the ground state using a time-dependent hopping rate based solely on the problem's energy spectrum. Building upon these insights, we extend the concept of multistage QW by introducing the guided quantum walk (GQW) as a bridge between QW-like and QA-like procedures. We assess the performance of the GQW on exact cover, traveling salesperson, and garden optimization problems with 9 to 30 qubits. Our results provide evidence for the existence of optimal annealing schedules, beyond the requirement of adiabatic time evolutions. These schedules might be capable of solving large-scale combinatorial optimization problems within evolution times that scale linearly in the problem size. Published by the American Physical Society 2024",
    "source": "backfill",
    "domains": []
   },
@@ -20076,6 +20689,35 @@
    "abstract": "The quantum supremacy experiment, such as Google Sycamore [F. Arute et al., Nature (London) 574, 505 (2019).NATUAS0028-083610.1038/s41586-019-1666-5], poses a great challenge for classical verification due to the exponentially increasing compute cost. Using a new-generation Sunway supercomputer within 8.5 d, we provide a direct verification by computing 3×10^{6} exact amplitudes for the experimentally generated bitstrings, obtaining a cross-entropy benchmarking fidelity of 0.191% (the estimated value is 0.224%). The leap of simulation capability is built on a multiple-amplitude tensor network contraction algorithm which systematically exploits the \"classical advantage\" (the inherent \"store-and-compute\" operation mode of von Neumann machines) of current supercomputers, and a fused tensor network contraction algorithm which drastically increases the compute efficiency on heterogeneous architectures. Our method has a far-reaching impact in solving quantum many-body problems, statistical problems, as well as combinatorial optimization problems.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "fast-quantum-algorithm-searching-quasi-optimal-solutions-da5e0",
+   "title": "A Fast Quantum Algorithm for Searching the Quasi-Optimal Solutions of Unit Commitment",
+   "titleZh": "搜索机组组合准最优解的快速量子算法",
+   "authors": [
+    "Xiaodong Zheng",
+    "Jianhui Wang",
+    "Meng Yue"
+   ],
+   "venue": "IEEE Transactions on Power Systems",
+   "date": "2024-01-05",
+   "year": 2024,
+   "citations": 18,
+   "arxivId": "",
+   "doi": "10.1109/tpwrs.2024.3350382",
+   "url": "https://doi.org/10.1109/tpwrs.2024.3350382",
+   "topics": [
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "发表于 IEEE Trans. Power Systems:针对电力旗舰优化问题机组组合(UC),设计基于 Grover 搜索的量子算法并用量子 Oracle 搜索准最优解,是该方向被引最高的早期工作之一(18 引用),确立了\"量子搜索解 UC\"的基本范式。",
+   "abstract": "The electric power industry faces tough optimization problems that are challenging for classical computers, e.g., the unit commitment (UC). Quantum computing has the potential to provide a speedup for combinatorial optimization problems utilizing ad hoc algorithms like Grover's search algorithm. The quantum oracle is indispensable for Grover's search, yet it is difficult to realize. In this letter, we develop a way to construct efficient oracles for solving UC problems in Grover's framework. The oracle features a physics-informed circuit and a variational quantum circuit picking up good solutions. A quantum algorithm that leverages the oracle is then proposed, which could reduce the number of tractable linear programming subproblems required to solve the targeted UC problem when working in conjugation with classical computers. The oracle and algorithm are validated by results obtained on real quantum hardware and simulators.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "physics-informed-neural-networks-quantum-control-29ab9",

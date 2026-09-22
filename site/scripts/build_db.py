@@ -234,7 +234,7 @@ def main():
         core = text[:650]
         if not QS.search(core):
             return False
-        n = len(re.findall(r"quantum", core, re.I)) + len(re.findall(r"QAOA|QUBO|Ising machine|quantum anneal|variational quantum|量子退火|量子计算|量子优化|量子启发", core, re.I))
+        n = len(re.findall(r"quantum", core, re.I)) + len(re.findall(r"QAOA|QUBO|Ising machine|quantum anneal|variational quantum|neutral[- ]atom|中性原子|量子退火|量子计算|量子优化|量子启发", core, re.I))
         return n >= 2
 
     kept, culled_list = [], []
