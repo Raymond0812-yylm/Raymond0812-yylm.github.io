@@ -39595,5 +39595,1382 @@
   "doi": "10.65000/kwzgex75",
   "citations": 0,
   "theme": "quantum annealing logistics"
+ },
+ {
+  "fid": "373f7756191b",
+  "title": "ChebIoD: a Chebyshev polynomial-based lightweight authentication scheme for internet of drones environments",
+  "authors": [
+   "Zeyad Ghaleb Al-Mekhlafi",
+   "Jalal Mohammed Hachim Altmemi",
+   "‪Mahmood A. Al-Shareeda‬‏",
+   "Ahmed Abbas Jasim Al-Hchaimi",
+   "Raad Z. Homod",
+   "Badiea Abdulkarem Mohammed",
+   "Gharbi Alshammari",
+   "Kawther A. Al‐Dhlan",
+   "Reem Alrashdi",
+   "Yaser A. Alkhabra"
+  ],
+  "abstract": "The Internet of Drones (IoD) brings an unprecedented prospect for massive aerial data acquisition; on the other hand, it meets severe hindrances in how to accomplish robust, secure, and economic identity authentication with the limited resources available. In this paper, ChebIoD (Chebyshev polynomial-based mutual authentication and session key generation) is proposed as a new mutual authentication and session key agreement protocol for IoD environments. ChebIoD differs from the existing methods of blockchain, PUF, and ECC in that it consolidates three elaborate mechanisms: (a) post-quantum-oriented design methodology; (b) a dynamic solution for key update/revocation scheme; and (c) formal verification using BAN logic, Real-Or-Random (ROR) model, and AVISPA. The principal difference is that we are able to assign a precise definition of security for key privacy; namely, the protocol achieves both forward and backward secrecy along with performance gains for lightweight polynomial computations without requiring exponential hard assumptions. An Enhanced Security Assessment covers side-channel threats as well as the robustness of the Trusted Authority. We also show an updated performance comparison to the IoD-specific AKE protocols and state-of-the-art schemes in recent works on Blockchain-, Physical Unclonable Function (PUF)-, Elliptic Curve Cryptography (ECC)-, and Chebyshev-based approaches. In identical simulation settings, ChebIoD decreases computation time by up to 63.5%, reduces communication overhead by up to 62.4%, and lowers energy consumption by up to 66.7%, compared to state-of-the-art solutions. These improvements are consistent across multiple baselines, though the exact gains vary depending on the compared protocol. The practical utility is showcased by actual IoD projects for disaster response, precision agriculture, and urban air mobility solutions. Overall, ChebIoD demonstrates efficient and scalable authentication for IoD under simulation.",
+  "date": "2025-09-25",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-025-18387-y",
+  "citations": 13,
+  "theme": "urban air mobility quantum"
+ },
+ {
+  "fid": "02c7ebf5719e",
+  "title": "Securing the low-altitude economy: a survey",
+  "authors": [
+   "Minrui Yan",
+   "Ruiqi Dong",
+   "Qing‐Long Han",
+   "Zehang Deng",
+   "Wanlun Ma",
+   "Xiaogang Zhu",
+   "Wei Zhou",
+   "Sheng Wen",
+   "Yang Xiang"
+  ],
+  "abstract": "Abstract The rapid growth of the low-altitude economy, including unmanned aerial vehicles (UAVs) and urban air mobility (UAM), is reshaping industries from transportation to emergency response. Powered by advances in fifth-generation (5G) and 5G-advanced (5.5G) connectivity, artificial intelligence (AI), and new energy systems, these platforms are becoming increasingly autonomous and capable. However, their growing software complexity introduces critical cybersecurity risks. Vulnerabilities in communication protocols, onboard firmware, and AI systems can be exploited to hijack UAVs, disrupt operations, or leak sensitive data. While research has addressed isolated aspects, a unified security perspective is still lacking. This work presents a systematic review of software-level security challenges and defenses in low-altitude UAV/UAM systems. We first categorize major attack surfaces across communication, firmware, and AI layers. Furthermore, we survey defense mechanisms suited to real-time, resource-constrained aerial platforms. Finally, we propose future directions, including quantum-resistant communication protocols, hardware-software cosecurity, and edge-AI-driven architectures. Our work aims to inform researchers, practitioners, and regulators in developing integrated, resilient security strategies for the evolving low-altitude ecosystem.",
+  "date": "2026-03-25",
+  "venue": "Science China Information Sciences",
+  "arxiv_id": "",
+  "doi": "10.1007/s11432-025-4811-2",
+  "citations": 1,
+  "theme": "urban air mobility quantum"
+ },
+ {
+  "fid": "3f8ea2ec6285",
+  "title": "Q-CARE-VLC: Quantum-Secured Vehicular Visible-Light Communication with Key-Continuity-Aware Handover for Smart-Ambulance Healthcare",
+  "authors": [
+   "Vivek Kumar",
+   "Keshav Kumar",
+   "Mohit Kumar Srivastava",
+   "Abhishek Rathour",
+   "Gaurav Sahu"
+  ],
+  "abstract": "Transmission of patient telemetry, diagnostic video, electronic health records, and emergency-control information from a moving ambulance requires simultaneous low latency, high reliability, and strong confidentiality. Vehicular visible-light communication (V-VLC) offers a directional high-rate optical channel, but classical key exchange remains exposed to long-term cryptanalytic risk, and quantum key distribution (QKD) is difficult to sustain under mobility because the quantum link is sensitive to range, background light, pointing error, and handover interruption. This paper proposes Q-CARE-VLC, a dual-plane quantum-secured V-VLC architecture for connected ambulances. The architecture combines a high-rate classical vehicle-to-infrastructure (V2I) VLC data plane with a co-aligned decoy-state BB84 quantum key plane, trusted roadside quantum-VLC units (QVUs), a hospital key orchestrator, a dual-aperture make-before-break quantum handover mechanism, and a priority-aware quantum-key buffer. A unified analytical model is developed for vehicular optical attenuation, atmospheric loss, pointing jitter, classical achievable rate, quantum bit error rate (QBER), asymptotic decoy-state secret-key rate (SKR), key-buffer dynamics, handover interruption, and deadline-constrained medical traffic. A quantum-key-aware handover and scheduling policy gives critical physiological traffic precedence while pre-acquiring keys from the next QVU before the active quantum session is released. Monte Carlo and time-slotted simulations over a 4-km urban emergency corridor, in which all schemes share one simulator and one physical-layer parameter set, show that at an aggregate key-refresh demand of 75 kb/s, Q-CARE-VLC maintains 100% quantum-secure service continuity compared with 80.16% for a static-buffer QKD baseline and 78.77% for break-before-make QKD. At 80 km/h the modeled handover interruption fraction falls from 6.25% to 0.42%. For a daytime clear-air link, the modeled SKR is 70.62 kb/s at 40 m and 13.96 kb/s at 80 m, while the classical VLC plane remains above 83 Mb/s at 80 m. Under an 80 Mb/s aggregate medical load, the proposed scheduler satisfies the 20-ms critical-traffic deadline in 100% of slots, whereas a direct-QKD/FIFO baseline reaches only 12.69%. The results are obtained from a calibrated simulation study rather than a hardware prototype, and they establish a vehicular-healthcare architecture in which quantum key generation, mobility management, and clinical traffic ",
+  "date": "2026-08-19",
+  "venue": "International Journal of Computer Information Systems and Industrial Management Applications",
+  "arxiv_id": "",
+  "doi": "10.70917/ijcisim-2026-4915",
+  "citations": 0,
+  "theme": "urban air mobility quantum"
+ },
+ {
+  "fid": "ba59b01dbf78",
+  "title": "6G-Enabled Communication Frameworks for Autonomous Vehicles in Smart Cities",
+  "authors": [
+   "Allanki Sanyasi Rao",
+   "K. Chiranjeevi",
+   "B Sandeep Kumar"
+  ],
+  "abstract": "Sixth-Generation (6G) wireless systems are expected to fundamentally transform Autonomous Vehicle (AV) communications by delivering ultra-low latency, exceptional reliability, and intelligent network management required for next-generation smart city environments. In contrast to fifth-generation (5G) networks, which face constraints in latency performance and large-scale scalability, 6G aims to achieve sub-millisecond end-to-end communication, terabit-level data rates, and reliability beyond 99.99999%, enabling extremely dense vehicular deployments. This chapter provides a detailed examination of 6G-enabled vehicle-to-everything (V2X) communication frameworks, focusing on architectural advancements, core enabling technologies, and security considerations. A hierarchical three-layer architecture is introduced that combines terahertz communications, integrated sensing and communication, AI-native network slicing, and quantum-resilient cryptographic mechanisms to support collision-free platooning, cooperative perception, and intelligent traffic coordination. The chapter further explores emerging concepts such as semantic communication, federated learning-based mobility intelligence, and edge-assisted blockchain for secure data exchange. Performance evaluations indicate substantial reductions in collision risk and significant latency improvements in dense urban scenarios. The chapter concludes by outlining open research challenges and a forward-looking roadmap toward 2030, emphasizing quantum-safe security and satellite–air–ground network convergence for resilient autonomous mobility.",
+  "date": "2026-01-01",
+  "venue": "Dialnet (Universidad de la Rioja)",
+  "arxiv_id": "",
+  "doi": "10.47750/jett.2026.17.01.03",
+  "citations": 0,
+  "theme": "urban air mobility quantum"
+ },
+ {
+  "fid": "80869fcc28b8",
+  "title": "AI‐Driven Electrolyte Additive Selection to Boost Aqueous Zn‐Ion Batteries Stability",
+  "authors": [
+   "Haobo Li",
+   "Junnan Hao",
+   "Shi‐Zhang Qiao"
+  ],
+  "abstract": "In tackling the stability challenge of aqueous Zn-ion batteries (AZIBs) for large-scale energy storage, the adoption of electrolyte additive emerges as a practical solution. Unlike current trial-and-error methods for selecting electrolyte additives, a data-driven strategy is proposed using theoretically computed surface free energy as a stability descriptor, benchmarked against experimental results. Numerous additives are calculated from existing literature, forming a database for machine learning (ML) training. Importantly, this ML model relies solely on experimental values, effectively addressing the challenge of large solvent molecule models that are difficult to handle with quantum chemistry computation. The interpretable linear regression algorithm identifies the number of heavy atoms in the additive molecule and the liquid surface tension as key factors. Artificial intelligence (AI) clustering categorizes additive molecules, identifying regions with the most significant impact on enhancing battery stability. Experimental verification successfully confirms the exceptional performance of 1,2,3-butanetriol and acetone in the optimal region. This integrated methodology, combining theoretical models, data-driven ML, and experimental validation, provides insights into the rational design of battery electrolyte additives.",
+  "date": "2024-10-23",
+  "venue": "Advanced Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adma.202411991",
+  "citations": 104,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "ab693c52b68c",
+  "title": "Vacancy‐Defect Ternary Topological Insulators Bi2Se2Te Encapsulated in Mesoporous Carbon Spheres for High Performance Sodium Ion Batteries and Hybrid Capacitors",
+  "authors": [
+   "Lijuan Hu",
+   "Changyu Liu",
+   "Fan Zhang",
+   "Hui Wang",
+   "Beibei Wang"
+  ],
+  "abstract": "Abstract Ternary topological insulators have attracted worldwide attention because of their broad application prospects in fields such as magnetism, optics, electronics, and quantum computing. However, their potential and electrochemical mechanisms in sodium ion batteries (SIBs) and hybrid capacitors (SIHCs) have not been fully studied. Herein, a composite material comprising vacancy‐defects ternary topological insulator Bi2Se2Te encapsulated in mesoporous carbon spheres (Bi2Se2Te@C) is designed. Bi2Se2Te with ample vacancy‐defects has a wide interlayer spacing to enable frequent insertion/extraction of Na+ and boost reaction kinetics within the electrode. Meanwhile, the Bi2Se2Te@C with optimized yolk–shell structure can buffer the volume variation without breaking the outer protective carbon shell, ensuring structural stability and integrity. As expected, the Bi2Se2Te@C electrode delivers high reversible capacity and excellent rate capability in half SIB cells. Various electrochemical analyses and theoretical calculations manifest that Bi2Se2Te@C anode confirms the synergistic effect of ternary chalcogenide systems and suitable void space yolk‐shell structure. Consequently, the full cells of SIB and SIHC coupled with Bi2Se2Te@C anode exhibit good performance and high energy/power density, indicating its widespread practical applications. This design is expected to offer a reliable strategy for further exploring advanced topological insulators in Na+‐based storage systems.",
+  "date": "2024-05-11",
+  "venue": "Small",
+  "arxiv_id": "",
+  "doi": "10.1002/smll.202311079",
+  "citations": 16,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "1b7dcfaad13c",
+  "title": "Intrinsic superconducting phase battery",
+  "authors": [
+   "Feng Li",
+   "Masayuki Higashi",
+   "Taichi Sato",
+   "Masamitsu Tanaka",
+   "Akira Fujimaki"
+  ],
+  "abstract": "Leveraging the quantization properties inherent in superconductors, we present the development of an intrinsic superconducting phase battery. This advancement is achieved by integrating a ferromagnetic π-phase Josephson junction (π-JJ) within a superconducting ring. The core innovation lies in harnessing the potential energy of the π-JJ to generate an intrinsic circulating current, thereby inducing a phase difference as the current goes through the geometric inductance. This mechanism allows for tuning the phase bias φ (0 < φ < π) through an arrangement of the geometric inductance in the battery. We integrate the intrinsic phase batteries into superconducting quantum interference devices, where we verified the effectiveness of the induced phase bias. The polarity of the phase battery is determined by the direction of the intrinsic circulating current, which can be initialized by an external magnetic field. The design methodology for precise intrinsic phase bias has been established. Our findings not only show the feasibility of generating an intrinsic and adjustable phase bias using established fabrication techniques but also open new avenues for enhancing the design, efficiency, and functionality of superconducting electronics, promising to accelerate advancements in digital and quantum computing technologies.",
+  "date": "2024-05-27",
+  "venue": "Applied Physics Letters",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0212240",
+  "citations": 3,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "0fde8ea6754c",
+  "title": "AI-Based Nano-Scale Material Property Prediction for Li-Ion Batteries",
+  "authors": [
+   "Mohit Anil Lal",
+   "Akashdeep Singh",
+   "Ryan Mzik",
+   "Amirmasoud Lanjan",
+   "Seshasai Srinivasan"
+  ],
+  "abstract": "In this work, we propose a machine learning (ML)-based technique that can learn interatomic potential parameters for various particle–particle interactions employing quantum mechanics (QM) calculations. This ML model can be used as an alternative for QM calculations for predicting non-bonded interactions in a computationally efficient manner. Using these parameters as input to molecular dynamics simulations, we can predict a diverse range of properties, enabling researchers to design new and novel materials suitable for various applications in the absence of experimental data. We employ our ML-based technique to learn the Buckingham potential, a non-bonded interatomic potential. Subsequently, we utilize these predicted values to compute the densities of four distinct molecules, achieving an accuracy exceeding 93%. This serves as a strong demonstration of the efficacy of our proposed approach.",
+  "date": "2024-01-29",
+  "venue": "Batteries",
+  "arxiv_id": "",
+  "doi": "10.3390/batteries10020051",
+  "citations": 4,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "3d9088a81977",
+  "title": "PrivShield-CQ: A chaotic–quantum encryption framework with lightweight authentication for post-quantum secure consumer applications",
+  "authors": [
+   "Asia Othman Aljahdali"
+  ],
+  "abstract": "The rapid expansion of consumer technologies such as Internet of Things devices, smart home systems, and wearable electronics has created new security challenges, especially as quantum computing threatens traditional encryption methods. This paper proposes PrivShield-CQ, a chaotic–quantum encryption framework designed for post-quantum secure consumer applications. The framework integrates a six-dimensional hyperchaotic Chen system for high-entropy key generation with National Institute of Standards and Technology (NIST) standardized post-quantum algorithms, including Module Lattice Key Encapsulation Mechanism (ML-KEM), Module Lattice Digital Signature Algorithm (ML-DSA), and Stateless Hash Digital Signature Algorithm (SLH-DSA). Extensive experiments across devices such as ESP32, Raspberry Pi 4B, and Galaxy S23 demonstrate significant improvements: 99.7% quantum attack resistance, 65.4% lower authentication latency with 3.7 ms average response, 31.4% energy savings, and 33.0% extended battery life compared to existing post-quantum cryptography approaches. Shannon entropy analysis (7.9973/8.0) and successful completion of all 15 National Institute of Standards and Technology randomness tests confirm cryptographic strength. Validated through a six-month real-world deployment with over 10,000 secure interactions per hour, PrivShield-CQ bridges the gap between theoretical quantum-safe cryptography and practical consumer use, enabling scalable, energy-efficient, and quantum-resistant security for next-generation connected ecosystems. • Proposes PrivShield-CQ, a hybrid chaotic-quantum encryption framework for post-quantum secure consumer applications. • Achieves 99.7% quantum resistance effectiveness against simulated quantum attacks. • Reduces authentication latency by 65.4% with an average response time of 3.7 ms. • Optimizes energy consumption with 31.4% savings and extends battery life by 33.0%. • Ensures 94.2% cross-platform compatibility across heterogeneous consumer device ecosystems.",
+  "date": "2025-11-06",
+  "venue": "Array",
+  "arxiv_id": "",
+  "doi": "10.1016/j.array.2025.100568",
+  "citations": 1,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "27668eba3281",
+  "title": "Research on Optimization Design of Cold Resistant New Energy Vehicle Battery Pack Structure Based on Quantum Computing",
+  "authors": [
+   "Shengde Zhang",
+   "Han Zhang",
+   "Yuchao Guo"
+  ],
+  "abstract": "Cold climates reduce battery efficiency in new energy vehicles (NEVs), necessitating optimized thermal-resistant designs leveraging advanced quantum and classical optimization techniques. Existing approaches struggle with optimizing complex, multi-objective battery pack designs for cold climates, often lacking efficiency, scalability, and integration of advanced computational techniques like quantum optimization for improved results. To develop an advanced optimization framework for designing cold-resistant battery packs that enhance energy efficiency, thermal stability, and structural durability under extreme cold conditions, ensuring improved performance and reliability for NEVs operating in challenging climates. The proposed cold-resistant new energy vehicle battery pack structure (CRNEV-BPS) framework optimizes cold-resistant battery pack design through initial parameter setup, and hybrid optimization using quantum and Bayesian methods to enhance energy efficiency and thermal stability. In the parameter setup and design for the cold-resistant battery pack, lithium iron phosphate (LiFePO4) is used for stable cell performance, graphite for heat dissipation, aluminum alloys for a lightweight structure, silicon-based semiconductors for efficient power management, and copper for electrical conductivity. The quantum approximate mutated Bayesian algorithm (QAM-BO) combines quantum computing’s approximation power with Bayesian optimization and mutation techniques to enhance the search for optimal solutions in multifaceted design spaces, improving accuracy (95%). This effectively searches the design spaces that have well-refined battery pack parameters for optimal performance in cold weather. CRNEV-BPS achieves improved energy efficiency, thermal stability, and structural integrity for NEVs in extreme climates.",
+  "date": "2025-02-21",
+  "venue": "SPIN",
+  "arxiv_id": "",
+  "doi": "10.1142/s2010324725400053",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "367c62bc902e",
+  "title": "Quantum and Nanophotonic Perspectives on Light–Matter Interaction in Scintillation",
+  "authors": [
+   "Dominik Kowal",
+   "Michał Makowski",
+   "Anna Pniakowska",
+   "Krzysztof Czyż",
+   "Lina Jaya Diguna",
+   "Charles Roques‐Carmes",
+   "Liang Jie Wong",
+   "Muhammad Danang Birowosuto"
+  ],
+  "abstract": "Scintillators are central to radiation detection, yet their performance is fundamentally constrained by bulk crystal chemistry and fixed radiative pathways. This review examines how quantum effects and engineered light–matter interactions redefine scintillation beyond these classical limits. We survey recent advances in low-dimensional and nanostructured scintillators, where quantum confinement, excitonic effects, and multiexciton dynamics enable higher light yield, faster decay, and improved radiation hardness compared to conventional bulk materials. Special emphasis is given to engineered energy-transfer mechanisms and collective emission processes that substantially modify recombination dynamics at the nanoscale. Next, we discuss nanophotonic and nanoplasmonic approaches that manipulate the local density of optical states, highlighting Purcell-enhanced scintillation and pathways toward tunable coupling strength in cavity quantum electrodynamics regimes. Finally, we outline emerging applications enabled by light–matter-coupled scintillators, including photon-counting computed tomography, time-of-flight positron emission tomography, and nuclear batteries. Together, these developments establish a framework in which scintillation performance can be tailored through quantum design and optical mode engineering rather than host lattice chemistry alone.",
+  "date": "2026-01-01",
+  "venue": "Energy Material Advances",
+  "arxiv_id": "",
+  "doi": "10.34133/energymatadv.0548",
+  "citations": 1,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "fe63acac4a75",
+  "title": "Quantum Chemical Investigation of the Interaction of Sodium Ions with Hard Carbon-Based Systems",
+  "authors": [
+   "Jonas Lührs",
+   "Laura Kalder",
+   "Eneli Härk",
+   "Daniel Sebastiani",
+   "Pouya Partovi-Azar"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide We present a density functional theory investigation into the interaction of single sodium ions with distinct structural motifs of hard carbon (HC), including armchair and zigzag edges, basal planes, intercalation sites, curved graphene surfaces, and selected functional groups. The aim is to explore and identify new motifs to be added to the structural parameters necessary for the reliable experimental characterization of HC structures and their sodiation process. The results reveal that the strength of interaction between the Na cation and HC mainly follows this order: the edge sites present the stronger anchoring points for the cation; this is followed by intercalation regions between two graphene sheets, concave areas of graphene surfaces, and convex regions, while nearly flat graphene areas exhibit the weakest binding points with sodium ions. A notable monotonic dependence was also identified between the surface curvature and both the sodium interaction energy and the corresponding charge transfer. Additionally, the C 1 s binding energies were computed and compared with experimental X-ray photoelectron spectroscopy (XPS) measurements for carbon atoms covalently bound to common functional groups in HC. Our quantum chemical calculations support the consensus that the edge sites drive the sloping capacity through strong Na + interactions, whereas curvature-induced concave regions may serve as nucleation sites for Na clusters. These clusters could evolve into a pseudometallic state, accounting for the plateau capacity. These findings provide a microscopic framework for understanding sodium storage in hard carbon and offer design principles for optimizing the anode materials in sodium-ion batteries.",
+  "date": "2026-03-30",
+  "venue": "The Journal of Physical Chemistry C",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpcc.5c07586",
+  "citations": 1,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "140edb8470b9",
+  "title": "High-throughput theoretical exploration of multifunctional planar MBenes: Magnetism, topology, superconductivity, and anode applications",
+  "authors": [
+   "Xiaodong Lv",
+   "Ting Han",
+   "Rong Liu",
+   "Fengyu Li",
+   "Jian Ru Gong",
+   "Zhongfang Chen"
+  ],
+  "abstract": "Pursuing new two-dimensional (2D) materials has been a hot topic in materials science, driven by their potential for diverse applications. Recent research has unveiled stable planar hypercoordinate motifs with unconventional geometric arrangements and bonding patterns that facilitate the synthesis of new 2D materials with diverse applications. Among these, yet the design of 2D transition metal systems featuring planar pentacoordinate boron (ppB) is particularly intriguing. Here we address this gap by proposing a novel family of transition metal boride monolayers (MBenes) composed of ppB and heptacoordinate M motifs. The novelty of our MBenes stems from their distinct atomic arrangements and bonding configurations, setting them apart from traditional 2D materials. High-throughput calculations identified 10 stable MBenes (with the stoichiometry of MB, M ​= ​Cr, Fe, Co, Ni, Cu, Mo, Pd, Ag, Pt, Au) with exceptional thermodynamic, dynamic, thermal, and mechanical stabilities attributed to strong B−B covalent bonds and M−B ionic interactions. Notably, five of these MBenes (M ​= ​Ni, Pd, Pt, Ag, Au) hold high promise as topological superconducting materials with superconducting transition temperatures of 2.4–5.2 ​K. This discovery not only enriches the family of topological superconducting materials but also opens new avenues for quantum device development. Meanwhile, FeB monolayer exhibits robust ferromagnetic properties with a high Curie temperature of ∼750 ​K, which is particularly significant for spintronics applications. In addition, NiB and CuB MBenes demonstrate extremely low sodium diffusion barriers (about 30 and 90 ​meV) and high sodium storage capacities (788 and 734 mAh g −1 , respectively), making them promising anode materials for sodium-ion batteries (SIBs). This study expands the selection of electrode materials for SIBs and mitigates some existing limitations in battery technology. Overall, these findings underscore the multifunctional potential of MBenes, positioning them as transformative materials for quantum computing, spintronics, and energy storage applications.",
+  "date": "2025-04-17",
+  "venue": "Advanced Powder Materials",
+  "arxiv_id": "",
+  "doi": "10.1016/j.apmate.2025.100297",
+  "citations": 9,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "ba5de66565a2",
+  "title": "The Interoperability Challenge in DFT Workflows Across Implementations",
+  "authors": [
+   "Simon Krarup Steensen",
+   "Tushar Singh Thakur",
+   "Manuel Dillenz",
+   "Johan Martin Carlsson",
+   "Celso R. C. Rêgo",
+   "Eibar Flores",
+   "Hamidreza Hajiyani",
+   "Felix Hanke",
+   "Juan Maria Garcia Lastra",
+   "Wolfgang Wenzel",
+   "Nicola Marzari",
+   "Tejs Vegge",
+   "Giovanni Pizzi",
+   "Ivano E. Castelli"
+  ],
+  "abstract": "Interoperability and cross‐validation remain significant challenges in the computational materials discovery community. In this context, we introduce a common input/output standard designed for internal translation by various workflow managers (AiiDA, PerQueue, Pipeline Pilot, and SimStack) to produce results in a unified schema. This standard aims to enable engine‐agnostic workflow execution across multiple density functional theory (DFT) codes, including CASTEP, GPAW, Quantum ESPRESSO, and VASP. As a demonstration, we have implemented a workflow to calculate the open‐circuit voltage across several battery cathode materials using the proposed universal input/output schema. We analyze and resolve the challenges of reconciling energetics computed by different DFT engines and document the code‐specific idiosyncrasies that make straightforward comparisons difficult. Motivated by these challenges, we outline general design principles for robust automated DFT workflows. This work represents a practical step toward more reproducible and interoperable workflows for high‐throughput materials screening, while highlighting challenges of aligning electronic properties, especially for nonpristine structures.",
+  "date": "2026-03-27",
+  "venue": "Advanced Intelligent Discovery",
+  "arxiv_id": "",
+  "doi": "10.1002/aidi.202500232",
+  "citations": 2,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "f68acf622d4c",
+  "title": "Development of New Methods of Studying Catalyst and Materials Surfaces with Ambient Pressure Photoelectron Spectroscopy",
+  "authors": [
+   "Franklin Feng Tao"
+  ],
+  "abstract": "Conspectus The surface of a catalyst is crucial for understanding the mechanisms of catalytic reactions at the molecular level and developing new catalysts with higher activity, selectivity, and durability. Ambient pressure X-ray photoelectron spectroscopy (AP-XPS) is a technique studying the surface of a sample in the gas phase, mainly identifying chemical identity, analyzing oxidation state, and measuring surface composition. In the last decade, numerous photoelectron spectroscopic methods for fundamental studies of key topics in catalysis using AP-XPS have been developed. By tracking the evolution of the catalyst surface during catalyst preparation, AP-XPS can assist in identifying the parameters for preparing an expected catalyst structure. Additionally, it can uncover adsorbate coverage-induced surface restructuring by monitoring the photoemission features of key elements as the gas pressure increases. Surface phase transitions of a catalyst support, supported metal, or supported oxide nanoparticles and restructuring of supported single-atom sites may occur at temperatures lower than a catalysis temperature. AP-XPS can track these temperature-dependent phase transition or structural evolution under catalytic conditions. It also enables analysis of the electronic structure of the catalyst surface during catalysis by collecting valence band spectrum at a specific catalysis temperature. Moreover, it can detect stable intermediates formed at a temperature lower than the catalysis onset temperature and track their transformation to product molecules, providing significant insights in proposing a pathway closest to the actual but unknown one. Time-on-stream quantification of oxidation and reduction processes on catalyst surfaces allows for the study of kinetics of redox, including determinations of reaction order and activation barrier. One challenging task in accurately measuring catalytic reaction rates under kinetic control is measurement of the number of catalytic sites. AP-XPS is a valuable technique for this task, as it can qualitatively identify active sites and quantitatively measure the number of active sites under a specific catalytic condition. For photocatalytic and photoelectrocatalytic systems, AP-XPS helps elucidate charge transfer at the interface of a cocatalyst and semiconductor by identifying shifts in binding energy of a key element, shedding light on electron–hole separation. Photoelectron-induced excitation (PEIE) spectroscopy provides",
+  "date": "2024-12-23",
+  "venue": "Accounts of Chemical Research",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.accounts.4c00508",
+  "citations": 12,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "1d11b791a024",
+  "title": "Energy‐Based Classification of Qubit Platforms for Quantum Battery Applications",
+  "authors": [
+   "Nevin Taşaltın",
+   "Dilber Esra Yıldız"
+  ],
+  "abstract": "ABSTRACT This review classifies qubit platforms from the perspective of quantum battery applications as inorganic, molecular, and organic material families using an energy‐based approach. The systems are compared in terms of energy level tunability, decoherence mechanisms, and environmental sensitivity. Superconducting and silicon spin qubits stand out with their high control accuracy and long decoherence times (on the order of seconds in purified silicon); however, the need for cryogenic operation and fixed energy levels limits them. In contrast, molecular (lanthanide and transition‐metal complexes) and organic (radical/polymer) systems offer atomically precise tunable energy levels through ligand engineering and chemical design and operate under near‐room temperature conditions. The study evaluates qubit platforms not only in terms of information processing but also with battery‐focused metrics such as energy capacity, charge power, ergotropy, storage lifetime, and quantum advantage arising from entanglement and collective interactions. Thus, molecular and organic systems stand out as the most promising candidates for quantum batteries due to their chemical tunability and bulk charging potential; the study presents a materials‐based roadmap combining quantum computing with energy storage.",
+  "date": "2026-07-01",
+  "venue": "Advanced Quantum Technologies",
+  "arxiv_id": "",
+  "doi": "10.1002/qute.70383",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "b93fc9afec1e",
+  "title": "From Quantum to Data-Driven Models: The Role of Computational Methods in Battery Design",
+  "authors": [
+   "Jiahua Kang"
+  ],
+  "abstract": "Battery systems are important to humanity's daily life; among them, the lithium-ion battery is widely used in electric vehicles and portable electronics. The pursuit of better battery materials must remain ongoing to meet the growing demands of future society's needs. Computational study, unlike a traditional experimental study, is based on a theoretical study that relies on the prediction of material behavior and atomic-scale structural analysis through computational simulation. Recent advances in first-principles calculations and machine learning will bring more opportunities to the battery research field. This review focuses on the density functional theory and machine learning, discussing their recent advances, limitations, and future outlook on battery science, and analyzing their position on material development. In conclusion, the first principle calculation has significantly improved the efficiency for the new material development by analyzing their behavior theoretically, saving both time and cost. By integrating machine learning with the first principle simulation, it will significantly advance the progress of battery research and pave the way for future data-driven methodologies, such as neural networks that can address complex systems more efficiently, and quantum computing.",
+  "date": "2025-11-26",
+  "venue": "Applied and Computational Engineering",
+  "arxiv_id": "",
+  "doi": "10.54254/2755-2721/2026.mh30032",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "d39a9faebf68",
+  "title": "Next-Generation Alkaline Earth Metal-Based Batteries and Synergy of Silicon/Germanium/Tin Anode Material: A Quantum Computing Study",
+  "authors": [
+   "F. Mollaamin",
+   "Majid Monajjemi"
+  ],
+  "abstract": "Abstract Germanium/tin-containing silicon oxide [SiO–(GeO/SnO)] nanoclusters have been designed with different Si/Ge/Sn content and charchterized as electrodes for magnesium-ion batteries (MIBs) due to forming MgBe[SiO–GeO], MgBe[SiO–SnO], MgCa[SiO–GeO] and MgCa[SiO–SnO] complexes. In this work, alkaline earth metals of magnesium (Mg), berelium (Be) and calcium (Ca) have studied in hybrid Mg-, Be-, Ca-ion batteries. A vast study on H-capture by MgBe[SiO–(GeO/SnO)] or MgCa[SiO–(GeO/SnO)] complexes was probed using computational approaches due to density state analysis of charge density differences (CDD), total density of state (TDOS), electron localization function (ELF) for hydrogenated hybrid clusters of MgBe[SiO–GeO], MgBe[SiO–SnO], MgCa[SiO–GeO] and MgCa[SiO–SnO]. Higher Ge/Sn to Si content can increase battery capacity through MgBe[SiO–GeO], MgBe[SiO–SnO], MgCa[SiO–GeO] and MgCa[SiO–SnO] nanoclusters for Hydrogen adsorption process and might improve the rate performances by enhancing electrical conductivity. Besides, [SiO–(GeO/SnO)] anode material may advance cycling stability by preventing electrode collapse and enhances the capacity due to higher surface capacitive effects.",
+  "date": "2025-12-01",
+  "venue": "Russian Journal of Physical Chemistry B",
+  "arxiv_id": "",
+  "doi": "10.1134/s199079312570112x",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "e6dd512faaec",
+  "title": "AI-Guided Discovery of Quantum-Engineered Materials for Next-Generation Energy and Computing Applications",
+  "authors": [
+   "Mohamed H. Ahmed",
+   "Taoufik Soltani",
+   "Murtadha L. Shaghnab",
+   "Saja Salam Yasir",
+   "Haneen Riyad Daghim"
+  ],
+  "abstract": "The materials that are being subjected to quantum-engineering are characterized by their atomic structure and through the atomic structure, the materials are enabled to do some functions that cannot be achieved in conventional materials. Ab initio quantum-mechanical computations are based on algorithms that make use of candidate structures in the desired properties. However, the prohibitive nature of the density functional theory calculations coupled with a large search space has also made material discovery slow and in need of a paradigm shift. In fact, the issues of science that require less information and calculations than conventional approaches are addressed by artificial intelligence (AI), which makes it easier to make discoveries in scourable fields, such as pharmaceuticals, nanomaterials, and electrochemical devices. Machine-learning models that predict target properties in terms of material geometries only are formed through quantum serialization and taking representative features of structure-multiple-properties datasets. The rate of AI is more rapid than existing systems of revelation of materials (catalytic metals, semiconductors to photovoltaic devices and quantum-dot photovoltaic stack candidates). The alloys with fewer calculated costs predicted can become the libraries of semiconductors and quantum dots that are also better. Ai- and computing-aided design demonstrates a possibility to change in addressing the challenges that were not met before. Quantum properties influence the energy-technology materials that cannot be analyzed using the conventional models. The path ahead lies in the further development of AI-based solid-state battery designs, O 2 -evolution catalyst designs and neuromorphic computing designs are an indication of the accelerating research questions of quantum material. These pillars are aligned with the additional improvement of AI-oriented quantum-material development. Faster This will guarantee that quantum-engineered materials are found which can boost the efficiency, safety, scalability, and sustainability of energy and computing technologies all at the same time. Approaches based on density-functional theory or more classical machine learning approaches are confronted by overwhelming problems in quantum-material discovery and design, and the structural-configuration space of candidate materials is combinatorically growing in a few hours. In contrast to the classical materials that employ the particle-exchange-correl",
+  "date": "2025-12-28",
+  "venue": "EJSMT",
+  "arxiv_id": "",
+  "doi": "10.59324/ejsmt.2026.2(1).07",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "7a128ab3660d",
+  "title": "Computational design of quantum and functional materials for next generation electronic and energy technologies",
+  "authors": [
+   "Adetoun Adunni Oginni",
+   "Oluwakunle Moyofoluwa Ogunsakin",
+   "Monsuru Olarewaju Moshood",
+   "Boluwatife John Oluwasegun",
+   "Emmanuel Ediri Umukoro",
+   "O. Akanbi"
+  ],
+  "abstract": "The growing demand for high performance electronics and sustainable energy storage and conversion architectures has accelerated the search for novel quantum and functional materials. Traditional experimental workflows are increasingly limited by vast structural and compositional configuration spaces, establishing computational design as a pivotal paradigm in modern materials science. This review provides a comprehensive analysis of state of the art computational methodologies used to predict, optimize, and discover advanced materials prior to physical synthesis. We trace the development of core atomistic techniques, beginning with standard Density Functional Theory frameworks, moving to advanced multi body corrections such as Time Dependent Density Functional Theory, the GW approximation, and the Bethe Salpeter Equation, and exploring classical or ab initio molecular dynamics and thermodynamic Monte Carlo simulations. Crucially, we highlight the paradigm shifting integration of machine learning frameworks, data driven inverse design, and emerging quantum computing architectures such as the Variational Quantum Eigensolver. The efficacy of these single method and hybrid paradigms is critically evaluated across key technological domains, including semiconductor electronics, optoelectronics, spintronics, flexible wearable devices, photovoltaics, battery storage, and electrocatalysis. Lastly, we addressed prevailing structural boundaries, such as multiscale integration gaps and data interpretability limitations, and outline future horizons for autonomous self-driving materials discovery platforms.",
+  "date": "2026-09-15",
+  "venue": "Next Materials",
+  "arxiv_id": "",
+  "doi": "10.1016/j.nxmate.2026.103432",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "ebae8511236c",
+  "title": "Hybrid Quantum-Classical Algorithms",
+  "authors": [
+   "Roberto Campos"
+  ],
+  "abstract": "This thesis explores hybrid algorithms that combine classical and quantum computing to enhance the performance of classical algorithms. Two approaches are studied: a hybrid search and sample optimization algorithm and a classical algorithm that assesses the cost and performance of quantum algorithms in chemistry. Hybrid algorithms are vital due to limitations in both classical and quantum computing, offering a solution by leveraging the strengths of both. The first algorithm, quantum Metropolis Solver (QMS), adapts a quantum walk to a Metropolis-Hastings algorithm for industrial applications, demonstrating advantages over classical counterparts in various sectors. The second algorithm, TFermion, is a classical tool for evaluating the cost of T-type gates in quantum chemistry algorithms, aiding in the comparison and execution of these algorithms on real quantum hardware, and applied to the design of more efficient electric batteries.",
+  "date": "2024-06-18",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2406.12371",
+  "doi": "10.48550/arxiv.2406.12371",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "17f44d29c719",
+  "title": "Structural, Electronic and Spin Density Properties of Graphitic Nano-Silicon Carbide as a Recent Anode Electrode for Developed (Li,Na,Be,Mg)-Ion Batteries: A Quantum Computing Study by DFT-D3 Method",
+  "authors": [
+   "F. Mollaamin",
+   "Majid Monajjemi"
+  ],
+  "abstract": "Abstract Silicon carbide (SiC) has been designed and charchterized as an anode electrode for lithium (Li), sodium (Na), beryllium (Be) and magnesium (Mg)-ion batteries due to forming Li2(SiC), Na2(SiC), Be2(SiC) and Mg2(SiC) nanoclusters. A vast study on energy-saving by Li2(SiC), Na2(SiC), Be2(SiC) and Mg2(SiC) complexes was probed using computational approaches due to density state analysis of charge density differences (CDD), total density of state (TDOS), electron localization function (ELF) for hybrid clusters of Li2(SiC), Na2(SiC), Be2(SiC) and Mg2(SiC). A small portion of Li, Na, Be or Mg entered the Si–C layer to replace the alkali and alkaline earth metals sites could improve the structural stability of the electrode material at high multiplicity, thereby improving the capacity retention rate. Higher Si/C content can increase battery capacity through Li2(SiC), Na2(SiC), Be2(SiC) and Mg2(SiC) nanoclusters for energy storage process and improve the rate performances by enhancing electrical conductivity. Besides, SiC anode material may advance cycling consistency by excluding electrode decline and augments the capacity owing to higher surface capacitive impacts.",
+  "date": "2025-12-01",
+  "venue": "Russian Journal of Physical Chemistry B",
+  "arxiv_id": "",
+  "doi": "10.1134/s1990793125701052",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "83e1bf999acc",
+  "title": "Open VQE – Empowering Quantum Education and Collaboration",
+  "authors": [
+   "Mohammad Haidar"
+  ],
+  "abstract": "Open VQE (Open Variational Quantum Eigen solver) is an open-source platform designed to make quantum computing accessible for education, research, and global collaboration. Built around the Variational Quantum Eigen solver, a cornerstone algorithm in quantum chemistry, Open VQE provides learners with a pathway to incrementally master quantum methods while fostering innovation in a shared space for students, educators, and researchers. Developed by Mohammad Haidar, a senior researcher at Sorbonne University, Open VQE integrates seamlessly with leading quantum frameworks like Qiskit, Cirq, and QASM, promoting interoperability and collaboration. The platform empowers users to tackle real-world challenges in material science, drug discovery, battery development, and CO₂ capture, while exploring the transformative integration of AI with VQE. At the Conference, Mohammad Haidar will discuss the technical details of Open VQE, its role in revolutionizing quantum computing education and research, and its applications in quantum chemistry and industry research. Attendees will also gain insights into the state-of-the-art quantum computing technologies being employed in quantum chemistry. Discover More About OpenVQE• Published Article (14 citations): https://wires.onlinelibrary.wiley.com/doi/epdf/10.1002/wcms.1664 • Community Participation: https://openvqe.netlify.app/ OpenVQE offers a unique, accessible pathway to mastering quantum computing while fostering collaboration and driving innovation to address global challenges.www.srcmeetings.com6International Conference on Wave Equations, Optical Engineering and Quantum Mechanics (ICWOQ-2025)April 25, 2025 - Barcelona, Spain",
+  "date": "2025-04-25",
+  "venue": "Journal of Physics & Optics Sciences",
+  "arxiv_id": "",
+  "doi": "10.47363/jpsos/icwoq2025/2025(7)6",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "32412852d37c",
+  "title": "Machine Learning-Assisted Discovery and Optimization of Sodium-Ion Batteries: A Review",
+  "authors": [
+   "Gustina Alfa Trisnapradika",
+   "Harun Al Azies",
+   "Muhamad Akrom",
+   "Usman Sudibyo",
+   "Noor Ageng Setiyanto"
+  ],
+  "abstract": "Sodium-ion batteries (SIBs) have emerged as a promising alternative to lithium-ion batteries due to the natural abundance, low cost, and wide geographic availability of sodium resources. However, their practical implementation is hindered by challenges such as lower energy density, slower ion diffusion, and limited cycle stability. In recent years, machine learning (ML) has been increasingly applied to accelerate the discovery, design, and optimization of SIB materials and systems. This review provides a comprehensive overview of ML applications in sodium-ion battery research, including electrode material discovery, electrolyte optimization, performance prediction, and degradation analysis. Various ML techniques, such as supervised learning, unsupervised learning, and deep learning, are discussed in relation to their roles in materials informatics. Additionally, challenges such as data scarcity, model interpretability, and transferability are critically analyzed. Finally, future perspectives on integrating ML with high-throughput experiments and quantum computing are highlighted to guide next-generation sodium-ion battery research.",
+  "date": "2026-07-03",
+  "venue": "Journal of Multiscale Materials Informatics",
+  "arxiv_id": "",
+  "doi": "10.62411/jimat.v3i1.15954",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "41ff06757f84",
+  "title": "Quantum-Resilient Lightweight Cryptography for Resource-Constrained IoT Devices",
+  "authors": [
+   "Sudeepa K B"
+  ],
+  "abstract": "Resource constraints on devices, to some extent, and the increasing threat posed by quantum computing both present tremendous challenges in improving effective security protocols for the Internet of Things (IoT). Herein we present the Quantum-Threat Lightweight Cipher (QTL-Cipher), a novel hybrid cryptographic algorithm for an Internet of Things ecosystem, in response to this challenge. The design was based on employing an asymmetric, post-quantum key generation mechanism and a lightweight symmetric module for confidentiality. The key exchange process utilized a unique, lattice-based method based on the Ring-Learning with Rounding problem, while the core symmetric module utilized a custom hardware efficient Feistel network structure. An important part of our approach involves a resource-aware scheduling paradigm that adjusts cryptographic parameters, for example Feistel rounds and S-box permutations, on-the-fly, based on device state parameters, for example battery level and processing load, to ensure the best possible device resource utilization without compromising security of any kind. Design and testing were conducted using a common IoT hardware platform, the ARM Cortex-M series microcontroller. Performance results indicated that our approach reduced energy consumption by 40% and RAM usage by 35% as compared to AES-256, Rigorous security analysis confirms the algorithm's resilience against both classical and quantum attacks. This work concludes that the proposed QTL-Cipher design presents a robust, efficient, and quantum-resistant solution for ensuring data confidentiality in resource-constrained IoT applications.",
+  "date": "2026-07-23",
+  "venue": "Journal of Intelligent Decision Making and Information Science",
+  "arxiv_id": "",
+  "doi": "10.59543/jidmis.v3.956",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "f3da0b4bf13b",
+  "title": "A Hybrid Quantum Neural Network to Analyse Big Experimental Powder X-ray Diffraction Data",
+  "authors": [
+   "H. Dong",
+   "S. D. M. Jacques",
+   "M. Q. Hlatshwayo",
+   "E. Papoutsellis",
+   "K. Georgopoulos",
+   "A.M. Beale",
+   "A. Vamvakeros"
+  ],
+  "abstract": "Quantitative analysis of experimental powder X-ray diffraction data remains challenging when evaluating complex multiphase materials and noisy measurements. We introduce a hybrid quantum neural network framework designed to extract quantitative parameters, such as phase weight fractions and scale factors, directly from one-dimensional powder diffraction patterns without iterative refinement. The model combines noise-aware classical simulator pre-training with fast downstream fine-tuning on quantum processing unit features, ensuring stability against hardware decoherence. We demonstrate the practical utility of this approach by deploying the trained network onto an IBM quantum computer to analyse experimental X-ray diffraction computed tomography datasets from a three-phase solid oxide fuel cell containing ca. 10,000 patterns and a four-phase lithium-ion battery containing ca. 20,000 patterns). The network successfully reconstructs quantitative spatial phase maps in strong agreement with classical Rietveld refinement, paving the way for using quantum computing hardware to analyse real-world materials characterisation data.",
+  "date": "2026-09-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.22376",
+  "doi": "10.48550/arxiv.2609.22376",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "e056400d418a",
+  "title": "PQ-IoT: A Unified End-to-End Post-Quantum Security Framework for Next-Generation IoT Networks",
+  "authors": [
+   "MD. SOFIKUL ISLAM",
+   "Md Sofikul Islam"
+  ],
+  "abstract": "The rapid expansion of the Internet of Things (IoT) has connected billions of devices, creating a global network that manages everything from smart homes to critical industrial infrastructure. However, this connectivity faces an existential threat: the rise of Quantum Computing. Standard encryption methods like RSA and ECC, which currently protect these devices, will be easily broken by future quantum computers using Shor's Algorithm. While the National Institute of Standards and Technology (NIST) has standardized new \"Post-Quantum\" algorithms (like Kyber and Dilithium), simply plugging them into small IoT devices is not easy. These new algorithms are often heavy, and IoT devices have very limited battery and processing power. This paper bridges this gap by proposing \"PQ-IoT\", a complete, end-to-end security framework designed specifically for the real-world constraints of IoT. Unlike previous studies that look at algorithms in isolation, we designed a unified system with three layers: (1) A robust Hybrid Cryptosystem (X25519 + Kyber-768) for secure servers, (2) A lightweight encryption module (Kyber-512) for battery-powered sensors, and (3) A fast authentication mechanism (ML-DSA-44) for gateways. We built a virtual laboratory using ARM64 emulation to test this framework. Our results show that the entire system is incredibly efficient, with encryption taking only 0.20 ms and verification taking 0.50 ms. This proves that we can secure the future of IoT without sacrificing performance.",
+  "date": "2026-02-05",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.22541/au.177031490.01468228/v1",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "9cb30b66e316",
+  "title": "POST-QUANTUM CRYPTOGRAPHY FOR SECURE 5G AND IOT: LATTICE-BASED ENCRYPTION SCHEMES",
+  "authors": [
+   "M Poomani",
+   "Bikash Chandra Saha"
+  ],
+  "abstract": "The impending advent of cryptographically relevant quantum computers threatens classical public-key primitives that underpin 5G and IoT security, including key exchange, authentication, and device onboarding. Ultra-dense networks, constrained endpoints, and long device lifetimes heighten exposure to “harvest-now, decrypt-later” risks. Mobile operators and IoT platform providers need migration ready cryptography that fits radio-access latency budgets, scales to billions of low-power nodes, and integrates cleanly with 3GPP and IETF protocols without degrading quality of service. Many post quantum options impose prohibitive bandwidth and compute costs or lack deployment guidance tuned to network slices and massive machine-type communications. We propose a lattice-based encryption and key-encapsulation framework grounded in Module-LWE/LWR assumptions. The design pairs an IND-CCA-secure KEM for control plane bootstrapping with lightweight AEAD for user-plane data, delivered through a hybrid handshake combining classical ECDH with a post-quantum KEM to ensure continuity during transition. Parameter tiers align with eMBB, URLLC, and mMTC device classes. Implementation emphasizes constant-time polynomial arithmetic, NTT-accelerated convolution, centered-binomial noise sampling, public-key compression, and stateless hash-based signatures for attestation. A gNB-assisted enrollment workflow and session-key rotation via 5G NAS/RRC are specified. Analytical modeling and prototype measurements indicate sub-millisecond encapsulation on ARM Cortex-M33 microcontrollers and ~1.5 ms on RAN baseband paths, while handshake message growth remains within existing NAS and RRC budgets. In ns-3 simulations of dense mMTC topologies, the hybrid handshake achieves >99.99% success under 1% packet loss, and energy profiling shows <5% battery impact for weekly rekeying. Security analysis demonstrates resistance to known lattice attacks at NIST Levels 3–5, forward secrecy via ephemeral KEMs, downgrade resistance through authenticated algorithm negotiation, and post compromise security with frequent rekeying.",
+  "date": "2025-09-01",
+  "venue": "ICTACT Journal on Communication Technology",
+  "arxiv_id": "",
+  "doi": "10.21917/ijct.2025.0537",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "bb20a775317d",
+  "title": "Toward Efficient Quantum-Dot Internet of Things Platforms: A Low-Power Atomic Silicon Dangling Bond Arithmetic Logic Circuit",
+  "authors": [
+   "Hadi Rasmi",
+   "Muhammad Zohaib",
+   "Seyed‐Sajad Ahmadpour",
+   "Mojtaba Noorallahzadeh"
+  ],
+  "abstract": "Internet of Things (IoT) edge nodes are often battery-powered or energy-harvesting and must operate under tight energy and area constraints while still supporting low-latency local decision-making. Since wireless transmission is energy-expensive, IoT increasingly relies on in-situ edge processing, which demands ultra-low-power and compact compute blocks, yet further complementary-metal-oxide-semiconductor (CMOS) scaling is constrained by leakage, interconnect congestion, and rising power density. Atomic silicon quantum-dot (ASQD) technology offers a promising alternative by enabling computation via charge configuration rather than current flow, potentially providing very low energy operation and highly compact layouts; however, large-scale ASQD circuits remain challenging due to coupling-induced stability limitations. To address this, we propose a low-power ASQD-based arithmetic circuit for low-power edge IoT computing that supports four distinct operations under a unified multiplexer (MUX) controlled structure. The design follows an integration-aware methodology in which candidate primitives are benchmarked at the gate level (Atoms/Area/Energy), and optimized variants are selected to minimize cumulative arithmetic logic unit (ALU) level cost. ALU-level scaling shows reductions of approximately 69–79% in occupied area and 43–51% in total energy compared with representative literature libraries, and SiQAD simulations verify stable operation. These results indicate that the proposed circuit can serve as an enabling compute primitive for future ASQD IoT platforms.",
+  "date": "2026-04-20",
+  "venue": "IEEE Internet of Things Journal",
+  "arxiv_id": "",
+  "doi": "10.1109/jiot.2026.3685504",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "02ba2ef29200",
+  "title": "Optimal Realization of Parallel MAC-Based Adaptive FIR Filter Using a Gaussian Mutation on Quantum-Behaved Particle Swarm Optimization Algorithm",
+  "authors": [
+   "M. Muthumari",
+   "R. S. Valarmathi"
+  ],
+  "abstract": "With the increasing prevalence of Digital Signal Processing (DSP) circuits in audio devices, the demand for low-power and high-performance processors has grown due to hardware limitations. Low-power design is particularly important for wireless audio devices with limited battery capacity. Nevertheless, as Field Programmable Gate Array (FPGA) technology advances, many challenging algorithms have recently been implemented to achieve high computing performance for both embedded and real-time applications. Conventional Least Mean Square (LMS) algorithms face challenges in real-time noise cancelation due to short secondary path delays. To address this, an optimized Finite Impulse Response (FIR) filter system using Particle Swarm Optimization (PSO) and Gaussian mutation on Quantum-Behaved PSO (GQPSO) is proposed. This design, implemented in a low-end FPGA, employs pipelined parallel multipliers and partial product-based shift-and-add multipliers for resource efficiency. GQPSO-based adaptive FIR filters are developed in Verilog and synthesized for 8-tap and 16-tap configurations, showing significant performance gains. Post-route FPGA results demonstrate an 89.3% reduction in area utilization and a 97.3% speed improvement over existing architectures, highlighting their effectiveness for real-time noise cancelation.",
+  "date": "2025-04-05",
+  "venue": "Journal of Circuits Systems and Computers",
+  "arxiv_id": "",
+  "doi": "10.1142/s021812662550330x",
+  "citations": 0,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "0c48762d9a2b",
+  "title": "AI as the Ultimate Tool for Science: A Conversation with Demis Hassabis",
+  "authors": [
+   "Demis Hassabis",
+   "James Manyika"
+  ],
+  "abstract": "James Manyika. Demis Hassabis has focused on artificial intelligence from an early age. With a background in computer science and cognitive neuroscience, Demis first garnered wide attention for his work on AlphaGo, an AI system that in 2016 defeated a world champion in the complex strategy game of Go, long considered a grand challenge for machines playing games. But his ultimate goal was always much bigger: to use AI to solve problems in science and understand the deepest mysteries of the universe. His first proof point for this vision was AlphaFold, an AI system that cracked the fifty-year-old protein structure prediction problem. He was awarded the 2024 Nobel Prize in Chemistry and the 2023 Breakthrough Prize in Life Sciences for this work. Demis has also long been a pioneering entrepreneur in AI, most notably as cofounder and CEO of DeepMind, one of the AI labs leading the development of frontier foundation models. Fundamentally, Demis thinks of himself as a scientist, and so this dialogue focuses on AI and science: what motivates him as a scientist working with AI; what progress, opportunities, and challenges he sees; and more.Manyika. Why does science matter to you?Demis Hassabis. I've always been driven by a deep desire to better understand the world around us. The scientific method is arguably the most important idea humanity has ever had to make progress and advance knowledge. For me, there's nothing more thrilling than being at the absolute frontier of what's known, pushing the boundaries forward and discovering something new for the very first time-that's science at its very best.Manyika. Why do you think of yourself as a scientist, and how did you get started as a scientist?Hassabis. Today, I think of myself first and foremost as a scientist. But when I started off my career programming AI for games and studying computer science as an undergraduate at Cambridge, I thought of myself as an engineer. Then as I followed up on my long-standing interest in the brain and started studying cognitive neuroscience, and specifically memory and imagination for my PhD, I realized I worked best in the mode of a scientist coming up with hypotheses about the world and experiments to prove or disprove them.But I'm also very practical and interested in real-world impact. That's where the engineering half of my brain still comes in. Instead of getting lost in a theoretical argument, I lean into my pragmatic side and start thinking about how to build tools or experi",
+  "date": "2026-01-01",
+  "venue": "Daedalus",
+  "arxiv_id": "",
+  "doi": "10.1162/daed.a.971",
+  "citations": 1,
+  "theme": "battery design quantum computing"
+ },
+ {
+  "fid": "942664986c80",
+  "title": "Variation of Chemical Microenvironment of Pores in Hydrazone‐Linked Covalent Organic Frameworks for Photosynthesis of H 2 O 2",
+  "authors": [
+   "Zhipeng Xie",
+   "Xiong Chen",
+   "Wenbin Wang",
+   "Xiating Ke",
+   "Xirui Zhang",
+   "Sibo Wang",
+   "Xiaofeng Wu",
+   "Jimmy C. Yu",
+   "Xinchen Wang"
+  ],
+  "abstract": "Abstract Photocatalytic synthesis of H 2 O 2 is an advantageous and ecologically sustainable alternative to the conventional anthraquinone process. However, achieving high conversion efficiency without sacrificial agents remains a challenge. In this study, two covalent organic frameworks (COF−O and COF−C) were prepared with identical skeletal structures but with their pore walls anchored to different alkyl chains. They were used to investigate the effect of the chemical microenvironment of pores on photocatalytic H 2 O 2 production. Experimental results reveal a change of hydrophilicity in COF−O, leading to suppressed charge recombination, diminished charge transfer resistance, and accelerated interfacial electron transfer. An apparent quantum yield as high as 10.3 % (λ=420 nm) can be achieved with H 2 O and O 2 through oxygen reduction reaction. This is among the highest ever reported for polymer photocatalysts. This study may provide a novel avenue for optimizing photocatalytic activity and selectivity in H 2 O 2 generation.",
+  "date": "2024-07-02",
+  "venue": "Angewandte Chemie International Edition",
+  "arxiv_id": "",
+  "doi": "10.1002/anie.202410179",
+  "citations": 125,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "247778df6f3d",
+  "title": "Oxidation processes and me",
+  "authors": [
+   "Urs von Gunten"
+  ],
+  "abstract": "This publication summarizes my journey in the field of chemical oxidation processes for water treatment over the last 30+ years. Initially, the efficiency of the application of chemical oxidants for micropollutant abatement was assessed by the abatement of the target compounds only. This is controlled by reaction kinetics and therefore, second-order rate constant for these reactions are the pre-requisite to assess the efficiency and feasibility of such processes. Due to the tremendous efforts in this area, we currently have a good experimental data base for second-order rate constants for many chemical oxidants, including radicals. Based on this, predictions can be made for compounds without experimental data with Quantitative Structure Activity Relationships with Hammet/Taft constants or energies of highest occupied molecular orbitals from quantum chemical computations. Chemical oxidation in water treatment has to be economically feasible and therefore, the extent of transformation of micropollutants is often limited and mineralization of target compounds cannot be achieved under realistic conditions. The formation of transformation products from the reactions of the target compounds with chemical oxidants is inherent to oxidation processes and the following questions have evolved over the years: Are the formed transformation products biologically less active than the target compounds? Is there a new toxicity associated with transformation products? Are transformation products more biodegradable than the corresponding target compounds? In addition to the positive effects on water quality related to abatement of micropollutants, chemical oxidants react mainly with water matrix components such as the dissolved organic matter (DOM), bromide and iodide. As a matter of fact, the fraction of oxidants consumed by the DOM is typically > 99%, which makes such processes inherently inefficient. The consequences are loss of oxidation capacity and the formation of organic and inorganic disinfection byproducts also involving bromide and iodide, which can be oxidized to reactive bromine and iodine with their ensuing reactions with DOM. Overall, it has turned out in the last three decades, that chemical oxidation processes are complex to understand and to manage. However, the tremendous research efforts have led to a good understanding of the underlying processes and allow a widespread and optimized application of such processes in water treatment practice such as drinki",
+  "date": "2024-01-16",
+  "venue": "Water Research",
+  "arxiv_id": "",
+  "doi": "10.1016/j.watres.2024.121148",
+  "citations": 60,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "2d7b16658ad4",
+  "title": "Green Enzymatic Synthesis of Geranyl Butyrate: Process Optimization and Mechanistic Insights",
+  "authors": [
+   "Francisco Simão Neto",
+   "Paulo Gonçalves de Sousa",
+   "Carlos José Alves da Silva Filho",
+   "Lucas Pinheiro Coutinho",
+   "Rafael Leandro Fernandes Melo",
+   "Javier Rocha‐Martín",
+   "Maria Alexsandra de Sousa Rios",
+   "Ada Amélia Sanders Lopes",
+   "Norberto de Kássio Vieira Monteiro",
+   "Marcos Carlos de Mattos",
+   "Leonardo Farias Serafim",
+   "José Cleiton Sousa dos Santos"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide Flavor esters are organic compounds widely used in the food industry to enhance the aroma and taste of products. However, most chemical processes for the production of these flavoring compounds use toxic organic solvents. Some organic solvents derived from petroleum can leave behind residual traces in food products, which may raise concerns about potential health risks and contamination. In this study, we employ Eversa Transform 2.0, a commercial lipase derived from the lipase from Thermomyces lanuginosus, to produce geranyl butyrate in aqueous media. The chemical process was optimized using the Taguchi method, and a conversion of 93% was obtained at the optimal reaction conditions of: 1:5 molar ratio (v/v), 15% biocatalyst load (w/w), at 50 °C, in 6 h. Classic (molecular dynamics) and quantum (density functional theory) simulations unveiled amino acid residues involved in the stabilization of the enzyme–substrate complex. Detailed QM/MM mechanistic studies identified the nucleophilic attack of the deacylation reaction as the rate-limiting step of the entire mechanism, which has a free energy barrier of 14.0 kcal/mol.",
+  "date": "2024-04-01",
+  "venue": "ACS Omega",
+  "arxiv_id": "",
+  "doi": "10.1021/acsomega.3c08483",
+  "citations": 26,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "b9e3fb280d48",
+  "title": "Exploration and Design of Carbon Dot-Based Long Afterglow Materials Using Active Machine Learning and Quantum Chemical Simulations",
+  "authors": [
+   "Hongwei Yang",
+   "Zhun Ran",
+   "Yimeng Luo",
+   "Siyuan Liu",
+   "Weizhe Xu",
+   "Jinkun Liu",
+   "Jianghu Cui",
+   "Bingfu Lei",
+   "Chaofan Hu",
+   "Jianle Zhuang",
+   "Yingliang Liu",
+   "Yong Xiao"
+  ],
+  "abstract": "Long afterglow materials based on carbon dots (CDs) have attracted extensive attention in the field of optics due to their low cost and nontoxic properties. However, the targeted synthesis of specific properties of complex and unknown structures such as CDs remains a daunting challenge. In this study, the powerful nonlinear fitting ability of machine learning was used to explore the afterglow properties of CDs. The XGBoost algorithm demonstrates high prediction accuracy in determining the optimal excitation wavelength, optimal emission wavelength, and afterglow lifetime. Using Bayesian optimization, we screened and synthesized the CDs-based long afterglow materials with the longest lifetime reported so far by a one-step microwave method. By combining quantum chemical calculations with experimental data, we revealed the structure-function relationship between CDs and their precursors through electron-hole analysis. These results show that machine learning can establish nonlinear correlations between precursors and materials with unknown structures, clarify their intrinsic relationships, simplify the material design process, and thus accelerate the development of advanced materials.",
+  "date": "2024-10-08",
+  "venue": "ACS Nano",
+  "arxiv_id": "",
+  "doi": "10.1021/acsnano.4c11418",
+  "citations": 25,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "c911b6da70b0",
+  "title": "Machine Learning for Accelerating Energy Materials Discovery: Bridging Quantum Accuracy with Computational Efficiency",
+  "authors": [
+   "KWANG SOO KIM"
+  ],
+  "abstract": "Abstract Machine learning (ML) has revolutionized energy materials discovery through two key paradigms: ML potentials enabling quantum‐accurate atomistic simulations with 2‐4 orders of magnitude speedup over density functional theory, and ML‐driven screening that efficiently navigates vast chemical spaces for rapid materials optimization. Advanced approaches, including graph neural networks and sparse Gaussian process regression incorporate physical symmetries and conservation laws, going beyond traditional statistical methods. Applications span battery materials, electrocatalysts, solar cells, phase change memory, and hydrogen storage systems, enabling simulations of thousands of atoms over extended timescales beyond the reach of quantum mechanical methods. Together, these complementary ML approaches enable predictive computational models spanning atomic to macroscopic scales. Current challenges include data quality, extrapolation to new chemical spaces, and physical interpretability. Emerging solutions involve equivariant architectures, active learning strategies, and physics‐informed neural networks. The convergence of ML methodologies with experimental workflows can accelerate materials discovery and optimization. This addresses critical sustainable energy challenges in conversion, storage, and utilization while supporting the development of autonomous discovery platforms. In this way, ML helps overcome computational limitations in multiscale energy materials research and supports the efficient design of novel materials with tailored properties.",
+  "date": "2025-10-25",
+  "venue": "Advanced Energy Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/aenm.202503356",
+  "citations": 41,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "51e7d1aa1e84",
+  "title": "Quantum chemical investigation of the degradation of acid orange 7 by different oxidants",
+  "authors": [
+   "Abosede Adejoke Badeji",
+   "Modupe T. Omoniyi",
+   "Taofeek B. Ogunbayo",
+   "Segun D. Oladipo",
+   "Isaac Adebayo Akinbulu"
+  ],
+  "abstract": "Acid Orange 7 (AO7) is a common azo dye that have found useful application in textile and other industries. However, its toxic and recalcitrant nature presents significant environmental challenges, making it difficult to degrade in wastewater. This study investigates the degradation of AO7 using Density Functional Theory (DFT) calculations, focusing on the structural and electronic properties of AO7 and the effectiveness of different oxidants (H2O2, O3, •OH, SO4•−). Geometry optimization of AO7 was performed using various DFT methods (B3LYP, M06, wB97XD, mPW1PW91, and CAM-B3LYP) with 6-31G(d) and 6-311G(d,p) basis sets. Natural Population Analysis (NPA) revealed significant electron-withdrawing effects of the azo, carbonyl, and sulfonic groups. Additionally, frontier molecular orbital analysis and quantum chemical predictors indicated that O3 will interact well with AO7. However, the •OH was found to be the most effective oxidant, due to its high oxidation potential and low binding energy. The SO4•− also demonstrated strong potential due to its strong interaction and high oxidation potential. While •OH may facilitate faster degradation, oxidants like SO4•− may form more stable complexes with AO7 before initiating degradation. This study highlights the versatility of •OH in degradation processes, providing valuable insights into advanced oxidation processes for environmental remediation.",
+  "date": "2024-11-26",
+  "venue": "Discover Chemistry.",
+  "arxiv_id": "",
+  "doi": "10.1007/s44371-024-00059-x",
+  "citations": 13,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "37b5161f2910",
+  "title": "Modification of Crystal-Optimized TiO2 with Biomass-Derived Carbon Quantum Dots for Highly Efficient Degradation of Favipiravir in Water",
+  "authors": [
+   "Shuo Chen",
+   "Shu-Zhe Zhang",
+   "Hong Tao Jiang"
+  ],
+  "abstract": "TiO 2 has been extensively used in the photocatalytic degradation of diverse organic pollutants; however, the wide band gap and high recombination of photogenerated electrons and holes severely limit its practical application. Herein, we propose a novel and cost-effective approach for synthesizing a highly efficient TiO 2 -based photocatalyst by modifying crystalline phase-optimized TiO 2 (with a rutile ratio of 78.5%) with blue algae-derived carbon quantum dots (B-CQDs). The as-synthesized photocatalyst (BCQD@TiO 2–700 ) can activate peroxymonosulfate to degrade 98.6% of the COVID-19 drug favipiravir within 60 min ( k = 0.0438 min –1 ), which was approximately 10 times that of B-CQD-modified TiO 2 and 16 times that of conventional organic-derived CQD-modified TiO 2–700 . The abundant functional groups (−OH, C═O, C–O–C, P–O, etc.) and narrow average particle size (only 1.42 nm) of the B-CQDs, as well as the optimized rutile ratio, are the main reasons for the improved reactivity of BCQD@TiO 2–700 . The nonradical degradation process with 1 O 2 as the main active species dominates favipiravir degradation, which includes the removal of substituents (–F/–NH 2 ) and the opening of a nitrogen heterocyclic ring; these findings are also supported by density functional theory quantum chemical calculations. This work presents a cost-effective TiO 2 -based photocatalyst for the high-efficiency degradation of emerging organic pollutants.",
+  "date": "2024-01-17",
+  "venue": "ACS ES&T Water",
+  "arxiv_id": "",
+  "doi": "10.1021/acsestwater.3c00595",
+  "citations": 17,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "6b19ee644f50",
+  "title": "Nuclear Magnetic Resonance and Quantum Chemical Calculations of Ca+2 Doped Norepinephrine Molecule by Using DFT and HF Methods",
+  "authors": [
+   "Mücahit Yılmaz",
+   "Hanifi Kebiroglu"
+  ],
+  "abstract": "Norepinephrine plays an important role in many processes such as stress response, attention, alertness, blood pressure regulation, neurotransmission and emotional states. In this study, the molecule was optimized in order to get knowledge about the formation of the Ca+2 doped norepinephrine complex and the functions of norepinephrine in neurotransmission or other cellular processes by interacting with calcium. Quantum mechanical calculations such as FT-IR, Nuclear Magnetic Resonance (NMR), HO-MO-LUMO structure with the energy level diagram, UV-visible absorption, The density of states (DOS) of the optimized molecule were performed. The physical and chemical structure characteristics of the norepinephrine molecule and the change of its structural properties by molecular bonding with Ca+2 were investigated.",
+  "date": "2024-06-27",
+  "venue": "International Journal of Pure and Applied Sciences",
+  "arxiv_id": "",
+  "doi": "10.29132/ijpas.1376725",
+  "citations": 13,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "ba93d0f8bf7f",
+  "title": "Evaluating the thermal stability of chemicals and systems: A review",
+  "authors": [
+   "Giuseppe Andriani",
+   "Gianmaria Pio",
+   "Ernesto Salzano",
+   "Chiara Vianello",
+   "Paolo Mocellin"
+  ],
+  "abstract": "Abstract In the realm of chemical processing, particularly at the industrial scale, safety is of utmost importance. A predominant factor causing accidents within the chemical industry is runaway phenomena, primarily initiated by uncontrolled exothermic reactions. This review critically examines the often‐overlooked decomposition mechanisms as a significant contributor to thermal energy release, necessitating a comprehensive revision and understanding of both experimental and theoretical strategies for assessing thermal degradation. Key to this discourse is the explication of calorimetry as the principal experimental technique, alongside ab initio quantum chemistry simulations as a robust theoretical framework for quantifying the most relevant properties. However, more than mere cognisance of these methodologies is required for a meticulous thermal stability assessment. The review emphasizes identifying and quantifying fundamental parameters through experimental and theoretical investigations. Only upon acquiring these parameters, including kinetic, thermodynamic, onset, and peak characteristics of the exothermic decomposition reactions, can one effectively mitigate risks and hazards in designing and optimizing chemical processes and apparatus. Furthermore, this review delineates qualitative and quantitative methodologies for hazard assessment, proffering strategies for estimating safe operational conditions and sizing relief devices. The paper culminates in exploring future trajectories in thermal stability assessments, focusing on emerging applications in lithium‐ion batteries, electrolyzers, electrified reactors, ionic liquids, artificial intelligence and machine learning approaches. Thus, the paper underlines the evolving landscape of thermal risk management in contemporary and future chemical industries.",
+  "date": "2024-07-22",
+  "venue": "The Canadian Journal of Chemical Engineering",
+  "arxiv_id": "",
+  "doi": "10.1002/cjce.25422",
+  "citations": 21,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "c907ed2754b2",
+  "title": "Optimization of waveguide fabrication processes in lithium-niobate-on-insulator platform",
+  "authors": [
+   "CH. S. S. Pavan Kumar",
+   "Nikolai N. Klimov",
+   "Paulina S. Kuo"
+  ],
+  "abstract": "Lithium niobate (LN) is used in diverse applications such as spectroscopy, remote sensing, and quantum communications. The emergence of lithium-niobate-on-insulator (LNOI) technology and its commercial accessibility represent significant milestones. This technology aids in harnessing the full potential of LN's properties, such as achieving tight mode confinement and strong overlap with applied electric fields, which has enabled LNOI-based electro-optic modulators to have ultra-broad bandwidths with low-voltage operation and low power consumption. Consequently, LNOI devices are emerging as competitive contenders in the integrated photonics landscape. However, the nanofabrication, particularly LN etching, presents a notable challenge. LN is hard, dense, and chemically inert. It has anisotropic etch behavior and a propensity to produce material redeposition during the reactive-ion plasma etch process. These factors make fabricating low-loss LNOI waveguides (WGs) challenging. Recognizing the pivotal role of addressing these fabrication challenges for obtaining low-loss WGs, our research focuses on a systematic study of various process steps in fabricating LNOI WGs and other photonic structures. In particular, our study involves (i) careful selection of hard mask materials, (ii) optimization of inductively coupled plasma etch parameters, and finally, (iii) determining the optimal post-etch cleaning approach to remove redeposited material on the sidewalls of the etched photonic structures. Using the recipe established, we realized optical WGs with total (propagation and coupling) loss value of -10.5 dB, comparable to established values found in the literature. Our findings broaden our understanding of optimizing fabrication processes for low-loss lithium-niobate waveguides and can serve as an accessible resource in advancing LNOI technology.",
+  "date": "2024-06-01",
+  "venue": "AIP Advances",
+  "arxiv_id": "",
+  "doi": "10.1063/6.0003522",
+  "citations": 12,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "0b5fb5eee4fb",
+  "title": "Multi-objective Bayesian Optimization for Experimental Design in Copolymerization and Revealing Chemical Mechanism of Pareto Fronts",
+  "authors": [
+   "Hirofumi Yamada",
+   "Shogo Takasuka",
+   "Shunto Oikawa",
+   "Yosuke Harashima",
+   "Tomoaki Takayama",
+   "Aniruddha Nag",
+   "Araki Wakiuchi",
+   "Tsuyoshi Ando",
+   "Tetsunori Sugawara",
+   "Miho Hatanaka",
+   "Tomoyuki Miyao",
+   "Takamitsu Matsubara",
+   "Yu‐ya Ohnishi",
+   "Hiroharu Ajiro",
+   "Mikiya Fujii"
+  ],
+  "abstract": "The chemical properties of copolymers are strongly influenced by a number of intrinsic characteristics, such as their molecular weight and their monomer composition ratio. Identifying the optimal conditions for the copolymerization process that result in a synthesized copolymer with the desired characteristics is a major challenge. Optimization of the copolymerization process has traditionally been based on trial-and-error approaches by humans, relying on empirical rules. Thus, the design space that can be explored experimentally is severely limited by time and economic constraints. In addition, solving problems such as nonuniformity of both the temperature and the concentration of chemicals in the reaction field is also challenging. In this study, we established multiobjective Bayesian optimization and flow copolymerization systems to explore optimal copolymerization conditions for synthesizing copolymers that simultaneously exhibit multiple target characteristics. Finally, we visualized Pareto fronts representing trade-offs between polymer characteristics and employed quantum chemical calculations to reveal the chemical origins of the Pareto fronts.",
+  "date": "2025-07-25",
+  "venue": "ACS Applied Engineering Materials",
+  "arxiv_id": "",
+  "doi": "10.1021/acsaenm.5c00309",
+  "citations": 9,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "24891da7a1a4",
+  "title": "Recent advances in graphene quantum dots: Chemistry of synthesis, surface modifications, and improved properties for biomedical applications",
+  "authors": [
+   "Soumyanti Panda",
+   "K. S. Shalini Devi",
+   "Seiya Tsujimura",
+   "Saroj Kumar",
+   "Jaroon Jakmunee",
+   "Jai Prakash"
+  ],
+  "abstract": "Graphene quantum dots (GQDs) emerged as a focal point of researchers owing to their expceptional properties such as quantum confinement, pronounced edge effect, inherent biocompatibility, minimal toxicity, tunable photoluminescence, and excellent dispersibility. These properties make them highly suitable for a range of applications including promising biomedical applications, allowing for the exploration of biological processes at the cellular level. In this review, the recent advances in the synthesis of GQDs encompassing both top-down and bottom-up approaches have been discussed such as hydrothermal, microwave, electrochemical, ultrasonic, pyrolysis etc. along with green synthesis method with emphasis on how to improve their properties for biomedical applications. Various synthesis parameters and their optimizations of good biocompatible GQDs along with various surface modifications and other physio-chemical properties have been discussed in detail with their biomedical applications. Thereafter, review focuses on recent advances in biomedical applications using GQDs such as biosensing, bioimaging, drug delivery, tissue engineering, photothermal/photodynamic therapy etc. with emphasis on mechanism of action of GQDs. Eventually, the review delves into the multifaceted challenges associated with the integration of GQDs into biomedical applications.",
+  "date": "2025-05-09",
+  "venue": "TrAC Trends in Analytical Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1016/j.trac.2025.118293",
+  "citations": 23,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "2e8164d1fc7f",
+  "title": "Exploring Quantum Computing: Principles and Applications",
+  "authors": [
+   "SIDAK BAWA"
+  ],
+  "abstract": "The discipline of quantum computing, a cutting-edge area at the nexus of computer science and quantum physics, has the potential to revolutionize computation. Quantum computers employ quantum bits, also known as qubits, as opposed to classical computers, which use bits as the lowest unit of information. Utilizing the core concepts of quantum mechanics—superposition and entanglement—these qubits are able to conduct calculations that are not possible for conventional computers. To fully appreciate the possibilities and difficulties of quantum computing, one must comprehend these ideas. Superposition is a fundamental idea in quantum computing. A bit in classical computing can be in one of two states: either 0 or 1. A qubit, on the other hand, is capable of being in both states simultaneously in superposition. The computing capacity of quantum systems is increased exponentially by this capability. For example, a quantum computer offers huge processing parallelism since it can process several possibilities at once, but a classical computer can only process one possible answer at a time. Quantum computing also relies on entanglement. When qubits entangle, their states are directly correlated with one another, independent of their distance from one another. Quantum computers can now do intricate computations at previously unheard-of rates because to this phenomena. Quantum computers can factor enormous numbers, optimize intricate systems, and simulate chemical structures for drug development thanks to entanglement and superposition, which are currently impossible for conventional computers.",
+  "date": "2024-08-30",
+  "venue": "Journal of Quantum Science and Technology.",
+  "arxiv_id": "",
+  "doi": "10.36676/jqst.v1.i3.27",
+  "citations": 11,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "f9dcbf4706c6",
+  "title": "Structural Changes in 2-Acetoxybenzoic Acid (2ABA) in the Presence of Various Solvents: A Quantum Chemical and Spectroscopic Study",
+  "authors": [
+   "Mücahit Yılmaz",
+   "Hanifi Kebiroglu"
+  ],
+  "abstract": "2-Acetoxy benzoic acid (2ABA) can produce structural changes in the molecule when dissolved in different solvents depending on factors such as solvent polarity, Hydrogen bonding and solvent interactions. Therefore, quantum chemical calculations were performed using Gaussian 09: AS64L-G09RevD.01 software. The structural changes of the 2ABA molecule in the presence of solvents were recorded by Fourier Transform Infrared (FT-IR) Spectroscopy in the 4000-0 cm-1 range. Additionally, Nuclear Magnetic Resonance (NMR) Spectroscopy was employed to examine changes in chemical shift values associated with the dissolution of the molecule. In another phase of the study, the geometric parameters of the optimized molecules, atomic charges, intensities of the vibrational bands, and vibrational frequencies were calculated using Density Functional Theory (DFT). These calculations were performed at the DFT/B3LYP level with the LanL2DZ basis set, providing a detailed analysis of solvent effects at the molecular level. This study offers significant insights into the interactions of solvent environments with molecular structures and contributes to potential drug development processes.",
+  "date": "2024-06-03",
+  "venue": "Journal of Physical Chemistry and Functional Materials",
+  "arxiv_id": "",
+  "doi": "10.54565/jphcfum.1473397",
+  "citations": 8,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "fa4151b72c89",
+  "title": "Optimization, molecular dynamics and quantum parameters simulations of Zingiber officinale rhizome as a green corrosion inhibitor",
+  "authors": [
+   "Olajire Samson Olanrele",
+   "Joseph Femi-Dagunro",
+   "Edwin Andrew Ofudje",
+   "Meri Algarni",
+   "Azza A. Al‐Ghamdi",
+   "Reema H. Aldahiri",
+   "Mazen Rzeeg Alrahili",
+   "Ahad Amer Alsaiari"
+  ],
+  "abstract": "This study combines experimental and theoretical approaches to investigate ginger root extract (GRE) as an eco-friendly corrosion inhibitor for mild steel in acidic environments at temperatures ranging from 303 to 333 K. Experimental techniques, including weight loss measurements, were used to assess the inhibiting performance and adsorption behavior of GRE, while GC-MS, FT-IR, and UV–visible spectrophotometric methods provided further characterization. Results indicated that the inhibition efficiency of GRE increased with higher concentrations and decreased with temperature, highlighting its potential to effectively prevent corrosion in H 2 SO 4 medium. GC-MS analysis identified four major phenolic compounds—6-gingerol, 6-isoshogaol, zingerone, and vanillyl glycol—and two secondary metabolites, α-Farnesene and β-Bisabolene. Among these, 6-gingerol, the most active and abundant constituent, was selected for computational studies. Optimal corrosion inhibition of 81.3 % was achieved at 303 K with a GRE concentration of 10 g/L for 1 h. Thermodynamic activation parameters suggested a temperature-dependent process, and alignment with the Langmuir isotherm indicated a physical adsorption mechanism. Quantum chemical calculations for 6-gingerol revealed highest occupied molecular orbital energy (E HOMO ) and lowest unoccupied molecular orbital energy (E LUMO ) values of -6.286 eV and -0.366 eV, respectively, in its protonated state, and -8.338 eV and -0.247 eV, respectively, in its neutral state. Molecular simulations showed a binding affinity of -4.736 kJ/mol between 6-gingerol and the steel surface, supporting the experimental findings and underscoring the potential of GRE as an effective corrosion inhibitor.",
+  "date": "2024-09-01",
+  "venue": "Heliyon",
+  "arxiv_id": "",
+  "doi": "10.1016/j.heliyon.2024.e37493",
+  "citations": 12,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "a92e21769a99",
+  "title": "A Self‐Assembled MOF‐Escherichia Coli Hybrid System for Light‐Driven Fuels and Valuable Chemicals Synthesis",
+  "authors": [
+   "Jialu Li",
+   "Junfeng Shen",
+   "Tian Hou",
+   "Hongting Tang",
+   "Cuiping Zeng",
+   "Kemeng Xiao",
+   "Yanping Hou",
+   "Bo Wang"
+  ],
+  "abstract": "Abstract The development of semi‐artificial photosynthetic systems, which integrate metal–organic frameworks (MOFs) with industrial microbial cell factories for light‐driven synthesis of fuels and valuable chemicals, represents a highly promising avenue for both research advancements and practical applications. In this study, an MOF (PCN‐222) utilizing racemic‐(4‐carboxyphenyl) porphyrin and zirconium chloride (ZrCl4) as primary constituents is synthesized. Employing a self‐assembly process, a hybrid system is constructed, integrating engineered Escherichia coli (E. coli) to investigate light‐driven hydrogen and lysine production. These results demonstrate that the light‐irradiated biohybrid system efficiently produce H2 with a quantum efficiency of 0.75% under full spectrum illumination, the elevated intracellular reducing power NADPH is also observed. By optimizing the conditions, the biohybrid system achieves a maximum lysine production of 18.25 mg L−1, surpassing that of pure bacteria by 332%. Further investigations into interfacial electron transfer mechanisms reveals that PCN‐222 efficiently captures light and facilitates the transfer of photo‐generated electrons into E. coli cells. It is proposed that the interfacial energy transfer process is mediated by riboflavin, with facilitation by secreted small organic acids acting as hole scavengers for PCN‐222. This study establishes a crucial foundation for future research into the light‐driven biomanufacturing using E. coli‐based hybrid systems.",
+  "date": "2024-04-25",
+  "venue": "Advanced Science",
+  "arxiv_id": "",
+  "doi": "10.1002/advs.202308597",
+  "citations": 27,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "eebc49fa11ea",
+  "title": "Graphene and graphene quantum dots applied to batteries and supercapacitors",
+  "authors": [
+   "Thiago F. Santos",
+   "Domingos Fabiano de Santana Souza",
+   "Elisama Vieira dos Santos",
+   "Bruno R. Carvalho",
+   "José Heriberto Oliveira do Nascimento"
+  ],
+  "abstract": "The article discusses the main advancements and discoveries regarding the application of graphene (Gr) and graphene quantum dots (GQDs) in batteries and supercapacitors, highlighting how these materials have revolutionized the field of energy storage. The main findings of the work include the confirmation that graphene and GQDs significantly improve the efficiency, storage capacity, and stability of energy devices. The study found that GQDs and supercapacitors made of graphene can achieve high-capacitances, such as 566 F/g, and keep up to 95% of their capacity after 2,000 charge and discharge cycles. In lithium-ion batteries, the incorporation of these nanomaterials has resulted in capacities of up to 2,882 mAh/g, demonstrating a substantial improvement in energy density and battery lifespan. The study also identified the most effective synthesis methods, such as chemical oxidation and hydrothermal processes, and optimized them to produce high-quality graphene and GQDs, thereby directly impacting the devices' performance. The study also revealed that the integration of graphene and GQDs is driving the exponential growth of the supercapacitor and battery market, projected to reach values of up to 18.4 billion dollars and 500.5 billion dollars, respectively, by 2032. The article concludes that these materials play a fundamental role in the evolution of energy storage technologies, with the potential to shape the future of energy sustainability and technological innovation.",
+  "date": "2025-01-20",
+  "venue": "Nano Trends",
+  "arxiv_id": "",
+  "doi": "10.1016/j.nwnano.2025.100077",
+  "citations": 13,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "287b66b23b36",
+  "title": "Solvent‐Engineering‐Assisted Ligand Exchange Strategy for High‐Efficiency AgBiS 2 Quantum Dot Solar Cells",
+  "authors": [
+   "Qixuan Zhong",
+   "Bin Chao Zhao",
+   "Yongqiang Ji",
+   "Qiuyang Li",
+   "Xiaoyu Yang",
+   "Mingyu Chu",
+   "Yiqi Hu",
+   "Lei Li",
+   "Shunde Li",
+   "Hongyu Xu",
+   "Haoming Yan",
+   "Tianyu Huang",
+   "Peng Chen",
+   "Hao‐Hsin Chen",
+   "Zhangyuchang Lu",
+   "Yiming Huangfu",
+   "Jiang Wu",
+   "Dengke Wang",
+   "Ning Wang",
+   "Muhan Cao",
+   "Qihuang Gong",
+   "Rui Zhu",
+   "Lichen Zhao"
+  ],
+  "abstract": "Abstract As the initial synthesized colloidal quantum dots (CQDs) are generally capped with insulating ligands, ligand exchange strategies are essential in the fabrication of CQD films for solar cells, which can regulate the surface chemical states of CQDs to make them more suitable for thin‐film optoelectronic devices. However, uncontrollable surface adsorption of water molecules during the ligand exchange process introduces new defect sites, thereby impairing the resultant device performance, which attracts more efforts devoted to it but remains a puzzle. Here, we develop a solvent‐engineering‐assisted ligand exchange strategy to revamp the surface adsorption, improve the exchange efficiency, and modulate the surface chemistry for the environmentally friendly lead‐free silver bismuth disulfide (AgBiS 2 ) CQDs. The optimized AgBiS 2 CQD solar cells deliver an outstanding champion power conversion efficiency (PCE) of up to 8.95 % and improved long‐term stability. Our strategy is less environment‐dependent and can produce solar cells with negligible performance variance for several batches across several months. Our work demonstrates the critical role of solvents for ligand exchange in the surface chemistry of CQDs and the realization of high‐performance photovoltaic devices in a highly reproducible manner.",
+  "date": "2024-08-24",
+  "venue": "Angewandte Chemie International Edition",
+  "arxiv_id": "",
+  "doi": "10.1002/anie.202412590",
+  "citations": 20,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "8e517b3ccdc5",
+  "title": "Quantum thermoelectric transmission functions with minimal current fluctuations",
+  "authors": [
+   "André M. Timpanaro",
+   "Giacomo Guarnieri",
+   "Gabriel Teixeira Landi"
+  ],
+  "abstract": "Thermodynamic uncertainty relations (TURs) represent a benchmark result in nonequilibrium physics that allows to place fundamental lower bounds on the noise-to-signal ratio (precision) of currents in nanoscale devices. Originally formulated for classical time-homogeneous Markov processes, these relations, were shown to be violated in thermoelectric engines and photovoltaic devices supporting quantum-coherent transport. However, the extent to which these violations may occur still represents a missing piece of the puzzle. In this work, we provide such answer in a definitive way within the general Landauer-B\\\"uttiker formalism for noninteracting systems, beyond any perturbative regime, e.g., linear response. In particular, using analytical constrained-optimization techniques, we rigorously demonstrate that the transmission function which maximizes the reliability of thermoelectric devices (i.e., which minimizes the fluctuations of its steady-state currents) for fixed average power and efficiency is a collection of boxcar functions. This allows us to show that TURs can be violated by arbitrarily large amounts, depending on the temperature and chemical potential gradients, thus providing guidelines to the design of optimal devices.",
+  "date": "2025-01-02",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevb.111.014301",
+  "citations": 11,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "7cecb5443d50",
+  "title": "Plasma‐Damage Free Efficiency Scaling of Micro‐LEDs by Metal‐Assisted Chemical Etching",
+  "authors": [
+   "Clarence Yat-Yin Chan",
+   "Henry C. Roberts",
+   "Yixin Xiao",
+   "Paul J. Froeter",
+   "Dane J. Sievers",
+   "Zetian Mi",
+   "Xiuling Li"
+  ],
+  "abstract": "Abstract Since its inception, LEDs have slowly transitioned from traditional solid‐state lighting applications to full‐color, self‐emissive displays. Micro‐LEDs (µLEDs) are poised to become the next mass‐market technology for displays in lower pixel‐density, large‐area and mobile devices alongside emerging applications for high pixel‐density augmented, virtual and mixed reality. However, it is well known that µLEDs suffer from efficiency cliff – a drastic efficiency reduction as device dimension reduces with increased severity at the single digit micron scale, often attributed to material damage from reactive ion etching (RIE) that is fundamental to the process. In this paper, a first‐ever demonstration of µLED devices ranging from 45 µm down to 5 µm fabricated by the plasma‐free metal‐assisted chemical etching (MacEtch) is presented. These devices demonstrate converging external quantum efficiencies (EQE) irrespective of mesa dimension with a spread of only 3.7% without optimization. Additionally, a multi‐pronged comparison between MacEtch and RIE is provided in terms of smoothness, material damage, macroscale uniformity and throughput. These findings carry profound implications for damage‐free scaling of multi‐heterojunction III‐V optoelectronic devices, providing a pathway for high‐density, high performance top‐down fabricated µLED arrays.",
+  "date": "2024-04-03",
+  "venue": "Advanced Optical Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adom.202302957",
+  "citations": 21,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "0382f7b0a858",
+  "title": "Efficient Separation of 1,3,5-Trioxane by the Ionic Liquid Heat Integration Extraction Distillation Process: Quantum Chemical Calculation and Multiperformance Evaluation",
+  "authors": [
+   "Jingjing Pi",
+   "Chao Pan",
+   "Zhiyuan Wang",
+   "Siqi Jiang",
+   "Lingcong Kong",
+   "Kuo Chang",
+   "Yufeng Hu",
+   "Zhichang Liu"
+  ],
+  "abstract": "As a crucial raw material in the chemical industry, 1,3,5-trioxane (TOX) has an irreplaceable value. However, the synthesis liquid of TOX contains numerous impurities and various azeotropes that are challenging to separate through conventional distillation methods. Therefore, there is an urgent need to develop a new process for the efficient separation of high-purity TOX. In this study, 1,3-dimethylimidazolium dimethyl phosphate ionic liquid ([MIMM][DMP]) was used as an entrainer for the extractive distillation of the TOX mixture. We performed quantum chemical calculations, including electrostatic potential analysis, RDG analysis, and intermolecular interaction energy, to study the extractive distillation mechanism at the molecular level. Meanwhile, an ionic liquid extractive distillation process (IL-EDP) was developed using [MIMM][DMP], and the developed process was then optimized using a sequential iterative procedure to ensure that the optimum parameters for the process were obtained. Four process integration flows were developed with a vapor recompression heat pump and heat integration technology. The results showed that the ionic liquid heat integration extractive distillation process-II (IL-HI-EDP-II) reduced the total annual cost by 29.95%, the total operation cost by 37.38%, the total capital cost by 12.90%, and the total acid gas emission and energy consumption by 42.01% compared with the IL-EDP. IL-HI-EDP-II has an outstanding economic, environmental, and energy impact and is of great value in advancing TOX separation technology.",
+  "date": "2025-10-03",
+  "venue": "ACS Sustainable Chemistry & Engineering",
+  "arxiv_id": "",
+  "doi": "10.1021/acssuschemeng.5c07794",
+  "citations": 4,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "7a1ceca2ddde",
+  "title": "Quantum thermochemical engines",
+  "authors": [
+   "Ugo Marzolino"
+  ],
+  "abstract": "Conversion of chemical energy into mechanical work is the fundamental mechanism of several natural phenomena at the nanoscale, like molecular machines and Brownian motors. Quantum mechanical effects are relevant for optimizing these processes and to implement them at the atomic scale. This paper focuses on engines that transform chemical work into mechanical work through energy and particle exchanges with thermal sources at different chemical potentials. Irreversibility is introduced by modeling the engine transformations with finite-time dynamics generated by a time-dependent quantum master equation. Quantum degenerate gases provide maximum efficiency for reversible engines, whereas the classical limit implies small efficiency. For irreversible engines, both the output power and the efficiency at maximum power are much larger in the quantum regime than in the classical limit. The analysis of ideal homogeneous gases grasps the impact of quantum statistics on the above performances, which are expected to persist in the presence of interactions and more general trapping. The performance dependence on different types of Bose-Einstein condensates (BECs) is also studied. The BECs under consideration are standard BECs with a finite fraction of particles in the ground state, and generalized BECs where eigenstates with parallel momenta, or those with coplanar momenta, are macroscopically occupied according to the confinement anisotropy. Quantum gases are therefore a resource for enhanced performances of converting chemical into mechanical work.",
+  "date": "2024-03-04",
+  "venue": "Physical Review Applied",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevapplied.21.034003",
+  "citations": 5,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "cb7a6a584a4b",
+  "title": "Optimization of absorption coefficient of quantum dot structures for infrared spectroscopy",
+  "authors": [
+   "Sameh A. Dakroury",
+   "Mohamed I. Wafa",
+   "Yasser M. El-Batawy",
+   "Nouran M. Ali"
+  ],
+  "abstract": "Abstract Infrared spectroscopy is a powerful tool used in chemical analysis and identification, material and polymer characteristics, pharmaceuticals and medical diagnostics, food industry, and environmental applications. Quantum Dots have shown significant potential as a top candidate for infrared photodetection of the transmitted and absorbed frequencies which is one of the main processes in IR spectroscopy. Therefore, the demand for accurate optimization techniques for enhanced detection is critically needed. In this work, we have developed an optimization study of the optical absorption coefficient of InAs/GaAs self-assembled quantum dots for IR photodetection specially in fingerprint region, where the Bound-to-bound absorption coefficient calculations are based on the bounded states estimation using the effective mass Hamiltonian diagonalization. Then, optimization has been performed which is based on the Nelder–Mead simplex algorithm where the objective function is maximizing the optical absorption coefficient at certain wavenumbers of interest of 600 and 800 cm−1. Also, the optimized absorption has been compared with previously published results for different dot shapes; semi-spherical, conical and truncated conical dots, showing a considerable enhancement of the optical absorption coefficient at the wavelengths of interest. A 5% sensitivity analysis has been performed for each QD cell parameters to study the effects of tolerances around the optimized design parameters. The presented optimization approach is generic that can be applied for different wavelengths, different QD structures, and different QD and barrier materials.",
+  "date": "2025-09-18",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-025-19607-1",
+  "citations": 3,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "a17659ca8050",
+  "title": "Size‐Dependent Multi‐Electron Donation in Metal‐Complex Quantum Dots Hybrid Catalyst for Photocatalytic Carbon Dioxide Reduction",
+  "authors": [
+   "Qian Zhao",
+   "Mohamed A. Abdellah",
+   "Yuehan Cao",
+   "Jie Meng",
+   "Xianshao Zou",
+   "Kasper Enemark‐Rasmussen",
+   "Weihua Lin",
+   "Yi Lut Li",
+   "Yijiang Chen",
+   "Hengli Duan",
+   "Qinying Pan",
+   "Ying Zhou",
+   "Tõnu Pullerits",
+   "Hong Xu",
+   "Sophie E. Canton",
+   "Yuran R. Niu",
+   "Kaibo Zheng"
+  ],
+  "abstract": "Abstract The effective conversion of carbon dioxide (CO2) into valuable chemical fuels relies significantly on the donation of multiple electrons. Its efficiency is closely linked to both the density and lifetime of excited charge carriers. In this study, a hybrid catalyst system comprising covalently bonded InP/ZnS quantum dots (QDs) and Re‐complexes is showcased. The electronic band alignment between the QDs and the Re‐complexes is revealed to dominate the multi‐electron transfer process for photocatalytic conversion to methane (CH4). Notably, the size of the QDs is found to be a determining parameter. Among the three QD sizes investigated, transient absorption spectroscopy studies unveil that rapid multi‐electron transfer from the QDs to the Re‐catalyst occurs in smaller QDs (2.3 nm) due to the substantial driving force. Consequently, the photocatalytic conversion of CO2 to CH4 is significantly enhanced with a turnover number of 6, corresponding to the overall apparent quantum yield of ≈1%. This research underscores the possibilities of engineering multi‐electron transfer by manipulating the electronic band alignment within a catalytic system. This can serve as a guide for optimizing photocatalytic CO2 reduction.",
+  "date": "2024-04-02",
+  "venue": "Advanced Functional Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adfm.202315734",
+  "citations": 15,
+  "theme": "chemical process optimization quantum"
+ },
+ {
+  "fid": "e32fed0ba2e4",
+  "title": "DFT in catalysis: Complex equations for practical computing applications in chemistry",
+  "authors": [
+   "Artur Brotons Rufes",
+   "Sergio Posada Pérez",
+   "Albert Poater"
+  ],
+  "abstract": "Density Functional Theory (DFT) has become the cornerstone of modern computational catalysis, providing a practical balance between accuracy and efficiency in describing molecular structure, bonding, and reactivity. This review presents a comprehensive overview of DFT methodology, from its quantum-mechanical foundations and basis-set construction to the hierarchy of exchange–correlation functionals defined by Jacob’s ladder. We discuss how DFT enables mechanistic elucidation of homogeneous and heterogeneous catalytic processes, highlighting benchmark studies that compare functional performance across representative reactions and transition states. Key interpretative tools, such as bond order analysis (Mayer, Wiberg, AIM/QTAIM), Natural Bond Orbital (NBO) theory, Energy Decomposition Analysis (EDA), and Non-Covalent Interaction (NCI) plots, are introduced as essential descriptors linking electronic structure to reactivity. The review also explores the integration of DFT with machine learning, microkinetic modeling, and automated reaction discovery, outlining recent advances toward predictive catalysis. Collectively, this work provides both conceptual and practical guidance for applying DFT to catalytic problems, emphasizing methodological awareness, descriptor-based interpretation, and emerging data-driven strategies for rational catalyst design. However, the main take-home message is that for DFT calculations, while in-depth methodological expertise is not essential, a clear comprehension of the theory’s practical application is crucial.",
+  "date": "2025-12-17",
+  "venue": "Digital Chemical Engineering",
+  "arxiv_id": "",
+  "doi": "10.1016/j.dche.2025.100285",
+  "citations": 10,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "cdd770558a9d",
+  "title": "Metal halide perovskites: a platform for next-generation multifunctional devices",
+  "authors": [
+   "Abimbola Jacob Olasoji",
+   "Jin Kyoung Park",
+   "Hyong Joon Lee",
+   "Yunmi Song",
+   "David Sunghwan Lee",
+   "Sang Hyuk Im"
+  ],
+  "abstract": "Abstract Metal halide perovskite materials have rapidly advanced as a pivotal class of promising candidates suitable for a broad spectrum of next-generation technologies owing to their exceptional optoelectronic properties, intrinsic tolerance to crystallographic defects, and structural versatility together with decades of progressive discoveries further driven by their compatibility with cost-effective solution-based fabrication techniques. In particular, the rapid advancement in perovskite solar cells—now achieving champion power conversion efficiencies (PCEs) of up to 27% for single junction and 34.6% for tandem architectures with silicon—has fueled growing interest in leveraging their potential beyond photovoltaics. This includes expanding their applications into diverse fields outside optoelectronics such as energy storage and conversion, catalysis, neuromorphic computing, and other emerging innovations such as quantum technologies. Accordingly, this review provides a comprehensive overview of emerging trends and latest breakthroughs in the application of metal halide perovskites across diverse domains, including solar cells, light-emitting diodes (LEDs), photodetectors, X-ray and gamma-ray detectors, memristors, thermoelectrics, sensors, lasers, triboelectric nanogenerators, supercapacitors, batteries, catalysts, and quantum technologies. Also discussed are the fundamental working principles underlying these applications, recent progress and innovations across each domain, and critical assessments of the prevailing challenges that continue to hinder their large-scale adoption. Ultimately, this article presents holistic perspective on state-of-the-art developments in various application fields of metal halide perovskites and outlines strategic directions aimed at facilitating the future commercialization of metal halide perovskite-based technologies. Graphical abstract",
+  "date": "2025-07-07",
+  "venue": "Advances in Industrial and Engineering Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1007/s44405-025-00011-2",
+  "citations": 26,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "5733f553ebb2",
+  "title": "Machine-learning-guided design of MOF-based electrocatalysts for sustainable ammonia production",
+  "authors": [
+   "Bo Han",
+   "Marcus de Carvalho",
+   "Jie Zhang",
+   "Hui Mao",
+   "Qingyu Yan"
+  ],
+  "abstract": "-reduction prototypes into advanced catalysts that can convert nitrates and nitrites into ammonia. This offers a broader perspective on the electrochemical nitrogen cycle. However, their structural complexity poses significant challenges to traditional design and optimization approaches. This review first critically summarizes the recent advances in MOF development for electrochemical ammonia synthesis. Next, this review systematically explores the transformative role of machine learning (ML) in advancing MOF research. It also addresses the 8 major challenges and limitations currently facing this intersection, including data scarcity, model interpretability, and inverse design. To address these challenges and guide future progress, the review proposes 4 clear and practical future directions: leveraging explicable AI to improve model transparency, integrating active learning with automated platforms to optimize experimental workflows, exploring the synergy between ML and quantum computing to simulate complex structures, and fostering multidisciplinary collaboration for holistic innovation. By bridging computational intelligence and materials discovery, this work underscores the central role of ML in shaping the next generation of MOF-based technologies for sustainable energy and environmental applications.",
+  "date": "2026-01-01",
+  "venue": "Chemical Communications",
+  "arxiv_id": "",
+  "doi": "10.1039/d5cc07118f",
+  "citations": 18,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "e905b9161d8d",
+  "title": "The Rise of Weyl Semimetals: Exotic States and Topological Transitions",
+  "authors": [
+   "Mehmet Keçeci"
+  ],
+  "abstract": "Weyl semimetals (WSMs) have emerged as one of the most groundbreaking discoveries in condensed matter physics in recent years, deepening our fundamental scientific understanding and opening new horizons for future technologies. These materials are named after Hermann Weyl, who in 1929 predicted Weyl fermions-massless, chiral relativistic particles. WSMs, as low-energy excitations of these fermions in solid-state systems, possess special points in their electronic band structure where bands cross linearly, known as \"Weyl points.\" These points act as sources or sinks (monopoles) of Berry curvature in momentum space and carry a definite chirality (right-or left-handed). For a material to host a WSM phase, either timereversal symmetry or inversion symmetry must be broken. One of the most distinctive features of Weyl semimetals is the existence of unique topological surface states known as \"Fermi arcs\" on their surfaces. These arcs connect Weyl points of opposite chirality within the bulk and form open Fermi surfaces, which are absent in ordinary metals. The presence of Fermi arcs is strong evidence of the topological nature of WSMs and has been experimentally observed using techniques like angle-resolved photoemission spectroscopy (ARPES). Another crucial phenomenon is the \"chiral anomaly.\" This is a quantum field theory effect where chiral charge is not conserved in the presence of parallel electric and magnetic fields, resulting in the pumping of Weyl fermions from one chirality to the other. In solid-state WSMs, the chiral anomaly leads to unusual transport properties, such as a characteristic negative longitudinal magnetoresistance and a giant anomalous Hall effect. These features are important experimental signatures for confirming the existence of Weyl fermions. WSM phases have been theoretically predicted and experimentally realized in various materials, including the TaAs family (TaAs, TaP, NbAs, NbP), WTe₂, MoTe₂, and magnetic WSMs. These materials exhibit a wide range of exotic physical properties, such as anomalous Hall conductivity, giant nonlinear optical responses, thermoelectric effects, and potential catalytic activities. The unique electronic and topological properties of Weyl semimetals make them highly promising candidates for potential applications such as low-energy-consumption electronics, spintronic devices, topological quantum computing, and even high-efficiency catalysts. Intensive research in material synthesis, characterization, and ",
+  "date": "2025-07-07",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.22541/au.175192231.19609379/v1",
+  "citations": 4,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "0e99fa52dc87",
+  "title": "Constrained Geometry Catalysts in Ethylene Polymerization: From Mechanistic Understanding to High-Throughput Virtual Screening",
+  "authors": [
+   "Shi-Yun Feng",
+   "Rui-Hong He",
+   "Xu-Bin Wang",
+   "Qi Yang",
+   "Jingshuang Dang"
+  ],
+  "abstract": "Abstract The rational design of constrained geometry catalysts (CGCs) for olefin polymerization remains challenging due to the intricate interplay between steric and electronic effects and the prohibitive computational cost of exploring large chemical spaces using quantum-chemical methods. In this work, we develop a mechanistically informed machine learning framework that bridges semiempirical GFN2-xTB descriptors with density functional theory (DFT)-computed activation barriers for ethylene insertion. DFT calculations identify the first insertion as the rate-determining step (RDS), enabling construction of a physically motivated surrogate model based on the cationic methyl active species. Benchmarking across eight regression algorithms identifies Gradient Boosting Regressor as the optimal predictor, delivering DFT-comparable predictive accuracy while reducing computational cost by several orders of magnitude. SHapley Additive exPlanations analysis reveals that metal electrophilicity is the primary factor governing the activation barrier of the RDS, providing direct mechanistic interpretation of the learned structure–activity relationships. Application of the model to a virtual library of approximately 1.4 × 105 chemically valid CGCs via a high-throughput virtual screening workflow rapidly identifies low-barrier candidates and uncovers robust design principles, particularly the beneficial role of electron-donating cyclopentadienyl substituents. The present framework establishes an interpretable and efficient paradigm for accelerated polyolefin catalyst discovery.",
+  "date": "2026-09-21",
+  "venue": "Organometallics",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.organomet.6c00254",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "78c9b266fc29",
+  "title": "Applications of Density Functional Theory in Modern Materials Research",
+  "authors": [
+   "Nguyễn Thanh Tùng"
+  ],
+  "abstract": "Density Functional Theory (DFT) is currently one of the most powerful and widely employed quantum mechanical methods in modern materials science, condensed matter physics, and computational chemistry. Due to its capability to accurately describe the electronic structure of materials at the atomic level with relatively moderate computational cost, DFT has become an essential theoretical framework for investigating a broadA range of advanced materials. In recent decades, DFT has played a central role in the study of nanomaterials, two-dimensional materials, semiconductors, magnetic materials, catalysts, and optoelectronic systems. The method enables researchers to predict and analyze important physical and chemicalproperties, including electronic band structures, density of states, magnetic behavior, optical responses, adsorption mechanisms, and thermodynamic stability. This review summarizes the fundamental principles of DFT, including the Hohenberg–Kohn theorems and Kohn–Sham formalism, together with commonly used exchange–correlation approximations such as LDA, GGA, hybrid functionals, and DFT+U methods. Furthermore, important applications of DFT in gas sensing, energy storage, photocatalysis, and novel material design are discussed in detail. The advantages and limitations of DFT are also highlighted, particularly regarding band-gap prediction and strongly correlated systems. Finally, future development trends of DFT are presented in the context of artificial intelligence, machine learning, high-performance computing, and large-scale materials discovery.",
+  "date": "2026-05-22",
+  "venue": "Current Science Research Bulletin",
+  "arxiv_id": "",
+  "doi": "10.55677/csrb/03-v03i05y2026",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "f2390d72bbed",
+  "title": "Weyl Semimetals",
+  "authors": [
+   "Mehmet Keçeci"
+  ],
+  "abstract": "Weyl semimetals (WSMs) have emerged as one of the most groundbreaking discoveries in condensed matter physics in recent years, deepening our fundamental scientific understanding and opening new horizons for future technologies. These materials are named after Hermann Weyl, who in 1929 predicted Weyl fermions – massless, chiral relativistic particles. WSMs, as low-energy excitations of these fermions in solid-state systems, possess special points in their electronic band structure where bands cross linearly, known as \"Weyl points.\" These points act as sources or sinks (monopoles) of Berry curvature in momentum space and carry a definite chirality (right- or left-handed). For a material to host a WSM phase, either time-reversal symmetry or inversion symmetry must be broken. One of the most distinctive features of Weyl semimetals is the existence of unique topological surface states known as \"Fermi arcs\" on their surfaces. These arcs connect Weyl points of opposite chirality within the bulk and form open Fermi surfaces, which are absent in ordinary metals. The presence of Fermi arcs is strong evidence of the topological nature of WSMs and has been experimentally observed using techniques like angle-resolved photoemission spectroscopy (ARPES). Another crucial phenomenon is the \"chiral anomaly.\" This is a quantum field theory effect where chiral charge is not conserved in the presence of parallel electric and magnetic fields, resulting in the pumping of Weyl fermions from one chirality to the other. In solid-state WSMs, the chiral anomaly leads to unusual transport properties, such as a characteristic negative longitudinal magnetoresistance and a giant anomalous Hall effect. These features are important experimental signatures for confirming the existence of Weyl fermions. WSM phases have been theoretically predicted and experimentally realized in various materials, including the TaAs family (TaAs, TaP, NbAs, NbP), WTe₂, MoTe₂, and magnetic WSMs. These materials exhibit a wide range of exotic physical properties, such as anomalous Hall conductivity, giant nonlinear optical responses, thermoelectric effects, and potential catalytic activities. The unique electronic and topological properties of Weyl semimetals make them highly promising candidates for potential applications such as low-energy-consumption electronics, spintronic devices, topological quantum computing, and even high-efficiency catalysts. Intensive research in material synthesis, characterization, ",
+  "date": "2026-05-20",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.31219/osf.io/849xv_v1",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "b059615187ac",
+  "title": "Weyl Semimetals: Unveiling Novel Electronic Structures and Topological Properties",
+  "authors": [
+   "Mehmet Keçeci"
+  ],
+  "abstract": "Weyl semimetals (WSMs) have emerged as one of the most groundbreaking discoveries in condensed matter physics in recent years, deepening our fundamental scientific understanding and opening new horizons for future technologies. These materials are named after Hermann Weyl, who in 1929 predicted Weyl fermions – massless, chiral relativistic particles. WSMs, as low-energy excitations of these fermions in solid-state systems, possess special points in their electronic band structure where bands cross linearly, known as \"Weyl points.\" These points act as sources or sinks (monopoles) of Berry curvature in momentum space and carry a definite chirality (right- or left-handed). For a material to host a WSM phase, either time-reversal symmetry or inversion symmetry must be broken. One of the most distinctive features of Weyl semimetals is the existence of unique topological surface states known as \"Fermi arcs\" on their surfaces. These arcs connect Weyl points of opposite chirality within the bulk and form open Fermi surfaces, which are absent in ordinary metals. The presence of Fermi arcs is strong evidence of the topological nature of WSMs and has been experimentally observed using techniques like angle-resolved photoemission spectroscopy (ARPES). Another crucial phenomenon is the \"chiral anomaly.\" This is a quantum field theory effect where chiral charge is not conserved in the presence of parallel electric and magnetic fields, resulting in the pumping of Weyl fermions from one chirality to the other. In solid-state WSMs, the chiral anomaly leads to unusual transport properties, such as a characteristic negative longitudinal magnetoresistance and a giant anomalous Hall effect. These features are important experimental signatures for confirming the existence of Weyl fermions. WSM phases have been theoretically predicted and experimentally realized in various materials, including the TaAs family (TaAs, TaP, NbAs, NbP), WTe₂, MoTe₂, and magnetic WSMs. These materials exhibit a wide range of exotic physical properties, such as anomalous Hall conductivity, giant nonlinear optical responses, thermoelectric effects, and potential catalytic activities. The unique electronic and topological properties of Weyl semimetals make them highly promising candidates for potential applications such as low-energy-consumption electronics, spintronic devices, topological quantum computing, and even high-efficiency catalysts. Intensive research in material synthesis, characterization, ",
+  "date": "2026-01-01",
+  "venue": "WorkflowHub",
+  "arxiv_id": "",
+  "doi": "10.48546/workflowhub.document.35.4",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "06afef99560f",
+  "title": "Exploring Weyl Semimetals: Emergence of Exotic Electrons and Topological Order",
+  "authors": [
+   "Mehmet Keçeci"
+  ],
+  "abstract": "Weyl semimetals (WSMs) have emerged as one of the most groundbreaking discoveries in condensed matter physics in recent years, deepening our fundamental scientific understanding and opening new horizons for future technologies. These materials are named after Hermann Weyl, who in 1929 predicted Weyl fermions -massless, chiral relativistic particles. WSMs, as low-energy excitations of these fermions in solid-state systems, possess special points in their electronic band structure where bands cross linearly, known as \"Weyl points.\" These points act as sources or sinks (monopoles) of Berry curvature in momentum space and carry a definite chirality (right-or left-handed). For a material to host a WSM phase, either timereversal symmetry or inversion symmetry must be broken. One of the most distinctive features of Weyl semimetals is the existence of unique topological surface states known as \"Fermi arcs\" on their surfaces. These arcs connect Weyl points of opposite chirality within the bulk and form open Fermi surfaces, which are absent in ordinary metals. The presence of Fermi arcs is strong evidence of the topological nature of WSMs and has been experimentally observed using techniques like angle-resolved photoemission spectroscopy (ARPES). Another crucial phenomenon is the \"chiral anomaly.\" This is a quantum field theory effect where chiral charge is not conserved in the presence of parallel electric and magnetic fields, resulting in the pumping of Weyl fermions from one chirality to the other. In solid-state WSMs, the chiral anomaly leads to unusual transport properties, such as a characteristic negative longitudinal magnetoresistance and a giant anomalous Hall effect. These features are important experimental signatures for confirming the existence of Weyl fermions. WSM phases have been theoretically predicted and experimentally realized in various materials, including the TaAs family (TaAs, TaP, NbAs, NbP), WTe₂, MoTe₂, and magnetic WSMs. These materials exhibit a wide range of exotic physical properties, such as anomalous Hall conductivity, giant nonlinear optical responses, thermoelectric effects, and potential catalytic activities. The unique electronic and topological properties of Weyl semimetals make them highly promising candidates for potential applications such as low-energy-consumption electronics, spintronic devices, topological quantum computing, and even high-efficiency catalysts. Intensive research in material synthesis, characterization, and",
+  "date": "2025-01-01",
+  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "arxiv_id": "",
+  "doi": "10.13140/rg.2.2.35594.17606",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "82d8bef21215",
+  "title": "From Weyl Fermions to Topological Matter: The Physics of Weyl Semimetals",
+  "authors": [
+   "Mehmet Keçeci"
+  ],
+  "abstract": "Weyl semimetals (WSMs) have emerged as one of the most groundbreaking discoveries in condensed matter physics in recent years, deepening our fundamental scientific understanding and opening new horizons for future technologies. These materials are named after Hermann Weyl, who in 1929 predicted Weyl fermions – massless, chiral relativistic particles. WSMs, as low-energy excitations of these fermions in solid-state systems, possess special points in their electronic band structure where bands cross linearly, known as \"Weyl points.\" These points act as sources or sinks (monopoles) of Berry curvature in momentum space and carry a definite chirality (right- or left-handed). For a material to host a WSM phase, either time-reversal symmetry or inversion symmetry must be broken. One of the most distinctive features of Weyl semimetals is the existence of unique topological surface states known as \"Fermi arcs\" on their surfaces. These arcs connect Weyl points of opposite chirality within the bulk and form open Fermi surfaces, which are absent in ordinary metals. The presence of Fermi arcs is strong evidence of the topological nature of WSMs and has been experimentally observed using techniques like angle-resolved photoemission spectroscopy (ARPES). Another crucial phenomenon is the \"chiral anomaly.\" This is a quantum field theory effect where chiral charge is not conserved in the presence of parallel electric and magnetic fields, resulting in the pumping of Weyl fermions from one chirality to the other. In solid-state WSMs, the chiral anomaly leads to unusual transport properties, such as a characteristic negative longitudinal magnetoresistance and a giant anomalous Hall effect. These features are important experimental signatures for confirming the existence of Weyl fermions. WSM phases have been theoretically predicted and experimentally realized in various materials, including the TaAs family (TaAs, TaP, NbAs, NbP), WTe₂, MoTe₂, and magnetic WSMs. These materials exhibit a wide range of exotic physical properties, such as anomalous Hall conductivity, giant nonlinear optical responses, thermoelectric effects, and potential catalytic activities. The unique electronic and topological properties of Weyl semimetals make them highly promising candidates for potential applications such as low-energy-consumption electronics, spintronic devices, topological quantum computing, and even high-efficiency catalysts. Intensive research in material synthesis, characterization, ",
+  "date": "2026-05-31",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.17613/m2dby-dwr07",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "38abbc4bb8a8",
+  "title": "China’s top 10 breakthroughs in science and technology in 2025",
+  "authors": [
+   "Weijie Zhao",
+   "Xiaoling Yu"
+  ],
+  "abstract": "On January 20th 2025, China’s Experimental Advanced Superconducting Tokamak (EAST), known as the Chinese ‘artificial sun,’ set a new world record in Hefei, Anhui Province. For the first time, it achieved high-quality burning at 100 million degrees Celsius for 1066 seconds. This milestone marks a significant leap of China’s fusion energy endeavor from basic research to engineering practice, and is of great importance for accelerating mankind’s realization of fusion power generation. Shaped like a giant vessel, EAST integrates cutting-edge technologies of ultra-high temperature, ultra-low temperature, ultra-high vacuum, ultra-strong magnetic field, and ultra-high current. Its operation requires nearly 1 million components working in synergy. The EAST now holds nearly 2000 patents. Screenshot of EAST’s world record. Image credit: Hefei Institutes of Physical Science, CAS. Construction of the EAST project started in the early 2000s. It had undergone > 150 000 experiments before it ultimately achieved the long-pulse, high-confinement mode plasma operation at ‘100 million degrees Celsius for 1000 seconds,’ scaling new heights in fusion science. On January 20th 2025, DeepSeek, a company that had been founded for just over 1 year, launched its new-generation large language model, DeepSeek-R1. It achieves performance comparable to OpenAI o1 at an ultra-low training cost and is fully open source, sending shockwaves through the global artificial intelligence (AI) community. Silicon Valley’s top investor Marc Andreessen exclaimed the release of DeepSeek-R1 to be the ‘Sputnik Moment’ for AI. Logo of DeepSeek. Image credit: DeepSeek. Industry insiders noted that, in a sense, the emergence of DeepSeek-R1 signals that China has evolved from following OpenAI’s lead to setting new benchmarks in AI model development. Yongdong Zhang, Chief Scientist of the State Key Laboratory of Communication Content Cognition, stated: ‘DeepSeek-R1 represents a major breakthrough in the field of AI large models. It not only challenges OpenAI’s leading position but also injects new vitality into AI technology.’ On November 1st 2025, CAS announced that the 2-MWt liquid-fueled thorium-based molten salt experimental reactor, which was constructed by a group led by the CAS Shanghai Institute of Applied Physics, successfully achieved thorium–uranium nuclear fuel conversion for the first time. This success makes the reactor the only currently operational molten salt reactor in the world to have imp",
+  "date": "2026-02-08",
+  "venue": "National Science Review",
+  "arxiv_id": "",
+  "doi": "10.1093/nsr/nwag088",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "bfeaa52e33ae",
+  "title": "Scientific Pioneers: Materials Scientists Use Advanced Scanning Transmission Electron Microscopy (S/TEM) to Improve Our Modern World",
+  "authors": [
+   "David L. Wall"
+  ],
+  "abstract": "Materials scientists have been the driving force behind breakthroughs that have made a significant global impact on the way we live today. Without them, steels would not have been refined to become thinner and more fuel-efficient whilst being able to keep us safe in our cars if they crash, aircraft engines and frames would not have been made reliable enough and light enough to keep us safe in the air and enable reasonably priced air travel, and the smart phones we use that have transformed the way we live could not have been developed. Today, materials scientists are working to transform the way we will live in the future by continuing to develop and advance materials for energy storage and conversion, quantum materials, semiconductors, and sustainable solutions across a variety of industries and products. These scientists, who are on the forefront of scientific discovery, need cutting-edge characterization tools and solutions that can help them gain deeper insights into the chemical nature and structures of individual materials and how they interface and interact with each other. This understanding is critical for researchers and companies to be able to “atomically engineer” structures with the right combinations of materials to provide the optimum properties for most high-end products we see today. Innovative materials are used in a variety of applications, from the batteries in our phones and our cars to semiconductor chips enabling smart technologies like artificial intelligence (AI), or the metals, composites, and polymers used in transportation to improve safety and fuel consumption. Materials science allows for a detailed understanding of the relationships between structure, function, property, and chemistry of materials so that the right combinations are chosen to optimize the performance of a product. Advanced imaging and characterization techniques are required to gain insights at the atomic and sub-atomic scale. It is not sufficient to only observe the materials in 2D or 3D; it is often necessary to simulate how the materials or structures will be used in a product to decide if it can be used reliably. This could mean heating, cooling, stressing, or even flowing gases onto materials whilst observing them at the atomic scale to understand their behavior. Additionally, materials may be sensitive to the analysis technique itself, so close attention needs to be paid to keeping the sample unharmed by the experiment itself and maintain its integrity. ",
+  "date": "2025-05-01",
+  "venue": "Microscopy Today",
+  "arxiv_id": "",
+  "doi": "10.1093/mictod/qaaf027",
+  "citations": 0,
+  "theme": "quantum computing catalyst discovery"
+ },
+ {
+  "fid": "3d7e728f01ec",
+  "title": "Exploring Chemical Space with Chemistry-Inspired Dynamic Quantum Circuits in the NISQ Era",
+  "authors": [
+   "Lung-Yi Chen",
+   "Tai-Yue Li",
+   "Yi‐Pei Li",
+   "Nan-Yow Chen",
+   "Fengqi You"
+  ],
+  "abstract": "The generation of chemical molecular structures is crucial for advancements in drug design, materials science, and related fields. With the rise of artificial intelligence, numerous generative models have been developed to propose promising molecular structures to specific challenges. However, exploring the vast chemical space using classical generative models demands extensive chemical structure data, considerable computational resources, and a large number of model parameters, which hinders their efficiency. Quantum computing presents a promising alternative by exploiting quantum parallelism and entanglement, potentially reducing the computational overhead required for such tasks. In this study, we designed a quantum-based molecular generator (QMG) specifically tailored to generate small molecules containing carbon, nitrogen, and oxygen atoms. This model imposes strict constraints on the quantum circuit's output quantum states, significantly eliminating mathematically invalid connection graphs and enabling more efficient sampling of valid molecular structures. Remarkably, our quantum circuit, utilizing only 134 parameters, is capable of enumerating all molecular structures comprising up to nine heavy atoms, showcasing the parameter efficiency achievable through quantum superposition and entanglement. Our experimental results show that the output generated by this circuit exhibits a high degree of validity and uniqueness after Bayesian optimization, showing comparable performance to classical deep generative models. Furthermore, by fixing specific parameters in the quantum circuits, the quantum generator can constrain the chemical space and exclusively generate chemical molecules containing specified functional groups. This feature underscores its potential value for targeted applications in specific domains, especially in drug discovery. Overall, this compact design not only reduces parameter demands but also enables efficient exploration of a nontrivial portion of chemical space, demonstrating a key advantage of quantum-based generative models over larger classical counterparts.",
+  "date": "2025-06-19",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.5c00305",
+  "citations": 5,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "75097056e4e6",
+  "title": "Perspective on Theoretical Modeling of Soft Molecular Machines and Devices: A Fusion of Data‐Driven Approaches with Traditional Computational Chemistry Algorithms",
+  "authors": [
+   "Costantino Zazza",
+   "Nico Sanna",
+   "Stefano Borocci",
+   "Felice Grandinetti"
+  ],
+  "abstract": "The design of complex molecular machines and devices represents one of the most ambitious frontiers in nanotechnology, synthetic chemistry, and molecular engineering. These intricate systems, inspired by biological machines, require precise control over atomic and electronic interactions to achieve desired functionalities. Theoretical modeling plays a crucial role in this process, offering predictive insights into molecular behavior, guiding experimental design, and optimizing performance. Methods such as density functional theory, quantum theory of atoms in molecules coupled with widely adopted and distinctive visualization methods, molecular dynamics simulations, and quantum mechanical/molecular mechanical hybrid approaches provide analytical information into the stability in terms of mutual chemical interactions and conformational shaping of flexible supramolecular aggregates for nanotechnological applications. Theoretical approaches also facilitate interdisciplinary integration, bridging chemistry, physics, and materials science to create conceptually hybrid devices with enhanced performance. Machine learning and artificial intelligence are now being incorporated into theoretical modeling, accelerating the discovery and refinement of novel molecular architectures. This fusion of data-driven approaches with traditional computational chemistry algorithms is expected to revolutionize the design paradigm of soft molecular machines and devices.",
+  "date": "2025-07-09",
+  "venue": "ChemistryOpen",
+  "arxiv_id": "",
+  "doi": "10.1002/open.202500229",
+  "citations": 3,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "a0967ba4e241",
+  "title": "How an Equi-Ensemble Description Systematically Outperforms the Weighted Ensemble Variational Quantum Eigensolver",
+  "authors": [
+   "A. Rajamani",
+   "Martin Beseda",
+   "Benjamin Lasorne",
+   "Bruno Senjean"
+  ],
+  "abstract": "Calculating excited states in chemistry is crucial to providing insight into photoinduced molecular behavior beyond the ground state, enabling innovations in spectroscopy, material sciences, and drug design. While several approaches have been developed to compute excited-state properties, finding the best ratio between the computational cost and accuracy remains challenging. The advent of quantum computers brings new perspectives with the development of quantum algorithms that promise an advantage over classical ones. Most of these new algorithms are inspired by previous classical ones but with different pros and cons. In this work, we focus on the choice of the weights within the ensemble variational quantum eigensolver (VQE) based on the generalization of the variational principle for many-body excited states. We compare the performance of the equi-ensemble and weighted ensemble VQE on two types of problems that cover different correlation regimes: (1) the many-body electronic structure problem of formaldimine using the generalized unitary coupled cluster ansatz and (2) the one-body noninteracting Kohn–Sham problem of hydrogen chains using the R Y CNOT hardware-efficient ansatz. While the equi-ensemble objective is to perform a block-diagonalization only, the weighted ensemble has the additional complexity to reach the targeted eigenstates and eigenvalues. In this work, we show that such a difference leads to several significant consequences, such as the increase in circuit depth together with optimization issues. We conclude that one should always favor the use of equi-weights, even if it requires an additional postprocessing step to extract the eigenvalues of the problem.",
+  "date": "2026-05-20",
+  "venue": "The Journal of Physical Chemistry A",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpca.6c01225",
+  "citations": 1,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "928945d0e778",
+  "title": "Beyond photosynthesis: Engineering self-healing photocatalytic systems for sustainability",
+  "authors": [
+   "Roya Mohammadzadeh Kakhki"
+  ],
+  "abstract": "Self-repairing photocatalysts represent a groundbreaking advancement in photocatalysis, addressing key challenges such as catalyst degradation, material fatigue, and efficiency loss across diverse applications. Inspired by natural photosynthesis, these systems incorporate self-healing mechanisms that restore functionality and extend operational lifespans, even under harsh environmental conditions. This review delves into the fundamental principles, innovative design strategies, and emerging trends in self-repairing photocatalysts, emphasizing their transformative potential in sustainable fuel production, environmental remediation, and carbon fixation. Key topics include molecular-level self-repair mechanisms, surface regeneration, bio-inspired adaptive interfaces, and multi-step repair strategies. Advanced characterization techniques, such as in situ monitoring and time-resolved spectroscopy, are highlighted for their role in optimizing self-healing processes. The synergy between photocatalytic activity and self-repair capabilities is explored through applications such as water splitting, CO₂ reduction, and wastewater treatment, showcasing systems that effectively mitigate degradation.Bio-inspired approaches, including peptide-based self-assembly and metal-organic frameworks, demonstrate exceptional stability and efficiency in photocatalytic systems. Additionally, cutting-edge molecular repair mechanisms, such as artificial enzyme cascades and dynamic covalent chemistry, are examined for their potential to enhance system longevity and performance. Advancements in real-time electron microscopy and AI-assisted degradation monitoring are also reviewed, offering insights into atomic-level repair processes and enabling predictive maintenance to sustain long-term functionality. The review further highlights the implementation of self-repairing photocatalysts in industrial-scale applications, including solar fuel production, CO₂ reduction, and wastewater treatment. Challenges related to scalability, cost-effectiveness, and long-term stability are addressed, with proposed solutions to overcome these barriers. Future research directions emphasize quantum dot-based self-repair systems, bio-hybrid catalysts, and AI-driven adaptive responses, paving the way for commercially viable, self-maintaining photocatalytic systems. These innovations hold immense promise for advancing sustainable energy production, environmental remediation, and carbon fixation, offering critica",
+  "date": "2025-05-20",
+  "venue": "Colloids and Interface Science Communications",
+  "arxiv_id": "",
+  "doi": "10.1016/j.colcom.2025.100842",
+  "citations": 10,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "0fe0a4374bbb",
+  "title": "A system-level critical assessment of electric mobility integrating electric vehicle powertrains, advanced battery technologies, grid impacts, artificial intelligence, and sustainability",
+  "authors": [
+   "Thenkaraimuthu Mariprasath",
+   "Kaliappan Esakkiappan",
+   "Shaik M Ali",
+   "Muraly Natarajan",
+   "Basem A Zneid",
+   "Oleksandr Rubanenko"
+  ],
+  "abstract": "Electric mobility has emerged as a cornerstone of global decarbonization strategies, with its successful deployment critically dependent on the coordinated integration of vehicle powertrain engineering, advanced battery technologies, charging infrastructure, power grid interaction, and intelligent control systems. This paper presents a comprehensive system-level critical assessment of electric mobility, providing an integrated analytical framework that unifies electric vehicle (EV) powertrains, electrochemical energy storage, grid impacts, artificial intelligence (AI), and sustainability considerations. The study systematically examines EV propulsion architectures, charging technologies, and the operational characteristics of contemporary and emerging battery chemistries, including lithium-ion variants ( Nickel–Manganese–Cobalt, Nickel–Cobalt–Aluminum, and Lithium Iron Phosphate), solid-state batteries, and sodium-ion batteries, with particular emphasis on degradation mechanisms, thermal safety, second-life utilization, and recycling pathways. The impacts of large-scale EV charging on power distribution networks are rigorously analyzed through power quality and voltage stability modeling, highlighting harmonic distortion, feeder loading, and voltage deviation challenges associated with high-power fast-charging infrastructure. Advanced mitigation strategies, including active filtering and AI-based grid impact prediction, are discussed to enhance grid resilience. AI is positioned as a core enabling technology throughout the EV ecosystem, with detailed coverage of data-driven and physics-informed approaches for battery health estimation, remaining useful life prediction, range estimation, smart charging control, traffic-aware routing, and charging queue optimization. Furthermore, emerging quantum-inspired optimization and quantum machine learning paradigms are identified as promising tools for addressing high-dimensional uncertainty in routing, charging scheduling, and battery diagnostics. A life-cycle sustainability perspective is incorporated to evaluate the environmental performance of EVs, emphasizing the influence of electricity generation mix, battery manufacturing emissions, material criticality, and recycling efficiency on overall greenhouse gas reduction potential. By synergizing engineering models, AI-driven intelligence, grid interaction analysis, and life-cycle assessment, this work delivers a unified blueprint for accelerating the transition towa",
+  "date": "2026-03-03",
+  "venue": "Energy Exploration & Exploitation",
+  "arxiv_id": "",
+  "doi": "10.1177/01445987261420536",
+  "citations": 4,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "05eb85719df5",
+  "title": "A Python-Based Module for Exploring Machine Learning-Inspired Optimization Algorithms Using Quantum Chemistry",
+  "authors": [
+   "Juan Felipe Huan Lew-Yee",
+   "Elixabete Rezabal",
+   "Xabier López",
+   "Mario Piris",
+   "Jose Maria Mercero"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide This Technology Report describes a Python-based teaching module for introducing function optimization in a chemically meaningful setting. The module combines the open-source PyNOF software with Jupyter notebooks so that students can implement, run, and compare classical and adaptive optimization algorithms while examining convergence behavior and the role of the learning rate. Hartree–Fock calculations provide an accessible entry point, Natural Orbital Functional theory extends the activities to a more demanding optimization landscape, and the dissociation of H 2 serves as an integrative example linking numerical choices to chemical interpretation. The report focuses on the technology, its intended classroom use, and its initial implementation with graduate students. All notebooks, source files, and supporting materials are openly available, making the module easy to adapt to a variety of computational and quantum chemistry courses.",
+  "date": "2026-06-12",
+  "venue": "Journal of Chemical Education",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jchemed.5c01470",
+  "citations": 0,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "485e6b036ac4",
+  "title": "Conformational Folding Activates Photoinduced Electron Transfer",
+  "authors": [
+   "Shiqing Huang",
+   "Syed Ali Abbas Abedi",
+   "Zhifeng Li",
+   "Rongrong Huang",
+   "Xiaoyu Yan",
+   "Mohammad Izadyar",
+   "Qinglong Qiao",
+   "Yu Fang",
+   "Zhaochao Xu",
+   "Xiaogang Liu"
+  ],
+  "abstract": "Open AccessCCS ChemistryRESEARCH ARTICLES6 Aug 2024Conformational Folding Activates Photoinduced Electron Transfer Shiqing Huang†, Syed Ali Abbas Abedi†, Zhifeng Li†, Rongrong Huang, Xiaoyu Yan, Mohammad Izadyar, Qinglong Qiao, Yu Fang, Zhaochao Xu and Xiaogang Liu Shiqing Huang† Fluorescence Research Group, Singapore University of Technology and Design, Singapore 487372 School of Chemistry and Life Resources, Renmin University of China, Beijing 100872 , Syed Ali Abbas Abedi† Fluorescence Research Group, Singapore University of Technology and Design, Singapore 487372 , Zhifeng Li† CAS Key Laboratory of Separation Science for Analytical Chemistry, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian 116023 , Rongrong Huang Fluorescence Research Group, Singapore University of Technology and Design, Singapore 487372 , Xiaoyu Yan School of Chemistry and Life Resources, Renmin University of China, Beijing 100872 , Mohammad Izadyar Fluorescence Research Group, Singapore University of Technology and Design, Singapore 487372 Research Center for Modeling and Computational Sciences, Faculty of Science, Ferdowsi University of Mashhad, Mashhad 9177948974 , Qinglong Qiao *Corresponding authors: E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] CAS Key Laboratory of Separation Science for Analytical Chemistry, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian 116023 , Yu Fang *Corresponding authors: E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] Key Laboratory of Applied Surface and Colloid Chemistry (Ministry of Education), School of Chemistry and Chemical Engineering, Shaanxi Normal University, Xi'an, Shaanxi 710119 , Zhaochao Xu *Corresponding authors: E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] CAS Key Laboratory of Separation Science for Analytical Chemistry, Dalian Institute of Chemical Physics, Chinese Academy of Sciences, Dalian 116023 and Xiaogang Liu *Corresponding authors: E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] E-mail Address: [email protected] Fluorescence Research Group, Singapore University of Technology and Design, Singapore 487372 Cite this: CCS Chemistry. 2024;0:1–10https://doi.org/10.",
+  "date": "2024-07-15",
+  "venue": "CCS Chemistry",
+  "arxiv_id": "",
+  "doi": "10.31635/ccschem.024.202404541",
+  "citations": 14,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "22fe81efcf7b",
+  "title": "A Cycloparaphenylene Acetylene as Potential Precursor for an Armchair Carbon Nanotube",
+  "authors": [
+   "Eric Sidler",
+   "Ramon Röthlisberger",
+   "Marcel Mayor"
+  ],
+  "abstract": "The bottom-up synthesis of carbon nanotubes (CNTs) is a long-standing goal in synthetic chemistry. Producing CNTs with defined lengths and diameters would render these materials and thus their fascinating properties accessible in a controlled way. Inspired by a recently reported synthesis of armchair graphene sheets that relied on a benzannulation and Scholl oxidation of a poly(p-phenylene ethynylene), the same strategy is applied on a cyclic substrate with a short, but well defined CNT as target structure. Herein we report the synthesis of a derivatized [12]cycloparaphenylene acetylene ([12]CPPA) that was accessible employing a Sonogashira macrocyclization. The obtained macrocycle is the largest [n]CPPA reported to date and displays bright turquoise fluorescence with a large quantum yield of 77 %. The [12]CPPA can be transformed by a 12-fold benzannulation that converts each alkyne to a naphthalene and therefore allows formation of an armchair [12,12]CNT precursor. The final 72-fold Scholl oxidation to the [12,12]CNT turned out to be challenging and its optimization requires an improved synthetic strategy to produce large quantities of the final precursor. The developed approach poses a potential break through strategy for the production of CNTs and certainly incentivizes synthetic chemists to apply the same methodology for various conjugated macrocycles.",
+  "date": "2024-09-26",
+  "venue": "Chemistry - A European Journal",
+  "arxiv_id": "",
+  "doi": "10.1002/chem.202403084",
+  "citations": 1,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "292ec59387f8",
+  "title": "Quantum-inspired Inverse Design of Heterogeneous Catalysts for Hydrogen Evolution Reaction",
+  "authors": [
+   "Sangro Lee",
+   "Chang Woo Kim",
+   "Hyun Woo Kim"
+  ],
+  "abstract": "Data-driven discovery of stable and functional materials remains a major challenge in chemistry and materials science, both from classical and quantum perspectives. Quantum machine learning provides new opportunities to optimize materials across vast chemical spaces, but hardware limitations restrict its practical application. Classical models can process large datasets, but limitations in their latent representations prevent exploration beyond the training distribution. To address these challenges, we introduce a quantum-inspired generative framework for discovering catalytic materials for hydrogen evolution reactions (HER). Inspired by variational quantum circuits (VQCs), which outperform classical models in certain tasks, we hypothesized that the norm-conserving property of VQCs plays a key role in materials representation and optimization. Thus, we incorporated the orthogonal transformations into the classical generative model to maintain latent space structure and enhance materials discovery. With additional data through transfer learning, the classical model with orthogonal transformations becomes useful. Our results provide practical guidelines for applying quantum machine learning to materials discovery and suggest the potential of quantum-inspired generative models to explore previously inaccessible chemical spaces.",
+  "date": "2026-02-26",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15000440/v1",
+  "citations": 0,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "4ff141913f63",
+  "title": "Adiabatic-Inspired Hybrid Quantum-Classical Methods for Molecular Ground State Preparation",
+  "authors": [
+   "Thrasher, Sean",
+   "Ioannis Kolotouros",
+   "Julien Michel",
+   "Petros Wallden"
+  ],
+  "abstract": "Quantum computing promises to efficiently and accurately solve many important problems in quantum chemistry which elude classical solvers, such as the electronic structure problem of highly correlated materials. Two leading methods in solving the ground state problem are the Variational Quantum Eigensolver (VQE) and Adiabatic Quantum Computing (AQC) algorithms. VQE often struggles with convergence due to the energy landscape being highly non-convex and the existence of barren plateaux, and implementing AQC is beyond the capabilities of current quantum devices as it requires deep circuits. Adiabatically-inspired algorithms aim to fill this gap. In this paper, we first present a unifying framework for these algorithms and then benchmark the following methods: the Adiabatically Assisted VQE (AAVQE) (Garcia-Saez and Latorre (2018)), the Variational Adiabatic Quantum Computing (VAQC) (Harwood et al (2022)), and the Adiabatic Quantum Computing with Parametrized Quantum Circuits (AQC-PQC) (Kolotouros et al (2025)) algorithms. Second, we introduce a novel hybrid approach termed G-AQC-PQC, which generalizes the AQC-PQC method, and combines adiabatic-inspired initialization with the low-memory BFGS optimizer, reducing the quantum computational cost of the method. Third, we compare the accuracy of the methods for chemistry applications using the beryllium hydride molecule (BeH$_2$). We compare the approaches across a number of different choices (ansätze types, depth, discretization steps, initial Hamiltonian, adiabatic schedules and method used). Our results show that the G-AQC-PQC outperforms conventional VQE. We further discuss limitations such as the zero-gradient problem and identify regimes where adiabatically-inspired methods offer a tangible advantage for near-term quantum chemistry applications.",
+  "date": "2025-12-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.14449",
+  "doi": "10.48550/arxiv.2512.14449",
+  "citations": 0,
+  "theme": "quantum-inspired optimization chemistry "
+ },
+ {
+  "fid": "d34327722eb7",
+  "title": "Conceptual Framework for Innovating Non-Biological Drugs with 200-Fold Superior Efficacy and Safety Over Biologics in Oncology",
+  "authors": [
+   "Sami Rashid Mohammed Shibah"
+  ],
+  "abstract": "This conceptual framework proposes an out-of-the-box approach to innovate non-biological drugs that surpass biologics by 200-fold in efficacy and safety for cancer treatment. Integrating advanced paradigms from physics, chemistry, medicine, biology, engineering, and materials science, we delineate a multi-dimensional strategy leveraging quantum-inspired molecular design with Variational Quantum Eigensolver (VQE) computations, nanotechnology-enhanced delivery systems with EPR effect, and AI-driven optimization including Bayesian neural networks for personalized medicine. Rigorous mathematical derivations, including multi-compartment pharmacokinetic/pharmacodynamic (PK/PD) models, enhanced Bayesian inference with advanced MCMC techniques for uncertainty quantification, therapeutic index calculations, advanced global sensitivity analyses using Sobol indices and δ measures, and sensitivity analyses, underpin the framework. Realistic simulations via Python code demonstrate reproducibility and falsifiability, with extended time scales showing sustained efficacy. Supported by recent peer-reviewed references from prestigious journals, this self-contained theoretical manuscript advances oncology drug development.",
+  "date": "2025-11-14",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2025-97nmm",
+  "citations": 0,
+  "theme": "quantum-inspired optimization chemistry "
  }
 ]
