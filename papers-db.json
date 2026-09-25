@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-25",
+ "updated": "2026-09-26",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -220,6 +220,36 @@
    "abstract": "Abstract We propose a hybrid variational quantum algorithm that has variational parameters used by both the quantum circuit and the subsequent classical optimization. Similar to the Variational Quantum Eigensolver (VQE), this algorithm applies a parameterized unitary operator to the qubit register. We generate this operator using diabatic state preparation. The quantum measurement results then inform the classical optimization procedure used by the Cascaded Variational Quantum Eigensolver (CVQE). We demonstrate the algorithm on a system of interacting electrons and show how it can be used on long-term error-corrected as well as short-term intermediate-scale quantum computers. Our simulations performed on IBM Brisbane produced energies well within chemical accuracy.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "gnn-guided-graph-coarsening-adaptive-qubo-penalties-f420c",
+   "title": "GNN-Guided Graph Coarsening and Adaptive QUBO Penalties for the Capacitated Vehicle Routing Problem with Time Windows on a Quantum Annealer",
+   "titleZh": "GNN 引导的图粗化与自适应 QUBO 罚项求解容量约束车辆路径",
+   "authors": [
+    "Youssef Kamel Rezk",
+    "Paweł Góra"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.04593",
+   "doi": "10.48550/arxiv.2609.04593",
+   "url": "https://arxiv.org/abs/2609.04593",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用图神经网络引导图粗化:把时间窗兼容的邻近客户合并为超级节点以压缩量子退火所用 QUBO 的规模,求解后再展开回原图,并自适应调整约束罚项;是 ML4CO×量子退火在 VRP 上的系统结合。",
+   "abstract": "Graph coarsening reduces the large Quadratic Unconstrained Binary Optimization (QUBO) formulations arising when vehicle-routing problems are solved by quantum annealing. Nearby customers with compatible time windows are merged into super-nodes, the reduced problem is solved, and the solution is expanded to the original graph. For the Capacitated Vehicle Routing Problem with Time Windows (CVRPTW), existing coarsening heuristics require family-specific tuning and remain unreliable on random instances. We address these limitations on the Solomon benchmark using simulated annealing and a D-Wave Advantage2 processor. We first introduce adaptive penalty calibration. Uniform penalty scaling has little effect, whereas controlling the internal coefficient range substantially improves raw samples. Removing non-binding constraints, normalising binding ones, and scaling the remaining penalties reduces mean raw constraint violations from 33.0 to 0.06 at the same solver budget (p=3.7e-11, n=56). A variable-count-preserving control attributes this gain to conditioning rather than problem size. Second, we replace the hand-tuned merge score with a graph neural network (GNN) using one configuration across all families. At N=10, it achieves 100% feasibility across all Solomon families, including R-type (100% vs. 80% for the tuned heuristic). Across N=10,...,100, feasibility is 83% vs. 69%, with the GNN better or tied on 85/90 instance-size pairs. At N=80,100, the difference is significant (p=0.",
+   "source": "backfill",
+   "domains": [
+    "logistics"
+   ]
   },
   {
    "id": "quantum-computing-enhanced-deep-learning-real-time-b9eb4",
@@ -1234,6 +1264,39 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "hybrid-quantum-classical-end-end-pipeline-solving-175dc",
+   "title": "Hybrid quantum-classical end-to-end pipeline for solving MILPs: a vehicle routing case study",
+   "titleZh": "求解混合整数线性规划的端到端量子-经典混合管线",
+   "authors": [
+    "Camille de Valk",
+    "Koen Reerink",
+    "Siert Sebus",
+    "Sébastian de Bon"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-29",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.26771",
+   "doi": "10.48550/arxiv.2607.26771",
+   "url": "https://arxiv.org/abs/2607.26771",
+   "topics": [
+    "qaoa",
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "基于 Benders 分解的多解多割(MCMS)变体构建端到端混合量子-经典优化框架:割生成等计算密集环节交由量子硬件加速,在车辆路由等 MILP 实例上验证整条管线可行性。",
+   "abstract": "We demonstrate an end-to-end hybrid quantum-classical optimisation framework based on Benders decomposition, capable of solving mixed-integer linear programming (MILP) problems. The framework builds on a previously presented hybrid quantum-classical end-to-end pipeline based on Multiple Cuts via Multiple Solutions (MCMS) Benders decomposition where the cut selection step was performed on quantum annealing hardware. We extend this with gate-based QAOA implementations for both tensor network emulators and superconducting quantum hardware. The Vehicle Routing Problem (VRP) is used as a representative case study and we run the pipeline end-to-end on 10 permutations of a standardised benchmarking instance (20 customers and 4 vehicles from QOptLib) with a classical solver performing the cut selection step. We find that for our instances, only a small fraction of the compute in classical MCMS Benders decomposition is spent on the cut selection step. For a full hybrid end-to-end assessment, we run the pipeline for a toy problem with MPS-JuliQAOA, a powerful tensor network emulator, to execute QAOA. Here, the majority of the time is spent on the cut selection step, deeming quantum advantage of this framework unlikely at problems of this size. This highlights the need for more large-scale benchmarking research when more powerful (QPU) QUBO solvers are available.",
+   "source": "backfill",
+   "domains": [
+    "logistics"
    ]
   },
   {
@@ -2281,6 +2344,34 @@
    "domains": []
   },
   {
+   "id": "joint-optimization-electric-vehicle-routes-charging-locations-30310",
+   "title": "Joint optimization of electric vehicle routes and charging locations through learning charge constraints using QUBO solvers",
+   "titleZh": "电动汽车路径与充电站选址的联合 QUBO 优化",
+   "authors": [
+    "A. Okada",
+    "Keisuke Otaki",
+    "Hiroaki Yoshida"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2026-06-02",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1038/s41598-026-55392-1",
+   "url": "https://doi.org/10.1038/s41598-026-55392-1",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把充电站选址与电动汽车路径规划统一进 QUBO 框架联合求解,在电动车出行场景下同时优化基础设施布局与行驶路线,发表于 Scientific Reports。",
+   "abstract": "Optimal routing problems of electric vehicles (EVs) have attracted much attention in recent years, and installation of charging stations is an important issue for EVs. Hence, we focus on the joint optimization of the location of charging stations and the routing of EVs. When routing problems are formulated in the form of quadratic unconstrained binary optimization (QUBO), specialized solvers such as quantum annealers are expected to provide optimal solutions with high speed and accuracy. However, battery capacity constraints make it hard to formulate into QUBO form without a large number of auxiliary qubits. Here, we propose a sequential optimization method utilizing the Bayesian inference and QUBO solvers, in which the battery capacity constraints are automatically learned. This method enables us to optimize the number and location of charging stations and the routing of EVs with a small number of searches. Applying this method to a routing problem of 20 locations, we observed consistent convergence toward battery-feasible solutions across independent runs, demonstrating stable learning behavior of the proposed framework. Small-scale validation experiments using exhaustive enumeration show that the framework reliably discovers feasible configurations close to the global optimum, while runtime and QUBO-size analyses clarify its computational characteristics.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "toward-quantum-scaling-advantage-approximate-optimization-57ba9",
    "title": "Toward quantum scaling advantage in approximate optimization",
    "titleZh": "迈向近似优化中的量子规模优势",
@@ -2941,6 +3032,38 @@
    "source": "backfill",
    "domains": [
     "manufacturing"
+   ]
+  },
+  {
+   "id": "potential-energy-savings-from-quantum-computing-based-ba60f",
+   "title": "Potential Energy Savings from Quantum Computing-Based Route Optimization",
+   "titleZh": "基于 QAOA 的路径优化节能潜力评估",
+   "authors": [
+    "Ayush Nadiger",
+    "Adriana Caraeni",
+    "Katie Schouten"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-17",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.16718",
+   "doi": "10.48550/arxiv.2604.16718",
+   "url": "https://arxiv.org/abs/2604.16718",
+   "topics": [
+    "qaoa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把 TSP/VRP 编码为 QUBO 并用 QAOA 求解,量化评估量子路径优化在物流能耗削减上的潜力,为\"量子计算能省多少能源\"提供分析视角。",
+   "abstract": "We investigate the potential of the Quantum Approximate Optimization Algorithm (QAOA) for reducing energy consumption in route planning, a key challenge in logistics due to the NP-hard nature of the Traveling Salesman and Vehicle Routing Problems. By encoding route optimization as a Quadratic Unconstrained Binary Optimization (QUBO) problem and implementing QAOA circuits at depth p = 3-5 alongside classical baselines of Simulated Annealing (SA) and Genetic Algorithms (GA), we perform systematic benchmarks on Euclidean graphs of sizes N = 5, 10, and 20. Our results demonstrate that QAOA attains higher solution quality with approximation ratios of 0.953 (N = 5), 0.921 (N = 10), and 0.903 (N = 20), outperforming SA and GA by 2.7-4.4%. Wall-clock runtimes for QAOA are 2-3x faster than SA across all tested sizes, and energy consumption measurements reveal a three-order-of-magnitude reduction, remaining in the picojoule range versus nanojoules for classical methods. Translating these gains to real-world logistics suggests an 8.2% improvement in routing efficiency could save approximately 2.62 EJ of fuel annually in the U.S., avoiding nearly 1.94 x 10^8 tonnes of CO2 emissions. These findings highlight QAOA's promise as a fast, energy-efficient optimizer for sustainable logistics applications and underscore its potential role in next-generation fleet-management systems.",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "logistics"
    ]
   },
   {
@@ -3967,6 +4090,35 @@
    ]
   },
   {
+   "id": "multi-agent-route-planning-as-qubo-problem-b1f27",
+   "title": "Multi-Agent Route Planning as a QUBO Problem",
+   "titleZh": "多智能体路径规划的 QUBO 形式化",
+   "authors": [
+    "Renáta Rusnáková",
+    "Martin Chovanec",
+    "Juraj Gazda"
+   ],
+   "venue": "arXiv",
+   "date": "2026-02-08",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2602.07913",
+   "doi": "10.48550/arxiv.2602.07913",
+   "url": "https://arxiv.org/abs/2602.07913",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "形式化定义多智能体路径规划问题(为各车辆选择预定义路线以最大化覆盖效用并限制空间冗余),从加权集合装箱问题归约证明其 NP 难,并推导出可供 Ising 机/量子退火求解的 QUBO 编码。",
+   "abstract": "Multi-Agent Route Planning considers selecting vehicles, each associated with a single predefined route, such that route-level coverage utility is maximized while redundant spatial overlaps are limited. This paper gives a formal problem definition, proves NP-hardness by reduction from the Weighted Set Packing problem, and derives a Quadratic Unconstrained Binary Optimization formulation whose coefficients directly encode route utility rewards and pairwise overlap penalties. A single penalty parameter $λ$ controls the coverage--overlap trade-off. We distinguish between a soft regime, which supports multi-objective exploration, and a hard regime, in which the penalty is strong enough to effectively enforce near-disjoint routes. We describe a practical pipeline for generating city instances, constructing candidate routes, building the QUBO matrix, and solving it with a binary quadratic programming baseline (Gurobi), simulated annealing, and D-Wave hybrid quantum annealing. Experiments on Barcelona instances with up to $10{,}000$ vehicles reveal a clear coverage--overlap knee and show that Pareto-optimal solutions are mainly obtained under the hard-penalty regime, while D-Wave hybrid solvers and Gurobi achieve very similar objective values on matching configurations with only minor runtime differences as problem size grows.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "diabatic-quantum-annealing-training-energy-based-generative-923e1",
    "title": "Diabatic quantum annealing for training energy-based generative models",
    "titleZh": "用非绝热量子退火训练能量生成模型",
@@ -4086,6 +4238,36 @@
    "domains": []
   },
   {
+   "id": "quadratic-unconstrained-binary-optimization-qubo-model-elevation-cd9e8",
+   "title": "A Quadratic Unconstrained Binary Optimization (QUBO) Model for Elevation‐Aware Vehicle Routing: Optimizing Fuel Consumption and Traffic Congestion",
+   "titleZh": "高程感知的车辆路径 QUBO 模型:同时降低油耗与拥堵",
+   "authors": [
+    "Tsubasa Suzuki",
+    "Takao Tomono"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2026-02-01",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1002/qute.202500660",
+   "url": "https://doi.org/10.1002/qute.202500660",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出考虑地形高程的多车路径 QUBO 模型:以梯度修正 Dijkstra 算法生成候选路线,再以严格约束的 QUBO 优化路线选择,同时降低燃油消耗与拥堵水平;发表于 Advanced Quantum Technologies。",
+   "abstract": "ABSTRACT This study formulates a novel, elevation‐aware Quadratic Unconstrained Binary Optimization (QUBO) model for multi‐vehicle route optimization that simultaneously reduces fuel consumption and traffic congestion. Candidate routes are generated using a gradient‐corrected Dijkstra algorithm, and route selection is optimized by minimizing a rigorously constructed QUBO Hamiltonian that incorporates fuel cost, route overlap, and constraint satisfaction. Extensive numerical validation is performed using classical annealing simulations across multiple regions with diverse topographical and road network characteristics, including San Francisco. The results demonstrate that incorporating elevation information significantly reduces fuel consumption, while the proposed overlap penalty effectively mitigates congestion. A clear trade‐off between overlap reduction and fuel efficiency is quantitatively characterized. The mathematical consistency of the formulation is ensured through a theoretically derived penalty coefficient, which guarantees constraint satisfaction and stable optimization behavior. Scaling experiments further reveal the limitations of classical solvers as the number of candidate routes increases, highlighting the importance of robust QUBO formulations and motivating future implementation on quantum processing units. Overall, this work establishes a validated and theoretically sound QUBO framework for sustainable transportation optimization and provides a reliable pe",
+   "source": "backfill",
+   "domains": [
+    "logistics",
+    "transport"
+   ]
+  },
+  {
    "id": "conceptual-review-quantum-enhanced-resource-allocation-strategies-65db2",
    "title": "A Conceptual Review of Quantum-Enhanced Resource Allocation Strategies for Sustainable Energy Management in Smart Cities",
    "titleZh": "面向智慧城市可持续能源管理的量子增强资源分配策略",
@@ -4119,6 +4301,35 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "micro-mobility-dispatch-optimization-quantum-annealing-incorporating-acd5a",
+   "title": "Micro-mobility dispatch optimization via quantum annealing incorporating historical data",
+   "titleZh": "融合历史数据的微移动车辆量子退火调度优化",
+   "authors": [
+    "Takeru Goto",
+    "Masayuki Ohzeki"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-28",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.20887",
+   "doi": "10.48550/arXiv.2601.20887",
+   "url": "https://arxiv.org/abs/2601.20887",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向微移动(共享单车/滑板车等)车辆调度,用量子退火求解调度优化问题,并融合历史使用数据提升需求刻画与调度质量,服务高效可持续的城市交通体系。",
+   "abstract": "This paper proposes a novel dispatch formulation for micro-mobility vehicles using a Quantum Annealer (QA). In recent years, QA has gained increasing attention as a high-performance solver for combinatorial optimization problems. Meanwhile, micro-mobility services have been rapidly developed as a promising means of realizing efficient and sustainable urban transportation. In this study, the dispatch problem for such micro-mobility services is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) problem, enabling efficient solving through QA. Furthermore, the proposed formulation incorporates historical usage data to enhance operational efficiency. Specifically, customer arrival frequencies and destination distributions are modeled into the QUBO formulation through a Bayesian approach, which guides the allocation of vacant vehicles to designated stations for waiting and charging. Simulation experiments are conducted to evaluate the effectiveness of the proposed method, with comparisons to conventional formulations such as the vehicle routing problem. Additionally, the performance of QA is compared with that of classical solvers to reveal its potential advantages for the proposed dispatch formulation. The effect of reverse annealing on improving solution quality is also investigated.",
+   "source": "backfill",
+   "domains": [
+    "transport"
    ]
   },
   {
@@ -4917,6 +5128,96 @@
    ]
   },
   {
+   "id": "quantum-inspired-optimization-traffic-congestion-qubo-based-c83e7",
+   "title": "Quantum-Inspired Optimization for Traffic Congestion: A QUBO-Based Approach with Simulated Annealing",
+   "titleZh": "基于容量约束 QUBO 的城市交通拥堵动态缓解",
+   "authors": [
+    "Toufan Diansyah Tambunan"
+   ],
+   "venue": "Journal of Applied Data Sciences",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.47738/jads.v7i1.905",
+   "url": "https://doi.org/10.47738/jads.v7i1.905",
+   "topics": [
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对路段超出容量导致的车流拥堵,提出动态 QUBO 框架:在路段容量约束下优化车辆路线分配以降低整体拥堵水平,结合模拟退火求解并验证拥堵指标改善。",
+   "abstract": "Urban traffic congestion remains a persistent challenge, especially when road segments exceed vehicle capacity, leading to increased travel times and road density. This study introduces a new QUBO framework designed to dynamically reduce congestion by optimizing vehicle routes while considering the capacity constraints of road segments. The proposed model establishes quadratic penalties for road segments that exceed the set capacity thresholds, providing incentives to redistribute vehicles to alternative routes while maintaining overall traffic flow efficiency. The QUBO formulation also incorporates road density as a factor to distribute vehicle routing more evenly. The challenge is to ensure that the chosen route does not create potential congestion on the next road segment. We conducted the simulation on a road network consisting of 15 segments (edges) to effectively manage up to 21 vehicles in dense traffic. This QUBO model was created using a quantum annealing approach, but its execution was carried out on an annealing simulation with the Fixstars Amplify and D-Wave Neal machines. The results indicate that the proposed QUBO congestion model can maintain road segment density between 60% and 80% across almost all segment routes. The QUBO congestion model is capable of distributing vehicles evenly, with a Gini coefficient reaching 0.0496 (in an experiment with 21 vehicles), which has the potential to reduce vehicle congestion on road segments. In addition, this model is also",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
+   "id": "quantum-annealing-realistic-traffic-flow-optimization-clustering-41836",
+   "title": "Quantum Annealing for Realistic Traffic Flow Optimization: Clustering and Data-Driven QUBO",
+   "titleZh": "面向真实城市交通流优化的量子退火:聚类与数据驱动 QUBO",
+   "authors": [
+    "Renáta Rusnáková",
+    "Martin Chovanec",
+    "Juraj Gazda"
+   ],
+   "venue": "IEEE Access",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/access.2026.3709100",
+   "url": "https://doi.org/10.1109/access.2026.3709100",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把城市级交通流优化表述为数据驱动的 QUBO:由仿真出行数据构建时间分辨拥堵模型,经路网聚类压缩规模后,在真实城市网络上用量子退火与经典求解器对比评估,是交通流量子优化的规模化实证(IEEE Access 2026)。",
+   "abstract": "This article presents a scalable, data-driven formulation of city-wide Traffic Flow Optimization as a Quadratic Unconstrained Binary Optimization problem and evaluates its performance using quantum annealing and classical solvers on realistic urban networks. The framework builds a time-resolved congestion model from simulated mobility data by sampling vehicle trajectories at fixed intervals, identifying leader-follower interactions on shared road segments. In addition to congestion, the model incorporates route-duration penalties and an analytically derived penalty parameter that enforces one-hot route selection, ensuring feasible assignments while balancing network-wide congestion reduction and individual travel times. To mitigate the combinatorial growth of interactions in large-scale instances, the approach employs Leiden clustering to partition vehicles into dense communities that can be optimized independently. The resulting subproblems are solved using D-Wave's quantum annealer, exact mixed-integer programming via Gurobi, and several classical metaheuristics, and are evaluated on multiple city maps with up to 25,000 vehicles. Across large scenarios, the hybrid quantum annealing approach consistently produces feasible solutions within approximately 1% of Gurobi's objective values, while maintaining stable runtimes. Both methods outperform shortest-route baselines, achieving reductions in the proposed congestion-cost objective of up to 24.4% for the hybrid quantum approac",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
+   "id": "evaluating-performance-direct-higher-order-formulations-combinatorial-7a7b7",
+   "title": "Evaluating the Performance of Direct Higher-Order Formulations in Combinatorial Optimization Under Simulated Annealing",
+   "titleZh": "组合优化中直接高阶形式化的性能评估",
+   "authors": [
+    "Kazuki Ikeuchi",
+    "Yoshiki Matsuda",
+    "Shu Tanaka"
+   ],
+   "venue": "IEEE Access",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/access.2026.3688497",
+   "url": "https://doi.org/10.1109/access.2026.3688497",
+   "topics": [
+    "annealing",
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Ising 机(含量子退火机)通常只支持线性/二次目标函数,高阶项必须先降阶;该文系统评估直接高阶形式化(HUBO)在组合优化问题上的性能与可行性,为高阶问题建模路线选择提供实证(IEEE Access)。",
+   "abstract": "Ising machines, including quantum annealing machines, are promising next-generation computers for combinatorial optimization problems. However, due to hardware limitations, most Ising-type hardware can only solve objective functions expressed in linear or quadratic terms of binary variables. Therefore, problems with higher-order terms require an order-reduction process, which increases the number of variables and constraints and may degrade solution quality. In this study, we evaluate the effectiveness of directly solving such problems without order reduction by using a high-performance simulated annealing-based optimization solver capable of handling polynomial unconstrained binary optimization (PUBO) formulations. We compare its performance against a conventional quadratic unconstrained binary optimization (QUBO) solver on the same hardware platform. As benchmarks, we use the low autocorrelation binary sequence (LABS) problem and the vehicle routing problem with distance balancing, both of which naturally include higher-order interactions. Results show that the PUBO solver consistently achieves superior solution quality and stability compared to its QUBO counterpart, while maintaining comparable computational time and requiring no order-reduction compilation indicating potential advantages of directly handling higher-order terms in practical optimization problems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -5686,6 +5987,32 @@
     "transport",
     "materials"
    ]
+  },
+  {
+   "id": "solving-vehicle-sharing-problems-grover-algorithm-3f66b",
+   "title": "Solving Vehicle-Sharing Problems Using Grover Algorithm",
+   "titleZh": "用 Grover 算法求解共享出行匹配问题",
+   "authors": [
+    "Alara Onur"
+   ],
+   "venue": "Human computer interaction.",
+   "date": "2025-11-19",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.62802/xdpbwf09",
+   "url": "https://doi.org/10.62802/xdpbwf09",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "共享出行平台需在目的地兼容、成本、路径效率与等待时间约束下持续完成乘-车匹配,经典整数规划随规模增长扩展性差;该文探索用 Grover 搜索为该问题提供量子加速。",
+   "abstract": "Optimization is central to urban mobility, where ride-sharing platforms must continuously match passengers with vehicles under complex constraints such as destination compatibility, cost, route efficiency, and acceptable waiting time. Classical exact methods like integer programming scale poorly as the problem size grows and struggle with highly dynamic inputs such as fluctuating demand, travel times, and vehicle capacities. Quantum computing offers an alternative paradigm: by exploiting superposition and interference, quantum search algorithms can explore large combinatorial spaces more efficiently than classical brute-force search. This study presents a proof-of-concept quantum formulation of a foundational ride-sharing assignment problem and investigates the use of Grover’s search algorithm. The model considers five unique passengers (Mehmet, Aytuğ, Filiz, Alara, and Ayliz) and two vehicles. Each passenger must be assigned to one of the two vehicles, subject to a balanced distribution objective (either a 3–2 or 2–3 split) and individual feasibility constraints. The problem is encoded on a 5-qubit quantum register, where the state of each qubit (|0⟩ or |1⟩) denotes assignment to Vehicle A or Vehicle B, mapping the full 2⁵ = 32-state Hilbert space to all possible allocations. A Grover oracle is designed to “mark” all assignments that satisfy the balanced-split and feasibility conditions by applying a phase flip to those computational basis states. The algorithm is implemente",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "photonic-quantum-convolutional-neural-networks-adaptive-state-89d57",
@@ -8347,6 +8674,32 @@
    "tags": [],
    "summaryZh": "分布式架构是超导量子计算扩展规模的关键路线,但远程量子比特间的通用量子门长期未能实现。论文在Physical Review Letters演示了两个远程超导量子处理器之间的高保直纠缠门,为模块化扩展——从而支撑更大规模的量子优化问题——打通了核心环节。",
    "abstract": "Superconducting qubit systems, one of the leading candidates for universal quantum computing, face scalability challenges such as frequency crowding, wiring complexity, and packaging problems. Distributed quantum computing offers a viable strategy for constructing larger quantum information processing systems. Yet, direct universal quantum gates between remote qubits-critical to distributed architectures-remain unrealized. Here, we demonstrate direct high-fidelity entangling gates between two remote superconducting quantum processors separated by a 30 cm distance, utilizing standing-wave modes in their connecting coaxial cable. We achieve cross-entropy benchmarking fidelities of (99.15±0.02)% and (98.03±0.04)% for the controlled-not and controlled-z gates, respectively, outperforming state transfer and feedback-based protocols in fidelity and efficiency. This advancement significantly enhances the prospect of universal distributed quantum information processing, which is the critical step toward future large-scale quantum systems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "enhancing-multiple-object-tracking-accuracy-quantum-annealing-a0551",
+   "title": "Enhancing multiple object tracking accuracy via quantum annealing",
+   "titleZh": "用量子退火提升多目标跟踪精度",
+   "authors": [
+    "Yasuyuki Ihara"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2025-07-07",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1038/s41598-025-07492-7",
+   "url": "https://doi.org/10.1038/s41598-025-07492-7",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把量子退火引入多目标跟踪(MOT):将跟踪关联表述为组合优化,用 QA 加速求解并通过集成处理提升跟踪精度,平衡处理速度与准确性,是量子退火在计算机视觉任务上的新颖应用(Scientific Reports)。",
+   "abstract": "Multiple object tracking (MOT), a key task in image recognition, poses a persistent challenge in balancing processing speed and tracking accuracy. This study presents a novel approach that leverages quantum annealing (QA) to expedite computation speed, while improving tracking accuracy through the ensemble processing of object tracking methods. A method to improve the matching integration process is also proposed. By utilizing the sequential nature of MOT, this study further augments the tracking method via reverse annealing. Experimental validation confirms the maintenance of high accuracy with an annealing time of a mere 3 μs per tracking process. Notably, the time-to-solution achieved reductions of over 99% compared to conventional QA implementations. The proposed method holds significant potential for real-time MOT applications, including traffic flow measurement for urban traffic light control, collision prediction for autonomous robots and vehicles, and management of products mass-produced in factories.",
    "source": "backfill",
    "domains": []
   },
@@ -13445,6 +13798,37 @@
    ]
   },
   {
+   "id": "research-statistical-data-based-traffic-flow-leveling-186d0",
+   "title": "RESEARCH ON STATISTICAL DATA-BASED TRAFFIC FLOW LEVELING USING QUANTUM ANNEALER",
+   "titleZh": "基于统计数据的量子退火交通流平准化研究",
+   "authors": [
+    "Yoshikatsu Noda",
+    "Katsumi Akiyama",
+    "Yasuyuki Ihara",
+    "Masayuki Ohzeki"
+   ],
+   "venue": "Transactions of the Operations Research Society of Japan",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.15807/torsj.68.91",
+   "url": "https://doi.org/10.15807/torsj.68.91",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用市政公开交通统计与真实路网图构建简化交通流模型,以量子退火机优化车辆路径组合:相比各车均走最短路径,可将交通量从主干道周边分散平准化,验证了 QA 在城市交通控制(含信号控制)方向的应用潜力。",
+   "abstract": "近年，量子アニーリングと呼ばれる組合せ最適化問題を解く手法が注目されている．量子アニーリングを用いて解くことができる最適化問題の一つとして経路最適化があり，タクシーの交通流最適化や無人搬送車（AGV）の制御などの応用が知られている．本研究では，量子アニーリングによる経路最適化について，都市交通制御への応用可能性を検討した．自治体が公開している交通量の統計データと現実の都市の道路網に対応するグラフを用いることにより交通流の簡易モデルを定義したうえで，量子アニーリングマシンを使って車両の経路の組合せの最適化を計算したところ，各車両が単純に最短経路で移動する場合に比べて，交通量を主要道路の周辺に分散・平準化させる効果があることを確認できた．今後は本研究で得られた経路最適化の知見を活かして，信号機制御などを含めた高度な交通制御への応用などを目指す．",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
    "id": "role-quantum-computing-solving-optimization-problems-artificial-c49a4",
    "title": "Role of Quantum Computing in Solving Optimization Problems in Artificial Intelligence",
    "titleZh": "量子计算在人工智能优化问题中的作用研究",
@@ -14177,6 +14561,34 @@
    "abstract": "Coupled spins form composite quantum systems which play an important role in many quantum technology applications, with an essential task often being the efficient generation of entanglement between two constituent qubits. The simplest such system is a pair of spins- $1/2$ coupled with Ising interaction, and in previous works various quantum control methods such as adiabatic processes, shortcuts to adiabaticity and optimal control have been employed to quickly generate there one of the maximally entangled Bell states. In this study, we use machine learning and optimization methods to produce maximally entangled states in minimum time, with the Rabi frequency and the detuning used as bounded control functions. We do not target a specific maximally entangled state, like the preceding studies, but rather find the controls which maximize the concurrence, leading thus automatically the system to the closest such state in shorter time. By increasing the bounds of the control functions we observe that the corresponding optimally selected maximally entangled state also changes and the necessary time to reach it is reduced. The present work demonstrates also that machine learning and optimization offer efficient and flexible techniques for the fast generation of entanglement in coupled spin systems, and we plan to extent it to systems involving more spins, for example spin chains.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "reposition-algorithm-e-hailing-based-quantum-annealing-35934",
+   "title": "A Reposition Algorithm for E-Hailing Based on Quantum Annealing and Intuitive Reasoning",
+   "titleZh": "基于量子退火与直觉推理的网约车再定位算法",
+   "authors": [
+    "Chao Wang",
+    "Yiyun Shi",
+    "Sumin Wang"
+   ],
+   "venue": "Intelligent and Converged Networks",
+   "date": "2024-12-01",
+   "year": 2024,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.23919/icn.2024.0020",
+   "url": "https://doi.org/10.23919/icn.2024.0020",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "网约车空车再定位需在有限时间内从海量交通数据中识别潜在需求特征,传统智能算法难以给出最优解;该文提出量子退火与直觉推理结合的混合算法,兼顾求解速度与解质量。",
+   "abstract": "Currently, the challenge lies in the traditional intelligent algorithm's ability to effectively address the e-hailing repositioning issue. Accurately identifying the underlying characteristics in extensive traffic data within a limited timeframe is difficult, ultimately preventing the achievement of the most optimal solution. This paper suggests a hybrid computing architecture involving reinforcement learning and quantum annealing based on intuitive reasoning. Intuitive reasoning aims to enhance performance in scenarios with poor system robustness, complex tasks, and diverse goals. A deep learning model is constructed, trained to extract scene features, and combined with expert knowledge, then transformed into a quantum annealable form. The final strategy is obtained using a D-wave quantum computer with quantum tunneling effect, which helps in finding optimal solutions by jumping out of local suboptimal solutions. Based on 400 000 real data, four algorithms are compared: minimum-cost flow, sequential markov decision process, hot-dot strategy, and driver-prefer strategy. The average total revenue increases by about 10% and vehicle utilization by about 15% in various scenarios. In summary, the proposed architecture effectively solves the e-hailing reposition problem, offering new directions for robust artificial intelligence in big data decision problems.",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
   },
   {
    "id": "quantum-inspired-bilevel-optimization-algorithm-first-responder-c58a5",
@@ -20066,6 +20478,37 @@
    "tags": [],
    "summaryZh": "面向真实硬件中静态/时变噪声并存的场景,发展多目标鲁棒量子最优控制方法,将多种噪声效应同时修正至足够高阶,为提升量子门保真度提供通用的控制层方案。",
    "abstract": "High-quality control is a fundamental requirement for quantum computation, but practically it is often hampered by the presence of various types of noises, which can be static or time dependent. In many realistic scenarios, multiple noise sources coexist, and their resulting noise effects need to be corrected to a sufficient order, posing significant challenges for the design of effective robust control methods. Here, we explore the method of robust quantum optimal control to generally tackle the problem of resisting multiple noises from a complicated noise environment. Specifically, we confine our analysis to classical stochastic noises that can be described by classical noise models. This method employs a gradient-based multiobjective optimization algorithm to maximize the control figure of merit, and meanwhile to minimize the perturbative effects of the noises that are allowed for. To verify its effectiveness, we apply this method to a number of examples, including robust entangling gate in a trapped-ion system and robust controlled-$Z$ gate in superconducting qubits, under commonly encountered static and time-dependent noises. Our simulation results reveal that robust optimal control can find smooth, robust pulses that can simultaneously resist several noises and thus achieve high-fidelity gates. Therefore, we expect that this method will find wide applications on current noisy quantum computing devices.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "moqea-d-multi-objective-qea-decomposition-mechanism-3bd58",
+   "title": "MOQEA/D: Multi-Objective QEA With Decomposition Mechanism and Excellent Global Search and Its Application",
+   "titleZh": "MOQEA/D:基于分解的大规模多目标量子进化算法及登机口分配应用",
+   "authors": [
+    "Wu Deng",
+    "Xing Cai",
+    "Daqing Wu",
+    "Yingjie Song",
+    "Huiling Chen",
+    "Xiaojuan Ran",
+    "Xiangbing Zhou",
+    "Huimin Zhao"
+   ],
+   "venue": "IEEE Transactions on Intelligent Transportation Systems",
+   "date": "2024-03-19",
+   "year": 2024,
+   "citations": 69,
+   "arxivId": "",
+   "doi": "10.1109/tits.2024.3373510",
+   "url": "https://doi.org/10.1109/tits.2024.3373510",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "构建考虑航班国际/国内属性、任务类型、航司联盟与机型的大规模多目标机场登机口分配模型,提出基于分解机制的量子进化算法 MOQEA/D 求解;发表于 IEEE T-ITS,69 引用,是量子启发进化算法的标杆应用。",
+   "abstract": "In this paper, a large-scale multi-objective gate assignment model is constructed by considering the flight international and domestic attributes, task type, airline affiliation, and aircraft type. Then a multi-objective quantum-inspired evolutionary algorithm based on decomposition mechanism, namely MOQEA/D is developed to solve the constructed model effectively. Specifically, a new decomposition mechanism is designed to decompose the multi-objective GAP into several single-objective sub-GAPs. Each quantum bit string solves a single-objective sub-GAP independently. And a new optimal crossover strategy is proposed to limit the randomness of observation operations and maximize the preservation of excellent genes to further improve the optimization performance. Finally, the multi-objective knapsack problem and the multi-objective GAP are selected to verify the effectiveness of the MOQEA/D. The experiment results demonstrate that the MOQEA/D can effectively solve large-scale multi-objective knapsack problem and obtain ideal gate assignment results. It takes on very significance and application value in solving complex optimization problems.",
    "source": "backfill",
    "domains": []
   },
