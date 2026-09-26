@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-26",
+ "updated": "2026-09-27",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -1884,6 +1884,35 @@
    "domains": []
   },
   {
+   "id": "spin-glass-dynamics-complex-hardware-topologies-bond-0badb",
+   "title": "Spin glass dynamics on complex hardware topologies: A bond-correlated percolation approach",
+   "titleZh": "复杂硬件拓扑上的自旋玻璃动力学:键关联渗流方法",
+   "authors": [
+    "Anonymous",
+    "Gabriel Téllez",
+    "Fernando J. Gómez-Ruiz"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2026-06-24",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1103/t6rh-7mnl",
+   "url": "https://doi.org/10.1103/t6rh-7mnl",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Physical Review Research:研究自旋玻璃在量子退火硬件相关网络架构(Chimera/Pegasus/Zephyr 图)上的非指数弛豫行为,用键关联渗流方法刻画阻挫与无序如何被硬件拓扑塑造,为理解退火硬件上的真实动力学提供统计物理工具。",
+   "abstract": "Understanding how frustration and disorder shape relaxation in complex systems is a central problem in statistical physics and quantum annealing. Spin glass models provide a natural framework to explore this connection, as their energy landscapes are governed by competing interactions and constrained topologies. We investigate the nonexponential relaxation behavior of spin glasses on network architectures relevant to quantum annealing hardware—such as finite size Chimera, Pegasus, and Zephyr graphs—where embedding constraints and finite connectivity strongly modulate the distribution of barriers and metastable states. This slow relaxation arises from the combined effects of frustration and disorder, which persist even beyond the conventional spin glass transition. Within the Fortuin-Kasteleyn-Coniglio-Klein cluster formalism, the appearance of unfrustrated cluster regions gives rise to multiple relaxation scales, as distinct domains follow different dynamical pathways across a rugged energy landscape. This framework enables a broader characterization of spin glass energy landscapes and provides physical insight into how topological constraints, frustration, and disorder jointly govern relaxation dynamics in complex networks relevant to quantum annealing architectures.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "feasibility-driven-qaoa-penalty-scheduling-f33d6",
    "title": "Feasibility-driven QAOA with penalty scheduling",
    "titleZh": "可行性驱动的带罚项调度 QAOA",
@@ -2534,6 +2563,36 @@
    ],
    "summaryZh": "Q-CTRL团队提出面向门型量子计算机的完整混合变分优化流水线:定制变分ansatz、基于反馈的双阶段参数更新、高效参数化编译、硬件执行中的自动误差抑制,以及O(n)的可扩展经典后处理。在IBM 156量子比特处理器上求解非平凡二元组合优化问题,展示了工程化\"全栈误差管理\"对量子优化实用性的决定性作用。",
    "abstract": "Abstract We introduce a novel hybrid quantum–classical variational optimization method for unconstrained binary combinatorial optimization problems on gate-model quantum computers, integrating a custom variational ansatz, staged feedback-based dual variational parameter update strategies, efficient parametric compilation, automated error suppression during hardware execution, and scalable O( n ) classical post-processing to correct for bitflip errors. Without this integrated approach, we show that standard circuit execution at scale produces output indistinguishable from random sampling, establishing the necessity of each pipeline component. We benchmark the method on IBM superconducting quantum computers for several optimization problems drawn from NP-hard problem classes, where the optimization is conducted on hardware with no use of classical simulation or prior knowledge of the solution. For Max-Cut on random regular graphs with topologies not matched to device connectivity, the method achieves approximation ratios (AR) of 100% for unweighted 3-regular graphs up to 156 nodes, weighted regular graphs up to 80 nodes, and weighted 7-regular graphs up 50 nodes. Applied to higher-order binary optimization, the method finds the ground state energy of 127- and 156-qubit spin-glass models matched to device topology with linear, quadratic, and cubic interaction terms, achieving ARs of at least 99.5% across all instances tested. The method consistently outperforms a classical local",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "dynamics-disordered-quantum-systems-two-three-dimensional-fc12d",
+   "title": "Dynamics of disordered quantum systems with two- and three-dimensional tensor networks",
+   "titleZh": "用二维/三维张量网络研究无序量子系统的动力学",
+   "authors": [
+    "Joseph Tindall",
+    "Antonio Francesco Mello",
+    "Matthew Fishman",
+    "E. Miles Stoudenmire",
+    "Dries Sels"
+   ],
+   "venue": "Science",
+   "date": "2026-05-21",
+   "year": 2026,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1126/science.adx2728",
+   "url": "https://doi.org/10.1126/science.adx2728",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Science:针对 D-Wave Advantage2 上大规模 Ising 自旋玻璃退火动力学\"超越经典计算\"的声明,作者用格点定制张量网络(2D/3D)以适度算力达到相当精度,并验证数百比特系统的 Kibble-Zurek 物理——再次收紧量子退火经典可模性的边界。",
+   "abstract": "Large-scale quantum annealing dynamics of Ising spin glasses were recently implemented on D-Wave's Advantage2 system on a range of lattices. After extensive comparison with existing numerical methods, these experiments were claimed to be beyond the reach of classical computation. Here, we simulated these spin-glass models with lattice-specific tensor networks, using belief propagation (BP) to keep up with the entanglement generated during the time evolution and then extracting expectation values with more sophisticated variants of BP. We found that state-of-the-art accuracies could be achieved with modest computational resources. Moreover, our results are scalable in both two and three dimensions, which we leveraged to verify universal Kibble-Zurek physics on systems involving hundreds of qubits.",
    "source": "backfill",
    "domains": []
   },
@@ -4333,6 +4392,51 @@
    ]
   },
   {
+   "id": "quantum-computing-corrosion-simulation-workflow-resource-analysis-a6114",
+   "title": "Quantum computing for corrosion simulation: workflow and resource analysis",
+   "titleZh": "腐蚀模拟的量子计算工作流与资源分析",
+   "authors": [
+    "Nam Nguyen",
+    "Thomas W. Watts",
+    "Benjamin Link",
+    "Kristen S. Williams",
+    "Yuval R. Sanders",
+    "Samuel J. Elman",
+    "Mária Kieferová",
+    "Michael J. Bremner",
+    "K. J. Morrell",
+    "Justin E. Elenewski",
+    "Eric B. Isaacs",
+    "Samuel Johnson",
+    "Luke Mathieson",
+    "Kevin Obenland",
+    "Matthew Otten",
+    "Rashmi Sundareswara",
+    "Adam A. Holmes"
+   ],
+   "venue": "npj Quantum Information",
+   "date": "2026-01-23",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1038/s41534-025-01171-1",
+   "url": "https://doi.org/10.1038/s41534-025-01171-1",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 npj Quantum Information:给出腐蚀电化学问题量子求解的完整工作流(问题编码、算法选择、误差缓解)并量化所需的量子资源(量子比特数、门数、容错门槛),回答\"腐蚀问题何时值得上量子计算机\"的工程问题。",
+   "abstract": "Corrosion is a pervasive issue that impacts the structural integrity and performance of materials across various industries, imposing a significant economic impact globally. In fields like aerospace and defense, developing corrosion-resistant materials is critical, but progress is often hindered by the complexities of material-environment interactions. While computational methods have advanced in designing corrosion inhibitors and corrosion-resistant materials, they fall short in understanding the fundamental corrosion mechanisms due to the highly correlated nature of the systems involved. This paper explores the potential of leveraging quantum computing to accelerate the design of corrosion inhibitors and corrosion-resistant materials, with a particular focus on magnesium and niobium alloys. We investigate the quantum computing resources required for high-fidelity electronic ground-state energy estimation (GSEE), which will be used in our hybrid classical-quantum workflow. Representative computational models for magnesium and niobium alloys show that 2292 to 38598 logical qubits and (1.04 to 1962) × 10 13 T-gates are required for simulating the ground-state energy of these systems under the first quantization encoding using plane waves basis.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "materials"
+   ]
+  },
+  {
    "id": "universal-resources-quantum-approximate-optimization-algorithm-quantum-791c0",
    "title": "Universal resources for quantum approximate optimization algorithm and quantum annealing",
    "titleZh": "QAOA与量子退火的普适资源",
@@ -4723,6 +4827,38 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "quantum-extreme-reservoir-computing-phase-classification-polymer-a622e",
+   "title": "Quantum Extreme Reservoir Computing for Phase Classification of Polymer Alloy Microstructures",
+   "titleZh": "量子极限储备池计算用于聚合物合金微观结构相分类",
+   "authors": [
+    "Arisa Ikeda",
+    "Akitada Sakurai",
+    "Kae Nemoto",
+    "Mayu Muramatsu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.02150",
+   "doi": "10.48550/arxiv.2601.02150",
+   "url": "https://arxiv.org/abs/2601.02150",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把量子极限储备池计算(QERC)应用于聚合物合金微观结构图像分类:对自洽场理论生成的相形貌做高效识别,利用量子态指数大状态空间处理高维图像数据,是 QML 落地高分子材料表征的最新实例。",
+   "abstract": "Quantum machine learning (QML) is expected to offer new opportunities to process high-dimensional data efficiently by exploiting the exponentially large state space of quantum systems. In this work, we apply quantum extreme reservoir computing (QERC) to the classification of microstructure images of polymer alloys generated using self-consistent field theory (SCFT). While previous QML efforts have primarily focused on benchmark datasets such as MNIST, our work demonstrates the applicability of QERC to engineering data with direct materials relevance. Through numerical experiments, we examine the influence of key computational parameters-including the number of qubits, sampling cost (the number of measurement shots), and reservoir configuration-on classification performance. The resulting phase classifications are depicted as phase diagrams that illustrate the phase transitions in polymer morphology, establishing an understandable connection between quantum model outputs and material behavior. These results illustrate QERC performance on realistic materials datasets and suggest practical guidelines for quantum encoder design and model generalization. This work establishes a foundation for integrating quantum learning techniques into materials informatics.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -9231,6 +9367,42 @@
    "source": "backfill",
    "domains": [
     "satellite",
+    "materials"
+   ]
+  },
+  {
+   "id": "exploring-thermodynamics-disordered-materials-quantum-computing-4225e",
+   "title": "Exploring the thermodynamics of disordered materials with quantum computing",
+   "titleZh": "用量子计算探索无序材料的热力学性质",
+   "authors": [
+    "Bruno Camino",
+    "John Buckeridge",
+    "Nicholas Chancellor",
+    "C. Richard A. Catlow",
+    "Anna Maria Ferrari",
+    "Paul A. Warburton",
+    "Alexey A. Sokol",
+    "Scott M. Woodley"
+   ],
+   "venue": "Science Advances",
+   "date": "2025-06-06",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1126/sciadv.adt7156",
+   "url": "https://doi.org/10.1126/sciadv.adt7156",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Science Advances:合金、固溶体与掺杂体系的成分无序使可能构型数组合爆炸,性质预测困难;该文把无序材料热力学映射到量子计算可解的问题形式,演示了对能源与催化关键材料的构型-性质关系的量子求解路线。",
+   "abstract": "Alloys, solid solutions, and doped systems are essential in technologies such as energy generation and catalysis, but predicting their properties remains challenging because of compositional disorder. As the concentration of components changes in a binary solid solution [Formula: see text] , the number of possible configurations becomes computationally intractable. Algorithms used in classical optimization methods cannot avoid assessing high-energy states where, for example, simulated annealing is designed to initially spend computational effort. We introduce a scalable, practical, and accurate approach using quantum annealing to efficiently sample low-energy configurations of disordered materials, avoiding the need for excessive high-energy calculations. Our method includes temperature and simulates large unit cells, producing a Boltzmann-like distribution to identify thermodynamically relevant structures. We demonstrate this by predicting bandgap bowing in [Formula: see text] and bulk modulus variations in [Formula: see text] , with results in excellent agreement with experiments.",
+   "source": "backfill",
+   "domains": [
+    "energy",
     "materials"
    ]
   },
@@ -13829,6 +14001,36 @@
    ]
   },
   {
+   "id": "optimization-si-sige-heterostructures-large-robust-valley-5a895",
+   "title": "Optimization of Si/SiGe heterostructures for large and robust valley splitting in silicon qubits",
+   "titleZh": "面向大而稳健谷劈裂的 Si/SiGe 异质结构优化设计",
+   "authors": [
+    "Abel Thayil",
+    "Lasse Ermoneit",
+    "Lars R. Schreiber",
+    "Thomas Koprucki",
+    "Markus Kantner"
+   ],
+   "venue": "Weierstraß-Institut für Angewandte Analysis und Stochastik",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.20347/wias.preprint.3249",
+   "url": "https://doi.org/10.20347/wias.preprint.3249",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "谷劈裂偏低且波动是硅自旋量子比特可扩展性的关键瓶颈;该工作系统优化外延层堆栈设计以提升谷劈裂并抑制无序引起的波动,还给出垂直电场连续调节谷劈裂的可切换量子比特新思路。",
+   "abstract": "The notoriously low and fluctuating valley splitting is one of the key challenges for electron spin qubits in silicon (Si), limiting the scalability of Si-based quantum processors. In silicon-germanium (SiGe) heterostructures, the problem can be addressed by the design of the epitaxial layer stack. Several heuristic strategies have been proposed to enhance the energy gap between the two nearly degenerate valley states in strained Si/SiGe quantum wells (QWs), emphe.g., sharp Si/SiGe interfaces, Ge spikes or oscillating Ge concentrations within the QW. In this work, we develop a systematic variational optimization approach to compute optimal Ge concentration profiles that boost selected properties of the intervalley coupling matrix element. Our free-shape optimization approach is augmented by a number of technological constraints to ensure feasibility of the resulting epitaxial profiles. The method is based on an effective mass type envelope function theory accounting for the effects of strain and compositional alloy disorder. Various previously proposed heterostructure designs are recovered as special cases of the constrained optimization problem. Our main result is a novel heterostructure design we refer to as the emphmodulated wiggle well, which provides a large deterministic enhancement of the valley splitting along with a reliable suppression of the disorder-induced volatility. In addition, our new design offers a wide-range tunability of the valley splitting controlled by",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "role-quantum-computing-solving-optimization-problems-artificial-c49a4",
    "title": "Role of Quantum Computing in Solving Optimization Problems in Artificial Intelligence",
    "titleZh": "量子计算在人工智能优化问题中的作用研究",
@@ -15354,6 +15556,35 @@
    "tags": [],
    "summaryZh": "Foss-Feig、Yao等撰写的Annual Review综述:系统回顾离子阱量子比特与架构进展,以及数字与模拟量子模拟的应用。离子阱的高保真全连接特性使其同时是变分量子优化的重要平台,该综述为理解其能力边界提供了权威参考。",
    "abstract": "Trapped ions offer long coherence times and high-fidelity, programmable quantum operations, making them a promising platform for quantum simulation of condensed matter systems, quantum dynamics, and problems related to high-energy physics. We review selected developments in trapped-ion qubits and architectures and discuss quantum simulation applications that utilize these emerging capabilities. This review emphasizes developments in digital (gate-based) quantum simulations that exploit trapped-ion hardware capabilities, such as flexible qubit connectivity, selective midcircuit measurement, and classical feedback, to simulate models with long-range interactions, explore nonunitary dynamics, compress simulations of states with limited entanglement, and reduce the circuit depths required to prepare or simulate long-range entangled states.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "performance-benchmarking-quantum-algorithms-hard-combinatorial-optimization-7532e",
+   "title": "Performance Benchmarking of Quantum Algorithms for Hard Combinatorial Optimization Problems: A Comparative Study of non-FTQC Approaches",
+   "titleZh": "面向困难组合优化问题的量子算法性能基准测试",
+   "authors": [
+    "Santaro Kikuura",
+    "Ryoya Igata",
+    "Yuta Shingu",
+    "Shohei Watabe"
+   ],
+   "venue": "arXiv",
+   "date": "2024-10-30",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2410.22810",
+   "doi": "10.48550/arxiv.2410.22810",
+   "url": "https://arxiv.org/abs/2410.22810",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "在 max-cut、数划分、背包与量子自旋玻璃四类问题上系统基准测试非容错量子算法(VQE、QAOA 等)与经典基线,统一比较解质量与运行时间,是补充库内求解器对决系列的新实证。",
+   "abstract": "This study systematically benchmarks several non-fault-tolerant quantum computing algorithms across four distinct optimization problems: max-cut, number partitioning, knapsack, and quantum spin glass. Our benchmark includes noisy intermediate-scale quantum (NISQ) algorithms, such as the variational quantum eigensolver, quantum approximate optimization algorithm, quantum imaginary time evolution, and imaginary time quantum annealing, with both ansatz-based and ansatz-free implementations, alongside tensor network methods and direct simulations of the imaginary-time Schrödinger equation. For comparative analysis, we also utilize classical simulated annealing and quantum annealing on D-Wave devices. Employing default configurations, our findings reveal that no single non-FTQC algorithm performs optimally across all problem types, underscoring the need for tailored algorithmic strategies. This work provides an objective performance baseline and serves as a critical reference point for advancing NISQ algorithms and quantum annealing platforms.",
    "source": "backfill",
    "domains": []
   },
@@ -18048,6 +18279,49 @@
    "source": "backfill",
    "domains": [
     "finance"
+   ]
+  },
+  {
+   "id": "quantum-computing-corrosion-resistant-materials-anti-corrosive-becda",
+   "title": "Quantum computing for corrosion-resistant materials and anti-corrosive coatings design",
+   "titleZh": "量子计算用于耐腐蚀材料与防腐涂层设计",
+   "authors": [
+    "Nam Phong Nguyen",
+    "Thomas W. Watts",
+    "Benjamin Link",
+    "Kristen S. Williams",
+    "Yuval R. Sanders",
+    "Samuel J. Elman",
+    "Mária Kieferová",
+    "Michael J. Bremner",
+    "K. J. Morrell",
+    "Justin E. Elenewski",
+    "Eric B. Isaacs",
+    "Samuel Johnson",
+    "Luke Mathieson",
+    "Kevin Obenland",
+    "Matthew Otten",
+    "Rashmi Sundareswara",
+    "Adam A. Holmes"
+   ],
+   "venue": "arXiv",
+   "date": "2024-06-26",
+   "year": 2024,
+   "citations": 4,
+   "arxivId": "2406.18759",
+   "doi": "10.48550/arxiv.2406.18759",
+   "url": "https://arxiv.org/abs/2406.18759",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "腐蚀带来巨大经济损失,航空航天与国防领域的耐蚀材料研发长期受制于材料-环境相互作用的复杂性;该文综述并演示量子计算(量子化学模拟+优化)在腐蚀机理预测与防腐涂层设计中的应用路线,是该团队腐蚀×量子系列的建模篇。",
+   "abstract": "Corrosion is a pervasive issue that impacts the structural integrity and performance of materials across various industries, imposing a significant economic impact globally. In fields like aerospace and defense, developing corrosion-resistant materials is critical, but progress is often hindered by the complexities of material-environment interactions. While computational methods have advanced in designing corrosion inhibitors and corrosion-resistant materials, they fall short in understanding the fundamental corrosion mechanisms due to the highly correlated nature of the systems involved. This paper explores the potential of leveraging quantum computing to accelerate the design of corrosion inhibitors and corrosion-resistant materials, with a particular focus on magnesium and niobium alloys. We investigate the quantum computing resources required for high-fidelity electronic ground-state energy estimation (GSEE), which will be used in our hybrid classical-quantum workflow. Representative computational models for magnesium and niobium alloys show that 2292 to 38598 logical qubits and $(1.04$ to $1962) \\times 10^{13}$ T-gates are required for simulating the ground-state energy of these systems under the first quantization encoding using plane waves basis.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "materials"
    ]
   },
   {
@@ -20754,6 +21028,31 @@
    "domains": []
   },
   {
+   "id": "4-clique-network-minor-embedding-quantum-annealers-efea8",
+   "title": "4-Clique network minor embedding for quantum annealers",
+   "titleZh": "面向量子退火硬件的 4-Clique 网络次级嵌入方法",
+   "authors": [
+    "Elijah Pelofske"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2024-03-13",
+   "year": 2024,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1103/physrevapplied.21.034023",
+   "url": "https://doi.org/10.1103/physrevapplied.21.034023",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "针对退火硬件稀疏拓扑的嵌入瓶颈,提出 4-clique 网络次级嵌入:以四团结构替代线性链式嵌入,提高拓扑利用率并缩短嵌入链长,发表于 Physical Review Applied,与库内 CHARME、嵌入基准评估构成方法系列。",
+   "abstract": "Quantum annealing is a quantum algorithm for computing solutions to combinatorial optimization problems. This study proposes a method for minor embedding optimization problems onto sparse quantum annealing hardware graphs called 4-clique network minor embedding. This method is in contrast to the standard minor embedding technique of using a path of linearly connected qubits in order to represent a logical variable state. The 4-clique minor embedding is possible on Pegasus graph connectivity, which is the native hardware graph for some of the current D-Wave quantum annealers. The Pegasus hardware graph contains many cliques of size 4, making it possible to form a graph composed entirely of paths of connected 4-cliques on which a problem can be minor-embedded. The 4-clique chains come at the cost of additional qubit usage on the hardware graph, but they allow for stronger coupling within each chain, thereby increasing chain integrity, reducing chain breaks, and allow for greater usage of the available energy scale for programming logical problem coefficients on current quantum annealers. The 4-clique minor embedding technique is compared with the standard linear path minor embedding with experiments on two D-Wave quantum annealing processors with Pegasus hardware graphs. We show proof-of-concept experiments where the 4-clique minor embeddings can use weak chain strengths while successfully carrying out the computation of minimizing random all-to-all spin glass problem instances",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "energy-efficient-satellite-range-scheduling-reinforcement-learning-841e3",
    "title": "Energy-Efficient Satellite Range Scheduling Using a Reinforcement Learning-Based Memetic Algorithm",
    "titleZh": "基于强化学习模因算法的节能卫星测控资源调度",
@@ -21029,6 +21328,32 @@
    "tags": [],
    "summaryZh": "量子迁移学习实证研究:用量子线路微调预训练经典 NLP 模型完成语言可接受性分类任务,发表于 Quantum Machine Intelligence,展示了量子-经典混合 NLP 的可行路径。",
    "abstract": "Abstract Hybrid quantum-classical classifiers promise to positively impact critical aspects of natural language processing tasks, particularly classification-related ones. Among the possibilities currently investigated, quantum transfer learning, i.e., using a quantum circuit for fine-tuning pre-trained classical models for a specific task, is attracting significant attention as a potential platform for proving quantum advantage. This work shows potential advantages, in terms of both performance and expressiveness, of quantum transfer learning algorithms trained on embedding vectors extracted from a large language model to perform classification on a classical linguistics task—acceptability judgements. Acceptability judgement is the ability to determine whether a sentence is considered natural and well-formed by a native speaker. The approach has been tested on sentences extracted from ItaCoLa, a corpus that collects Italian sentences labeled with their acceptability judgement. The evaluation phase shows results for the quantum transfer learning pipeline comparable to state-of-the-art classical transfer learning algorithms, proving current quantum computers’ capabilities to tackle NLP tasks for ready-to-use applications. Furthermore, a qualitative linguistic analysis, aided by explainable AI methods, reveals the capabilities of quantum transfer learning algorithms to correctly classify complex and more structured sentences, compared to their classical counterpart. This findin",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "understanding-disorder-silicon-quantum-computing-platforms-scattering-59c3b",
+   "title": "Understanding disorder in silicon quantum computing platforms: Scattering mechanisms in Si/SiGe quantum wells",
+   "titleZh": "理解硅量子计算平台中的无序:Si/SiGe 量子阱的散射机制",
+   "authors": [
+    "Yi Huang",
+    "S. Das Sarma"
+   ],
+   "venue": "Physical review. B./Physical review. B",
+   "date": "2024-03-04",
+   "year": 2024,
+   "citations": 13,
+   "arxivId": "",
+   "doi": "10.1103/physrevb.109.125405",
+   "url": "https://doi.org/10.1103/physrevb.109.125405",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "发表于 Physical Review B:面向硅基自旋量子比特平台,理论研究 Si/SiGe 量子阱中界面与无序散射对电子迁移率与谷劈裂的协同影响,为\"高迁移率+大谷劈裂\"共设计的异质结构工程提供定量依据。",
+   "abstract": "Motivated by recent experiments on Si/SiGe quantum wells with a co-design of high electron mobility and large valley splitting [Paquelet Wuetz et al., Nat. Commun. 14, 1385 (2023); Esposti et al., arXiv:2309.02832 [cond-mat.mes-hall]], suitable for a Si-based spin qubit quantum computing platform, we examine the role of disorder by theoretically calculating mobility and quantum mobility from various scattering mechanisms and their dependence on the electron density. At low electron densities ${n}_{e}<4\\ifmmode\\times\\else\\texttimes\\fi{}{10}^{11}\\phantom{\\rule{4pt}{0ex}}{\\mathrm{cm}}^{\\ensuremath{-}2}$, we find that mobility is limited by remote Coulomb impurities in the capping layer, whereas interface roughness becomes the significant limiting factor at higher densities. We also find that alloy disorder scattering is not a limiting mechanism in the reported high-mobility structures. We estimate the critical density of the disorder-driven low-density metal-insulator transition using the Anderson-Ioffe-Regel localization criterion and qualitatively explain the breakdown of the Boltzmann-Born theory at low densities. We also estimate the critical density by considering inhomogeneous density fluctuations induced by long-range Coulomb disorder in the system, and find a larger critical density compared to the one obtained from the Anderson-Ioffe-Regel criterion. For quantum mobility, our calculation suggests that remote and distant background impurities are likely the limiting scat",
    "source": "backfill",
    "domains": []
   },
