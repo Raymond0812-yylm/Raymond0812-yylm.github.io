@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain） · 量子优化日报</title><meta name="description" content="量子优化文献几乎无一例外地用&#34;普通近似比&#34;（所得目标值/最优目标值）报告性能。但这一度量对 MaxCut 这类问题有系统性盲区：随机割平均就能拿到约一半边，普通近似比 0.99 完全可能与&#34;对随机猜测的改进（增益）接近零&#34;并存——一个看似漂亮的比例数字可能不包含任何计算内容。经典近似复杂性文献早已为此发展出&#34;增益&#34;等替代度量（相对随机基线 E₀ 的改进量），而量子优化文献至今基本没有系统采用。作者提出的核心问题是：如果改用增益作为操作性能标准，高效量子算法能做什么、被证明不能做什么？"><meta property="og:title" content="量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain） · 量子优化日报"><meta property="og:description" content="量子优化文献几乎无一例外地用&#34;普通近似比&#34;（所得目标值/最优目标值）报告性能。但这一度量对 MaxCut 这类问题有系统性盲区：随机割平均就能拿到约一半边，普通近似比 0.99 完全可能与&#34;对随机猜测的改进（增益）接近零&#34;并存——一个看似漂亮的比例数字可能不包含任何计算内容。经典近似复杂性文献早已为此发展出&#34;增益&#34;等替代度量（相对随机基线 E₀ 的改进量），而量子优化文献至今基本没有系统采用。作者提出的核心问题是：如果改用增益作为操作性能标准，高效量子算法能做什么、被证明不能做什么？"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 RSS" href="/rss.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#4338ca"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        try { document.documentElement.dataset.theme = localStorage.getItem('qo-theme') || 'dark'; } catch (e) { document.documentElement.dataset.theme = 'dark'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/about.CAmUjb2B.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="shell"> <aside class="sidebar"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报</span> </a> <div class="side-group"> <div class="side-label">内容</div> <a href="/" class="side-link"><span class="ico">🏠</span>首页</a> <a href="/daily/" class="side-link active"><span class="ico">📅</span>每日报告</a> <a href="/news/" class="side-link"><span class="ico">📣</span>行业动态</a> <a href="/specials/" class="side-link"><span class="ico">🧭</span>专题</a> </div> <div class="side-group"> <div class="side-label">文献</div> <a href="/papers/" class="side-link"><span class="ico">📚</span>论文库</a> <a href="/topics/" class="side-link"><span class="ico">🔬</span>研究方向</a> <a href="/applications/" class="side-link"><span class="ico">🏭</span>应用领域</a> </div> <div class="side-group"> <div class="side-label">更多</div> <a class="side-link" href="/about/"><span class="ico">ℹ️</span>关于本站</a> <a class="side-link" href="/rss.xml"><span class="ico">📡</span>RSS 订阅</a> <a class="side-link" href="/app/QuantOptDaily-v1.0.0.apk"><span class="ico">📱</span>安卓 App</a> </div> <div class="side-foot"> <button class="theme-btn" id="themeToggle" type="button">🌗 切换深浅主题</button> </div> </aside> <div class="main-col"> <header class="site-header"> <div class="wrap"> <a class="brand" href="/"> <span class="logo">Q</span> <span>量子优化日报<span class="sub">QuantOpt Daily</span></span> </a> <button class="theme-toggle-mobile" id="themeToggleM" type="button" aria-label="切换深浅主题">🌗</button> <nav class="nav" aria-label="主导航"> <a href="/" class>首页</a><a href="/daily/" class="active">每日报告</a><a href="/news/" class>行业动态</a><a href="/specials/" class>专题</a><a href="/papers/" class>论文库</a><a href="/topics/" class>研究方向</a><a href="/applications/" class>应用领域</a><a href="/about/" class>关于</a> <a href="/rss.xml" class="rss" title="RSS 订阅">RSS</a> </nav> </div> </header> <main class="wrap">  <div class="page-head" style="padding-bottom:6px"> <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/daily/">每日报告</a><span>/</span>2026-09-29</div> <h1>量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain）</h1> <p class="lead small muted" style="margin-top:8px"> 2026-09-29 · arXiv 预印本 · arXiv:2609.31520 / 2609.31077 / 2609.31484 · Stuart Hadfield </p> </div> <div class="panel toc-box"> <h2>今日看点 <span class="muted small" style="font-weight:500">3 篇 · 约 6 分钟读完</span></h2> <div class="toc-row"> <span class="no">01</span> <div style="min-width:0"> <a href="/papers/complexity-barriers-state-preparation-quantum-approximate-optimization-8fa7c/" style="font-weight:700">量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain）</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">量子优化文献几乎无一例外地用&quot;普通近似比&quot;（所得目标值/最优目标值）报告性能。但这一度量对 MaxCut 这类问题有系统性盲区：随机割平均就能拿到约一半边，普通近似比 0.99 完全可能与&quot;对随机猜测的改进（增益）接近零&quot;并存——一个看似漂亮的比例数字可能不包含任何计算内容。经典近似复杂性文献早已为此发展出&quot;增益&quot;等替代度量（相对随机基线 E₀ 的改进量），而量子优化文献至今基本没有系统采用。作者提出的核心问题是：如果改用增益作为操作性能标准，高效量子算法能做什么、被证明不能做什么？</div> </div> </div><div class="toc-row"> <span class="no">02</span> <div style="min-width:0"> <a href="/papers/quantum-approximate-optimisation-algorithm-protein-sidechain-packing-8fa7b/" style="font-weight:700">基于量子近似优化算法的蛋白质侧链堆积</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">蛋白质侧链堆积（sidechain packing）是折叠过程中的关键阶段，直接关系基于结构的药物发现。AlphaFold2 对主链预测可靠，但侧链定位精度不足；在固定主链上恢复最低能量的旋转异构体（rotamer）指派是 NP 难问题。作者提出混合量子-经典管线：在 AlphaFold 骨架上用 QAOA 重排侧链，将一/二体能量编码为 QUBO。</div> </div> </div><div class="toc-row"> <span class="no">03</span> <div style="min-width:0"> <a href="/papers/cofi-dqi-curve-based-optimal-function-intersection-8fa7c/" style="font-weight:700">基于曲线的最优函数求交：解码量子干涉的代数几何码扩展</a> <div class="small muted" style="display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden">年 Jordan 等提出的解码量子干涉（DQI）是近年量子优化最受关注的全新框架之一：把组合优化问题映射为译码问题，利用量子干涉在码字空间中搜索最满足约束的解——对 Reed-Solomon 译码对应&quot;最优多项式求交（OPI）&quot;（可视为有限域上的多项式回归），并在若干实例上有可证明的加速。这暗示&quot;译码→优化&quot;是一般性设计原则，而非单码巧合。</div> </div> </div> </div> <div class="report-body"><h1>每日论文报告（2026-09-29）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 9 月 29 日（周二，北京时间清晨 06:15）</strong>。检索渠道：arXiv API 按提交时间排序实时核验（quant-ph / cs.LG / cs.AI / cs.IT 多关键词并行扫描）+ paper-distill 跨库检索（OpenAlex / Semantic Scholar / Crossref 等）交叉验证 + arXiv HTML 全文精读 + 网络检索核验作者机构与产业新闻。</p>
+<ul>
+<li><strong>公告批次如实说明</strong>：本报告生成于北京时间 09-29 08:00 之前，今日批次（含周末提交、美东周一晚公告）尚未上线。当前可见的最新批次为<strong>北京时间 09-28 08:00 上线</strong>的公告，论文提交时间集中于 <strong>UTC 09-25 00:00 至 17:57</strong>；因昨日（09-28，周一）仅完成量子硬件主题扩库、未生成日报，该批次尚未被任何日报覆盖，今日三篇均从中精选（arXiv:2609.31520、2609.31077、2609.31484，提交时间戳如实标注）。北京时间今日 08:00 后将上线含周末提交的新批次，届时明日日报恢复正常覆盖。</li>
+<li><strong>今日头条</strong>：量子交替算子拟设（Quantum Alternating Operator Ansatz）的提出者之一、NASA Ames 量子 AI 实验室（QuAIL）圈的 <strong>Stuart Hadfield</strong> 发表题带副标题&quot;No pain, no gain&quot;的新作——以&quot;<strong>增益</strong>（gain，相对随机猜测基线的改进）&quot;取代&quot;普通近似比&quot;作为性能度量，证明：任何均匀高效的量子或混合过程若能在<strong>每个输入</strong>上以至少逆多项式成功率恢复固定正比例的最优经典增益，则 <strong>NP ⊆ BQP</strong>；且该壁垒<strong>穿过 QRAO 压缩编码存活</strong>（并利用 d∈{2,3} 时解码器按精确因子 1/d² 传递增益的恒等式），直接回答了 QRAO 原论文（Teramoto et al.）遗留的公开难题。对 QAOA 基准测试与&quot;硬件优越性演示&quot;的评价口径是一次正面冲击。</li>
+<li><strong>大模型求解组合优化方向</strong>：经 arXiv API 核验（cs.LG / cs.AI / cs.DM 按提交时间倒序扫描），本批次 LLM4CO 方向仍无合格新作（最新提交停留在 09-10 之前），故今日三篇全部来自量子方向（QAOA 理论 ×2、量子优化新框架 ×1）。机器学习求解组合优化方向可留意本批次的 PORL——仿真在线预训练 + 离线强化学习微调做作业车间调度（arXiv:2609.30948，09-25 提交）。</li>
+<li><strong>未入选但值得留意</strong>：FALQON 配 XY 混子解图着色并研究公平采样（arXiv:2609.30991，13 页 5 图）；跨多量子平台 Quantum-HPC 工作流两案例研究（arXiv:2609.31528）；Schwinger 模型高效态制备的反绝热量子优化（arXiv:2609.31400）；上周头条&quot;Refuting the QAOA fixed-angle conjecture&quot;已于 09-25 更新 v2（arXiv:2609.27703）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：交替算子拟设提出者 Hadfield 的&quot;No pain, no gain&quot;——以&quot;增益&quot;为度量证明量子近似优化的态制备复杂性壁垒，且壁垒穿过 QRAO 压缩存活</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Complexity Barriers to State Preparation in Quantum Approximate Optimization</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain）</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Stuart Hadfield（USRA 高等计算机科学研究所 RIACS，Mountain View；NASA Ames 量子 AI 实验室 QuAIL 学术圈；哥伦比亚大学博士，量子交替算子拟设原论文作者）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph / cs.CC）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.31520（v1，2026-09-25 16:57 UTC 提交，属当前可见最新批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.31520">https://arxiv.org/abs/2609.31520</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>量子优化文献几乎无一例外地用&quot;<strong>普通近似比</strong>&quot;（所得目标值/最优目标值）报告性能。但这一度量对 MaxCut 这类问题有系统性盲区：随机割平均就能拿到约一半边，普通近似比 0.99 完全可能与&quot;对随机猜测的改进（增益）接近零&quot;并存——一个看似漂亮的比例数字可能不包含任何计算内容。经典近似复杂性文献早已为此发展出&quot;增益&quot;等替代度量（相对随机基线 E₀ 的改进量），而量子优化文献至今基本没有系统采用。作者提出的核心问题是：如果改用增益作为操作性能标准，<strong>高效量子算法能做什么、被证明不能做什么</strong>？</p>
+<p>作者身份使这篇论文分量特殊：Stuart Hadfield 正是 2019 年把 QAOA 推广为量子交替算子拟设的原作者之一（Hadfield, Wang, O&#39;Gorman, Rieffel, Venturelli），此后长期在 NASA QuAIL 从事量子算法与基准测试研究。由&quot;量子优化算法设计最重要的旗手之一&quot;亲自论证&quot;这类算法在最坏情形下连固定比例的经典增益都拿不到&quot;，构成对整个子领域评价体系的一次自我审视。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>度量重构</strong>：对 MaxCut 显式区分普通近似比与增益（gain = 期望割值相对均匀随机猜测基线 E₀ 的改进，上限为最优增益 C*−E₀）。指出近单位近似比与近零增益可以同时成立，且两者复杂性完全不同。</li>
+<li><strong>d=1 标准编码的主壁垒（定理 1 的直接情形）</strong>：以经典 MaxCut-Gain 硬性间隙（无条件结果）为根基：<strong>任何均匀高效（多项式时间）的量子或混合过程，若在每个输入上以至少逆多项式概率恢复固定正比例 τ 的最优经典增益，则 NP ⊆ BQP</strong>——在标准假设下被认为不可能。该壁垒对 QAOA、量子退火及一切以该编码制备态并测量的过程一视同仁。</li>
+<li><strong>QRAO 压缩编码下的存活（本文最主要新定理）</strong>：量子随机存取优化（QRAO）用 d=2 或 3 个经典变量打包进 1 个量子比特以省比特。作者证明壁垒<strong>穿过压缩存活</strong>，且覆盖压缩后整个平均能量区间 C* ≤ E_ρ ≤ λ_max(H_d)——关键技术是利用已知局部解码器把&quot;编码能量增益&quot;按<strong>精确因子 1/d²</strong> 传递为&quot;解码后平均增益&quot;的恒等式（对任意输入态、含纠缠态成立），再与 MaxCut-Gain 硬度结合。这正面回答了 QRAO 原论文（Teramoto et al.）第 4.2.2–4.2.3 节列为未来工作的公开问题。与近期把 QRAO 能量承诺问题证为 NP/StoqMA/QMA 完全的工作互补而不同：那些结果关乎弛豫最优值 λ_max 的复杂性，本文问的是<strong>哪些能量值能被高效制备</strong>。</li>
+<li><strong>结构性洞察与反例构造</strong>：其一，每个输入上都存在达到经典最优 C* 的<strong>积态</strong>，故&quot;达到经典阈值&quot;的壁垒不来自纠缠需求；其二，构造相对量子弛豫超额仅 Θ(1/n) 的 n 比特硬实例族——其上最大混合态的能量近似比高达 1−Θ(1/n)，但编码增益与解码增益均为零——从而把&quot;弛豫紧致度&quot;&quot;能量近似比&quot;与&quot;操作可达性&quot;三者干净分离。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<p>本文是纯理论论文（无实验），核心产出为三条层层递进的结果链：标准编码下&quot;固定比例增益恢复 ⇒ NP ⊆ BQP&quot;的普适壁垒；QRAO d∈{2,3} 压缩下壁垒存活并覆盖全部目标能量区间（Teramoto 等公开问题的解答）；以及&quot;近紧弛豫 + 近单位能量近似比 ⇏ 任何操作增益&quot;的反例族，证明即便量子松弛几乎不损失信息、态的能量几乎达到弛豫最优，也并不蕴含解码后能得到任何超出随机猜测的割。论文最后把这些结果转化为基准测试准则：量子优化实验应报告<strong>解码后增益、读出（readout）成本、精度与端到端成本</strong>，而非仅报哈密顿量能量或普通近似比。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>其一，这是 QAOA/量子退火评价体系的一次&quot;度量论&quot;纠偏：与上周&quot;固定角度猜想被推翻&quot;（arXiv:2609.27703）和&quot;证据级常数抽样复杂性&quot;（09-01 日报）一道，构成对&quot;用能量/近似比讲故事&quot;的连续三击——往后任何声称量子优化硬件优越性的演示，都必须回答&quot;解码后的增益是多少、相对同预算经典基线如何&quot;。其二，QRAO 一度被视为&quot;少比特办大事&quot;的捷径（本栏目 09-27 日报的贷款组合论文亦属该谱系），本文证明压缩不绕开增益壁垒，等于给这条路线划定了与未压缩版相同的复杂性天花板——省比特可以，省复杂性不行。其三，需注意边界：全部壁垒是<strong>最坏情形、逐输入均匀</strong>的陈述，不排除特定实例分布、平均情形或带结构先验（层次、社区、warm-start）算法的真实优势——这与 LP-QAOA（09-27 日报头条）的&quot;利用问题结构&quot;主线恰好互补：壁垒划定的是&quot;无结构硬实例&quot;上的不可能性，结构化算法的生存空间在壁垒之外。作者以&quot;No pain, no gain&quot;为副标题点题：不付出超越多项式的代价，就没有相对随机猜测的增益。</p>
+<hr>
+<h2>论文二：纽卡斯尔大学把 QAOA 对准 AlphaFold 的真实短板——W 态初值 + 环形 XY 混子的约束保持拟设做蛋白质侧链 packing</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Quantum Approximate Optimisation Algorithm for Protein Sidechain Packing</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于量子近似优化算法的蛋白质侧链堆积</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Sebastian O. M. Stewart、Nick Chancellor、Jonte R. Hance、Ittoop Vergheese Puthoor（英国纽卡斯尔大学计算学院量子组 Quantum Group, School of Computing, Newcastle University）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph，6 页 3 图）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.31077（v1，2026-09-25 10:16 UTC 提交，属当前可见最新批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.31077">https://arxiv.org/abs/2609.31077</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>蛋白质侧链堆积（sidechain packing）是折叠过程中的关键阶段，直接关系基于结构的药物发现。AlphaFold2 对主链预测可靠，但侧链定位精度不足；在固定主链上恢复最低能量的旋转异构体（rotamer）指派是 NP 难问题。作者提出混合量子-经典管线：在 AlphaFold 骨架上用 QAOA 重排侧链，将一/二体能量编码为 QUBO。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>技术亮点在拟设设计：采用 <strong>W 态初始化 + 环形 XY 混子</strong>的约束保持拟设，在不加罚项的情况下强制 one-hot rotamer 有效性（每个位点恰好选一个旋转异构体），且双比特门数随 rotamer 数<strong>线性</strong>扩展——这是交替算子谱系&quot;问题相关混子&quot;思想在真实生物问题上的又一次落地。作者还定义了一个与基线选取无关的<strong>渐近 shot-scaling 指标</strong>（以实验解析构象为参照），用于公平衡量优化器质量随问题规模的增长率。</p>
+<h3>四、主要实验/理论结果</h3>
+<p>在牛胰蛋白酶抑制剂（5PTI）的高/中 AlphaFold 置信区上，管线所得构象能量<strong>低于 AlphaFold 基线</strong>；所拟合的 shot-scaling 增长在中等侧链柔性下保持在经典穷举搜索增长率之下。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>本文体量小（6 页）但管线完整、靶点选得聪明：不是泛泛证明&quot;QAOA 能做组合优化&quot;，而是瞄准 AlphaFold 生态中被公认最弱的一环（侧链），把量子优化嵌入主流 AI 工具链的下游修正环节。约束保持混子（W 态 + XY 环）避免了罚项调参这一 QUBO 实践中最脆弱的环节，与今日头条 Hadfield 的&quot;增益&quot;准则形成呼应——衡量这类工作时应看解码后构象能量的实际改进（增益），而非能量或近似比本身。</p>
+<hr>
+<h2>论文三：COFI-DQI——用代数几何码家族扩容&quot;解码量子干涉&quot;，编码理论工具箱持续注入量子优化</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>COFI-DQI: Curve-based Optimal Function Intersection via Decoded Quantum Interferometry</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于曲线的最优函数求交：解码量子干涉的代数几何码扩展</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Gretchen L. Matthews、Julia Shapiro（美国弗吉尼亚理工大学数学系 Department of Mathematics, Virginia Tech）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（cs.IT / quant-ph）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.31484（v1，2026-09-25 16:26 UTC 提交，属当前可见最新批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.31484">https://arxiv.org/abs/2609.31484</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>2025 年 Jordan 等提出的**解码量子干涉（DQI）**是近年量子优化最受关注的全新框架之一：把组合优化问题映射为译码问题，利用量子干涉在码字空间中搜索最满足约束的解——对 Reed-Solomon 译码对应&quot;最优多项式求交（OPI）&quot;（可视为有限域上的多项式回归），并在若干实例上有可证明的加速。这暗示&quot;译码→优化&quot;是一般性设计原则，而非单码巧合。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>本文系统扩大 DQI 可用的码族：利用代数几何码成熟的对偶结构与译码理论，把<strong>两点 Hermitian 码、Suzuki 码、扩展 norm-trace 码</strong>引入框架，定义 COFI（基于曲线的最优函数求交）。不同曲线族/参数区间各有取舍——或降低量子资源需求，或增加可同时处理的约束数量，在 Hermitian-OPI 框架（Jordan–Gu）之外给出多维度的改进空间。</p>
+<h3>四、主要实验/理论结果</h3>
+<p>对两族以上的曲线码建立了 COFI 问题的参数化构造，证明相对单点 Hermitian 码：特定参数区间下量子资源（比特/查询）需求下降，或同一资源预算下可容纳的约束数增加；为&quot;按问题规模与约束结构选码&quot;提供了第一张系统性菜单。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>DQI 是目前少数带有可证明加速案例的量子优化框架，其短板恰是&quot;只能配特定码&quot;。本文的意义在于证明<strong>码族选择本身是算法设计自由度</strong>：几十年积累的代数几何码/译码理论可以成建制地移植进量子优化——这条&quot;经典编码理论 × 量子算法&quot;的交叉线（与此前 Schrödinger 猫态 DQI 实验化、ZPP 译码加速等一道）正在成为 QAOA/退火之外的第三条量子优化主线。对关心&quot;量子优化到底新在哪&quot;的读者，本文是理解该框架可扩展性的好入口。</p>
+<hr>
+<p><strong>结语</strong>：今日三篇构成一条罕见的完整论证链：Hadfield 从复杂性理论上划定&quot;什么不能被高效证明有效&quot;（增益壁垒），纽卡斯尔团队在真实生物管线上示范&quot;约束保持拟设 + 增益导向评估&quot;的正确打开方式，弗吉尼亚理工则展示 DQI 这条非变分路线如何靠经典数学工具箱扩容。算法理论—产业管线—新框架三线并进。北京时间今日 08:00 周末提交批次上线后，明日恢复正常每日节奏。</p>
+</div> <div style="display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap"> <a class="btn" href="/daily/2026-09-27/">← 上一期(2026-09-27)</a> <a class="btn" href="https://arxiv.org/abs/2609.31520" target="_blank" rel="noopener">论文原文 ↗</a> <span></span> </div>  </main> <footer class="site-footer"> <div class="wrap"> <div> <strong>量子优化日报</strong> · QuantOpt Daily<br>
+由每日自动检索流水线生成 · 数据更新至 <span class="mono">2026-09-29</span> · 共收录 834 篇论文
+</div> <div>
+数据来源:arXiv · OpenAlex · Semantic Scholar 等 · <a href="/about/">关于本站</a> · <a href="/rss.xml">RSS</a> </div> </div> </footer> </div> </div> <nav class="bottom-nav" aria-label="移动端导航"> <div class="inner"> <a href="/" class><span class="ico">🏠</span>首页</a> <a href="/daily/" class="active"><span class="ico">📅</span>日报</a> <a href="/news/" class><span class="ico">📣</span>动态</a> <a href="/papers/" class><span class="ico">📚</span>论文库</a> <a href="/specials/" class><span class="ico">🧭</span>专题</a> </div> </nav> <script>
+      (function () {
+        function syncIcon() {
+          var dark = document.documentElement.dataset.theme !== 'light';
+          var a = document.getElementById('themeToggle');
+          var b = document.getElementById('themeToggleM');
+          if (a) a.textContent = dark ? '🌙 深色主题' : '☀️ 浅色主题';
+          if (b) b.textContent = dark ? '🌙' : '☀️';
+        }
+        function bind(id) {
+          var el = document.getElementById(id);
+          if (el) el.addEventListener('click', function () {
+            var t = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            document.documentElement.dataset.theme = t;
+            try { localStorage.setItem('qo-theme', t); } catch (e) {}
+            syncIcon();
+          });
+        }
+        bind('themeToggle'); bind('themeToggleM'); syncIcon();
+      })();
+    </script> </body> </html>
