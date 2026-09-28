@@ -223,7 +223,7 @@ def main():
         p["domains"] = [d for d in match_key(domain_text(p), DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
 
     # ---- 量子相关性硬过滤(二次严格审查;卫星与航天领域文献豁免)----
-    QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|量子", re.I)
+    QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|qubit|量子", re.I)
     CRYPTO = re.compile(r"post-quantum|quantum[- ]resistant|cryptograph|cryptanalysis", re.I)
     def is_quantum(p):
         title, text = p.get("title", ""), ((p.get("summaryZh") or "") + " " + (p.get("abstract") or ""))[:700]

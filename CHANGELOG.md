@@ -5,6 +5,12 @@
 
 ---
 
+### 2026-09-28(定时扩库)
+- 主题轮换至「量子硬件平台」(具体场景词大丰收):+18 篇(库总 777 篇)
+- 阵容:Nature×3(容错中性原子架构/硅移动自旋比特隐形传态/自旋搬运四体奇偶校验)、Nature Physics×2(晶格手术/全光学超导读取)、PRX Quantum×2(通用中性原子原型 48 引用/无测量容错 QEC 45 引用)、PRL×3(里德堡低深度 QEC/解码先验优化/精确最大似然解码)、NSR 超导综述、Nat Commun 逻辑比特 QEM、GNN XZZX 解码(中国物理 B)、神经解码器再审视、中性原子丢失容错架构、Arctic 阵列调度、Si/SiGe 片上低温复用、thermal microwave bus
+- 剔除:遥感风速反演("beam codes"误匹配)等
+- 修复:build_db.py 量子信号词表补充 qubit——Nature Physics《All-optical superconducting qubit readout》因标题/摘要前段无 quantum 字样被误剔,修复后入库(库 776→778)
+
 ### 2026-09-27(定时扩库)
 - 主题轮换至「材料化工」(具体场景词策略奏效):+10 篇(库总 759 篇)
 - 覆盖:无序材料热力学的量子求解(Sci Adv)、腐蚀×量子计算系列 2 篇(设计+资源工作流/npj QI)、量子极限储备池计算分类聚合物合金相、张量网络复核 D-Wave Advantage2 自旋玻璃动力学声明(Science)、困难组合优化量子算法基准、4-clique 次级嵌入(PRApplied)、Si/SiGe 比特材料工程 2 篇(PRB 散射机制/谷劈裂优化)、硬件拓扑自旋玻璃动力学(PRR)

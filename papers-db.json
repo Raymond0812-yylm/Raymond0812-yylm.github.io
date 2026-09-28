@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-27",
+ "updated": "2026-09-29",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -71,6 +71,35 @@
  },
  "papers": [
   {
+   "id": "thermal-microwave-bus-neutral-atom-quantum-computing-87583",
+   "title": "A thermal microwave bus for neutral atom quantum computing",
+   "titleZh": "面向中性原子量子计算的 thermal microwave bus",
+   "authors": [
+    "Matthew J. H. Kendall",
+    "Christopher J. Watson",
+    "Michael Ben Shem",
+    "Jonathan Breeze"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-21",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.24933",
+   "doi": "10.48550/arxiv.2609.24933",
+   "url": "https://arxiv.org/abs/2609.24933",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "里德堡阻塞门程短,长程连接依赖原子搬运;该文提出四层架构的微波总线:基态比特贡献长寿命,Rydberg 态耦合微波总线实现非局域相互作用,减少对原子搬运的依赖,2026 年 9 月最新工作。",
+   "abstract": "High-fidelity two-qubit gates in neutral-atom arrays rely on the Rydberg blockade, which is intrinsically short ranged and requires long range connectivity to be achieved through atom shuttling. We propose a four level architecture, where the typical ground state qubit can be leveraged for its long lifetime and the Rydberg states couple to a microwave cavity, allowing for long range cavity mediated gates. We first find the thermal dependence of two established protocols, the dispersive iSWAP native to the Tavis-Cummings model and the Controlled phase gate generated from driving the cavity. We simulate them under the presence of Rydberg decay, thermal photons, finite cavity linewidth and find fidelities which accompany closed form bounds. We then introduce the bichromatic Raman gate, which only virtually populates the Rydberg states and cancels dispersive shifts to mitigate both atomic and cavity decay, achieving a fidelity of $F = 0.997$. Finally, we consider a full optical tweezer array in a microwave cavity, and show that using a cavity mediated gate to close the periodic boundaries of the toric code shortens an error correction round by a factor of 2.3 for realistic array sizes. This was then applied to the wider family of Bivariate bicycle codes, and we find that it shortens a round of the gross code by a factor of 4.8.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "hybrid-quantum-neural-network-analyse-big-experimental-95a26",
    "title": "A Hybrid Quantum Neural Network to Analyse Big Experimental Powder X-ray Diffraction Data",
    "titleZh": "混合量子神经网络分析大规模实验粉末 X 射线衍射数据",
@@ -136,6 +165,37 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "loss-correcting-fault-tolerant-quantum-computing-architecture-1a91d",
+   "title": "Loss-correcting fault-tolerant quantum computing architecture for neutral atoms",
+   "titleZh": "面向中性原子的损失校正容错量子计算架构",
+   "authors": [
+    "Sanaa Sharma",
+    "Yutaka Hirano",
+    "Akihisa Goban",
+    "Hayata Yamasaki",
+    "Shinichi Sunami",
+    "Prakash Murali"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.10079",
+   "doi": "10.48550/arxiv.2609.10079",
+   "url": "https://arxiv.org/abs/2609.10079",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "中性原子平台的主导错误源是随操作与移动累积的比特丢失,标准纠错只针对随机 Pauli 错误;该文提出显式处理丢失的容错架构,补上中性原子 FTQC 架构研究的关键缺口。",
+   "abstract": "Neutral-atom arrays are a leading qubit technology for large-scale, fault-tolerant quantum computing (FTQC). A dominant error source on this platform is qubit loss, which accrues with every operation and movement. The presence of loss undermines the promises of existing architectural work. Standard error correction targets stochastic Pauli errors and cannot correct loss, so most FTQC performance analyses are not directly compatible with it. Moreover, compilation and routing decisions, which strongly affect overall loss, are typically optimized against Pauli-error cost models and often remain loss-agnostic, potentially increasing exposure to the loss channel. In this work, we comprehensively model the effect of qubit loss on neutral-atom FTQC and develop a loss-tolerant transversal-gate architecture. We treat loss not as a predetermined error parameter but as a dynamic budget spent across a whole program, allowing us to control it by co-designing layout, compilation, and decoding. We target a physical implementation with no separate storage and entangling zones, eliminating the repeated SLM-AOD handoffs and long-distance shuttling that dominate loss in other layouts. We develop compiler optimizations that maximize gate parallelism while respecting the RF tone budget and AOD bandwidth constraints. Our work couples these with a loss-aware, delayed-erasure decoder and an end-to-end loss-aware magic state cultivation protocol. Overall, we improve accumulated loss per syndrome-extr",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-enhanced-hybrid-model-compression-knowledge-distillation-14972",
@@ -1298,6 +1358,41 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "weight-four-parity-checks-spin-shuttling-architecture-07d73",
+   "title": "Weight-four parity checks in a spin-shuttling architecture",
+   "titleZh": "自旋搬运架构中的四体权重奇偶校验",
+   "authors": [
+    "Brennan Undseth",
+    "Nicola Meggiato",
+    "Yi-Hsien Wu",
+    "Sam R. Katiraee-Far",
+    "Larysa Tryputen",
+    "Sander L. de Snoo",
+    "Davide Degli Esposti",
+    "Giordano Scappucci",
+    "Eliška Greplová",
+    "Lieven M. K. Vandersypen"
+   ],
+   "venue": "Nature",
+   "date": "2026-07-29",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1038/s41586-026-10766-3",
+   "url": "https://doi.org/10.1038/s41586-026-10766-3",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature:在硅自旋比特稀疏阵列上借助相干自旋搬运实现权重四奇偶校验,长程动态连接直接服务量子纠错方案,把自旋比特平台的纠错能力推到新高度。",
+   "abstract": "Abstract Recent advances in coherent spin shuttling have made sparse semiconductor spin-qubit arrays an appealing solid-state platform to realize quantum processors 1–7 . The dynamic and long-range connectivity enabled by shuttling is also essential for many quantum error-correction schemes 8–10 . Here we demonstrate a silicon spin-qubit device comprising a shuttling bus for coherently transporting qubits that can interact at four isolated locations that we call bus stops. We dynamically populate the array and tune all single- and two-qubit operations using shuttling and quantum non-demolition spin measurements, without access to charge sensing in most of the device. We achieve universal control of the effective five-qubit processor and select the connectivity required to form a surface-code stabilizer plaquette that supports X - and Z -type parity checks up to weight four. We use the parity checks to generate multi-qubit entanglement between all qubit combinations in the array and report the genuine entanglement of a five-qubit Greenberger–Horne–Zeilinger state, constituting one of the largest such states constructed with gate-defined semiconductor spins. The protocols developed here lay the groundwork for modular calibration and operation of sparse spin-qubit arrays, and we highlight the feasibility of near-term quantum error-correction experiments with mobile spin qubits.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-ensemble-variational-optimization-algorithm-applications-molecular-85317",
@@ -2885,6 +2980,34 @@
    ]
   },
   {
+   "id": "rethink-role-neural-decoders-quantum-error-correction-82182",
+   "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
+   "titleZh": "重新审视神经解码器在量子纠错中的角色",
+   "authors": [
+    "Ge Yan",
+    "S. X. Li",
+    "Yuxuan Du"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-12",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.12046",
+   "doi": "10.48550/arxiv.2605.12046",
+   "url": "https://arxiv.org/abs/2605.12046",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "系统梳理神经解码器这一数据驱动范式:分析其在何种噪声/码距/实时性约束下真正优于传统解码算法,讨论评估方法学陷阱,为 QML 类解码研究提供清醒的定位框架。",
+   "abstract": "Quantum error correction (QEC) is essential for enabling quantum advantages, with decoding as a central algorithmic primitive. Owing to its importance and intrinsic difficulty, substantial effort has been made to QEC decoder design, among which neural decoders have recently emerged as a promising data-driven paradigm. Despite this progress, practical deployment remains hindered by a fundamental accuracy-latency tradeoff, often on the microsecond timescale. To address this challenge, here we revisit neural decoders for surface-code decoding under explicit accuracy-latency constraints, considering code distances up to d=9 (161 physical qubits). We unify and redesign representative neural decoders into five architectural paradigms and develop an end-to-end compression pipeline to evaluate their deployability and performance on FPGA hardware. Through systematic experiments, we reveal several previously underexplored insights: (i) near-term decoding performance is driven more by data scale than architectural complexity; (ii) appropriate inductive bias is essential for achieving high decoding accuracy; and (iii) INT4 quantization is a prerequisite for meeting microsecond-scale latency requirements on FPGAs. Together, these findings provide concrete guidance toward scalable and real-time neural QEC decoding.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "scalable-quantum-inspired-data-processing-architecture-real-c91a9",
    "title": "SCALABLE QUANTUM INSPIRED DATA PROCESSING ARCHITECTURE FOR REAL TIME CYBER PHYSICAL SYSTEMS AND AUTONOMOUS DECISION INTELLIGENCE IN COMPUTER SCIENCE AND ENGINEERING APPLICATIONS",
    "titleZh": "面向实时信息物理系统与自主决策智能的可扩展量子启发数据处理架构",
@@ -2940,6 +3063,40 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "two-qubit-logic-teleportation-mobile-spin-qubits-e097f",
+   "title": "Two-qubit logic and teleportation with mobile spin qubits in silicon",
+   "titleZh": "硅中移动自旋量子比特的双比特逻辑与量子隐形传态",
+   "authors": [
+    "Yuta Matsumoto",
+    "Maxim De Smet",
+    "Larysa Tryputen",
+    "Sander L. de Snoo",
+    "Sergey V. Amitonov",
+    "Amir Sammak",
+    "Maximilian Russ",
+    "Giordano Scappucci",
+    "Lieven M. K. Vandersypen"
+   ],
+   "venue": "Nature",
+   "date": "2026-05-06",
+   "year": 2026,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1038/s41586-026-10423-9",
+   "url": "https://doi.org/10.1038/s41586-026-10423-9",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature:在半导体硅自旋比特上实现移动比特的双比特逻辑门与隐形传态——移动比特使阵列连接可动态重构,为固态平台提供高保真操作与灵活连接兼得的扩展路线。",
+   "abstract": "Abstract The scalability and power of quantum computing architectures depend critically on high-fidelity operations and robust and flexible qubit connectivity 1–3 . In this respect, mobile qubits are particularly attractive as they enable dynamic and reconfigurable qubit arrays. This approach allows quantum processors to adapt their connectivity patterns during operation, implement different quantum error correction codes on the same hardware and optimize resource use through dedicated functional zones for specific operations such as measurement or entanglement generation 4–7 . Such flexibility also relieves architectural constraints, as recently demonstrated in atomic systems based on trapped ions 4,5 and neutral atoms manipulated with optical tweezers 6,7 . In solid-state platforms, highly coherent shuttling of electron spins was recently reported 8,9 . A key outstanding question is whether it may be possible to perform quantum gates directly on the mobile spins. Here we demonstrate two-qubit operations between two electron spins carried towards each other in separate travelling potential minima in a semiconductor device. We find that the interaction strength is highly tunable by their spatial separation. When we shuttle the two spins towards the centre by 120 nm each for a total displacement of 240 nm, we achieve an average two-qubit gate fidelity of about 99%. Furthermore, we implement conditional post-selected quantum state teleportation between qubits separated by 320 n",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "structured-parameterization-non-stabilizerness-hypergraph-qaoa-5c7d1",
@@ -4363,6 +4520,46 @@
    ]
   },
   {
+   "id": "lattice-surgery-realized-two-distance-three-repetition-2c59b",
+   "title": "Lattice surgery realized on two distance-three repetition codes with superconducting qubits",
+   "titleZh": "超导比特上两个距离三重复码的晶格手术实现",
+   "authors": [
+    "Ilya S. Besedin",
+    "Michael Kerschbaum",
+    "Jörn Knoll",
+    "Ian Hesner",
+    "Lukas Bödeker",
+    "Luis Colmenárez",
+    "Luca Hofele",
+    "Nathan Lacroix",
+    "Christoph Hellings",
+    "François Swiadek",
+    "Alexander Flasby",
+    "Mohsen Bahrami Panah",
+    "Dante Colao Zanuz",
+    "Markus Michael Müller",
+    "Andreas J. Wallraff"
+   ],
+   "venue": "Nature Physics",
+   "date": "2026-01-30",
+   "year": 2026,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.1038/s41567-025-03090-6",
+   "url": "https://doi.org/10.1038/s41567-025-03090-6",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature Physics:在超导平台用两个距离为 3 的重复码首次实现晶格手术(lattice surgery)逻辑操作,从\"单逻辑比特存活\"迈向\"逻辑比特间运算\"的关键一步。",
+   "abstract": "Abstract Quantum error correction is needed for quantum computers to be capable of executing algorithms using hundreds of logical qubits in a fault-tolerant manner. Recent experiments have progressed towards this by demonstrating sufficiently low error rates for state preservation of a single logical qubit. However, quantum computation algorithms also require that these logical qubits can be entangled and that gate operations can be performed on them. Lattice surgery is a technique that offers a practical approach for implementing such gates, particularly in planar quantum processor layouts. Here we demonstrate lattice surgery between two distance-three repetition-code qubits by splitting a single distance-three surface-code qubit. Using a quantum circuit that is fault-tolerant for bit-flip errors, we achieve an improvement in the value of the decoded Z Z logical two-qubit observable compared with a similar non-encoded circuit. We therefore demonstrate the functional building blocks needed for lattice-surgery operations on larger-distance codes based on superconducting circuits.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "micro-mobility-dispatch-optimization-quantum-annealing-incorporating-acd5a",
    "title": "Micro-mobility dispatch optimization via quantum annealing incorporating historical data",
    "titleZh": "融合历史数据的微移动车辆量子退火调度优化",
@@ -5419,6 +5616,61 @@
    ]
   },
   {
+   "id": "demonstrating-quantum-error-mitigation-logical-qubits-316f2",
+   "title": "Demonstrating quantum error mitigation on logical qubits",
+   "titleZh": "在逻辑比特上演示量子错误缓解",
+   "authors": [
+    "Aosai Zhang",
+    "Haipeng Xie",
+    "Yu Gao",
+    "Jianan Yang",
+    "Zehang Bao",
+    "Zitian Zhu",
+    "Jiachen Chen",
+    "Ning Wang",
+    "Chuanyu Zhang",
+    "Jiarun Zhong",
+    "Shibo Xu",
+    "Ke Wang",
+    "Yaozu Wu",
+    "Feitong Jin",
+    "Xuhao Zhu",
+    "Yiren Zou",
+    "Ziqi Tan",
+    "Zhengyi Cui",
+    "Fanhao Shen",
+    "Tingting Li",
+    "Yihang Han",
+    "Yiyang He",
+    "Gongyu Liu",
+    "Jiayuan Shen",
+    "Han Wang",
+    "Yanzhe Wang",
+    "Hang Dong",
+    "Jinfeng Deng",
+    "Hekang Li",
+    "Zhen Wang"
+   ],
+   "venue": "Nature Communications",
+   "date": "2025-12-24",
+   "year": 2025,
+   "citations": 6,
+   "arxivId": "",
+   "doi": "10.1038/s41467-025-67768-4",
+   "url": "https://doi.org/10.1038/s41467-025-67768-4",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Nature Communications:提出并实验验证作用于逻辑比特层面的量子错误缓解(QEM),在纠错之外进一步抑制逻辑失败概率,为容错量子计算早期阶段的有意义应用铺路。",
+   "abstract": "A long-standing challenge in quantum computing is developing technologies to overcome the inevitable noise in qubits. To enable meaningful applications in the early stages of fault-tolerant quantum computing, devising methods to suppress post-correction logical failures is becoming increasingly crucial. In this work, we propose and experimentally demonstrate the application of zero-noise extrapolation, a practical quantum error mitigation technique, to error correction circuits on superconducting processors. By amplifying the noise on physical qubits, the circuits yield outcomes that exhibit a predictable dependence on noise strength, following a polynomial function determined by the code distance. This property enables the effective application of polynomial extrapolation to mitigate logical errors. Our experiments demonstrate a universal reduction in logical errors across various quantum circuits, including fault-tolerant circuits of repetition and surface codes. We observe a favorable performance in multi-round error correction circuits, indicating that this method remains effective when the circuit depth increases. These results advance the frontier of quantum error suppression technologies, opening a practical way to achieve reliable quantum computing in the early fault-tolerant era. Quantum error mitigation refers to techniques that reduce, rather than correct, errors in quantum computing. Here the authors demonstrate zero-noise extrapolation applied to quantum error co",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "variational-determination-penalty-parameters-quantum-annealing-31ace",
    "title": "Variational determination of penalty parameters in quantum annealing",
    "titleZh": "量子退火中罚参数的变分确定方法",
@@ -6194,6 +6446,35 @@
    "domains": []
   },
   {
+   "id": "low-depth-quantum-error-correction-three-qubit-5eeef",
+   "title": "Low-Depth Quantum Error Correction via Three-Qubit Gates in Rydberg Atom Arrays",
+   "titleZh": "里德堡阵列中用三比特门实现低深度量子纠错",
+   "authors": [
+    "Laura Pecorari",
+    "Sven Jandura",
+    "Guido Pupillo"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2025-11-17",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1103/yj1m-wj7f",
+   "url": "https://doi.org/10.1103/yj1m-wj7f",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review Letters:利用里德堡原生的多比特门把 QEC 综合征提取电路深度大幅压缩,降低门与时空开销,使纠错实验更早跨过容错门槛,展示多比特门作为 QEC 硬件加速器的价值。",
+   "abstract": "Quantum error correction (QEC) requires the execution of deep quantum circuits with large numbers of physical qubits to protect information against errors. Designing protocols that can reduce gate and space-time overheads of QEC is therefore crucial to enable more efficient QEC in near-term experiments. Multiqubit gates offer a natural path toward fast and low-depth stabilizer measurement circuits. However, they typically introduce high-weight correlated errors that can degrade the circuit-level distance, leading to slower scalings of the logical error probabilities. In this Letter, we show how to realize fast and efficient surface code stabilizer readout using only two singly controlled z gates acting simultaneously on two target qubits, i.e., two CZ_{2} gates-instead of four cz. We show that this scheme is fault tolerant and provide a blueprint for implementation in Rydberg atom arrays. We derive the time-optimal pulses implementing the gates and perform extensive QEC numerical simulations with Rydberg decay errors. Compared to the standard protocol using four cz gates, our scheme is faster, uses fewer gates, and crucially maintains fault tolerance with comparable logical error probabilities. Fault-tolerant generalizations of this scheme to biased and erasure-dominant noise models, as well as to other QEC codes such as quantum Low-Density Parity-Check codes, are also discussed.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-computing-enhanced-service-ecosystems-industrial-manufacturing-f3f21",
    "title": "Quantum Computing–Enhanced Service Ecosystems for Industrial Manufacturing Simulation and Workflow Optimization",
    "titleZh": "量子计算增强的工业制造仿真与工作流优化服务生态",
@@ -6221,6 +6502,54 @@
    "domains": [
     "manufacturing"
    ]
+  },
+  {
+   "id": "fault-tolerant-neutral-atom-architecture-universal-quantum-b3464",
+   "title": "A fault-tolerant neutral-atom architecture for universal quantum computation",
+   "titleZh": "面向通用量子计算的容错中性原子架构",
+   "authors": [
+    "Dolev Bluvstein",
+    "Alexandra A. Geim",
+    "Sophie H. Li",
+    "Simon J. Evered",
+    "J. Pablo Bonilla Ataides",
+    "Gefen Baranes",
+    "Andi Gu",
+    "Tom Manovitz",
+    "Muqing Xu",
+    "M. W. Kalinowski",
+    "Shayan Majidy",
+    "Christian Kokail",
+    "Nishad Maskara",
+    "Elias C. Trapp",
+    "Luke M. Stewart",
+    "Simon Hollerith",
+    "Hengyun Zhou",
+    "Michael J. Gullans",
+    "Susanne F. Yelin",
+    "Markus Greiner",
+    "Vladan Vuletić",
+    "Madelyn Cain",
+    "Mikhail D. Lukin"
+   ],
+   "venue": "Nature",
+   "date": "2025-11-10",
+   "year": 2025,
+   "citations": 54,
+   "arxivId": "",
+   "doi": "10.1038/s41586-025-09848-5",
+   "url": "https://doi.org/10.1038/s41586-025-09848-5",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature:提出中性原子平台的完整容错架构,系统解决逻辑比特操作的复杂性并给出物理原理到高效架构的组合路径,是中性原子路线迈向通用容错量子计算的里程碑式工作(54 引用)。",
+   "abstract": "Quantum error correction (QEC) [1,2] is essential for the realization of large-scale quantum computers [3,4]. However, due to the complexity of operating on the encoded ‘logical’ qubits [5,6], understanding the physical principles for building fault-tolerant quantum devices and combining them into efficient architectures is an outstanding scientific challenge. Here we utilize reconfigurable arrays of up to 448 neutral atoms to implement the key elements of a universal, fault-tolerant quantum processing architecture and experimentally explore their underlying working mechanisms. We first employ surface codes to study how repeated QEC suppresses errors [6,7], demonstrating 2.14(13)x below-threshold performance in a four-round characterization circuit by leveraging atom loss detection and machine learning decoding [8,9]. We then investigate logical entanglement using transversal gates and lattice surgery [10–12], and extend it to universal logic through transversal teleportation with 3D [[15,1,3]] codes [13,14], enabling arbitrary-angle synthesis with polylogarithmic overhead [5,15]. Finally, we develop mid-circuit qubit re-use [16], increasing experimental cycle rates by two orders of magnitude and enabling deep-circuit protocols with dozens of logical qubits and hundreds of logical teleportations [17–20] with [[7,1,3]] and high-rate [[16,6,4]] codes while maintaining constant internal entropy. Our experiments reveal key principles for efficient architecture design, involving t",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "satellite-observation-mission-resource-scheduling-based-dynamic-1dad7",
@@ -8750,6 +9079,103 @@
    "domains": []
   },
   {
+   "id": "closed-loop-optimization-high-fidelity-controlled-z-0ec19",
+   "title": "Closed-loop optimization for high-fidelity controlled- Z gates in superconducting qubits",
+   "titleZh": "超导量子比特受控-Z门的闭环优化",
+   "authors": [
+    "N.J. Glaser",
+    "Federico Roy",
+    "Ivan Tsitsilin",
+    "L. Koch",
+    "N. Bruckmoser",
+    "Johannes Schirk",
+    "João H. Romeiro",
+    "Gerhard B. P. Huber",
+    "F. Wallner",
+    "Meenakshi Singh",
+    "Gleb Krylov",
+    "Achim Marx",
+    "Lasse Södergren",
+    "C. M. F. Schneider",
+    "Max Werninghaus",
+    "Stefan Filipp"
+   ],
+   "venue": "Physical Review Applied",
+   "date": "2025-07-15",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1103/pckq-2csc",
+   "url": "https://doi.org/10.1103/pckq-2csc",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review Applied 工作:通过闭环优化加速超导量子比特的受控-Z 门操作并提高保真度,解决两比特门通常持续时间长、易受相干时间限制的问题。",
+   "abstract": "Achieving fast and high-fidelity qubit operations is crucial for unlocking the potential of quantum computers. In particular, reaching low gate errors in two-qubit gates has been a long-standing challenge in the field of superconducting qubits due to their typically long duration relative to coherence times. To realize fast gates, we use the hybridization between fixed-frequency superconducting qubits with a strongly interacting coupler mode that is tunable in frequency. To reduce population leakage during required adiabatic passages through avoided level crossings, we employ a sensitivity-adaptive closed-loop optimization method to design complex pulse shapes. We compare the performance of Gaussian-square, Fourier-series, and piecewise-constant-slope pulse parametrizations and are able to reach 99.9% controlled- Z -gate fidelity using a 64-ns-long Fourier-series pulse defined by only seven parameters. These high-fidelity values are achieved by analyzing the optimized pulse shapes to identify and systematically mitigate signal-line distortions in the experiment. To improve the convergence speed of the optimization, we implement an adaptive cost function, which continuously maximizes the sensitivity. The demonstrated method can be used for tune-up and recalibration of superconducting quantum processors.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "universal-neutral-atom-quantum-computer-individual-optical-a63f6",
+   "title": "Universal Neutral-Atom Quantum Computer with Individual Optical Addressing and Nondestructive Readout",
+   "titleZh": "具备单比特寻址与非破坏读取的通用中性原子量子计算机",
+   "authors": [
+    "A.G. Radnaev",
+    "W.C. Chung",
+    "D.C. Cole",
+    "D. Mason",
+    "T.G. Ballance",
+    "M.J. Bedalov",
+    "D.A. Belknap",
+    "M.R. Berman",
+    "M. Blakely",
+    "I.L. Bloomfield",
+    "P.D. Buttler",
+    "C. Campbell",
+    "A. Chopinaud",
+    "E. Copenhaver",
+    "M.K. Dawes",
+    "S.Y. Eubanks",
+    "A.J. Friss",
+    "D.M. Garcia",
+    "J. Gilbert",
+    "M. Gillette",
+    "P. Goiporia",
+    "P. Gokhale",
+    "J. Goldwin",
+    "D. Goodwin",
+    "T.M. Graham",
+    "C.J. Guttormsson",
+    "G.T. Hickman",
+    "L. Hurtley",
+    "M. Iliev",
+    "E.B. Jones"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2025-07-14",
+   "year": 2025,
+   "citations": 48,
+   "arxivId": "",
+   "doi": "10.1103/66s8-jj18",
+   "url": "https://doi.org/10.1103/66s8-jj18",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "PRX Quantum:演示具备单独光学寻址与非破坏性读取的中性原子通用量子计算原型,验证该平台支撑大规模容错运行(数千至百万保真门)所需的关键能力,是该平台的系统性实验宣言。",
+   "abstract": "Quantum computers must achieve large-scale fault-tolerant operation to deliver on their promise of transformational processing power. This will require thousands or millions of high-fidelity quantum gates and similar numbers of qubits. Demonstrations using neutral-atom qubits trapped and manipulated by lasers have shown that this modality can provide high two-qubit gate () fidelities and scalable operation. However, the gates in these demonstrations are driven by lasers that do not resolve individual qubits, with universal computation enabled by physical midcircuit shuttling of the qubits. This relatively slow operation may greatly extend run times for useful large-scale computation. Here, we demonstrate a universal neutral-atom quantum computer with gate rates limited by optical switching times, rather than shuttling, by individually addressing tightly focused laser beams at an array of single atoms. We achieve fidelity of 99.35(4)% and local single-qubit R Z gate fidelity of 99.902(8)% in both cases accounting for leakage out of the computational basis. Moreover, we demonstrate nondestructive readout of alkali-atom qubits with 0.9(3)% loss, which boosts operational speed. This technique also enables us to measure a state-of-the-art fidelity of 99.73(3)% when excluding atom-loss events, which may be mitigated through erasure conversion. Our results represent a critical step toward large-scale fault-tolerant neutral-atom quantum computers that can execute computations on prac",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "perspective-theoretical-modeling-soft-molecular-machines-devices-ae164",
    "title": "Perspective on Theoretical Modeling of Soft Molecular Machines and Devices: A Fusion of Data‐Driven Approaches with Traditional Computational Chemistry Algorithms",
    "titleZh": "软物质分子机器与器件理论建模展望:数据驱动与量子方法的融合",
@@ -9270,6 +9696,48 @@
    "source": "backfill",
    "domains": [
     "energy",
+    "materials"
+   ]
+  },
+  {
+   "id": "advancements-superconducting-quantum-computing-568fd",
+   "title": "Advancements in superconducting quantum computing",
+   "titleZh": "超导量子计算进展综述",
+   "authors": [
+    "Yao-Yao Jiang",
+    "Chunqing Deng",
+    "Heng Fan",
+    "Bing-Yang Li",
+    "Luyan Sun",
+    "Xinsheng Tan",
+    "Weiting Wang",
+    "Guangming Xue",
+    "Fei Yan",
+    "Haifeng Yu",
+    "Ying-Shan Zhang",
+    "Yu-Ran Zhang",
+    "Chang‐Ling Zou"
+   ],
+   "venue": "National Science Review",
+   "date": "2025-06-16",
+   "year": 2025,
+   "citations": 25,
+   "arxivId": "",
+   "doi": "10.1093/nsr/nwaf246",
+   "url": "https://doi.org/10.1093/nsr/nwaf246",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 National Science Review:系统梳理超导量子计算的历史脉络、芯片制造工艺、门操作实现与规模化路径,国内团队撰写的权威综述,适合作为超导方向的体系化入门材料(25 引用)。",
+   "abstract": "Superconducting quantum computing (SQC) has achieved remarkable progress in recent years, garnering significant scientific and technological interests. This review provides a concise overview of the historical development of SQC, detailing fabrication methodologies for superconducting quantum chips and implementations of quantum gate operations. It compiles experimental progress in SQC over the past few years, including the preparation of multi-qubit entangled states, random circuit sampling experiments, demonstrations of quantum error correction based on surface codes, error mitigation techniques and quantum simulations. This review also discusses experimental progress related to boson-encoded qubits, fluxoniums and qudits. Finally, the current challenges in scaling are analyzed, and potential solutions for addressing these limitations are explored.",
+   "source": "backfill",
+   "domains": [
+    "manufacturing",
     "materials"
    ]
   },
@@ -10046,6 +10514,43 @@
    ],
    "summaryZh": "系统评估张量网络方法在组合优化与采样任务上的适用边界,并利用退火设备的高连通性设计实验与量子退火硬件直接对比,回答\"经典张量网络模拟何时够用、何时需要量子硬件\"这一求解器选型的关键问题。",
    "abstract": "In the ever-evolving landscape of computational science, tensor networks have emerged as a versatile toolset to simulate both quantum and classical many-body systems. This study investigates their applicability to complex optimization problems, where quantum annealing devices have generated significant interest. A challenge in applying tensor networks here is the high connectivity of the devices, which this work effectively leverages by utilizing sparse structures in construction, plus hardware acceleration. The authors quantify the limitations of their deterministic approach, and find that in certain scenarios it might outperform quantum annealers or randomized classical solvers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "exact-decoding-quantum-error-correcting-codes-549b3",
+   "title": "Exact Decoding of Quantum Error-Correcting Codes",
+   "titleZh": "量子纠错码的精确最大似然解码",
+   "authors": [
+    "Hanyan Cao",
+    "S. J. Zhao",
+    "Dongyang Feng",
+    "Zisong Shen",
+    "Haisheng Yan",
+    "Tang Su",
+    "Weijie Sun",
+    "Huikai Xu",
+    "Feng Ping Pan",
+    "Haifeng Yu",
+    "Pan Zhang"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2025-05-15",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1103/physrevlett.134.190603",
+   "url": "https://doi.org/10.1103/physrevlett.134.190603",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review Letters:研究线路级噪声下重复码的精确最大似然解码,揭示其结构性质并给出精确解码算法,为解码器性能评估提供理论上限基准(重复码是唯一做到大码距与极低错误率的码)。",
+   "abstract": "We study the exact maximum-likelihood decoding of quantum error-correcting codes. Our primary focus is on the repetition code under circuit-level noise, which serves as a fundamental basis for quantum error correction experiments and is the only code that has achieved large distances and extremely low error rates. We uncover that the repetition code under circuit-level noise has an exact solution and propose an optimal maximum-likelihood decoding algorithm called \"planar.\" This algorithm is based on the exact solution of the spin-glass partition function on planar graphs and has polynomial computational complexity. Through extensive numerical experiments, we demonstrate that our algorithm uncovers the exact threshold for depolarizing noise and realistic superconductor SI1000 noise. Furthermore, we apply our method to analyze data from recent quantum memory experiments conducted by Google Quantum AI, revealing that part of the error floor was attributed to the decoding algorithm used by Google. Finally, we implemented the repetition code quantum memory on superconducting systems using a 72-qubit quantum chip lacking reset gates, demonstrating that even with an unknown error model, the proposed algorithm achieves a significantly lower logical error rate than the matching-based algorithm. We also discuss the application of our approach to quantum codes whose maximum-likelihood decoding problem corresponds to a spin-glass problem, including the surface code under independent code",
    "source": "backfill",
    "domains": []
   },
@@ -11959,6 +12464,36 @@
    "domains": []
   },
   {
+   "id": "graph-neural-network-multi-task-learning-based-d3557",
+   "title": "A graph neural network and multi-task learning-based decoding algorithm for enhancing XZZX code stability in biased noise",
+   "titleZh": "基于图神经网络与多任务学习的 XZZX 码解码算法",
+   "authors": [
+    "Bo Xiao",
+    "Zhe-Cheng Fan",
+    "Hui-Qian 汇倩 Sun 孙",
+    "Hongyang Ma",
+    "Xingkui Fan"
+   ],
+   "venue": "Chinese Physics B",
+   "date": "2025-02-27",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1088/1674-1056/adbadb",
+   "url": "https://doi.org/10.1088/1674-1056/adbadb",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "国内团队发表于 Chinese Physics B:用 GNN 与多任务学习设计 XZZX 表面码解码器,提升噪声偏置条件下的纠错表现,是神经网络解码器方向的中文团队代表性工作。",
+   "abstract": "Abstract Quantum error correction is a technique that enhances a system’s ability to combat noise by encoding logical information into additional quantum bits, which plays a key role in building practical quantum computers. The XZZX surface code, with only one stabilizer generator on each face, demonstrates significant application potential under biased noise. However, the existing minimum weight perfect matching (MWPM) algorithm has high computational complexity and lacks flexibility in large-scale systems. Therefore, this paper proposes a decoding method that combines graph neural networks (GNN) with multi-classifiers, the syndrome is transformed into an undirected graph, and the features are aggregated by convolutional layers, providing a more efficient and accurate decoding strategy. In the experiments, we evaluated the performance of the XZZX code under different biased noise conditions (bias = 1, 20, 200) and different code distances (d = 3, 5, 7, 9, 11). The experimental results show that under low bias noise (bias = 1), the GNN decoder achieves a threshold of 0.18386, an improvement of approximately 19.12% compared to the MWPM decoder. Under high bias noise (bias = 200), the GNN decoder reaches a threshold of 0.40542, improving by approximately 20.76%, overcoming the limitations of the conventional decoder. They demonstrate that the GNN decoding method exhibits superior performance and has broad application potential in the error correction of XZZX code.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "manufacturable-platform-photonic-quantum-computing-37253",
    "title": "A manufacturable platform for photonic quantum computing",
    "titleZh": "可制造的光量子计算平台",
@@ -12464,6 +12999,39 @@
    "domains": [
     "transport",
     "materials"
+   ]
+  },
+  {
+   "id": "all-optical-superconducting-qubit-readout-5dad3",
+   "title": "All-optical superconducting qubit readout",
+   "titleZh": "超导比特的全光学读取",
+   "authors": [
+    "Georg Arnold",
+    "Thomas Werner",
+    "Rishabh Sahu",
+    "Lucky N. Kapoor",
+    "Liu Jing Zi Qiu",
+    "J. M. Fink"
+   ],
+   "venue": "Nature Physics",
+   "date": "2025-02-11",
+   "year": 2025,
+   "citations": 30,
+   "arxivId": "",
+   "doi": "10.1038/s41567-024-02741-4",
+   "url": "https://doi.org/10.1038/s41567-024-02741-4",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "发表于 Nature Physics:用光链路替代微波电缆读取超导量子比特,类比经典数据中心以光纤互连破除网络瓶颈的思路,缓解低温环境纠错对输入输出的严苛限制,是超导扩展性的重要工程突破(30 引用)。",
+   "abstract": "The rapid development of superconducting quantum hardware is expected to run into substantial restrictions on scalability because error correction in a cryogenic environment has stringent input-output requirements. Classical data centres rely on fibre-optic interconnects to remove similar networking bottlenecks. In the same spirit, ultracold electro-optic links have been proposed and used to generate qubit control signals, or to replace cryogenic readout electronics. So far, these approaches have suffered from either low efficiency, low bandwidth or additional noise. Here we realize radio-over-fibre qubit readout at millikelvin temperatures. We use one device to simultaneously perform upconversion and downconversion between microwave and optical frequencies and so do not require any active or passive cryogenic microwave equipment. We demonstrate all-optical single-shot readout in a circulator-free readout scheme. Importantly, we do not observe any direct radiation impact on the qubit state, despite the absence of shielding elements. This compatibility between superconducting circuits and telecom-wavelength light is not only a prerequisite to establish modular quantum networks, but it is also relevant for multiplexed readout of superconducting photon detectors and classical superconducting logic.",
+   "source": "backfill",
+   "domains": [
+    "it-cloud"
    ]
   },
   {
@@ -16089,6 +16657,35 @@
    ]
   },
   {
+   "id": "chip-cryogenic-multiplexing-si-sige-quantum-devices-247c1",
+   "title": "On-chip cryogenic multiplexing of Si/SiGe quantum devices",
+   "titleZh": "Si/SiGe 量子器件的片上低温多路复用",
+   "authors": [
+    "Michael A. Wolfe",
+    "Thomas McJunkin",
+    "Daniel R. Ward",
+    "DeAnna Campbell",
+    "Mark G. Friesen",
+    "M. A. Eriksson"
+   ],
+   "venue": "arXiv",
+   "date": "2024-10-17",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "2410.13721",
+   "doi": "10.48550/arxiv.2410.13721",
+   "url": "https://arxiv.org/abs/2410.13721",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "大规模量子处理器受低温环境输入输出连接数限制;该文在 Si/SiGe 量子器件上首次演示片上多路复用电路,以经典处理器同款思路化解布线瓶颈,是自旋比特扩展性的关键工程进展。",
+   "abstract": "The challenges of operating qubits in a cryogenic environment point to a looming bottleneck for large-scale quantum processors, limited by the number of input-output connections. Classical processors solve this problem via multiplexing; however, on-chip multiplexing circuits have not been shown to have similar benefits for cryogenic quantum devices. In this work we integrate classical circuitry and Si/SiGe quantum devices on the same chip, providing a test bed for qubit scale-up. Our method uses on-chip field-effect transistors (FETs) to multiplex a grid of work zones, achieving a nearly tenfold reduction in control wiring. We leverage this set-up to probe device properties across a 6x6mm$^2$ array of 16 Hall bars. We successfully operate the array at cryogenic temperatures and high magnetic fields where the quantum Hall effect is observed. Building upon these results, we propose a vision for readout in a large-scale silicon quantum processor with a limited number of control connections.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-annealing-complex-optimization-satellite-communication-systems-08763",
    "title": "Quantum Annealing for Complex Optimization in Satellite Communication Systems",
    "titleZh": "量子退火用于卫星通信系统中的复杂优化",
@@ -16239,6 +16836,34 @@
    "abstract": "Abstract Quantum computing with qudits is an emerging approach that exploits a larger, more connected computational space, providing advantages for many applications, including quantum simulation and quantum error correction. Nonetheless, qudits are typically afflicted by more complex errors and suffer greater noise sensitivity which renders their scaling difficult. In this work, we introduce techniques to tailor arbitrary qudit Markovian noise to stochastic Weyl–Heisenberg channels and mitigate noise that commutes with our Clifford and universal two-qudit gate in generic qudit circuits. We experimentally demonstrate these methods on a superconducting transmon qutrit processor, and benchmark their effectiveness for multipartite qutrit entanglement and random circuit sampling, obtaining up to 3× improvement in our results. To the best of our knowledge, this constitutes the first-ever error mitigation experiment performed on qutrits. Our work shows that despite the intrinsic complexity of manipulating higher-dimensional quantum systems, noise tailoring and error mitigation can significantly extend the computational reach of today’s qudit processors.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "optimization-decoder-priors-accurate-quantum-error-correction-de0e7",
+   "title": "Optimization of Decoder Priors for Accurate Quantum Error Correction",
+   "titleZh": "优化解码器先验以提升量子纠错精度",
+   "authors": [
+    "Volodymyr Sivak",
+    "Michael Newman",
+    "Paul V. Klimov"
+   ],
+   "venue": "Physical Review Letters",
+   "date": "2024-10-11",
+   "year": 2024,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.1103/physrevlett.133.150603",
+   "url": "https://doi.org/10.1103/physrevlett.133.150603",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Physical Review Letters:提出受强化学习启发的解码先验校准方法,系统性刻画错误通道并把先验喂给解码器,显著提升 QEC 解码精度——校准与解码同样重要这一常被忽视的环节得到补足(11 引用)。",
+   "abstract": "Accurate decoding of quantum error-correcting codes is a crucial ingredient in protecting quantum information from decoherence. It requires characterizing the error channels corrupting the logical quantum state and providing this information as a prior to the decoder. We introduce a reinforcement learning inspired method for calibrating these priors that aims to minimize the logical error rate. Our method significantly improves the decoding accuracy in repetition and surface code memory experiments executed on Google's Sycamore processor, outperforming the leading decoder-agnostic method by 16% and 3.3%, respectively. This calibration approach will serve as an important tool for maximizing the performance of both near-term and future error-corrected quantum devices.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "iteration-complexity-variational-quantum-algorithms-1b52e",
@@ -19551,6 +20176,30 @@
    ]
   },
   {
+   "id": "arctic-field-programmable-quantum-array-scheduling-technique-a31cd",
+   "title": "Arctic: A Field Programmable Quantum Array Scheduling Technique",
+   "titleZh": "Arctic:场可编程量子阵列调度技术",
+   "authors": [
+    "Ethan Decker"
+   ],
+   "venue": "arXiv",
+   "date": "2024-05-10",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2405.06183",
+   "doi": "10.48550/arxiv.2405.06183",
+   "url": "https://arxiv.org/abs/2405.06183",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "面向中性原子的原子搬运与阵列重构,提出场可编程调度技术 Arctic:把相干原子搬运当作可调度资源编排长程连接,与经典 FPGA 的可编程理念类比,是硬件-编译交叉方向的代表性工作。",
+   "abstract": "Advancements in neutral atom quantum computers have positioned them as a valuable framework for quantum computing, largely due to their prolonged coherence times and capacity for high-fidelity gate operations. Recently, neutral atom computers have enabled coherent atom shuttling to facilitate long-range connectivity as a high-fidelity alternative to traditional gate-based methods. However, these inherent advantages are accompanied by novel constraints, making it challenging to create optimal movement schedules. In this study I present, to the best of my knowledge, the first compiler pass designed to optimize reconfigurable coupling in zoned neutral atom architectures, while adhering to the reconfigurability constraints of these systems. I approach qubit mapping and movement scheduling as a max-cut and layered cross-minimization problem while enhancing support for spatially complex algorithms through a novel \"stacking\" feature that balances the qubit array's spatial dimensions with algorithmic parallelism. I compare the method across various algorithms sourced from Supermarq and Qasmbench where the compiler pass represents the first exclusively movement-based technique to achieve compilation times consistently within seconds. Results also demonstrate that the approach reduces pulse counts by up to 5x and increases fidelity by up to 7x compared to existing methods on currently available technology.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-mechanical-dataset-836k-neutral-closed-shell-3e60b",
    "title": "Quantum mechanical dataset of 836k neutral closed shell molecules with upto 5 heavy atoms from CNOFSiPSClBr",
    "titleZh": "83.6万中性闭壳分子体系的量子力学数据集 VQM24",
@@ -21442,6 +22091,32 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "measurement-free-fault-tolerant-quantum-error-correction-03938",
+   "title": "Measurement-Free Fault-Tolerant Quantum Error Correction in Near-Term Devices",
+   "titleZh": "近期设备上无测量的容错量子纠错",
+   "authors": [
+    "Sascha Heußen",
+    "David F. Locher",
+    "Markus Michael Müller"
+   ],
+   "venue": "PRX Quantum",
+   "date": "2024-02-27",
+   "year": 2024,
+   "citations": 45,
+   "arxivId": "",
+   "doi": "10.1103/prxquantum.5.010333",
+   "url": "https://doi.org/10.1103/prxquantum.5.010333",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "PRX Quantum(45 引用):提出免测量的容错 QEC 方案——用相干逻辑操作替代反复的综合征测量,规避测量本身引入的错误与延迟,把任意长时量子存储的编译需求降到近期硬件可及范围。",
+   "abstract": "Logical qubits can be protected from decoherence by performing quantum error-correction (QEC) cycles repeatedly. Algorithms for fault-tolerant QEC must be compiled to the specific hardware platform under consideration in order to practically realize a quantum memory that operates for in principle arbitrary long times. All circuit components must be assumed as noisy unless specific assumptions about the form of the noise are made. Modern QEC schemes are challenging to implement experimentally in physical architectures where in-sequence measurements and feed forward of classical information cannot be reliably executed fast enough or even at all. Here we provide a novel scheme to perform QEC cycles without the need of measuring qubits that is fully fault-tolerant with respect to all components used in the circuit. Our scheme can be used for any low-distance CSS code since its only requirement towards the underlying code is a transversal gate. Similarly to Steane-type EC, we coherently copy errors to a logical auxiliary qubit but then apply a coherent feedback operation from the auxiliary system to the logical data qubit. The logical auxiliary qubit is prepared fault tolerantly without measurements, too. We benchmark logical failure rates of the scheme in comparison to a flag-qubit-based EC cycle. We map out a parameter region where our scheme is feasible and estimate physical error rates necessary to achieve the break-even point of beneficial QEC with our scheme. We outline how ",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "leveraging-quantum-inspired-chimp-optimization-deep-neural-321f2",
