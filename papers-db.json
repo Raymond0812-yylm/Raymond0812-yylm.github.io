@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-09-29",
+ "updated": "2026-09-30",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -3562,39 +3562,6 @@
    ]
   },
   {
-   "id": "feasibility-satellite-augmented-global-quantum-repeater-networks-626f1",
-   "title": "Feasibility of satellite-augmented global quantum repeater networks",
-   "titleZh": "星基增强全球量子中继网络的可行性",
-   "authors": [
-    "Manik Dawar",
-    "Clement Paillet",
-    "Nilesh Vyas",
-    "Andrew Thain",
-    "Rodrigo Henriques Guilherme",
-    "Ralf Riedinger"
-   ],
-   "venue": "arXiv",
-   "date": "2026-03-11",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2603.11127",
-   "doi": "10.48550/arxiv.2603.11127",
-   "url": "https://arxiv.org/abs/2603.11127",
-   "topics": [
-    "hardware"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "评估\"星基纠缠源 + 地面量子中继\"架构下全球规模量子网络的可行性,弥合解析框架与工程实现之间的鸿沟,是卫星量子基础设施的系统研究。",
-   "abstract": "A large scale quantum network requires the distribution of high-fidelity end-to-end entanglement. To overcome the range limitations inherent to terrestrial fiber, a leading architecture has emerged: satellite-based sources transmitting entanglement to quantum repeaters on the ground. By bridging the gap between abstract analytical frameworks and computationally heavy numerical simulations, this paper provides the first quantitative answer to the question of such a network's achievable performance with current and near-term space technology, while accounting for entanglement swapping and purification. This is achieved by integrating a detailed physical model of a satellite-to-ground link into an analytical entanglement resource estimation framework for quantum repeaters, enabling an optimization of the end-to-end entanglement rate. Our analysis, performed across leading quantum hardware platforms, shows that Low Earth Orbit satellite constellations combined with quantum repeaters employing Neutral Atom or Nitrogen and Silicon Vacancy qubits, could enable a global quantum network, distributing entanglement over distances up to 20,000 km, sufficient for connecting any two points on Earth. This work highlights the major bottlenecks in space and quantum hardware technologies, which need to be addressed, thereby guiding informed investments necessary for enabling a large scale quantum network.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "benchmarking-variational-quantum-algorithms-combinatorial-optimization-practice-be631",
    "title": "Benchmarking variational quantum algorithms for combinatorial optimization in practice",
    "titleZh": "组合优化中变分量子算法的实践基准",
@@ -3683,38 +3650,6 @@
    "abstract": "• existence of barren plateaux is one of the challenges in the practical use of variational quantum classifiers; • a noise-based mechanism that shifts training data during optimization, helping escape barren plateaux, is proposed; • the approach is tested with a variational quantum classifier modeling BET index changes using other indices from Europe and the United States; • simulations use the Pennylane framework. The barren plateaux phenomenon has been identified as a significant challenge for variational quantum algorithms, particularly for classification tasks. In this article, we propose a novel approach to mitigating this problem for variational quantum classifiers during the optimization phase. The noisy optimization mechanism shifts the training data by adding a small amount of uniform noise, thereby inducing changes in the parameters being searched. The effectiveness of the method is evaluated using real financial data, modeling the evolution of the BET index in relation to well-known indices from neighboring Central and Eastern European countries, as well as from Western Europe and the United States. The results demonstrate that this approach significantly improves upon the corresponding baseline quantum classifier and provides results comparable to those of established classical methods.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "optimizing-orbital-parameters-satellites-global-quantum-network-e4a64",
-   "title": "Optimizing Orbital Parameters of Satellites for a Global Quantum Network",
-   "titleZh": "卫星星座优化全球量子通信",
-   "authors": [
-    "Athul Ashok",
-    "Owen DePoint",
-    "Jackson MacDonald",
-    "Albert J. Williams",
-    "Don Towsley"
-   ],
-   "venue": "arXiv",
-   "date": "2026-03-03",
-   "year": 2026,
-   "citations": 0,
-   "arxivId": "2603.02480",
-   "doi": "10.48550/arXiv.2603.02480",
-   "url": "https://arxiv.org/abs/2603.02480",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "研究通过星座构型配置优化全球量子密钥分发(QKD)覆盖,克服地面光纤的距离限制,是卫星量子通信网络设计的优化研究。",
-   "abstract": "Due to fundamental limitations on terrestrial quantum links, satellites have received considerable attention for their potential as entanglement generation sources in a global quantum internet. In this work, we focus on the problem of designing a constellation of satellites for such a quantum network. We find satellite inclination angles and satellite cluster allocations to achieve maximal entanglement generation rates to fixed sets of globally distributed ground stations. Exploring two black-box optimization frameworks: a Bayesian Optimization (BO) approach and a Genetic Algorithm (GA) approach, we find comparable results, indicating their effectiveness for this optimization task. While GA and BO often perform remarkably similar, BO often converges more efficiently, while later growth noted in GAs is indicative of less susceptibility towards local maxima. In either case, they offer substantial improvements over naive approaches that maximize coverage with respect to ground station placement.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
   },
   {
    "id": "evaluating-limits-quantum-approximate-optimization-algorithm-parameter-28194",
@@ -4629,9 +4564,9 @@
    "abstract": "Corrosion is a pervasive issue that impacts the structural integrity and performance of materials across various industries, imposing a significant economic impact globally. In fields like aerospace and defense, developing corrosion-resistant materials is critical, but progress is often hindered by the complexities of material-environment interactions. While computational methods have advanced in designing corrosion inhibitors and corrosion-resistant materials, they fall short in understanding the fundamental corrosion mechanisms due to the highly correlated nature of the systems involved. This paper explores the potential of leveraging quantum computing to accelerate the design of corrosion inhibitors and corrosion-resistant materials, with a particular focus on magnesium and niobium alloys. We investigate the quantum computing resources required for high-fidelity electronic ground-state energy estimation (GSEE), which will be used in our hybrid classical-quantum workflow. Representative computational models for magnesium and niobium alloys show that 2292 to 38598 logical qubits and (1.04 to 1962) × 10 13 T-gates are required for simulating the ground-state energy of these systems under the first quantization encoding using plane waves basis.",
    "source": "backfill",
    "domains": [
-    "satellite",
     "materials"
-   ]
+   ],
+   "curatedDomains": true
   },
   {
    "id": "universal-resources-quantum-approximate-optimization-algorithm-quantum-791c0",
@@ -4924,41 +4859,6 @@
    "source": "backfill",
    "domains": [
     "energy"
-   ]
-  },
-  {
-   "id": "evolutionary-algorithm-memory-guidance-data-transmission-scheduling-49f8b",
-   "title": "An Evolutionary Algorithm With Memory Guidance for Data Transmission Scheduling Optimization in Communication Satellite Network",
-   "titleZh": "带记忆引导的进化算法用于通信卫星网络数据传输调度优化",
-   "authors": [
-    "Yingying Ren",
-    "Qiuli Li",
-    "Yue Zhang",
-    "Jiting Li",
-    "Witold Pedrycz",
-    "Ponnuthurai Nagaratnam Suganthan",
-    "Rammohan Mallipeddi",
-    "Yanjie Song"
-   ],
-   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
-   "date": "2026-01-12",
-   "year": 2026,
-   "citations": 13,
-   "arxivId": "",
-   "doi": "10.1109/tsmc.2025.3647265",
-   "url": "https://doi.org/10.1109/tsmc.2025.3647265",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "通信卫星数量激增使星地数据传输调度成为瓶颈。论文提出带记忆引导的进化算法优化数据传输调度方案,2026 年发表于 IEEE TSMC,是卫星网络调度与先进进化算法结合的最新成果。",
-   "abstract": "With the rapid development of satellite technology, communication satellites have become an indispensable part of modern infrastructure. They serve as a key pillar for the future integrated communication satellite network (CSN). However, the increasing number of communication satellites presents significant challenges for data transmission between the satellite and ground station. This article focuses on transmitting communication data by scheduling resources for communication tasks. The goal of data transmission scheduling optimization in CSN (DTSOCSN) is to design a scheduling scheme that maximizes task profit across satellite–ground links, considering the constraints of the two working modes of communication satellites. To solve DTSOCSN, a mixed-integer programming model is developed, which incorporates various constraints such as the conditions for feed switching operation and the limitations of task execution windows. Based on the complexity of the problem, we propose an evolutionary algorithm with memory guidance (MGEA). The algorithm takes into account the memory dependence of Caputo fractional-order differential and innovatively designs a crossover operator, called Caputo crossover (CX). This crossover method uses the genetic information stored in memory to guide the crossover operation of the next generation, thereby forming a smooth optimization path and improving the search efficiency of the algorithm. In addition, an elite opposition-based heuristic initialization",
-   "source": "backfill",
-   "domains": [
-    "satellite"
    ]
   },
   {
@@ -5944,41 +5844,6 @@
    "domains": []
   },
   {
-   "id": "scheduling-quantum-satellite-networks-fairness-performance-optimization-a0ae5",
-   "title": "Scheduling in Quantum Satellite Networks: Fairness and Performance Optimization",
-   "titleZh": "量子卫星网络中的调度:公平性与性能优化",
-   "authors": [
-    "Dikshit, Ashutosh Jayant",
-    "Anipeddi, Naga Lakshmi",
-    "Dhara, Prajit",
-    "Guha, Saikat",
-    "Kilbane, Deirdre",
-    "Tassiulas, Leandros",
-    "Towsley, Don",
-    "Panigrahy, Nitish K."
-   ],
-   "venue": "arXiv",
-   "date": "2025-12-08",
-   "year": 2025,
-   "citations": 0,
-   "arxivId": "2512.07108",
-   "doi": "10.48550/arxiv.2512.07108",
-   "url": "https://arxiv.org/abs/2512.07108",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "在真实系统与环境约束下优化卫星-地面站配对,求解量子卫星网络的调度问题,兼顾公平性与性能,2026 年 arXiv 新作。",
-   "abstract": "Quantum satellite networks offer a promising solution for achieving long-distance quantum communication by enabling entanglement distribution across global scales. This work formulates and solves the quantum satellite network scheduling problem by optimizing satellite-to-ground station pair assignments under realistic system and environmental constraints. Our framework accounts for limited satellite and ground station resources, fairness, entanglement fidelity thresholds, and real world non-idealities including atmospheric losses, weather and background noise. In addition, we incorporate the complexities of multi-satellite relays enabled via inter-satellite links. We propose an integer linear programming (ILP) based optimization framework that supports multiple scheduling objectives, allowing us to analyze tradeoffs between maximizing total entanglement distribution rate and ensuring fairness across ground station pairs. Our framework can also be used as a benchmark tool to measure the performance of other potential transmission scheduling policies.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "output-prediction-quantum-circuits-based-graph-neural-b330e",
    "title": "Output prediction of quantum circuits based on graph neural networks",
    "titleZh": "基于图神经网络的量子线路输出预测",
@@ -6040,98 +5905,6 @@
    ]
   },
   {
-   "id": "observation-earth-gravity-field-from-space-from-f235d",
-   "title": "Observation of the Earth gravity field from space: from the beginnings till future missions based on quantum physics",
-   "titleZh": "从太空观测地球重力场:起源、现状与基于量子物理的未来任务",
-   "authors": [
-    "Federica Migliaccio",
-    "Mirko Reguzzoni",
-    "Lorenzo Rossi"
-   ],
-   "venue": "Rivista Del Nuovo Cimento",
-   "date": "2025-12-01",
-   "year": 2025,
-   "citations": 1,
-   "arxivId": "",
-   "doi": "10.1007/s40766-025-00076-1",
-   "url": "https://doi.org/10.1007/s40766-025-00076-1",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "系统回顾卫星重力测量任务的历史与现状,并展望基于量子物理(量子传感)的未来重力卫星任务,与卫星专题及量子硬件方向交叉。",
-   "abstract": "Abstract Different platforms and sensors have been exploited since the start of the space era, with the aim of improving the knowledge of the gravity field of our planet. Then, since the beginning of this century, dedicated missions were designed and launched, providing a wealth of data that have helped estimate more and more accurate gravity field models, improving both spatial and temporal resolution. In recent years, the focus of these missions has been the determination of the temporal variations of gravity field, which are an important source of information for studies of global change phenomena. Thus, gravity field observations from space can give a significant contribution to the determination of many essential climate variables which help explaining phenomena that are changing the world we live in: climate change, distribution of water resources, flooding, melting of ice masses, global sea level rise, etc. In this paper, the basic concepts of gravity field observation from satellite missions will be presented. A short history of satellite missions exploited or specifically designed for the observation of the Earth gravity field will be outlined, coming to the most recent satellite missions and to the planned ones (including the novel concept based on quantum sensors) which will further our insight on several geophysical phenomena. In the final part of the paper, some results will be presented for different mission scenarios analyzed by applying the so-called space-wis",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
-   "id": "hybrid-genetic-simulated-annealing-algorithm-agile-earth-f62d7",
-   "title": "Hybrid Genetic Simulated Annealing Algorithm for Agile Earth Observation Satellite Scheduling Considering Cloud Cover Distribution",
-   "titleZh": "考虑云量分布的混合遗传模拟退火敏捷对地观测卫星调度",
-   "authors": [
-    "Haiquan Sun",
-    "Zhilong Wang",
-    "Xiaoxuan Hu",
-    "Wei Xia"
-   ],
-   "venue": "Journal of Systems Engineering and Electronics",
-   "date": "2025-12-01",
-   "year": 2025,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.23919/jsee.2025.000177",
-   "url": "https://doi.org/10.23919/jsee.2025.000177",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "将云量分布纳入敏捷对地观测卫星调度模型,提出混合遗传模拟退火算法求解,使成像方案更贴合实际气象条件下的观测收益。",
-   "abstract": "Agile earth observation satellites (AEOSs) represent a new generation of satellites with three degrees of freedom (pitch, roll, and yaw); they possess a long visible time window (VTW) for ground targets and support imaging at any moment within the VTW. However, different observation times demonstrate different cloud cover distributions, which exhibit different effects on the AEOS observation. Previous studies ignored pitch angles, discretized VTWs, or fixed cloud cover for every VTW, which led to the loss of intermediate observation states, thus these studies are not suitable for AEOS scheduling considering cloud cover distribution. In this study, a relationship formula between the cloud cover and observation time is proposed to calculate the cloud cover for every observation time, and a relationship formula between the observation time and pitch angle is designed to calculate the pitch angle for every observation time in the VTW. A refined model including the pitch angle, roll angle, and cloud cover distribution is established, which can make the scheme closer to the actual application of AEOSs. A hybrid genetic simulated annealing (HGSA) algorithm for AEOS scheduling is proposed, which integrates the advantages of genetic and simulated annealing algorithms and can effectively avoid falling into a local optimal solution. The experiments are conducted to compare the proposed algorithm with the traditional algorithms, the results verify that the proposed model and algorithm ar",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
-   "id": "optimizing-satellite-ground-station-pair-assignments-hybrid-09e68",
-   "title": "Optimizing Satellite-to-Ground Station Pair Assignments Using Hybrid Links for Long-Distance Quantum Entanglement Distribution",
-   "titleZh": "混合链路下星地站对配分的纠缠分发优化",
-   "authors": [
-    "Zhenhui Yang",
-    "Kechao Cai",
-    "Zhuoyue Chen",
-    "Jinbei Zhang"
-   ],
-   "venue": "IEEE Communications Letters",
-   "date": "2025-11-27",
-   "year": 2025,
-   "citations": 1,
-   "arxivId": "",
-   "doi": "10.1109/lcomm.2025.3637904",
-   "url": "https://doi.org/10.1109/lcomm.2025.3637904",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "突破单卫星下行链路限制,提出混合链路的星-地站对配分优化方案,支持长距离量子纠缠分发,发表于 IEEE Communications Letters。",
-   "abstract": "Quantum satellite networks enable entanglement distribution between ground stations, but existing single-satellite solutions relying solely on satellite-to-ground downlinks cannot effectively support long-distance entanglement distribution. To overcome this limitation, we propose a hybrid approach,Entanglement Distribution using Hybrid Links(ED-HL), which integrates bothentanglement distribution using a single satellite(ED-SS) andentanglement distribution assisted by inter-satellite links(ED-IS), where satellites are equipped with quantum memories. The key challenge in ED-HL is to effectively coordinate satellites to distribute entanglement to ground stations via inter-satellite links and downlinks.We formulate this entanglement distribution problem as an integer programming problem, establish its submodularity, monotonicity and non-negativity properties, and design a greedy algorithm for its solution. Simulations based on real-world constellation data show that ED-HL significantly extends the entanglement distribution distance compared to single-satellite approaches.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "quantum-optimisation-supply-chain-qubo-formulations-qaoa-1d1f3",
    "title": "Quantum optimisation for supply chain: QUBO formulations and QAOA solutions for facility location and load balancing",
    "titleZh": "面向供应链的量子优化:设施选址与负载均衡的QUBO建模与QAOA求解",
@@ -6186,35 +5959,6 @@
    "source": "backfill",
    "domains": [
     "materials"
-   ]
-  },
-  {
-   "id": "space-mission-quantum-genai-xai-system-predictive-e677f",
-   "title": "Space Mission Quantum GenAI and XAI System for Predictive Anomaly Detection and Mission Optimization",
-   "titleZh": "空间任务量子生成式AI与可解释AI系统:预测性异常检测与任务优化",
-   "authors": [
-    "Vishal Rajesh Shinde"
-   ],
-   "venue": "Iconic Research and Engineering Journals",
-   "date": "2025-11-25",
-   "year": 2025,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.64388/irev9i5-1712319",
-   "url": "https://doi.org/10.64388/irev9i5-1712319",
-   "topics": [
-    "quantum-ai",
-    "hybrid"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "构建量子神经网络(QNN)+经典可解释 AI(XAI)混合系统,用于航天任务的异常预测与资源优化,是量子-AI 交叉在航天任务中的前沿应用。",
-   "abstract": "Humanity’s exploration of space has reached unprecedented levels of complexity. Launching satellites, deploying rovers, and conducting manned missions require extreme precision, accurate anomaly prediction, and resource optimization. This research presents a hybrid Quantum Neural Network (QNN) and Classical Explainable AI (XAI) system, integrating Generative AI (GenAI) capabilities, designed to predict anomalies, human errors, and mechanical failures in space missions. The system leverages PyTorch-based classical models, QNN layers for high-dimensional embedding, and vector database storage for mission-critical data. By simulating 100 missions, we demonstrate a theoretical predictive accuracy of 88.5%, while providing interpretable recommendations for mission control. Anomaly classification is prioritized into Minor, Medium, and Severe, allowing preemptive mitigation strategies. The system further optimizes launch site selection using DGGS and UTM geospatial algorithms, predicts material and time requirements, and adapts over successive missions. This work establishes a foundation for fully autonomous, quantum-enhanced space mission planning, capable of both prediction and explanation in highly uncertain environments.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
    ]
   },
   {
@@ -6550,36 +6294,6 @@
    "abstract": "Quantum error correction (QEC) [1,2] is essential for the realization of large-scale quantum computers [3,4]. However, due to the complexity of operating on the encoded ‘logical’ qubits [5,6], understanding the physical principles for building fault-tolerant quantum devices and combining them into efficient architectures is an outstanding scientific challenge. Here we utilize reconfigurable arrays of up to 448 neutral atoms to implement the key elements of a universal, fault-tolerant quantum processing architecture and experimentally explore their underlying working mechanisms. We first employ surface codes to study how repeated QEC suppresses errors [6,7], demonstrating 2.14(13)x below-threshold performance in a four-round characterization circuit by leveraging atom loss detection and machine learning decoding [8,9]. We then investigate logical entanglement using transversal gates and lattice surgery [10–12], and extend it to universal logic through transversal teleportation with 3D [[15,1,3]] codes [13,14], enabling arbitrary-angle synthesis with polylogarithmic overhead [5,15]. Finally, we develop mid-circuit qubit re-use [16], increasing experimental cycle rates by two orders of magnitude and enabling deep-circuit protocols with dozens of logical qubits and hundreds of logical teleportations [17–20] with [[7,1,3]] and high-rate [[16,6,4]] codes while maintaining constant internal entropy. Our experiments reveal key principles for efficient architecture design, involving t",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "satellite-observation-mission-resource-scheduling-based-dynamic-1dad7",
-   "title": "Satellite Observation Mission Resource Scheduling Based on Dynamic Coalition Algorithm",
-   "titleZh": "基于动态联盟算法的卫星观测任务资源调度",
-   "authors": [
-    "Shijie Zhai",
-    "Tinghua Zhang",
-    "Hao Chen"
-   ],
-   "venue": "Sensors",
-   "date": "2025-11-07",
-   "year": 2025,
-   "citations": 0,
-   "arxivId": "",
-   "doi": "10.3390/s25226817",
-   "url": "https://doi.org/10.3390/s25226817",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对地面站资源异构与任务动态性挑战,提出基于动态联盟算法的五维评价资源调度方法,发表于 Sensors。",
-   "abstract": "This study was conducted in response to the challenges posed by the heterogeneity of ground station resources and the dynamic nature of tasks in satellite observation missions. To combat these issues, we propose a resource scheduling method based on a dynamic coalition algorithm. The method involves constructing a five-dimensional evaluation system including spatial proximity, energy sufficiency, equipment integrity, load balancing, and continuous observation capability, which is combined with an improved simulated annealing algorithm to achieve global optimization of the coalition structure. Then, an energy allocation strategy based on demand is designed to enhance system sustainability. An experiment comparing the greedy, particle swarm, genetic, and simulated annealing algorithms was conducted. The results showed that the task completion rate of the dynamic coalition algorithm reached 93.8%; the resource utilization rate was 85.7%; the energy consumption standard deviation was 18.7; and the convergence speed was 45 iterations for the proposed method. These results were significantly better than those of other algorithms used for comparison. The innovative aspects of this study include ① a dynamic energy allocation model based on normalized priority; ② a simulated annealing optimization framework with hybrid neighborhood operations; and ③ the deep integration of multi-dimensional evaluation metrics and dynamic coalition construction mechanisms. This research provides theore",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
   },
   {
    "id": "quantum-convolutional-neural-network-phase-recognition-two-3fae9",
@@ -7111,36 +6825,6 @@
    "domains": []
   },
   {
-   "id": "scheduling-multiple-agile-earth-observation-satellites-multiple-4813e",
-   "title": "Scheduling multiple agile Earth observation satellites with multiple observations",
-   "titleZh": "多次观测约束下的多颗敏捷对地观测卫星调度",
-   "authors": [
-    "Xinwei Wang",
-    "Chao Han",
-    "Roel Leus"
-   ],
-   "venue": "Advances in Space Research",
-   "date": "2025-10-17",
-   "year": 2025,
-   "citations": 12,
-   "arxivId": "",
-   "doi": "10.1016/j.asr.2025.10.042",
-   "url": "https://doi.org/10.1016/j.asr.2025.10.042",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "论文研究带多次观测要求的敏捷对地观测卫星调度问题——目标函数与约束较经典模型更贴近实际遥感任务。建立了相应的混合整数模型并设计高效求解算法,发表于 Advances in Space Research。",
-   "abstract": "Earth observation satellites (EOSs) are specially designed to collect images according to user requirements. Agile EOSs (AEOSs), with stronger attitude maneuverability, greatly improve the observation capability, while increasing the complexity of scheduling the observations. In this paper, we address the problem of scheduling multiple AEOSs with multiple observations where the objective function aims to maximize the entire observation profit over a fixed horizon. The profit attained by multiple observations for each target is nonlinear in the number of observations. Our model is a specific interval scheduling problem, with each satellite orbit represented as a machine. A column-generation-based framework is developed for this problem, in which the pricing problems are solved using a label-setting algorithm. Extensive computational experiments are conducted on the basis of one of China’s AEOS constellations. The results indicate that our optimality gap is less than 3 % on average, which validates our framework. We also evaluate the performance of the framework for conventional EOS scheduling.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "quantum-driven-chaos-informed-deep-learning-framework-37342",
    "title": "Quantum-Driven Chaos-Informed Deep Learning Framework for Efficient Feature Selection and Intrusion Detection in IoT Networks",
    "titleZh": "量子驱动的混沌信息深度学习框架用于物联网特征选择与入侵检测",
@@ -7263,38 +6947,6 @@
    "abstract": "In this paper, we study the application of emerging photonic and quantum computing architectures to solving the Traveling Salesman Problem (TSP), a well-known NP-hard optimization problem. We investigate several approaches: Simulated Annealing (SA), Quadratic Unconstrained Binary Optimization (QUBO-Ising) methods implemented on quantum annealers and Optical Coherent Ising Machines, as well as the Quantum Approximate Optimization Algorithm (QAOA) and the Quantum Phase Estimation (QPE) algorithm on gate-based quantum computers. QAOA and QPE were tested on the IBM Quantum platform. The QUBO-Ising method was explored using the D-wave quantum annealer, which operates on superconducting Josephson junctions, and the Quantum Computing Inc (QCi) Dirac-1 entropy quantum optimization machine. Gate-based quantum computers demonstrated accurate results for small TSP instances in simulation. However, real quantum devices are hindered by noise and limited scalability. Circuit complexity grows with problem size, restricting performance to TSP instances with a maximum of six nodes. In contrast, Ising-based architectures show improved scalability for larger problem sizes. SQUID-based Ising machines can handle TSP instances with up to 12 nodes, while entropy computing implemented in hybrid optoelectronic components extend this capability to 18 nodes. Nevertheless, the solutions tend to be suboptimal due to hardware limitations and challenges in achieving ground state convergence as the problem ",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "optimization-based-task-allocation-earth-observation-multi-cf097",
-   "title": "Optimization-based task allocation for Earth observation in multi-satellite systems",
-   "titleZh": "多卫星系统对地观测任务的优化任务分配",
-   "authors": [
-    "Lorenzo Govoni",
-    "Corrado Chiatante",
-    "Bjørn Andreas Kristiansen",
-    "Tor Arne Johansen",
-    "Andrea Cristofaro"
-   ],
-   "venue": "Aerospace Science and Technology",
-   "date": "2025-10-11",
-   "year": 2025,
-   "citations": 2,
-   "arxivId": "",
-   "doi": "10.1016/j.ast.2025.111058",
-   "url": "https://doi.org/10.1016/j.ast.2025.111058",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "研究 CubeSat 与小卫星星座对地观测中的动态任务分配:在星上资源受限、传感模态多样的约束下实现高效协同,发表于 Aerospace Science and Technology。",
-   "abstract": "The increasing deployment of CubeSats and small satellite constellations for Earth observation has enabled more agile and responsive systems and data services. It has also introduced new challenges related to limited onboard resources, diverse sensor modalities, and the need for dynamic task allocation. Efficient coordination in heterogeneous multi-satellite systems, comprising platforms with differing orbital configurations and imaging capabilities such as optical or radar, requires planning approaches that account for these constraints while minimizing communication overhead and latency. In this paper, we propose an optimization-based task allocation framework that enables heterogeneous, constraint-aware and globally optimal task assignment without relying on inter-satellite communication. Leveraging a hypergraph-based representation to model the compatibility between observation tasks and satellite capabilities, we formulate the allocation problem as a mixed-integer linear program (MILP) that directly incorporates key operational constraints such as energy consumption, data storage, and inter-task timing dependencies. We evaluate the effectiveness of the method using a realistic Earth observation scenario involving the HYPSO-1 and HYPSO-2 hyperspectral CubeSats. Furthermore, we extend the formulation to support secondary objectives, such as maximizing the coverage of an area of interest and minimizing data latency to ground stations, where our method outperforms baseline h",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
   },
   {
    "id": "game-theoretic-energy-scheduling-community-multi-energy-f868f",
@@ -8676,37 +8328,6 @@
    "domains": []
   },
   {
-   "id": "integrated-agile-earth-observation-satellite-scheduling-problem-faea8",
-   "title": "The integrated agile Earth observation satellite scheduling problem",
-   "titleZh": "集成敏捷对地观测卫星调度问题",
-   "authors": [
-    "Yure Rocha",
-    "Guilherme Oliveira Chagas",
-    "Leandro C. Coelho",
-    "Anand Subramanian"
-   ],
-   "venue": "Computers & Operations Research",
-   "date": "2025-07-29",
-   "year": 2025,
-   "citations": 6,
-   "arxivId": "",
-   "doi": "10.1016/j.cor.2025.107212",
-   "url": "https://doi.org/10.1016/j.cor.2025.107212",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "发表于 Computers & Operations Research 的集成敏捷对地观测卫星调度(IAEOSSP)研究:统一建模成像任务选择、排序与downlink等环节,是卫星调度问题的严谨形式化工作。",
-   "abstract": "Satellites are widely used for different purposes, such as monitoring deforestation, rising sea levels, and ecological changes. As a scarce resource, scheduling the activities performed by these spacecrafts is of paramount importance. This paper addresses the integrated agile Earth observation satellite scheduling problem (IAEOSSP) that employs a constellation of agile satellites to observe the Earth. The objective of the IAEOSSP is to maximize the profits associated with observed targets and the amount of data downloaded to ground stations. Critical aspects of the problem are considered, such as the onboard storage capacity, time windows, setup times, and energy dynamics. We propose a mixed-integer programming (MIP) formulation for the problem, as well as an improved MIP model that is computationally more tractable at the expense of possibly reducing the feasible search space. Moreover, we implement a MIP-based heuristic (MBH) to solve the proposed model with an efficient heuristic strategy for decreasing the size of the graph, as well as a heuristic from the literature initially designed for the non-agile version of the problem. Computational experiments evaluate the performance of the MBH not only on the IAEOSSP but also on a particular case involving conventional satellites denoted as constellation mission scheduling problem (CMSP). The results show that the MBH compares favorably against the improved MIP model for the IAEOSSP and against two existing algorithms for the C",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "exact-quantum-algorithm-unit-commitment-optimization-based-c2099",
    "title": "Exact quantum algorithm for unit commitment optimization based on partially connected quantum neural networks",
    "titleZh": "基于部分连接量子神经网络的机组组合优化精确求解",
@@ -9806,37 +9427,6 @@
    "abstract": "Quantum computing holds great potential to accelerate the process of solving complex combinatorial optimization problems. The Distributed Quantum Approximate Optimization Algorithm (DQAOA) addresses high-dimensional, dense problems using current quantum computing techniques and high-performance computing (HPC) systems. In this work, we improve the scalability and efficiency of DQAOA through advanced problem decomposition and parallel execution using message passing on the Frontier CPU/GPU supercomputer. Our approach ensures efficient quantum-classical workload management by distributing large problem instances across classical and quantum resources. Experimental results demonstrate that enhanced decomposition strategies and GPU-accelerated quantum simulations significantly improve DQAOA's performance, achieving up to 10x speedup over CPU-based simulations. This advancement enables better scalability for large problem instances, supporting the practical deployment of GPU systems for hybrid quantum-classical applications. We also highlight ongoing integration efforts using the Quantum Framework (QFw) to support future HPC-quantum computing systems.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "deep-reinforcement-learning-based-two-phase-hybrid-30661",
-   "title": "Deep Reinforcement Learning-Based Two-Phase Hybrid Optimization for Scheduling Agile Earth Observation Satellites",
-   "titleZh": "基于深度强化学习的两阶段混合优化敏捷对地观测卫星调度",
-   "authors": [
-    "Guanghui Zhou",
-    "Jin Zhi-cheng",
-    "D. Liu"
-   ],
-   "venue": "Remote Sensing",
-   "date": "2025-06-06",
-   "year": 2025,
-   "citations": 13,
-   "arxivId": "",
-   "doi": "10.3390/rs17121972",
-   "url": "https://doi.org/10.3390/rs17121972",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "面向多颗敏捷对地观测卫星调度的大解空间与大规模任务量,论文提出 DRL 两阶段混合框架:先由马尔可夫决策过程生成观测方案,再混合优化平衡解质量与计算效率。",
-   "abstract": "The multi-agile Earth observation satellite scheduling problem is challenging because of its large solution space and substantial task volume. This study generates observation schemes for static tasks over an execution period. To balance solution quality and computational efficiency, a deep reinforcement learning (DRL)-based algorithmic framework is proposed. A Markov decision process (MDP) is formulated as the foundational model for the DRL architecture. To mitigate problem complexity, the action space is decomposed into two interdependent decision layers: task sequencing and resource allocation. Given the resource occupation constraints during action execution, a novel reward function is designed by integrating resource occupation utility into the immediate reward mechanism. Corresponding to these dual decision layers, a Two-Phase Hybrid Optimization (TPHO) framework is developed. The task sequencing subproblem is addressed through an encoder–decoder architecture based on sequence-to-sequence learning. To preserve resource diversity throughout the scheduling horizon, a maximum residual capacity (MRC) heuristic is introduced. A comprehensive experimental suite is constructed, incorporating multi-satellite scheduling scenarios with capacity and temporal constraints. The experimental results demonstrate that the TPHO framework with MRC rules achieves superior performance, yielding a total reward improvement exceeding 16% compared with the A-ALNS algorithm in the most complex s",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
   },
   {
    "id": "exploring-thermodynamics-disordered-materials-quantum-computing-4225e",
@@ -11925,35 +11515,6 @@
    ]
   },
   {
-   "id": "quantum-adaptive-learning-coverage-optimization-leo-satellite-8813d",
-   "title": "Quantum Adaptive Learning for Coverage Optimization in LEO Satellite Network",
-   "titleZh": "低轨卫星网络覆盖优化的量子自适应学习",
-   "authors": [
-    "X Silvirianti",
-    "Georges Kaddoum"
-   ],
-   "venue": "预印本",
-   "date": "2025-03-18",
-   "year": 2025,
-   "citations": 1,
-   "arxivId": "",
-   "doi": "10.36227/techrxiv.174235367.75980060/v1",
-   "url": "https://doi.org/10.36227/techrxiv.174235367.75980060/v1",
-   "topics": [
-    "quantum-ai"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对低轨卫星动态移动导致覆盖优化困难的问题,提出量子自适应学习方法,是量子方法直接服务卫星网络覆盖设计的工作。",
-   "abstract": "A broader coverage of low earth orbit (LEO) satellite networks has been an object of research interest in recent years and will remain to be of keen interest to both start-ups and established companies in the future. However, achieving optimal coverage remains a challenge today, as the satellites dynamically move along their orbit, requiring frequent constellation size and beamsteering adjustments. Such frequent adjustments and the number of variables that need to be optimized result in a high computational complexity. Aiming to attend to these concerns, the present study proposes a quantum adaptive learning (QAL) as a potential solution for coverage optimization of stochastic geometry-based LEO satellite networks with low computational complexity by taking advantage of quantum computing and adaptive learning. The QAL scheme utilizes quantum computing and a feedback mechanism to improve the learning network design and parameters for higher accuracy with low computational complexity. As a study case, considering the binomial point process (BPP) distribution of contact distance between satellites and user terminals, we use the QAL scheme to optimize the satellites' constellation size and their corresponding beamsteering at each time step to achieve maximum coverage probability. To evaluate performance, the simulation results of the QAL scheme are compared with those of quantum machine learning (QML), which lacks feedback and adaptive mechanisms. The results show that the propos",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "implementing-transferable-annealing-protocols-combinatorial-optimization-neutral-f08d7",
    "title": "Implementing transferable annealing protocols for combinatorial optimization on neutral-atom quantum processors: A case study on smart charging of electric vehicles",
    "titleZh": "中性原子量子处理器的可迁移退火协议:电动车智能充电案例",
@@ -12549,39 +12110,6 @@
    ]
   },
   {
-   "id": "rcm-neural-policy-model-reconstruction-mechanism-construct-54549",
-   "title": "RCM: A Neural Policy Model With Reconstruction Mechanism to Construct a Solution for the Agile Satellite Scheduling Problem",
-   "titleZh": "RCM:带重构机制的神经策略模型用于敏捷卫星调度解构造",
-   "authors": [
-    "Ming Chen",
-    "Jie Chun",
-    "Witold Pedrycz",
-    "Yong‐Ming He",
-    "Xiaolu Liu",
-    "Guohua Wu"
-   ],
-   "venue": "IEEE Transactions on Cybernetics",
-   "date": "2025-02-25",
-   "year": 2025,
-   "citations": 9,
-   "arxivId": "",
-   "doi": "10.1109/tcyb.2025.3535777",
-   "url": "https://doi.org/10.1109/tcyb.2025.3535777",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "针对 DRL 调度模型可能产生不可行动作的问题,论文提出带重构机制的神经策略模型 RCM,在构造解的过程中即时修复违反约束的动作,发表于 IEEE TCyb,提升了学习式卫星调度的可靠性与泛化性。",
-   "abstract": "The agile Earth observation satellite scheduling problem (AEOSSP) with time-dependent transition time is a combinatorial optimization challenge. Due to its NP-hardness, problem-tailored methods are sensitive to instances and require massive computational overhead. Recently, deep reinforcement learning (DRL) models have shown promise in efficiently addressing the AEOSSP. However, these models may make decision mistakes in specific scenarios due to prioritizing maximizing average reward expectation over individual decision accuracy during DRL training, directly leading to resource wastage. To address these issues, we propose a reconstruction model (RCM), which is a DRL-based two-stage construction model (CM), including a CM and a reconstruction mechanism (RM). RCM constructs solutions initially using a DRL-trained CM, which are subsequently refined by RM. CM utilizes a more efficient network for policy representation to make decisions. RM applies two operators, \"repair\" and \"removal,\" with a \"repair-removal-repair\" solution reconstruction process to identify and rectify decision mistakes from CM, offering a modular component to enhance the stability and solution quality. Experimental results demonstrate that the proposed RCM outperforms the state-of-the-art AEOSSP iterative search method, achieving such performance within a computational time of 0.1 s. Additionally, CM surpasses the state-of-the-art DRL policy model and RM can effectively rectify decision errors or suboptimalit",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "explaining-quantum-circuits-shapley-values-towards-explainable-cc4a6",
    "title": "Explaining quantum circuits with Shapley values: towards explainable quantum machine learning",
    "titleZh": "用Shapley值解释量子线路:迈向可解释量子机器学习",
@@ -12801,41 +12329,6 @@
    "domains": []
   },
   {
-   "id": "assessment-practical-satellite-quantum-key-distribution-architectures-6bb07",
-   "title": "Assessment of Practical Satellite Quantum Key Distribution Architectures for Current and Near‐Future Missions",
-   "titleZh": "面向实际应用的卫星量子密钥分发架构评估",
-   "authors": [
-    "Davide Orsucci",
-    "Philipp Kleinpaß",
-    "Jaspar Meister",
-    "Innocenzo De Marco",
-    "Stefanie Häusler",
-    "Thomas Strang",
-    "Nino Walenta",
-    "Florian Moll"
-   ],
-   "venue": "International Journal of Satellite Communications and Networking",
-   "date": "2025-02-14",
-   "year": 2025,
-   "citations": 27,
-   "arxivId": "",
-   "doi": "10.1002/sat.1544",
-   "url": "https://doi.org/10.1002/sat.1544",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "评估多种卫星量子密钥分发(QKD)架构在真实轨道与链路约束下的可行性,对比不同轨道高度的密钥生成能力,为天基量子保密通信网络建设提供工程依据。",
-   "abstract": "ABSTRACT Quantum key distribution (QKD) allows the generation of cryptographic keys beyond the computational hardness paradigm and is befitting for secure data transmission requiring long‐term security. The communication distance of fiber‐based QKD, however, is limited to a few hundred kilometers due to the exponential scaling of signal attenuation. Satellite QKD (SatQKD) can instead leverage free‐space optical links to establish long‐range connections and enable global‐scale QKD. In this work, we review the manifold of design choices that concur to form the set of possible SatQKD architectures. These include the choice of the QKD protocol and its physical implementation, but also the satellite orbit, the optical link direction, and whether or not to use trusted‐node relays. The possible SatQKD architectures are then evaluated in terms of key generation throughput, latency and maximum reachable communication distance, but also system‐level security and implementation complexity. Given the technical challenges of realizing SatQKD systems, it is paramount, for near‐future satellite missions, to adhere to the simplest possible architecture that still allows to deliver the QKD service. We thus identify as advisable options the use of low‐Earth orbit satellites as trusted nodes for prepare‐and‐measure discrete‐variable QKD downlinks with weak laser pulses. The decoy‐state version of BB84 is found to be the most promising QKD protocols due to the maturity of the security proofs, th",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "optimal-energy-management-multistack-fuel-cell-vehicles-a2f56",
    "title": "Optimal Energy Management for Multistack Fuel Cell Vehicles Based on Hybrid Quantum Reinforcement Learning",
    "titleZh": "基于混合量子深度强化学习的多电堆燃料电池车能量管理",
@@ -12938,35 +12431,6 @@
     "energy",
     "manufacturing",
     "it-cloud"
-   ]
-  },
-  {
-   "id": "hierarchical-scheduling-oil-spill-sar-image-detection-7d1fb",
-   "title": "Hierarchical Scheduling for Oil Spill SAR Image Detection in Space-Air-Ground Integrated Networks",
-   "titleZh": "空天地一体化网络中溢油SAR图像检测的分层调度",
-   "authors": [
-    "Seok Bin Son",
-    "Soohyun Park"
-   ],
-   "venue": "IEEE Transactions on Vehicular Technology",
-   "date": "2025-02-11",
-   "year": 2025,
-   "citations": 2,
-   "arxivId": "",
-   "doi": "10.1109/tvt.2025.3540793",
-   "url": "https://doi.org/10.1109/tvt.2025.3540793",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "面向海洋溢油监测,研究低轨卫星通信时间等运营约束下 SAR 图像检测任务的分层调度,发表于 IEEE TVT。",
-   "abstract": "Oil spills represent significant environmental hazards in ocean ecosystems, requiring rapid and accurate detection and response mechanisms. Due to its efficacy, synthetic aperture radar (SAR) is an important tool for remote monitoring of ocean environments. However, operational constraints such as communication time between low Earth orbit (LEO) satellites and ground stations (GS), as well as finite buffers, pose challenges. To address these issues, this paper proposes a space-air-ground-integrated network (SAGIN) scenario comprising LEO satellites, high altitude platforms (HAPs), and ground stations (GSs), suitable for rapid and accurate oil spill detection using SAR images. In addition, a novel three-step algorithm is proposed to facilitate SAR image transmission effectively. The first step of the proposed algorithm focuses on maximizing the transmission of ocean SAR images from the LEO satellites to the HAPs. This optimization involves the neural Myerson auction (NMA)-based scheduler, a second-price auction mechanism with deep learning methodologies for truthfulness, distributed computation, and low computational complexity. In addition, the pathloss is also considered for effective communication system design. The second step algorithm aims to maximize data transmission efficiency from HAPs to GSs, employing scheduling strategies based on the Markov decision process (MDP). This algorithm enables optimal decision-making over time steps, considering the throughput of each G",
-   "source": "backfill",
-   "domains": [
-    "satellite"
    ]
   },
   {
@@ -14065,40 +13529,6 @@
    "domains": []
   },
   {
-   "id": "vision-survey-roadmap-toward-space-communications-6g-972ec",
-   "title": "A Vision, Survey, and Roadmap Toward Space Communications in the 6G and Beyond Era",
-   "titleZh": "迈向 6G 及未来空间通信:愿景、综述与路线图",
-   "authors": [
-    "Konstantinos Ntontin",
-    "Eva Lagunas",
-    "Jorge Querol",
-    "Junaid ur Rehman",
-    "Joël Grotz",
-    "Symeon Chatzinotas",
-    "Björn Ottersten"
-   ],
-   "venue": "Proceedings of the IEEE",
-   "date": "2025-01-02",
-   "year": 2025,
-   "citations": 40,
-   "arxivId": "",
-   "doi": "10.1109/jproc.2024.3512934",
-   "url": "https://doi.org/10.1109/jproc.2024.3512934",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [
-    "recent"
-   ],
-   "summaryZh": "系统综述卫星通信(SatCom)在技术与产业上的复兴,梳理 6G 空天一体化架构下非地面网络与地面网络融合的关键技术与路线图,是空天信息领域的权威框架文献。",
-   "abstract": "Satellite communications (SatComs) have recently been through a renaissance, both technologically and entrepreneurially. Ambitious plans have already come into fruition with the operation of low-Earth orbit (LEO) constellations including thousands of satellites and supported by state of the art but proprietary technologies, such as active antenna arrays and intersatellite links (ISLs). In this context, this article aims to provide a forward-looking vision of use cases and a deep dive into technological enablers that will be prominent in space communications beyond 2030. In parallel, it motivates how open standards can play a role in delivering affordable communication services in space. Starting from the 5G plans for nonterrestrial networks, we provide a survey and roadmap toward artificial intelligence (AI)-supported satellite systems, space-enabled quantum networks, and joint communications and positioning (JCAP) for space missions and interplanetary exploration.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "demonstration-weighted-graph-optimization-rydberg-atom-array-65b13",
    "title": "Demonstration of Weighted-Graph Optimization on a Rydberg-Atom Array Using Local Light Shifts",
    "titleZh": "里德堡原子阵列上利用局域光频移的加权图优化实验",
@@ -14627,34 +14057,6 @@
    "domains": []
   },
   {
-   "id": "optimizing-global-quantum-communication-satellite-constellations-d3979",
-   "title": "Optimizing Global Quantum Communication via Satellite Constellations",
-   "titleZh": "占位",
-   "authors": [
-    "Yichen Gao",
-    "Guanqun Song",
-    "Ting Zhu"
-   ],
-   "venue": "arXiv",
-   "date": "2024-12-31",
-   "year": 2024,
-   "citations": 0,
-   "arxivId": "2501.00280",
-   "doi": "10.48550/arxiv.2501.00280",
-   "url": "https://arxiv.org/abs/2501.00280",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "占位",
-   "abstract": "In this paper, we investigate the optimization of global quantum communication through satellite constellations. We address the challenge of quantum key distribution (QKD) across vast distances and the limitations posed by terrestrial fiber-optic networks. Our research focuses on the configuration of satellite constellations to improve QKD between ground stations and the application of innovative orbital mechanics to reduce latency in quantum information transfer. We introduce a novel approach using quantum relay satellites in Molniya orbits, enhancing communication efficiency and coverage. The use of these high eccentricity orbits allows us to extend the operational presence of satellites over targeted hemispheres, thus maximizing the quantum network's reach. Our findings provide a strategic framework for deploying quantum satellites and relay systems to achieve a robust and efficient global quantum communication network.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "community-detection-simulated-bifurcation-810df",
    "title": "Community detection by simulated bifurcation",
    "titleZh": "用模拟分叉进行社区发现",
@@ -14767,37 +14169,6 @@
    "abstract": "We study quantum many-body scars (QMBS) in the language of commutant algebras, which are defined as symmetry algebras of of local Hamiltonians. This framework explains the origin of dynamically disconnected subspaces seen in models with exact QMBS, i.e., the large “thermal” subspace and the small “nonthermal” subspace, which are attributed to the existence of unconventional nonlocal conserved quantities in the commutant; hence, it unifies the study of conventional symmetries and weak ergodicity-breaking phenomena into a single framework. Furthermore, this language enables us to use the von Neumann double commutant theorem to formally write down the exhaustive algebra of Hamiltonians with a desired set of QMBS, which demonstrates that QMBS survive under large classes of local perturbations. We illustrate this using several standard examples of QMBS, including the spin- 1 / 2 ferromagnetic, AKLT, spin-1 XY π -bimagnon, and the electronic η -pairing towers of states; in each of these cases, we explicitly write down a set of generators for the full algebra of Hamiltonians with these QMBS. Understanding this hidden structure in QMBS Hamiltonians also allows us to recover results of previous “brute-force” numerical searches for such Hamiltonians. In addition, this language clearly demonstrates the equivalence of several unified formalisms for QMBS proposed in the literature and also illustrates the connection between two apparently distinct classes of QMBS Hamiltonians—those that a",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "solving-multi-objective-satellite-data-transmission-scheduling-22d29",
-   "title": "Solving Multi-Objective Satellite Data Transmission Scheduling Problems via a Minimum Angle Particle Swarm Optimization",
-   "titleZh": "最小角粒子群优化求解多目标卫星数据传输调度",
-   "authors": [
-    "Zhe Zhang",
-    "Shi Cheng",
-    "Yuyuan Shan",
-    "Zhixin Wang",
-    "Hao Ran",
-    "Lining Xing"
-   ],
-   "venue": "Symmetry",
-   "date": "2024-12-25",
-   "year": 2024,
-   "citations": 7,
-   "arxivId": "",
-   "doi": "10.3390/sym17010014",
-   "url": "https://doi.org/10.3390/sym17010014",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "针对卫星数据传输调度中资源分配不均与传输效率低的问题,提出最小角粒子群优化算法求解大规模多目标调度,发表于 Symmetry。",
-   "abstract": "With the increasing number of satellites and rising user demands, the volume of satellite data transmissions is growing significantly. Existing scheduling systems suffer from unequal resource allocation and low transmission efficiency. Therefore, effectively addressing the large-scale multi-objective satellite data transmission scheduling problem (SDTSP) within a limited timeframe is crucial. Typically, swarm intelligence algorithms are used to address the SDTSP. While these methods perform well in simple task scenarios, they tend to become stuck in local optima when dealing with complex situations, failing to meet mission requirements. In this context, we propose an improved method based on the minimum angle particle swarm optimization (MAPSO) algorithm. The MAPSO algorithm is encoded as a discrete optimizer to solve discrete scheduling problems. The calculation equation of the sine function is improved according to the problem’s characteristics to deal with complex multi-objective problems. This algorithm employs a minimum angle strategy to select local and global optimal particles, enhancing solution efficiency and avoiding local optima. Additionally, the objective space and solution space exhibit symmetry, where the search within the solution space continuously improves the distribution of fitness values in the objective space. The evaluation of the objective space can guide the search within the solution space. This method can solve multi-objective SDTSPs, meeting the de",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
   },
   {
    "id": "automatic-effective-discovery-quantum-kernels-52562",
@@ -15388,34 +14759,6 @@
    "abstract": "In the aftermath of a sudden catastrophe, first responders (FRs) strive to reach and rescue immobile victims. Simultaneously, civilians use the same roads to evacuate, access medical facilities and shelters, or reunite with their relatives via private vehicles. The escalated traffic congestion can significantly hinder critical FR operations. A proposal from the Türkiye Ministry of Transportation and Infrastructure is to allocate a lane on specific road segments exclusively for FR use, mark them clearly, and precommunicate them publicly. For a successful implementation of this proposal, an FR path should exist from designated entry points to each FR demand point in the network. The reserved FR lanes along these paths will be inaccessible to evacuees, potentially increasing evacuation times. Hence, in this study, we aim to determine a subset of links along which an FR lane should be reserved and analyze the resulting evacuation flow under evacuees’ selfish routing behavior. We introduce this problem as the first responder network design problem (FRNDP) and formulate it as a mixed-integer nonlinear program. To efficiently solve FRNDP, we introduce a novel bilevel nested heuristic, the Graver augmented multiseed algorithm (GAMA) within GAMA, called GAGA. We test GAGA on synthetic graph instances of various sizes as well as scenarios related to a potential Istanbul earthquake. Our comparisons with a state-of-the-art exact algorithm for network design problems demonstrate that GAGA",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "deep-reinforcement-learning-based-attention-decision-network-d087e",
-   "title": "Deep Reinforcement Learning-Based Attention Decision Network for Agile Earth Observation Satellite Scheduling",
-   "titleZh": "基于深度强化学习注意力决策网络的敏捷对地观测卫星调度",
-   "authors": [
-    "D. Liu",
-    "Guanghui Zhou"
-   ],
-   "venue": "Remote Sensing",
-   "date": "2024-11-27",
-   "year": 2024,
-   "citations": 8,
-   "arxivId": "",
-   "doi": "10.3390/rs16234436",
-   "url": "https://doi.org/10.3390/rs16234436",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "论文提出注意力决策网络(ADN)确定观测任务调度序列,以注意力机制刻画任务间动态关联,应对需求激增与解空间爆炸挑战。发表于 Remote Sensing,是学习式卫星调度的最新实践之一。",
-   "abstract": "Agile Earth observation satellite scheduling is crucial for space-based remote-sensing services. The sharply rising demands and explosion of the solution space pose significant challenges to the optimization of observation task scheduling. To address this issue, we propose a deep reinforcement learning-based attention decision network (ADN) to determine the task scheduling sequence. We also construct a Markov decision process model in which the original and direct attributes are defined to describe the environment and used as the input of the ADN. Moreover, a start-time-shift-based local search is proposed to improve the observation plan generated by the ADN model. A comprehensive experiment was conducted, and the results proved that the attention mechanism in our ADN was beneficial for the training process to converge to better strategies. Compared with other advanced algorithms, the proposed method obtained a better total profit in the test sets. Furthermore, our methods exhibit considerable time efficiency, even for large-scale problems.",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
   },
   {
    "id": "two-stage-estimation-variance-modeling-latency-constrained-18c6c",
@@ -17183,36 +16526,6 @@
    ]
   },
   {
-   "id": "entanglement-from-sky-optimizing-satellite-based-entanglement-64cea",
-   "title": "Entanglement From Sky: Optimizing Satellite-Based Entanglement Distribution for Quantum Networks",
-   "titleZh": "天空之纠缠:优化星基量子网络的纠缠分发",
-   "authors": [
-    "Xinliang Wei",
-    "Lei Fan",
-    "Yuanxiong Guo",
-    "Zhu Han",
-    "Yu Wang"
-   ],
-   "venue": "IEEE/ACM Transactions on Networking",
-   "date": "2024-09-19",
-   "year": 2024,
-   "citations": 15,
-   "arxivId": "",
-   "doi": "10.1109/tnet.2024.3456789",
-   "url": "https://doi.org/10.1109/tnet.2024.3456789",
-   "topics": [
-    "hybrid"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "论文针对星基量子网络的纠缠分发优化——考虑卫星轨道、地面站可见窗口与链路预算的组合约束,提出分发策略以最大化高保真纠缠的覆盖与吞吐。与上一条互为补充,共同构成卫星量子网络调度的核心文献。",
-   "abstract": "The advancement of satellite-based quantum networks shows promise in transforming global communication infrastructure by establishing a secure and reliable quantum Internet. These networks use optical signals from satellites to ground stations to distribute high-fidelity quantum entanglements over long distances, overcoming the limitations of traditional terrestrial systems. However, the complexity of satellite-based entanglement distribution and terrestrial quantum swapping in the integrated network requires joint optimization with satellite assignment, resource allocation, and path selection. To address this challenge, we introduce a hybrid quantum-classical algorithm to solve the optimization problem by leveraging the strengths of both quantum and classical computing. The original problem is decomposed into a master problem and several subproblems using Dantzig-Wolfe decomposition and linearization techniques. Through experiments, this study demonstrates the effectiveness and reliability of the proposed methods in optimizing large-scale networks and managing qubit usage compared to the classical optimization techniques. The findings provide valuable insights for designing and implementing satellite-based entanglement distribution in quantum networks, paving the way for a secure global quantum communication infrastructure.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "solving-combinatorial-optimization-problems-photonic-quantum-computer-f1536",
    "title": "Solving Combinatorial Optimization Problems on a Photonic Quantum Computer",
    "titleZh": "在光子量子计算机上求解组合优化问题",
@@ -17670,37 +16983,6 @@
    "domains": []
   },
   {
-   "id": "evolutionary-task-scheduling-algorithm-fuzzy-fitness-evaluation-8cd8c",
-   "title": "An Evolutionary Task Scheduling Algorithm Using Fuzzy Fitness Evaluation Method for Communication Satellite Network",
-   "titleZh": "通信卫星网络中基于模糊适应度评估的进化任务调度算法",
-   "authors": [
-    "Xuemei Jiang",
-    "Yangyang Guo",
-    "Yue Zhang",
-    "Yanjie Song",
-    "Witold Pedrycz",
-    "Lining Xing"
-   ],
-   "venue": "arXiv",
-   "date": "2024-08-24",
-   "year": 2024,
-   "citations": 0,
-   "arxivId": "2408.13500",
-   "doi": "10.48550/arxiv.2408.13500",
-   "url": "https://arxiv.org/abs/2408.13500",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "针对通信卫星网络星地数据传输任务,提出基于模糊适应度评估的进化任务调度算法,2024 年 arXiv 工作,卫星调度方向的进化计算实践。",
-   "abstract": "Communications satellite network (CSN), as an integral component of the next generation of communication systems, has the capability to offer services globally. Data transmission in this network primarily relies on two modes: inter-satellite communication and satellite-to-ground station communication. The latter directly impacts the successful reception of data by users. However, due to resource and task limitations, finding a satisfactory solution poses a significant challenge. The communication satellite-ground station network scheduling problem (CS-GSNSP) aims to optimize CSN effectiveness by devising a plan that maximizes link construction time while considering constraints associated with satellite operation modes. The large number of tasks and numerous constraints in the problem result in a time-consuming evaluation of fitness function values. To address this issue, we propose a fuzzy fitness evaluation method (FFEM) that employs fuzzy or real evaluation methods based on individual similarity degrees. Additionally, we introduce an evolutionary algorithm based on FFEM, called evolutionary algorithm based on FFEM (FFEEA), for iteratively searching high-quality network construction schemes. In FFEEA, an adaptive crossover approach is used for efficient population search. Finally, extensive experiments are conducted to demonstrate that our proposed fuzzy fitness evaluation method and other improvement strategies significantly enhance satellite network service time. The stud",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
    "id": "solving-constrained-optimization-problems-variational-quantum-eigensolver-020c3",
    "title": "Solving constrained optimization problems via the variational quantum eigensolver with constraints",
    "titleZh": "用带约束的变分量子本征求解器求解约束优化问题",
@@ -18123,35 +17405,6 @@
    "tags": [],
    "summaryZh": "论文提出星地一体化网络(ISTN)架构并联合优化缓存 placement 与功率分配以保障内容分发服务质量,其中组合决策部分交由量子辅助方法求解。被引 11 次,是\"量子辅助网络资源优化\"的代表作。",
    "abstract": "LowEarth orbit (LEO) satellite network can complement terrestrial networks for achieving global wireless coverage and improving delay-sensitive Internet services. This paper proposes an integrated satellite-terrestrial network (ISTN) architecture to provide ground users with seamless and reliable content delivery services. For optimal service provisioning in this architecture, we formulate an optimization model to maximize the network throughput by jointly optimizing content delivery policy, cache placement, and transmission power allocation. The resulting optimization model is a large-scale mixed-integer nonlinear program (MINLP) that is intractable for classical computer solvers. Inspired by quantum computing techniques, we propose a hybrid quantum-classical generalized Benders' decomposition (HQCGBD) algorithm to address this challenge. Specifically, we first exploit the generalized Benders' decomposition (GBD) to decompose the problem into a master problem and a subproblem and then leverage the state-of-the-art quantum annealer to solve the challenging master problem. Furthermore, a multi-cut strategy is designed in HQCGBD to accelerate the solution process by leveraging the quantum advantages in parallel computing. Simulation results demonstrate the superiority of the proposed HQCGBD algorithm and validate the effectiveness of the proposed cache-enabled ISTN architecture.",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
-  },
-  {
-   "id": "constellation-design-performance-future-quantum-satellite-gravity-dd8ab",
-   "title": "Constellation design and performance of future quantum satellite gravity missions",
-   "titleZh": "未来量子卫星重力测量任务的星座设计与性能分析",
-   "authors": [
-    "Philipp Zingerle",
-    "Th. Gruber",
-    "Roland Pail",
-    "Ilias Daras"
-   ],
-   "venue": "Earth Planets and Space",
-   "date": "2024-07-30",
-   "year": 2024,
-   "citations": 11,
-   "arxivId": "",
-   "doi": "10.1186/s40623-024-02034-3",
-   "url": "https://doi.org/10.1186/s40623-024-02034-3",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "时间混叠误差是时变卫星重力场建模的最大误差来源。论文研究未来量子卫星重力任务的星座设计方案——通过扩展星座改善观测几何以抑制混叠,是量子传感星座任务设计(含轨道构型组合优化)的参考工作。",
-   "abstract": "Abstract Temporal aliasing is currently the largest error contributor to time-variable satellite gravity field models. Therefore, the evolution of sensor technologies has to be complemented by strategies to reduce temporal aliasing errors. The most straightforward way to improve temporal aliasing is through extended satellite constellations because they improve the observation geometry and increase the achievable temporal resolution. Therefore, strategies to optimize the design of larger satellite constellations are investigated in this contribution. A complete constellation modeling procedure is presented, starting from primary design variables (such as the required targeted resolutions) and concluding with concrete orbital elements for the individual satellites. In parallel, it is evaluated if improved instrument sensitivities based on quantum technologies (cold atom interferometry) can be fully exploited in the case of larger constellations. For this, future quantum satellite gravity missions adopting the gradiometry concept (similar to the GOCE mission) and the low-low satellite-to-satellite tracking concept (similar to GRACE/-FO) are simulated on optimized constellations with up to 6 satellites/pairs. The retrieval performance of a 6-pair mission in terms of the global equivalent water height RMS can be improved by a factor of roughly 3 compared to an inclined double-pair mission. 3D-gradiometry intrinsically has a better de-aliasing behavior but has extremely high accur",
    "source": "backfill",
    "domains": [
     "satellite"
@@ -18621,38 +17874,6 @@
    ]
   },
   {
-   "id": "learning-construct-solution-agile-satellite-scheduling-problem-31c32",
-   "title": "Learning to Construct a Solution for the Agile Satellite Scheduling Problem With Time-Dependent Transition Times",
-   "titleZh": "面向时间相关转移时间敏捷卫星调度问题的解构造学习方法",
-   "authors": [
-    "Ming Chen",
-    "Yonghao Du",
-    "Ke Tang",
-    "Lining Xing",
-    "Yuning Chen",
-    "Yingwu Chen"
-   ],
-   "venue": "IEEE Transactions on Systems Man and Cybernetics Systems",
-   "date": "2024-07-09",
-   "year": 2024,
-   "citations": 48,
-   "arxivId": "",
-   "doi": "10.1109/tsmc.2024.3411640",
-   "url": "https://doi.org/10.1109/tsmc.2024.3411640",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "敏捷对地观测卫星调度(AEOSSP)是大规模星座管理带来的复杂组合优化问题。论文提出基于深度强化学习的解构造模型(DRL-CM),以马尔可夫决策过程建模含时间相关转移时间的调度决策,被引 48 次,是\"学习构造可行调度\"路线的代表作。",
-   "abstract": "The agile earth observation satellite scheduling problem (AEOSSP) with time-dependent transition times is a complex combinational optimization problem that has emerged from the development of large-scale satellite management techniques. To address this problem, we propose a deep reinforcement learning-based construction model (DRL-CM) that consists of five parts: 1) a Markov decision process (MDP); 2) a feature engineering; 3) a constructive heuristic neural network (CHNN); 4) an RL training method; and 5) an evaluation system. Specifically, the CHNN comprises six modules containing three special components that we propose: a dynamic encoder, a dynamic global layer, and a two-stage attention layer. First, we build the MDP of the AEOSSP and the feature engineering with effective features required for decision-making. Second, we design the CHNN to function as the MDP policy and train it with an RL model. Finally, we propose a comprehensive evaluation system for the validation of our model. The experimental results indicate that the proposed DRL-CM outperforms the state-of-the-art algorithm in terms of both optimization speed and quality. In addition, the feature engineering and network architecture built in our model are verified to be effective in comprehensive experiments.",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
-  },
-  {
    "id": "robust-fast-microwave-driven-quantum-logic-trapped-418d5",
    "title": "Robust and fast microwave-driven quantum logic for trapped-ion qubits",
    "titleZh": "面向离子阱量子比特的鲁棒快速微波驱动量子逻辑",
@@ -18945,9 +18166,9 @@
    "abstract": "Corrosion is a pervasive issue that impacts the structural integrity and performance of materials across various industries, imposing a significant economic impact globally. In fields like aerospace and defense, developing corrosion-resistant materials is critical, but progress is often hindered by the complexities of material-environment interactions. While computational methods have advanced in designing corrosion inhibitors and corrosion-resistant materials, they fall short in understanding the fundamental corrosion mechanisms due to the highly correlated nature of the systems involved. This paper explores the potential of leveraging quantum computing to accelerate the design of corrosion inhibitors and corrosion-resistant materials, with a particular focus on magnesium and niobium alloys. We investigate the quantum computing resources required for high-fidelity electronic ground-state energy estimation (GSEE), which will be used in our hybrid classical-quantum workflow. Representative computational models for magnesium and niobium alloys show that 2292 to 38598 logical qubits and $(1.04$ to $1962) \\times 10^{13}$ T-gates are required for simulating the ground-state energy of these systems under the first quantization encoding using plane waves basis.",
    "source": "backfill",
    "domains": [
-    "satellite",
     "materials"
-   ]
+   ],
+   "curatedDomains": true
   },
   {
    "id": "mindspore-quantum-user-friendly-high-performance-ai-46a5d",
@@ -19068,36 +18289,6 @@
    "source": "backfill",
    "domains": [
     "materials"
-   ]
-  },
-  {
-   "id": "improved-adaptive-large-neighborhood-search-algorithm-based-c744a",
-   "title": "Improved Adaptive Large Neighborhood Search Algorithm Based on the Two-Stage Framework for Scheduling Multiple Super-Agile Satellites",
-   "titleZh": "基于两阶段框架的改进自适应大邻域搜索算法求解超敏捷卫星协同调度",
-   "authors": [
-    "Guohua Wu",
-    "Zhiqing Xiang",
-    "Yalin Wang",
-    "Yi Gu",
-    "Witold Pedrycz"
-   ],
-   "venue": "IEEE Transactions on Aerospace and Electronic Systems",
-   "date": "2024-06-19",
-   "year": 2024,
-   "citations": 35,
-   "arxivId": "",
-   "doi": "10.1109/taes.2024.3416427",
-   "url": "https://doi.org/10.1109/taes.2024.3416427",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "超敏捷卫星具备主动摆扫与实时姿态控制能力,使观测调度复杂度大增。论文提出两阶段改进自适应大邻域搜索算法(ALNS)求解多颗超敏捷卫星协同调度问题,在 IEEE TAES 上发表、被引 35 次,是卫星调度元启发式方向的高水平工作。",
-   "abstract": "Super-agile satellites are high-performance earth observation satellites with active push-brooming capability and a real-time attitude control system. The highly flexible attitude maneuver capability of super-agile satellites has aggravated the complexity of the observation schedule. To solve the multiple super-agile satellite cooperative scheduling problem, we propose an improved adaptive large neighborhood search algorithm based on a two-stage framework (IALNS-TSF). The IALNS-TSF consists of two stages: the task allocation stage and the task sequencing stage. During the task allocation stage, the multiple super-agile satellite scheduling problem is decomposed into multiple single-satellite scheduling problems by heuristic allocation strategies. During the task sequencing stage, the scheduling plan is optimized through the improved adaptive large neighborhood search algorithm integrated with especially designed destroy and repair operations. The weights of the destroy and repair operators are updated through an adaptive mechanism, where the Metropolis acceptance criterion is employed to control the updates of solutions. Finally, to validate the effectiveness of the proposed method, extensive simulation experiments are conducted. The proposed method is compared with the improved simulated annealing algorithm based on a random insertion strategy, an adaptive large neighborhood search algorithm, and a variable neighborhood search algorithm. Experimental results demonstrate that",
-   "source": "backfill",
-   "domains": [
-    "satellite"
    ]
   },
   {
@@ -20261,37 +19452,6 @@
    "source": "backfill",
    "domains": [
     "energy"
-   ]
-  },
-  {
-   "id": "optimal-entanglement-distribution-problem-satellite-based-quantum-00a5f",
-   "title": "Optimal Entanglement Distribution Problem in Satellite-Based Quantum Networks",
-   "titleZh": "星基量子网络中的最优纠缠分发问题",
-   "authors": [
-    "Xinliang Wei",
-    "Jiyao Liu",
-    "Lei Fan",
-    "Yuanxiong Guo",
-    "Zhu Han",
-    "Yu Wang"
-   ],
-   "venue": "IEEE Network",
-   "date": "2024-05-08",
-   "year": 2024,
-   "citations": 18,
-   "arxivId": "",
-   "doi": "10.1109/mnet.2024.3399081",
-   "url": "https://doi.org/10.1109/mnet.2024.3399081",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "星基量子网络是全球量子互联网最有希望的实现路径。论文系统研究卫星星座下的纠缠分发优化问题——纠缠对生成、调度与地面站分配的组合决策,发表于 IEEE Network,是\"卫星×量子网络资源优化\"的代表性建模研究。",
-   "abstract": "Satellite-based quantum networks are emerging as a promising solution for the development of a global quantum internet in the near future. The ability to leverage the advantageous lower attenuation of optical signals from satellites to ground presents an exciting opportunity to establish a robust and secure quantum communication infrastructure on a global scale. By utilizing a constellation of satellites, it becomes feasible to continuously distribute high-fidelity quantum entanglements among ground stations over long distances, overcoming the limitations of traditional terrestrial-based quantum communication systems. In this article, we first provide a brief survey of existing solutions for satellite-based entanglement distribution, highlighting the various approaches and technologies that have been employed in this rapidly evolving field. We then delve into a formulated optimal entanglement distribution problem, aiming to optimize the distribution of quantum entanglement resources across the satellite network to maximize efficiency and reliability. This problem is addressed through a detailed exploration of several different methodologies and algorithms, each tailored to specific operational settings and constraints. Our experimental results confirm the efficiency of these approaches and provide valuable insights into their practical implementation and performance. Finally, we identify several key directions for further study and development in the realm of satellite-based ",
-   "source": "backfill",
-   "domains": [
-    "satellite"
    ]
   },
   {
@@ -21702,38 +20862,6 @@
    "domains": []
   },
   {
-   "id": "energy-efficient-satellite-range-scheduling-reinforcement-learning-841e3",
-   "title": "Energy-Efficient Satellite Range Scheduling Using a Reinforcement Learning-Based Memetic Algorithm",
-   "titleZh": "基于强化学习模因算法的节能卫星测控资源调度",
-   "authors": [
-    "Yanjie Song",
-    "Ponnuthurai Nagaratnam Suganthan",
-    "Witold Pedrycz",
-    "Ran Yan",
-    "Dongming Fan",
-    "Yue Zhang"
-   ],
-   "venue": "IEEE Transactions on Aerospace and Electronic Systems",
-   "date": "2024-03-12",
-   "year": 2024,
-   "citations": 20,
-   "arxivId": "",
-   "doi": "10.1109/taes.2024.3371964",
-   "url": "https://doi.org/10.1109/taes.2024.3371964",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "频繁任务执行带来的高能耗已成为未来卫星管理系统设计必须考量因素。论文提出强化学习驱动的模因算法求解卫星测控区间调度,在优化调度的同时最小化能耗,把\"绿色调度\"目标引入卫星资源管理。",
-   "abstract": "The rapid expansion of the satellite industry has presented numerous opportunities across various sectors and significantly transformed people's daily lives. However, the high energy consumption resulting from frequent task execution poses challenges for satellite management. Energy consumption has become an important factor to be considered in the design of future satellite management systems. The energy-efficient satellite range scheduling problem (EESRSP) aims to optimize task sequencing profits within the satellite management system while simultaneously conserving energy. To address this problem, a mixed-integer scheduling model is constructed, taking into account the energy consumption of ground stations during telemetry, tracking and command (TT&C) operations. Then, we propose a reinforcement learning-based memetic algorithm (RL-MA) that incorporates a heuristic initialization method (HIM). The HIM enables the algorithm to rapidly generate high-quality initial solutions by leveraging task features associated with EESRSRP. RL-MA employs both population search and local search techniques to explore the satellite TT&C task plan. RL-MA incorporates two genetic operators, crossover and mutation, into the population-based search. In the local search stage, multiple random and heuristic local search operators are incorporated through an ensemble local search strategy (ELSS). To improve search performance, Q-learning, a classical class of reinforcement learning (RL) methods tai",
-   "source": "backfill",
-   "domains": [
-    "satellite",
-    "materials"
-   ]
-  },
-  {
    "id": "circumventing-superexponential-runtimes-hard-instances-quantum-adiabatic-1f19e",
    "title": "Circumventing superexponential runtimes for hard instances of quantum adiabatic optimization",
    "titleZh": "绕过量子绝热优化困难实例的超指数运行时间",
@@ -22960,37 +22088,6 @@
    "abstract": "The escalating threat and impact of network-based attacks necessitate innovative intrusion detection systems. Machine learning has shown promise, with recent strides in Quantum Machine Learning (QML) offering new avenues. However, the potential of quantum computing is tempered by challenges in current noisy intermediate-scale quantum (NISQ) era machines. In this study, we explore Quantum Neural Networks (QNNs) for intrusion detection, optimizing their performance within current quantum computing limitations. Our approach includes efficient classical feature encoding, QNN classifier selection, and performance tuning leveraging current quantum computational power. This study culminates in an optimized multi-layered QNN architecture for network intrusion detection. A small version of the proposed architecture was implemented on IonQ's Aria-1 quantum computer, achieving a notable 0.86 F1 score using the NF-UNSW-NB15 dataset. Additionally, we introduce a novel metric, certainty factor, laying the foundation for future integration of uncertainty measures in quantum classification outputs. Moreover, this factor is used to predict the noise susceptibility of our quantum binary classification system.",
    "source": "backfill",
    "domains": []
-  },
-  {
-   "id": "strategy-fusion-based-multiobjective-optimization-approach-agile-b9cca",
-   "title": "A Strategy Fusion-Based Multiobjective Optimization Approach for Agile Earth Observation Satellite Scheduling Problem",
-   "titleZh": "面向敏捷对地观测卫星调度的策略融合多目标优化方法",
-   "authors": [
-    "He Wang",
-    "Weiquan Huang",
-    "Sindri Magnússon",
-    "Tony Lindgren",
-    "Ran Wang",
-    "Yanjie Song"
-   ],
-   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
-   "date": "2024-01-01",
-   "year": 2024,
-   "citations": 11,
-   "arxivId": "",
-   "doi": "10.1109/tgrs.2024.3472749",
-   "url": "https://doi.org/10.1109/tgrs.2024.3472749",
-   "topics": [
-    "quantum"
-   ],
-   "curatedTopics": false,
-   "tags": [],
-   "summaryZh": "敏捷卫星成像调度对应急响应、城市规划与国防意义重大。论文针对多目标场景提出策略融合的多目标优化方法,弥补现有研究较少兼顾多目标的不足,发表于 IEEE TGRS。",
-   "abstract": "Agile satellite imaging scheduling plays a vital role in improving emergency response, urban planning, national defense, and resource management. With the rise in the number of in-orbit satellites and observation windows, the need for diverse agile Earth observation satellite (AEOS) scheduling has surged. However, current research seldom addresses multiple optimization objectives, which are crucial in many engineering practices. This article tackles a multiobjective AEOS scheduling problem (MOAEOSSP) that aims to optimize total observation task profit, satellite energy consumption, and load balancing. To address this intricate problem, we propose a strategy-fused multiobjective dung beetle optimization (SFMODBO) algorithm. This novel algorithm harnesses the position update characteristics of various dung beetle populations and integrates multiple high-adaptability strategies. Consequently, it strikes a better balance between global search capability and local exploitation accuracy, making it more effective at exploring the solution space and avoiding local optima. The SFMODBO algorithm enhances global search capabilities through diverse strategies, ensuring thorough coverage of the search space. Simultaneously, it significantly improves local optimization precision by fine-tuning solutions in promising regions. This dual approach enables more robust and efficient problem-solving. Simulation experiments confirm the effectiveness and efficiency of the SFMODBO algorithm. Results",
-   "source": "backfill",
-   "domains": [
-    "satellite"
-   ]
   },
   {
    "id": "enhancing-knapsack-based-financial-portfolio-optimization-quantum-f4aa7",

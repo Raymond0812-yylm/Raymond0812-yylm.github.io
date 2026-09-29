@@ -192,11 +192,24 @@ def main():
     # 每日扩库批次(fill_day.py 产出,fill_summaries.json 提供摘要)
     fill_p = os.path.join(CACHE, "fill_papers.json")
     fill_s = os.path.join(CACHE, "fill_summaries.json")
+    # 人工审核剔除名单:这些 fid 永不合并(即使摘要存在/未来重写),见 reject_fids.json
+    reject_fids = {}
+    reject_p = os.path.join(CACHE, "reject_fids.json")
+    if os.path.exists(reject_p):
+        try:
+            reject_fids = (json.load(open(reject_p, encoding="utf-8")) or {}).get("fids", {})
+        except Exception:
+            reject_fids = {}
     if os.path.exists(fill_p):
         fill_store = json.load(open(fill_p, encoding="utf-8"))
         fill_sums = json.load(open(fill_s, encoding="utf-8")) if os.path.exists(fill_s) else {}
+        rejected = 0
         for p in fill_store:
-            s = fill_sums.get(p.get("fid"))
+            fid = p.get("fid")
+            if fid in reject_fids:
+                rejected += 1
+                continue
+            s = fill_sums.get(fid)
             if not s:
                 continue
             sp = {
@@ -219,8 +232,23 @@ def main():
     def domain_text(p):
         return " ".join([p.get("title", ""), p.get("titleZh", ""), (p.get("summaryZh") or "")[:140], (p.get("abstract") or "")[:240]])
 
+    # 人工核定的领域修正(2026-09-29 卫星专题审计):按标题片段匹配,固定 domains 且不再被自动推导覆盖
+    DOMAIN_FIXES = [
+        # 耐腐蚀材料×量子计算:因摘要含 aerospace 误挂 satellite,实为材料化工
+        ("quantum computing for corrosion-resistant materials", ["materials"]),
+        ("quantum computing for corrosion simulation", ["materials"]),
+    ]
     for p in papers:
-        p["domains"] = [d for d in match_key(domain_text(p), DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
+        tl = (p.get("title") or "").lower()
+        fixed = False
+        for key, dom in DOMAIN_FIXES:
+            if key in tl:
+                p["domains"] = list(dom)
+                p["curatedDomains"] = True
+                fixed = True
+                break
+        if not fixed and not p.get("curatedDomains"):
+            p["domains"] = [d for d in match_key(domain_text(p), DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
 
     # ---- 量子相关性硬过滤(二次严格审查;卫星与航天领域文献豁免)----
     QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|qubit|量子", re.I)
