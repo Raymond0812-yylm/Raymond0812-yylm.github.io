@@ -43526,5 +43526,123 @@
   "doi": "10.22541/au.176463858.80867931/v1",
   "citations": 0,
   "theme": "qubit readout multiplexing cryogenic"
+ },
+ {
+  "fid": "8139719940ca",
+  "title": "Partitioned Iterative Quantum Scheduling of Satellites for Urgent Disaster Response: Case study of Wildfire",
+  "authors": [
+   "Lucas T. Braydwood",
+   "Taejin Park",
+   "Hirofumi Hashimoto",
+   "Zoe Gonzalez Izquierdo",
+   "Andrew Michaelis",
+   "Eleanor Rieffel",
+   "Shon R. Grabbe"
+  ],
+  "abstract": "The standard in Earth-observation tasks today is having near real-time access to surface images in response to changing conditions. For instance, as urban environments interface more with wildlands and wildfires become less predictable, their tracking with satellite resources becomes essential. This requires the coordination of increasingly large constellations of satellites, giving rise to challenging computational problems. With wildfire detection and tracking as a backdrop, we investigate the power of special purpose and novel computing paradigms to tackle the ensuing satellite scheduling problems, making a compelling case for quantum algorithms. We bring quantum scheduling algorithms closer to implementation by examining both the emerging iterative quantum algorithm framework, which comes with analytic guarantees compared to some classical algorithms, and distributed quantum computing methods whose relevance is on the rise as utility-scale problems begin to get solved with quantum computers. Drawing strength from several computing fronts, we develop a distributed/parallelization scheme in conjunction with the quantum algorithm design and apply these techniques to real-world datasets for wildfire detection. While our quantum subprocesses are currently too small to see significant quantum advantage, our results validate the utility of these techniques, and continue forging the path toward distributed quantum computing.",
+  "date": "2026-06-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.12310",
+  "doi": "10.48550/arxiv.2606.12310",
+  "citations": 0,
+  "theme": "imaging satellite scheduling quantum com"
+ },
+ {
+  "fid": "4dad7df86276",
+  "title": "Quantum Algorithms Applied to Satellite Mission Planning for Earth Observation",
+  "authors": [
+   "Serge Rainjonneau",
+   "Igor Tokarev",
+   "Sergei Iudin",
+   "Saaketh Rayaprolu",
+   "Karan Pinto",
+   "Daria Lemtiuzhnikova",
+   "Miras Koblan",
+   "Egor Barashov",
+   "Mohammad Kordzanganeh",
+   "Markus Pflitsch",
+   "Alexey A. Melnikov"
+  ],
+  "abstract": "Earth imaging satellites are a crucial part of our everyday lives that enable global tracking of industrial activities. Use cases span many applications, from weather forecasting to digital maps, carbon footprint tracking, and vegetation monitoring. However, there are limitations; satellites are difficult to manufacture, expensive to maintain, and tricky to launch into orbit. Therefore, satellites must be employed efficiently. This poses a challenge known as the satellite mission planning problem, which could be computationally prohibitive to solve on large scales. However, close-to-optimal algorithms, such as greedy reinforcement learning and optimization algorithms, can often provide satisfactory resolutions. This paper introduces a set of quantum algorithms to solve the mission planning problem and demonstrate an advantage over the classical algorithms implemented thus far. The problem is formulated as maximizing the number of high-priority tasks completed on real datasets containing thousands of tasks and multiple satellites. This work demonstrates that through solution-chaining and clustering, optimization and machine learning algorithms offer the greatest potential for optimal solutions. This paper notably illustrates that a hybridized quantum-enhanced reinforcement learning agent can achieve a completion percentage of 98.5% over high-priority tasks, significantly improving over the baseline greedy methods with a completion rate of 75.8%. The results presented in this work pave the way to quantum-enabled solutions in the space industry and, more generally, future mission planning problems across industries.",
+  "date": "2023-01-01",
+  "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+  "arxiv_id": "",
+  "doi": "10.1109/jstars.2023.3287154",
+  "citations": 60,
+  "theme": "sat-qc-narrow"
+ },
+ {
+  "fid": "57e4ff6dd2bb",
+  "title": "Agile Earth Observation Satellite Scheduling With a Quantum Annealer",
+  "authors": [
+   "Tobias Stollenwerk",
+   "Vincent Michaud",
+   "Elisabeth Lobe",
+   "Mathieu Picard",
+   "Achim Basermann",
+   "Thierry Botter"
+  ],
+  "abstract": "We present a comparison study of state-of-the-art classical optimization methods to a D-Wave 2000Q quantum annealer for the scheduling of agile Earth observation satellites. The problem is to acquire high-value images while obeying the attitude maneuvering constraint of the satellite. In order to investigate close to real-world problems, we created benchmark problems by simulating realistic scenarios. Our results show that a tuned quantum annealing approach can run faster when used to find the optimal solution than a classical exact solver for some of the problem instances. Moreover, we find that the solution quality of the quantum annealer is comparable to the heuristic method used operationally for small problem instances, but degrades rapidly due to the limited precision of the quantum annealer.",
+  "date": "2021-06-16",
+  "venue": "IEEE Transactions on Aerospace and Electronic Systems",
+  "arxiv_id": "",
+  "doi": "10.1109/taes.2021.3088490",
+  "citations": 42,
+  "theme": "sat-qc-narrow"
+ },
+ {
+  "fid": "5565df8799bb",
+  "title": "A Hybrid Classical Quantum Computing Approach to the Satellite Mission Planning Problem",
+  "authors": [
+   "Nils Quetschlich",
+   "Vincent Koch",
+   "Lukas Burgholzer",
+   "Robert Wille"
+  ],
+  "abstract": "Hundreds of satellites equipped with cameras orbit the Earth to capture images from locations for various purposes. Since the field of view of the cameras is usually very narrow, the optics have to be adjusted and rotated between single shots of different locations. This is even further complicated by the fixed speed-determined by the satellite's altitude-such that the decision what locations to select for imaging becomes even more complex. Therefore, classical algorithms for this Satellite Mission Planning Problem (SMPP) have already been proposed decades ago. However, corresponding classical solutions have only seen evolutionary enhancements since then. Quantum computing and its promises, on the other hand, provide the potential for revolutionary improvement. Therefore, in this work, we propose a hybrid classical quantum computing approach to solve the SMPP combining the advantages of quantum hardware with decades of classical optimizer development. Using the Variational Quantum Eigensolver (VQE), Quantum Approximate Optimization Algorithm (QAOA), and its warm-start variant (W-QAOA), we demonstrate the applicability of solving the SMPP for up to 21 locations to choose from. This proof-of-concept-which is avail-able on GitHub (https://github.com/cda-tum/mqt-problemsolver) as part of the Munich Quantum Toolkit (MQT)-showcases the potential of quantum computing in this application domain and represents a first step toward competing with classical algorithms in the future.",
+  "date": "2023-09-17",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.1109/qce57702.2023.00079",
+  "citations": 11,
+  "theme": "sat-qc-narrow"
+ },
+ {
+  "fid": "7e44d0761593",
+  "title": "Optimization of Image Acquisition for Earth Observation Satellites via Quantum Computing",
+  "authors": [
+   "Antón Makarov",
+   "Márcio M. Taddei",
+   "Eneko Osaba",
+   "Giacomo Franceschetto",
+   "Esther Villar-Rodríguez",
+   "Izaskun Oregi"
+  ],
+  "abstract": "",
+  "date": "2023-01-01",
+  "venue": "Lecture notes in computer science",
+  "arxiv_id": "",
+  "doi": "10.1007/978-3-031-48232-8_1",
+  "citations": 8,
+  "theme": "sat-qc-narrow"
+ },
+ {
+  "fid": "9fa18ea67e90",
+  "title": "Image Acquisition Planning for Earth Observation Satellites with a Quantum Annealer",
+  "authors": [
+   "Tobias Stollenwerk",
+   "Michaud, Vincent",
+   "Elisabeth Lobe",
+   "Mathieu Picard",
+   "Achim Basermann",
+   "Thierry Botter"
+  ],
+  "abstract": "",
+  "date": "2020-06-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "",
+  "doi": "10.48550/arxiv.2006.09724",
+  "citations": 7,
+  "theme": "sat-qc-narrow"
  }
 ]

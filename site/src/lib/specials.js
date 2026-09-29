@@ -1,12 +1,19 @@
 // 专题配置:每个专题是一条正交的内容主线,由匹配规则从全库自动聚合论文
-// 2026-09-29 卫星专题人工审计:仅收量子计算(含量子启发)做任务规划/调度/轨迹/星座设计/资源分配的论文。
-// 量子计算×卫星遥感数据处理(非任务规划)保留在文献库但不进本专题:
-const SAT_PLANNING_EXCLUDE = new Set([
-  'quantum-information-empowered-graph-neural-network-hyperspectral-91f3a', // 量子GNN高光谱变化检测
-  'kernel-approximation-quantum-annealer-remote-sensing-regression-636fb', // QA核逼近遥感回归
-  'hybrid-quantum-deep-learning-superpixel-encoding-earth-8e268', // 混合量子DL对地观测分类
-  'quantum-annealing-remote-sensing-data-processing-review-523cf', // QA遥感数据处理综述
-  'hybrid-quantum-inspired-intelligent-computing-model-real-ed75e', // 气候数据量子启发模型
+// 2026-09-29 卫星专题收录标准收窄(经人工审计):仅收录
+//   「卫星任务规划/调度/成像获取问题本身 + 真量子计算求解(量子退火/QAOA/门型)+ 完整研究」
+// 三条件齐备的论文。量子启发算法、量子通信、遥感数据处理、星座设计、综述等
+// 即使与卫星相关也不进本专题(部分保留在文献库)。
+// 新论文入库后需人工审核并加入下方收录表才会出现在专题页。
+const SAT_CURATED = new Set([
+  // 奠基与基准
+  'quantum-optimization-methods-satellite-mission-planning-05875', // 卫星任务规划的量子优化方法(2024 IEEE Access,系统性QUBO建模,被引最高)
+  'quantum-algorithms-applied-satellite-mission-planning-earth-c15e1', // 应用于对地观测卫星任务规划的量子算法(2023 IEEE JSTQE,60引用)
+  // 退火硬件实验
+  'agile-earth-observation-satellite-scheduling-quantum-annealer-226ee', // 量子退火机求解敏捷EO卫星调度(2021 IEEE TAES,D-Wave 2000Q对比研究)
+  'image-acquisition-planning-earth-observation-satellites-quantum-e9da5', // 量子退火成像获取规划(2020 arXiv,已知最早)
+  // 混合求解
+  'hybrid-classical-quantum-computing-approach-satellite-mission-13c31', // SMPP经典-量子混合求解(2023)
+  'optimization-image-acquisition-earth-observation-satellites-quantum-f4163', // 成像获取优化(LNCS 2023)
 ]);
 export const SPECIALS = [
   {
@@ -15,10 +22,9 @@ export const SPECIALS = [
     en: 'Quantum × Satellite Mission Planning',
     icon: '🛰️',
     color: '#1d4ed8',
-    desc: '卫星任务规划、对地观测调度、空间碎片清除等航天组合优化问题,正成为量子优化最具想象力的应用战场。本专题汇总该方向的建模方法、算法与硬件实验进展(经人工审核,剔除无量子方法与量子通信类论文)。',
-    // domains-only 判定:domains 由 build_db 自动推导并经量子相关性护栏审计,
-    // 不再用标题正则兜底,防止纯经典调度、量子通信与遥感数据处理类论文混入。
-    match: (p) => !SAT_PLANNING_EXCLUDE.has(p.id) && (p.domains || []).includes('satellite'),
+    desc: '把对地观测卫星的任务规划/调度/成像获取问题形式化为 QUBO,用量子退火与 QAOA 求解——本专题只收录「问题建模 + 真量子求解 + 实验」三要素齐备的方法论文(每篇均经人工审核),是可直接借鉴建模与实验设计的核心文献集。',
+    // 人工核定收录表判定:宁缺毋滥,杜绝自动扩库噪音
+    match: (p) => SAT_CURATED.has(p.id),
   },
   {
     key: 'llm',

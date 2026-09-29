@@ -22736,6 +22736,37 @@
    "domains": []
   },
   {
+   "id": "hybrid-classical-quantum-computing-approach-satellite-mission-13c31",
+   "title": "A Hybrid Classical Quantum Computing Approach to the Satellite Mission Planning Problem",
+   "titleZh": "卫星任务规划问题的经典-量子混合求解方法",
+   "authors": [
+    "Nils Quetschlich",
+    "Vincent Koch",
+    "Lukas Burgholzer",
+    "Robert Wille"
+   ],
+   "venue": "预印本",
+   "date": "2023-09-17",
+   "year": 2023,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.1109/qce57702.2023.00079",
+   "url": "https://doi.org/10.1109/qce57702.2023.00079",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "从成像卫星相机视场窄、需在拍摄间转动光学指向、且转动速度由轨道高度固定这一真实约束出发研究卫星任务规划(SMPP);指出经典解法数十年仅有渐进改良,提出经典-量子混合方法以兑现量子计算的革新潜力。",
+   "abstract": "Hundreds of satellites equipped with cameras orbit the Earth to capture images from locations for various purposes. Since the field of view of the cameras is usually very narrow, the optics have to be adjusted and rotated between single shots of different locations. This is even further complicated by the fixed speed-determined by the satellite's altitude-such that the decision what locations to select for imaging becomes even more complex. Therefore, classical algorithms for this Satellite Mission Planning Problem (SMPP) have already been proposed decades ago. However, corresponding classical solutions have only seen evolutionary enhancements since then. Quantum computing and its promises, on the other hand, provide the potential for revolutionary improvement. Therefore, in this work, we propose a hybrid classical quantum computing approach to solve the SMPP combining the advantages of quantum hardware with decades of classical optimizer development. Using the Variational Quantum Eigensolver (VQE), Quantum Approximate Optimization Algorithm (QAOA), and its warm-start variant (W-QAOA), we demonstrate the applicability of solving the SMPP for up to 21 locations to choose from. This proof-of-concept-which is avail-able on GitHub (https://github.com/cda-tum/mqt-problemsolver) as part of the Munich Quantum Toolkit (MQT)-showcases the potential of quantum computing in this application domain and represents a first step toward competing with classical algorithms in the future.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "quantum-enhanced-markov-chain-monte-carlo-387ea",
    "title": "Quantum-enhanced Markov chain Monte Carlo",
    "titleZh": "量子增强的马尔可夫链蒙特卡洛",
@@ -22882,6 +22913,75 @@
    "abstract": "Hybrid quantum-classical computation represents one of the most promising approaches to deliver novel machine learning models. In this work, we propose a novel variational algorithm for quantum Single Layer Perceptron (qSLP), which allows producing a quantum state equivalent to the output of a classical single layer perceptron. The work also designs a quantum circuit to perform linear combinations in quantum computation.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-algorithms-applied-satellite-mission-planning-earth-c15e1",
+   "title": "Quantum Algorithms Applied to Satellite Mission Planning for Earth Observation",
+   "titleZh": "应用于对地观测卫星任务规划的量子算法",
+   "authors": [
+    "Serge Rainjonneau",
+    "Igor Tokarev",
+    "Sergei Iudin",
+    "Saaketh Rayaprolu",
+    "Karan Pinto",
+    "Daria Lemtiuzhnikova",
+    "Miras Koblan",
+    "Egor Barashov",
+    "Mohammad Kordzanganeh",
+    "Markus Pflitsch",
+    "Alexey A. Melnikov"
+   ],
+   "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+   "date": "2023-01-01",
+   "year": 2023,
+   "citations": 60,
+   "arxivId": "",
+   "doi": "10.1109/jstars.2023.3287154",
+   "url": "https://doi.org/10.1109/jstars.2023.3287154",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "本方向被引最高的方法论文(60 引):针对卫星制造成本高、在轨资源有限因而必须高效调配的核心矛盾,把对地观测卫星任务规划问题系统映射为一组量子算法可求解的形式,并与贪婪强化学习等近期最优经典算法对比求解表现;发表于 IEEE JSTQE,是后续卫星任务规划 QUBO 研究的标准参考。",
+   "abstract": "Earth imaging satellites are a crucial part of our everyday lives that enable global tracking of industrial activities. Use cases span many applications, from weather forecasting to digital maps, carbon footprint tracking, and vegetation monitoring. However, there are limitations; satellites are difficult to manufacture, expensive to maintain, and tricky to launch into orbit. Therefore, satellites must be employed efficiently. This poses a challenge known as the satellite mission planning problem, which could be computationally prohibitive to solve on large scales. However, close-to-optimal algorithms, such as greedy reinforcement learning and optimization algorithms, can often provide satisfactory resolutions. This paper introduces a set of quantum algorithms to solve the mission planning problem and demonstrate an advantage over the classical algorithms implemented thus far. The problem is formulated as maximizing the number of high-priority tasks completed on real datasets containing thousands of tasks and multiple satellites. This work demonstrates that through solution-chaining and clustering, optimization and machine learning algorithms offer the greatest potential for optimal solutions. This paper notably illustrates that a hybridized quantum-enhanced reinforcement learning agent can achieve a completion percentage of 98.5% over high-priority tasks, significantly improving over the baseline greedy methods with a completion rate of 75.8%. The results presented in this w",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "manufacturing",
+    "materials"
+   ]
+  },
+  {
+   "id": "optimization-image-acquisition-earth-observation-satellites-quantum-f4163",
+   "title": "Optimization of Image Acquisition for Earth Observation Satellites via Quantum Computing",
+   "titleZh": "基于量子计算的对地观测卫星成像获取优化",
+   "authors": [
+    "Antón Makarov",
+    "Márcio M. Taddei",
+    "Eneko Osaba",
+    "Giacomo Franceschetto",
+    "Esther Villar-Rodríguez",
+    "Izaskun Oregi"
+   ],
+   "venue": "Lecture notes in computer science",
+   "date": "2023-01-01",
+   "year": 2023,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.1007/978-3-031-48232-8_1",
+   "url": "https://doi.org/10.1007/978-3-031-48232-8_1",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "研究对地观测卫星成像获取计划的量子计算求解,收录于 LNCS(2023,被引 8);与 2020 年的量子退火成像规划前身为同一条工作线。",
+   "abstract": "",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "gcs-q-quantum-graph-coalition-structure-generation-7d70e",
@@ -23132,6 +23232,38 @@
    "domains": []
   },
   {
+   "id": "agile-earth-observation-satellite-scheduling-quantum-annealer-226ee",
+   "title": "Agile Earth Observation Satellite Scheduling With a Quantum Annealer",
+   "titleZh": "用量子退火机求解敏捷对地观测卫星调度",
+   "authors": [
+    "Tobias Stollenwerk",
+    "Vincent Michaud",
+    "Elisabeth Lobe",
+    "Mathieu Picard",
+    "Achim Basermann",
+    "Thierry Botter"
+   ],
+   "venue": "IEEE Transactions on Aerospace and Electronic Systems",
+   "date": "2021-06-16",
+   "year": 2021,
+   "citations": 42,
+   "arxivId": "",
+   "doi": "10.1109/taes.2021.3088490",
+   "url": "https://doi.org/10.1109/taes.2021.3088490",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "最早的\"敏捷对地观测卫星调度×量子退火\"对比研究之一(42 引):在 D-Wave 2000Q 上求解姿态机动约束下获取高价值图像的调度问题,以仿真真实场景构建基准,对比最优经典精确求解器与实际在用的启发式方法。结论:调参后的 QA 在部分实例上找到最优解更快,小规模时解质量与运行启发式相当,但受量子比特精度限制随规模增大而退化。",
+   "abstract": "We present a comparison study of state-of-the-art classical optimization methods to a D-Wave 2000Q quantum annealer for the scheduling of agile Earth observation satellites. The problem is to acquire high-value images while obeying the attitude maneuvering constraint of the satellite. In order to investigate close to real-world problems, we created benchmark problems by simulating realistic scenarios. Our results show that a tuned quantum annealing approach can run faster when used to find the optimal solution than a classical exact solver for some of the problem instances. Moreover, we find that the solution quality of the quantum annealer is comparable to the heuristic method used operationally for small problem instances, but degrades rapidly due to the limited precision of the quantum annealer.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "quantum-approximate-optimization-non-planar-graph-problems-3ae49",
    "title": "Quantum approximate optimization of non-planar graph problems on a planar superconducting processor",
    "titleZh": "在平面超导处理器上对非平面图问题进行量子近似优化",
@@ -23214,6 +23346,37 @@
    "abstract": "A powerful way to improve performance in machine learning is to construct an ensemble that combines the predictions of multiple models. Ensemble methods are often much more accurate and lower variance than the individual classifiers that make them up but have high requirements in terms of memory and computational time. In fact, a large number of alternative algorithms is usually adopted, each requiring to query all available data. We propose a new quantum algorithm that exploits quantum superposition, entanglement and interference to build an ensemble of classification models. Thanks to the generation of the several quantum trajectories in superposition, we obtain $B$ transformations of the quantum state which encodes the training set in only $log\\left(B\\right)$ operations. This implies exponential growth of the ensemble size while increasing linearly the depth of the correspondent circuit. Furthermore, when considering the overall cost of the algorithm, we show that the training of a single weak classifier impacts additively the overall time complexity rather than multiplicatively, as it usually happens in classical ensemble methods. We also present small-scale experiments on real-world datasets, defining a quantum version of the cosine classifier and using the IBM qiskit environment to show how the algorithms work.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "image-acquisition-planning-earth-observation-satellites-quantum-e9da5",
+   "title": "Image Acquisition Planning for Earth Observation Satellites with a Quantum Annealer",
+   "titleZh": "用量子退火机做对地观测卫星成像获取规划",
+   "authors": [
+    "Tobias Stollenwerk",
+    "Michaud, Vincent",
+    "Elisabeth Lobe",
+    "Mathieu Picard",
+    "Achim Basermann",
+    "Thierry Botter"
+   ],
+   "venue": "arXiv",
+   "date": "2020-06-17",
+   "year": 2020,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.48550/arxiv.2006.09724",
+   "url": "https://doi.org/10.48550/arxiv.2006.09724",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "该方向已知最早的工作之一(2020 arXiv,7 引):把对地观测卫星的成像获取规划问题交由量子退火机求解,是 2021 年 IEEE TAES 系统对比研究与后续系列的前身。",
+   "abstract": "",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "combinatorial-optimization-simulating-adiabatic-bifurcations-nonlinear-hamiltonian-52a89",
