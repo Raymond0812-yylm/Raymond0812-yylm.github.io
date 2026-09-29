@@ -1,0 +1,22 @@
+---
+// 粘性日期头:手机为通栏灰条,桌面为日期+星期+计数。移植自 AIHOT feed/Timeline DayHeader。
+interface Props { day: string; today?: string; count?: number | null }
+const { day, today, count = null } = Astro.props;
+const [, m, d] = day.split('-').map(Number);
+const date = `${m}月${d}日`;
+const WEEKDAY_SHORT = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+const short = WEEKDAY_SHORT[new Date(`${day}T12:00:00+08:00`).getUTCDay()] ?? '';
+const isToday = today === day;
+---
+<div class="sticky top-0 z-20 -mx-4 bg-daybar px-4 lg:mx-0 lg:bg-bg lg:px-0">
+  <div class="flex h-9 items-center gap-2 lg:hidden">
+    <span class="text-[14px] font-bold text-ink">{isToday ? '今天' : date}</span>
+    {isToday && <span class="text-[12.5px] text-ink-4">{date}</span>}
+    <span class="text-[12.5px] text-ink-4">{short}</span>
+  </div>
+  <div class="hidden h-11 grid-cols-[64px_22px_minmax(0,1fr)] items-center lg:grid">
+    <span class="justify-self-end whitespace-nowrap text-right text-[18px] font-semibold leading-6 text-ink">{date}</span>
+    <span></span>
+    <span class="text-[13px] text-ink-4">{short}{count !== null && (<>&nbsp;·&nbsp;<span class="num">{count}</span> 条</>)}</span>
+  </div>
+</div>

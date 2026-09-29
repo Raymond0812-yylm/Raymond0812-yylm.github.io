@@ -1,0 +1,60 @@
+---
+// Agent 接入说明页:RSS / llms.txt / 搜索索引的机器可读出口。对应 AIHOT routes/agent.tsx。
+import Shell from '../layouts/Shell.astro';
+import Icon from '../components/Icon.astro';
+import Kicker from '../components/ui/Kicker.astro';
+
+const feeds = [
+  { name: '精选 RSS', path: '/feed.xml', desc: '入选论文与行业动态,最近 50 条' },
+  { name: '全部 RSS', path: '/feed/all.xml', desc: '全部条目,最近 100 条' },
+  { name: '全文 RSS', path: '/feed/full.xml', desc: '含完整中文摘要' },
+  { name: '日报 RSS', path: '/feed/daily.xml', desc: '每日论文精读报告' },
+];
+---
+<Shell title="Agent 接入" description="本站的 RSS、llms.txt 与搜索索引等机器可读出口" path="/agent/">
+  <div class="mx-auto max-w-[760px]">
+    <header class="pt-2">
+      <Kicker>Agent 接入</Kicker>
+      <h1 class="mt-3 text-[26px] font-bold tracking-[-0.01em] text-ink">让 AI 助手读取本站</h1>
+      <p class="mt-2.5 text-[15px] leading-[1.85] text-ink-2">
+        本站为纯静态站点,所有内容都提供机器可读出口。把下列地址配置到你的 LLM 工作流、
+        RSS 聚合器或爬虫即可,无需 API Key,没有速率限制。
+      </p>
+    </header>
+
+    <section class="mt-8">
+      <h2 class="flex items-center gap-2 border-b border-line-strong pb-2 text-[16px] font-bold text-ink"><Icon name="rss" size={16} class="text-accent" /> RSS 订阅</h2>
+      <ul class="mt-3">
+        {feeds.map((f) => (
+          <li class="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-line py-3">
+            <a href={f.path} class="mono text-[13.5px] font-semibold text-accent hover:text-accent-ink">{f.path}</a>
+            <span class="text-[14px] font-medium text-ink">{f.name}</span>
+            <span class="w-full text-[12.5px] text-ink-4 sm:w-auto">{f.desc}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="mt-8">
+      <h2 class="flex items-center gap-2 border-b border-line-strong pb-2 text-[16px] font-bold text-ink"><Icon name="plug" size={16} class="text-accent" /> 结构化数据</h2>
+      <ul class="mt-3">
+        <li class="border-b border-line py-3">
+          <a href="/llms.txt" class="mono text-[13.5px] font-semibold text-accent hover:text-accent-ink">/llms.txt</a>
+          <p class="mt-1 text-[13px] leading-relaxed text-ink-3">面向大语言助手的站点说明:内容结构、引用规范与全部出口,遵循 llms.txt 约定。</p>
+        </li>
+        <li class="border-b border-line py-3">
+          <a href="/search-index.json" class="mono text-[13.5px] font-semibold text-accent hover:text-accent-ink">/search-index.json</a>
+          <p class="mt-1 text-[13px] leading-relaxed text-ink-3">全量条目 JSON 数组:id、href、kind、date、title、sub(来源)、text(中文摘要)、tags。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="well mt-8 rounded-panel p-5">
+      <h2 class="text-[13.5px] font-semibold text-ink">引用规范</h2>
+      <p class="mt-2 text-[13px] leading-[1.8] text-ink-3">
+        论文条目请优先引用 arXiv/DOI 原文;中文摘要为本站编译,转载请注明「量子优化日报 QuantOpt Daily」。
+        本站内容每日由自动流水线汇编,以原始出处为准。
+      </p>
+    </section>
+  </div>
+</Shell>

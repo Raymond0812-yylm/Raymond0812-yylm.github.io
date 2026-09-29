@@ -1,0 +1,18 @@
+---
+// 数字分页(列表保持可爬取),首尾与省略号。移植自 AIHOT feed/DayList Pagination。
+interface Props { page: number; pageCount: number; href: (p: number) => string }
+const { page, pageCount, href } = Astro.props;
+if (pageCount <= 1) return;
+const pages = [...new Set([1, pageCount, page - 2, page - 1, page, page + 1, page + 2].filter((p) => p >= 1 && p <= pageCount))].sort((a, b) => a - b);
+const btn = 'inline-flex h-9 min-w-9 items-center justify-center rounded-full px-2.5 text-[13px] transition-colors';
+---
+<nav aria-label="分页" class="mt-6 flex flex-wrap items-center justify-center gap-1">
+  {page > 1 && <a href={href(page - 1)} class:list={[btn, 'border border-line-strong bg-surface px-3 text-ink-3 hover:border-ink-4 hover:text-ink']}>上一页</a>}
+  {pages.map((p, i) => (
+    <span class="flex items-center gap-1">
+      {i > 0 && p - pages[i - 1]! > 1 && <span class="px-0.5 text-ink-4">…</span>}
+      <a href={href(p)} aria-current={p === page ? 'page' : undefined} class:list={['num', btn, p === page ? 'bg-ink font-semibold text-bg' : 'text-ink-3 hover:bg-bg-sunk hover:text-ink']}>{p}</a>
+    </span>
+  ))}
+  {page < pageCount && <a href={href(page + 1)} class:list={[btn, 'gap-0.5 border border-line-strong bg-surface px-3 text-ink-3 hover:border-ink-4 hover:text-ink']}>下一页 <span aria-hidden="true">›</span></a>}
+</nav>

@@ -299,6 +299,164 @@ for (const p of papers) {
 const newsFiles = fs.readdirSync(ROOT).filter((f) => /^news-\d{4}-\d{2}-\d{2}\.md$/i.test(f)).sort();
 const news = newsFiles.map(parseNews).sort((a, b) => (a.date < b.date ? 1 : -1));
 
+// ---------- 统一条目流(论文 + 行业动态)→ AIHOT 式 feed ----------
+const TOPIC_LABELS = Object.fromEntries(Object.entries(db.topics || {}).map(([k, v]) => [k, typeof v === 'string' ? v : v.label || k]));
+const DOMAIN_LABELS = Object.fromEntries(Object.entries(db.domains || {}).map(([k, v]) => [k, typeof v === 'string' ? v : v.label || k]));
+
+const items = [];
+for (const p of papers) {
+  const url = p.url || (p.doi ? `https://doi.org/${p.doi}` : '');
+  items.push({
+    id: `p:${p.id}`, kind: 'paper', date: p.date,
+    title: p.titleZh || p.title, titleEn: p.title,
+    summary: p.summaryZh || (p.abstract || '').slice(0, 200),
+    source: p.venue || 'arXiv 预印本', url,
+    href: `/papers/${p.id}/`,
+    selected: !!p.featured, score: p.citations ?? null,
+    categories: ['papers'],
+    tags: [...(p.topics || []).map((t) => TOPIC_LABELS[t] || t), ...(p.domains || []).map((t) => DOMAIN_LABELS[t] || t)].filter(Boolean).slice(0, 6),
+  });
+}
+news.forEach((day) => day.items.forEach((it, i) => {
+  items.push({
+    id: `n:${day.date}:${i}`, kind: 'news', date: day.date,
+    title: it.title, titleEn: '',
+    summary: it.summary || '',
+    source: it.source || '行业媒体', url: it.url || '',
+    href: `/news/${day.date}/#n${i}`,
+    selected: true, score: null,
+    region: it.region || '国际', category: it.category || '行业动态',
+    categories: ['news'],
+    tags: [it.category, it.region === '国内' ? '国内' : '国际'].filter(Boolean),
+    newsIdx: i,
+  });
+}));
+items.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.id < b.id ? 1 : -1));
+
+// ---------- 事件聚簇:跨天/跨源的动态按标题相似度归并(union-find) ----------
+const bigrams = (s) => {
+  const t = (s || '').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '');
+  const out = new Set();
+  for (let i = 0; i < t.length - 1; i++) out.add(t.slice(i, i + 2));
+  for (const w of (s || '').toLowerCase().match(/[a-z0-9]{3,}/g) || []) out.add(w);
+  return out;
+};
+const jaccard = (a, b) => {
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  return inter / (a.size + b.size - inter || 1);
+};
+const dayDiff = (d1, d2) => Math.abs((new Date(d1) - new Date(d2)) / 86400000);
+const hash12 = (s) => { let h = 0; for (const ch of s) h = (h * 131 + ch.charCodeAt(0)) >>> 0; return h.toString(36).padStart(8, '0') + s.length.toString(36); };
+
+const newsItems = items.filter((it) => it.kind === 'news');
+const grams = newsItems.map((it) => bigrams(`${it.title} ${(it.summary || '').slice(0, 80)}`));
+const parent = newsItems.map((_, i) => i);
+const find = (x) => (parent[x] === x ? x : (parent[x] = find(parent[x])));
+for (let i = 0; i < newsItems.length; i++) {
+  for (let j = i + 1; j < newsItems.length; j++) {
+    if (dayDiff(newsItems[i].date, newsItems[j].date) > 10) continue;
+    if (jaccard(grams[i], grams[j]) >= 0.34) parent[find(i)] = find(j);
+  }
+}
+const clusters = new Map();
+newsItems.forEach((it, i) => {
+  const r = find(i);
+  if (!clusters.has(r)) clusters.set(r, []);
+  clusters.get(r).push(it);
+});
+
+// ---------- 热度:48~96h 窗口内独立条目 × 24h 半衰期;与上次构建快照差值得涨跌 ----------
+const SNAP_PATH = path.join(SITE_DIR, 'scripts', 'cache', 'heat-snapshot.json');
+let snap = { generatedAt: null, events: {} };
+try { snap = JSON.parse(fs.readFileSync(SNAP_PATH, 'utf-8')); } catch {}
+const nowMs = Date.now();
+const events = [];
+for (const members of clusters.values()) {
+  members.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+  const canonical = members.reduce((best, it) => (((it.title + it.summary).length > (best.title + best.summary).length) ? it : best), members[0]);
+  let heat = 0;
+  for (const it of members) {
+    const hours = (nowMs - new Date(it.date + 'T00:00:00Z')) / 3600000;
+    if (hours < 0 || hours > 96) continue;
+    heat += Math.pow(2, -hours / 24);
+  }
+  const eid = `e${hash12(members[0].title.toLowerCase().replace(/\s+/g, ''))}`;
+  const prev = snap.events && snap.events[eid];
+  let trend = 'new', deltaPct = null;
+  if (prev && prev.heat > 0.05) {
+    const ratio = heat / prev.heat;
+    deltaPct = Math.round((ratio - 1) * 100);
+    trend = ratio > 1.08 ? 'up' : ratio < 0.92 ? 'down' : 'flat';
+  }
+  const history = [...(prev && prev.history || []), Math.round(heat * 10) / 10].slice(-14);
+  events.push({
+    id: eid,
+    title: canonical.title,
+    summary: canonical.summary,
+    latestSummary: members[members.length - 1].summary,
+    firstDate: members[0].date, lastDate: members[members.length - 1].date,
+    itemCount: members.length,
+    sourceCount: new Set(members.map((m) => m.source)).size,
+    sources: [...new Set(members.map((m) => m.source))].slice(0, 8),
+    items: members.map((m) => ({ id: m.id, date: m.date, title: m.title, source: m.source, href: m.href, region: m.region, url: m.url })),
+    heat: Math.round(heat * 10) / 10,
+    trend, deltaPct, history,
+  });
+}
+events.sort((a, b) => b.heat - a.heat || b.itemCount - a.itemCount);
+const hot = events.filter((e) => e.heat >= 0.15).slice(0, 60).map((e, i) => ({
+  rank: i + 1, id: e.id, title: e.title, heat: e.heat, trend: e.trend, deltaPct: e.deltaPct,
+  history: e.history, sourceCount: e.sourceCount, sources: e.sources, itemCount: e.itemCount, lastDate: e.lastDate,
+}));
+// 写回快照,供下次构建对比涨跌
+try {
+  const snapEvents = {};
+  for (const e of events) snapEvents[e.id] = { heat: e.heat, ts: nowMs, history: e.history };
+  fs.mkdirSync(path.dirname(SNAP_PATH), { recursive: true });
+  fs.writeFileSync(SNAP_PATH, JSON.stringify({ generatedAt: new Date().toISOString(), events: snapEvents }), 'utf-8');
+} catch (e) { console.error('snapshot write failed:', e.message); }
+
+// ---------- 搜索索引(全量条目,前端 fuse.js 检索)----------
+const searchIndex = items.map((it) => ({
+  id: it.id, href: it.href, kind: it.kind, date: it.date,
+  title: it.title, sub: it.source, text: (it.summary || '').slice(0, 300),
+  tags: it.tags,
+}));
+const PUB_DIR = path.join(SITE_DIR, 'public');
+fs.mkdirSync(PUB_DIR, { recursive: true });
+fs.writeFileSync(path.join(PUB_DIR, 'search-index.json'), JSON.stringify(searchIndex), 'utf-8');
+
+// ---------- llms.txt(AI 助手入口说明)----------
+const featuredCount = items.filter((it) => it.selected).length;
+const llms = `# ${'QuantOpt Daily'}(量子优化日报)
+
+> 量子计算 × 组合优化 × 智能优化算法的论文与行业动态追踪站。中文摘要,每日更新。
+
+本站是静态站点,提供以下机器可读出口:
+
+- 精选 RSS:https://raymond0812-yylm.github.io/feed.xml (入选论文与行业动态,最近 50 条)
+- 全部 RSS:https://raymond0812-yylm.github.io/feed/all.xml (全部条目,最近 100 条)
+- 全文 RSS:https://raymond0812-yylm.github.io/feed/full.xml (含完整中文摘要)
+- 日报 RSS:https://raymond0812-yylm.github.io/feed/daily.xml (每日论文精读报告)
+- 搜索索引:https://raymond0812-yylm.github.io/search-index.json (全量条目 JSON,含标题/来源/中文摘要/标签)
+
+## 内容结构
+
+- / 精选流:入选论文与行业动态按天分组
+- /hot 热点榜:事件热度排行(48~96 小时窗口,24 小时半衰期,含涨跌标记)
+- /events/[id] 事件页:同一事件的多源报道归并与时间线
+- /daily /weekly /monthly 日报/周报/月报
+- /topics 研究方向与应用领域
+- /papers 文献库(约 ${papers.length} 篇,含趋势/合作网络等分析面板)
+- /paper 页面含中文标题、中文摘要、作者与 arXiv/DOI 链接
+
+## 引用规范
+
+论文条目优先链接 arXiv 原文;动态条目链接原始出处。中文摘要为本站编译,转载请注明本站。
+`;
+fs.writeFileSync(path.join(PUB_DIR, 'llms.txt'), llms, 'utf-8');
+
 const topicCounts = {};
 for (const p of papers) for (const t of p.topics) topicCounts[t] = (topicCounts[t] || 0) + 1;
 const domainCounts = {};
@@ -328,6 +486,10 @@ const site = {
   papers,
   reports,
   news,
+  items,
+  events,
+  hot,
+  categoryLabels: { all: '全部', papers: '论文进展', news: '行业动态' },
 };
 
 fs.mkdirSync(OUT_DIR, { recursive: true });

@@ -1,0 +1,48 @@
+---
+// 首页热点榜前五:呼吸点+彩色名次+标题+信源+热度+趋势。移植自 AIHOT feed/HotTopics。
+import Icon from '../Icon.astro';
+import Faces from '../ui/Faces.astro';
+
+interface Props { entries: any[] }
+const { entries } = Astro.props;
+const RANK_COLOR = ['text-[15px] font-black text-rank-1', 'text-[15px] font-black text-rank-2', 'text-[15px] font-black text-rank-3'];
+---
+{entries && entries.length > 0 && (
+  <section aria-labelledby="hot-topics" class="card relative mb-6 overflow-hidden bg-[radial-gradient(120%_90%_at_100%_0%,var(--hot-soft),transparent_55%)] px-4 pb-2 pt-3.5 lg:px-5">
+    <div class="mb-1 flex items-center justify-between">
+      <h2 id="hot-topics" class="flex items-center gap-2 text-[14px] font-semibold text-ink">
+        <span class="relative flex size-2" aria-hidden="true">
+          <span class="absolute inline-flex size-full animate-ping rounded-full bg-hot opacity-40"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-hot"></span>
+        </span>
+        当前热点
+      </h2>
+      <a href="/hot/" class="group inline-flex items-center gap-1 text-[12.5px] text-ink-3 transition-colors hover:text-accent">
+        完整榜单 <Icon name="arrow-right" size={13} class="transition-transform duration-200 group-hover:translate-x-0.5" />
+      </a>
+    </div>
+    <ol>
+      {entries.slice(0, 5).map((e, i) => (
+        <li>
+          <a href={`/events/${e.id}/`} class="group -mx-2 grid grid-cols-[20px_minmax(0,1fr)_auto] items-center gap-x-3 rounded-tile px-2 py-2 transition-colors hover:bg-bg-sunk/70 sm:grid-cols-[20px_minmax(0,1fr)_120px_64px_20px] sm:gap-x-4 dark:hover:bg-bg-muted/40">
+            <span class:list={['num text-center leading-none', RANK_COLOR[i] ?? 'text-[14px] font-bold text-rank-rest']}>{e.rank}</span>
+            <span class="line-clamp-2 min-w-0 text-[14px] font-semibold leading-[1.5] text-ink transition-colors group-hover:text-accent lg:line-clamp-1">{e.title}</span>
+            <span class="hidden justify-end sm:flex"><Faces sources={e.sources} total={e.sourceCount} size={20} /></span>
+            <span class="flex items-center justify-end gap-2.5 sm:contents">
+              <span class="whitespace-nowrap text-right text-[12.5px] text-ink-4" title="热度指数">
+                <span class="num text-[13.5px] font-semibold text-ink-2">{Math.round(e.heat)}</span> 热度
+              </span>
+              <span class="flex w-5 justify-center">
+                {e.trend === 'new'
+                  ? <span class="rounded-full bg-accent-soft px-1.5 text-[10.5px] font-semibold leading-4 text-accent">新</span>
+                  : e.trend === 'up' ? <Icon name="trend-up" size={14} stroke={2.2} class="text-hot" />
+                  : e.trend === 'down' ? <Icon name="trend-down" size={14} stroke={2.2} class="text-ink-4" />
+                  : <Icon name="minus" size={14} stroke={2.2} class="text-ink-4" />}
+              </span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

@@ -1,0 +1,16 @@
+---
+// 一条时间槽:左列为种类标记,桌面加竖轨与节点圆点,卡片在右。移植自 AIHOT feed/TimelineSlot。
+interface Props { kind: string; last?: boolean }
+const { kind, last = false } = Astro.props;
+const label = kind === 'paper' ? '论文' : '动态';
+---
+<li class:list={['group/slot grid grid-cols-[44px_minmax(0,1fr)] border-b border-line-soft py-3.5 last:border-b-0 lg:grid-cols-[64px_22px_minmax(0,1fr)] lg:border-b-0 lg:py-0 lg:pb-3']}>
+  <span class="pt-[2px] text-right text-[11px] leading-[18px] text-ink-4 lg:pt-[19px] lg:text-[11.5px] lg:font-semibold lg:leading-6 lg:text-ink-3">{label}</span>
+  <span aria-hidden="true" class="relative hidden lg:block">
+    <span class:list={['absolute -bottom-[41px] left-[10.5px] top-[29px] w-px bg-line-strong', last && 'hidden']}></span>
+    <span class="absolute left-[7.5px] top-[25.5px] size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_var(--bg)] transition-transform duration-300 group-hover/slot:scale-[1.15]"></span>
+  </span>
+  <div class="min-w-0">
+    <slot />
+  </div>
+</li>

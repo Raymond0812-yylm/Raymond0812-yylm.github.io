@@ -1,0 +1,17 @@
+---
+// 小标签:精选/状态/计数。移植自 AIHOT ui/Badge。
+interface Props { tone?: 'selected' | 'accent' | 'amber' | 'hot' | 'ok' | 'neutral'; dot?: boolean; class?: string; title?: string }
+const { tone = 'neutral', dot = false, class: className = '', title } = Astro.props;
+const TONES: Record<string, string> = {
+  selected: 'bg-amber-soft text-amber-ink',
+  accent: 'bg-accent-soft text-accent',
+  amber: 'bg-amber-soft text-amber-ink',
+  hot: 'bg-hot-soft text-hot',
+  ok: 'bg-ok-soft text-ok',
+  neutral: 'bg-bg-sunk text-ink-3 border border-line-soft',
+};
+---
+<span title={title} class:list={['inline-flex h-[18px] shrink-0 items-center gap-1 rounded-full px-2 text-[11px] font-medium leading-none', TONES[tone], className]}>
+  {dot && <span class="size-[5px] rounded-full bg-current" aria-hidden="true"></span>}
+  <slot />
+</span>

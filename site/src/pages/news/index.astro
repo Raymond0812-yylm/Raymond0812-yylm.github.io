@@ -1,48 +1,54 @@
 ---
-import Base from '../../layouts/Base.astro';
+// 行业动态归档:按日分组清单,详情跳转 /news/[date]/。
+import Shell from '../../layouts/Shell.astro';
+import Icon from '../../components/Icon.astro';
+import Badge from '../../components/ui/Badge.astro';
 import site from '../../data/site.json';
 
-const { news } = site as any;
-const latest = news[0];
-const rest = news.slice(1);
+const news = (site as any).news;
+const today = news[0]?.date ?? '';
 ---
-
-<Base active="news" title="行业动态" description="量子计算产业动态:公司进展、硬件交付、应用部署与政策生态,每日汇总">
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span>行业动态</div>
-    <h1>行业动态</h1>
-    <p class="lead">
-      量子计算的领域进展不止于论文:公司路线图、硬件交付、企业应用部署与政策生态同样是研究者的关键信息。
-      本栏目每天汇总来自 The Quantum Insider、Quantum Computing Report 等产业媒体与公司官方发布的要闻,并附中文摘要。
-    </p>
-    <p class="small muted">共 {news.length} 期 · {site.stats.news} 条动态 · 最近更新 {site.lastUpdated}</p>
-  </div>
-
-  {news.map((day: any, di: number) => (
-    <div class="month">
-      <h2>{day.date}{di === 0 ? ' · 最新' : ''}</h2>
-      <a class="btn" style="margin-bottom:12px" href={`/news/${day.slug}/`}>查看当日全文版 →</a>
-      {['国际', '国内'].map((region: string) => {
-        const items = day.items.filter((it: any) => (it.region || '国际') === region);
-        if (!items.length) return null;
-        return (
-          <div class="region-block">
-            <div class="region-title">{region === '国际' ? '🌍 国际动态' : '🇨🇳 国内动态'} <span class="muted small">({items.length})</span></div>
-            {items.map((it: any, i: number) => (
-              <div class="card" style="margin-bottom:10px">
-                <div class="top">
-                  <span class="badge tag report">{String(i + 1).padStart(2, '0')}</span>
-                  <span class="badge tag">{it.category}</span>
-                  <span class="venue">{it.source}</span>
-                </div>
-                <h3 class="title">{it.title}</h3>
-                <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
-                {it.url && <div class="meta"><span class="authors">来源链接</span><a href={it.url} target="_blank" rel="noopener">阅读原文 ↗</a></div>}
-              </div>
-            ))}
-          </div>
-        );
-      })}
+<Shell title="行业动态" description="量子计算产业动态:公司进展、硬件交付、应用部署与政策生态" path="/news/">
+  <header class="hidden lg:block">
+    <div class="flex items-center justify-between">
+      <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">行业动态</h1>
+      <a href="/all/news/" class="inline-flex items-center gap-1 text-[12.5px] text-ink-3 transition-colors hover:text-accent">在全部动态中查看 <Icon name="arrow-right" size={12} /></a>
     </div>
+  </header>
+  <header class="lg:hidden">
+    <h1 class="text-[21px] font-bold tracking-[-0.01em] text-ink">行业动态</h1>
+  </header>
+
+  {news.map((day: any) => (
+    <section aria-label={day.date} class="mt-2">
+      <div class="sticky top-0 z-20 -mx-4 flex h-9 items-center gap-2 bg-daybar px-4 lg:mx-0 lg:bg-bg lg:px-0">
+        <span class="text-[14px] font-bold text-ink">{day.date === today ? '今天' : `${Number(day.date.slice(5, 7))}月${Number(day.date.slice(8))}日`}</span>
+        <span class="num text-[12.5px] text-ink-4">{day.count} 条</span>
+        <a href={`/news/${day.slug}/`} class="ml-auto text-[12px] text-ink-4 transition-colors hover:text-accent">当日全文 →</a>
+      </div>
+      <ol class="lg:pt-1">
+        {day.items.map((it: any, i: number) => (
+          <li class="group/slot grid grid-cols-[44px_minmax(0,1fr)] border-b border-line-soft py-3.5 lg:grid-cols-[64px_22px_minmax(0,1fr)] lg:border-b-0 lg:pb-3">
+            <span class="pt-[2px] text-right text-[11px] leading-[18px] text-ink-4 lg:pt-[19px] lg:font-semibold lg:leading-6 lg:text-ink-3">{it.region === '国内' ? '国内' : '国际'}</span>
+            <span aria-hidden="true" class="relative hidden lg:block">
+              <span class="absolute -bottom-[41px] left-[10.5px] top-[29px] w-px bg-line-strong"></span>
+              <span class="absolute left-[7.5px] top-[25.5px] size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_var(--bg)] transition-transform duration-300 group-hover/slot:scale-[1.15]"></span>
+            </span>
+            <div class="min-w-0">
+              <article class="relative min-w-0 lg:card lg:card-hover lg:px-[18px] lg:pb-[14px] lg:pt-[15px]">
+                <header class="flex min-h-[18px] items-center gap-2 text-[12.5px] leading-[18px] text-ink-4">
+                  <span class="truncate">{it.source}</span>
+                  <span class="ml-auto shrink-0"><Badge tone="neutral">{it.category}</Badge></span>
+                </header>
+                <h3 class="mt-2 line-clamp-2 text-[17px] font-bold leading-[1.55] text-ink lg:font-[650]">
+                  <a href={it.url || `/news/${day.slug}/#n${i}`} target={it.url ? '_blank' : undefined} rel={it.url ? 'noopener' : undefined} class="transition-colors after:absolute after:inset-0 after:content-[''] hover:text-accent">{it.title}</a>
+                </h3>
+                {it.summary && <p class="mt-1.5 line-clamp-3 text-[14.5px] leading-[1.75] text-ink-3 lg:text-[15px]">{it.summary}</p>}
+              </article>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
   ))}
-</Base>
+</Shell>

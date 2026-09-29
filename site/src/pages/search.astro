@@ -1,0 +1,129 @@
+---
+// 搜索页:客户端 fuse.js 检索 /search-index.json(全量条目)。
+import Shell from '../layouts/Shell.astro';
+import Icon from '../components/Icon.astro';
+---
+<Shell title="搜索" path="/search/">
+  <header>
+    <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">搜索</h1>
+    <p class="mt-1 text-[13px] text-ink-4">全站论文与行业动态 · 标题 / 摘要 / 来源 / 标签</p>
+  </header>
+
+  <div class="relative mt-4">
+    <Icon name="search" size={16} class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-4" />
+    <input
+      id="q"
+      type="search"
+      autocomplete="off"
+      placeholder="输入关键词,如 QAOA、退火、卫星调度、D-Wave…"
+      class="h-12 w-full rounded-panel border border-line bg-field pl-11 pr-4 text-[15px] text-ink placeholder:text-ink-4 focus:border-line-strong focus:outline-none"
+    />
+  </div>
+
+  <div id="status" class="mt-3 text-[12.5px] text-ink-4">输入至少两个字开始检索。</div>
+
+  <div id="group" class="mt-4 hidden">
+    <div class="sticky top-0 z-10 -mx-4 flex h-9 items-center gap-2 bg-daybar px-4 lg:mx-0 lg:bg-bg lg:px-0">
+      <span id="groupLabel" class="text-[14px] font-bold text-ink"></span>
+      <span id="groupCount" class="num text-[12.5px] text-ink-4"></span>
+    </div>
+    <ol id="results" class="lg:pt-1"></ol>
+  </div>
+
+  <template id="tpl">
+    <li class="group/slot grid grid-cols-[44px_minmax(0,1fr)] border-b border-line-soft py-3.5 lg:grid-cols-[64px_22px_minmax(0,1fr)] lg:border-b-0 lg:pb-3">
+      <span class="pt-[2px] text-right text-[11px] leading-[18px] text-ink-4 lg:pt-[19px] lg:text-[11.5px] lg:font-semibold lg:leading-6 lg:text-ink-3 k-label"></span>
+      <span aria-hidden="true" class="relative hidden lg:block">
+        <span class="absolute -bottom-[41px] left-[10.5px] top-[29px] w-px bg-line-strong"></span>
+        <span class="absolute left-[7.5px] top-[25.5px] size-[7px] rounded-full bg-accent shadow-[0_0_0_4px_var(--bg)]"></span>
+      </span>
+      <div class="min-w-0">
+        <article class="relative min-w-0 lg:card lg:card-hover lg:px-[18px] lg:pb-[14px] lg:pt-[15px]">
+          <header class="flex min-h-[18px] items-center gap-2 text-[12.5px] leading-[18px] text-ink-4">
+            <span class="k-source truncate"></span>
+            <span class="ml-auto num shrink-0 pl-2 k-date"></span>
+          </header>
+          <h3 class="mt-2 line-clamp-2 text-[17px] font-bold leading-[1.55] text-ink lg:line-clamp-none lg:font-[650]">
+            <a class="transition-colors after:absolute after:inset-0 after:content-[''] hover:text-accent k-title"></a>
+          </h3>
+          <p class="mt-1.5 line-clamp-2 text-[14.5px] leading-[1.75] text-ink-3 lg:mt-2 lg:line-clamp-3 lg:text-[15px] k-summary"></p>
+        </article>
+      </div>
+    </li>
+  </template>
+
+  <script>
+    // fuse.js 客户端检索,数据来自 /search-index.json(建站时生成)。
+    const params = new URLSearchParams(location.search);
+    const input = document.getElementById('q') as HTMLInputElement;
+    const status = document.getElementById('status')!;
+    const group = document.getElementById('group')!;
+    const resultsEl = document.getElementById('results')!;
+    const tpl = document.getElementById('tpl') as HTMLTemplateElement;
+    let fuse: any = null;
+    let lastDay = '';
+
+    async function load() {
+      status.textContent = '正在加载索引…';
+      try {
+        const [{ default: Fuse }, res] = await Promise.all([
+          import('https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.mjs'),
+          fetch('/search-index.json'),
+        ]);
+        const list = await res.json();
+        fuse = new Fuse(list, {
+          keys: [
+            { name: 'title', weight: 3 },
+            { name: 'text', weight: 1 },
+            { name: 'sub', weight: 1.5 },
+            { name: 'tags', weight: 2 },
+          ],
+          threshold: 0.35, distance: 120, ignoreLocation: true, minMatchCharLength: 1,
+        });
+        status.textContent = `索引就绪 · 共 ${list.length} 条 · 输入关键词开始检索`;
+        if (params.get('q')) { input.value = params.get('q')!; run(); }
+      } catch (e) {
+        status.textContent = '索引加载失败,请稍后重试。';
+      }
+    }
+
+    function esc(s: string) { const d = document.createElement('div'); d.textContent = s ?? ''; return d.innerHTML; }
+
+    function render(list: any[]) {
+      resultsEl.innerHTML = '';
+      lastDay = '';
+      if (!list.length) { group.classList.add('hidden'); return; }
+      group.classList.remove('hidden');
+      (document.getElementById('groupLabel') as HTMLElement).textContent = '检索结果';
+      (document.getElementById('groupCount') as HTMLElement).textContent = `${list.length} 条`;
+      // 按日期分组渲染
+      const days = new Map<string, any[]>();
+      for (const it of list) { if (!days.has(it.date)) days.set(it.date, []); days.get(it.date)!.push(it); }
+      for (const [day, items] of days) {
+        for (const it of items) {
+          const node = tpl.content.firstElementChild!.cloneNode(true) as HTMLElement;
+          (node.querySelector('.k-label') as HTMLElement).textContent = it.kind === 'paper' ? '论文' : '动态';
+          (node.querySelector('.k-source') as HTMLElement).textContent = it.sub || '';
+          (node.querySelector('.k-date') as HTMLElement).textContent = it.date || '';
+          const a = node.querySelector('.k-title a') as HTMLAnchorElement;
+          a.textContent = it.title; a.href = it.href;
+          (node.querySelector('.k-summary') as HTMLElement).textContent = (it.text || '').slice(0, 160);
+          resultsEl.appendChild(node);
+        }
+      }
+    }
+
+    function run() {
+      const q = input.value.trim();
+      if (!fuse) return;
+      if (q.length < 1) { group.classList.add('hidden'); status.textContent = '输入至少两个字开始检索。'; return; }
+      const out = fuse.search(q, { limit: 40 }).map((r: any) => r.item);
+      render(out);
+      status.textContent = `“${q}” · ${out.length} 条结果${out.length >= 40 ? '(仅显示前 40)' : ''}`;
+    }
+
+    let timer: any = null;
+    input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 180); });
+    load();
+  </script>
+</Shell>

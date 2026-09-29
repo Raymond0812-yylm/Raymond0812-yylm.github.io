@@ -1,0 +1,16 @@
+---
+// 热度涨跌药丸:较上一次构建(约一日)。移植自 AIHOT hot/Delta。
+interface Props { trend: string; pct: number | null; class?: string }
+const { trend, pct, class: className = '' } = Astro.props;
+const base = 'inline-flex h-[22px] shrink-0 items-center gap-0.5 rounded-full px-2 text-[11.5px] font-medium tabular-nums';
+let cls = '', text = '', title = '';
+if (trend === 'new' || pct === null) { cls = 'bg-accent-soft text-accent'; text = '新上榜'; }
+else if (trend === 'flat') { cls = 'bg-bg-sunk text-ink-4 dark:bg-bg-muted/60'; text = '持平'; title = '较上一日'; }
+else {
+  const up = trend === 'up';
+  cls = up ? 'bg-hot-soft text-hot' : 'bg-bg-sunk text-ink-4 dark:bg-bg-muted/60';
+  text = `${up ? '↑' : '↓'} ${Math.abs(Math.round(pct))}%`;
+  title = '较上一日';
+}
+---
+<span class:list={[base, cls, className]} title={title}>{text}</span>

@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Shell from '../../layouts/Shell.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import TrendChart from '../../components/TrendChart.astro';
 import HBars from '../../components/HBars.astro';
@@ -25,9 +25,9 @@ for (const p of initial) { const v = p.venue || '未知'; venueCount[v] = (venue
 const topVenues = Object.entries(venueCount).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([label, value]) => ({ label: label.length > 28 ? label.slice(0, 28) + '…' : label, value }));
 ---
 
-<Base active="papers" title="论文库" description="量子优化领域论文库:按方向、年份、影响力筛选,支持全文检索">
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span>论文库</div>
+<Shell path="/papers/" title="论文库" description="量子优化领域论文库:按方向、年份、影响力筛选,支持全文检索">
+  <div class="mb-5">
+    <div class="flex items-center gap-2 text-[12.5px] text-ink-4"><a href="/">首页</a><span>/</span>论文库</div>
     <h1>论文库</h1>
     <p class="lead">共 {initial.length} 篇 · 覆盖 {site.stats.yearMin}–{site.stats.yearMax} 年 · 支持按研究方向、年份、标签与关键词筛选。</p>
   </div>
@@ -127,7 +127,7 @@ const topVenues = Object.entries(venueCount).sort((a, b) => b[1] - a[1]).slice(0
     {initial.map((p) => <PaperCard paper={p} />)}
   </div>
   <div class="empty" id="empty">没有符合条件的论文,试试放宽筛选条件。</div>
-</Base>
+</Shell>
 
 <script>
   const cards = Array.from(document.querySelectorAll<HTMLElement>('.paper-card'));

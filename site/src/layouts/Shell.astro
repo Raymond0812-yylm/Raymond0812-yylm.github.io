@@ -1,0 +1,242 @@
+---
+// 全局壳:桌面左侧 180px 侧栏 + 移动端底部四格 TabBar + 三态主题切换。
+// 版式移植自 AIHOT(Chrome/Sidebar/MobileTabBar/ThemeSwitch)。
+import '../styles/aihot.css';
+// 兼容层:换壳旧页面(papers/specials/applications/topics 详情/about)仍使用旧 class,
+// 保留 global.css 使其不裸奔;新页面全部使用 Tailwind 语义类,二者互不冲突。
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+import { SITE_NAME, SITE_NAME_EN, SITE_TAGLINE } from '../lib/utils.js';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** 当前路径(用于导航高亮) */
+  path?: string;
+  /** 更多页覆盖的路径前缀 */
+  more?: boolean;
+}
+const { title, description = SITE_TAGLINE } = Astro.props;
+const path = Astro.props.path ?? Astro.url.pathname;
+const fullTitle = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME} · ${SITE_NAME_EN}`;
+
+const SIDE_SECTIONS: Array<{ title: string; items: Array<[string, string, string, boolean?]> }> = [
+  {
+    title: '内容',
+    items: [
+      ['/', '精选', 'bolt', true],
+      ['/all/', '全部动态', 'list'],
+      ['/hot/', '热点榜', 'flame'],
+      ['/daily/', '日报', 'doc'],
+      ['/topics/', '主题', 'grid'],
+    ],
+  },
+  {
+    title: '文献与专题',
+    items: [
+      ['/papers/', '文献库', 'library'],
+      ['/specials/satellite/', '卫星任务规划', 'globe'],
+      ['/specials/llm/', '量子 × 大模型', 'cpu'],
+    ],
+  },
+  {
+    title: '更多',
+    items: [
+      ['/agent/', 'Agent 接入', 'plug'],
+      ['/about/', '关于本站', 'heart'],
+      ['/app/QuantOptDaily-v1.0.0.apk', '安卓 App', 'smartphone'],
+      ['/feed.xml', 'RSS 订阅', 'rss'],
+    ],
+  },
+];
+const TABBAR: Array<[string, string, string, boolean?]> = [
+  ['/', '精选', 'bolt', true],
+  ['/all/', '全部', 'list'],
+  ['/daily/', '日报', 'doc'],
+  ['/more/', '更多', 'grid'],
+];
+const MORE_PATHS = ['/more/', '/hot/', '/topics/', '/search/', '/agent/', '/about/', '/specials/'];
+
+const isActive = (to: string, end = false) => {
+  if (end) return path === to || path === to.replace(/\/$/, '');
+  if (to === '/more/') return MORE_PATHS.some((p) => path === p || path.startsWith(p));
+  if (to === '/daily/') return /^\/(daily|weekly|monthly)(\/|$)/.test(path);
+  if (to === '/papers/') return path.startsWith('/papers');
+  return path === to || path.startsWith(to);
+};
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} 精选 RSS`} href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE_NAME} 日报 RSS`} href="/feed/daily.xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13191c" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="QuantOpt" />
+    <script is:inline>
+      (function () {
+        // 默认浅色(AIHOT 式暖白纸面);尊重用户显式选择。
+        try {
+          var p = localStorage.getItem('qo-theme');
+          document.documentElement.dataset.theme = p === 'dark' || p === 'light' ? p : 'light';
+        } catch (e) { document.documentElement.dataset.theme = 'light'; }
+      })();
+    </script>
+  </head>
+  <body>
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script>
+    <div class="mx-auto flex max-w-[var(--page-max-wide)]">
+      <!-- 桌面侧栏 -->
+      <aside class="sticky top-0 hidden h-dvh w-[180px] shrink-0 flex-col border-r border-line bg-sidebar px-3 pb-3.5 pt-6 lg:flex">
+        <a href="/" class="mb-4 flex h-[50px] items-center gap-2 px-1 text-ink" aria-label={`${SITE_NAME} 首页`}>
+          <span class="flex size-8 items-center justify-center rounded-[10px] bg-accent font-black text-[17px] text-accent-contrast">Q</span>
+          <span class="min-w-0">
+            <span class="block truncate text-[15px] font-bold leading-tight">QuantOpt</span>
+            <span class="block text-[10px] tracking-[0.18em] text-ink-4">DAILY</span>
+          </span>
+        </a>
+        <nav class="-mx-1 flex-1 overflow-y-auto px-1 scrollbar-thin" aria-label="主导航">
+          {SIDE_SECTIONS.map((sec) => (
+            <div key={sec.title}>
+              <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">{sec.title}</div>
+              <div class="flex flex-col gap-1">
+                {sec.items.map(([to, label, icon, end]) => {
+                  const active = isActive(to, end);
+                  const external = to.endsWith('.apk');
+                  return (
+                    <a
+                      href={to}
+                      aria-current={active ? 'page' : undefined}
+                      class:list={[
+                        'flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150',
+                        active ? 'bg-accent/10 font-semibold text-ink dark:bg-accent-soft' : 'font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink',
+                      ]}
+                    >
+                      <span class:list={['flex w-[22px] shrink-0 justify-center', active && 'text-accent']}><Icon name={icon} size={17} /></span>
+                      <span class="min-w-0 truncate">{label}</span>
+                      {external && <span class="ml-auto text-ink-4"><Icon name="arrow-up-right" size={12} /></span>}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </nav>
+        <div class="mt-2 space-y-2.5 px-1 pt-1">
+          <!-- 三态主题切换(深色/系统/浅色) -->
+          <div id="themeSwitch" role="radiogroup" aria-label="外观" class="relative grid h-[34px] grid-cols-3 rounded-full border border-line bg-bg-sunk p-[3px] mx-1">
+            <span id="themeThumb" aria-hidden="true" class="absolute inset-y-[3px] left-[3px] w-[calc((100%-6px)/3)] rounded-full border border-line bg-surface shadow-[var(--shadow-card)] transition-transform duration-200 ease-[var(--ease-out-quart)]"></span>
+            <button type="button" role="radio" data-choice="dark" title="深色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><Icon name="moon" size={14} /><span class="sr-only">深色</span></button>
+            <button type="button" role="radio" data-choice="system" title="跟随系统" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><Icon name="monitor" size={14} /><span class="sr-only">跟随系统</span></button>
+            <button type="button" role="radio" data-choice="light" title="浅色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><Icon name="sun" size={14} /><span class="sr-only">浅色</span></button>
+          </div>
+          <p class="px-2 text-[10px] leading-relaxed text-ink-4">数据更新至 <span class="mono">{site.lastUpdated}</span> · {site.stats.papers} 篇论文</p>
+        </div>
+      </aside>
+
+      <!-- 主内容列 -->
+      <div class="min-w-0 flex-1">
+        <!-- 移动端品牌栏 -->
+        <div class="flex h-14 items-center justify-between px-4 lg:hidden">
+          <a href="/" class="flex items-center gap-2" aria-label={`${SITE_NAME} 首页`}>
+            <span class="flex size-7 items-center justify-center rounded-[9px] bg-accent font-black text-[15px] text-accent-contrast">Q</span>
+            <span class="text-[16px] font-bold">QuantOpt <span class="text-ink-3">Daily</span></span>
+          </a>
+          <a href={`/search/?q=`} class="flex size-9 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-bg-sunk hover:text-ink" aria-label="搜索"><Icon name="search" size={19} /></a>
+        </div>
+
+        <main class="px-4 pb-[calc(76px+env(safe-area-inset-bottom))] pt-2 lg:px-8 lg:pb-12 lg:pt-6">
+          <slot />
+          <footer class="mt-10 border-t border-line-soft pt-4 text-[12px] leading-relaxed text-ink-4">
+            <p>{SITE_NAME} · {SITE_NAME_EN} — 由每日自动检索流水线生成 · 数据来源 arXiv / OpenAlex / 产业媒体</p>
+            <p class="mt-1">
+              <a class="transition-colors hover:text-accent" href="/agent/">Agent 接入</a>
+              <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/feed.xml">RSS</a>
+              <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/about/">关于</a>
+              <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/llms.txt">llms.txt</a>
+            </p>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <!-- 移动端底部 TabBar -->
+    <nav aria-label="底部导航" class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden">
+      <div class="mx-auto grid h-[54px] max-w-[640px] grid-cols-4">
+        {TABBAR.map(([to, label, icon, end]) => {
+          const active = isActive(to, end);
+          return (
+            <a key={to} href={to} aria-current={active ? 'page' : undefined} class:list={['relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors', active ? 'font-semibold text-accent' : 'text-ink-3']}>
+              <Icon name={icon} size={21} />
+              <span>{label}</span>
+            </a>
+          );
+        })}
+      </div>
+    </nav>
+
+    <!-- 回到顶部 -->
+    <button id="backToTop" type="button" aria-label="回到顶部" class="fixed bottom-[calc(70px+env(safe-area-inset-bottom))] right-4 z-30 flex size-11 translate-y-2 items-center justify-center rounded-full border border-line bg-surface text-ink-2 opacity-0 shadow-[var(--shadow-soft)] transition-all duration-200 hover:text-ink lg:bottom-6 lg:right-6">
+      <Icon name="arrow-up" size={18} />
+    </button>
+
+    <script is:inline>
+      (function () {
+        // 三态主题切换
+        var root = document.documentElement;
+        var thumb = document.getElementById('themeThumb');
+        var btns = document.querySelectorAll('#themeSwitch [data-choice]');
+        function pref() { try { return localStorage.getItem('qo-theme'); } catch (e) { return null; } }
+        function sync() {
+          var p = pref();
+          var idx = p === 'dark' ? 0 : p === 'light' ? 2 : 1;
+          if (thumb) thumb.style.transform = 'translateX(' + idx * 100 + '%)';
+          btns.forEach(function (b) {
+            var on = (p === 'dark' && b.dataset.choice === 'dark') || (p === 'light' && b.dataset.choice === 'light') || (!p && b.dataset.choice === 'system');
+            b.classList.toggle('text-ink', on);
+            b.classList.toggle('text-ink-4', !on);
+          });
+        }
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var c = b.dataset.choice;
+            try { if (c === 'system') localStorage.removeItem('qo-theme'); else localStorage.setItem('qo-theme', c); } catch (e) {}
+            var p = pref();
+            root.dataset.theme = p === 'dark' || p === 'light' ? p : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            sync();
+          });
+        });
+        sync();
+        // 回到顶部
+        var top = document.getElementById('backToTop');
+        if (top) {
+          var onScroll = function () {
+            var show = window.scrollY > window.innerHeight * 1.2;
+            top.classList.toggle('opacity-0', !show);
+            top.classList.toggle('translate-y-2', !show);
+            top.classList.toggle('pointer-events-none', !show);
+          };
+          onScroll();
+          window.addEventListener('scroll', onScroll, { passive: true });
+          top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+      })();
+    </script>
+  </body>
+</html>

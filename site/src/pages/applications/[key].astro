@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Shell from '../../layouts/Shell.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import TrendChart from '../../components/TrendChart.astro';
 import HBars from '../../components/HBars.astro';
@@ -19,9 +19,9 @@ const list = data.papers
   .sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
 ---
 
-<Base active="domains" title={`${DOMAIN_ICON[key] ?? ''} ${meta.label}`} description={meta.desc}>
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/applications/">应用领域</a><span>/</span>{meta.label}</div>
+<Shell path="/applications/" title={`${DOMAIN_ICON[key] ?? ''} ${meta.label}`} description={meta.desc}>
+  <div class="mb-5">
+    <div class="flex items-center gap-2 text-[12.5px] text-ink-4"><a href="/">首页</a><span>/</span><a href="/applications/">应用领域</a><span>/</span>{meta.label}</div>
     <h1>{DOMAIN_ICON[key] ?? ''} {meta.label}</h1>
     <p class="lead">{meta.desc}</p>
     <p class="small muted">本领域现收录 {list.length} 篇论文,随每日更新自动扩充。论文按其研究方法归入上方「研究方向」,此处按应用场景聚合。</p>
@@ -49,4 +49,4 @@ const list = data.papers
       </div>
     </>
   )}
-</Base>
+</Shell>

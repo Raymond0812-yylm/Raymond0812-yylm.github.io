@@ -1,0 +1,30 @@
+---
+// 24 小时热度走势小折线(我们为最近 N 次构建的热度历史)。移植自 AIHOT hot/Sparkline。
+interface Props { values: Array<number | null>; class?: string; area?: boolean; stretch?: boolean }
+const { values = [], class: className = 'h-6 w-[88px]', area = false, stretch = false } = Astro.props;
+const W = 104, H = 32, pad = 3;
+const seen = values.filter((v): v is number => v !== null);
+let svg: string | null = null;
+if (seen.length >= 3) {
+  const max = Math.max(...seen) || 1;
+  const step = (W - pad * 2) / Math.max(1, values.length - 1);
+  const x = (i: number) => pad + i * step;
+  const y = (v: number) => pad + (1 - v / max) * (H - pad * 2);
+  const runs: string[] = [];
+  let run: string[] = [];
+  values.forEach((v, i) => {
+    if (v === null) { if (run.length) { runs.push(run.join(' ')); run = []; } }
+    else run.push(`${x(i).toFixed(1)},${y(v).toFixed(1)}`);
+  });
+  if (run.length) runs.push(run.join(' '));
+  let last = values.length - 1;
+  while (last >= 0 && values[last] === null) last--;
+  const polys = runs.map((pts) => `<polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="${stretch ? 2 : 1.5}" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`).join('');
+  const areas = area ? runs.map((pts) => { const xs = pts.split(' ').map((p) => p.split(',')[0]); return `<polygon points="${xs[0]},${H} ${pts} ${xs[xs.length - 1]},${H}" fill="currentColor" opacity="0.08"/>`; }).join('') : '';
+  const endDot = stretch
+    ? `<path d="M${x(last)} ${y(values[last]!)}h0" stroke="currentColor" stroke-width="8" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M${x(last)} ${y(values[last]!)}h0" stroke="var(--surface)" stroke-width="4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`
+    : `<circle cx="${x(last)}" cy="${y(values[last]!)}" r="2.5" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>`;
+  svg = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="${stretch ? 'none' : 'xMidYMid meet'}" class="overflow-visible ${className}" role="img" aria-label="热度走势">${areas}${polys}${endDot}</svg>`;
+}
+---
+{svg ? <Fragment set:html={svg} /> : <span class:list={['block', className]} aria-hidden="true"></span>}

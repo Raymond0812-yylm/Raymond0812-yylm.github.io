@@ -1,0 +1,33 @@
+---
+// 站点统一的切换控件:灰色药丸轨道,选中项为白色滑块。移植自 AIHOT ui/Tabs PillTabs(静态版)。
+interface Props {
+  items: Array<{ key: string; label: string; to?: string; count?: number | null }>;
+  active: string;
+  size?: 'md' | 'sm' | 'xs';
+  label?: string;
+  fill?: boolean;
+  class?: string;
+}
+const { items, active, size = 'md', label, fill = false, class: className = '' } = Astro.props;
+const SIZES = { md: 'h-9 px-4 text-[14px]', sm: 'h-8 px-3.5 text-[13px]', xs: 'h-7 px-3 text-[12.5px]' };
+---
+<div class:list={['scrollbar-none max-w-full overflow-x-auto', fill && 'w-full', className]}>
+  <nav aria-label={label} class:list={['gap-0.5 rounded-full bg-bg-sunk p-[3px] ring-1 ring-inset ring-line-soft dark:bg-bg-muted/60', fill ? 'grid w-full' : 'inline-flex w-max']} style={fill ? `grid-template-columns:repeat(${items.length},minmax(0,1fr))` : undefined}>
+    {items.map((t) => {
+      const on = t.key === active;
+      return (
+        <a
+          href={t.to ?? '#'}
+          aria-current={on ? 'page' : undefined}
+          class:list={['relative inline-flex shrink-0 select-none items-center justify-center whitespace-nowrap rounded-full font-medium outline-offset-1 transition-colors duration-150 active:scale-[0.98]', SIZES[size], on ? 'text-ink' : 'text-ink-3 hover:text-ink']}
+        >
+          {on && <span aria-hidden="true" class="absolute inset-0 rounded-full bg-surface shadow-[var(--shadow-thumb)] ring-1 ring-line dark:bg-raised"></span>}
+          <span class="relative inline-flex items-center gap-1">
+            {t.label}
+            {t.count !== undefined && t.count !== null && <span class:list={['num text-[0.86em] font-normal', on ? 'text-ink-3' : 'text-ink-4']}>{t.count}</span>}
+          </span>
+        </a>
+      );
+    })}
+  </nav>
+</div>

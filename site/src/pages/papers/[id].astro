@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Shell from '../../layouts/Shell.astro';
 import siteData from '../../data/site.json';
 import { fmtAuthors, fmtCites, isTopVenue, DOMAIN_ICON } from '../../lib/utils.js';
 
@@ -20,9 +20,9 @@ const related = site.papers
 const inTopic = site.papers.filter((p) => p.topics.includes(primary)).length;
 ---
 
-<Base active="papers" title={paper.titleZh} description={paper.summaryZh}>
+<Shell path="/papers/" title={paper.titleZh} description={paper.summaryZh}>
   <div class="page-head" style="padding-bottom:0">
-    <div class="crumbs">
+    <div class="flex items-center gap-2 text-[12.5px] text-ink-4">
       <a href="/">首页</a><span>/</span>
       <a href="/papers/">论文库</a><span>/</span>
       <a href={`/topics/${primary}/`}>{topics[primary]?.label}</a>
@@ -111,4 +111,4 @@ const inTopic = site.papers.filter((p) => p.topics.includes(primary)).length;
       </div>
     </aside>
   </div>
-</Base>
+</Shell>

@@ -1,0 +1,84 @@
+---
+// 热点榜:头版头条卡 + 排行行(名次/标题/热度曲线/信源/涨跌)。移植自 AIHOT routes/hot.tsx 视觉。
+import Shell from '../layouts/Shell.astro';
+import Icon from '../components/Icon.astro';
+import Kicker from '../components/ui/Kicker.astro';
+import Delta from '../components/ui/Delta.astro';
+import Sparkline from '../components/ui/Sparkline.astro';
+import Faces from '../components/ui/Faces.astro';
+import site from '../data/site.json';
+
+const hot = (site as any).hot as any[];
+const lead = hot[0];
+const rest = hot.slice(1);
+const updated = (site as any).generatedAt?.slice(0, 10);
+---
+<Shell title="热点榜" path="/hot/">
+  <header class="hidden lg:block">
+    <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">热点榜</h1>
+    <p class="mt-1 text-[13px] text-ink-4">
+      量子计算行业事件按热度排序:48~96 小时窗口内的报道数 × 24 小时半衰期加权,每次建站重算,涨跌较上一次更新。
+    </p>
+  </header>
+  <header class="lg:hidden">
+    <h1 class="text-[21px] font-bold tracking-[-0.01em] text-ink">热点榜</h1>
+    <p class="mt-1 text-[12.5px] leading-relaxed text-ink-4">行业事件热度排行 · 涨跌较上一次更新{updated ? ` · 更新于 ${updated}` : ''}</p>
+  </header>
+
+  {hot.length === 0 && (
+    <div class="card mt-6 flex flex-col items-center px-6 py-14 text-center">
+      <p class="text-[15px] font-semibold text-ink-2">暂无足够热度数据</p>
+      <p class="mt-1.5 max-w-sm text-[13px] leading-relaxed text-ink-4">行业动态积累两天后,这里会出现按热度排序的事件榜。</p>
+    </div>
+  )}
+
+  <!-- 头版:热度第一的事件 -->
+  {lead && (
+    <article class="card card-hover relative mt-5 overflow-hidden bg-[radial-gradient(120%_120%_at_100%_0%,var(--hot-soft),transparent_55%)] p-5 lg:p-6">
+      <div class="flex items-center justify-between">
+        <Kicker>热度头条</Kicker>
+        <Delta trend={lead.trend} pct={lead.deltaPct} />
+      </div>
+      <h2 class="mt-3 text-[21px] font-bold leading-[1.45] tracking-[-0.01em] text-ink lg:text-[24px]">
+        <a href={`/events/${lead.id}/`} class="transition-colors hover:text-accent">{lead.title}</a>
+      </h2>
+      {lead.latestSummary && <p class="mt-2 line-clamp-3 text-[14.5px] leading-[1.8] text-ink-3">{lead.latestSummary}</p>}
+      <div class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
+        <Faces sources={lead.sources} total={lead.sourceCount} size={24} />
+        <span class="text-[12.5px] text-ink-4"><span class="num text-[14px] font-semibold text-ink-2">{Math.round(lead.heat)}</span> 热度</span>
+        <span class="text-[12.5px] text-ink-4">{lead.itemCount} 条报道</span>
+        <span class="ml-auto hidden sm:block"><Sparkline values={lead.history} area={true} class="h-8 w-[140px] text-hot" /></span>
+      </div>
+    </article>
+  )}
+
+  <!-- 其余排行 -->
+  {rest.length > 0 && (
+    <section class="mt-6" aria-label="热点排行">
+      <ol>
+        {rest.map((e, i) => (
+          <li class="border-b border-line-soft last:border-b-0">
+            <a href={`/events/${e.id}/`} class="group -mx-2 grid grid-cols-[26px_minmax(0,1fr)_auto] items-center gap-x-3 rounded-tile px-2 py-3 transition-colors hover:bg-bg-sunk/60 sm:grid-cols-[26px_minmax(0,1fr)_96px_120px_74px] dark:hover:bg-bg-muted/40">
+              <span class:list={['num text-center leading-none', i === 0 ? 'text-[15px] font-black text-rank-1' : i === 1 ? 'text-[15px] font-black text-rank-2' : i === 2 ? 'text-[15px] font-black text-rank-3' : 'text-[14px] font-bold text-rank-rest']}>{e.rank}</span>
+              <span class="min-w-0">
+                <span class="line-clamp-2 block text-[14.5px] font-semibold leading-[1.55] text-ink transition-colors group-hover:text-accent lg:line-clamp-1">{e.title}</span>
+                <span class="mt-0.5 block text-[11.5px] text-ink-4 sm:hidden">{e.itemCount} 条报道 · {Math.round(e.heat)} 热度</span>
+              </span>
+              <span class="hidden justify-end sm:flex"><Sparkline values={e.history} class="h-6 w-[88px] text-hot" /></span>
+              <span class="hidden justify-end sm:flex"><Faces sources={e.sources} total={e.sourceCount} size={20} /></span>
+              <span class="hidden justify-end sm:flex">
+                <span class="num whitespace-nowrap text-right text-[13.5px] font-semibold text-ink-2">{Math.round(e.heat)}</span>
+                <span class="ml-1.5 inline-flex w-[52px] justify-end"><Delta trend={e.trend} pct={e.deltaPct} /></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
+
+  <p class="mt-6 flex items-center gap-1.5 text-[12px] text-ink-4">
+    <Icon name="history" size={13} />
+    榜单随每日自动建站更新 · 事件页含多源报道时间线
+  </p>
+</Shell>

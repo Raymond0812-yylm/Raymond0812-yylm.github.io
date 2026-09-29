@@ -1,0 +1,35 @@
+---
+// 报告归档列表:按月分组期号。对应 AIHOT daily-archive 的清单形态。
+interface Issue { href: string; issue: number | null; date: string; title: string; note?: string }
+interface Props { issues: Issue[] }
+const { issues } = Astro.props;
+const byMonth = new Map<string, Issue[]>();
+for (const it of issues) {
+  const m = it.date.slice(0, 7);
+  if (!byMonth.has(m)) byMonth.set(m, []);
+  byMonth.get(m)!.push(it);
+}
+const fmtMonth = (m: string) => `${Number(m.slice(5))} 月`;
+---
+<div class="mt-6">
+  {[...byMonth.entries()].map(([month, list]) => (
+    <section class="mb-8" aria-label={month}>
+      <h2 class="sticky top-0 -mx-4 flex h-10 items-center bg-daybar px-4 text-[13px] font-semibold text-ink-3 lg:mx-0 lg:bg-bg lg:px-0">
+        {Number(month.slice(0, 4))} 年 {fmtMonth(month)}
+        <span class="num ml-2 font-normal text-ink-4">{list.length} 期</span>
+      </h2>
+      <ol class="mt-2">
+        {list.map((it) => (
+          <li class="border-b border-line-soft">
+            <a href={it.href} class="group -mx-2 flex items-baseline gap-4 rounded-tile px-2 py-3 transition-colors hover:bg-bg-sunk/60 dark:hover:bg-bg-muted/40">
+              <span class="num w-10 shrink-0 text-right text-[15px] font-bold text-ink-2">{it.issue ? `#${it.issue}` : '—'}</span>
+              <span class="num w-[86px] shrink-0 text-[12.5px] text-ink-4">{it.date}</span>
+              <span class="min-w-0 flex-1 truncate text-[14.5px] font-medium text-ink transition-colors group-hover:text-accent">{it.title}</span>
+              {it.note && <span class="hidden shrink-0 text-[12px] text-ink-4 sm:inline">{it.note}</span>}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
+</div>

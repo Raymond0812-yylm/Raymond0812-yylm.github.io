@@ -1,0 +1,49 @@
+---
+// 信息流单条:桌面是时间轨旁的白卡片,手机是紧凑行。移植自 AIHOT feed/FeedItem。
+import Badge from '../ui/Badge.astro';
+import Score from '../ui/Score.astro';
+import SourceAvatar from '../ui/SourceAvatar.astro';
+import Icon from '../Icon.astro';
+
+interface Props {
+  item: any;
+  showTags?: boolean;
+  last?: boolean;
+}
+const { item, showTags = false, last = false } = Astro.props;
+const tags = showTags ? (item.tags || []).slice(0, 3) : [];
+const title = item.kind === 'paper' ? (item.title || item.titleEn) : item.title;
+---
+<article class:list={['relative min-w-0 lg:card lg:card-hover lg:px-[18px] lg:pb-[14px] lg:pt-[15px]', last && 'lg:mb-1']}>
+  <header class="flex min-h-[18px] items-center gap-2 text-[12.5px] leading-[18px] text-ink-4">
+    <span class="inline-flex min-w-0 items-center gap-1.5">
+      <SourceAvatar name={item.source || '?'} size={16} />
+      <span class="truncate">{item.source}</span>
+    </span>
+    {item.selected && <span class="hidden lg:inline-flex"><Badge tone="selected" dot>精选</Badge></span>}
+    <span class="ml-auto flex shrink-0 items-center gap-1.5 pl-2">
+      <Score value={item.score ?? null} label="被引" />
+      {item.url && (
+        <a href={item.url} target="_blank" rel="noopener" class="hidden shrink-0 items-center gap-0.5 text-[11.5px] text-ink-4 transition-colors hover:text-accent lg:inline-flex" title="查看原文">
+          原文 <Icon name="arrow-up-right" size={11} />
+        </a>
+      )}
+    </span>
+  </header>
+
+  <h3 class="mt-2 line-clamp-2 text-[17px] font-bold leading-[1.55] text-ink lg:line-clamp-none lg:font-[650]">
+    <a href={item.href} class="transition-colors after:absolute after:inset-0 after:content-[''] hover:text-accent">{title}</a>
+  </h3>
+  {item.summary && <p class="mt-1.5 line-clamp-3 text-[14.5px] leading-[1.75] text-ink-3 lg:mt-2 lg:text-[15px]">{item.summary}</p>}
+
+  {(showTags && (tags.length > 0 || item.categories)) && (
+    <div class="relative z-10 mt-2 hidden flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] text-ink-4 lg:flex">
+      {item.categories?.map((c: string) => (
+        <a href={c === 'papers' ? '/all/papers/' : '/all/news/'} class="transition-colors hover:text-accent">{c === 'papers' ? '论文进展' : '行业动态'}</a>
+      ))}
+      {tags.map((t: string) => (
+        <a href={`/search/?q=${encodeURIComponent(t)}`} class="transition-colors hover:text-accent">#{t}</a>
+      ))}
+    </div>
+  )}
+</article>

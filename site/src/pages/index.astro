@@ -1,195 +1,97 @@
 ---
-import Base from '../layouts/Base.astro';
-import PaperCard from '../components/PaperCard.astro';
+// 首页「精选」:分类 Tabs + 搜索 → 当前热点 → 按天分组信息流。移植自 AIHOT routes/home.tsx。
+import Shell from '../layouts/Shell.astro';
+import Icon from '../components/Icon.astro';
+import PillTabs from '../components/ui/PillTabs.astro';
+import HotTopics from '../components/feed/HotTopics.astro';
+import DayHeader from '../components/feed/DayHeader.astro';
+import TimelineSlot from '../components/feed/TimelineSlot.astro';
+import FeedItem from '../components/feed/FeedItem.astro';
 import site from '../data/site.json';
-import { TOPIC_ORDER, TOPIC_COLOR, fmtCites, fmtAuthors, DOMAIN_ORDER, DOMAIN_ICON, SITE_TAGLINE } from '../lib/utils.js';
-import { SPECIALS } from '../lib/specials.js';
 
-const { stats, topics, domains, papers, reports, news } = site as any;
-const specials = SPECIALS.map((s: any) => ({ ...s, count: papers.filter((p: any) => s.match(p)).length }));
-const byId = new Map(papers.map((p: any) => [p.id, p]));
-const latestReport = reports[0];
-const latestPaper = byId.get(latestReport?.paperIds?.[0] ?? latestReport?.paperId);
-const latestNews = news[0];
-const moreReports = reports.slice(1, 4);
-const latest = papers.filter((p: any) => !p.featured).slice(0, 9);
-const topCited = [...papers].filter((p: any) => p.citations).sort((a: any, b: any) => b.citations - a.citations).slice(0, 8);
-const foundational = papers.filter((p: any) => p.tags.includes('foundational')).sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0)).slice(0, 6);
+const featured = (site as any).items.filter((it: any) => it.selected);
+const today = featured[0]?.date ?? '';
+// 按天分组,首页展示最近 12 天,更早的引导到 /all/
+const days: Array<{ day: string; items: any[] }> = [];
+for (const it of featured) {
+  const last = days[days.length - 1];
+  if (last && last.day === it.date) last.items.push(it);
+  else if (days.length < 12) days.push({ day: it.date, items: [it] });
+  else break;
+}
+const papersCount = featured.filter((it: any) => it.kind === 'paper').length;
+const newsCount = featured.filter((it: any) => it.kind === 'news').length;
 ---
-
-<Base active="home" description={SITE_TAGLINE}>
-  <section class="hero">
-    <span class="eyebrow"><span class="dot"></span> 每日 6:00 自动更新 · 最近更新 {site.lastUpdated}</span>
-    <h1>量子计算求解组合优化<br /><span class="grad">论文与研究进展门户</span></h1>
-    <p class="lead">
-      聚焦 <strong>QAOA、量子退火、变分量子算法、量子-经典混合优化</strong>等量子求解方法,延伸至
-      <strong>量子计算×人工智能 / 大模型</strong>交叉前沿。每天自动检索 arXiv、OpenAlex 等学术平台,
-      精选高水平论文并生成中文深度解读;回溯收录 2014 年以来的领域奠基与高影响力工作,持续沉淀为可检索的研究档案。
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="/papers/">浏览论文库 →</a>
-      <a class="btn" href="/daily/">查看每日报告</a>
-      <a class="btn" href="/rss.xml">RSS 订阅</a>
+<Shell title="精选">
+  <!-- 桌面页头:标题 + 分类 Tabs + 搜索框 -->
+  <header class="hidden lg:block">
+    <div class="flex items-center justify-between">
+      <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">精选</h1>
+      <form action="/search/" method="get" class="relative">
+        <Icon name="search" size={15} class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-4" />
+        <input
+          type="search"
+          name="q"
+          placeholder="搜索论文与动态…"
+          class="h-9 w-[220px] rounded-full border border-line bg-field pl-9 pr-3 text-[13.5px] text-ink placeholder:text-ink-4 focus:border-line-strong focus:outline-none xl:w-[260px]"
+        />
+      </form>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="n">{stats.papers}</div><div class="l">收录论文</div></div>
-      <div class="stat"><div class="n">{stats.reports}</div><div class="l">每日深度报告</div></div>
-      <div class="stat"><div class="n">{stats.news}</div><div class="l">行业动态</div></div>
-      <div class="stat"><div class="n">{stats.recent2026}</div><div class="l">2026 年最新工作</div></div>
+    <div class="mt-3.5">
+      <PillTabs
+        label="分类"
+        active="all"
+        items={[
+          { key: 'all', label: '全部精选', to: '/' },
+          { key: 'papers', label: '论文进展', to: '/all/papers/', count: papersCount },
+          { key: 'news', label: '行业动态', to: '/all/news/', count: newsCount },
+        ]}
+      />
     </div>
-  </section>
+  </header>
 
-  {latestReport && (
-    <section class="section">
-      <div class="section-head">
-        <h2><span class="bar"></span>最新每日报告</h2>
-        <a class="more" href="/daily/">全部报告 →</a>
-      </div>
-      <div class="report-hero">
-        <div class="big">
-          <div class="k">Daily Report · {latestReport.date}{latestReport.paperCount > 1 ? ` · ${latestReport.paperCount} 篇论文` : ''}</div>
-          {latestReport.paperIds.map((pid: string, i: number) => {
-            const pp: any = byId.get(pid);
-            if (!pp) return null;
-            return (
-              <div style={i > 0 ? 'margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15)' : ''}>
-                <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-                  <span style="font-family:var(--mono);opacity:.75;font-size:.78rem">#{i + 1}</span>
-                  <a class={`badge t-${pp.topics[0]}`} href={`/topics/${pp.topics[0]}/`}>{topics[pp.topics[0]]?.label}</a>
-                  {pp.arxivId && <span style="font-family:var(--mono);opacity:.6;font-size:.72rem">arXiv:{pp.arxivId}</span>}
-                </div>
-                <h3 style={i === 0 ? 'margin:6px 0 4px' : 'margin:6px 0 4px;font-size:1.08rem'}><a href={`/papers/${pp.id}/`}>{pp.titleZh}</a></h3>
-                <p class="sum" style="-webkit-line-clamp:2;margin:0 0 2px">{pp.summaryZh}</p>
-              </div>
-            );
-          })}
-          <div class="foot">
-            <a class="btn" href={`/daily/${latestReport.slug}/`}>阅读完整解读</a>
-            <a class="btn" href="/daily/">往期报告</a>
-          </div>
-        </div>
-        <div class="side-list">
-          {moreReports.map((r: any) => (
-            <article class="card compact">
-              <div class="top"><span class="badge tag report">日报 · {r.date}</span>
-                <a class={`badge t-${r.topics[0]}`} href={`/topics/${r.topics[0]}/`}>{topics[r.topics[0]]?.label}</a></div>
-              <h3 class="title"><a href={`/daily/${r.slug}/`}>{r.titleZh}</a></h3>
-              <div class="title-en">{r.titleEn}</div>
-              <div class="meta"><span class="authors">{fmtAuthors(r.authors)}</span><span class="venue">{r.venue}</span></div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
+  <!-- 手机页头:标题 + 横向 Tabs -->
+  <header class="lg:hidden">
+    <div class="flex items-center justify-between">
+      <h1 class="text-[21px] font-bold tracking-[-0.01em] text-ink">精选</h1>
+      <span class="text-[12px] text-ink-4">今日 {days[0]?.items.length ?? 0} 条</span>
+    </div>
+    <div class="-mx-4 mt-3 overflow-x-auto px-4 scrollbar-none">
+      <PillTabs
+        size="sm"
+        label="分类"
+        active="all"
+        items={[
+          { key: 'all', label: '全部精选', to: '/' },
+          { key: 'papers', label: '论文进展', to: '/all/papers/', count: papersCount },
+          { key: 'news', label: '行业动态', to: '/all/news/', count: newsCount },
+        ]}
+      />
+    </div>
+  </header>
 
-  {latestNews && latestNews.items.length > 0 && (() => {
-    const intl = latestNews.items.filter((it: any) => it.region !== '国内').slice(0, 3);
-    const dom = latestNews.items.filter((it: any) => it.region === '国内').slice(0, 3);
-    const groups = [
-      { title: '国际动态', items: intl },
-      { title: '国内动态', items: dom },
-    ];
-    return (
-      <section class="section">
-        <div class="section-head">
-          <h2><span class="bar"></span>行业动态 · {latestNews.date}</h2>
-          <a class="more" href="/news/">全部动态 →</a>
-        </div>
-        {groups.map((g: any) => (
-          <div class="news-group" style="margin-bottom:22px">
-            <div class="news-group-title">{g.title} <span class="muted small">({g.items.length} 条)</span></div>
-            {g.items.length > 0 ? (
-              <div class="grid news-grid">
-                {g.items.map((it: any) => (
-                  <article class="card news-item">
-                    <div class="top">
-                      <span class="badge tag">{it.category}</span>
-                      <span class="venue">{it.source}</span>
-                    </div>
-                    <h3 class="title">{it.title}</h3>
-                    <p class="summary" style="-webkit-line-clamp:3">{it.summary}</p>
-                  </article>
-                ))}
-              </div>
-            ) : <p class="muted small" style="padding:6px 2px">本期暂无。</p>}
-          </div>
+  <!-- 当前热点 -->
+  <div class="mt-4 lg:mt-5">
+    <HotTopics entries={(site as any).hot.slice(0, 5)} />
+  </div>
+
+  <!-- 按天分组信息流 -->
+  {days.map(({ day, items }, di) => (
+    <section aria-label={day} class="mt-2">
+      <DayHeader day={day} today={today} count={day === today ? days[0].items.length : null} />
+      <ol class="lg:pt-1">
+        {items.map((it: any, ii: number) => (
+          <TimelineSlot kind={it.kind} last={di === days.length - 1 && ii === items.length - 1}>
+            <FeedItem item={it} showTags={true} />
+          </TimelineSlot>
         ))}
-      </section>
-    );
-  })()}
+      </ol>
+    </section>
+  ))}
 
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="bar"></span>研究方向</h2>
-      <a class="more" href="/topics/">方向说明 →</a>
-    </div>
-    <div class="topic-grid">
-      {TOPIC_ORDER.map((k) => (
-        <a class="topic-card" href={`/topics/${k}/`} style={`--tc:${TOPIC_COLOR[k]}`}>
-          <div class="n">{stats.topicCounts[k] || 0}</div>
-          <div class="l">{topics[k].label}</div>
-          <div class="d">{topics[k].desc}</div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="bar"></span>专题聚焦</h2>
-      <a class="more" href="/specials/">专题说明 →</a>
-    </div>
-    <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr))">
-      {specials.map((s: any) => (
-        <a class="special-card" href={`/specials/${s.key}/`} style={`--sc:${s.color}`}>
-          <div class="icon">{s.icon}</div>
-          <div class="l">{s.title}</div>
-          <div class="e">{s.en}</div>
-          <div class="d">{s.desc}</div>
-          <div class="n">{s.count} 篇 →</div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="bar"></span>最新收录</h2>
-      <a class="more" href="/papers/">进入论文库 →</a>
-    </div>
-    <div class="grid">
-      {latest.map((p: any) => <PaperCard paper={p} />)}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="bar"></span>高影响力工作</h2>
-      <a class="more" href="/papers/?sort=cites">按引用排序 →</a>
-    </div>
-    <p class="desc" style="color:var(--text-3);font-size:.9rem;margin:-6px 0 14px 15px">按 OpenAlex 引用数排序 · 引用数随时间变化,仅供参考</p>
-    <div class="rank-list">
-      {topCited.map((p: any, i: number) => (
-        <div class="rank">
-          <div class="no">{String(i + 1).padStart(2, '0')}</div>
-          <div>
-            <div class="t"><a href={`/papers/${p.id}/`}>{p.titleZh}</a></div>
-            <div class="s">{p.title} · {p.venue} · {p.year}</div>
-          </div>
-          <div class="c"><b>{fmtCites(p.citations)}</b><span>引用</span></div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-head">
-      <h2><span class="bar"></span>领域奠基文献</h2>
-      <a class="more" href="/papers/?tag=foundational">全部奠基文献 →</a>
-    </div>
-    <div class="grid">
-      {foundational.map((p: any) => <PaperCard paper={p} compact />)}
-    </div>
-  </section>
-</Base>
+  <div class="mt-6 flex justify-center">
+    <a href="/all/" class="inline-flex h-10 items-center gap-1.5 rounded-full border border-line-strong bg-surface px-5 text-[13.5px] font-medium text-ink-2 transition-colors hover:border-ink-4 hover:text-ink">
+      查看更早的全部动态 <Icon name="arrow-right" size={14} />
+    </a>
+  </div>
+</Shell>

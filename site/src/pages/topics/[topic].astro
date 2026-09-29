@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Shell from '../../layouts/Shell.astro';
 import PaperCard from '../../components/PaperCard.astro';
 import TrendChart from '../../components/TrendChart.astro';
 import siteData from '../../data/site.json';
@@ -20,9 +20,9 @@ const foundational = inTopic.filter((p: any) => p.tags.includes('foundational'))
 const recent = inTopic.filter((p: any) => !p.tags.includes('foundational')).sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
 ---
 
-<Base active="topics" title={meta.label} description={meta.desc}>
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span><a href="/topics/">研究方向</a><span>/</span>{meta.label}</div>
+<Shell path="/topics/" title={meta.label} description={meta.desc}>
+  <div class="mb-5">
+    <div class="flex items-center gap-2 text-[12.5px] text-ink-4"><a href="/">首页</a><span>/</span><a href="/topics/">研究方向</a><span>/</span>{meta.label}</div>
     <h1 style={`color:${TOPIC_COLOR[topic]}`}>{meta.label}</h1>
     <p class="lead">{meta.desc}</p>
     <p class="small muted">共 {inTopic.length} 篇 · 其中日报精选 {featured.length} 篇 · 领域奠基 {foundational.length} 篇</p>
@@ -69,4 +69,4 @@ const recent = inTopic.filter((p: any) => !p.tags.includes('foundational')).sort
     <div class="section-head"><h2><span class="bar"></span>全部论文</h2><span class="more">按时间排序</span></div>
     <div class="grid">{recent.map((p: any) => <PaperCard paper={p} />)}</div>
   </section>
-</Base>
+</Shell>

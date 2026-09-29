@@ -1,0 +1,16 @@
+---
+// 一条热点由谁在报:重叠的圆形信源头像 + 余数计数。移植自 AIHOT hot/Faces。
+import SourceAvatar from './SourceAvatar.astro';
+interface Props { sources: string[]; total?: number; size?: number; max?: number }
+const { sources, total, size = 20, max = 5 } = Astro.props;
+const shown = (sources || []).slice(0, max);
+const rest = Math.max(0, (total ?? (sources || []).length) - shown.length);
+---
+<span class="relative z-10 flex shrink-0 items-center" title={(sources || []).join('、')}>
+  {shown.map((n, i) => (
+    <span class:list={['rounded-full ring-2 ring-surface', i > 0 && '-ml-1.5']}><SourceAvatar name={n} size={size} /></span>
+  ))}
+  {rest > 0 && (
+    <span class="-ml-1.5 inline-flex items-center justify-center rounded-full bg-bg-sunk px-1.5 text-[10.5px] font-medium text-ink-3 ring-2 ring-surface dark:bg-bg-muted" style={`height:${size}px;min-width:${size}px`}>+{rest}</span>
+  )}
+</span>

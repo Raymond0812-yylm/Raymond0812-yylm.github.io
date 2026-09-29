@@ -1,0 +1,41 @@
+---
+// 按天分组的完整列表(含分页):/all 与分类页共用。对应 AIHOT feed/DayList。
+import DayHeader from './DayHeader.astro';
+import TimelineSlot from './TimelineSlot.astro';
+import FeedItem from './FeedItem.astro';
+import Pagination from '../ui/Pagination.astro';
+
+interface Props {
+  items: any[];
+  today?: string;
+  showTags?: boolean;
+  page?: number;
+  pageCount?: number;
+  hrefBase?: string;
+}
+const { items, today, showTags = true, page, pageCount, hrefBase } = Astro.props;
+const days: Array<{ day: string; items: any[] }> = [];
+for (const it of items) {
+  const last = days[days.length - 1];
+  if (last && last.day === it.date) last.items.push(it);
+  else days.push({ day: it.date, items: [it] });
+}
+---
+<div>
+  {days.map(({ day, items: list }, di) => (
+    <section aria-label={day} class="mt-2">
+      <DayHeader day={day} today={today} />
+      <ol class="lg:pt-1">
+        {list.map((it: any, ii: number) => {
+          const lastItem = di === days.length - 1 && ii === list.length - 1;
+          return (
+            <TimelineSlot kind={it.kind} last={lastItem}>
+              <FeedItem item={it} showTags={showTags} />
+            </TimelineSlot>
+          );
+        })}
+      </ol>
+    </section>
+  ))}
+  {page && pageCount && hrefBase && <Pagination page={page} pageCount={pageCount} href={(p: number) => (p === 1 ? hrefBase : `${hrefBase}page/${p}/`)} />}
+</div>

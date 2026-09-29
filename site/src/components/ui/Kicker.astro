@@ -1,0 +1,9 @@
+---
+// 带短横条的间隔字标签:头条/今日看点/关于本站。移植自 AIHOT ui/Kicker。
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
+---
+<div class:list={['flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.3em] text-accent', className]}>
+  <span class="h-[2px] w-6 rounded-full bg-accent" aria-hidden="true"></span>
+  <slot />
+</div>

@@ -1,0 +1,27 @@
+---
+// 周报/月报归档页共用骨架。
+import Shell from '../../layouts/Shell.astro';
+import PillTabs from '../ui/PillTabs.astro';
+import ArchiveList from './ArchiveList.astro';
+
+interface Issue { href: string; issue: number | null; date: string; title: string; note?: string }
+interface Props { kind: 'weekly' | 'monthly'; label: string; desc: string; issues: Issue[] }
+const { kind, label, desc, issues } = Astro.props;
+const tabs = [
+  { key: 'daily', label: '日报', to: '/daily/' },
+  { key: 'weekly', label: '周报', to: '/weekly/' },
+  { key: 'monthly', label: '月报', to: '/monthly/' },
+];
+---
+<Shell title={label} description={desc} path={`/${kind}/`}>
+  <header class="hidden lg:block">
+    <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">{label}</h1>
+    <div class="mt-3.5"><PillTabs label="报告类型" active={kind} items={tabs} /></div>
+  </header>
+  <header class="lg:hidden">
+    <h1 class="text-[21px] font-bold tracking-[-0.01em] text-ink">{label}</h1>
+    <div class="-mx-4 mt-3 overflow-x-auto px-4 scrollbar-none"><PillTabs size="sm" label="报告类型" active={kind} items={tabs} /></div>
+  </header>
+  <p class="mt-3 text-[13px] leading-relaxed text-ink-3 lg:mt-4">{desc} 共 {issues.length} 期。</p>
+  <ArchiveList issues={issues} />
+</Shell>

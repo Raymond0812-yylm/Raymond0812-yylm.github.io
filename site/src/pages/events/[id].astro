@@ -1,0 +1,104 @@
+---
+// 事件页:同一事件的多源报道归并、时间线与热度走势。对应 AIHOT routes/story.tsx。
+import Shell from '../../layouts/Shell.astro';
+import Icon from '../../components/Icon.astro';
+import Kicker from '../../components/ui/Kicker.astro';
+import Delta from '../../components/ui/Delta.astro';
+import Sparkline from '../../components/ui/Sparkline.astro';
+import SourceAvatar from '../../components/ui/SourceAvatar.astro';
+import Badge from '../../components/ui/Badge.astro';
+import site from '../../data/site.json';
+
+export async function getStaticPaths() {
+  const data: any = (await import('../../data/site.json')).default;
+  return data.events.map((e: any) => ({ params: { id: e.id }, props: { event: e } }));
+}
+
+const { event } = Astro.props as any;
+const itemsDesc = [...event.items].reverse();
+const fmtDay = (d: string) => { const [, m, dd] = d.split('-').map(Number); return `${m}月${dd}日`; };
+---
+<Shell title={event.title} description={(event.latestSummary || event.summary || '').slice(0, 80)} path="/hot/">
+  <div class="mx-auto grid max-w-[var(--page-max-reading)] gap-8 pb-4 pt-1 lg:grid-cols-[minmax(0,1fr)_300px] lg:gap-10 lg:pt-0 2xl:grid-cols-[minmax(0,1fr)_340px]">
+    <!-- 主栏 -->
+    <div class="min-w-0">
+      <div class="flex items-center gap-2 text-[12.5px] text-ink-4">
+        <a href="/hot/" class="transition-colors hover:text-accent">热点榜</a>
+        <span aria-hidden="true">/</span>
+        <span>事件</span>
+      </div>
+      <h1 class="mt-2 text-[24px] font-bold leading-[1.4] tracking-[-0.01em] text-ink lg:text-[27px]">{event.title}</h1>
+      <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[12.5px] text-ink-4">
+        <span class="num">{event.firstDate === event.lastDate ? fmtDay(event.lastDate) : `${fmtDay(event.firstDate)} — ${fmtDay(event.lastDate)}`}</span>
+        <span>{event.itemCount} 条报道</span>
+        <span>{event.sourceCount} 个来源</span>
+      </div>
+
+      <!-- 事件综述 -->
+      {event.latestSummary && (
+        <section class="well mt-5 rounded-panel p-4 lg:p-5">
+          <Kicker>最新进展</Kicker>
+          <p class="mt-2.5 text-[15px] leading-[1.85] text-ink-2">{event.latestSummary}</p>
+          <p class="mt-2 text-[11.5px] text-ink-4">摘自最新一条报道,完整内容见下方时间线与原文链接。</p>
+        </section>
+      )}
+
+      <!-- 报道时间线 -->
+      <section class="mt-7" aria-label="报道时间线">
+        <h2 class="flex items-center gap-2 text-[15px] font-semibold text-ink">
+          <span class="h-[2px] w-4 rounded-full bg-accent" aria-hidden="true"></span>
+          报道时间线
+        </h2>
+        <ol class="mt-3">
+          {itemsDesc.map((it: any, i: number) => (
+            <li class:list={['relative border-l border-line-strong pb-5 pl-5 last:pb-0', i === 0 && 'border-l-2 border-l-accent']}>
+              <span class:list={['absolute -left-[5px] top-[5px] size-2 rounded-full', i === 0 ? 'bg-accent' : 'bg-line-strong']}></span>
+              <div class="flex flex-wrap items-center gap-2 text-[12px] text-ink-4">
+                <span class="num">{it.date}</span>
+                <span class="inline-flex items-center gap-1.5">
+                  <SourceAvatar name={it.source || '?'} size={16} />
+                  <span class="truncate">{it.source}</span>
+                </span>
+                {it.region && <Badge tone={it.region === '国内' ? 'ok' : 'neutral'}>{it.region}</Badge>}
+              </div>
+              <h3 class="mt-1.5 text-[15.5px] font-semibold leading-[1.6] text-ink">
+                <a href={it.href} class="transition-colors hover:text-accent">{it.title}</a>
+              </h3>
+              {i === 0 && it.title !== event.latestSummary && <p class="mt-1 line-clamp-3 text-[13.5px] leading-[1.75] text-ink-3">{event.latestSummary}</p>}
+              {it.url && (
+                <a href={it.url} target="_blank" rel="noopener" class="mt-1.5 inline-flex items-center gap-0.5 text-[12px] font-medium text-ink-3 transition-colors hover:text-accent">
+                  阅读原文 <Icon name="arrow-up-right" size={11} />
+                </a>
+              )}
+            </li>
+          ))}
+        </ol>
+      </section>
+    </div>
+
+    <!-- 侧栏:热度面板 -->
+    <aside class="min-w-0 space-y-4 lg:sticky lg:top-6 lg:self-start">
+      <section class="card overflow-hidden bg-[radial-gradient(120%_90%_at_100%_0%,var(--hot-soft),transparent_55%)] p-5">
+        <div class="flex items-center justify-between">
+          <h2 class="text-[13px] font-semibold text-ink">事件热度</h2>
+          <Delta trend={event.trend} pct={event.deltaPct} />
+        </div>
+        <p class="num mt-3 text-[38px] font-black leading-none tracking-[-0.03em] text-ink">{Math.round(event.heat * 10) / 10}</p>
+        <p class="mt-1 text-[11.5px] text-ink-4">48~96h 窗口报道 × 24h 半衰期</p>
+        <div class="mt-3 text-hot"><Sparkline values={event.history} stretch={true} class="h-12 w-full" /></div>
+      </section>
+
+      <section class="card p-5">
+        <h2 class="text-[13px] font-semibold text-ink">报道来源</h2>
+        <ul class="mt-3 space-y-2.5">
+          {event.sources.map((s: string) => (
+            <li class="flex items-center gap-2 text-[13px] text-ink-2">
+              <SourceAvatar name={s} size={18} />
+              <span class="min-w-0 truncate">{s}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </aside>
+  </div>
+</Shell>

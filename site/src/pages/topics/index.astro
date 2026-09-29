@@ -1,27 +1,71 @@
 ---
-import Base from '../../layouts/Base.astro';
+// 主题页:三组式(研究方向 / 应用领域 / 专题),对应 AIHOT topics 的分组目录。
+import Shell from '../../layouts/Shell.astro';
+import Icon from '../../components/Icon.astro';
 import site from '../../data/site.json';
-import { TOPIC_ORDER, TOPIC_COLOR } from '../../lib/utils.js';
+import { TOPIC_ORDER } from '../../lib/utils.js';
 
-const { topics, stats } = site as any;
+const { topics, domains, stats } = site as any;
+const DOMAIN_ORDER = ['satellite', 'finance', 'energy', 'logistics', 'manufacturing', 'transport', 'materials', 'it-cloud'];
+const SPECIALS = [
+  { key: 'satellite', href: '/specials/satellite/', label: '量子计算与卫星任务规划', desc: '卫星调度 × 量子求解的交叉专题' },
+  { key: 'llm', href: '/specials/llm/', label: '量子计算与大模型', desc: 'LLM × 量子计算的互相增强' },
+];
+const TOPIC_ICON: Record<string, string> = { qaoa: 'chart', annealing: 'flame', vqa: 'bolt', qinspired: 'cpu', hybrid: 'grid', hardware: 'star', 'quantum-ai': 'cpu', quantum: 'list' };
+const DOMAIN_ICON: Record<string, string> = { satellite: 'globe', finance: 'chart', energy: 'bolt', logistics: 'list', manufacturing: 'cpu', transport: 'grid', materials: 'star', 'it-cloud': 'monitor' };
 ---
+<Shell title="主题" description="研究方向、应用领域与专题的目录" path="/topics/">
+  <header>
+    <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">主题</h1>
+    <p class="mt-1 text-[13px] text-ink-4">同一论文可属多个方向 · 点击查看方向画像与全部论文</p>
+  </header>
 
-<Base active="topics" title="研究方向" description="量子优化领域的七个研究方向:QAOA、量子退火、变分量子算法、量子-经典混合、综述与应用、机器学习求解组合优化、大模型赋能优化">
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span>研究方向</div>
-    <h1>研究方向</h1>
-    <p class="lead">
-      站内论文按研究内容归入七个方向(同一论文可属多个方向,归入其最核心方向)。
-      点击任意方向查看该方向的全部论文、奠基文献与最新进展。
-    </p>
-  </div>
-  <div class="topic-grid" style="grid-template-columns:repeat(auto-fill,minmax(300px,1fr))">
-    {TOPIC_ORDER.map((k) => (
-      <a class="topic-card" href={`/topics/${k}/`} style={`--tc:${TOPIC_COLOR[k]}`}>
-        <div class="n">{stats.topicCounts[k] || 0}<span style="font-size:.85rem;color:var(--text-3);font-weight:600"> 篇</span></div>
-        <div class="l">{topics[k].label}</div>
-        <div class="d">{topics[k].desc}</div>
-      </a>
-    ))}
-  </div>
-</Base>
+  <!-- 研究方向 -->
+  <section class="mt-6" aria-label="研究方向">
+    <h2 class="flex items-center gap-2 text-[15px] font-semibold text-ink"><span class="h-[2px] w-4 rounded-full bg-accent"></span>研究方向</h2>
+    <div class="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+      {TOPIC_ORDER.map((k: string) => (
+        <a href={`/topics/${k}/`} class="card card-hover flex items-center gap-3.5 p-4">
+          <span class="flex size-10 shrink-0 items-center justify-center rounded-tile bg-accent-soft text-accent"><Icon name={TOPIC_ICON[k] || 'doc'} size={19} /></span>
+          <span class="min-w-0 flex-1">
+            <span class="flex items-baseline gap-2">
+              <span class="truncate text-[15px] font-semibold text-ink">{topics[k]?.label ?? k}</span>
+              <span class="num shrink-0 text-[12px] text-ink-4">{stats.topicCounts[k] || 0} 篇</span>
+            </span>
+            <span class="mt-0.5 line-clamp-1 block text-[12.5px] text-ink-4">{topics[k]?.desc}</span>
+          </span>
+          <Icon name="chevron-right" size={14} class="shrink-0 text-ink-4" />
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 应用领域 -->
+  <section class="mt-8" aria-label="应用领域">
+    <h2 class="flex items-center gap-2 text-[15px] font-semibold text-ink"><span class="h-[2px] w-4 rounded-full bg-accent"></span>应用领域</h2>
+    <div class="mt-3 grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+      {DOMAIN_ORDER.map((k: string) => (
+        <a href={`/applications/${k}/`} class="card card-hover flex items-center gap-3 p-3.5">
+          <span class="flex size-8 shrink-0 items-center justify-center rounded-control bg-bg-sunk text-ink-3"><Icon name={DOMAIN_ICON[k] || 'chart'} size={16} /></span>
+          <span class="min-w-0 flex-1">
+            <span class="block truncate text-[14px] font-semibold text-ink">{domains[k]?.label ?? k}</span>
+            <span class="num block text-[11.5px] text-ink-4">{stats.domainCounts?.[k] || 0} 篇</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- 专题 -->
+  <section class="mt-8" aria-label="专题">
+    <h2 class="flex items-center gap-2 text-[15px] font-semibold text-ink"><span class="h-[2px] w-4 rounded-full bg-accent"></span>专题</h2>
+    <div class="mt-3 grid gap-2 sm:grid-cols-2">
+      {SPECIALS.map((s) => (
+        <a href={s.href} class="card card-hover p-4">
+          <span class="text-[15.5px] font-semibold text-ink">{s.label}</span>
+          <span class="mt-1 block text-[12.5px] text-ink-4">{s.desc}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Shell>

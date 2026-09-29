@@ -1,5 +1,5 @@
 // QuantOpt Daily Service Worker:离线缓存 + 后台更新
-const CACHE = 'quantopt-v1';
+const CACHE = 'quantopt-v2';
 const PRECACHE = ['/', '/papers/', '/daily/', '/manifest.webmanifest', '/favicon.svg', '/icons/icon-192.png'];
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting()));

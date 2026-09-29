@@ -5,6 +5,21 @@
 
 ---
 
+### 2026-09-29(全站改版:AIHOT 式界面重构)
+
+**本站史上最大改版**:参照开源项目 AIHOT(github.com/KKKKhazix/AIHOT)的功能、界面与排版布局,在保持 GitHub Pages 纯静态架构的前提下整站重建。全部 1110+ 页。
+
+- 技术底座:接入 Tailwind CSS v4(@tailwindcss/vite),完整移植 AIHOT 设计令牌(暖白纸面/墨色文字/青色强调/发丝线/圆角与阴影体系,src/styles/aihot.css);旧 global.css 装入 @layer legacy 最低优先级层作为兼容层
+- 新全局框架(Shell.astro):桌面 180px 左侧栏(三组导航)+ 移动端底部四格 TabBar + 三态主题切换(深/系统/浅,默认浅色)+ 回到顶部按钮
+- 新 UI 组件库:Badge/Kicker/Score/SourceAvatar/Faces/Delta/Sparkline/PillTabs/Pagination
+- 首页改版:「精选」分类 Tabs+搜索框 → 当前热点横条 → 按天分组时间轴信息流(64px 时间列+竖轨+节点+白卡片)
+- 新增页面:/all 全部动态流(分类+分页)、/hot 热点榜(头条卡+排行)、/events/[id] 事件页(111 个)、/search 客户端 fuse.js 全文搜索、/agent 机器可读出口说明、/more 移动端更多页
+- 事件聚簇与热度算法(build-data.mjs):跨天动态按标题 Jaccard 相似度 union-find 归并为事件;热度=48~96h 窗口报道数×24h 半衰期,heat-snapshot.json 快照差值产生涨跌标记与 14 点历史曲线
+- 日报/周报/月报报纸式排版(ReportPaper):报头(报眉/题字/报眼期号大字/出版点阵)+ 数据带 + 本期看点 + 分版双栏故事(发丝线分隔)+ 邻期导航;归档页按月分组期号清单
+- RSS×4:/feed.xml(根路径兼容旧订阅)+ /feed/all.xml + /feed/full.xml + /feed/daily.xml;新增 /llms.txt 与 /search-index.json(全量条目索引)
+- /topics 改三组式(研究方向/应用领域/专题);行业动态、论文详情等全部换新壳
+- PWA:SW 缓存版本升至 v2(清理旧缓存)
+
 ### 2026-09-28(定时扩库)
 - 主题轮换至「量子硬件平台」(具体场景词大丰收):+18 篇(库总 777 篇)
 - 阵容:Nature×3(容错中性原子架构/硅移动自旋比特隐形传态/自旋搬运四体奇偶校验)、Nature Physics×2(晶格手术/全光学超导读取)、PRX Quantum×2(通用中性原子原型 48 引用/无测量容错 QEC 45 引用)、PRL×3(里德堡低深度 QEC/解码先验优化/精确最大似然解码)、NSR 超导综述、Nat Commun 逻辑比特 QEM、GNN XZZX 解码(中国物理 B)、神经解码器再审视、中性原子丢失容错架构、Arctic 阵列调度、Si/SiGe 片上低温复用、thermal microwave bus

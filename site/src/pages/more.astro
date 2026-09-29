@@ -1,0 +1,62 @@
+---
+// 移动端「更多」聚合页:TabBar 第四格的内容目录。
+import Shell from '../layouts/Shell.astro';
+import Icon from '../components/Icon.astro';
+import site from '../data/site.json';
+
+const groups: Array<{ title: string; items: Array<[string, string, string]> }> = [
+  {
+    title: '内容',
+    items: [
+      ['/hot/', '热点榜', 'flame'],
+      ['/topics/', '主题', 'grid'],
+      ['/weekly/', '周报', 'doc'],
+      ['/monthly/', '月报', 'doc'],
+    ],
+  },
+  {
+    title: '文献与专题',
+    items: [
+      ['/papers/', '文献库', 'library'],
+      ['/specials/satellite/', '卫星任务规划专题', 'globe'],
+      ['/specials/llm/', '量子 × 大模型专题', 'cpu'],
+      ['/applications/', '应用领域', 'chart'],
+    ],
+  },
+  {
+    title: '更多',
+    items: [
+      ['/search/', '搜索', 'search'],
+      ['/agent/', 'Agent 接入', 'plug'],
+      ['/about/', '关于本站', 'heart'],
+      ['/app/QuantOptDaily-v1.0.0.apk', '安卓 App', 'smartphone'],
+      ['/feed.xml', 'RSS 订阅', 'rss'],
+    ],
+  },
+];
+---
+<Shell title="更多" path="/more/">
+  <header class="lg:hidden">
+    <h1 class="text-[21px] font-bold tracking-[-0.01em] text-ink">更多</h1>
+  </header>
+  <div class="hidden lg:block">
+    <h1 class="text-[22px] font-bold tracking-[-0.01em] text-ink">更多</h1>
+    <p class="mt-1 text-[13px] text-ink-4">站点全部页面 · 数据更新至 {(site as any).lastUpdated}</p>
+  </div>
+  <div class="mt-4 space-y-6">
+    {groups.map((g) => (
+      <section>
+        <h2 class="px-1 pb-1.5 text-[12px] font-semibold text-ink-4">{g.title}</h2>
+        <div class="card divide-y divide-line overflow-hidden">
+          {g.items.map(([to, label, icon]) => (
+            <a href={to} class="flex h-12 items-center gap-3 px-4 text-[15px] font-medium text-ink transition-colors hover:bg-bg-sunk/60 dark:hover:bg-bg-muted/40">
+              <span class="text-ink-3"><Icon name={icon} size={18} /></span>
+              <span class="min-w-0 flex-1">{label}</span>
+              <Icon name="chevron-right" size={14} class="text-ink-4" />
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Shell>

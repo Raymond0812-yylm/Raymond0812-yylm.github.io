@@ -1,0 +1,13 @@
+---
+// 圆形信源头像:无图标时按名字哈希着色显示首字符。移植自 AIHOT ui/SourceAvatar。
+interface Props { name: string; size?: number }
+const { name, size = 18 } = Astro.props;
+let h = 0;
+for (const ch of name) h = (h * 31 + ch.charCodeAt(0)) % 360;
+const initial = (name.trim()[0] || '?').toUpperCase();
+---
+<span
+  aria-hidden="true"
+  class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white"
+  style={`width:${size}px;height:${size}px;font-size:${Math.max(9, Math.round(size * 0.5))}px;background:oklch(0.6 0.07 ${h})`}
+>{initial}</span>

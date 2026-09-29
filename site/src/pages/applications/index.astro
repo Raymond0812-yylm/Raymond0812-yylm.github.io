@@ -1,5 +1,5 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Shell from '../../layouts/Shell.astro';
 import site from '../../data/site.json';
 import { DOMAIN_ORDER, DOMAIN_ICON } from '../../lib/utils.js';
 
@@ -9,9 +9,9 @@ const domains = DOMAIN_ORDER.map((k) => ({ key: k, ...(data.domains[k] || { labe
 const totalTagged = domains.reduce((s, d) => s + d.count, 0);
 ---
 
-<Base active="domains" title="应用领域" description="量子优化与智能优化在各行业的应用:卫星航天、金融、能源、物流、制造、通信、交通、医药、材料、信息技术">
-  <div class="page-head">
-    <div class="crumbs"><a href="/">首页</a><span>/</span>应用领域</div>
+<Shell path="/applications/" title="应用领域" description="量子优化与智能优化在各行业的应用:卫星航天、金融、能源、物流、制造、通信、交通、医药、材料、信息技术">
+  <div class="mb-5">
+    <div class="flex items-center gap-2 text-[12.5px] text-ink-4"><a href="/">首页</a><span>/</span>应用领域</div>
     <h1>应用领域</h1>
     <p class="lead">
       领域的真正进步发生在方法落地之处。本栏目按<b>应用场景</b>聚合全库论文——从卫星任务规划到投资组合、
@@ -29,4 +29,4 @@ const totalTagged = domains.reduce((s, d) => s + d.count, 0);
       </a>
     ))}
   </div>
-</Base>
+</Shell>

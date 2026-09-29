@@ -1,38 +1,20 @@
 ---
-import Base from '../../layouts/Base.astro';
-import PaperCard from '../../components/PaperCard.astro';
-import ArchivePanel from '../../components/ArchivePanel.astro';
-import site from '../../data/site.json';
+import PeriodIndex from '../../components/report/PeriodIndex.astro';
+import siteData from '../../data/site.json';
 import { groupByWeek } from '../../lib/periods.js';
 
-const { topics, papers, reports } = site as any;
-// 只聚合已正式收录的论文(含日报论文)
-const weeks = groupByWeek(papers).map((w) => {
-  const sorted = [...w.papers].sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0));
-  const reportsIn = reports.filter((r: any) => r.date >= w.range[0] && r.date <= w.range[1]);
-  return { ...w, sorted, top: sorted[0], reportsIn };
-}).sort((a: any, b: any) => (a.key < b.key ? 1 : -1));
+const data: any = siteData;
+const weeks = groupByWeek(data.papers); // 新→旧
+const all = [...weeks].reverse();
+const weekTitle = (w: any) => {
+  const papers = w.papers;
+  const top = [...papers].sort((a: any, b: any) => (b.citations || 0) - (a.citations || 0))[0];
+  return top ? `本周主线:${(top.titleZh || top.title).slice(0, 30)}…` : `${w.range[0]} ~ ${w.range[1]}`;
+};
 ---
-
-<Base active="weekly" title="周报" description="量子优化周报:按周汇总新收录论文、热点方向与最受关注工作">
-  <div class="page-head" style="padding-bottom:0">
-    <div class="crumbs"><a href="/">首页</a><span>/</span>周报</div>
-  </div>  <div class="period-layout">
-    <ArchivePanel mode="weekly" current={(weeks[0]?.key ?? '')} />
-    <div class="period-content">
-
-  <div class="period-archive">
-    {weeks.map((w: any) => {
-      const [y, wk] = [w.year, w.week];
-      return (
-        <a class="period-row" href={`/weekly/${w.key}/`}>
-          <span class="pr-key">{y} 年第 {wk} 周</span>
-          <span class="pr-range">{w.range[0]} ~ {w.range[1]}</span>
-          <span class="pr-count">{w.papers.length} 篇</span>
-          {w.top && <span class="pr-top">最热:《{w.top.titleZh.slice(0, 26)}{w.top.titleZh.length > 26 ? '…' : ''}》</span>}
-        </a>
-      );
-    })}
-  </div>
-  <p class="small muted" style="margin-top:14px">共 {weeks.length} 周 · 点任一周查看该周全部论文、热点方向与关联日报。</p>
-</Base>
+<PeriodIndex
+  kind="weekly"
+  label="周报"
+  desc="每周一自动综合本周收录的论文与日报,按研究方向分版呈现。"
+  issues={weeks.map((w: any, i: number) => ({ href: `/weekly/${w.key}/`, issue: all.length - i, date: w.key.replace('-W', ' 第 ') + ' 周', title: `${w.range[0]} ~ ${w.range[1]}`, note: `${w.papers.length} 篇` }))}
+/>
