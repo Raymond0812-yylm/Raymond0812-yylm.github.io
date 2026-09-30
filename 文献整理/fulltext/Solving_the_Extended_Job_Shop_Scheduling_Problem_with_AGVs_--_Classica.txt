@@ -1,0 +1,627 @@
+Solving the Extended Job Shop Scheduling Problem with
+AGVs – Classical and Quantum Approaches ∗
+Dr. Marc Geitz 1‡, Dr. Cristian Grozea 2, Wolfgang Steigerwald3, Robin St¨ ohr4, and
+Dr. Armin Wolf5[0000−0003−3940−0792]
+1 Telekom Innovation Laboratories marc.geitz@telekom.de
+2 Fraunhofer FOKUS cristian.grozea@fokus.fraunhofer.de
+3 Telekom Innovation Laboratories wolfgang.steigerwald@telekom.de
+4 Telekom Innovation Laboratories rb.stoehr@gmail.com
+5 Fraunhofer FOKUS armin.wolf@fokus.fraunhofer.de
+Abstract. The subject of Job Scheduling Optimisation (JSO) deals with the scheduling of
+jobs in an organization, so that the single working steps are optimally organized regarding
+the postulated targets. In this paper a use case is provided which deals with a sub-aspect of
+JSO, the Job Shop Scheduling Problem (JSSP or JSP).
+As many optimization problems JSSP is NP-complete, which means the complexity increases
+with every node in the system exponentially. The goal of the use case is to show how to
+create an optimized duty rooster for certain workpieces in a ﬂexible organized machinery,
+combined with an Autonomous Ground Vehicle (AGV), using Constraint Programming (CP)
+and Quantum Computing (QC) alternatively. The results of a classical solution based on CP
+and on a Quantum Annealing model are presented and discussed. All presented results have
+been elaborated in the research project PlanQK.
+Keywords: Constraint Programming · Job Shop Scheduling · Quadratic Unconstrained
+Boolean Optimization Problem · Quantum Annealing · Quantum Computing · Sequence-
+Dependent Setup-Times
+1 Introduction
+1.1 Problem Motivation and Description
+The calculation of duty rosters is, since many years, a special subject in the departments of Oper-
+ation Research. JSSP is a problem which is NP-hard, which means that with each additional node
+in the manufacturing sequence the solution space expands exponentially. But not only the number
+of nodes increases the complexity, there are further constraints to be considered like:
+– Functionalities of the machines, i.e. not every machine can realize each production step.
+– Processing times for speciﬁc work items.
+– Machinery set-up times.
+– Changeover times for switching tools on a machine.
+– Temporary storage times of the workpieces.
+‡ the authors are listed in alphabetical order.
+∗ The presented work was funded by the German Federal Ministry for Economic Aﬀairs and Energy within
+the project “PlanQK” (BMWi, funding number 01MK20005) [1] and licensed under CC BY-NC-ND 4.0.
+arXiv:2109.04830v1  [cs.AI]  10 Sep 2021
+
+=== PAGE BREAK ===
+
+2 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+The prioritization of workpieces for special customers or the prioritization of workpiece groups
+will increase the problem complexity even further.
+Individualized transports of workpieces on the shop ﬂoor within the paradigms of Industry 4.0
+increase the complexity even more. For this reason we deduced a use case including most of the
+mentioned constraints but small in scale, however, with the possibility to scale up later.
+2 Use Case Scenario
+For the initial scenario we consider four machines with diﬀerent tool settings. Autonomous Ground
+Vehicles (AGVs) are used to transport the workpieces on the shopﬂoor.
+2.1 Constraints and Deﬁnitions
+– Each machine has a speciﬁc functionality which cannot be performed by another machine.
+– Each machine has an unlimited storage before and after each processing step.
+– A processing step (also named here “working step” or “operation”), as well as on the machine
+as on the transport, is non-preemptive.
+– At most one workpiece (or “operation”) can be processed on a machine at any time.
+– Each working step should have the same priority.
+– For each working step the processing sequence and the duration is known in advance.
+– For each workpiece the working steps must be processed in a ﬁxed sequence, named “job”.
+– Every operation must run exactly once.
+– Every operation inside a job can only start if the previous one is ﬁnished.
+– The transportation of the workpieces is done by an AGV.
+– The AGV and all the workpieces are positioned at the beginning on the start point (“Start”)
+and afterward’s on the target point (“Target”). In some scenarios there can be several start and
+target points.
+– The AGV can carry at most one workpiece on each transportation step, between “Start”,
+machinery and “Target”.
+– The required transit time between “Start”, machinery and “Target” must be incorporated
+during the planning and optimization of the duty roster.
+– The durations of the transit times between the “Start”, machinery and “Target” are known in
+advance.
+– The total processing time should be minimized. The total processing time is the time consumed
+for all parts being manufactured, according to the duty roster, starting at“Start”and ending up
+at “Target”.
+An initial scenario is presented schematically in Figure 1.
+2.2 Job-Shop Scheduling Problem
+Problem deﬁnition We have a set of N jobs J ={j0,...,j N−1}. Each job consists of a sequence
+of operations, where each operation is to be executed on one of the M machines{m0,...,m M−1}
+and will take a known time t.
+With a given input of jobs, operations, and machines, as well as the number and initial positions
+of the AGVs, the task is to ﬁnd an optimal schedule, that will minimize the time T needed to
+complete all operations [2].
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 3
+Fig. 1. Initial use case scenario
+3 Related Work
+In optimization problems, we are trying to ﬁnd the best solution from all feasible solutions. We can
+convert those problems into energy minimization problems and use the eﬀects of quantum physics
+to ﬁnd the solution of the lowest potential energy [3]. In quantum annealing we have, instead of
+classical bits, so-called qubits, which on top of being in a state of 0 or 1, those can also be in a
+superposition, which corresponds to both states at the same time.
+Quantum Annealing (QA) assumes a system in full superposition being in its lowest energy
+state. The system is then slowly (adiabatically) conveyed to an energy function describing the
+optimization problem - the adiabatic theorem [4] assures that the system will remain on its lowest
+energy state during the transition. At the end of the annealing process, the system has turned from
+a fully superimposed quantum state to a classical state, where the qubits can easily be read out.
+The Job Shop Scheduling problem (JSP) has been solved using the technique of simulated an-
+nealing [5–7]. A quantum annealing solution has ﬁrst been introduced in [8] where the JSP has been
+modelled as cost or energy function to be minimized (QUBO, see below). A basic implementation
+for a DWave quantum annealer is presented in [9]. The modelling or implementation of a more
+complicated JSP problem, especially with the introduction of AGVs or robots to transport goods
+between machines on the shop ﬂoor is to the best of our’s knowledge not yet known.
+A quadratic unconstrained binary optimization problem (QUBO) is a minimization problem of
+this form:
+min
+x∈{0,1}N
+∑
+i
+Qi,ixi +
+∑
+i<j
+Qi,jxixj (1)
+wherex = (xi)i=1...N are binary variables and the real-valued matrix Q of size N×N fully deﬁnes
+the QUBO instance. The matrix Q is by convention upper diagonal. Thanks to the similarity of
+the QUBO formula to the Ising Model [10], QUBO matrices can be transformed trivially into Ising
+Hamiltonian matrices and thus solutions for the QUBO problems can be produced by quantum
+annealers like those of DWave. The constraints of the problems to be modelled as QUBOs are
+integrated into the objective function as additional terms that achieve their minimum only when
+
+=== PAGE BREAK ===
+
+4 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+the respective constraints are satisﬁed. A quantum computer will compute the minimum of the
+QUBO function, hence solve the optimization problem with all constraints fulﬁlled.
+Constraint Programming (CP) deals with discrete decision an optimization problems. This
+paradigm combines pruning algorithms known from Operations Research (OR) reducing the search
+space and heuristic tree search algorithms, e.g. instances of depth-ﬁrst search, known from Artiﬁcial
+Intelligence (AI) in order to explore the search space. The advantage of CP is that each decision
+during search will be used to further restrict the search space, i.e. pruning branches in the search
+tree. Using specialized OR pruning algorithms, CP is the appropriate approach for solving schedul-
+ing problems [11] even those considered here. Compared to local search approaches, e.g., Simulated
+Annealing or Quantum Annealing CP oﬀers several advantages:
+– The solutions found (schedules) always satisfy the speciﬁed constraints, which is not the case
+in local search, where the violation of the constraints is only minimized.
+– CP can guarantee the quality of intermediate solutions during the optimization process.
+– The optimality of the best solutions can be achieved and proven with complete search.
+In CP there exist highly eﬃcient methods for reducing the ﬁnite value ranges of the decision
+variables (start times, durations, end times, possible resources etc.) of activities on exclusively
+available (unary) resources. Some of those are: overload checking, forbidden regions, not-ﬁrst/not-
+last detection, detectable precedencesand edge ﬁnding [12–14]. Some recent version of those pruning
+methods support (sequence-dependent) transition times and pruning for optional activities [15, 16].
+The optional activities (that can be optionally scheduled, but not necessarily) are the basis for
+certain modelling approaches for scheduling activities on alternatively exclusive resources [17]. Such
+activities are in our case the transport tasks, that can be scheduled on alternative available AGVs.
+However these activities change the locations of the AGV which has to be respected: Transition
+times occur between two consecutive transport tasks when the destination of the ﬁrst transport
+task diﬀers from the origin of the second one. In those cases the used AGV has to travel (empty)
+from one location to another.
+Optimization in CP is generally done by Branch-and-Bound (B&B), i.e. through an iterative
+search for ever better solutions. The optimization follows either a monotonous or a dichotomous
+bounding strategy combined with a mostly problem speciﬁc one, generally full depth search [18].
+This combined strategy (B&B with full depth search) guarantees that the best solutions are found
+and their optimality is proven. Furthermore, dichotomous bounding allows to quantify the quality
+of already found, intermediate solutions. Recent advances in CP follow a hybrid approach that
+combines search space pruning with the satisﬁability problem solving (SAT Solving) for classical
+propositional logic [19]. There, clauses are generated during constraint processing (propagation)
+and further processed by SAT Solving [20]. Promising results show that this hybrid approach is
+ideally suitable for solving scheduling problems in a classical way [21–24].
+4 Methods
+4.1 Solving the Extended JSP with AGV Transport using Constraint Programming
+An AGV performs transport tasks inT ={t1,...,t n} between some locations inL ={L1,...,L m}.
+If the destination and the departure locations between two consecutive transport tasks are diﬀerent
+some additional transitions have to be performed. Let d(P,Q ) be the travel time between any two
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 5
+locations P,Q∈L . Then it is assumed that
+d(L,L ) = 0 for any location L∈L ,
+d(P,Q )≥ 0 for any two diﬀerent locations P,Q∈L,P ⁄=Q and
+d(P,Q )≤d(P,R ) +d(R,Q ) for any locations P,Q,R ∈L .
+The last inequality is also known as the triangle inequality and satisﬁed in Euclidean spaces.
+Each transport task ti∈T is annotated by its departure locationPi∈L where the AGV picks
+up a workpiece and the destination locationQi∈L where the AGV releases a workpiece, i.e. letti =
+ti(Pi,Qi). Further, let si = si(Pi) be the (variable) start time at departure location Pi∈L of the
+transport task ti(Pi,Qi) and ei =ei(Qi) be the (variable) end time at destination location Qi∈L
+of this task. Further let di =d(Pi,Qi) be the duration of task ti(Pi,Qi) determined by the travel
+time between its locations so that
+si(Pi) +d(Pi,Qi) =ei(Qi) holds for i = 1,...,n . (2)
+The transport tasks in T of an AGV must be scheduled in linear order ; i.e. T ={t1,...,t n}
+must be ordered in such a way that
+ei(Qi) +d(Qi,Pi+1)≤si+1(Pi+1) holds for i = 1,...,n − 1. (3)
+There,d(Qi,Pi+1) is the sequence-dependent transition time between the destination location Qi of
+the i-th transport task and the departure location Pi+1 of the successive (i + 1)-th transport task.
+In order to satisfy these sequence-dependent transition times on exclusively available resources
+we adapted the approach presented in [15]. Therefore additional tasks to be scheduled on additional
+resources – one for each location – are considered: For each “real” transport task ti(Pi,Qi) and
+each location L we consider an additional “virtual” transport tasks t′L
+i with start and end times
+s′L
+i =si(Pi) +d(Pi,L )
+e′L
+i =ei(Qi) +d(Qi,L )
+The duration of each additional task t′L
+i namelye′L
+i−s′L
+i =ei(Qi) +d(Qi,L )−si(Pi)−d(Pi,L ) =
+si(Pi)+d(Pi,Qi)+d(Qi,L )−si(Pi)−d(Pi,L ) =d(Pi,Qi)+d(Qi,L )−d(Pi,L ) is always non-negative
+due to the triangle inequality, i.e. each additional task is well-deﬁned.
+For an AGV with more than two transport tasks we proved that ei(Qi) +d(Qi,Pj)≤ sj(Pj)
+holds for any two diﬀerent transport tasks ti,tj∈T ,ti⁄=tj if and only if e′L
+i ≤s′L
+j holds for each
+location L∈L .6 This means that scheduling the additional tasks t′L
+i in the same linear order for
+each locationL∈L results in a schedule where the transport tasks are scheduled in the same order
+respecting the necessary transition times between diﬀerent locations as shown in Figure 2. There
+each task ti and the according tasks t′L
+i have the same color.
+For scheduling the transport tasks of the AGVs as well as the tasks on the machines we used the
+Fraunhofer FOKUS developed Constraint Programming libraryfirstCS [25] to model the Job Shop
+Scheduling problems including AGVs for transport. The firstCS library includes implementations
+of algorithms for unary resources adapted from [13, 14, 26]. We handled the ordering of tasks
+globally using an adapted version of global diﬀerence constraints [27]. The sequence-dependent
+6 Details on the proof of this statement can be found in [15].
+
+=== PAGE BREAK ===
+
+6 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+Fig. 2. The interrelationship between “real” transport tasks (bottom line) and their according “virtual”
+tasks (upper part – one line for each location) scheduled in the same linear order.
+transition times were handled on algorithmic level using a new approach described in [16]. These
+ﬁltering algorithms are pruning the search space and are used together with a depth-ﬁrst tree-search
+called domain reduction [28] for minimizing the makespan. The chosen algorithms also support
+optional activities so that they are applicable in the case where transport tasks can be performed
+by more than AGV. In this general case, the algorithms presented in [17] are used to deal with such
+alternative exclusive resources.
+4.2 Solving the Extended JSP with AGV Transport on a Quantum Annealer
+We model our problem as a quadratic unconstrained binary optimization problem (QUBO, cf. (1)).
+Variable deﬁnitions and notations Let T be the planning horizon and I be the number of
+machine operations. Starting with the variable structure used in [8], we index our variable array
+x by operation index i and running time 0 ≤ t < T: xi,t = 1 if and only if operation Oi starts at
+timet, where Oi denotes operation number i. The operations are ordered in a lexicographical way,
+starting from the ﬁrst operation of the ﬁrst job, going to the last operation of the last job.
+Additionally we denote the processing time of operation i withpi, and with kn the index of the
+last operation of the job jn. Let W = (wa,b) be the distance matrix, where wa,b stores the distance
+from machine a to machine b.
+Walking Operations To include the AGV movements into the model, we introduce walking oper-
+ations in addition to the standard (machine) operations. Between every two successive standard
+operations inside of a job, we add B walking operations, where B denotes the number of AGVs.
+The individual walking operations are denoted with ξ. All B walking operations between two stan-
+dard operations are combined in a set that we name “the parent walking operation”. One of these
+operations, denoted with Ψ, will have the structure Ψx = (ξx0,ξx1,... ). Out of every parent walking
+operations, one individual one must be picked, to transport the piece. Individual walking operations
+are deﬁned as a tuple ξx = (b,wmsme,ms,me) where b is the AGV executing this operation, ms is
+the start machine the workpiece needs to be picked up from and me is the end machine the piece
+needs to be delivered to. Those operations are appended at the end of the standard operations.
+Predecessor Walking Operation Additionally we deﬁne Ωi as the predecessor walking operation,
+of the standard operation i. This contains the walking operation of all AGVs, that come directly
+before i. For those indices i for which Oi is the ﬁrst operation of a job, Ωi is an empty set.
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 7
+Predecessor Standard Operation We deﬁne Φi as the standard operation, previous to the walking
+operation i. Im is deﬁned to be the set of all machine operations executed on machine m. Ib is
+deﬁned to be the set of all walking operations executed by the AGV b.IΨ is the set of all operations
+in the parent walking group Ψ.
+Constraints We need to account for the following constraints:
+h1 Every machine operation must run exactly once . With a planning horizon T , our variables for
+operation Oi would consist of xi,0,xi,1,...,x i,T−1. Here we need to enforce, that exactly one of the
+three variables is 1, and the rest 0. That means we want to increase the penalty, when less than,
+one or more than one of them is 1. We can do that by iterating over the set of all operations I, and
+for eachi∈I we subtract 1 from the sum oﬀ all t∈T , and square the result. This way the penalty
+term for this constraint is 0 if exactly one operation is picked, and higher than that otherwise,
+which will enforce exactly one operation being picked.
+h1(¯x) =
+I−1∑
+i=0
+(T−1∑
+t=0
+xi,t− 1
+)2
+(4)
+h2 Every machine can only work on one operation at a time . Here, we deﬁne a set Rm that con-
+tains all indices of operation i with its corresponding starting time t and a second operation i′ with
+its time t′ for which scheduling them as such leads to an overlap on the same machine:
+Rm ={(i,t,i′,t′) : (i,i′)∈Im×Im,i⁄=i′, 0≤t,t′≤T, 0≤t′−t<p i}
+h2(¯x) =
+M−1∑
+m=0
+∑
+(i,t,i′,t′)∈Rm
+xi,txi′,t′ (5)
+h3 Every operation inside a job can only start if the previous one is ﬁnished . For this constraint,
+we need to iterate over all jobs n, and pick the operations i and execution times t andt′, for which
+the sum of the processing time of i with its execution time t is larger than the execution time of
+the next operation t′, and therefore violates the constraint.
+h3(¯x) =
+N−1∑
+n=0
+∑
+t,t′
+i,i+1∈Im
+t+pi>t′
+xi,txi+1,t′ (6)
+Objective Function The objective function is built by introducing a set of ”upper bound” vari-
+ablesUt such that exactly one of them is true. Together they model a virtual ﬁnite domain variable
+V with the domain 0 ...T , such that V =t if and only if Ut = 1, i.e.∑T
+t=0Ut = 1.
+h4 Exactly one of the variables Ut is set. Enforcing this is done by adding the ﬂlowing quadratic
+constraint to the target function:
+h4( ¯U) = (
+T∑
+t=0
+Ut− 1)2 (7)
+
+=== PAGE BREAK ===
+
+8 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+h5 No planned operation ends after the upper bound. The index t whereUt = 1 is understood to be
+an upper bound of the whole schedule, therefore we impose that no i,t 1,t 2 exist such thatxi,t1 = 1,
+Ut2 = 1 andt1 +pi >t 2 (no planed operation ends after the upper bound). Enforcing this condition
+can be done by adding this penalty term to the target function
+h5(¯x, ¯U) =
+∑
+i,t1,t2
+t1+pi>t2
+xi,t1Ut2 (8)
+With those, we can introduce the core of the objective function
+o( ¯U) =
+N∑
+t=0
+tUt (9)
+Its meaning is fairly straightforward: by minimizingo( ¯U) one gets a lowest upper bound that is also
+minimum amongst all consistent solutions (solutions satisfying all constraints) thus the solution
+that guarantees the shortest makespan.
+Current target function The constraints (4)(5)(6) combined with the objective functions constraints
+and components (7)(8)(9) give the basic JSP QUBO target function, the minimization of which
+produces lowest makespan solutions that satisfy all constraints deﬁned so far.
+HT (¯x, ¯U) =αh1(¯x) +αh2(¯x) +αh3(¯x) +αh4(¯x, ¯U) +αh5( ¯U) +o( ¯U) (10)
+Further Constraints We need to add four new constraints, to include the walking time between
+machines. Once we add these constraints to our already existing target function, the QUBO solutions
+represent optimal schedules with regards to the walking time between the machines, and the number
+of AGVs we have.
+h6 For each transport between two standard operations, exactly one walking operation must be picked.
+Here we also make sure that for all operations belonging to the same parent walking operation and
+for all times, there is only one variable xi,t, that will have the value 1, which means one and exactly
+one of the AGVs is selected to perform that transport.
+h6(¯x) =
+I−1∑
+j=0
+Ωj⁄=∅
+
+∑
+i∈Ωj
+T−1∑
+t=0
+xi,t− 1
+
+
+2
+(11)
+h7 AGVs must have enough time to switch to the next machine . Here we iterate over all walking
+operations of each AGV, denoted asIb. For all possible walking operations of these AGVs, we make
+sure that the starting time of operation i′∈Ib, is not before operation i∈Ib is ﬁnished, plus the
+time the AGV needs to switch machines. In here, me(i) deﬁnes the machine end of operation i
+or the fourth element in the tuple. ms(i′) deﬁnes the machine start of operation i′, or the third
+element in the tuple.
+h7(¯x) =
+B−1∑
+b=0
+∑
+i,i′∈Ib
+i⁄=i′
+∑
+t,t′
+t‘>t
+(
+xi,txi′,t′max
+(
+t +pi +wme(i)ms(i′)−t′, 0
+))
+(12)
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 9
+h8 A standard operation can only be scheduled at time t, if the corresponding walking operation
+is ﬁnished before or at t. Using our previously deﬁned Predecessor Walking Operation, we iterate
+through all standard operations and their corresponding walking operations, and apply a penalty
+if the walking operation i′ is ﬁnished after the time t of the standard operation.
+h8(¯x) =
+I−1∑
+i=0
+∑
+i′∈Ωi
+∑
+t,t′
+xi,txi′,t′max (t′ +pi′−t, 0) (13)
+h9 A walking operation can only be picked at time t, if the corresponding standard operation is
+ﬁnished before or at t. This will be the inverse of h8. Using the Predecessor Standard Operation,
+we iterate through all walking operations and their corresponding standard operations and apply
+a penalty if the the previous standard operation starting at time t′ with it’s individual processing
+time, is not ﬁnished before or at t.
+h9(¯x) =
+I−1∑
+j=0
+∑
+i∈Ωj
+∑
+t,t′
+xi,txΦi,t′max (t′ +pΦi−t, 0) (14)
+Final QUBO. We add the new constraints to the previous target function, to get the ﬁnal one
+for the extended JSP problem.
+HT (¯x, ¯U) =α
+∑
+i=1..9
+hi +o( ¯U) (15)
+5 Results
+5.1 Experimental Results Using the Constraint Programming Approach
+T able 1. Empirical results based on the firstCS implementation
+Id size GD B&B makespan run-time proof of opt.
+Set0 2x3x5x1 + D 9 0.3 sec. 0.3 sec.
+Set1 4x4x24x1 + D 58 41 sec. 64 sec.
+Set2 4x8x24x1 + D 45 87 sec. 87 sec.
+Set3 4x4x24x1 + D 58 60 sec. 78 sec.
+Set4 4x4x21x1 + D 49 18 sec. 30 sec.
+Set5 4x4x21x1 + D 49 17 sec. 30 sec.
+Set6 4x4x24x2 + D 39 106 sec. 1218 sec.
+Set7 10x10x120x1 − M 412 692 sec. —
+Set8 10x10x120x2 − M 224 200 sec. —
+The run-time experiments shown in Table 1 with the CP-basedfirstCS implementation (cf. Sec-
+tion 4.1) were performed on a Pentium i7-PC running Windows 10 with Java 1.8. The ﬁrst column
+contains the problem identiﬁers, the second column the problem sizes consisting of #machines x
+
+=== PAGE BREAK ===
+
+10 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+Fig. 3. Set6 – optimal solution with makespan 39. Each of the colors red, green, blue, black corresponds to
+one of the workpieces. The ﬁrst two rows of horizontal blocks denote the transport operations, colored with
+the corresponding color of the corresponding workpiece. Empty transports are denoted with a supplementary
+color. The ﬁrst row shows the transports performed by the ﬁrst AGV, the second row the ones by the second
+AGV. The four rows that follow show the processing tasks scheduled on the four processing machines, again
+the color indicates the workpiece being processed. The tilted lines show the transport of the workpieces
+between the two special points “Start” and “Target” and from one machine to another.
+#jobs x #tasks x #AGVs. The third column shows whether the global diﬀerence constraints (GD)
+are used (+) or not ( −). The forth column shows whether dichotomous (D) or monotonous (M)
+branch-and-bound (B&B) was performed for minimizing the makespans shown in the ﬁfth column
+(optimal makespans are in bold). The next-to-last column shows the run-times to ﬁnd the schedules
+with the presented makespans. The last column shows the total run-times for proving the optimality
+of found best solutions, i.e., including exhaustive search for even better solutions.
+Branch-and-bound optimization is based on diﬀerent kinds of problem-speciﬁc, depth-ﬁrst search:
+For the rather small, single AGV problem instances (Set0–Set5) the transport tasks on the AGV
+are sequentially ordered ﬁrst, then the the start times of all tasks are determined by successively
+splitting the domains of the start time variables in ”earlier” and ”later” subsets starting with the
+smallest domain. For problem instances with two AGVs (Set6 and Set8) the transport tasks are
+assigned to the AGVs beforehand. For the larger problem instances (Set7 and Set8) the ordering of
+transport tasks on the AGVs is omitted. Further, branch-and-bound optimization starts with two
+trivial bounds of the makespan: the sum of all transport durations between the machines divided
+by the number of AGVs as an initial lower bound and the sum of all task durations plus the longest
+travel time between all machines as an initial upper bound.
+5.2 Experimental Results Using the Quantum Approach
+On the problem ”Set6”, with two AGVs, 4 workpieces, 4 machines, and a total of 6 positions in-
+cluding“Start” and“Target” points which led to a QUBO matrix with 5525 qubits we have obtained
+the results shown in Table 2. The optimal solution, obtained using firstCS is shown in Figure 3.
+Optimising the QUBO with tabu search on CPU produced a similar solution of equal quality.
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 11
+T able 2. Empirical comparison of the results on the same problem (”Set6”) on various quantum, quantum
+inspired and classical platforms. The quantum approaches processed the same 5525x5525 QUBO matrix.
+Method Time Solution Quality (Makespan)
+QC DWave Leap Hybrid v2 (5000 qubits) 60 min 57
+Quantum-inspired Fujitsu DAU (8192 sim qubits) 15 min 53
+CPU-based CBO firstCS (single core) < 2 min 39
+CPU Tabu Search (32 cores) 120 min 39
+6 Discussion and Conclusion
+An interesting behavior of all optimizers applied on the QUBO matrices is the presence of obviously
+unnecessary gaps in the produced solutions. We have found out that by simply eliminating those gaps
+by doing any action as soon as the prerequisites are fulﬁlled, one obtains clearly better solutions,
+sometimes even the optimal ones. An example is given in Figure 4.
+Fig. 4. Set1 - A tabu search solution with makespan 63 containing gaps, e.g. at time unit 11. It can be
+compacted to a solution wit makespan 58 (optimal) by simply eliminating the gaps.
+In order to exclude the unlikely possibility that we made some error when building the QUBO
+matrices, we cross-validated the QUBO matricesQ we have built against the solutions obtained with
+firstCS. Therefore the CP solutions are automatically converted to bit vectorsx and evaluated the
+product x′Qx +constant, where constant is the bias that is not contained in the QUBO matrix,
+which only contains the coeﬃcients of the quadratic and linear terms (given b2 =b for any bit b).
+The tests on the problems Seti withi∈{ 1, 2, 3, 6, 7} have shown that the modelling with QUBO is
+compatible with the solutions obtained classically and that those evaluate to the expected value (the
+makespan), which is thus proving that they fulﬁl all constraints modelled in the QUBO matrices
+and that bit vectors do exist that evaluate that low with our QUBO matrices.
+In this work we were able to model an extented JSP using CP and as QUBO that is automatically
+converted to Ising Hamiltonian for adiabatic quantum computers or simulators. The model has been
+extended to incorporate the transport of workpieces through multiple AGVs. The QUBO problems
+
+=== PAGE BREAK ===
+
+12 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+have been minimized on several solvers, including Tabu Search, and adiabatic quantum computers.
+As a contrast, the original problem (not converted to QUBO) has been solved also with CP-based
+optimisation.
+Quantum solvers are capable of ﬁnding similar results to those produced by the classical methods
+in small problem sizes. These solutions prove the QUBO models working but currently there is
+limited beneﬁt for real life use cases. CP still performs better. As we increase the complexity of the
+JSP, i.e. increase the required number of qubits and qubit couplings, we observe a degrading of the
+quantum results versus the classical results. We believe the degrading occurs because of noisy qubit
+systems, limited resolution in implementing larger QUBO matrices and limited quantum coherence
+times in nowadays systems.
+If the problem size grows into the order of several hundred qubits, the QUBO model needs
+to be decomposed and hybrid solver mechanisms are applied. We see hybrid approaches as best
+eﬀort, since they rely strongly on classical optimization. The full details of hybrid classical solvers
+implemented in the cloud are known only to the manufacturers of the quantum computers so they
+cannot be discussed here. Our comparison showed a very similar performance of the local tabu
+search on 14 CPU cores and of the DWave hybrid in the cloud on a series of problems that diﬀer
+only in the horizon and thus in the number of qubits (Figure 5). The winner in this comparison is
+the CP-based approach, which delivers constantly within 250 ms the optimum makespan value.
+Fig. 5. Comparison of the solution quality for the same running time.
+The magnitude of compelling JSPs easily require the number of 5000, even 50.000 qubits. This
+requirement seems to be out of range of nowadays quantum (hybrid) approaches. We compared a
+JSP of about 5000 qubits with various solvers and observe a clear advantage of classical optimization.
+However, we are curious to see progress of adiabatic quantum computing technology and we are
+ready to test future capabilities for real life JSPs in the 50.000 qubit regime.
+The problem sizes that we are currently able to address are below business relevance and can
+be executed on classical computers with similar performance. It is uncertain right now, when the
+quantum computers will bring advantages for practical decision or optimization applications. Once
+that happens, it is likely that quantum computers will replace classical computers, on specialized
+problems like optimization problems, that have often exponential time complexity.
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 13
+References
+[1] Bundesministerium f¨ ur Wirtschaft und Energie. Plattform und ¨Okosystem f¨ ur Quantenun-
+terst¨ utzte K¨ unstliche Intelligenz. https://planqk.de.
+[2] Laurent Perron and Vincent Furnon. The Job Shop Problem . https://developers.google.com/
+optimization/scheduling/job shop. [Online; accessed 4-May-2020].
+[3] D-Wave Systems Inc. Introduction to Quantum Annealing. https://docs.dwavesys.com/docs/
+latest/c gs 2.html. [Online; accessed 4-May-2020].
+[4] Peter Wittek. Quantum Machine Learning: What Quantum Computing Means to Data Min-
+ing. en. Elsevier, Aug. 2014. isbn: 978-0-12-800953-6.
+[5] Nakano R. Yamada T. “Job-Shop Scheduling by Simulated Annealing Combined with Deter-
+ministic Local Search”. English. In: Job-Shop Scheduling by Simulated Annealing Combined
+with Deterministic Local Search 1996 . Springer, Boston, MA, 1996, pp. 237–248. doi: https:
+//doi.org/10.1007/978-1-4613-1361-8 15.
+[6] Shouvik Chakraborty and Sandeep Bhowmik. “Job Shop Scheduling Using Simulated An-
+nealing”. In: Proceedings of the First International Conference on Computation and Commu-
+nication Advancement. JIS College of Engineering, Kalyani, India: McGrawHill Publication,
+Jan. 2013, pp. 69–73. isbn: 978-1-259-06393-0.
+[7] Rui Zhang. “A Simulated Annealing-Based Heuristic Algorithm for Job Shop Scheduling to
+Minimize Lateness”. en. In: International Journal of Advanced Robotic Systems (Jan. 2013).
+[8] Davide Venturelli, Dominic J. J. Marchand, and Galo Rojo. Quantum Annealing Implemen-
+tation of Job-Shop Scheduling . 2015. arXiv: 1506.08479 [quant-ph].
+[9] D-Wave Systems Inc. Job Shop Scheduling . https://github.com/dwave-examples/job-shop-
+scheduling. [Online; accessed 4-May-2020].
+[10] D-Wave Systems Inc. Problem Formulations: Ising and QUBO . https://docs.dwavesys.com/
+docs/latest/c gs 3.html. [Online; accessed 4-May-2020].
+[11] Philippe Baptiste, Claude le Pape, and Wim Nuijten. Constraint-Based Scheduling: Applying
+Constraint Programming to Scheduling Problems. International Series in Operations Research
+& Management Science 39. Kluwer Academic Publishers, 2001.
+[12] Philippe Baptiste and Claude Le Pape. “Edge-Finding Constraint Propagation Algorithms
+for Disjunctive and Cumulative Scheduling”. In: Scheduling,” Proceedings 15 Th Workshop
+of the U.K. Planning Special Interest Group . 1996.
+[13] Petr Vil´ ım. “O(n Log n) Filtering Algorithms for Unary Resource Constraint”. en. In:Integra-
+tion of AI and OR Techniques in Constraint Programming for Combinatorial Optimization
+Problems. Ed. by Takeo Kanade et al. Vol. 3011. Series Title: Lecture Notes in Computer
+Science. Berlin, Heidelberg: Springer Berlin Heidelberg, 2004, pp. 335–347. isbn: 978-3-540-
+21836-4 978-3-540-24664-0. doi: 10.1007/978-3-540-24664-0 23.
+[14] Armin Wolf. “Pruning While Sweeping over Task Intervals”. en. In: Principles and Practice
+of Constraint Programming – CP 2003 . Ed. by Francesca Rossi. Lecture Notes in Computer
+Science. Berlin, Heidelberg: Springer, 2003, pp. 739–753. isbn: 978-3-540-45193-8. doi: 10.
+1007/978-3-540-45193-8 50.
+[15] Armin Wolf. “Constraint-Based Task Scheduling with Sequence Dependent Setup Times,
+Time Windows and Breaks”. In: Informatik 2009: Im Focus Das Leben, Beitr¨ age Der 39.
+Jahrestagung Der Gesellschaft F¨ ur Informatik e.V. (GI), 28.9.-2.10.2009, L¨ ubeck, Proceed-
+ings. Ed. by Stefan Fischer, Erik Maehle, and R¨ udiger Reischuk. Vol. 154. Lecture Notes in
+
+=== PAGE BREAK ===
+
+14 M. Geitz, C. Grozea, W. Steigerwald, R. St¨ ohr, and A. Wolf
+Informatics (LNI) - Proceedings Series of the Gesellschaft F¨ ur Informatik (GI). Gesellschaft
+f¨ ur Informatik e.V., 2009, pp. 3205–3219.isbn: 978-3-88579-248-2.
+[16] Sascha Van Cauwelaert, Cyrille Dejemeppe, and Pierre Schaus. “An Eﬃcient Filtering Algo-
+rithm for the Unary Resource Constraint with Transition Times and Optional Activities”. en.
+In: Journal of Scheduling (Feb. 2020). issn: 1099-1425. doi: 10.1007/s10951-019-00632-8.
+[17] Armin Wolf and Hans Schlenker. “Realising the Alternative Resources Constraint”. en. In:
+Applications of Declarative Programming and Knowledge Management. Ed. by Dietmar Seipel
+et al. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer, 2005, pp. 185–199.
+isbn: 978-3-540-32124-8. doi: 10.1007/11415763 12.
+[18] Petra Hofstedt and Armin Wolf. Einf¨ uhrung in die Constraint-Programmierung: Grundlagen,
+Methoden, Sprachen, Anwendungen . de. eXamen.press. Berlin Heidelberg: Springer-Verlag,
+2007. isbn: 978-3-540-23184-4. doi: 10.1007/978-3-540-68194-6.
+[19] Peter J. Stuckey. “Lazy Clause Generation: Combining the Power of SAT and CP (and
+MIP?) Solving”. en. In: Integration of AI and OR Techniques in Constraint Programming
+for Combinatorial Optimization Problems . Ed. by David Hutchison et al. Vol. 6140. Berlin,
+Heidelberg: Springer Berlin Heidelberg, 2010, pp. 5–9. isbn: 978-3-642-13519-4 978-3-642-
+13520-0. doi: 10.1007/978-3-642-13520-0 3.
+[20] Thibaut Feydy and Peter J. Stuckey. “Lazy Clause Generation Reengineered”. en. In: Prin-
+ciples and Practice of Constraint Programming - CP 2009 . Ed. by Ian P. Gent. Lecture Notes
+in Computer Science. Springer Berlin Heidelberg, 2009, pp. 352–366. isbn: 978-3-642-04244-7.
+[21] Andreas Schutt, Thibaut Feydy, and Peter J. Stuckey. “Explaining Time-Table-Edge-Finding
+Propagation for the Cumulative Resource Constraint”. en. In:Integration of AI and OR Tech-
+niques in Constraint Programming for Combinatorial Optimization Problems . Ed. by David
+Hutchison et al. Vol. 7874. Berlin, Heidelberg: Springer Berlin Heidelberg, 2013, pp. 234–250.
+isbn: 978-3-642-38170-6 978-3-642-38171-3. doi: 10.1007/978-3-642-38171-3 16.
+[22] Andreas Schutt et al. “Explaining the Cumulative Propagator”. en. In: Constraints 16.3 (July
+2011), pp. 250–282. issn: 1572-9354. doi: 10.1007/s10601-010-9103-2.
+[23] Andreas Schutt et al. “Solving RCPSP/Max by Lazy Clause Generation”. en. In: Journal of
+Scheduling 16.3 (June 2013), pp. 273–289. issn: 1099-1425. doi: 10.1007/s10951-012-0285-x.
+[24] Andreas Schutt and Peter J. Stuckey. “Explaining Producer/Consumer Constraints”. en.
+In: Principles and Practice of Constraint Programming . Ed. by Michel Rueher. Vol. 9892.
+Cham: Springer International Publishing, 2016, pp. 438–454. isbn: 978-3-319-44952-4 978-3-
+319-44953-1. doi: 10.1007/978-3-319-44953-1 28.
+[25] Armin Wolf. “ﬁrstCS—New Aspects on Combining Constraint Programming with Object-
+Orientation in Java”. en. In: KI - K¨ unstliche Intelligenz 26.1 (Feb. 2012), pp. 55–60. issn:
+0933-1875, 1610-1987. doi: 10.1007/s13218-011-0161-4.
+[26] Petr Vil´ ım, Roman Bart´ ak, and Ondˇ rejˇCepek. “Unary Resource Constraint with Optional
+Activities”. en. In: Principles and Practice of Constraint Programming – CP 2004 . Ed. by
+David Hutchison et al. Vol. 3258. Berlin, Heidelberg: Springer Berlin Heidelberg, 2004, pp. 62–
+76. isbn: 978-3-540-23241-4 978-3-540-30201-8. doi: 10.1007/978-3-540-30201-8 8.
+[27] Thibaut Feydy, Andreas Schutt, and Peter J. Stuckey. “Global Diﬀerence Constraint Propaga-
+tion for Finite Domain Solvers”. en. In: Proceedings of the 10th International ACM SIGPLAN
+Symposium on Principles and Practice of Declarative Programming - PPDP ’08 . Valencia,
+Spain: ACM Press, 2008, p. 226. isbn: 978-1-60558-117-0. doi: 10.1145/1389449.1389478.
+[28] H.-J. Goltz. “Reducing Domains for Search in CLP(FD) and Its Application to Job-Shop
+Scheduling”. English. In: Proceedings of the First International Conference on Principles
+
+=== PAGE BREAK ===
+
+Extended Job Shop Scheduling with AGVs – Classical and Quantum Approaches 15
+and Practice of Constraint Programming 1995 . Ed. by Ugo Montanari and Francesca Rossi.
+Lecture Notes in Computer Science 976. Cassis, France: Springer Verlag, Sept. 1995, pp. 549–
+562.

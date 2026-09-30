@@ -1,0 +1,1004 @@
+Hybrid quantum-classical computation for automatic
+guided vehicles scheduling
+Tomasz ´Smierzchalskia, Jakub Pawłowskie,f, Artur Przybyszf, Łukasz Pawelaa, Zbigniew
+Puchałaa, M´aty´as Koniorczykb, Bartłomiej Gardasa, Sebastian Deffnerc,d, and Krzysztof
+Dominoa *
+aInstitute of Theoretical and Applied Informatics, Polish Academy of Sciences, Bałtycka 5, Gliwice, 44-100, Poland
+bHUN-REN Wigner Research Centre for Physics, Konkoly-Thege Mikl´os ´ut 29-33., Budapest, 1121, Hungary
+cDepartment of Physics, University of Maryland, Baltimore County, Baltimore, Maryland 21250, USA
+dNational Quantum Laboratory, College Park, MD 20740, USA
+eInstitute of Theoretical Physics, Faculty of Fundamental Problems of Technology, Wroclaw University of Science
+and Technology, 50-370 Wroclaw, Poland
+fQuantumz.io Sp. z o.o., Puławska 12/3, 02-566 Warsaw
+*kdomino@iitis.pl
+ABSTRACT
+Motivated by recent efforts to develop quantum computing for practical, industrial-scale challenges, we demonstrate the
+effectiveness of state-of-the-art hybrid (not necessarily quantum) solvers in addressing the business-centric optimization
+problem of scheduling Automatic Guided Vehicles (AGVs). Some solvers can already leverage noisy intermediate-scale
+quantum (NISQ) devices. In our study, we utilize D-Wave hybrid solvers that implement classical heuristics with potential
+assistance from a quantum processing unit. This hybrid methodology performs comparably to existing classical solvers.
+However, due to the proprietary nature of the software, the precise contribution of quantum computation remains unclear.
+Our analysis focuses on a practical, business-oriented scenario: scheduling AGVs within a factory constrained by limited
+space, simulating a realistic production setting. Our approach maps a realistic AGVs problem onto one reminiscent of railway
+scheduling and demonstrates that the AGVs problem is better suited to quantum computing than its railway counterpart, the
+latter being denser in terms of the average number of constraints per variable. The main idea here is to highlight the potential
+usefulness of a hybrid approach for handling AGVs scheduling problems of practical sizes. We show that a scenario involving
+up to 21 AGVs, significant due to possible deadlocks, can be efficiently addressed by a hybrid solver in seconds.
+1 Introduction
+Quantum computing, a relatively young science field, has developed rapidly in recent years. It is commonly accepted that
+this novel technology could shape the future. Certain tasks are not tractable with a classical computer; quantum computing
+approaches are good candidates to handle these. For example, Shor’s algorithm1 proposes a polynomial-time quantum algorithm
+for the integer factoring problem. At its current development level, the improved efficiency offered by quantum computing is
+restricted to certain computational problems2. Nevertheless, it is widely recognized that we are in the era of noisy intermediate-
+scale quantum (NISQ) devices3, 4: a few hundred qubits are technologically available, but noise and imperfections still have a
+relevant impact on their operation. Despite that, the first examples of quantum computing utility have already been presented5
+for some specific physical systems, and there is an increasing research interest in potential industrial applications that are
+considered6–8. Currently, the community of quantum computing scientists is searching for practical industrial-scale use cases
+of industrial problems that can be successfully solved using the available quantum devices9. Our intention is to address this
+quest by tackling the Automated Guided Vehicles (AGVs) scheduling problem. The size and characteristics of the scheduling
+problem addressed in this paper make it a good candidate to explore noisy-intermediate scale quantum (NISQ)3 technologies in
+industrial applications.
+As current quantum devices are small and noisy, hybrid quantum-classical solvers are being developed to handle optimization
+problems of sizes that are relevant from the practical application point of view. In these hybrid solvers, a part of the computation
+is performed on a quantum device: the quantum processing unit (QPU), while the so-called master problem is handled by the
+CPU (central processing unit). Examples of such an approach are the hybrid solvers developed by the D-Wave company10.
+In the present paper, we compare the performance of one of these solvers with a state-of-the-art (classical) integer linear
+arXiv:2309.03088v3  [quant-ph]  6 Aug 2024
+
+=== PAGE BREAK ===
+
+programming (ILP) solver when applied for the scheduling of AGVs. Our findings indicate that in the context of this application,
+the chosen hybrid solver is comparable with and has the potential to outperform the classical one.
+In the broad picture of production scheduling, an approach considered as promising is Smart Scheduling11. It combines the
+cyber-physical production systems (CPPS) with the decision support system (DSS). The AGVs scheduling optimization can be
+treated either as part of the larger industrial system in light of the philosophy of industry 4.012 (e.g. together with industrial job
+scheduling) or just as a sole component. For the sake of demonstration, we focus on the latter. However, our model can be
+re-integrated into a general DSS system.
+Many industrial processes can be optimized, including the design of manufacturing systems and processes, assembly line
+processes, etc. Within these, we address AGVs scheduling, in particular, timetabling in a short time horizon. The decisions
+have to be made almost in real-time, requiring fast computational heuristics. The concept of industry 4.013 implies that AGVs
+scheduling must be tied to particular factory characteristics. To tie our research directly to current business needs, we address a
+problem that arises in a production environment, i.e. the practice of an actual operating factory. (Its identity and further details
+are confidential.) We model this particular environment, its configuration, and requirements, addressing the particular needs of
+the given factory. In this factory, there is a well-defined space where AGVs can maneuver. They are restricted to moving on
+dedicated "roads" (uni- or bidirectional) to reach ports, loading places, charging stations, etc. Here, the AGVs are controlled by
+a central system where their scheduling occurs.
+AGVs scheduling algorithms are divided into rostering 1 and routing14, 15. The aim of rostering is to dispatch a set of AGVs
+to perform certain jobs of equipment transportation within the factory. Then, routing (path planning) aims at finding suitable
+paths for the AGVs, together with the ”timetable” and a possible ordering of AGVs passing certain congested places. These
+problems are commonly solved via linear programming optimization15, 16.
+The work of Tuan17 provides a fair overview of the optimization of AGVs scheduling. Vehicle rostering is discussed both
+as an offline scheduling problem (where all transportation requests are known in advance) or as online scheduling (where
+environments are stochastic, and requirements appear on the fly, c.f. the work of18). We follow the approach of deterministic
+offline scheduling, but each time the circumstances change, we recalculate schedules. An important constraint (tied to time
+constraints in scheduling theory) is the maximal window of time in which an AGV has to perform a task. The objective is a
+linear function of variables reflecting completion time costs. To solve both static and dynamic problems, most authors apply
+ILP together with a (custom) column generation approach and various methods of optimization. As we consider routes and
+tasks of AGVs predefined for our optimization problem, column generation is not applicable.
+The literature on bigger-scale AGVs scheduling problems has been developed in recent years to catch up with the increasing
+size of problems in industry practice. For instance, in a paper from 201919, a system with 9 AGVs had been considered as a
+large-scale one, while in a more recent paper20 from 2023 classical heuristics for much larger AGVs problem were introduced.
+(Therein, the largest problem was of a few hundred AGVs, but with a computational time of days. The problem solved in a
+reasonable time of seconds concerns 30-40 AGVs with a particular problem layout.) In our use case, we introduce a model
+tailored to the specific needs of the real-life-driven operational setting, employing proprietary hybrid quantum-classical solvers
+for AGVs problems of sizes similar to the above-mentioned. In particular, we concentrate on certain components of AGVs
+scheduling, AGVs timing , and ordering, stressing the problem of deadlock resolution. As for the actual problem size that
+a quantum approach can handle, scheduling 2 to 8 AGVs for 10 - 11 tasks (together with routing) on an optical coherent
+Ising machine was recently reported by Tang et al.21 (during the preparation of our present contribution). The experimental
+results therein show that the optical quantum computer has an advantage in computational time over the traditional state-of-art
+approach.
+When compared to the most similar contributions in the literature, our approach is complementary to the work of Geitz et
+al.8, where the job scheduling in a factory is optimized on a quantum annealer or classical device. There, however, the focus is
+on the factory machines. In contrast, we focus on the AGVs traffic, assuming job assignments to industrial machines are fixed.
+Haba et al.22 also addressed a problem of AGVs scheduling with quantum methods. There, however, quantum annealing was
+applied to the routing of AGVs, as opposed to our problem, which addresses the timing and ordering of the AGVs.
+The planning of AGVs paths and task assignment, which is widely analyzed along with scheduling in literature14, is not
+part of our optimization task. We are required to address AGVs scheduling in itself, which has less coverage in the literature.
+Our contribution is the first one in this research direction, which is dedicated to the particular business-driven problem of AGVs
+scheduling in a factory with limited space. In detail, we introduce a new model for AGVs scheduling (ordering), which is
+simple enough to be handled by a hybrid quantum-classical approach in a competitive manner and is complex enough to have
+practical significance, as it is derived from a practical use case. Our high-level goal is to pave the way for the development of
+new open-source hybrid solvers by the application of the most promising, though proprietary, closed-source D-Wave hybrid
+solver. There have been proposals to develop hybrid solvers for scheduling optimization problems23, 24. In these contributions,
+the optimization task is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) problem, and then its relaxed
+1also termed as “scheduling” in some works
+2/17
+
+=== PAGE BREAK ===
+
+versions or some subproblems are solved using a quantum annealer, while the remaining part is solved using classical heuristics.
+However, the transformation of a linear problem into the quadratic representation of QUBO creates a large overhead and
+requires tuning QUBO parameters. In the present contribution, we use a hybrid solver that inputs the native linear programming
+model and changes only smaller sub-problems into the QUBO if necessary, which we expect to be more efficient for problems
+that have suitable linear models, such as AGVs scheduling.
+The particular optimization problem handled in our paper appears to be complex but it still tractable for the meaningful
+number of AGVs ( 21 AGVs in particular). The anticipated evolution of Industry 4.0, particularly with respect to AGVs
+scheduling, is expected to involve more complex scenarios, such as managing 40 or more AGVs within the confined spaces of
+a factory. Addressing such challenges in a timely manner could become problematic using common heuristics. Hence, new
+heuristics or computational paradigms may be necessary for such future applications.
+This paper is organized as follows. In Section 2, we discuss Quantum Annealing. In Section 3, we define our problem
+and formulate it mathematically. In Section 4, we discuss computational results. In Section 5, we draw conclusions, while
+Appendix A is devoted to details on the particular problem of AGVs scheduling.
+2 Quantum annealing
+Quantum Annealing25 is a heuristic algorithm that operates within the principles of Adiabatic Quantum Computing 26, 27,
+particularly for solving optimization problems. In this regime, a given optimization task is encoded into a physical system
+described by a problem Hamiltonian HP, so that the system’s lowest energy state (ground state) corresponds to the solution of
+the original problem. Initially, the system is prepared in the ground state of another related physical system, described by the
+initial Hamiltonian H0. Then, the system slowly evolved into the target systemHP by tuning the parameters of the instantaneous
+Hamiltonian to turn H0 into HP in a long enough time T . According to the adiabatic theorem28, if certain conditions hold, the
+system should remain in the ground state during the evolution and thus reach the ground state of HP at the end, yielding a
+solution to the original problem. Mathematically, the evolution of the system is described by the following time-dependent
+Hamiltonian:
+H(t) =
+
+1− t
+T
+
+H0 + t
+T HP. (1)
+The quantum annealers which are provided by D-Wave and are applied in our research implement a problem Hamiltonian
+whose energy is expressed using a 2-local Ising model29:
+HP = ∑
+⟨i,i′⟩∈E
+J′
+i,i′σ z
+i σ z
+i′ +∑
+i
+h′
+iσ z
+i , (2)
+where σ z is a Pauli-Z operator acting on the i-th qubit, and J′
+i,i′ and h′
+i are real values corresponding to pairwise couplings and
+the external magnetic field, respectively, and E is the graph of the processor topology. The initial Hamiltonian H0 is chosen to
+consist of a transverse magnetic field, H0 = h0 ∑i σ x
+i where σ x
+i is the Pauli-X operator acting on the i-th qubit.
+Finally, the results of quantum annealing are supposed to minimize the classical Ising problem in Eq. (3)
+min
+(s1,...sn)∈{−1,1}N ∑
+(i,i′)∈E
+siJ′
+i,i′si′ + ∑
+i∈V
+sih′
+i (3)
+where si are spin variables si∈{− 1,1}, J′
+i,i′ are couplings between spins, and h′
+i are local fields. Such a problem can also be
+easily encoded in Quadratic Unconstrained Binary Optimization (QUBO) problem, namely:
+min
+(x1,...xn)∈{0,1}N ∑
+(i,i′)∈E
+xiJi,i′xi′ + ∑
+i∈V
+xihi (4)
+where xi∈{ 0,1} are binary variables, and si = 2xi− 1.
+In practice, many optimization problems, including our scheduling case, can be modelled as an integer linear program (ILP).
+The integer variables can be encoded into suitable binaries in various ways30, 31. The constraints of the integer programs are
+taken into account with penalties32. The right choice of penalties is a nontrivial problem33–36 itself. Although the size of the
+current quantum annealer is limited in terms of the number of qubits (in our case, approximately 5600 qubits and 40 thousands
+couplings between them organized into the Pegasus topology of QPU37), larger optimization problems, that do not fit quantum
+devices, can be solved via hybrid quantum-classical approach. D-Wave offers two hybrid classical-quantum solvers as a part of
+its service: BQM and CQM10, 38.
+The BQM solver inputs QUBO problems and solves them with a portfolio of classical heuristics. In the course of the
+process, certain subproblems are sent to the quantum processor. In the case of the CQM solver, the input is a constrained
+3/17
+
+=== PAGE BREAK ===
+
+quadratic program, which can be an ILP. Its transformation to QUBO is performed within the solver. The solver also handles
+constraints with penalties internally.
+These solvers are proprietary and closed source; their details are hidden from the users. Nevertheless, their operation can
+be understood according to D-Wave’s white paper10. In particular, the data flow is described as follows. The solver reads the
+input problem. Then, it invokes a portfolio of heuristic solvers that run in parallel using classical CPUs and GPUs in a cloud
+computing environment. These heuristics contain a Quantum Module (QM), which can send queries to QPU. The quantum
+results help classical heuristic search to improve the quality of a current pool of solutions. After post-processing (removing
+duplicates, etc.), the results are forwarded to the user.
+The hybrid solvers open the possibility of easily dealing with bigger-scale problems. For instance, CQM has recently been
+applied to the practical rescheduling problems in heterogeneous urban railway networks39.
+3 AGVs scheduling
+The concept of industry 4.013 implies that AGVs scheduling must be tied to the particular factory specifics. To tie our research
+directly to current business needs, we address a problem that arises in a production environment, i.e. the practice of an actual
+operating factory. (Its identity and further details are confidential.) We model this particular environment, its configuration, and
+requirements, addressing the particular needs of the given factory. In this factory, there is a well-defined space where AGVs can
+maneuver. They are restricted to moving on dedicated "roads" (uni- or bidirectional) to reach ports, loading places, charging
+stations, etc. Here, the AGVs are controlled by a central system where their scheduling occurs.
+Concerning a factory environment with limited space, an important issue with AGVs is the possibility of deadlocks, where
+several AGVs come to such a point that none of them can move forward because the others block each of them.17 mentions
+various deadlock resolution methods:
+1. Balancing the system workload, i.e. using workload-related dispatching rule 40,
+2. Controlling the traffic at intersections by semaphores 41,
+3. Introducing static or dynamic zones that a limited number of AGVs can occupy for a dynamic-zone strategy for
+vehicle-collision42 prevention.
+These deadlock resolution strategies can mostly be encoded as constraints to the ILP. We have opted for the last approach, i.e.
+dynamic zones. It is worth remembering that deadlock resolution in limited space is challenging, even with a limited problem
+size (regarding the number of AGVs).
+Our problem can also be understood in the standard metaphor of scheduling theory43: zones are machines, and AGVs are
+jobs. Each AGV has to visit a set of infrastructure elements in a given sequence: each job has to be processed by a set of
+machines in a prescribed order: this is a job-shop Job Shop (Jm) environment. Generalizations allowing for having multiple
+AGVs in a zone would result in a Flexible Job Shop (FJc ) environment; this we will not consider here. We treat parts of
+the infrastructure that lie between zones (i.e. where conflicts are not expected) as buffers. The requirement of a minimal
+headways between AGVs leaving and entering zones and deadlock constraints on bidirectional "roads" (also termed as lanes)
+imply blocking constraints (block). The prescription of the initial availability of AGVs implies release date (r j) constraints.
+The minimal passing times of AGVs through particular resources are limited: minimal processing times (p jm) appear. In
+addition, due dates (d j) are also prescribed: the AGVs’ tasks have to be completed in a given time. Finally, permutation (prmu)
+constraints arise, as AGVs cannot overtake on lanes between zones. Recirculation (rcrc), if a given AGV can visit the same
+zone multiple times during the trip, could also be considered but will not be addressed here as it does not occur in the particular
+factory we model.
+The objective is to ensure that the AGVs finish their travels as soon as possible, considering certain priorities. Hence,
+the objective is the travel completion time , the weighted sum of completion times of each AGV . We shall refer to this
+as completion time in what follows. With the standard notation of scheduling theory, our problem falls in the class
+(Jm|r j, p jm,d j,block, prmu| ∑ j w jCj).
+The objective is the weighted sum of completion times 17. The weights reflect the priorities of AGVs. We assume that
+AGVs’ tasks and paths (represented by the colour lines in Fig. 1) are pre-defined as input for our problem. Each time these
+inputs are changed, a new optimization problem is created and recomputed. Such changes in the input can be caused, for
+example, by disturbances in the AGVs’ traffic.
+Fig. 1 displays an example of the considered topologies. This setup closely resembles the situation in the considered
+real-life factory (it is distorted to maintain confidentiality). AGVs paths (color lines) are as follows:
+• bidirectional lanes (e.g. between s5 and s6 in Fig. 1),
+4/17
+
+=== PAGE BREAK ===
+
+Figure 1. Example of the AGVs scheduling problem given pre-defined AGVs paths as colour lines. First, AGVs are routed to
+travel between ports (colour rectangles), which is the input to our algorithm. The goal of the algorithm is to timetable AGVs to
+avoid collisions in zones. In our case zones s0, . . .s6 are allegorically assigned spatial areas where AGVs paths intercept start or
+active ports are located. AGVs paths in terms of zones are AGV s0,s1,s2,s3, AGV s4,s3,s2,s1, AGV s6,s5,s4,s3 AGV s5,s6 and
+AGV s2,s3
+.
+• uni-directional lanes,
+• zones42 the locations where conflicts are possible according to the given (predefined) paths, i.e. where AGVs paths split,
+join, or where uni-directional lanes start or end.
+To avoid collisions, we assume that only one AGV can occupy each zone at a given time (This limitation can be lifted in a more
+elaborate model by increasing the allowed number of AGVs within the zone and introducing some local traffic conditions41.)
+3.1 AGVs scheduling: algorithm
+The practical AGVs scheduling will be performed via the following algorithm triggered at each change of input parameters.
+Fixed inputs
+1. J - set of AGVs;
+2. w j - priority weights (as the part of total weighted completion time objective);
+3. dmax - the parameter determining the time window, due time, +can be computed from this parameter;
+4. topology of the network as in Fig. 1, containing:
+• uni-directional double lanes,
+• bidirectional single lanes (imposing blocking constraints);
+5. minimal headways between two subsequent AGVs, this is a parameter of blocking constraints.
+Variable inputs
+1. starting points of AGVs in time and space,
+2. AGVs destinations and paths (from this, the sequence of machines will be determined);
+3. nominal speeds of AGVs, processing time constraints can be formulated based on these parameters.
+5/17
+
+=== PAGE BREAK ===
+
+Processing
+1. from paths of AGVs create zones where conflicts are possible; see Fig. 1,
+2. define AGVs paths by the sequence of zones e.g. S j ={s j,1,s j,2 . . .s j,end−1,s j,end}, e.g. see caption of Fig. 1;
+3. given initial conditions, compute the lowest possible entering and leaving times of each AGV at the zones, assuming
+there are no collisions between the given AGV and all other AGVs;
+4. encode the problem into ILP: entering and leaving times of AGVs at the zones are integer decision variables, and there
+are binary order variables determining which AGV leaves a zone first. (A relaxation of the integer constraint on time
+variables yields a mixed integer program that is also meaningful but not considered here, as quantum devices support
+integers. In addition, our computational experience shows that the relaxation of the integer constraints on time variables
+and using a MILP solver does not significantly improve computational time when using CPLEX; the real difficulty
+is encoded in the order variables.) Lower limits of these variables are determined in point 3 while upper limits are
+determined by lower limits and model parameter dmax, encode constraints and objective;
+5. solve the problem using a chosen solver (classical, quantum, hybrid, etc.).
+Output
+1. conflict-free timetable of AGVs encoded as entering and leaving times of AGVs at zones, or correspondingly the order of
+AGVs therein.
+Steps 1 - 3 in processing are pre-processing steps. The higher computational effort is required in step 5, which deals with
+optimization. Hence, the analysis of the computation process (both quantum and classical) will refer to step 5 of the algorithm.
+Importantly, the optimization results (values of order variables uniquely defining the order of AGVs at each zone while the
+traffic beyond zones is conflict-free) can be directly fed into the application programming interface (API) of the operation
+control software system of the factory we have modelled.
+3.2 AGVs scheduling: ILP model
+Here, we provide the details of the model in step 4 of the algorithm, given that step 5 will be handled in Section 4.
+Decision variables include the integer times when AGVs are entering and leaving zones are denoted bytin / out( j,s). As
+floating point numbers cannot be treated easily, we use integer time variables tin / out( j,s)∈ N. The time window constraints17,
+implies that each of these variables fit into the time window of length dmax, namely:
+υin / out( j,s)≤ tin / out( j,s)≤ υin / out( j,s) +dmax. (5)
+where υin / out( j,s) are lower limits computed by assuming the nominal speed ofj’th AGV and assuming no conflicts (collisions)
+with other AGVs, according to43. The dmax parameter imposes due time constraints, while lower limits are tied to release date
+constraints. Let|S| be the number of zones in a particular optimization problem, and|J| the number of AGVs therein.
+To determine the order of AGVs at zones, we introduce binary order variables.
+• For zone s passed by AGVs j and j′ we have:
+yin/out( j, j′,s)∈{ 0,1} (6)
+which is equal to1 iff j enters / leaves zones before j′, as the order of AGVs cannot be changed at the zone by assumption;
+obviously:
+yin/out( j, j′,s) = 1− yin/out( j′, j,s). (7)
+• For a bidirectional lane (joining zones s and s′) used by AGV j heading in one direction and AGV j′ heading in the
+opposite direction, we assign the following order variable:
+z( j, j′,s,s′)∈{ 0,1}, (8)
+which is equal to 1 iff j enters such lane (bounded by zone s and s′) before j′, and zero otherwise, hence,
+z( j, j′,s,s′) = 1− z( j′, j,s′,s). (9)
+6/17
+
+=== PAGE BREAK ===
+
+As for the number of variables observe that if an AGV passes a zone, there are twot variables (c.f. Eq. (5)); for the AGV
+entering and leaving the zone. As not all AGVs pass through all zones, we have
+#t≤ 2|J||S|. (10)
+Concerning order variables, for each pair of AGVs passing a zone there is a pair of these (yin and yout). However, the order
+of AGVs cannot change in a zone (constraints in Eq. (22) will enforce this), a single order variable per zone and AGVs’ pair
+suffices; there are|J| (|J|− 1) /2 such pairs. Further, if hypothetically the whole topology consisted of bidirectional lanes, we
+had #z = #y. In a more general layout, inequality #z≤ #y holds. Hence,
+#y≤|J| (|J|− 1)|S|
+2 , #z≤|J| (|J|− 1)|S|
+2 , and # y + #z + #t≪| J| (|J|− 1)|S| + 2|J||S|. (11)
+For topologies with most uni-directional lanes (as in our example in Section 3.1), we have#z≪ #y, which leads to the following
+approximation:
+#y + #z + #t≪|J| (|J|− 1)|S|
+2 + 2|J||S|. (12)
+Objective is defined as the weighted sum of completion times17, namely:
+f = ∑
+j∈J
+w j
+tout( j,s j,end)
+dmax
+. (13)
+Here s j,end is the last zone of the path of j AGV , andw j is the weight tied to the priority of such AGV . (We assume that the
+AGV’s path is conflict-free after leaving the last zone.) This can be referred to as the total completion time objective.
+Constraints. The minimal passing time constraint (mpt) of AGVs between subsequent zones can be computed from the
+problem topology and AGVs speeds. For any pair of subsequent zones (s,s′) on the route of AGV j we require:
+tin( j,s′)≥ tout( j,s) +τpass( j,s,s′), (14)
+see Fig. 2 (upper panel). In our model, zones are considered as bottleneck areas. Hence, we allow waiting of AGVs in the
+buffer before the zone entrance, yielding≥ sign in Eq. (14).
+The minimal headway constraint (mh) is the model input that determines minimal time spacing between two subsequent
+AGVs. In detail, consider two AGVs j, j′ heading in the same direction. Let s∗,s,s′ be the sequence of subsequent zones they
+both pass. Then:
+tout( j′,s) +M· yout( j′, j,s)≥ tout( j,s) +τheadway( j, j′,s,s′), (15)
+see Fig. 2 (lower panel), and analogously
+tin( j′,s) +M· yin( j′, j,s)≥ tin( j,s) +τheadway( j, j′,s∗,s). (16)
+Here, M is a large enough number for inequality to always hold for y( j′, j,s) = 1 (we used the so-called "big M encoding"). If
+s does not have a successor in the sequence, we do not consider Eq. (15). Analogously, if s does not have the predecessor, we
+do not consider Eq. (16).
+The deadlock on bidirectional lane constraint (d) is defined as follows. Let the pair (s,s′) be two zones connected by the
+single bidirectional lane and j and j′ be two AGVs first going s→ s′ and the second s← s′. Then:
+tout( j′,s′) +M· z( j′, j,s′,s)≥ tin( j,s′) (17)
+and
+z( j, j′,s,s′) = yin( j, j′,s) = yin( j, j′,s′) (18)
+Equation (18) yields that the order of AGVs heading in opposite directions cannot change between zones s, s′ (including zones
+itself), as they cannot meet at the bidirectional lane, which would lead to the deadlock.
+In the zone constraint (zc), we assume that the zone can be occupied only by one AGV at a time. This is to avoid collisions
+within the zone. Hence, AGV j′ can enter the zone after j leaves it (provided j is first on the zone, i.e. yin( j′, j,s) = 0):
+tin( j′,s) +M· yin( j′, j,s)≥ tout( j,s) (19)
+7/17
+
+=== PAGE BREAK ===
+
+s s′AGVj AGVj
+τ pass(j,s,s ′)
+s s′AGVj′ AGVj
+τ headway(j,j ′,s,s ′)
+Figure 2. Illustration of minimal passing time (upper panel) and headway (lower panel) Eq. (14)
+Then we also have to include minimal passing time over the zone τzone
+tout( j,s)≥ tin( j,s) +τzone( j,s). (20)
+In the scheduling theory language: the assumption that one AGV can occupy the zone only defines the job shop machine
+environment, and the prescription of the passing time over zones imposes processing time constraints.
+As AGVs are, in general, moving with similar speed, we assume that they cannot overtake both on lanes and zones. This no
+overtake (no) constraint requires the order of such AGVs to be maintained. (This is the permutation constraint.) In detail, let j
+and j′ be a pair of AGVs heading in the same direction, passing the sequence of zones: s1,s2, . . .sk. Then:
+y( j, j′,s1out) = y( j, j′,s2out) = . . .= y( j, j′,skout) (21)
+(Note that if the route of two AGVs splits and joins later, the condition in Eq. (21) has to be modified).
+As mentioned before, we also assume that AGVs cannot overtake within a zone:
+yin( j, j′,s) = yout( j, j′,s). (22)
+Let us now estimate the number of constraints. The minimal passing time (mpt) constraint, there is a single inequality as in
+Eq. (14) for each AGV and each zone passed by this AGV . Then, taking the upper limit of each AGV passing each zone, we
+have
+#mpt≤| J||S|. (23)
+The minimal headway (mh) constraints are required for each pair of AGVs following each other at each zone. There are roughly
+|J|2/2 such pairs. To obtain an upper limit we consider all AGVs passing all zones. Then, for each AGV in the pair and each
+zone, we have one constraint from Eq. (15) and one from Eq. (16);
+#mh≤ 2|J|2
+2 |S| =|J|2|S|. (24)
+Analogously , we would expect from Eq. (17) the same limit for the number of deadlock (d) constraints;
+#mh + #d≤ 2|J|2|S|. (25)
+To approximate the number of zone constraints (zc), the upper limit is obtained again with the hypothetical assumption that all
+AGVs pass all zones. Then for each zone and each AGV we have|J|− 1 inequalities from Eq. (19) and one inequality from
+Eq. (20), yielding
+#zc≤| J|2|S|. (26)
+Hence, the number of minimal passing time (mpt) constraints (see Eq. (23) ) is linear in|J|, while the number of all other
+constraints (zc, mh, d) is quadratic in|J|. Then, for a large enough|J|, we can assume:
+m = #mpt + #zc + #mh + #d≈ #zc + #mh + #d≤ 3|J|2|S|, (27)
+8/17
+
+=== PAGE BREAK ===
+
+Finally, the number of no overtake (no) constraints in Eq. (21)
+#no≤|J|2|S|
+2 (28)
+is also expected to be linear in|S| and quadratic in|J|.
+Altogether, the problem size (in terms of the number of constraints and binary variables) scales linearly in the number
+of zones|S| and quadratically in the number of AGVs |J|. The quadratic scaling can cause difficulties when applying the
+ILP model to a large number of AGVs. As such, this AGV problem seems to be a good use-case for the quantum approach
+described at the beginning of this section.
+3.3 QUBO model
+The most general form of inequalities in our model is in Eq. (15) or Eq. (16). Based on these, we present a detailed path of
+transformation of these inequalities into QUBO. Let us contract t-variables and y-variables to vectors with elements t j and yi
+(and define the respective vector for the constant terms ci). Then, from the aforementioned equations , we have:
+t j−t j′− Myi + ξi =−ci. (29)
+To replace inequalities with equalities, we use slack variables
+0≤ ξi≤ ¯ξi where ¯ξi =−min(t j−t j′− Myi)− ci =−υ j + υ j′ + dmax + Mi− ci = dmax + Mi, (30)
+as min(t j) = v j, and max(t j) = v j + dmax from Eq. (5), and υ j′ = υ j + ci. Observe that some of the inequalities such as these of
+the minimal passing time constraints in Eq. (14) do not have order variables (y or z), for such variables ¯ξi = dmax.
+To convert the constrained problem in Eq.(29) into unconstrained, we use the penalty method: each constraint violation is
+penalized by the hard constraint penalty p > 0. Such a penalty has to be sufficiently large not to be overruled by the objective.
+Then, the optimization problem has the form:
+min.t1,...,y′
+1,...,ξ1,... p ∑
+( j, j′,i)∈I
+(t j−t j′− Miy′
+i + ξi + ci)2 + p ∑
+(i,i′)∈I′
+(y′
+i− y′
+i′)2 + objective. (31)
+The first sum yields inequalities (mpt, mh, d, zc constraints) and takes Mi = 0 if no order variable is included. The set I contains
+all indices tied to these constraints, yielding|I| = m (c.f. Eq. (27)). The number of slack variables is also equal to m, as we
+have one slack variable per inequality. The second sum is for equates to (no) constraint and (d) constraint. Then, I′ contains all
+indices tied to this constraint, and|I′| = #no + #d.
+Finally (following Eq. (5) in30), we replace all t j and ξi with the corresponding monomial of bits ∑k dkbk where bk are new
+bits variables. This transforms the quadratic unconstrained model into the quadratic unconstrained binary model. We have #t
+t-variables (with dmax + 1 distinct values) and m slack variables (with at most dmax + maxi ξi + 1 distinct values). Referring to
+Eq. (27), the number of binary variables in QUBO representation can be limited by
+#QUBO≤ #t
+
+ln2(dmax + 1)
+
++ m
+
+ln2(dmax + max
+i
+ξi + 1)
+
++ #y + #z. (32)
+and referring to Eqs. (10) (12) (27):
+#QUBO≤ 2|J||S|
+
+ln2(dmax + 1)
+
++ 3|J|2|S|
+
+ln2(dmax + max
+i
+ξi + 1)
+
++|J| (|J|− 1)|S|
+2 = O(|J|2|S|). (33)
+The size of the problem (in terms of the number of QUBO variables) scales linearly with the number of zones and
+quadratically in the number of AGVs. The number of constraints per variable (the mean vertex degree of the graph model) is
+tied to the expansion of quadratic terms in Eq. (31). In Table. 1, the sizes of actual problems in terms of Ising variables (derived
+directly from QUBO) are presented. Hence, this is the number of the so-called logical qubits. Upon the procedure of using a
+hardware annealer, the problem has to be embedded into the physical topology of the annealer, which is a nontrivial procedure
+and is not always possible44. The actual problem solved on the hardware is thus expressed in terms of physical qubits, and a
+logical qubit can possibly be implemented using multiple physical qubits.
+Apart from the two smallest problems from Table. 1, the others did not embed into the Pegasus chip, see Fig. 6. For larger
+instances, the hybrid, quantum-classical approach is necessary. For example, for the 15 AGVs and 7 zones problem we have
+696 variables (upper limit according to Eq. (12) was 945), and 1378 linear constraints (upper limit according to Eq. (28) (27)
+was 5513).
+9/17
+
+=== PAGE BREAK ===
+
+|J| /|S| n.o. qubits
+(vertices)
+n.o. quadratic couplings
+edges edge density45 edges
+f ullgraph n.o. linear fields
+2 / 4 122 1066 0.14 121
+4 / 4 268 2644 0.07 267
+6 / 7 796 11954 0.04 782
+7 / 7 1204 19084 0.03 1183
+12 / 7 6357 116422 0.006 6250
+15 / 7 7343 134415 0.005 7219
+21 / 7 13892 259702 0.005 13648
+Table 1. Sizes of analyzed AGVs problems, in terms of Ising variables. Note, that the edge density is smaller than the one for
+a corresponding full graph, and it decreases with increasing problem size (up to 3 orders of magnitude for the largest
+considered problem).
+4 Computational results and discussion
+For numerical calculations, we used examples of problems similar to those presented in Fig. 1, but with different numbers of
+AGVs and zones. This is a typical setting in an industrial system, as various AGVs are in traffic at various times, and collision
+zones form dynamically. As a typical example of the particular parameter setting with 7 zones see Fig. 3. The actual values of
+parameters can be read from the topology, AGVs’ speeds, and zone locations. The example with 7 zones and 7 AGVs will be
+discussed in more detail in Appendix A.
+s0
+s1 s2 s3 s4 s5
+s6
+τ pass(s0,s 1)
+τ pass(s1,s 2) τ pass(s3,s 4) τ pass(s4,s 5)
+τ pass(s5,s 6)
+Figure 3. Example network with 7 zones derived from Fig. 1
+From an optimization point of view, one of our goals is to examine the scaling of the problems’ computational time, number
+of variables and constraints with the size of the problem in terms of|J| and|S| (namely the number of AGVs and zones). We
+start with 2 AGVs and 4 zones and end with 21 AGVs and 7 zones. The sizes of the instances we have solved are tabulated in
+Table. 2. It is interesting to compare this to an analogous problem in the railways solved by us in a previous contribution39:
+while there we had 3 to 5.5 constraints per variable, the AGVs problem is significantly sparser (approximately 2 constraints per
+variable), making it more likely to be better handled by a quantum device, where the embedding on the device with limited
+degree connectivity is performed. Note, however, that if the considered AGVs problem address a more branched topology
+(e.g. with loops, etc.), this would result in a denser problem, more similar to the analogous railway-related one, with more
+constraints per variable. This would be less suited for the quantum-based approach.
+All classical (that is, not quantum) calculations were performed on the consumer-grade computer described in Table. 3,
+and quantum calculations were performed on D-Wave’s Advantage_systems6.2 quantum annealer, whose physical properties
+are described in37. In short, the quantum device has over 5600 qubits and 40 a thousand couplings between them, organized
+10/17
+
+=== PAGE BREAK ===
+
+|J| /|S| / dmax
+actual ILP upper limit
+n.o. vars
+int / bin
+n.o.
+equalities
+n.o.
+inequalities
+n.o. vars
+Eq. (12)
+equalities
+Eq. (28)
+inequalities
+Eq. (27)
+2 / 4 / 10 16 12/4 4 16 20 8 48
+4 / 4 / 10 36 20/16 10 34 56 32 192
+6 / 7 / 40 78 38/40 32 80 189 126 756
+7 / 7 / 40 118 48/70 55 127 245 172 1029
+12 / 7 / 40 596 102/494 429 766 630 504 3024
+15 / 7 / 40 696 118/576 495 883 945 788 4725
+21 / 7 / 40 1302 168/1134 1007 1705 1764 1544 9261
+Table 2. Sizes of ILPs of the analyzed AGVs problems. The notion of upper limits is described in Section 3.2. We have
+approximately 2 constraints per variable (equality and inequality), which makes the problem sparse in comparison with the
+railway counter-example in39.
+Performance of hybrid and classical solvers
+0 300 600 900 1,200 1,500
+10−2
+100
+102
+problem size - # linear variables
+computational time [s]
+hyb CQM errorbars
+CPLEX exact C. const t
+0 300 600 900 1,200
+1
+1.05
+1.1
+1.15
+problem size - # linear variables
+objective / optimum
+hyb CQM errorbars
+CPLEX exact C. const t
+Figure 4. Comparison of performance of Classical CPLEX exact and approximate (achieved by setting constant computational
+time) with hybrid quantum-classical solver, CQM in particular. All presented solutions were feasible. For CPLEX exact on the
+largest instance (1302 variables) the time limit of 30 minutes was used, as it was not possible to achieve the certified output in a
+reasonable time, 6h time limit CPLEX computation yields the same results. Error bars were computed by performing 10
+independent realizations of experiments of CQM computation and calculating the standard deviation over realizations.
+11/17
+
+=== PAGE BREAK ===
+
+OS Windows 10 Pro N
+Type 64 bits
+CPU 11th Gen Intel(R) Core(TM) i5-11600K @ 3.90GHz
+RAM 32 GB
+GPU Intel(R) UHD Graphics 750
+Table 3. Technical specifications of the classical computer used for computations.
+Histogram of feasible solutions of CQM
+3.2 3.4 3.6 3.8 40
+10
+20
+30 78 variables
+6 AGVs
+a)
+Objective value
+Counts
+CQM
+optimum
+4 5 6 7 80
+10
+20
+30 118 variables
+7 AGVs
+b)
+Objective value
+CQM
+optimum
+;
+8 10 12 14 160
+2
+4
+6
+8
+10
+596 variables
+12 AGVs
+c)
+Objective value
+CQM
+optimum
+;
+10 12 14 16 180
+2
+4
+6
+8
+10
+696 variables
+15 AGVs
+d)
+Objective value
+CQM
+optimum
+Figure 5. Histograms of objectives of feasible CQM solutions for various problem sizes: 6 AGVs a), 7 AGVs b), 12 AGVs c),
+15 AGVs d). For each run, approximately a hundred samples were returned. Histogram spreads are measured by the standard
+deviation (std): 6 AGVs std = 0.19, 7 AGVs std = 0.62, 12 AGVs std = 1.51, 15 AGVs std = 1.9.
+into the Pegasus topology of QPU. Concerning pure quantum computing, we were able to fit to real quantum device only the
+first two smallest problems from Table. 2. The particular sizes of these problems in terms of Ising variables are presented in
+Table. 1. The problem of 36 ILP variables and 44 ILP constraints (equalities and inequalities) was converted into 268 qubits
+Ising problem with 2644 (quadratic) couplings between. However, even for these two small problems, we did not achieve the
+feasible solution. From this, we can conclude that quantum annealers are too small and too prone to errors, and hence, for more
+accurate solutions to larger problems, we opt for hybrid quantum-classical solvers.
+Indeed, the CQM hybrid solver, which is convenient also because it accepts ILPs directly, has always provided some
+feasible solutions in our problems. We have therefore made a comparison of 3 approaches: the exact CPLEX ILP solver which
+always solves the problem to optimality, an approximate CPLEX solution, achieved by setting constant computational time for
+CPLEX solver, and the CQM hybrid solver as an approximate heuristic. Our comparison is summarized in Fig. 4. In terms of
+computational time, CQM has outperformed the classical exact CPLEX solver for large problems (596 and 696 linear variables).
+It has to be noted that in each of the CQM computations, a nonzero QPU time was reported (see Fig. 6, left panel), indicating
+Details on performance of hybrid solvers
+0 500 1,000 1,5000
+20
+40
+60
+problem size - # linear vars
+QPU time [ms]
+CQM mean
+error bars
+0 500 1,000 1,5000
+0.2
+0.4
+0.6
+0.8
+1
+problem size - # linear vars
+Feasibility percentage
+CQM mean
+error bars
+0 500 1,000 1,400
+0
+0.2
+0.4
+problem size - # linear vars
+frac broken constraints
+CQM BQM
+pure QA SBM
+Figure 6. Details of hybrid solvers. The QPU time is in the left panel, the feasibility percentage is in the middle panel, and the
+number of broken constraints of the solution is in the right panel (pure QA - pure quantum annealing, SBM - simulated
+bifurcation). Observe that the output of the CQM solver was satisfactory in terms of feasibility for all instances.
+12/17
+
+=== PAGE BREAK ===
+
+that the QPU was active during the calculation. From the reported QPU computational times we can conclude that rather a
+small amount of computation was performed on the QPU, and the QPU time does not scale with the problem size. The probable
+explanation of this observation is that the D-Wave hybrid solvers use "Quantum Backstops". When stuck in a local minimum,
+the solver uses a quantum approach on selected sub-problem to move away from such a local minimum. The number of such
+"Quantum Backstops", and tied to them the QPU time, may not depend on the problem size. The largest problem was of 21
+AGVs and 7 zones, which is the sound size concerning the real live factory environment. As for the quality of the solutions,
+the CQM yields slightly higher objective value than the exact solution. This overview shows that the CPLEX approximate
+solver, performing all computations in 1 second, is fast enough for almost online scheduling and dynamics response of our
+algorithm. Hence, such results would be admissible for practical application in real-life factories. In the future, when better
+quantum annealers will be available, they may become more efficient than classical heuristics. Concerning railway counterpart
+problem in 39 and analogous real live problems of 817 variables and over 3000 constraints, the performance of the CQM solver
+therein could compete only with exact CPLEX in terms of computational time but at larger cost of the solution quality than in
+the AGVs case.
+As the CQM solver returns multiple feasible solutions at a time, in Fig. 5, we present the histograms of these for problems
+of various sizes. Observe that for small problems, the results concentrate around the optimum. In contrast, for large problems,
+the histogram spreads towards higher-than-optimum objective values, the standard deviation value presented in caption grows
+by the order of magnitude, if we compare the 6 AGVs problem with the 15 AGVs one. It is important to note that even for
+large problems, there are multiple feasible and potentially valuable solutions obtained. The results with the CQM solver
+are competitive and illustrate an efficient application of hybrid algorithms. The details of a particular case and its solutions,
+including a detailed comparison of classical and different quantum solutions, are presented in Appendix A.
+For the largest problem of 21 AGVs and 7 zones (1302 linear variables), the problem is still tractable using classical
+heuristics. As we expect the size of the problem to scale quadratically with the number of AGVs, other heuristics may be
+required to handle larger problems in expanding industrial environments; a hybrid quantum-classical approach may be one of
+these. This, however, would also require the improvement of the hybrid solvers as the feasibility percentage of CQM decreases
+with the problem size, as it can be observed in Fig. 6, middle panel. If the linear scaling between feasibility percentage and the
+number of linear variables holds, the biggest problems that can be solvable using the current CQM can have approximately up
+to 1000 variables.
+Recall that our first approach was to use the BQM solver. In order to do so, the ILP has to be converted to QUBO.
+Section 3.3 describes the details of this transcription. The constraints were taken into account with penalties using ad-hoc
+penalty coefficients. We have found that except for the smallest problems, the BQM solver does not return high-quality solutions
+(see Fig. 6, right panel). Notably, the solutions were not feasible: a more advanced and systematic determination should replace
+our ad-hoc choice of the penalty coefficients. The interesting observation here is, however, that for BQM, the percentage of
+non-feasible solutions is constant for larger instances and equal to these from the pure Quantum Annealing for smaller ones.
+Hence, here the unfeasibility of Quantum Annealing at the lower scale may have an effect on the BQM performance on the
+larger scale. For the comprehensive analysis, in Fig. 6, the right panel we compare two QUBO base solvers, already mentioned
+proprietary, closed source BQM and open source Simulated Bifurcation Machine (SBM) solver. The SBM behaves better than
+the BQM, but still does not return feasible solutions for large instances. This observation paves the way for the development of
+new quantum-inspired solvers, as the algorithm behind SBM is known.
+Drawing inspiration from quantum adiabatic optimization with a network of nonlinear quantum oscillators, SBM exploits
+the phenomenon of bifurcation in a system of classical, nonlinear system of Hamilton equations46:
+H = a0
+2
+N
+∑
+i=1
+p2
+i +
+N
+∑
+i=1
+q4
+i
+4 + a0− a(t)
+2 q2
+i
+
+− c0
+N
+∑
+i=1
+ 
+h′
+iqi + 1
+2
+N
+∑
+j=1
+J′
+i jqiq j
+!
+(34)
+˙qi = ∂H
+∂ pi
+= a0 pi (35)
+˙pi =− ∂H
+∂qi
+=−
+
+q2
+i + a0− a(t)
+
+qi + c0
+ 
+N
+∑
+j=1
+J′
+i jq j + h′
+i
+!
+(36)
+It can be interpreted as a motion of particles with mass a−1
+0 , position qi∈ R, and momentum pi∈ R, in a time-dependent
+potential and coupled via Ising-like interaction. Matrix J′ and vector h′ encode the Ising minimization problem in question,
+cf. Eq(3). Numbers a0 and c0 are constant hyperparameters (in our calculations, we use a0 = 1 and c0 = 1/λmax, where λmax
+is the largest eigenvalue of J′), whereas a(t) is a linearly increasing function of time, which drives the system through the
+bifurcation point, occurring approximately when a(t) = a0. Post-bifurcation, the energy landscape governing the evolution
+of particles approximately encodes the local minima of the Ising term, and thus the particles flow towards the low-energy
+13/17
+
+=== PAGE BREAK ===
+
+solutions of the optimization problem, which then can be extracted by taking the sign si = sign(qi). In an effort to suppress the
+errors originating from relaxing the variables from binary to continuous, a modified version of SBM was introduced47 (which
+we use in this work), where the nonlinear term q4
+i was replaced by perfectly inelastic walls, located at|qi| = 1, and the Ising
+contribution to dynamics was discretized, i.e. term ∑N
+j=1 J′
+i jq j in Eq. (36) got replaced by ∑N
+j=1 J′
+i jsign(q j). Additionally, these
+modifications guarantee that the dynamics can be stopped when a(t) = a0, and the system will be located in a local minimum.
+On the computational side, differential equations (35)-(36) are separable with respect to positions and momenta, and thus
+amenable to the numerically stable, symplectic Euler integration scheme, which can be efficiently implemented on GPUs.
+Moreover, the chaotic nature of the SBM equations imply sensitivity to initial conditions, and because each run is independent,
+many starting points can be evolved simultaneously, further increasing the efficiency and potential for massive parallelization.
+5 Conclusions
+In this work, we have demonstrated the utility of a hybrid quantum-classical approach for a near-real-life AGVs scheduling
+problem that can be implemented in a real factory environment. While we have not yet demonstrated a quantum advantage,
+one of the hybrid quantum-classical approaches produced results close to those of CPLEX, which is widely recognized as the
+benchmark classical solver. As these hybrid approaches are expected to improve in the near future, we may be on the brink of,
+at least, achieving quantum advantage.
+Larger problems involving hundreds of AGVs, anticipated with the development of Industry 4.0 (resulting in several
+thousand variables in our model), may remain beyond the capabilities of classical algorithms. However, future hybrid
+quantum-classical algorithms are expected to have the potential to handle these larger problems.
+The CQM solver, even for large problems, provides a range of diverse solutions, which can be used as input for multi-case
+decision support systems or sophisticated stochastic scheduling approaches. In contrast, while CPLEX (with limited time) is
+faster and closer to optimality, it provides only one solution. Our experience with BQM highlights the importance of systematic
+penalty determination as discussed in recent studies3635.
+We recognize the significant methodological value in contributions that utilize open-source tools or develop custom hybrid
+classical-quantum workflows. To our knowledge, no production-quality general hybrid quantum-classical solvers that input
+native ILP are currently available. In contrast, for the QUBO implementation, we applied the open-source SBM solver, which
+outperforms the BQM solver in terms of solution quality but still fails to return feasible solutions (except for the smallest
+cases). Since the SBM solver is quantum-inspired and does not use quantum resources, our findings suggest that quantum
+annealing does not play a predominant role in the iterative hybrid process, aligning with the "Quantum Backstops" hypothesis.
+These observations highlight the need for more transparent hybrid quantum-classical or quantum-inspired solvers to effectively
+benchmark quantum (or quantum-inspired) computation. We believe it is important for the quantum computing scientific
+community to systematically work on these developments.
+Data availability
+The code and the data used for generating the numerical results can be found in https://github.com/iitis/AGV_
+quantum
+Acknowledgements
+The research was supported by the Foundation for Polish Science (FNP) under grant number TEAM NET POIR.04.04.00-00-
+17C1/18-00 (BG, ZP, ŁP); National Science Centre, Poland under grant number 2022/47/B/ST6/02380 (KD), and under grant
+number 2020/38/E/ST3/00269 (T´S), and by the Ministry of Culture and Innovation and the National Research, Development and
+Innovation Office within the Quantum Information National Laboratory of Hungary (Grant No. 2022-2.1.1-NL-2022-00004)
+(MK). S.D. acknowledges support from the John Templeton Foundation under Grant No. 62422. For the purpose of Open
+Access, the authors have applied a CC-BY public copyright license to any Author Accepted Manuscript (AAM) version arising
+from this submission.
+Author contributions statement
+Z.P., B.G., S.D., K.D. - conceptualization, K.D., T.´S., J.P., A.P. - preparing experiments, T.´S., J.P., A.P. - running experiments,
+K.D., Z.P., Ł.P., M.K., J.P., A.P., B.G., S.D. - data analysis, K.D., M.K, T.´S., J.P. - manuscript writing, Z.P., Ł.P., B.G., S.D. -
+manuscript supervision. All authors reviewed the manuscript.
+14/17
+
+=== PAGE BREAK ===
+
+References
+1. Shor, P. W. Algorithms for quantum computation: discrete logarithms and factoring. InProceedings 35th annual symposium
+on foundations of computer science, 124–134, DOI: https://doi.org/10.1109/SFCS.1994.365700 (IEEE, 1994).
+2. Preskill, J. Quantum computing and the entanglement frontier. arXiv preprint arXiv:1203.5813 (2012). https://arxiv.org/
+abs/1203.5813.
+3. Preskill, J. Quantum computing in the NISQ era and beyond. Quantum 2, 79, DOI: https://doi.org/10.22331/
+q-2018-08-06-79 (2018).
+4. Brooks, M. Beyond quantum supremacy: the hunt for useful quantum computers. Nature 574, 19–21, DOI: https:
+//doi.org/10.1038/d41586-019-02936-3 (2019).
+5. Arute, F. et al. Quantum supremacy using a programmable superconducting processor. Nature 574, 505–510, DOI:
+https://doi.org/10.1038/s41586-019-1666-5 (2019).
+6. Domino, K. et al. Quantum annealing in the NISQ era: railway conflict management. Entropy 25, 191, DOI: https:
+//doi.org/10.3390/e25020191 (2023).
+7. Vikstål, P.et al. Applying the Quantum Approximate Optimization Algorithm to the Tail-Assignment Problem. Phys. Rev.
+Appl. 14, 034009, DOI: https://doi.org/10.1103/PhysRevApplied.14.034009 (2020).
+8. Geitz, M., Grozea, C., Steigerwald, W., Stöhr, R. & Wolf, A. Solving the Extended Job Shop Scheduling Problem with
+AGVs–Classical and Quantum Approaches. In International Conference on Integration of Constraint Programming,
+Artificial Intelligence, and Operations Research, 120–137, DOI: https://doi.org/10.1007/978-3-030-19212-9 (Springer,
+2022).
+9. Katzgraber, H. Searching for applications of quantum computing in industry. Bull. Am. Phys. Soc. (2024). https:
+//meetings.aps.org/Meeting/MAR24/Session/Y49.1.
+10. D-Wave Systems Inc. Hybrid Solver for Quadratic Optimization [WhitePaper] (2022). https://www.dwavesys.com/media/
+soxph512/hybrid-solvers-for-quadratic-optimization.pdf, visited 2023.08.31.
+11. Rossit, D. A., Tohmé, F. & Frutos, M. Industry 4.0: smart scheduling. Int. J. Prod. Res. 57, 3802–3813, DOI: https:
+//doi.org/10.1080/00207543.2018.1504248 (2019).
+12. Stock, T. & Seliger, G. Opportunities of sustainable manufacturing in industry 4.0. procedia CIRP 40, 536–541, DOI:
+https://doi.org/10.1016/j.procir.2016.01.129 (2016).
+13. Luo, Y ., Duan, Y ., Li, W., Pace, P. & Fortino, G. A novel mobile and hierarchical data transmission architecture for smart
+factories. IEEE Transactions on Ind. Informatics 14, 3534–3546, DOI: https://doi.org/10.1109/TII.2018.2824324 (2018).
+14. Zhong, M., Yang, Y ., Dessouky, Y . & Postolache, O. Multi-AGV scheduling for conflict-free path planning in automated
+container terminals. Comput. & Ind. Eng. 142, 106371, DOI: https://doi.org/10.1016/j.cie.2020.106371 (2020).
+15. Qiu, L., Hsu, W.-J., Huang, S.-Y . & Wang, H. Scheduling and routing algorithms for AGVs: a survey.Int. J. Prod. Res. 40,
+745–760, DOI: https://doi.org/10.1080/00207540110091712 (2002).
+16. Vivaldini, K. C., Rocha, L. F., Becker, M. & Moreira, A. P. Comprehensive review of the dispatching, scheduling and
+routing of AGVs. In CONTROLO’2014–proceedings of the 11th Portuguese conference on automatic control, 505–514
+(Springer, 2015).
+17. Le-Anh, T. Intelligent control of vehicle-based internal transport systems. 51 (Erasmus University Rotterdam, 2005).
+http://hdl.handle.net/1765/6554.
+18. Sabuncuoglu, I. & Bayız, M. Analysis of reactive scheduling problems in a job shop environment. European Journal of
+Operational Research 126, 567–586, DOI: https://doi.org/10.1016/S0377-2217(99)00311-2 (2000).
+19. Li, G., Li, X., Gao, L. & Zeng, B. Tasks assigning and sequencing of multiple AGVs based on an improved harmony search
+algorithm. J. Ambient Intell. Humaniz. Comput. 10, 4533–4546, DOI: https://doi.org/10.1007/s12652-018-1137-0 (2019).
+20. Kim, Y .-I. & Reveliotis, S. A heuristic approach to the problem of min-time coverage in constricted environments.IEEE
+Transactions on Control. Netw. Syst. DOI: https://doi.org/10.1109/TCNS.2023.3295348 (2023).
+21. Tang, L., Yang, C., Wen, K., Wu, W. & Guo, Y . Quantum computing for several agv scheduling models.Sci. Reports 14,
+12205, DOI: https://doi.org/10.1038/s41598-024-62821-6 (2024).
+22. Haba, R., Ohzeki, M. & Tanaka, K. Travel time optimization on multi-AGV routing by reverse annealing. arXiv preprint
+arXiv:2204.11789 (2022). https://arxiv.org/abs/2204.11789.
+15/17
+
+=== PAGE BREAK ===
+
+23. Tran, T. et al. A hybrid quantum-classical approach to solving scheduling problems. In Proceedings of the International
+Symposium on Combinatorial Search, vol. 7, 98–106, DOI: https://doi.org/10.1609/socs.v7i1.18390 (2016).
+24. Feld, S. et al. A hybrid solution method for the capacitated vehicle routing problem using a quantum annealer. Front. ICT
+6, 13, DOI: https://doi.org/10.3389/fict.2019.00013 (2019).
+25. Apolloni, B., Carvalho, C. & De Falco, D. Quantum stochastic optimization. Stoch. Process. their Appl. 33, 233–244, DOI:
+https://doi.org/10.1016/0304-4149(89)90040-9 (1989).
+26. Kadowaki, T. & Nishimori, H. Quantum annealing in the transverse Ising model. Phys. Rev. E 58, 5355, DOI: https:
+//doi.org/10.1103/PhysRevE.58.5355 (1998).
+27. Farhi, E., Goldstone, J., Gutmann, S. & Sipser, M. Quantum Computation by Adiabatic Evolution. arXiv preprint
+quant-ph/0001106 (2000). https://arxiv.org/abs/quant-ph/0001106.
+28. Tanaka, S., Tamura, R. & Chakrabarti, B. K. Quantum spin glasses, annealing and computation (Cambridge University
+Press, 2017).
+29. Lucas, A. Ising formulations of many NP problems. Front. Phys. 2, 5, DOI: https://doi.org/10.3389/fphy.2014.00005
+(2014).
+30. Karimi, S. & Ronagh, P. Practical integer-to-binary mapping for quantum annealers. Quantum Inf. Process. 18, 1–24, DOI:
+https://doi.org/10.1007/s11128-019-2213-x (2019).
+31. Tamura, K., Shirai, T., Katsura, H., Tanaka, S. & Togawa, N. Performance comparison of typical binary-integer encodings
+in an ising machine. IEEE Access 9, 81032–81039 (2021).
+32. Glover, F., Kochenberger, G., Hennig, R. & Du, Y . Quantum bridge analytics i: a tutorial on formulating and using qubo
+models. Annals Oper. Res. 314, 141–183 (2022).
+33. Karimi, S. & Ronagh, P. A subgradient approach for constrained binary optimization via quantum adiabatic evolution.
+Quantum Inf Process. 16, DOI: https://doi.org/10.1007/s11128-017-1639-2 (2017).
+34. Gusmeroli, N. & Wiegele, A. EXPEDIS: An exact penalty method over discrete sets. Discret. Optim. 44, 100622, DOI:
+https://doi.org/10.1016/j.disopt.2021.100622 (2022).
+35. Quintero Ospina, R. A., Zuluaga, L., Terlaky, T. & Vera, J. Polyhedral structure of penalty constants in quadratic
+unconstrained binary optimization and applications to quantum computing. In APS March Meeting Abstracts, vol. 2023,
+B70–007 (2023). https://ui.adsabs.harvard.edu/abs/2023APS..MARB70007Q.
+36. García, M. D., Ayodele, M. & Moraglio, A. Exact and sequential penalty weights in quadratic unconstrained binary
+optimisation with a digital annealer. In Proceedings of the Genetic and Evolutionary Computation Conference Companion,
+184–187, DOI: https://doi.org/10.1145/3520304.3528925 (2022).
+37. D-Wave Systems Inc. QPU-Specific Physical Properties: Advantage_system6.2 (2023).
+38. D-Wave Systems Inc. Hybrid Solver for Constrained Quadratic Model [WhitePaper] (2022). https://www.dwavesys.com/
+media/rldh2ghw/14-1055a-a_hybrid_solver_for_constrained_quadratic_models.pdf, visited 2023.08.31.
+39. Koniorczyk, M., Krawiec, K., Botelho, L., Bešinovi´c, N. & Domino, K. Solving rescheduling problems in heterogeneous
+urban railway networks using hybrid quantum-classical approach. arXiv preprint arXiv:2309.06763 (2023). https:
+//arxiv.org/abs/2309.06763.
+40. Kim, C., Tanchoco, J. & Koo, P.-H. AGV dispatching based on workload balancing. Int. J. Prod. Res. 37, 4053–4066,
+DOI: https://doi.org/10.1080/002075499189925 (1999).
+41. Evers, J. J. & Koppers, S. A. Automated guided vehicle traffic control at a container terminal. Transp. Res. Part A: Policy
+Pract. 30, 21–34, DOI: https://doi.org/10.1016/0965-8564(95)00011-9 (1996).
+42. Ho, Y .-C. A dynamic-zone strategy for vehicle-collision prevention and load balancing in an AGV system with a single-loop
+guide path. Comput. industry 42, 159–176, DOI: https://doi.org/10.1016/S0166-3615(99)00068-8 (2000).
+43. Pinedo, M. L. Scheduling, vol. 29 (Springer, 2012). https://doi.org/10.1007/978-1-4614-2361-4.
+44. Cai, J., Macready, W. G. & Roy, A. A practical heuristic for finding graph minors. arXiv preprint arXiv:1406.2741 DOI:
+https://doi.org/10.48550/arXiv.1406.2741 (2014).
+45. Darlay, J., Brauner, N. & Moncel, J. Dense and sparse graph partition. Discret. Appl. Math. 160, 2389–2396, DOI:
+https://doi.org/10.1016/j.dam.2012.06.004 (2012).
+16/17
+
+=== PAGE BREAK ===
+
+46. Goto, H., Tatsumura, K. & Dixon, A. R. Combinatorial optimization by simulating adiabatic bifurcations in nonlinear
+Hamiltonian systems. Sci. Adv. 5, eaav2372, DOI: 10.1126/sciadv.aav2372 (2019).
+47. Goto, H. et al. High-performance combinatorial optimization based on classical mechanics. Sci. Adv. 7, eabe7953, DOI:
+10.1126/sciadv.abe7953 (2021).
+A Details of one particular AGVs problem
+In this Appendix, we present a step-by-step solution of the 7 AGVs and 7 zones problem with topology presented in Fig 3. We
+have bi-directional lanes between zones s0, s1, s2, s3, s4 and s5 as well uni-directional lane between zones s5 and s6. For this
+particular computation, the following parameters have been chosen:τheadway = 2 (for all pairs of AGVs)τzone = 2 (for all AGVs),
+passing times (for each AGV): τpass(s0,s1) = τpass(s1,s2) = τpass(s3,s4) = 6, τpass(s2,s3) = 0, τpass(s4,s5) = τpass(s5,s6) = 4.
+Then, we assume that each AGV (denoted by j) is ready to enter its initial station (denoted by s j,0) at vin( j,s j,0). We also
+assume that AGVs have the following paths and initial conditions:
+AGV0 :{s0,s1,s2,s3},vin( j0,s0) = 0 AGV 1 :{s0,s1,s2}, vin( j1,s0) = 0
+AGV2 :{s4,s3,s2,s1},vin( j2,s4) = 8 AGV 3 :{s4,s3,s2,s1,s0},vin( j3,s4) = 9
+AGV4 :{s2,s3} vin( j4,s2) = 15 AGV 5 :{s6,s5,s4,s3} vin( j5,s6) = 0
+AGV6 :{s5,s6} vin( j6,s5) = 0
+(37)
+In practice, the above will be done by step 2 of Algorithm in Section 3.1. In the objective function in Eq. (13) for this
+computational example each AGV is assigned an equal weight of w j = 1. Further, we set dmax = 40.
+The most important step of the Algorithm in Section 3.1 is step 5: solving the optimization problem. The CQM hybrid
+solver yields many solutions at a time. The best solution coincides with the optimal one also provided by CPLEX. However
+other solutions can also be of use for the decision support system. The solutions are presented in the form of a simplified
+time-space diagram (in which known points are connected with lines) in Fig. 7.
+0 20 40
+time
+s0
+s1
+s2
+s3
+s4
+s5
+s6
+zones
+CQM objective = 4.25
+0 20 40
+time
+s0
+s1
+s2
+s3
+s4
+s5
+s6
+zones
+CQM objective = 5.22
+0 25
+time
+s0
+s1
+s2
+s3
+s4
+s5
+s6
+zones
+CPLEX
+AGV0
+AGV1
+AGV2
+AGV3
+AGV4
+AGV5
+AGV6
+Figure 7. Solution in the form of a space-time diagram, two suboptimal CQM solutions and an optimal one obtained with
+both CQM and CPLEX. The suboptimal solutions can also be useful for the decision support system.
+17/17

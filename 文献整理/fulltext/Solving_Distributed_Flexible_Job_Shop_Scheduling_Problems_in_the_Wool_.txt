@@ -1,0 +1,1024 @@
+SOLVINGDISTRIBUTEDFLEXIBLEJOBSHOPSCHEDULING
+PROBLEMS IN THEWOOLTEXTILEINDUSTRY WITHQUANTUM
+ANNEALING
+Lilia Toma
+Databases and Information Systems
+FernUniversit¨at in Hagen
+58097 Hagen, Germany
+tomalilia@yahoo.com
+Markus Zajac
+Databases and Information Systems
+FernUniversit¨at in Hagen
+58097 Hagen, Germany
+markus.zajac@fernuni-hagen.de
+Uta St ¨orl
+Databases and Information Systems
+FernUniversit¨at in Hagen
+58097 Hagen, Germany
+uta.stoerl@fernuni-hagen.de
+January 15, 2026
+ABSTRACT
+Many modern manufacturing companies have evolved from a single production facility to a multi-
+factory production environment that must manage both regionally dispersed production orders and
+their multi-site production steps. The availability of a range of machines in different locations ca-
+pable of performing the same operation and shipping times between factories have transformed
+planning systems from the classic Job Shop Scheduling Problem (JSSP) to the Distributed Flexible
+Job Shop Scheduling Problem (DFJSP). Consequently, the complexity of production planning has
+increased significantly. We employ Quantum Annealing (QA) to solve the DFJSP in our research.
+In addition to assigning production orders to production sites, production steps are also assigned
+to these sites. This requirement is based on a real use case of a wool textile manufacturing com-
+pany. To investigate the applicability of this method to large problem instances, problems ranging
+from 50 variables up to 250 variables, the largest problem that could be embedded into a D-Wave
+quantum annealer Quantum Processing Unit (QPU), are formulated and solved. Special attention
+is dedicated to determining the Lagrange parameters of the Quadratic Unconstrained Binary Opti-
+mization (QUBO) model and the QPU configuration parameters, as these factors can significantly
+impact solution quality. The obtained solutions are compared to solutions obtained by Simulated
+Annealing (SA), both in terms of solution quality and calculation time. The results demonstrate that
+QA has the potential to solve large problem instances specific to the industry.
+KeywordsQuantum annealing·simulated annealing·DFJSP·production planning
+1 Introduction
+This paper is based on a use case of a textile manufacturing company that operates in the worsted yarn industry,
+specializing in pure wool and wool blends for weaving, flat and circular knitting, as well as luxury and non-apparel
+markets. This business-to-business company has production sites in several countries on different continents. Produc-
+tion sites in different locations perform only specific production steps and work together in sequence-dependent setups
+to fulfill each individual sales order. For this purpose, sales orders are first converted into production orders, which
+must be assigned to the various production sites for processing through different production steps. Given the scatter-
+arXiv:2403.06699v3  [quant-ph]  14 Jan 2026
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+ing of production sites that may be involved in processing a single production order, thorough production planning is
+crucial.
+The reason is that this production planning problem is an NP-hard combinatorial optimization problem, which can be
+reduced to the Distributed Flexible Job Shop Scheduling Problem (DFJSP) in this use case. It is widely known as one
+of the most difficult combinatorial optimization problems [16]. At the same time, operational production planning
+requires continuous and process-parallel optimization of machine allocation and processing sequence.
+Quantum annealing (QA) is a promising technology to solve combinatorial optimization problems. While gate-based
+quantum computers can handle a broader range of problems, quantum annealers are specifically designed to solve
+combinatorial optimization problems commonly encountered in industry [36]. In this work, we use theAdvantage
+System 4.1quantum annealer from D-Wave to solve the DFJSP.
+To the best of our knowledge, there is no other work that explicitly addresses solving the DFJSP using QA. Our three
+contributions are as follows:
+1. We use a QA to solve the DFJSP. Due to the specifics of the wool textile industry, we also extend the
+DFJSP and make it even more complex: The classical DFJSP is extended to not only consider the distribution
+of production orders, but also the distribution of production steps (of a production order). Shipping times
+between production steps at different sites must also be included in the model. To the best of our knowledge,
+there is no other work in the literature that discusses the solution of the classical or the extended DFJSP with
+QA.
+2. Calculation ofLagrange parametersand QPU configuration parameters. The values of the so-called Lagrange
+parameters of the QUBO model and the QPU configuration parameters have a significant influence on the
+solution quality. Instead of the trial-and-error method, as some approaches suggest 1, we determine these
+parameters based on the mathematical formulation of the problem.
+3. Assessment from an economic perspective. We address the question of whether the use of QA can lead to a
+speed advantage for the DFJSP with distributed operations specific to the wool textile industry.
+This paper is organized as follows: In Section 2, we review the state of the art on optimization problems and quantum
+annealing, before we discuss related work in Section 3. We describe our QUBO model to solve the extended DFJSP
+in Section 4. Based on the QUBO model, we describe and discuss our experiments in Section 5. Section 6 provides a
+summary.
+2 Preliminaries
+In Subsection 2.1, we initially study computationally complex combinatorial optimization problems that are typical
+in production planning. We then turn to the topic of quantum annealing in Subsection 2.2 and to simulated annealing
+in Subsection 2.3. The connection between the Binary Quadratic Model (BQM) / Quadratic Unconstrained Binary
+Optimization (QUBO) and QA is highlighted in Subsection 2.4.
+2.1 Combinatorial Optimization Problems
+The Job Shop Scheduling Problem (JSSP) is a combinatorial optimization problem 2 where a given set of jobs (or
+production orders) must be executed. At the same time, only a limited number of machines can perform the operations
+required for the jobs (also referred to as production steps). Each operation can be executed by a specific machine. A
+schedule must be found that determines which jobs are to be executed at which time and by which machine. The aim
+is to minimize the total amount of time until all jobs have been completed [5, 1]. Many variations of the JSSP problem
+exist. To be closer to both the market and manufacturing resources, modern enterprises have evolved from a single
+factory to a multi-factory manufacturing environment. This has led to the scheduling system changing from a JSSP
+system to a Flexible Job Shop Scheduling Problem (FJSP) and further to a Distributed Flexible Job Shop Scheduling
+Problem (DFJSP).
+The FJSP is a generalization of the JSSP that allows tasks to be processed on one machine, chosen from a set of
+alternative machines (the machines in each set are identical) [21]. As is well known, this is a strongly NP-hard
+problem [39]. A distinctive feature of JSSP (and FJSP) is the parallel job processing. While different process chains
+1Programming the D-Wave QPU [White Paper]:https://www.dwavesys.com/media/qvbjrzgg/guide-2.pdf
+2Combinatorial optimization is the search process for maxima (or minima) of an objective function where the domain has a
+discrete but large configuration space.
+2
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+for an order are evaluated, the selection of a process chain for an order influences the choice of production routes for
+all other orders.
+The DFJSP refers to production activities that are carried out by several geographically distributed factories. The
+DFJSP can be regarded as an extension of FJSP, which also includes the selection of appropriate factories for the
+jobs [14]. The DFJSP described in the literature implies that if a job is assigned to a factory, then all the operations of
+this job must be processed at the same factory [14, 16]. The wool textile industry is a special case of DFJSP, where
+a job’s operation can be processed in different locations. Assigning specific operations to different factories results in
+unique production schedules for the jobs, which influences the production planning. The DFJSP is more complex than
+FJSP and is also classified as NP-Hard in complexity theory [16]. The goal of scheduling is to assign each operation
+to factories and machines, considering the shipping time between locations, and launching operations on machines in
+a way that minimizes the makespan of all operations, thus ensuring that all jobs are completed in the shortest time
+possible.
+2.2 Quantum Annealing
+Today, two main architectures for quantum computers exist: gate-based quantum computers and QA [5]. Gate-based
+quantum computers use quantum gates to perform calculations, analogous to Boolean gates in classical computers.
+These processors are not yet fault-tolerant or large enough to achieve quantum supremacy, a state referred to as the
+Noisy Intermediate-Scale Quantum (NISQ) era [4]. Consequently, it is difficult to develop practical applications on
+gate-based quantum computers at present.
+On the other hand, QA devices, such as the computer developed by D-Wave, map a problem to a mathematical model
+of interacting magnets and then search for an optimal solution for problems with a large solution space. Si et al. [27]
+developed a large-scale and energy-efficient superparamagnetic Ising quantum annealer, which advances the scope of
+coherent Ising devices for combinatorial optimization. In general, QA is a mechanical metaheuristic to solve problems
+with a large, but discrete, search space.
+QA systems are initialized in a low-energy state. The problem parameters are changed slowly enough, which allows
+the system to end in a low-energy state of the problem that corresponds to an optimal solution [36]. The evolution of
+the system can be represented by a time-dependent Hamiltonian3:
+Hising =− A(s)
+2
+ X
+i
+ˆσ(i)
+x
+!
+| {z }
+Initial Hamiltonian
++B(s)
+2
+
+X
+i
+hi ˆσ(i)
+z +
+X
+i>j
+Ji,j ˆσ(i)
+z ˆσ(j)
+z
+
+
+| {z }
+Final Hamiltonian
+(1)
+whereAandBare time-dependent coefficients,sis the annealing time rescaled to take values between0and1,ˆσ (i)
+x,z
+are the Pauli Matrices4 of operations on a qubitq i,h i is the qubit bias, andJ i,j the coupling strength between qubits.
+The algorithm gradually transitions in time from the initial ground state of theInitial Hamiltonianto a state described
+by theFinal Hamiltonian[25]. The Final Hamiltonian matches the energy function to be minimized, and represents
+the best solution at its minimum value.
+2.3 Simulated Annealing
+Simulated Annealing (SA) is a nature-inspired stochastic metaheuristic, single solution-based algorithm used to find a
+global optimum in a large problem space [29], and can be seen as a classical computing pendant to QA. Fig. 1 shows
+a comparison between QA and SA.
+In SA, to simulate the annealing process, a temperature variable is set high, and then the system is allowed to cool
+while the algorithm runs. SA is using thermal effects to converge to a low energy state, but therefore needs to jump
+over higher energy barriers. On the other hand, QA uses the quantum tunneling effect 5, which allows it to potentially
+surpass this higher barrier directly and thus reach the minimum faster [6]. Recent advancements in QA methods have
+suggested potential benefits by employing QA over SA to address NP-hard optimization challenges [18].
+3See also Carugno et al. [5] andhttps://docs.dwavequantum.com/en/latest/quantum_research/quantum_
+annealing_intro.htmlfor the Hamiltonian term.
+4In quantum mechanics, Pauli Matrices are a set of 2 × 2 complex Hermitian and unitary matrices that arise in Pauli’s treatment
+of spins.
+5In quantum mechanics, the tunneling effect describes the penetration of particles through barriers, even if the particle’s energy
+is less than the barrier height.
+3
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+Figure 1: Quantum Annealing versus Simulated Annealing (Source: authors, based on Venkateswaran [32]).
+2.4 Binary Quadratic Models
+For QA, cost functions are mathematical expressions that are usually formulated as binary quadratic models 6 and
+whose lowest values generally represent the best solutions to problems [36, 38]. To solve problems on the D-Wave
+quantum annealer, the problem space has to be formulated as a BQM, the D-Wave Systems software representation of
+the objective function [38]:
+HIsing (s) =
+X
+i∈V
+hisi +
+X
+(ij)∈E
+Jijsisj, si∈{−1,1}(2)
+HQUBO(x) =
+X
+i∈V
+aixi +
+X
+(ij)∈E
+bijxixj, xi∈{0,1}(3)
+wheres i andx i are binary variables, i.e., categorical variables that can only take one of two values.s i is the decision
+variable called spin that can take values from the set{-1,1}, in which case the problem is called an Ising problem
+(Eq. 2) [15]. In the Ising model,h i is the magnetic field that represents the linear coefficients corresponding to qubit
+biases andJ i,j represents the coupling or interaction strength between qubits [38, 36]. In a QUBO problem (Eq. 3),
+xi can take values from the set{0,1}[13]. Qubit biases are represented by the linear coefficientsa i and the coupling
+strength between qubits by the quadratic coefficientsb i,j [30]. Both versions are NP-hard and can easily be converted
+into each other by applying variable substitution [30, 34]. In this paper, the QUBO format is used to formulate the
+problem. This is because QUBO formulations are a widely used method for this [9].
+The QUBO formulation is further mapped to a QPU topology [36] to solve the problem during the annealing process
+and minimize the energy function. QA devices are less affected by noise than gate model quantum computers. This
+allows for more qubit usage and thus solves larger problems. QA provides an approach that promises good solutions
+to NP-hard problems and specializes in combinatorial optimization. While the discussion continues whether QA can
+provide quantum speed-up over classical approaches, there have been several attempts to solve application-motivated
+problems with QA [36].
+6https://docs.dwavequantum.com/en/latest/quantum_research/qubo_ising.html
+4
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+3 Related Work
+In this Section, we assess previous approaches to solving the optimization problems described in Subsection 2.1.
+JSSP.In the past, a variety of approaches to solve the JSSP or its variation existed. Denkena et al. [7] mention heuris-
+tics, Genetic Algorithm (GA), Tabu Search, Ant Colony, Particle Swarm Optimization and SA. These approaches are
+used both individually and in hybrid combinations with one another. Venturelli et al. [33] present a solver for the JSSP
+that makes use of a QA. Carugno et al. [5] studied the application of QA to solve JSSP and discussed challenges
+related to problem formulation for the fine-tuning of the QA. In terms of solution quality, QA is remarkably effective
+in comparison to classical approaches on very constrained problem instances, while closely competitive on realistic
+problem instances. Pakhomchik et al. [22] focus on the mathematical formulation of JSSP and propose a new large
+neighborhood search approach, with good empirical results for large problem instances.
+Zielewski et al. [40] use QA to solve JSSP and especially investigate the embedding process in the performance.
+The authors demonstrate that the initial setup of the problem, post-processing, and problem formulation, as well as
+the presence of excess variables and large embeddings, have a significant impact on the results. A. Sharma and P.
+Maharjan [2] compare QA to SA through existing published works and conclude that QA has the potential to be
+considered as an optimized technique against SA. QA is more efficient than SA in estimating the ground state of the
+system for simulations of small and large sample sizes. Denchev et al. [6] show that, for problems where local minima
+is separated by tall and narrow energy barriers, QA is more than10
+8
+times faster than SA running on a single core. Wei
+et al. [35] introduce a hybrid quantum-classical Benders’ decomposition for federated learning scheduling, reducing
+iteration counts by 70.3% and computation time by 81%. Smierzchalski et al. [28] show that a hybrid quantum-
+classical computation scheme can be efficiently used for automatic guided vehicle scheduling in manufacturing.
+In general, research considering transportation time focuses on the flow shop scheduling problem 7 or classical FJSP.
+Most of the QA research in this field focuses on solving JSSP or FJSP, and transportation time is often neglected in the
+literature. However, transportation time between locations can have a significant impact on the maximum completion
+time of FJSP.
+FSP.Flow Shop Scheduling Problem (FSP) is one of the most studied problems in order planning. Hurink and
+Knust [10] apply SA to minimize both the total completion time and the total tardiness of flow shop problems. Naderi
+et al. [19] propose an adaptation of the SA algorithm to solve the flow shop problem with incorporated sequence-
+dependent transportation times with a single-transporter. Several heuristic algorithms were developed considering
+the transportation of an interrupted job from one machine to another. Naderi et al. [20] consider the transportation
+times in permutation flow shops and provide solution methods that include heuristics and metaheuristics to solve large
+problems. An adaptation of the imperialist competitive algorithm, hybridized with a simulated annealing-based local
+search, was proposed by Karimi et al. [12] to solve the problem.
+FJSP.Schworm et al. [25] investigate a QA-based FJSP on large problem instances specific to modern manufacturing
+and demonstrate the efficiency of the approach regarding scalability, solutions’ quality, and computing time. Denkena
+et al. [7] compare the computing time of several approaches to solve the classical FJSP and conclude that it generally
+increases significantly with the size of the problem. Their research suggests that these methods deliver valid results for
+small problem instances, but are not suitable for problem sizes relevant to practical applications. Therefore, methods
+are required that yield high-quality outcomes while also ensuring consistently quick computation times, particularly for
+large problem instances. The paper also investigates the concept of QA- based optimization for a process-parallel FJSP
+on existing benchmarks. The results reveal that the QA technique consistently achieves low anneal times, especially
+for large instances, while still producing outcomes comparable to those of classical heuristics. Recent work by Fu
+et al. [8] solves the FJSP using a Coherent Ising Machine (CIM) and shows an 80% improvement compared to classical
+methods, but only for small instances, due to existing hardware constraints. INOUE et al. [11] analyzed the FJSP with
+Tool Switching Constraints with the Constrained Quadratic Model (CQM) solver supported by the D-Wave Leap
+Hybrid Solver and showed that the quality and computation time significantly outperform the results achieved using
+Dispatching rules or Python Mixed-Integer Linear programs. Schworm et al. [26] addressed real-time responsiveness
+to disturbances in manufacturing environments using QA for dynamic job shop scheduling and showed an advantage
+for large problem sizes. Amaro et al. [3] present a case study applying variational quantum algorithms to job shop
+scheduling with notably accelerated convergence. Recent results by Tang et al. [31] show that quantum computing
+can deliver dramatic efficiency gains for several automated guided vehicles scheduling models in manufacturing, with
+up to 92% time savings. Ren and Liu [24] introduce a dynamic FJSP approach that incorporates machine breakdowns
+and new job arrivals, thereby furthering the practicality of quantum-inspired scheduling.
+7Flow shop scheduling is a special case of job shop scheduling in which all jobs have identical operation flow patterns on
+machines [1].
+5
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+DFJSP.Only few papers focus on the FJSP with transportation time between jobs, also known as DFJSP. Marzouki
+et al. [17] developed a novel mathematical model for the distributed DFJSP that explicitly incorporates transportation
+time between machines, and proposed an effective optimization framework that significantly reduces makespan and
+enhances coordination across distributed manufacturing environments. Peng et al. [23] formulated a multi-objective
+dynamic DFJSP that explicitly accounts for uncertain processing times, proposing a novel optimization framework
+that improves schedule robustness and adaptability in distributed manufacturing environments under real-world un-
+certainty. Yuan et al. [37] proposed an improved deep Q network approach for the distributed heterogeneous FJSP
+that integrates automated guided vehicle (AGV) transportation, demonstrating substantial optimization of production
+makespan and resource utilization. Zhang et al. [39] develop a modified Genetic Algorithm (GA) to solve the FJSP
+with transportation time. Marzouki et al. [16] use a Chemical Reaction Optimization Metaheuristic to solve the DFJSP.
+Liu et al. [14] propose a refined GA and apply it with satisfactory results on a real case of a manufacturing company.
+Generally, most of the papers focus on studying the JSSP. Although some research includes transportation time in the
+model, these studies typically employ classical approaches, such as heuristics or GA. In this research, an extended
+case of DFJSP is studied, where not only jobs (production orders), but also job operations (production steps) can be
+distributed. For this purpose, a D-Wave Quantum Annealer is used to solve the DFJSP with distributed operations.
+The availability of a set of machines capable of processing the same operation and the geographical distribution of
+these machines add complexity and pose a significant challenge to solve this combinatorial optimization problem.
+4 Modell
+In this Section, we describe the QUBO model for solving the extended DFJSP as required by the wool textile industry.
+To this end, the extended problem is first formally described in Subsection 4.1. Based on this, we create the QUBO
+model in Subsection 4.2, reduce the number of its variables in Subsection 4.3, and deal with the determination of the
+Lagrange parameters in Subsection 4.4.
+4.1 Problem formulation
+The DFJSP refers to job scheduling in distributed manufacturing environments. There could be different objectives
+when solving the DFJSP (e.g., minimizing job completion time, processing costs, or energy consumption). This paper
+focuses on finding the optimal schedule that minimizes the time required to complete the jobs, i.e., themakespan. The
+formulation used is the one introduced by Venturelli et al. [33] for the JSSP and the extension from Schworm et al. [25]
+for the FJSP. In this research, the model is extended to include shipping time for distributed operations. It is assumed
+that there are A jobsJ ={j 1, ..., jA}to be processed on B machinesM ={m 1, ..., mB}in C factoriesF ={f 1, ..., fC}.
+Each jobi∈Jconsists of a set of L operationsO i ={o 1, ..., oL}. Any operationo∈O i can be processed on at least
+one machine out of the given setM i,o. For any job, the order of operationso∈O i is given byR Oi ={r o1, ..., rol}, in
+whichr l is the last operation of jobi. Another notations used in this paper are listed in Tbl. 1.
+Notation Description
+o′ Next operation of any operationo∈O i.
+m′ Machine of next operationo′∈O i.
+tTime step in a given timelineT ={0, ..., t max}, wheret max is the completion
+time of all jobs.
+t′ Next time step of any time stept∈T.
+ti,o,m Starting time of operationoof jobion machinem.
+pi,o,m Processing time of operationoof jobion machinem.
+dm,m′ Shipping time between machines.
+kf,f ′ Shipping time between factories.
+Pi,o Minimum predecessor time of operationo.
+Si,o Minimum successor time of operationo.
+Table 1: List of notations used in this paper.
+Reminder: The production orders are referred to as jobs and the production steps as operations in the context of the
+DFJSP. Since machines are associated with factories, the distance between machines is derived from the distance
+between factories. Distance between factoriesk f,f ′ is directly related to the shipping timed m,m′ needed to send the
+lots in production to another location. In this paper, ’distance’ and ’shipping time’ are used interchangeably and refer
+6
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+to the value added to the cost function when production lots are shipped between locations. Fig. 2 shows a schema
+representing the DFJSP.
+Figure 2: Presentation of the DFJSP consisting ofAJobs,LOperations (per Job),BMachines andCFactories (Source:
+authors).
+Different jobs may have varying numbers of operations, each with its own processing time on a specific machine.
+This paper focuses on a special case of DFJSP where operations of the same job can be performed on machines in
+geographically distributed factories, which means that the distance between machines should be considered when
+generating the job schedule.
+In the DFJSP the following constraints are considered:
+1. Precedence of operations - an operation can only start when the previous operation has finished.
+2. Operation starts once - operation processing on machines cannot be interrupted (the reason ,behind this
+condition is that each machine must be technically adjusted for every new production lot, which is time-
+consuming).
+3. No-overlap - each machine can only process one operation at a time.
+Other underlying assumptions of the DFJSP are that operations of a job must be performed in the correct order to
+complete that job. The operations of different jobs are not subject to any precedence constraints and can be processed
+in parallel. Each factory is equipped with machines of various types, resulting in different potential processing times
+for an operation. A job can be scheduled on a machine multiple times. All machines are available for use and all jobs
+can be processed starting with time zero [39].
+4.2 QUBO model
+Samplers are processes used to solve problems with D-Wave. A BQM sampler samples low-energy states in the model
+defined by the QUBO equation and returns a list of samples to increase energy. The QUBO model is composed of
+binary variablesx i,o,m,t, each representing one operation per unit of time on a machine, up to the makespan:
+xi,o,m,t =
+ 1 :operationoof jobistarts on machinemat timet
+0 :otherwise (4)
+This variable determines whether an operationoof a jobistarts on a machinemat timetor not. Timetgoes from time
+0tot max in integer steps, wheret max is the sum of the execution times of all operations and the shipping time between
+machines.
+The objective functionH(x)is defined as a cost function (Eq. 5), which minimizes the time taken to complete all
+operations (the makespan). Cost functions are mathematical expressions of optimization problems. For quantum com-
+puting, cost functions are quadratic models that have the lowest values (energy) for good solutions to the problems
+they represent. Each point on a cost function represents a different solution configuration - in this case, each config-
+uration is a particular assignment of the starting times of operations. The goal of the optimization is to minimize the
+cost of the solution, i.e., the amount of time needed to complete all operations. The mathematical representation of the
+penalty terms and the makespan objective are added and build the cost function of the DFJSP with the format:
+7
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+H(x) =α∗f(x) +β∗g(x) +γ∗h(x) +k(x)(5)
+where:
+f(x),g(x), andh(x)represent penalty functions for precedence, operation once, and no-overlap constraints, respec-
+tively,
+k(x)represents the objective function, which will minimize the makespan,
+α,β,γare the Lagrange parameters that emphasize different weights assigned to penalties.
+Every time a solution violates one or more constraints, a penalty is applied to that solution (e.g., two operations on a
+single machine that are scheduled to run at the same time violate the no-overlap constraint, which means that a penalty
+will be assigned). Positive terms penalize certain solution configurations, while negative ones support them. By adding
+penalties to terms that break the constraints, the cost of those configurations increases. This reduces the likelihood
+of generating a suboptimal solution. The importance attributed to each term can be adjusted using the weightsα,β,
+andγ. The process of adjusting these weights is explained in Section 4.4. The weights determine the importance of
+penalty functions in relation to other terms.
+Precedence constraint.The precedence constraint states that a job operation can only start after the previous operation
+is finished and the lot arrived at the production site of the next operation, if shipping is necessary.
+To formulate the penalty, cases where consecutive operationsoando ′ in a job take place out of order are counted. If
+the starting time ofo ′ denoted byt′
+i,o’,m’ is less than the sum of the starting time ofodenoted byt i,o,m, its processing
+timep i,o,m and the shipping time between machinesd m,m′ , then this counts as penalty. The penalty condition can be
+formulated as follows:
+t′
+i,o′,m′−t i,o,m <p i,o,m +d m,m′ (6)
+This penalty is the sum of all operations of a jobifor all the jobs:
+f(x) =
+X
+i∈J
+X
+o,o′∈Oi
+ro < r o′
+X
+t′
+i,o′ ,m′−ti,o,m < p i,o,m+dm,m′
+m,m′∈Mi,o×Mi,o′
+xi,o,m,t·x i,o′,m′,t′
+(7)
+where:
+P
+i∈J :sum over all jobs,
+P
+o,o′∈Oi :sum over all combinations of sequential operations,
+t′
+i,o′,m′−t i,o,m <p i,o,m +d m,m′ :penalty condition,
+xi,o,m,t·x i,o′,m′,t′ :represents the expression that assigns a penalty every time the precedence constraint is violated.
+Operation-once constraint.To represent this mathematically, the following function is formulated, which sums
+values across all possible time stepst:
+g(x) =
+X
+i∈J
+X
+o∈Oi
+
+ X
+ti,o∈T
+X
+m∈Mi,o
+xi,o,m,t−1
+
+
+2
+(8)
+where:
+P
+i∈J :sum over all jobs,
+8
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+P
+o∈Oi :sum over all operations,
+P
+ti,o∈T
+P
+m∈Mi,o :sum over all time steps on all machines,
+xi,o,m,t :represents the expression that assigns a penalty every time the precedence constraint is violated,
+P(...)2 :squares the results in parentheses to keep the penalty term positive in case an operation is not scheduled.
+No-overlap constraint.The penalty function is the sum of pairwise products of binary variablesx i,o,m,t andx i′,o′,m,t′
+that represent starting time of operations on each machine, which must be equal to zero for the configuration to be
+valid:
+h(x) =
+X
+m∈Mi,o∩Mi′ ,o′
+X
+i,i′∈J
+X
+o,o′∈Oi×O′
+i
+i,i′,t,t′∈Am∪Bm
+xi,o,m,t·x i′,o′,m,t′ (9)
+The setsA m andB m are defined as follows:
+Am ={(i,i ′,t,t′) :i,i ′∈J,i̸=i ′,t,t′∈T,0<t ′−t<p i,o,m}
+Bm ={(i,i ′,t,t′) :i,i ′∈J,i̸=i ′,t=t ′,p i,o,m >0,p i′,o′,m >0}
+The setA m is a condition that forbids operationo ′ to start at timet′ if the processing of the previous operationohas
+not finished yet (meaning thatt ′−t<p i,o,m). The setB m forbids the operations to start at the same time. Further
+details on the penalty functionh(x)are:
+P
+m∈Mi,o∩Mi′,o′ :sum of each independent machine,
+P
+i,i′∈J :sum over jobs,
+P
+o,o′∈Oi×O′
+i
+:sum over operations,
+xi,o,m,t·x i′,o′,m,t′ :product of binary variables, that assigns a penalty every time the no-overlap constraint is violated.
+Makespan Function.To formulate the optimization objective of completing each job in the shortest time possible,
+the following polynomial function is defined, which penalizes the late completion time of operations:
+k(x) =
+X
+o∈Oi
+m∈Mi,o
+xi,o,m,t·(t i,o,m +p i,o,m−P i,o)
+(10)
+where:
+Pi,o =
+X
+r′
+o < r o
+m′∈Mi,o′
+min(pi,o′,m′ +d m,m′)
+Pi,o is the minimum predecessor time of the operationo, which is the sum of the minimum processing times of the
+preceding operations and shipping distances between them.
+4.3 Variable pruning
+In the previous Section, the binary variablexi,o,m,t was defined to represent whether an operationoof a jobiis scheduled
+to start on a machinemat timetor not. To reduce the number of variables in the model, a method called variable
+pruning is used, which removes variables that are not possible in valid solutions. First, an upper boundt max of the
+highest possible makespan is calculated. Without this step, the solver will have to consider all solutions between zero
+and infinity, which implies a very large solution space that makes it difficult to embed and solve the QUBO [33].
+Instead, the search space is limited by defining the upper bound of a schedule as the sum of the maximum processing
+time of each operation in all jobs and the maximum shipping time between these operations. Thus, a significant
+number of variablesx i,o,m,t can be pruned by applying restrictions on timet.
+9
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+Next, the duration and order of operations within a job are examined. Variables that prevent an operation from execut-
+ing at a given time, resulting in an invalid schedule, are removed. Specifically, variables are pruned to allow operations
+to start earlier than the sum of the processing time of its predecessors, or if they allow operations to begin later than
+the sum of its own processing time and that of the successor operations subtracted fromt max [40].
+To set a lower bound of operations in a job, the notion of minimum predecessor timeP i,o of an operation is used:
+Pi,o =
+X
+r′
+o < r o
+m′∈Mi,o′
+min(pi,o′,m′ +d m,m′)
+Pi,o is the minimum predecessor time of the operationo, calculated as the sum of the minimum processing time of the
+preceding operations and shipping distance between them. A starting time earlier than the minimum predecessor time
+is invalid; therefore, these binary variables can be eliminated from the model [25].
+Additionally, an upper bound for the starting timetof operations can be set. This corresponds to the maximum
+makespant max minus the sum of the processing time of the operation and that of all subsequent operations and shipping
+time between machinesS i,o:
+tmax−p i,o,m−S i,o (11)
+where:
+Si,o =
+X
+r′
+o≥r o
+m,m′∈Mi,o′
+min(pi,o′
+i,m′ +d m,m′)
+These variables can also be eliminated from the QUBO, since they represent invalid starting times [33]. Thus, the
+starting time of operationsoshould be in the range|P i,o,t max−S i,o|, all the other variables that are not in this range
+are removed from the model to decrease the size of the computational problem and computation time [40].
+To further reduce the number of binary variables, the starting times of simultaneous operations on machines are also
+removed [7].
+4.4 Lagrange parameters
+In the previous sections, the constraints have been formulated as binary polynomials in a Hamilton formulation. The
+binary polynomialsf(x),g(x),h(x)are multiplied with non-negative scalar weightsα,β,γalso known as Lagrange
+parameters (Eq. 5), which determine the impact of the respective polynomial [25]. Weights are assigned to each
+constraint depending on the relative strengths of the objective function and the constraints. The weights must be set
+high enough so that a valid solution with no broken constraints is returned. On the other hand, values that are too high
+will result in solutions that are valid, but far from optimal8.
+To find the Lagrange parameterβfor the operation-once constraint, the case ofH(x)is investigated that consists of the
+constraintg(x)and the makespan objective function:
+H(x) =β∗
+
+
+X
+i∈J
+X
+o∈Oi
+
+ X
+ti,o∈T
+X
+m∈Mi,o
+xi,o,m,t−1
+
+
+2
+
++
+X
+o∈Oi
+m∈Mi,o
+xi,o,m,t·(t i,o,m +p i,o,m−P i,o)
+(12)
+For example, for jobj 1 in Tbl. 2, operationo 1 is starting on machinem 1 at timet 0 and has a processing timep 1,1,1 = 1
+(this technique is applied in the same way for larger problem instances with more jobs and operations).
+8Problem Formulation Guide [White Paper]:https://www.dwavesys.com/media/bu0lh5ee/
+problem-formulation-guide-2022-01-10.pdf
+10
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+Thus, the sum of processing times of previous operationsP1,2 ofo 2 is equal to 1. Further,o 2 of the same job is starting
+at different timeston machinem 3. Shipping time between machinesd 1,3 equals to zero. Both binary variablesx 1,1,1,0
+andx 1,2,3,1 are equal to 1. This can be expressed by a QUBO. Forβ= 1, the value and thus, the energy of cost function
+H(x)equals to 3:
+=β·((x 1,1,1,0−1) 2 + (x1,2,3,1−1) 2) + (x1,1,1,0 + 2·x 1,2,3,1)
+= 1·((1−1) 2 + (1−1) 2) + (1 + 2·1) = 3
+This is the sum of the processing times of the two operationso 1 ando 2 that represent the makespan objective function
+(second term in equationH(x)). Since the start-once constraint is not violated, the first term in equationH(x)is equal
+to zero. This is also the minimum energy level of a valid solution for this specific problem instance. Any violation of
+the constraints will add penalties to the cost function that will increase the energy of the system.
+A specific case, however, should be considered. Let us assume that operationo 2 is not scheduled to start at all. This
+will result in a cost functionH(x)that equals to 2:
+H(x) = 1·((1−1) 2 + (0−1) 2) + (1 + 0) = 2
+Although the returned solution is invalid, the energy of the system equals2in this case, which is less than the minimum
+valid energy of3. Tbl. 2 summarizes the results for functionH(x)forβ= 1.
+tx 1,1,1,t x1,2,3,1 x1,2,3,t
+0 1 0 0
+1 0 1 0
+2 0 0 0
+3 0 0 0
+H(x)- 3 2
+Table 2: Lagrange parameters in cost function.
+To compensate for this effect, a Lagrange parameter is applied that increases the weight of the penalty term. In DFJSP,
+valid solutions with higher energy are preferred to invalid solutions with low energy but violated constraints. The value
+of the weight parameter depends on the problem instance. A value that is too low penalizes invalid configurations of
+variables insufficiently, resulting in energy values that might be lower than the minimum energy of the best valid
+solution. Values that are too high would return valid configurations – possible with higher energy than the optimum.
+The value of the Lagrange parameter is set based on the maximum makespan of the jobs (t max in Section 4.3). The
+maximum energy value, which corresponds to the maximum makespant max, is equal to 10 (this value is calculated
+for each problem instance based on the input job dictionary). The penalty is set toβ=t max, meaning the maximum
+energy possible for a valid configuration for this problem instance, which results in the following functionH(x):
+H(x) = (1 + 0) + 10·((1−1) 2 + (0−1) 2) = 11
+The energy of the function is equal to11, which is above the maximum energy possible for valid solutions of10. This
+ensures that no invalid solution will have lower energy than any of the valid solutions. The technique demonstrated in
+this simplified example can be applied similarly to problems with more jobs and operations. The resulting QUBO will
+have more variables.
+The same method is used to calculate the weights for other constraints as well. Generally, the Lagrange parameters
+are set individually for each constraint, depending on the magnitude of the objective function to be minimized and its
+relative strength to the constraints. In this case, to make sure that the cost functionH(x)has the lowest energy for valid
+solutions, the weightsα,β,γof penalty functionsf(x),g(x)andf(x)are all set equal tot max, which is the maximum
+energy value of all valid solutions.
+5 Experiments
+In this Section, we implement the model and conduct experiments on a D-Wave quantum annealer (specifically, the
+Advantage System 4.1). As is common practice, the results of the experiment on a quantum annealer are compared
+11
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+with those obtained from SA. Firstly, the problem size (see 5.1) and solver parameters (see 5.2) are defined. The
+QUBO model is constructed using the PyQUBO Python library, which provides a high-level interface for formulating
+combinatorial optimization problems in QUBO form and supports solving them using various solvers, including the
+D-Wave quantum annealer [38]. We then present the results of the experiments in Subchapter 5.3 and discuss them in
+Subchapter 5.4.
+5.1 Problem size and dataset
+To analyze the performance of the D-Wave quantum annealer for the DFJSP, 6 problem instances are defined in such
+a way that the size of the smallest problem instance is 50 and the size of the largest one is 250. The instances in
+between are defined in even intervals of 50 (e.g., 100, 150, etc 9). The size of the problem instances refers to the
+number of binary variablesx i,o,m,t necessary to represent the problem in QUBO form. The maximum size of the
+problem instances is dictated by the physical properties of the D-Wave QPU. The D-WaveAdvantage System 4.1has
+5627 qubits. However, not all qubits are interconnected. When embedding the model variables onto the physical
+hardware graph of the QPU, in some cases, to represent a single logical variable set of physical qubits calledchains
+are necessary, with couplings between physical qubits capable of realizing the correct interaction between logical
+variables [36]. This leads to embedding patterns that need more physical qubits than there are variables in the original
+problem.
+The purpose of the experiment is to test the capacity and performance of the D-Wave quantum annealer for the DFJSP
+up to the largest problem that can be embedded into the QPU. Tbl. 3 summarizes the instances solved by QA, the
+number of qubits needed to embed the model onto the physical QPU, and the length of the longest chain in the
+embedding.
+Problem size Number of qubits Max chain
+50 223 7
+100 977 18
+150 2115 25
+200 3156 28
+250 4067 32
+300- -
+Table 3: Logical problem variables and number of qubits needed for embedding.
+Smaller problem instances require a lower number of qubits for embedding. It is also true that the length of the chains
+increases with problem size, meaning that with an increasing number of variables, it becomes more challenging to
+find embedding schemas. Therefore, longer chains are required to connect the variables through couplers. In this
+model, the largest problem instance that could be embedded was of size 250, which required more than 4000 qubits
+for embedding. For 300 variables, no embedding could be found.
+The problem instances are formulated for 2 jobs,j 1 andj 2, each job containing a minimum of 2 operations. Each
+operation can be processed on one machine or a set of two machines, with different processing times on each machine.
+To include shipping distance in the model, the sets of machines available for each operation include machines from
+different factories. The consideration of the shipping distance is essential for the processing ofContribution 1. The
+number of operations in each job, the available machines, and the processing time on each machine determine the
+number of binary variablesx i,o,m,t necessary to represent the problem in QUBO form.
+5.2 Solver parameters
+There are numerous solver parameters10 that can be adjusted when submitting problems to solvers. In this experiment,
+the default settings are kept for most of them, including the default annealing time of 20µs. The parameters that are
+adjusted in the experiment are the number of reads and the chain strength.
+Number of reads.In theory, very long annealing times should keep the system in a low energy state, in practice,
+noise due to hardware imperfections will push the state to a higher energy [5]. Therefore, short annealing times are
+preferred in order to take many samples from the energy distribution of the problem. The appropriate number of
+9Problem size is rounded for some instances (e.g. instance size 99 is rounded to 100).
+10https://docs.dwavequantum.com/en/latest/industrial_optimization/index_properties_parameters.
+html
+12
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+samples depends on the problem itself and its energy distribution, and is usually between 10 and 10,000 samples [5].
+In this experiment, the number of reads (’num reads’) is set to 1000. Generally, increasing the number of reads can
+increase the probability of obtaining better solutions, but improvements diminish due to some problem-dependent
+factors. For this model, increasing the number of reads significantly above 1000 does not appear to be advantageous.
+Sampling the problem instance with 200 variables 3000 times produced a solution with an energy of 34 and 2 violated
+constraints, which is worse than the energy of the best solution of 24 and 1 violated constraint obtained with 1000
+reads. This is consistent with the results obtained by Carugno et al. [5], who found that increasing the number of reads
+from 1000 to 10000 did not have any beneficial effects.
+Figure 3: Chain break analysis for problem instance of size 150 (Source: authors).
+Chain strength.For a solution to be consistent, the chain of qubits has to act as a single qubit, meaning that all the
+qubits in the chain must have the same values after annealing [5]. Broken chains show different values of the qubits
+at the end of the annealing process. Chains must be set strong enough to ensure that the qubits of the chain show the
+same value compared to other qubits. If the chain’s strength is too small, then the qubits will show different values. If
+the chain strength parameter is too high, it will impede the qubits in the chain from changing their state, causing the
+chain to behave like a separate entity that does not interact with other terms of the function.
+We follow the D-Wave recommendation11 to determine the chain strength for each problem instance and start with
+two utility functions to estimate the chain strength:
+1.scaled
+2.uniform torque compensation
+The first function returns a chain strength that is scaled to the problem bias range. The second function calculates
+a chain strength that attempts to compensate for the torque that would break the chain. Both methods should be
+viewed as a starting point for estimating the optimal chain strength, rather than a rule, since this parameter is problem-
+dependent. In the next step, the chain strength parameter found in step 1 should be doubled or tripled to check if this
+change has an impact on the percentage of broken chains.
+To find the best chain strength for the model, the model is run on the QPU for each problem instance, and the resulting
+energy and the percentage of broken chains in the best solution are analyzed. The intention is to find the lowest energy
+possible, while also having a low rate of broken chains to ensure a consistent solution. Fig. 3 shows the results of the
+measurements for the problem instance of size 150.
+The utility functionscaledreturns a chain strength of 32 with an energy of 69; the functionuniform torquereturns
+a value of 309 with an energy of 966. To understand the relationship between these parameters, the range between
+11https://docs.dwavequantum.com/en/latest/quantum_research/embedding_guidance.html
+13
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+these two chain strengths is divided into 11 intervals, and the energy and the percentage of broken chains in the best
+solutions for each of these points are measured. Additionally, the smallest chain strength value is divided by 2 to
+check whether a smaller parameter could improve the results. The results in the graph show that the lowest energy
+achieved corresponds to the next point in the interval from the point obtained with thescaledfunction. However, the
+percentage of broken chains corresponding to this value is 41%, which is high compared to values in the graph for
+higher chain strength values. To determine whether to accept a chain strength parameter of 39, an additional analysis
+of the solution’s consistency is necessary. Fig. 4 shows that, despite a higher number of broken chains, the embedding
+with a chain strength of 39 delivers a consistent solution without broken constraints. As the chain strength parameter
+increases, the number of broken constraints also increases.
+Figure 4: Chain strength impact on solution quality (Source: authors).
+This procedure is repeated in the experiment for all problem instances to calculate the appropriate parameter for the
+chain strength. For all instances, the parameter that delivered the best solution with the lowest energy is one interval
+above the parameter estimated by thescaledfunction. Since the intention is to test the extent to which the QPU can
+handle large problems, this method is applied to problem instances of sizes 250 and 300. For problems of size 50 to
+150, the solver can find consistent solutions with no broken constraints. For problem instances of size 200 and 250,
+the solutions with the lowest energy found had 1 and 2 broken constraints, respectively. For the instance of size 300,
+no embedding could be found.
+SA parameters.To solve problems with SA, the D-Wave Sampler classSimulatedAnnealingSamplerof the D-Wave
+Ocean SDK is used. The sampler utilizes a classical heuristic SA algorithm that runs locally on the CPU 12. For SA,
+the Central Processing Unit (CPU) time is measured, which is the amount of time that the CPU has spent solving the
+problem. The CPU time is compared to QPU access time.
+To compare QA and SA, the number of iterations needed and the ability to find a consistent solution are analyzed. To
+have comparable results, the number of reads for SA is set to 1000, like the parameter for QA. The parameter number
+of sweeps (num sweeps) is set to 3, which is the smallest value for this parameter that returned solutions with no
+broken constraints. As with QA, the SA algorithm is run for all the instances of the problem to determine whether the
+system is able to find valid solutions. Additionally, problem instances of size 350 and 400 are included in the analysis.
+5.3 Numerical Results
+To provide theContributions 2 and 3formulated in Section 1, the results obtained from the experiment are analyzed
+from both a qualitative and a quantitative perspective. The first answers the question of how good the returned solution
+12Hardware configuration: 2x Intel Xeon Gold 6326 CPU 16Core, 2.9GHz 24M 185W Socket 4189, 4 x Samsung 64GB DDR4
+ECC RDIMM 3200Mhz total 256GB RAM, 4 x HDD WD Gold Datacenter 1TB SATA, 1x SSD Samsung PM883 480GB SATA,
+2 x 1 / 10 GB Ethernet 10 BaseT RJ-45 onboard.
+14
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+is in terms of system energy and makespan. The second compares QPU access time and CPU time of SA to assess
+whether there is a speed advantage in using the quantum annealer to solve the DFJSP with distributed operations. The
+hardware characteristics influence the results; different hardware may yield different results.
+System energy and makespan.The goal of the experiment is to find consistent solutions in the shortest time possible.
+When sampling from QA or SA, the returned sample set contains 1000 samples, in accordance with the defined number
+of reads. The sample with the lowest energy in the sample set is selected as the best sample result for the respective
+problem instance. This is not always the solution corresponding to the global minimum, which is represented by
+the lowest energy possible for the QUBO. For this use case, however, finding the global minimum is not crucial.
+A solution is satisfactory if it is consistent and represents a valid schedule plan that can be obtained in a reasonable
+amount of time. Further optimization steps can then be implemented to minimize the energy of the system and the
+makespan. Fig. 5 shows a comparison of best solution energies found with QA and SA for instances of different sizes.
+Figure 5: Energy of best solutions obtained with QA and SA (Source: authors).
+For the smallest problem instance, both QA and SA found a low energy of 2 and returned valid solutions. For in-
+stances of size 100 and 150, both methods delivered consistent solutions, but SA performed better in terms of energy.
+For problem instances of size 200 and 250, the best solution returned by the quantum annealer had 1 and 2 broken
+constraints, respectively. This explains the increasing energy values for these problems. This observation is related to
+the percentage of broken chains, which increases with problem size and deteriorates solution quality as the number of
+variables in the problem grows. These results are consistent with results found in other papers. Carugno et al. [5] found
+that for JSSP instances with an unknown optimal solution, QA is not able to find the best solution that corresponds to
+the global minimum.
+To calculate the makespan in themakespan function(Eq. 10), the minimum ending time and the maximum ending
+time of all operations are used. These terms represent the minimum and the maximum makespans possible and are
+the lower and the upper bound of the makespan range, respectively. In terms of makespan, QA returns solutions in
+the lower half of the possible makespan range for all problem sizes, except for size 250, which is in the upper half of
+possible solutions (Fig. 6).
+To summarize, QA can find consistent solutions for problem instances up to 150 variables. For the instance of size
+200, the makespan found is still in the first half of solutions, but 1 constraint is violated. For size 250, the makespan
+is slightly below the maximum possible value, and 2 constraints are violated. Current QA technology is subject to
+hardware and software limitations; however, with the growing number of qubits and increasing connectivity between
+them, problems with a higher number of variables can potentially be embedded into future QPUs. Additionally,
+improving QPU stability promises to deliver solutions of better quality and with lower energy of the system.
+Next, QPU access time and CPU time of SA for the DFJSP with distributed operations are compared.
+15
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+Figure 6: Comparison of Makespan values obtained by QA and SA (Source: authors).
+Calculation time.To determine the QPU access time, the instances from size 50 to 250 are solved with the quantum
+annealer. Based on these results, a trendline is derived for instances of size 300 to 400. In this case, since the rate
+of change in the data decreases and levels off, a logarithmic trendline best describes the data. The R-squared value
+of 0.9767 is a strong indicator that the logarithmic trendline accurately represents the data. With SA, it was possible
+to solve problem instances of all sizes, up to the 400-variable problem instance. Fig. 7 shows the results that were
+obtained by both methods.
+Figure 7: Calculation time with QA and SA (Source: authors).
+Although SA performs better for small problem sizes, the CPU calculation time of SA increases exponentially with
+the increasing problem size. On the other hand, due to hardware limitations, theAdvantage System 4.1quantum
+annealer is capable of embedding problems up to a maximum size of 250 variables. However, its advantage is that
+16
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+the calculation time increases at a decreasing rate with problem size. For business problems with a very large number
+of variables, specific to the DFJSP, a calculation time that scales logarithmically with problem size is a significant
+benefit, compared to the exponential growth of CPU time.
+5.4 Discussion
+In this paper, a step-by-step practical implementation of the DFJSP with distributed operations and its evaluation using
+D-Wave quantum annealer, based on a real use case from the wool textile industry, is presented. First, the problem is
+described mathematically as a constraint satisfaction problem. Then, the process of reformulating the mathematical
+problem in QUBO format is discussed in detail, as well as its embedding into the D-Wave quantum annealer QPU
+and the configuration of QPU solver parameters. Finally, solutions are sampled from the QPU to find low-energy
+states of the cost function. While formulating the QUBO, particular attention is dedicated to the calculation of the
+appropriate Lagrange parameters (Subsection 4.4), which increase the weights of the penalty terms. Another aspect
+that is carefully investigated while configuring the experiment is the chain strength parameter (Subsection 5.2). Both
+aspects make upContribution 2.
+Another aim of the paper was to investigate whether QA can provide a speed advantage for the DFJSP with operations
+specific to the wool textile industry. To answer this question, both qualitative and quantitative analyses are conducted.
+Current QA technology enables the use of more qubits than classical gate model quantum computers. However, there
+are still limitations imposed by hardware and software imperfections. With this in mind, the test challenged to the limit
+the ability of QA to deliver consistent solutions for large problem instances in the shortest time possible. To conduct
+the experiment, problem instances with sizes ranging from 50 to 250 are solved in increments of 50 variables using
+QA and SA. Additionally, problems with up to 400 variables are solved only with SA to increase the size range and
+determine the calculation time trend. The missing data for QA is extrapolated as a logarithmic trendline.
+The qualitative analysis of the solutions returned indicates that for problem instances with up to 150 variables, both
+QA and SA, with technical characteristics as used in this research, deliver consistent solutions, and thus valid pro-
+duction schedules. However, SA performs slightly better in terms of returned energy. With an increasing number
+of variables, hardware imperfections become more visible, manifesting as a higher number of broken chains in the
+returned solutions, and consequently, in solutions with higher energy due to broken constraints. For the problem of
+size 200, the best solution returned by QA has 1 broken constraint; for the instance of 250 variables, 2 constraints
+were violated. Due to a higher usage of physical qubits needed compared to the number of variables in the original
+QUBO, the maximum problem instance that could be embedded onto the QPU was of 250 variables. For the problem
+of size 300, no embedding could be found. In terms of makespan, QA finds solutions for almost all problem sizes in
+the lower half of the possible makespan range, except for size 250, which is in the upper half of the possible solutions.
+The makespan determined by SA is comparable, although for a few problem instances SA can find solutions that are
+closer to the global minimum. All solutions calculated by SA are consistent, even for the largest instances in the test.
+To tackle theContribution 3, QPU access time and SA CPU time necessary to calculate the solutions to the problems
+were measured. The results reveal that QA requires more time than SA for smaller problem instances, but the time
+needed increases at a decreasing rate as the problem size grows. This is not the case for SA, whose CPU time grows
+exponentially with the increasing number of variables. The CPU timeline and the trendline of the CPU access time are
+slightly above the value of 300 variables. If this trend persists with the new QA hardware generation that is to come,
+every problem with a size larger than this value could be solved faster than with SA. Thus, the question of the speed
+advantage can be answered positively: QA can potentially result in a speed advantage for the DFJSP with distributed
+operations.
+Even if the QA technology currently faces limitations, the new generation of quantum annealers with improved hard-
+ware promises to accelerate the solution of complex combinatorial optimization problems, such as the DFJSP. The
+measurements show that, given the same experimental parameters and improved hardware, QA can provide a speed-up
+advantage over SA starting with problem instances that are slightly larger than 300 variables. To test this assumption,
+new tests must be performed for larger problem instances, for which only the trend could be extrapolated at the mo-
+ment, as soon as the latest generation of quantum annealers becomes available. More qubits and connections between
+them, as well as more stable systems, will enable the embedding of larger problems and the discovery of energies
+closer to the global minimum. Additionally, research on tuning and configuration of QA parameters is another neces-
+sity that will enable us to minimize energy and find the optimal solution. Determining the strength of the qubit chains
+is a laborious task that is not only model-dependent but also instance-dependent and has a significant impact on the
+quality of the obtained solutions.
+17
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+6 Conclusion
+Many modern manufacturing enterprises have evolved from a single to a multi-factory production environment, as is
+the case with big production companies in the wool textile industry. Planning systems changed from classical JSSP to
+DFJSP, with companies facing the challenge of increased frequency and complexity of production planning. Classical
+heuristics deliver valid results on small problem instances but are unable to find solutions for problem sizes relevant
+to practice. Therefore, methods are required that yield high-quality outcomes while ensuring reasonable computation
+times. In this paper, the concept of QA-based optimization for the DFJSP with geographically distributed operations
+is investigated to answer the question of whether QA can provide a speed advantage for the DFJSP with distributed
+operations specific to the wool textile industry.
+To do this, we show a step-by-step implementation of the workflow for solving the DFJSP with QA (Contribution
+1). Special attention is devoted to topics that do not have a straightforward approach but a significant impact on the
+solution quality, such as calculating the Lagrange parameters or determining the chain strength. The results show that
+up to a certain problem size, QA delivers consistent solutions that are not the global minimum solution in the solution
+space but yield a makespan in the first half of the allowed valid solutions (Contribution 2). For all instances, SA
+delivers comparable or slightly better results, which are consistent with other research. In terms of calculation time,
+QA needs more QPU time to find solutions for smaller problem instances in the test, but QPU access time increases at a
+declining rate with the growing problem size. In contrast, the SA CPU time develops exponentially for problems with
+a larger number of variables. The results of the experiment show that, starting with a certain problem size, QA could
+potentially offer a speed-up advantage, given that expected improvements in hardware and software are anticipated
+(Contribution 3).
+One of the future tasks is to solve larger problems on the next generation of quantum annealers to confirm the results
+obtained in this experiment. Other topics open for future research are QPU parameter tuning and configuration. There
+is also a need for additional research on embedding techniques that can minimize the length of the chains and enable
+the embedding of more QUBO variables into physical qubits, thereby solving problems of greater size.
+References
+[1] A. Baskar and M. A. Xavior. A Simple Model to Optimize General Flow-Shop Scheduling Problems With
+Known Break Down Time And Weights Of Jobs.Procedia Engineering, 38:191–196, 2012. ISSN 1877-7058.
+URLhttps://doi.org/10.1016/j.proeng.2012.06.026.
+[2] A. Sharma and P. Maharjan. Quantum Annealing as an Optimized Simulated Annealing: A Case Study, 2018.
+URLhttps://doi.org/10.13140/RG.2.2.33538.53448.
+[3] David Amaro, Matthias Rosenkranz, Nathan Fitzpatrick, Koji Hirano, and Mattia Fiorentini. A case study of
+variational quantum algorithms for a job shop scheduling problem.Technol., 9:5, 2022. URLhttps://doi.
+org/10.1140/epjqt/s40507-022-00123-4.
+[4] Michael Brooks. Beyond quantum supremacy: the hunt for useful quantum computers.Nature, 574(7776):
+19–21, 2019. ISSN 1476-4687. URLhttps://doi.org/10.1038/d41586-019-02936-3.
+[5] Costantino Carugno, Maurizio Ferrari Dacrema, and Paolo Cremonesi. Evaluating the job shop scheduling
+problem on a D-wave quantum annealer.Scientific Reports, 12(1), 2022. ISSN 2045-2322. URLhttps:
+//doi.org/10.1038/s41598-022-10169-0.
+[6] Vasil S. Denchev, Sergio Boixo, Sergei V . Isakov, Nan Ding, Ryan Babbush, Vadim Smelyanskiy, John Martinis,
+and Hartmut Neven. What is the Computational Value of Finite-Range Tunneling?Phys. Rev. X, 6:031015,
+2016. URLhttps://doi.org/10.1103/PhysRevX.6.031015.
+[7] Berend Denkena, Fritz Schinkel, Jonathan Pirnay, and S ¨oren Wilmsmeier. Quantum algorithms for process
+parallel flexible job shop scheduling.CIRP Journal of Manufacturing Science and Technology, 33:100–114,
+2021. ISSN 1755-5817. URLhttps://doi.org/10.1016/j.cirpj.2021.03.006.
+[8] Kaihan Fu, Jianjun Liu, Miao Chen, and Huiying Zhang. Solving Flexible Job-Shop Scheduling Problems Based
+on Quantum Computing.Entropy, 27(2), 2025. URLhttps://doi.org/10.3390/e27020189.
+[9] Fred W. Glover, Gary A. Kochenberger, Rick Hennig, and Yu Du. Quantum bridge analytics I: a tutorial on
+formulating and using QUBO models.Ann. Oper. Res., 314(1):141–183, 2022. URLhttps://doi.org/10.
+1007/s10479-022-04634-2.
+[10] Johann L. Hurink and Sigrid Knust. Tabu search algorithms for job-shop problems with a single transport robot.
+Eur. J. Oper. Res., 162(1):99–111, 2005. URLhttps://doi.org/10.1016/j.ejor.2003.10.034.
+18
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+[11] Shinichi INOUE, Tong QIN, Sho FUJITA, Shingo TAJIMA, and Hayato YOSHIOKA. Practical approach to
+flexible job shop scheduling with tool switching constraints using quantum annealing.Journal of Advanced
+Mechanical Design, Systems, and Manufacturing, 18(2):JAMDSM0009–JAMDSM0009, 2024. URLhttps:
+//doi.org/10.1299/jamdsm.2024jamdsm0009.
+[12] Sajad Karimi, Zaniar Ardalan, B. Naderi, and M. Mohammadi. Scheduling flexible job-shops with transportation
+times: Mathematical models and a hybrid imperialist competitive algorithm.Applied Mathematical Modelling,
+41:667–682, 2017. ISSN 0307-904X. URLhttps://doi.org/10.1016/j.apm.2016.09.022.
+[13] Mark W. Lewis and Fred W. Glover. Quadratic unconstrained binary optimization problem preprocessing: The-
+ory and empirical analysis.Networks, 70(2):79–97, 2017. URLhttps://doi.org/10.1002/net.21751.
+[14] Tung-Kuan Liu, Yeh-Peng Chen, and Jyh-Horng Chou. Solving Distributed and Flexible Job-Shop Scheduling
+Problems for a Real-World Fastener Manufacturer.IEEE Access, 2:1598–1606, 2014. URLhttps://doi.
+org/10.1109/ACCESS.2015.2388486.
+[15] Andrew Lucas. Ising formulations of many NP problems.Frontiers in Physics, 2, 2014. ISSN 2296-424X. URL
+https://doi.org/10.3389/fphy.2014.00005.
+[16] Bilel Marzouki, Olfa Belkahla Driss, and Khaled Gh ´edira. Solving Distributed and Flexible Job shop Schedul-
+ing Problem using a Chemical Reaction Optimization metaheuristic. InKnowledge-Based and Intelligent Infor-
+mation & Engineering Systems: Proceedings of the 22nd International Conference KES-2018, Belgrade, Ser-
+bia, 3-5 September 2018, volume 126 ofProcedia Computer Science, pages 1424–1433. Elsevier, 2018. URL
+https://doi.org/10.1016/j.procs.2018.08.114.
+[17] Bilel Marzouki, Olfa Belkahla Driss, and Khaled Gh ´edira. Modeling and solving the distributed flexible job
+shop scheduling problem with transportation time.Knowledge and Information Systems, 2025. URLhttps:
+//doi.org/10.1007/s10115-025-02538-8.
+[18] S. Mukherjee and B.K. Chakrabarti. Multivariable optimization: Quantum annealing and computation.The
+European Physical Journal Special Topics, 224(1):17–24, 2015. ISSN 1951-6401. URLhttps://doi.org/
+10.1140/epjst/e2015-02339-y.
+[19] B. Naderi, M. Zandieh, A. Khaleghi Ghoshe Balagh, and V . Roshanaei. An improved simulated annealing for
+hybrid flowshops with sequence-dependent setup and transportation times to minimize total completion time and
+total tardiness.Expert Systems with Applications, 36(6):9625–9633, 2009. ISSN 0957-4174. URLhttps:
+//doi.org/10.1016/j.eswa.2008.09.063.
+[20] Bahman Naderi, A. Ahmadi Javid, and Fariborz Jolai. Permutation flowshops with transportation times: Math-
+ematical models and solution methods.The International Journal of Advanced Manufacturing Technology, 46:
+631–647, 2010. URLhttps://doi.org/10.1007/S00170-009-2122-8.
+[21] Houssem Eddine Nouri, Olfa Belkahla Driss, and Khaled Gh ´edira. Solving the flexible job shop problem by
+hybrid metaheuristics-based multiagent model.Journal of Industrial Engineering International, 14(1):1–14,
+2017. ISSN 2251-712X. URLhttps://doi.org/10.1007/s40092-017-0204-z.
+[22] A. I. Pakhomchik, S. Yudin, M. R. Perelshtein, A. Alekseyenko, and S. Yarkoni. Solving workflow scheduling
+problems with QUBO modeling, 2022. URLhttps://arxiv.org/abs/2205.04844.
+[23] Ningtao Peng, Yu Zheng, Zhikai Xiao, Guiliang Gong, Dan Huang, Xiahui Liu, Kaikai Zhu, and Qiang Luo.
+Multi-objective dynamic distributed flexible job shop scheduling problem considering uncertain processing time.
+Cluster Computing, 2025. URLhttps://doi.org/10.1007/s10586-024-04803-x.
+[24] Fujie Ren and Haibin Liu. Dynamic scheduling for flexible job shop based on machinerank algorithm
+and reinforcement learning.Scientific Reports, 14:29741, 2024. URLhttps://doi.org/10.1038/
+s41598-024-79593-8.
+[25] Philipp Schworm, Xiangqian Wu, Moritz Glatt, and Jan C. Aurich. Solving flexible job shop scheduling problems
+in manufacturing with quantum annealing.Production Engineering, 17(1):105–115, 2022. ISSN 1863-7353.
+URLhttps://doi.org/10.1007/s11740-022-01145-8.
+[26] Philipp Schworm, Xiangqian Wu, Moritz Glatt, and Jan C. Aurich. Responsiveness to sudden disturbances in
+manufacturing through dynamic job shop scheduling using quantum annealing.Procedia CIRP, 120:511–516,
+2023. ISSN 2212-8271. URLhttps://doi.org/10.1016/j.procir.2023.09.028.
+[27] Jia Si, Shuhan Yang, Yunuo Cen, Jiaer Chen, Yingna Huang, Zhaoyang Yao, Dong-Jun Kim, Kaiming Cai, Jerald
+Yoo, Xuanyao Fong, and Hyunsoo Yang. Energy-efficient superparamagnetic ising machine and its application
+to traveling salesman problems.Nature Communications, 15:3457, 2024. URLhttps://doi.org/10.1038/
+s41467-024-47818-z.
+19
+
+=== PAGE BREAK ===
+
+APREPRINT- JANUARY15, 2026
+[28] Tomasz Smierzchalski, Jakub Pawlowski, Artur Przybysz, Lukasz Pawela, Zbigniew Puchala, M ´aty´as Konior-
+czyk, Bartlomiej Gardas, Sebastian Deffner, and Krzysztof Domino. Hybrid quantum-classical computation for
+automatic guided vehicles scheduling.Scientific Reports, 14:21809, 2024. URLhttps://doi.org/10.1038/
+s41598-024-72101-y.
+[29] El-Ghazali Talbi.Metaheuristics - From Design to Implementation. Wiley, 2009. ISBN 978-0-470-27858-1.
+URLhttps://doi.org/10.1002/9780470496916.
+[30] Kotaro Tanahashi, Shinichi Takayanagi, Tomomitsu Motohashi, and Shu Tanaka. Application of Ising Machines
+and a Software Development for Ising Machines.Journal of the Physical Society of Japan, 88(6):061010, 2019.
+URLhttps://doi.org/10.7566/JPSJ.88.061010.
+[31] Liang Tang, Chao Yang, Kai Wen, Wei Wu, and Yiyun Guo. Quantum computing for several agv scheduling
+models.Scientific Reports, 14:12205, 2024. URLhttps://doi.org/10.1038/s41598-024-62821-6.
+[32] Kasirajan Venkateswaran.Adiabatic Optimization and Quantum Annealing, pages 365–373. Springer
+International Publishing, 2021. ISBN 978-3-030-63689-0. URLhttps://doi.org/10.1007/
+978-3-030-63689-0_8.
+[33] Davide Venturelli, Dominic J. J. Marchand, and Galo Rojo. Quantum Annealing Implementation of Job-Shop
+Scheduling, 2016. URLhttps://arxiv.org/abs/1506.08479v2.
+[34] Tom ´as Vyskocil and Hristo N. Djidjev. Embedding Equality Constraints of Optimization Problems into a Quan-
+tum Annealer.Algorithms, 12(4):77, 2019. URLhttps://doi.org/10.3390/a12040077.
+[35] Xinliang Wei, Lei Fan, Yuanxiong Guo, Yanmin Gong, Zhu Han, and Yu Wang. Hybrid quantum–classical
+benders’ decomposition for federated learning scheduling in distributed networks.IEEE Transactions on Network
+Science and Engineering, 11(6):6038–6051, 2024. URLhttps://doi.org/10.1109/TNSE.2024.3440930.
+[36] Sheir Yarkoni, Elena Raponi, Thomas B ¨ack, and Sebastian Schmitt. Quantum annealing for industry applica-
+tions: introduction and review.Reports on Progress in Physics, 85(10):104001, 2022. ISSN 1361-6633. URL
+https://doi.org/10.1088/1361-6633/ac8c54.
+[37] Minghai Yuan, Songwei Lu, Liang Zheng, Qi Yu, Fengque Pei, and Wenbin Gu. Distributed heterogeneous
+flexible job-shop scheduling problem considering automated guided vehicle transportation via improved deep q
+network.Swarm and Evolutionary Computation, 94:101902, 2025. ISSN 2210-6502. URLhttps://doi.org/
+10.1016/j.swevo.2025.101902.
+[38] Mashiyat Zaman, Kotaro Tanahashi, and Shu Tanaka. PyQUBO: Python Library for Mapping Combinatorial
+Optimization Problems to QUBO Form.IEEE Trans. Computers, 71(4):838–850, 2022. URLhttps://doi.
+org/10.1109/TC.2021.3063618.
+[39] Guo Hui Zhang, Jing He Sun, Xing Liu, Guo Dong Wang, and Yang Yang Yang. Solving flexible job shop
+scheduling problems with transportation time based on improved genetic algorithm.Mathematical biosciences
+and engineering : MBE, 16(3):1334—1347, 2019. ISSN 1547-1063. URLhttps://doi.org/10.3934/mbe.
+2019065.
+[40] Michael R. Zielewski, Mulya Agung, Ryusuke Egawa, and Hiroyuki Takizawa. Improving Quantum Annealing
+Performance on Embedded Problems.Supercomput. Front. Innov., 7(4):32–48, 2020. URLhttps://doi.org/
+10.14529/jsfi200403.
+20

@@ -1,0 +1,1294 @@
+1
+Quantum Algorithms applied to
+Satellite Mission Planning for Earth Observation
+Serge Rainjonneau†, Igor Tokarev∗, Sergei Iudin∗, Saaketh Rayaprolu∗, Karan Pinto∗, Daria Lemtiuzhnikova∗,
+Miras Koblan∗, Egor Barashov∗, Mohammad Kordzanganeh∗, Markus Pflitsch∗, and Alexey Melnikov∗§
+† Thales Alenia Space, 31100 Toulouse, France
+∗ Terra Quantum AG, 9000 St. Gallen, Switzerland
+Abstract—Earth imaging satellites are a crucial part of our
+everyday lives that enable global tracking of industrial activities.
+Use cases span many applications, from weather forecasting to
+digital maps, carbon footprint tracking, and vegetation mon-
+itoring. However, there are limitations; satellites are difficult
+to manufacture, expensive to maintain, and tricky to launch
+into orbit. Therefore, satellites must be employed efficiently.
+This poses a challenge known as the satellite mission planning
+problem, which could be computationally prohibitive to solve
+on large scales. However, close-to-optimal algorithms, such as
+greedy reinforcement learning and optimization algorithms, can
+often provide satisfactory resolutions. This paper introduces a set
+of quantum algorithms to solve the mission planning problem
+and demonstrate an advantage over the classical algorithms
+implemented thus far. The problem is formulated as maximizing
+the number of high-priority tasks completed on real datasets
+containing thousands of tasks and multiple satellites. This work
+demonstrates that through solution-chaining and clustering, op-
+timization and machine learning algorithms offer the greatest
+potential for optimal solutions. This paper notably illustrates that
+a hybridized quantum-enhanced reinforcement learning agent
+can achieve a completion percentage of 98.5% over high-priority
+tasks, significantly improving over the baseline greedy methods
+with a completion rate of 75.8%. The results presented in this
+work pave the way to quantum-enabled solutions in the space
+industry and, more generally, future mission planning problems
+across industries.
+Index Terms—Quantum algorithms, Earth observation, quan-
+tum reinforcement learning, satellite mission planning, quantum
+optimization
+I. I NTRODUCTION
+The reliable functioning of Earth-orbiting satellites crucially
+affects our everyday services such as connectivity [1], nav-
+igation [2], and media [3]. Most satellites receive dynamic
+instructions on executing their mission in orbit, and planning
+the exact sequence of tasks is critical to the efficiency and
+sustainability of the project [4]. Algorithmic optimization
+solutions have been suggested [5]–[7] as a remedy to the
+§Corresponding author, e-mail: ame@terraquantum.swiss
+Please check the published version, which includes all the latest
+additions and corrections: IEEE J. Sel. Top. Appl. Earth Obs. Remote
+Sens. 16:7062-7075, 2023, DOI: 10.1109/JSTARS.2023.3287154
+© © 2023 IEEE. Personal use of this material is permitted. Permission
+from IEEE must be obtained for all other uses, in any current or future
+media, including reprinting/republishing this material for advertising
+or promotional purposes, creating new collective works, for resale or
+redistribution to servers or lists, or reuse of any copyrighted component
+of this work in other works.
+planning problem. With the rise of quantum technologies, there
+is a need to explore how quantum computing can improve the
+time complexity or the quality of these solutions. This work
+focuses on planning the mission of Earth-orbiting imaging
+satellites using quantum machine learning [8]–[10] and op-
+timization. Specifically, it explores using near-term quantum
+technologies to improve the solution’s effectiveness today.
+Similar approaches, such as the contribution of Ref. [11],
+suggested an algorithm to overcome the scheduling task using
+quantum annealers. Ref. [12] reviewed the literature and found
+that although innovative developments existed, none revealed
+any practical advantage over classical approaches. The current
+work explores the interplay between classical and gate-based
+quantum computing algorithms. The practical advantage of
+employing this hybrid approach was shown in our earlier
+contributions [13]–[15].
+In general, space mission planning can be a computationally
+hard problem [4] to solve; in large-scale missions, the size of
+the problem requires a prohibitive amount of computational
+resources. Finding an efficient plan requires the optimization
+of movement and the re-ordering of tasks to maximize the
+number of total completed tasks. In this work, each task is a
+request made to the satellite to capture an image of the surface
+of the Earth, and the aim is to maximize the number of images
+taken, given a list of all requests and a total available time. In
+this work, the imaging satellites orbit the Earth exactly on the
+Earth’s terminator, which is the line separating Earth’s sun-
+lit areas from the dark ones. In 24 hours, the satellite orbits
+approximately 15 times around the Earth, which leads to 15
+orbits shown schematically in Fig. 3(a). To capture the image,
+the satellite must continuously aim the camera at the target
+area for a time known as the acquisition slot. Each requested
+image has an allocated data-take opportunity (DTO) window.
+The satellite must point in the appropriate direction within
+this window for the entire acquisition period to accomplish
+a request. To aim at an area on Earth, the satellite needs to
+rotate its camera to point in the desired direction. The latter
+movement introduces a time delay that, when added to the
+acquisition time, could limit the overall agility of the satellite
+in covering multiple areas. The efficient satellite mission plan
+will be able to choose the order of the acquisition requests to
+maximize the number of completed requests.
+This paper discusses the benefits of the optimization and
+reinforcement learning algorithms over a greedy baseline al-
+gorithm, the unique advantage offered by the potential of quan-
+arXiv:2302.07181v2  [quant-ph]  7 Aug 2023
+
+=== PAGE BREAK ===
+
+2
+tum computing, and a demonstration of how quantum methods
+can be applied to improve machine learning and optimization
+models. Specifically, the novel quantum reinforcement learn-
+ing approach shown in Sec. III-D4 offers a completion rate of
+98.5% on highest-priority requests in a multi-satellite system.
+The model hybridizes the AlphaZero approach in Ref. [16]
+and is trained on the QMware quantum cloud [17]. Sec. II
+introduces the practical problem setup in more detail, including
+the details on the data formatting in Sec. II-A, re-ordering
+the requests in Sec. II-B, relaying algorithm in Sec. II-C,
+and on solution chaining in Sec. II-D. Sec. III offers three
+algorithms and their respective results: Sec. III-B establishes a
+baseline greedy algorithm, and Sec. III-C and III-D discuss the
+optimization and reinforcement learning algorithms. Finally,
+Sec. IV summarises the results.
+II. S ATELLITE MISSION PLANNING
+Each satellite’s orbit is constrained to the Earth’s terminator.
+Each satellite can only rotate at a maximum of one degree per
+second to orient itself appropriately to capture images within
+the acquisition window. Furthermore, the DTO duration for
+each area to be captured is defined by the arc ranging within
+45◦ (referred to as the depointing angle) from the apex point,
+which is the point directly above the center of the request
+on Earth. As a result of the width of these arcs, multiple
+requests can have substantial overlap in their acquisition
+windows. Furthermore, while coordinates for image requests
+are provided in latitude and longitude, the satellite coordinates
+support an Earth-centric inertial (ECI) format, providing more
+spatial location support. Finally, two datasets are tested in this
+work, including a single-satellite set containing 462 requests
+and a two-satellite system with 2000 requests. The main results
+of this work focus on the performance of various algorithms
+on the latter dataset and only for the requests with the highest
+priority.
+A. Data Formatting
+Two information sets were used in the preparation of this
+paper:
+• information about the satellite motion, including:
+– the orbit number,
+– time stamp, and
+– satellite position and velocity in Cartesian ECI coor-
+dinates; and
+• information about acquisition request, including:
+– request ID,
+– request priority ranging from 1 to 4, where 4 denotes
+the lowest priority,
+– start and end times of the DTO window of the
+request,
+– the coordinates of the start and end of the median
+line,
+– satellite ID, and
+– Boolean values indicating the progress of the acqui-
+sition.
+Fig. 1 demonstrates the satellite movements during acqui-
+sition and the data that must be tracked during the capture,
+Area of 
+interest
+Sub-satellite
+point
+Sub-satellite
+point
+Sub-satellite
+point
+Earth horizon
+DTO duration
+Satellite
+orbit
+Satellite
+orbit
+Acquisitionslot
+«Max backward
+depointing» point
+«Null-pitch»
+point
+«Max forward
+depointing»
+point
+Fig. 1. The trajectory of a satellite orbiting on the Earth’s terminator and
+across a DTO window. At the first and third positions on the orbital line, the
+satellite is at the ends of the request’s DTO window, as its depointing angle
+is maximized at 45 ◦. At its second position, it is at the apex point, directly
+above the request location.
+such as the acquisition angles, the points at which the DTO
+begins and ends, and the median coordinates.
+B. Request Priority Ordering
+Considering the priority associated with each request, it is
+possible to express this objective as maximizing the completed
+requests in the order of priority; the highest priority requests
+are considered first, and only the lower priority requests are
+considered upon completion. The exact quantification com-
+pares the number of higher-priority requests accomplished. It
+moves on to the next priority in case of equality, but this work
+judges the algorithms by their completion rate performance
+purely on the high-priority π1 request.
+C. Relaying Algorithm
+The satellite must rotate according to the relaying algorithm
+to move from one request to another. To compute this rotation,
+two points of interest are the final median points of the first
+request and the initial median point of the second request.
+These points, respectively, signify the time at which the first
+request was completed and the time at which the next request
+will begin. For a given transition, the relaying algorithm
+operates in two steps: 1) it computes the relative positions
+of each median point for the satellite, and 2) calculates in
+degrees the angle between these vectors. Assuming that the
+satellite rotates at a constant speed of one degree every second
+and that the Earth is a perfect sphere, the resultant angle can
+be approximated as the total relaying time in seconds.
+
+=== PAGE BREAK ===
+
+3
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+... ...
+999
+1000
+Time1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+...
+999
+1000
+Time 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+... ...
+999
+1000
+Time
+...
+Problem formulation Potential solution Solution verification
+Fig. 2. (a) Visualization of DTO windows (horizontal bars) over a horizontal axis of time and a vertical axis indicating request index. (b) Visualization of
+solutions (green rectangles). (c) The chaining of requests based on their DTO windows and completion windows. As is evident, chaining provides a roadmap
+to connect all completed requests and map out the order of requests.
+D. Solution Chaining
+Solution chaining considers the DTO windows, overlaps,
+and the windows’ length compared to an acquisition time
+estimate. DTO windows and possible solutions within those
+windows are then visualized over an axis of time - see Fig. 2b.
+The most efficient preliminary method for this setting is to sort
+the requests by the start of their DTO windows and map the
+acquisitions.
+Next, the individual requests chained: the intermittent time
+between captures is calculated using the relaying algorithm, af-
+ter which the algorithm ensures sufficient time for the relaying
+movement between the completion of each pair of consecutive
+requests, ensuring that a sequence of requests can be executed
+in the provided time. Chaining enables the suggested solutions
+within the DTO windows of each request, which are otherwise
+independently scattered, to be connected together into one
+comprehensive solution for satellite movement. Shown in
+Fig. 2(c) is a visualization of the chaining process between
+multiple requests over time.
+III. R ESULTS : QUANTUM ALGORITHMS FOR SATELLITE
+MISSION PLANNING
+The table below summarises the algorithms considered in
+this work and their corresponding sections.
+Clustering   III.A
+Greedy algorithm   III.B
+Optimization   III.C
+Reinforcement learning   III.D
+A. Clustering for Pre-processing
+To deal with increasing complexity in problems is to reduce
+the size of the dataset and deal with fewer parameters or
+data points at once. Therefore, clustering is useful to stratify
+the data by similarities and shorten the calculations necessary
+for the overall program. The simplest method to cluster the
+dataset is sorting the samples based on a single feature
+of the data, a method known as bunching. The bunching
+algorithms are explained in App. A, but this section focuses
+on unsupervised-learning clustering methods such as the K-
+means algorithm [18], [19].
+This algorithm is a well-known clustering algorithm, and
+its usage of physical distances in creating clusters makes it
+a natural fit for the Space Mission Planning problem. This
+algorithm is iterative, meaning it runs multiple iterations of the
+same steps and finally converges at a solution. The first step of
+this algorithm is the assignment stage; once k random points
+are initialized to represent the k cluster centroids, each point
+in the dataset is assigned to the closest centroid. Once this is
+complete, the values of all points assigned to each centroid
+kn are averaged, and the value of kn is updated to the newly
+obtained mean value. Once these two steps are completed,
+they are repeated until the centroids no longer shift between
+two iterations (generally to an error threshold), which is when
+the final clustering for the dataset is attained. The K-means
+algorithm clustered the dataset based on all the features of
+the requests: the DTO start and end times and the coordinates
+of the start and end of the median line. This ensured that
+clusters bunch the requests based on their DTO windows and
+geographical locations. The latter is crucial in efficiently using
+the relaying algorithm, as the geographically-close requests are
+simpler to inter-navigate.
+B. Greedy algorithm
+The classical greedy algorithm is used to provide a reference
+solution. First, the orbital and request data are separated by
+satellite, and then the requests are clustered. In each cluster,
+the algorithm begins at the satellite’s given start time and
+increments by one second until it enters the DTO window of
+the first request. Once the time stamp enters a DTO window,
+the algorithm checks for enough time to complete a request. If
+so, it completes the request, increments the time by the sum of
+the relaying time and the acquisition time, adds the request ID
+to a list of completed IDs and moves on to the next request.
+The algorithm chooses the highest priority request if multiple
+requests are available at a timestamp. If insufficient time to
+complete a request, it simply moves on to the next request
+and repeats the process. Once the final request is completed,
+or the timestamp exceeds the final DTO window, the algorithm
+outputs the percentage of completed requests of each priority.
+
+=== PAGE BREAK ===
+
+4
+Fig. 3. (a) Schematic view of 15 satellite orbits performed within approximately 24 hours. (b) The results of the greedy algorithm are shown on the map.
+The task contains 2000 requests that are planned for acquisition using 2 satellites. Green points correspond to completed requests, whereas blue points are
+missed requests. (Inset) Progression of completed compared to missed requests.
+TABLE I
+RESULTS FOR THE GREEDY ALGORITHM BY PRIORITY , RUN OVER TWO
+SEPARATE DATASETS .
+Priority 1sat/462req 2sat/2000req
+π1 99.2% 75.8%
+π2 88.6% 36.1%
+π3 80.7% 19.2%
+π4 74.0% 18.2%
+TABLE II
+RESULTS OF THE GREEDY ALGORITHM USING CLASSICAL K-M EANS
+CLUSTERING .
+KMeans + Greedy
+Priority 1sat/462 2sat/2000req
+π1 99.1% 63.6%
+An important limitation of the greedy algorithm is its
+bandwidth for anticipation, but it provides a baseline for com-
+parison. Its simplicity allows it to run faster than other models,
+making it a good benchmark for data preprocessing. The
+results in Fig. 3(b) and Tab. I show the greedy algorithm strug-
+gles as the complexity of the input data increases. Therefore,
+to solve this problem, algorithms that can handle high levels of
+complexity without compromising accuracy are required. The
+results of the greedy algorithm serve as the baseline algorithm
+in this work. As evident in Tab. I, the greedy algorithm solves
+the 1sat/462req dataset well but struggles on the 2sat/2000req
+dataset. Thus, the latter was chosen as the comparison dataset
+as it allowed more possibilities for improvement. Furthermore,
+it should be noted that only the top priority π1 requests were
+taken as the baseline, so the models’ accuracy performance
+will be compared with the baseline π1 2sat/2000req of 75.8%.
+C. Optimization Methods
+As discussed earlier, one potential way to improve the
+runtime of an algorithm was to break the data into smaller
+clusters to reduce the necessary processing power. However,
+attempting to build a fundamentally more powerful algorithm,
+such as an optimization model, could be more fruitful. Op-
+timization problems involve information and formulations,
+including graphs, movement patterns and permutations, and
+multiple viable solutions, out of which one ideal solution
+must be determined by the metrics and constraints of the
+problem. As such, optimization methods are well suited for
+mission planning problems akin to the one at hand, which
+aims to map out the best possible course of action for
+a system of satellites seeking to maximize the number of
+completed requests. Optimization, however, is expensive in
+terms of time and computation; consequently, the potential of
+harnessing the quantum advantage for optimization problems
+could be especially valuable in discovering and delivering a
+large speedup for mission planning problems.
+Some research for optimization for space mission planning
+currently exists. For instance, in Ref. [20], the problem of
+Earth observation from a satellite (EOS) is investigated, fo-
+cusing on obtaining images of certain areas of the Earth’s
+surface related to customer requests. An optimization approach
+for EOS’s daily photo selection (DPSP) is proposed. DPSP
+is related to operational management and planning processes,
+where each photo the client orders brings profit. Still, not all
+requests can be satisfied due to physical and technological
+limitations. The objective is, therefore, to select a subset of
+queries for which the profit is maximized, and the proposed
+algorithm is based on the metaheuristic ant colony optimiza-
+tion algorithm (ACO). Examples based on real data are used as
+reference problems. The calculations show that the proposed
+algorithm can generate competitive and promising solutions.
+The most well-known quantum-friendly optimization
+method is the quadratic unconstrained binary optimization
+(QUBO) model, which encapsulates the set of all optimization
+problems with the following attributes:
+• all variables are treated as binary objects
+• constraints, while not necessarily absolute, are enforced
+accordingly by use of the reward function
+This work explores the QUBO-adaptable formulation
+known as the integer optimization model for the space mission
+planning problem. This solution has benefits and drawbacks
+but can serve as a viable solution to the satellite optimization
+problem.
+The integer optimization model is conceptualized by en-
+coding the desirable outcome of the solution in the cost
+
+=== PAGE BREAK ===
+
+5
+Satellite maneuvers Data take opportunities for requests Acquisitions
+Optimization solution for cluster 1 Optimization solution for cluster 2
+ Optimization solution for cluster 
+Fig. 4. Chaining results of classical integer optimization algorithm within clusters of data points.
+function, which should be maximized or minimized on the
+lattice of integer points of the special feasible subset in the
+multidimensional space. This feasible subspace is defined
+by adding the constraints of the satellite mission planning
+problem. One of the most powerful approaches to that problem
+is the branch and cut algorithm [21], used in solvers. In
+addition, the following functions are incorporated to streamline
+the calculations for the algorithm to stay within the constraints.
+Incorporating these functions is crucial to developing viable
+solutions as these functions, built over the Orekit space flight
+dynamics library [22], are the key to accurate space mission
+planning.
+• Attitude Pointing: given the satellite, timestamp, and a
+pair of longitude and latitude coordinates, this function
+returns the attitude (roll, pitch, and yaw) angles of the
+satellite when it is pointed towards the provided coordi-
+nates.
+• Acquisition Duration: given the starting and ending me-
+dian coordinates of any request, this function returns the
+amount of time, in milliseconds, that the satellite would
+take to acquire the image.
+• Maneuver Duration: given the beginning and ending
+attitude angles (roll, pitch, and yaw), this function returns
+the amount of time necessary for the satellite to complete
+the maneuver from one attitude to the other.
+• Read Ephemeris: given a JSON file and a satellite
+ID, this function returns the satellite orbital information
+(directional speed, directional position, timestamps, etc.)
+in the form of an Orekit Ephemeris object, which is then
+used to perform calculations for other functions using the
+Orekit library.
+Upon incorporating the above functions, revision of the con-
+straints on this integer-based model, and modification of the
+clustering algorithm to generate a greater number of smaller
+clusters, the algorithm’s runtime was maintained despite the
+significant increase in complexity. Given a set of requests, the
+variables central to this model include the priority of each
+request, the acquisition duration of each request, the start and
+the end of the DTO windows, and the location of the median
+points of the requests. From this, the algorithm calculates for
+each reasonable pair of the requests inside the small cluster
+all possible start times for the 1st request in a way that allows
+the relaying maneuver to the 2d request. This is achieved
+through simple iteration, using the Orekit functions described
+above: an initial value for the relaying maneuver duration is
+set to one second. Then, the maneuver start and end angles
+are calculated with the attitude pointing function. Afterwards,
+suppose the rotation time between the obtained angles via the
+maneuver duration function is not equal to or greater than one
+second, and the DTO limitations are not violated. In that case,
+meaning the relaying time is equal to one second. Otherwise,
+the duration is increased by one second, and this procedure is
+repeated until either the duration is appropriate or the DTO is
+violated. The result of these computations, tmin, is treated as
+the minimum relaying maneuver time.
+Given a set of requests f∈ F, the priority of each request
+is denoted as πf , and the acquisition duration as τf . The
+start of the DTO window (release time) for request f is
+represented as rf and the deadline of the DTO window is
+represented as df . In addition, Q⊂ N indicates the order of
+accepted requests. As a result, index q∈ Q ={0,...,Q − 1}
+demonstrates the position in the queue of requests in which
+request f is accepted. The discretized rotation of the satellite
+at the inception of the acquisition of request f is indicated by
+αstart
+f ∈ Astart
+f . Similarly,αend
+f ∈ Aend
+f is the discretized rotation
+of the satellite after the acquisition of the request. However,
+all possible inceptions bfα for requests can be streamlined in
+order of increasing time. Note thatbfα is the set of all possible
+points in time at which it is possible to complete thef1 request
+and then move to the f2 request. That is, it is at a time greater
+than rf . Thus all the possible angles will correspond to these
+moments. The set of possible pairs is defined as L, such that
+the maneuver f1→f2 is possible; i.e.:
+∃bf1αf1
+,bf2αf2
+:bf1αf1
++tmin(bf1αf1
++τf1,f 1,f 2)+τf1 =bf2αf2
+,
+(1)
+wheretmin(t,f 1,f 2) is the minimum amount of time required
+for a satellite to rotate from its position at the end of f1 at
+the moment t to the starting point of f2. For all (f1,f 2)∈ L,
+the sets Bstart
+f1f2 ⊆ Aend
+f1 and Bend
+f1f2 ⊆ Astart
+f2 and mapping
+Mf1,f2 : Bstart
+f1f2 → Bend
+f1f2 are defined such that Mf1,f2(α1) =
+α2, if bf1α1 +tmin(bf1α1 +τf1,f 1,f 2) +τf1 =bf2α2.
+The binary variable xfq is introduced such that:
+xfq =
+(
+1, if f-th request is started in the q-th slot,
+0, otherwise. (2)
+
+=== PAGE BREAK ===
+
+6
+In addition, the variable yfα is also introduced, where:
+yfα =
+(
+1, if angle α is the start angle for request f,
+0, otherwise. (3)
+Finally, the indicator variable κf1f2 shows if requests were
+completed successively one after another:
+κf1f2 =
+(
+1, if f2-th follows right after the f1-th,
+0, else. (4)
+The cost function is defined as:
+X
+f∈F
+
+X
+q∈Q
+Jfxfq−
+X
+α∈Astart
+f
+γfαyfα
+
+→ max, (5)
+where Jf is the weight of request f, and γfα is a coefficient
+needed for penalizing time consuming solutions. Jf = 1 was
+selected for the lowest priority requests in each cluster. For
+the higher priority requests, the weight is greater than the
+sum of all lower priority requests’ weights by one since each
+higher priority request is valued more than any amount of
+lower priority requests. The coefficients γfα range from 0 to
+1
+Q for the following definition:
+γfα = bfα−rf
+Q(df−rf−τf + 1). (6)
+It guarantees that P
+f
+P
+α∈Astart
+f
+γfαyfα < 1, and conse-
+quently, the completion of the lowest priority request will be
+more important than the particular order of requests, but the
+earliest possible completion of each request is preferable.
+As was the case with the other optimization model, more
+than one request cannot be executed in the same order, and
+each request should be completed not more than once:
+∀f∈ F,
+X
+q∈Q
+xfq≤ 1 (7)
+∀q∈ Q,
+X
+f∈F
+xfq≤ 1 (8)
+Any completed request is started with one particular possi-
+ble angle:
+X
+α∈Astart
+f
+yfα =
+X
+q∈Q
+xfq ∀f∈ F. (9)
+All requests are completed one after another without empty
+slots in line until the satellite stops:
+X
+f1∈F
+xf1(q−1)≥
+X
+f2∈F
+xf2q ∀q >0. (10)
+To evaluate the variable κf 1f2 appropriately, the following
+system of linear equations is introduced, and each excludes
+the impossible values of κf1f2. Firstly, if requests f1 and f2
+were completed straight one after another, then κf1,f2 = 1:
+κf1f2 + 1≥xf1,q−1 +xf2,q ∀f1,f 2∈ F,q >0. (11)
+Each request is followed by not more than one request, and
+each request follows after not more than one request:
+X
+f1∈F
+κf1,f2≤ 1 ∀f2∈ F, (12)
+X
+f2∈F
+κf1,f2≤ 1 ∀f1∈ F. (13)
+If one request follows another one, then each of these
+requests was completed in some order:
+κf1f2≤
+X
+q>0
+xf2,q ∀f1,f 2∈ F, (14)
+κf1f2≤
+X
+q<Q−1
+xf1,q ∀f1,f 2∈ F. (15)
+With the use of predefined mapping Mf1,f2, if the request
+f1 starts with angle α1, and the request f2 is the next one,
+then the next acquisition start angle is fixed:
+yf2α2 + 1≥κf1,f2 +yf1α1 ∀α1∈ Bstart
+f1f2 , (16)
+where α2 =Mf1,f2(α1).
+Additionally, maneuver f1 → f2 is possible only with
+particular initial angles for f1. Otherwise, the satellite will
+not have enough time to finish the acquisition of the request
+f1 and move to the f2:
+X
+α1∈Bstart
+f1 f2
+yf1α1≥κf1f2 ∀(f1,f 2)∈ L. (17)
+On the other hand, if f1→f2 is an impossible transaction,
+then
+κf1,f2 = 0 ∀(f1,f 2)̸∈ L. (18)
+The final constraint fixes the acquisition start angle for the
+1st request in a queue as the earliest possible angle:
+yfα 0≥xf 0 ∀f∈ F, (19)
+where α0 is an angle corresponding to the beginning of the
+DTO for request f.
+In contrast to the greedy algorithm, which considered the
+requests in the order of open DTO windows, this model is
+more intelligent in finding the best path to fit the maximal
+number of requests. In the end, the π1 requests reached 98.1%
+completion using the Gurobi solver [23]. The solution obtained
+through optimization is partly depicted in Fig. 4. Furthermore,
+the clusters are connected, calculating the minimum relaying
+maneuver time from the last request of the previous cluster
+to that of the next. This is illustrated in Fig. 4 as cutting
+the beginning of every DTO from the start if it proves
+impossible to rotate towards the request in this period. After
+this procedure, the next cluster can be treated as independent.
+One of the greatest benefits of this model is its compatibility
+with both near-term and long-term quantum technology. As a
+linear optimization model that uses a grid of binary param-
+eters, it can be transformed into QUBO, as it is shown in
+App. B, and fit rather quickly to the quantum Ising model,
+a model containing arrays of qubits in a grid where their
+spin states depend on their neighbors. Furthermore, as this
+
+=== PAGE BREAK ===
+
+7
+model functions akin to a minimization problem, it would be
+extremely efficient to run on a quantum annealing machine
+[24], which could solve optimization problems by slightly
+changing the Hamiltonian from a given initial state with a
+known minimum to a new state, representing the optimal
+solution. However, it is complicated to use the satellite mission
+planning problem in the QUBO form via currently available
+classical or quantum devices. For example, both D-Wave’s
+Leap Hybrid solver [25] and Gurobi have difficulties solving
+even a small cluster with 4 requests over a time limit of
+1 minute. Still, linear programming can obtain the solution
+for the 2000 requests and 2 satellites dataset in less than
+3 minutes. This runtime was achieved by decomposing the
+clusters so that their final size was small enough to achieve
+approximately the same time as the greedy algorithm. Note
+that if the same number of requests were simultaneously
+considered, the runtime would be noticeably longer.
+D. Reinforcement Learning
+Reinforcement learning (RL) is a machine learning
+paradigm in which an agent interacts with some environment
+and trains through informed trial and error. The RL training
+algorithm uses reward functions to assign value to the agent’s
+actions in any state of the environment. Generally, a state can
+have constraints and features. The RL agent can use a policy
+model to decide on an action given a state, which subsequently
+affects the environment and transforms the state. Suppose the
+resultant state of the environment is engineered by the data
+scientist to contain a positive reward. In that case, the policy
+model is trained to take the appropriate action to maximize
+the probability of achieving that reward. The Environment is
+a function of a triplet of variables (S,A,P ), where S is a
+state space,A is an action space, and P is a transition function.
+When the reward function,r, is factored in, a Markov Decision
+Process (MDP) is generated with the property ( S, A, P , r),
+r : S×A→ R. The Agent starts from state s0 and takes
+action a0, for which the reward r0 is obtained in each step
+of training and subsequently trains by producing trajectories
+T := (s0,a 0,r 0,s 1,a 1,r 1,s 2,a 2,r 2,··· ).
+1) RL Environments: Two environments are developed for
+this AEOS task: satellite- and request-centred environments.
+For each environment, requests are sorted by their DTO open
+time.
+The satellite-centred environment: the agent views the prob-
+lem from the satellite’s perspective and considers the 100
+closest (by DTO open time) data points for each satellite,
+each utilizing 10 data parameters. Moreover, three additional
+features were also made available to the agent: the current
+time for the satellite and the latitude and longitude of the
+starting point of the last completed request, creating a total
+observation space of size 1003. The number of nearest requests
+is a variable that depends on task size. A Boolean flag is one
+of the features kept for each request, marking each data point
+as either complete or incomplete to avoid redundancy, and the
+observation space is made to only consider requests that are
+marked as incomplete to expedite the computations required
+by the agent, which is built as a neural network.
+Once the request is selected, the agent is rewarded with 1 if
+that request is completed and 0 otherwise. With this process
+recurring, the agent attempts to complete as many requests as
+possible until the time of the satellite is greater than the DTO
+windows of all remaining requests, meaning they can no longer
+be completed. The agent works with each satellite and predicts
+which request must be done. The data used in this environment
+was artificially generated. The request-centred environment: at
+each step, the agent views the problem from the perspective of
+a request, deciding which satellite is best suited to complete
+it. The 5 nearest request options are determined by DTO open
+time for each satellite, and the request to execute is chosen
+by the minimum request execution time. This minimum time
+is calculated as the sum of the satellite timestamp, maneuver
+duration and the acquisition time due to solution chaining. It
+must be less than the request DTO end time for completion.
+This procedure is then iterated with the next batch of 5 nearest
+satellites.
+2) Proximal Policy Optimization: The Proximal Policy
+Optimization (PPO) algorithm, shown in Fig. 5 and first
+introduced in Ref. [26], was implemented to provide a mission
+planning policy. In RL, a policy is an operation that maps
+an action space to a state space. The agent learns the best
+action for each situation by calculating the policy gradients.
+In other words, the agent uses gradient descent to calculate
+the expected value of each action at a certain state space
+and determine which action has the likelihood of the highest
+reward. The equation for the PPO algorithm is as follows:
+L(θ) = ¯Et[min(rt(θ) ¯At, clip(rt(θ), 1−ϵ, 1 +ϵ) ¯At)] (20)
+where ¯Et is the current expected value of the policy, θ is the
+policy parameter, ϵ is the hyperparameter, ¯At is the estimated
+advantage provided by the PPO at time t, and rt(θ) is the
+importance sampling ratio. This ratio, derived from the Monte
+Carlo sampling methods [26], denotes the ratio of probabilities
+under both the old and the new policies. By keeping the value
+of ϵ small, the model ensures that the update on the policy at
+each increment is not too large; as a consequence, the learning
+done by the model stays relevant.
+3) Hybrid-quantum PPO: Inspired by the quantum ad-
+vantage shown in Refs. [13]–[15], [27]–[30], this section
+investigates the utility of a hybrid-quantum neural network
+as a policy model for RL. Fig. 5(b) illustrates the specific
+policy network within a hybrid MLP model. In the quantum-
+classical network, the output of the classical neural network
+is used as inputs to a parametrized quantum circuit (PQC).
+PQCs are quantum circuits that use parametrized quantum
+gates [31], [32] such as Pauli rotations to encode data, x,
+and trainable parameters, θ. The four-qubit PQC used in this
+work consists of three significant components: variational, data
+encoding, and measurement. The variational layer comprises a
+layer of Pauli-X rotations encoding four trainable parameters
+and ring-shaped CNOTs for entanglement. The data encod-
+ing layer embedded four features in parallel using Pauli-Z
+rotations, and the measurement layer comprised two Z-basis
+measurements on the first two qubits. In sequence, four qubits
+were initialized in the ground state, and then a variational layer
+with randomly initialized parameters was appended, followed
+
+=== PAGE BREAK ===
+
+8
+Coordinates for prior
+request start point
+Observations S(t)
+• Request ID
+• Priority
+• Satellite ID
+• Request start and 
+  end times 
+• Request start
+  (lat, long)
+• Request end 
+  (lat,  long)
+• Flag for completed
+  or not
+request 1request 100
+Environment
+Compares probability ratios between sample
+and target policies to maximize performance
+100
+requests
+1003
+neurons
+Maximum
+256
+neurons
+256
+neurons
+A(t)
+Satellite time
+Quantum Depth-Infused Layer
+8 layers
+256 128 64 32
+Action A(t): Satellite choice
+• the chosen satellite is given 
+  2 nearest in time requests 
+  to choose from 
+• the nearest possible request 
+  is completed
+• in case it is not possible 
+  to complete any of 2 requests 
+  — no request is chosen by
+  the satellite
+Reward R(t):
+• If request completed 
+  R(t)=1 
+• Else 
+  R(t)=0
+neurons
++
++
++
++
++ + +
++
++
++
+Fig. 5. (a) The reinforcement learning PPO model used to solve the mission planning problem. The state of the model encompasses the data of 100 requests,
+which are fed into the MLP agent to output an action (one request that is selected to complete), which then feeds into the environment (clip equation),
+generates an appropriate reward, and updates the state. (b) Quantum-hybrid reinforcement learning model. A quantum circuit (left) is added to the beginning
+of the MLP Agent in the RL model (right) to incorporate quantum computation into the neural network.
+
+=== PAGE BREAK ===
+
+9
+RL PPO solution for cluster 1 RL PPO solution for cluster 2
+ RL PPO solution for cluster
+Satellite maneuvers Data take opportunities for requests Acquisitions
+Fig. 6. Visualization of the chaining process used to complete requests within each cluster of the PPO algorithm.
+Environment
+256
+32
+Encoding
+Network
+Parallel Hybrid Network
+Quantum Depth-Infused Layer
+Compute Losses
+Value
+State features
+Training Batches
+Action
+Softmax
+1. Select
+2. Compute Priors & Value
+3. Expand
+4. Backup
+8 layers
+Policy Network
++
++
++
++
++ + +
++
++
++
+32
+Value Network
+Fig. 7. The hybrid AlphaZero architecture used to achieve a near-optimal solution to the satellite mission planning.
+by eight repetitions of encoding and variational layers. Each of
+the eight encoding layers encoded four features of the dataset,
+which created a lattice of 32 features across the four qubits.
+Finally, the measurement layer was included to produce two
+classical real-valued outputs. Fig. 8(a) shows this improvement
+in practice: the hybrid quantum neural network achieves a
+higher reward in only 8k steps which remains inaccessible
+to a classical network of the same complexity even after 110k
+environment steps. Notably, these two networks were trained
+five times with varying initialization points, and the plot in Fig
+Fig. 8(a) only shows the best runs of the hybrid and the clas-
+sical models. The reader might notice that the hybrid model
+starts at a higher mean reward than the classical, a behaviour
+observed elsewhere in the literature [13]. Additionally, the
+quick ascent aligns with the findings of Ref. [33], suggesting
+that quantum models can generalize from a few data points.
+4) Hybrid AlphaZero: The optimal results are expected
+from picking the best candidate from part of the solution
+pipeline. Specifically, in Sec. III-D, it was shown that re-
+inforcement learning is a powerful algorithm that can be
+boosted in training and solution optimality through hybridiza-
+tion with quantum models. This section shows hybridized
+AlphaZero [16].
+The classical AlphaZero was a reinforcement learning (RL)
+algorithm developed by DeepMind that showed promise in
+solving difficult RL problems, such as chess, shogi, and
+go [16]. AlphaZero uses a computational tree of environment
+states whose values and probabilities are determined from
+
+=== PAGE BREAK ===
+
+10
+Fig. 8. (a) The rewards the classical and hybrid PPO RL agents achieve. The hybrid model reaches a higher reward at a significantly improved learning
+speed. (b) The agent reaches a maximum normalized reward of 0.464 after 70,000 steps of the simulation. This is compared to a total possible reward of
+0.471, translating to an accuracy of 98.5%.
+TABLE III
+A SUMMARY OF THE PERFORMANCE OF THE ALGORITHMS ON THE 2000 REQUESTS TASK PERFORMED WITH 2 SATELLITES . T HE COMPARISON
+DEMONSTRATES THE GREEDY ALGORITHM AS A BASELINE , THE HYBRID ALPHA ZERO, AND INTEGER OPTIMIZATION MODELS .
+Model Greedy only Greedy + KMeans RL (Hybrid AlphaZero) Optimization
+π1 Completion % 75.8% 63.6% 98.5% 98.1%
+the outputs of value and policy networks. The AlphaZero
+implementation in this work comprises four parts: a Monte
+Carlo tree search (MCTS), an encoding network, a policy
+network, and a value network.
+The foundation of this model is akin to a Monte Carlo
+Tree Search (MCTS) model, which is used primarily for path
+prediction problems and board games based on strategy [34],
+[35]. The four major components of MCTS are selection,
+expansion, simulation, and backpropagation. The model begins
+at the tree’s root and selects optimal child nodes until it reaches
+a leaf. Once it reaches the leaf, it expands the tree, creating
+a new child node. Then, the model simulates the remainder
+of the path-finding process from the newly created node
+and finally backpropagates with the newfound information to
+update the hyperparameters of the tree. The hybrid AlphaZero
+model uses MCTS with a parametrized quantum circuit as its
+policy network. The MLP agent of the model first recommends
+a state action. Then the action is applied to the environment,
+generating a reward and an updated state. However, in this
+case, the environment is the MCTS model; the recommended
+action is simulated in the model. Then, the backpropagation
+step of the MCTS is used to update the weights within the
+tree itself to refine its recommendations.
+As each iteration of this loop occurs, there is also an outer
+loop in this algorithm. That outer loop is primarily concerned
+with the loss values being optimized; as a result, once the agent
+recommends an action, the outer loop takes training examples
+of a certain size and simulates the results over these batches to
+calculate the policy loss, value loss, and total loss. Once these
+values are calculated, the neural network weights are adjusted
+and fed back into the original loop, where the cycle repeats
+until the loss values are optimized.
+Fig. 7 illustrates the inner workings of the hybrid AlphaZero
+model employed in this paper. The state variables are passed
+into an initial encoding network with 2 hidden layers of
+sizes 256 and 32 neurons. The information is then passed in
+parallel [36] to 1) a single neuron using a fully-connected layer
+and 2) a policy network as a PQC. The PQC resembles the one
+explained and implemented in the PPO model in Sec. III-D3.
+Fig 8(b) shows the training performance of this model (best
+out of five tries), which achieves a completion rate of π1 =
+98.5%. Presenting the highest π1 completion rate on the 2000
+requests and 2 satellites dataset of any other model explored
+in this paper. The completion rates of the highest-performing
+algorithms from each section on this dataset are displayed in
+Fig. III.
+IV. D ISCUSSION
+This work provided two classes of solutions to the schedul-
+ing problem of satellite mission planning: optimization and
+hybridized reinforcement learning. From each class, the best-
+performing candidates were the integer optimization model
+and the hybrid AlphaZero, respectively. The dataset with 2
+satellites and 2000 was used as a performance benchmark for
+the algorithms presented in this work. The optimization and
+hybrid AlphaZero algorithms achieved π1 completion rates of
+98.1% and 98.5%, respectively, while the greedy algorithm
+only exhibited a 78.5% (63.6% with k-means clustering)
+completion rate. In the single satellite model, the optimization
+algorithm reached 100% completion onπ1,π2, andπ3 requests
+and 96.2% completion on π4 requests in 6 minutes. This work
+showed that by using reinforcement learning and optimization
+models, it is possible to improve the results of mission
+planning that are otherwise obtained through simple greedy
+models. This work presents a step towards creating quantum-
+enhanced solutions in the space industry.
+REFERENCES
+[1] P. Chini, G. Giambene, and S. Kota, “A survey on mobile satellite
+systems,” Int. J. Satellite Communications Networking , vol. 28, pp. 29–
+57, 2009.
+
+=== PAGE BREAK ===
+
+11
+[2] E. Dziadczyk, W. Zabierowski, and A. Napieralski, “Satellite navigation
+system gps,” in 2007 9th International Conference - The Experience of
+Designing and Applications of CAD Systems in Microelectronics , 2007,
+pp. 504–506.
+[3] B. Jaksic, D. Miljkovic, V . Maksimovic, M. Petrovic, and B. Gvozdic,
+“Satellite television transmission in the world - broadcasting systems
+and standards,” Acta Scientiarum. Technology, vol. 42, no. 1, p. e44957,
+2020.
+[4] R. Grasset-Bourdel, G. Verfaillie, and A. Flipo, “Planning and replan-
+ning for a constellation of agile earth observation satellites,” in ICAPS-
+11 Workshop on Scheduling and Planning Applications (SPARK-11) ,
+Freiburg, Germany, 2011.
+[5] Y . Huang, Z. Mu, S. Wu, B. Cui, and Y . Duan, “Revising the observation
+satellite scheduling problem based on deep reinforcement learning,”
+Remote Sensing, vol. 13, no. 12, 2021.
+[6] M. Lemaitre, G. Verfaillie, F. Jouhaud, J.-M. Lachiver, and N. Bataille,
+“Selecting and scheduling observations of agile satellites,” Aerospace
+Science and Technology, vol. 6, pp. 367–381, 2002.
+[7] H. A. Khojah and M. A. Mosa, “Multi-objective optimization for multi-
+satellite scheduling task,” Journal of Soft Computing Exploration, vol. 3,
+pp. 19–30, 2022.
+[8] J. Biamonte, P. Wittek, N. Pancotti, P. Rebentrost, N. Wiebe, and
+S. Lloyd, “Quantum machine learning,” Nature, vol. 549, no. 7671, p.
+195, 2017.
+[9] V . Dunjko and H. J. Briegel, “Machine learning & artificial intelligence
+in the quantum domain: a review of recent progress,” Reports on
+Progress in Physics, vol. 81, no. 7, p. 074001, 2018.
+[10] A. Melnikov, M. Kordzanganeh, A. Alodjants, and R.-K. Lee, “Quantum
+machine learning: from physics to software engineering,” Advances in
+Physics: X, vol. 8, no. 1, p. 2165452, 2023.
+[11] G. Wu, H. Wang, W. Pedrycz, H. Li, and L. Wang, “Satellite observation
+scheduling with a novel adaptive simulated annealing algorithm and a
+dynamic task clustering strategy,” Computers & Industrial Engineering ,
+vol. 113, pp. 576–588, 2017.
+[12] T. Stollenwerk, V . Michaud, E. Lobe, M. Picard, A. Basermann, and
+T. Botter, “Image acquisition planning for Earth observation satellites
+with a quantum annealer,” arXiv preprint arXiv:2006.09724 , 2020.
+[13] A. Sagingalieva, A. Kurkin, A. Melnikov, D. Kuhmistrov, M. Perelshtein,
+A. Melnikov, A. Skolik, and D. V on Dollen, “Hyperparameter optimiza-
+tion of hybrid quantum neural networks for car classification,” arXiv
+preprint arXiv:2205.04878, 2022.
+[14] A. Sagingalieva, M. Kordzanganeh, N. Kenbayev, D. Kosichkina,
+T. Tomashuk, and A. Melnikov, “Hybrid quantum neural network for
+drug response prediction,” Cancers, vol. 15, no. 10, p. 2705, 2023.
+[15] M. Perelshtein, A. Sagingalieva, K. Pinto, V . Shete, A. Pakhomchik,
+A. Melnikov, F. Neukart, G. Gesek, A. Melnikov, and V . Vinokur, “Prac-
+tical application-specific advantage through hybrid quantum computing,”
+arXiv preprint arXiv:2205.04858 , 2022.
+[16] D. Silver, T. Hubert, J. Schrittwieser, I. Antonoglou, M. Lai, A. Guez,
+M. Lanctot, L. Sifre, D. Kumaran, T. Graepel et al. , “A general
+reinforcement learning algorithm that masters chess, shogi, and go
+through self-play,” Science, vol. 362, no. 6419, pp. 1140–1144, 2018.
+[17] M. Kordzanganeh, M. Buchberger, B. Kyriacou, M. Povolotskii, W. Fis-
+cher, A. Kurkin, W. Somogyi, A. Sagingalieva, M. Pflitsch, and A. Mel-
+nikov, “Benchmarking simulated and physical quantum processing units
+using quantum and hybrid algorithms,” Advanced Quantum Technolo-
+gies, vol. 6, p. 2300043, 2023.
+[18] X. Jin and J. Han, K-Means Clustering . Boston, MA: Springer US,
+2010, pp. 563–564.
+[19] J. MacQueen, “Classification and analysis of multivariate observations,”
+in 5th Berkeley Symp. Math. Statist. Probability , 1967, pp. 281–297.
+[20] S. Kilic, “An optimization approach for the daily photograph selection
+of earth observation satellites,” Havacılık ve Uzay Teknolojileri Dergisi,
+vol. 12, 2019.
+[21] A. Land and A. Doig, “An automatic method of solving discrete
+programming problems,” Econometrica: Journal of the Econometric
+Society, pp. 497–520, 1960.
+[22] L. Maisonobe, V . Pommier, and P. Parraud, “Orekit: An open source
+library for operational flight dynamics applications,” in 4th international
+conference on astrodynamics tools and techniques . ESAC Madrid,
+2010, pp. 3–6.
+[23] Gurobi Optimization, LLC, “Gurobi optimizer reference manual,” 2022.
+[24] E. Tosatti, “Optimization using quantum mechanics: quantum annealing
+through adiabatic evolution,” Journal of Physics A: Mathematical and
+Theoretical, vol. 41, p. 209801, 2008.
+[25] M. W. Johnson, M. H. S. Amin, S. Gildert, T. Lanting, F. Hamze,
+N. Dickson, R. Harris, A. J. Berkley, J. Johansson, P. Bunyk, E. M.
+Chapple, C. Enderud, J. P. Hilton, K. Karimi, E. Ladizinsky et al. ,
+“Quantum annealing with manufactured spins,” Nature, vol. 473, no.
+7346, pp. 194–198, 2011.
+[26] J. Schulman, F. Wolski, P. Dhariwal, A. Radford, and O. Klimov, “Prox-
+imal policy optimization algorithms,” arXiv preprint arXiv:1707.06347,
+2017.
+[27] S. Jerbi, C. Gyurik, S. Marshall, H. Briegel, and V . Dunjko,
+“Parametrized quantum policies for reinforcement learning,” Advances
+in Neural Information Processing Systems , vol. 34, pp. 28 362–28 375,
+2021.
+[28] A. Skolik, S. Jerbi, and V . Dunjko, “Quantum agents in the Gym: a
+variational quantum algorithm for deep Q-learning,” Quantum, vol. 6,
+p. 720, 2022.
+[29] A. Senokosov, A. Sedykh, A. Sagingalieva, and A. Melnikov,
+“Quantum machine learning for image classification,” arXiv preprint
+arXiv:2304.09224, 2023.
+[30] A. Sedykh, M. Podapaka, A. Sagingalieva, N. Smertyak, K. Pinto,
+M. Pflitsch, and A. Melnikov, “Quantum physics-informed neural net-
+works for simulating computational fluid dynamics in complex shapes,”
+arXiv preprint arXiv:2304.11247 , 2023.
+[31] M. Benedetti, E. Lloyd, S. Sack, and M. Fiorentini, “Parameterized
+quantum circuits as machine learning models,” Quantum Science and
+Technology, vol. 4, no. 4, p. 043001, 2019.
+[32] M. Schuld and N. Killoran, “Quantum machine learning in feature
+hilbert spaces,” Physical Review Letters , vol. 122, no. 4, p. 040504,
+2019.
+[33] M. C. Caro, H.-Y . Huang, M. Cerezo, K. Sharma, A. Sornborger,
+L. Cincio, and P. J. Coles, “Generalization in quantum machine learning
+from few training data,” Nature communications, vol. 13, no. 1, p. 4919,
+2022.
+[34] G. Chaslot, S. Bakkes, I. Szita, and P. Spronck, “Monte-carlo tree search:
+A new framework for game ai,” Proceedings of the AAAI Conference
+on Artificial Intelligence and Interactive Digital Entertainment , vol. 4,
+p. 216–217, 2008.
+[35] B.-D. Lee, “Monte-carlo tree search applied to the game of tic-tac-toe,”
+Journal of Korea Game Society , vol. 14, pp. 47–54, 2014.
+[36] M. Kordzanganeh, D. Kosichkina, and A. Melnikov, “Parallel hybrid
+networks: an interplay between quantum and classical neural networks,”
+arXiv preprint arXiv:2303.03227 , 2023.
+[37] A. Pakhomchik, S. Yudin, M. Perelshtein, A. Alekseyenko, and
+S. Yarkoni, “Solving workflow scheduling problems with QUBO mod-
+eling,” arXiv preprint arXiv:2205.04844 , 2022.
+
+=== PAGE BREAK ===
+
+12
+APPENDIX
+A. Bunching algorithms
+Below are a few bunching algorithms used to cluster the
+data purely by sorting with respect to certain dataset features.
+1) DTO Bunching: This algorithm first sorts the data by the
+DTO start times. After that, the data points are clustered by
+DTO overlap. In other words, all entries in any given cluster
+share at least one portion of their DTO windows with all other
+requests in the same cluster. As DTO windows are defined
+by the time when the satellite is in a position to capture the
+request, this method also functions as a form of geographical
+clustering due to the correlation of the location and DTO times.
+2) Priority Bunching: In this algorithm, the requests are
+simply clustered by their priority ranks (1-4) and then ordered
+by the DTO start times. The utility of this lies greatly in the
+importance of the priority rankings, as the algorithm operates
+on the premise of each priority rank request being worth n
+times a request of the next highest priority rank, where n is
+the order of magnitude between two priority sets (for instance,
+a priority 1 request would be n2 times as valuable as a priority
+3 request).
+3) Bunch Sort: This algorithm puts together the two clus-
+tering algorithms above, in a sense. First, the data is sorted by
+DTO windows, after which it is clustered by the DTO overlap.
+However, after that, the data is sorted within each cluster, this
+time by the end of their DTO windows and then by priority
+index. Consequently, data points with the same priority in the
+same cluster are ranked by the end of their DTO windows,
+maintaining the DTO structure within the priority indexing
+structure.
+B. QUBO formulation
+Adiabatic quantum computers can approximately solve NP-
+hard problems, such as quadratic unconstrained binary op-
+timization, faster than classical computers. Since many ma-
+chine learning problems are also NP-hard, adiabatic quan-
+tum computers might be instrumental in training machine
+learning models efficiently in the post-Moore’s law era. To
+solve problems on adiabatic quantum computers, they must
+be formulated as QUBO problems, which is possible by
+several techniques. This paper formulated the problem as a
+QUBO problem, making it conducive to being trained on
+adiabatic quantum computers. Since all the constraints will
+go into the cost function with some coefficients, they must be
+algebraically reformulated. Below are examples of how these
+constraints change according to the QUBO formulation.
+∀f∈ F,
+X
+q∈Q
+xfq≤ 1⇒
+
+X
+q∈Q
+xfq− 1
+2
+
+
+2
+, (21)
+∀q∈ Q,
+X
+f∈F
+xfq≤ 1⇒
+
+X
+f∈F
+xfq− 1
+2
+
+
+2
+, (22)
+∀f∈ F,
+X
+α∈Astart
+f
+yfα =
+X
+q∈Q
+xfq⇒ (23)
+
+ X
+α∈Astart
+f
+yfα−
+X
+q∈Q
+xfq
+
+
+2
+, (24)
+∀q >0,
+X
+f1∈F
+xf1q−1≥
+X
+f2∈F
+xf2q⇒
+X
+f∈F
+(xf2q−xf1q−1) +
+X
+i
+2izi = 0,
+(25)
+where zi is a slack binary variable, and the number of
+slack variables depends on the problem. Thus, the idea of
+the QUBO formulation is to reduce all constraints to linear
+equalities, square them and then pose as penalties in the cost
+function. The more rigorous analysis of the slack variable
+implementation is provided in [37]. QUBO formulation is
+written in general terms as:
+Q =Q0 +βC, C≥ 0, (26)
+whereQ is a cost function, Q0 is the objective function of the
+initial problem,β are some coefficients that must be picked up,
+C are non-negative definite quadratic constraints. The solution
+then takes the following form:
+Q[q] = min
+κ
+Q[κ]. (27)
+In the case where C[q] > 0, it is possible to choose such β,
+that if q is unconstrained optimum, then it must be feasible.
+Beta is chosen such that if q is not feasible, then:
+Q[q]>Q [feas] =Q[0] = 0, (28)
+where Q[feas] means the initial zero solution.
+The initial objective function that was used for the classical
+solution will take the following form for the quantum solution:
+Q0 =−
+X
+f∈F
+(
+X
+q∈Q
+Jfx2
+fq−
+X
+α∈Astart
+f
+γfαy2
+fα)→ min. (29)
+Also, the odds β are chosen so that there is a better solution
+when the constraints are violated:
+C[q]> 0⇒Q[q]≥Q0[q] +β >0. (30)
+Accordingly, in this case it is necessary to take β >−Q0[q].
+The boundaries of q must be estimated, as the precise values
+are undetermined. The worst estimate was chosen as the
+following:
+β >−Q[q] =−(min
+κ
+Q0[κ]) =−(−
+X
+f
+Jf) =
+X
+f
+Jf. (31)
+C. Greedy algorithm
+Fig. 9 showcases the logic of the greedy algorithm from
+Sec. III-B.
+
+=== PAGE BREAK ===
+
+13
+Fig. 9. The flowchart used to implement the greedy algorithm in Sec. III-B. The time-incrementing block references the ”open DTO windows” query. Without
+accessible DTOs within a cluster, satellites remain idle under the greedy algorithm, with the simulation advancing until availability arises. Upon addressing
+all requests, satellites transition to the subsequent cluster and replicate the procedure. Note that the connection between one-second time increments and new
+clusters is implicit rather than explicit.

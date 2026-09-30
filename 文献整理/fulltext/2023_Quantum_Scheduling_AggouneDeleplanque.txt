@@ -1,0 +1,217 @@
+HAL Id: hal-04037312
+https://hal.science/hal-04037312v1
+Submitted on 30 Mar 2023
+HAL is a multi-disciplinary open access archive
+for the deposit and dissemination of scientific re-
+search documents, whether they are published or not.
+The documents may come from teaching and research
+institutions in France or abroad, or from public or pri-
+vate research centers.
+L’archive ouverte pluridisciplinaire HAL, est des-
+tinée au dépôt et à la diffusion de documents scien-
+tifiques de niveau recherche, publiés ou non, émanant
+des établissements d’enseignement et de recherche
+français ou étrangers, des laboratoires publics ou
+privés.
+HAL Authorization
+Solving the Job Shop Scheduling Problem: QUBO model and
+Quantum Annealing
+Riad Aggoune, Samuel Deleplanque
+To cite this version:
+Riad Aggoune, Samuel Deleplanque. Solving the Job Shop Scheduling Problem: QUBO model and Quantum
+Annealing. Emerging optimization methods: from metaheuristics to quantum approaches, Apr 2023, Troyes,
+France. ⟨hal-04037312⟩
+
+=== PAGE BREAK ===
+
+Solving the Job Shop Scheduling Problem: QUBO model and
+Quantum Annealing
+Riad Aggoune1 Samuel Deleplanque2
+1 ITIS department, Luxembourg Institute of Science and Technology, Luxembourg
+riad.aggoune@list.lu
+2 CNRS, Centrale Lille, JUNIA, Univ. Lille, Univ. Valenciennes, UMR 8520 IEMN, 41 boulevard
+Vauban, Lille Cedex 59046, France.
+samuel.deleplanque@junia.com
+Keywords : quantum computing, optimisation, QUBO, job shop scheduling.
+1 Introduction
+Quantum optimization which is the use of quantum computers and algorithms for solving
+complex optimization problems, is one of the topics in quantum computing with the highest
+potential. Two types of approaches are generally used to solve combinatorial optimization
+problems with quantum computers: exact methods such as the Grover’s search algorithm [6],
+and meta-heuristics such as the Quantum Annealing [7] and the Quantum Approximate Opti-
+mization Algorithm (QAOA) [4]. Exact methods and variational methods like QAOA make use
+of universal gate-based quantum computers, such as the ones developed by the IBM company.
+Quantum annealing is designed for analogic quantum computers developed by D-Wave. Solv-
+ing a combinatorial optimization problem with heuristics generally requires a transformation of
+the problem to a format suitable for the quantum computer. While some existing frameworks1
+can cope with Constrained Quadratic Models (CQM), Quadratic Unconstrained Binary Opti-
+mization (QUBO) is the best option to map an optimization problem to a quantum computer
+or simulator. We consider in this paper the job shop scheduling problem. We first review in
+the following section 2 the quantum-based methods recently proposed in the literature. Then
+in section 3 we propose a QUBO formulation of the scheduling problem. Finally, in section
+4 numerical results obtained with D-Wave quantum annealing machines and conclusions are
+presented.
+2 Problem definition and related works
+The job shop scheduling problem can be stated as follows: A set ofn jobsJ ={J1,J 2,...,J n}
+has to be processed on a set ofm machines M ={M1,M 2,...,M m}. Each job Ji consists
+in a linear sequence ofni operations (Oi1,O i2,...,O ini). Each machine can process only one
+operation at a time and each operationOij with a processing time ofpij time units needs
+only one machine. Each job visits the machines according to its own predefined routing. This
+problem generalizes the flow shop scheduling problem, in which all the jobs are processed
+following the same routing(M1,M 2,...,M m). The objective is to determine the starting date
+of each operationOij so that the makespan notedCmax is minimized. The problem is NP-hard
+for n > 2 andm > 2 [5].
+The scientific literature on quantum solutions for hard combinatorial optimization problems
+is becoming significant and diversified. The studies of shop scheduling problems are quite
+recent and scarce. The first paper in the domain is from Venturelliet al. [12]. The authors
+1https ://cloud.dwavesys.com/leap
+
+=== PAGE BREAK ===
+
+proposed a QUBO formulation and a quantum annealing solution for the job shop scheduling
+problem with the makespan objective. The method was implemented on a D-Wave quantum
+annealer. Their model has been re-used in several studies. For instance, in [8] the authors
+have proposed a hybrid quantum annealing heuristic to solve a particular instance of the
+job shop scheduling problem on the D-Wave 2000Q quantum annealing system. In [2], job
+shop instances with unitary operations have been tested on the D-Wave Advantage machine.
+Extensive experiments with the reverse annealing procedure and comparisons with simulated
+annealing are also described. A generalization of the job shop scheduling problem with pools
+of parallel machines available for processing operations was considered in [3]. The authors
+proposed a QUBO derived from the one of [12] and an iterative procedure to solve relatively
+large size instances on a specialized hardware2. Using the QUBO formulations proposed in
+[3], the authors in [11], tackle the flexible job shop scheduling problem with the D-Wave
+solvers. Another QUBO formulation is proposed in [9] for assigning dispatching rules to the
+machines and scheduling the operations in a flexible job shop system. The problem is solved
+using the leap hybrid solver. In [10], the authors propose a QUBO formulation for the job
+shop scheduling with worker assignment considerations. Possible ways to approximate the
+makespan are discussed and instances solved with the Fujitsu Digital Annealer are described.
+On the same environment, the autors in [13] solve efficiently large instances of the job shop
+schedulingproblemwithahybridapproachthatcombinesconstraintsprogrammingandQUBO
+models for one-machine problems. Finally, the only study involving gate-based computers is
+due to [1]. The authors have proposed four variational quantum heuristics for solving a job
+shop scheduling problem with early and late delivery as well as production costs, adapted
+from a steel manufacturing process. They have compared the performance of the heuristics on
+two-machine instances using IBM quantum processors.
+3 QUBO formulation
+The boolean variablext
+ij takes the value1 if the operationj of the jobi starts in periodt, with
+i = 1..n, j = 1..ni, t = 1..T, and takes the value 0 otherwise. We noteMij,i = 1..n,j = 1..ni,
+the required machine by the operationj of the job i. The minimization of the Objective
+function (1) forces the last operations of all jobs to start globally as soon as possible.
+∑
+i
+∑
+t
+t.xt
+ini (1)
+We force each operation to start exactly once with the following set of constraints (2) to be
+relaxed in the Objective function.
+(
+∑
+t
+xt
+ij− 1)2, i = 1..n,j = 1..ni (2)
+Constraints (3) forbid to have more than one operation at a time on a given machine.
+xt
+ijxt′
+i′j′ = 0,
+∀(i,j,t )∪ (i′,j ′,t ′) : i,i ′ = 1..n,j,j ′ = 1..ni, (i,j )̸= (i′,j ′),
+Mij =Mi′j′, (t,t ′)∈T 2, 0≤t′−t<p ij
+(3)
+Constraints (4) forbid consecutive operations to start before the previous one is finished.
+xt
+ijxt′
+ij+1 = 0, i = 1..n,j = 1..(ni− 1), (t,t ′)∈T 2,t +pij >t ′ (4)
+The Quadratic Unconstrained Binary Optimisation (QUBO) model is given with the Objec-
+tive function (5) to minimize with 4 multipliers,λ1,λ2,λ3 andλ4, balancing the relaxation of
+the 4 sets of constraints.
+2https://www.fujitsu.com/global/services/business-services/digital-annealer
+
+=== PAGE BREAK ===
+
+FIG. 1: Representation of the literature optimal solution (left, [2]) and the optimal solution we
+obtained with the D-Wave Hybrid Solution (right). The instance has 4 machines (M1, M2, M3, M4),
+4 jobs, each represented by a different color, and 4 operations per job.
+∑
+i
+∑
+t
+t.xt
+ini
++λ1
+∑
+i
+ni∑
+j
+(
+∑
+t
+xt
+ij− 1)2
++λ2
+∑
+(i,j,t)∪(i′,j′,t′)∈T 1
+xt
+ijxt′
+i′j′
++λ3
+∑
+(i,j,t,t′)∈T 2
+xt
+ijxt′
+ij+1
+with:
+T 1 = (i,j,t )∪ (i′,j ′,t ′) : i,i ′ = 1..n,j,j ′ = 1..ni, (i,j )̸= (i′,j ′),
+Mij =Mi′j′, (t,t ′)∈T 2, 0≤t′−t<p ij
+T 2 = (i,j,t,t ′) : i = 1..n,j = 1..(ni− 1), (t,t ′)∈T 2,t +pij >t ′
+(5)
+4 Results and discussion
+As an early result, we present in Figure 1 the solution we obtained with the D-Wave Hybrid
+Solution on an instance from the literature ([2]). In this instance, 4 jobs with 4 operations
+have to be scheduled on 4 different machines. The next step will be the direct implementation
+of the QUBOs for the job shop instances and their solution with the full quantum machines.
+In this paper, we first reviewed the recent solutions proposed to solve the job shop scheduling
+problem on quantum computers, with a focus on QUBO formulations that help integrating
+constraints that are relevant in practice. We have also proposed a QUBO model that has
+been solved using D-Wave quantum annealing machines. While the existing hardware are still
+limited in their ability to handle the number of variables generated, it remains important to
+progress on the modeling of practical problems. Future works include investigating mechanisms
+for keeping the number of variables low while integrating efficiently the constraints.
+References
+[1] Amaro, D. and Rosenkranz, M. and Fitzpatrick, N. and Hirano, K. and M. Fiorentini.
+A case study of variational quantum algorithms for a job shop scheduling problem.EPJ
+Quantum Technol, 9:100–114, 2022.
+
+=== PAGE BREAK ===
+
+[2] Carugno, C. and Ferrari Dacrema, M. and Cremonesi, P. Evaluating the job
+shop scheduling problem on a D-wave quantum annealer. Sci Rep, 12:6539, 2022.
+https://doi.org/10.1038/s41598-022-10169-0.
+[3] Denkena Berend and Schinkel Fritz and Pirnay Jonathan and Sören Wilmsmeier.Quantum
+algorithms for process parallel flexible job shop scheduling. CIRP Journal of Manufacturing
+Science and Technology, 12142, 2020.
+[4] Farhi, Edward and Goldstone, Jeffrey and Gutmann, Sam.A Quantum Approximate Op-
+timization Algorithm. 10.48550/arxiv.1411.4028, 2014.
+[5] Garey, Michael R. and Johnson, David S.Computers and Intractability: A Guide to the
+Theory of NP-Completeness. W. H. Freeman and Co., USA, 1979.
+[6] Grover, Lov K.A Fast Quantum Mechanical Algorithm for Database Search. Proceedings
+of the Twenty-Eighth Annual ACM Symposium on Theory of Computing, 212–219, 1996.
+[7] Kadowaki Tadashi and Hidetoshi Nishimori. Quantum annealing in the transverse ising
+model. Physical Review E, 58(5):5355, 1998.
+[8] Kurowski, K. and W¸ eglarz, J. and Subocz, M. and Różycki, R. and Waligóra, G.Hybrid
+Quantum Annealing Heuristic Method for Solving Job Shop Scheduling Problem. ICCS
+2020. Lecture Notes in Computer Science, Springer, 33:100–114, 2021.
+[9] PoojithURaoandBaldwinderSodhi. Scheduling with Multiple Dispatch Rules: A Quantum
+Computing Approach. ICCS 2022. Lecture Notes in Computer Science, Springer, 13353:
+233–246, 2022.
+[10] Shimada, D.and T. Shibuya and T. Shibasaki.A Decomposition Method for Makespan
+Minimization in Job-Shop Scheduling Problem Using Ising Machine. 2021 IEEE 8th Inter-
+national Conference on Industrial Engineering and Applications, 307–314, 2021.
+[11] Schworm, P., Wu, X., Glatt, M. and J. C. Aurich.Solving flexible job shop scheduling
+problems in manufacturing with Quantum Annealing.. Prod. Eng. Res. Devel., 17: 105-115,
+2023. https://doi.org/10.1007/s11740-022-01145-8
+[12] Venturelli, D. and Marchand, D. J. and Rojo, G.Quantum annealing implementation of
+job-shop scheduling. arXiv preprint:1506.08479, 2015.
+[13] Zhang, J., Lo Bianco, G., and Beck, J. C.Solving Job-Shop Scheduling Problems with
+QUBO-Based Specialized Hardware. Proceedings of the International Conference on Auto-
+mated Planning and Scheduling, 32(1) 404–412, 2022.

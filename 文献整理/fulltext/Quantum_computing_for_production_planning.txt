@@ -1,0 +1,761 @@
+ 
+ISSN 1693-9220 (Print) | xxxx-xxxx (Online), Volume 15, No. 3 (2021), pp. 163-175 
+International Journal of Enterprise Modelling 
+Published by: International Enterprise Integration Association 
+ 
+Journal homepage: www.ieia.ristek.or.id 
+Quantum computing for production planning 
+Fristi Riandari1, Aisyah Alesha2, Hengki Tamando Sihotang3 
+1,3Research operation department, Institute of Computer Science, Sumatera Utara 20351, Indonesia 
+2Data science, analytics and engineering, Tajik State University of Commerce, Tajikistan 
+ 
+Abstract  Article Info 
+This research investigates the potential of quantum computing in 
+production planning and addresses the limitations of conventional 
+computing approaches. Traditional methods have been partially 
+effective, but they struggle to solve complex optimization problems, 
+accurately predict demand, and manage supply chains efficiently. 
+The unique computational capabilities of quantum computing o ffer 
+promising solutions to surmount these obstacles and revolutionize 
+production planning processes. This study seeks to bridge the gap 
+between quantum computing and production planning by 
+analyzing the benefits, limitations, and challenges of its applicability 
+in this field. It proposes customized algorithms and methodologies 
+for leveraging quantum computation to enhance production 
+planning efficiency, cost reduction, and decision -making processes. 
+The research demonstrates the potential of quantum algori thms to 
+minimize total production costs while appeasing demand and 
+resource constraints through a numerical example and mathematical 
+formulation. The results emphasize the advantages of quantum 
+computing in terms of cost reduction, enhanced efficiency, and  
+scalability. Comparisons with conventional methods illuminate the 
+benefits and drawbacks of quantum computing in production 
+planning. This research contributes to the development of novel 
+strategies to improve production planning efficiency, lower costs, 
+and enhance decision -making processes, allowing organizations to 
+leverage quantum computing for optimized production operations. 
+ Article history: 
+Received :  Feb 19, 2019 
+Revised : May 13, 2020 
+Accepted : Sep 03, 2021 
+Keywords: 
+Cost reduction; 
+Decision-making; 
+Optimization; 
+Production planning; 
+Quantum computing; 
+Supply chain management. 
+Corresponding Author: 
+Fristi Riandari,  
+Research operation department,  
+Institute of Computer Science,  
+Romeby Lestari Housing, North Sumatra 20351, Indonesia  
+Email: fristi.rianda@iocscience.org. 
+ 
+This is an open access article under 
+the CC BY license. 
+ 
+Introduction 
+Production planning encompasses the coordination of resources, scheduling, and decision -making 
+processes in order to efficiently satisfy customer demands(He et al., 2014)(Zhong et al., 2013)(Mönch 
+et al., 2018) . Traditional production planning methods have relied on traditional computation 
+techniques, such as mathematical programming and heuristics, to solve optimization problems and 
+manage supply chains (Grossmann, 2012) (H. Li & Womer, 2012) (Ghahremani-Nahr et al., 
+2019)(Pishvaee & Razmi, 2012) . Although these methods have been partially effective, they 
+frequently have limitations when dealing with complex and dynamic situations.  
+Complex optimization problems are one of the most significant obstacles in production 
+planning(Harjunkoski et al ., 2014) (Kache & Seuring, 2017) (Zhuang et al., 2018) (Mangla et al., 
+2018)(Ren et al., 2019) (Dima, 2013). These problems require determining the optimal allocation of 
+
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+164 
+resources, scheduling production activities, and minimizing costs, all while satisfying customer 
+demands and taking into account various constrain ts(Van den Bossche et al., 2013) . Traditional 
+approaches to computing, such as linear programming and mixed-integer programming, have been 
+extensively employed to solve these issues (Bixby, 2012) (Vigerske, 2013) (Şahin & Kellegöz, 
+2019)(Rivera Letelier et al., 2020) (Kumar et al., 2016)(Yin et al., 2017). As the size and complexity of 
+production systems increase, the computational burden becomes insurmountable for conventional 
+computers, resulting in suboptimal solutions or impractical computation times (Achillas et al., 
+2015)(Kouedeu et al., 2015)(Emami-Mehrgani et al., 2016). 
+The accurate forecasting of demand is another crucial component of production planning. 
+Forecasting future demand patterns is essential for effective capacity planning, inventory 
+management, and resource allocation(Mönch et al., 2018)(Uzsoy et al., 2018)(Kiran, 2019). Traditional 
+methods of demand forecasting rely on statistical techniques and analysis of historical data (Hübner 
+et al., 2013). Complex demand patterns influenced by factors such as market trends, seasonality, and 
+consumer behavior may be difficult for these methods to capture(Raza & Khosravi, 2015)(Bourdeau 
+et al., 2019) (Sobri et al., 2018) . Inaccurate demand forecasts can therefore result in production 
+inefficiencies, excess inventory, or stockouts(Kourentzes et al., 2020)(Beutel & Minner, 2012). 
+Production planning requires efficient supply chain management as well (Mirzapour Al-E-
+Hashem et al., 2011) (G. Wang et al., 2016) (Kache & Seuring, 2017) . A well -managed supply chain 
+guarantees the timely availability of raw materials, components, and finished 
+products(Suryaningrat, 2016) (Zentes et al. , 2017) . Traditional approaches to supply chain 
+management consist of optimization models, network design, and inventory control 
+methods(Eskandarpour et al., 2015) (Farahani et al., 2014) (Govindan et al., 2017) (Costantino et al., 
+2012)(Garg et al., 2015) . These methods frequently oversimplify the inherent complexities of global 
+supply chains, making it difficult to model and optimize the flow of products, information, and 
+funds across multiple nodes and stakeholders(Sampat et al., 2017). 
+Quantum computing, a rapidly developing discipline at the intersection of physics, 
+mathematics, and computer science (Hu & Guan, 2014) (Ossorio-Castillo & Tornero, 2018) , has 
+emerged as a possible means of overcoming the limitations of classical computing in production 
+planning. Quantum computing employs quantum mechanical phenomena to execute computations, 
+utilizing concepts like superposition, entanglement, and quantum parallelism (Jain, 2015)(Nayak et 
+al., 2012) (Y. Wang, 2012) (Wittek, 2014) . These principles enable quantum computers to 
+simultaneously process immense quantities of data and explore multiple solution paths  (Y. Wang, 
+2012), offering the potential for exponentially increased computational speed and enhanced 
+problem-solving abilities. 
+Quantum computing's inherent parallelism and computational capacity make it an 
+attractive option for solving complex optimization i ssues in production planning (Möller & Vuik, 
+2017)(Papadimitrakis et al., 2021) . Quantum algorithms, such as the Quantum Approximate 
+Optimization Algorithm (QAOA) and the Quantum Annealing-based algorithms, have been shown 
+to outperform classical algorithms in specific optimi zation tasks. By exploiting the quantum nature 
+of particles, these algorithms can efficiently explore a larger solution space (D. Li et al., 2021) , 
+allowing the identification of optimal or near -optimal solutions for complex production planning 
+problems(Gould et al., 2016). 
+Quantum computing has the potential to enhance production planning demand 
+forecasting(Georgiadis & Michaloudis, 2012)(Yazdani et al., 2021). Quantum algorithms for machine 
+learning, such as quantum support vector machines and quantum neural networks(Orús et al., 2019), 
+can process and analyze vast datasets more effectively than their classical counterparts. Using 
+quantum principles, these algorithms are able to extract patterns and insights from data that may be 
+difficult to discover using conventional machine learning techniques (Perdomo-Ortiz et al., 2018) . 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+165 
+This can result in more accurate demand forecasts, allowing companies to make more informed 
+decisions regarding pro duction volumes, inventory levels, and capacity planning (G. Wa ng et al., 
+2016). 
+Quantum computing capabilities also have applications in supply chain 
+management(Bayerstadler et al., 2021) (Egger et al., 2020) . Quantum algorithms can optimize 
+complex supply chain networks by simultaneously taking into account multiple variables, 
+uncertainties, and constraints (Mousavi et al., 2015) (Hou et al., 2020) . They are able to analyze the 
+interactions between various supply chain nodes, optimize inventory levels, and dynamically adjust 
+production and distribution strategies in response to fluctuating market conditions (Priore et al., 
+2019)(Jin et al., 2020) (Han & Zhang, 2021) (Kozlenkova et al., 2015) . Quantum algorithms can also 
+improve logistic s optimization, routing, and scheduling, thereby enhancing supply chain 
+responsiveness and overall efficiency(Ajagekar, 2020). 
+Despite the promising potential of quantum computing for production planning, a number 
+of obstacles must be overcome (Yazdani et al., 2021) . Quantum computing hardware is still in its 
+infancy, with limited qubit counts, high error rates, and significant noise levels(Bauer et al., 2020). In 
+addition, the development and implementation of quantum algorithms require specialized skills and 
+knowledge(Möller & Vuik, 2017)(Hadfield, 2018). In addition, integrating quantum computing i nto 
+existing production planning systems and infrastructure presents integration difficulties (Ajagekar 
+& You, 2019)(Fuchigami & Rangel, 2018) (X. Li & Gao, 2 020). In the context of production planning, 
+it is essential to evaluate the specific benefits, limitations, and viability of quantum computation and 
+to develop algorithms and methodologies that can effectively leverage quantum capabilities (Bass et 
+al., 2021). 
+"Quantum Computing for Combinatorial Optimization: A Review" by Montanaro, A. (2016): 
+This review paper provides a comprehensive overview of quantum computing's potential for 
+solving combinatorial optimization problems, which are prevalent in production planning. It 
+discusses various quantum algorithms, including the Quantum Approximate Optimization 
+Algorithm (QAOA) and Quantum Annealing, and highlights their advantages and limitatio ns. 
+"Quantum-Inspired Optimization for Integrated Production and Inventory Control with 
+Time-Varying Demand" by Yan, Z. et al. (2019): This study explores the application of a quantum -
+inspired optimization algorithm, called the Quantum-Inspired Particle Swarm Optimization 
+(QPSO), for integrated production and inventory control with time -varying demand. The research 
+demonstrates the improved performance of the QPSO algorithm compared to traditional 
+optimization methods in terms of cost reduction and system stability. 
+"Quantum Annealing -Based Approach for Production Planning in Semiconductor 
+Manufacturing" by Ding, Y. et al. (2019): This research focuses on using quantum annealing, a 
+quantum computing approach, for production planni ng in the semiconductor manufacturing 
+industry. The study proposes a novel method that formulates the production planning problem as a 
+quadratic unconstrained binary optimization (QUBO) problem and applies quantum annealing to 
+find optimal or near -optimal solutions. The results show the potential of quantum annealing in 
+improving production planning efficiency and reducing costs. 
+"Quantum Machine Learning for Demand Forecasting in Supply Chains" by S. 
+Hovhannisyan et al. (2020): This study explores the appl ication of quantum machine learning 
+algorithms for demand forecasting in supply chain management. It investigates the performance of 
+quantum support vector machines and quantum neural networks compared to classical machine 
+learning methods in terms of accu racy and efficiency. The research highlights the potential of 
+quantum machine learning in improving demand prediction accuracy, leading to more effective 
+production planning and inventory management. 
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+166 
+"Quantum-Inspired Optimization for Supply Chain Network Design" by Gong, X. et al. 
+(2020): This research investigates the application of quantum -inspired optimization algorithms for 
+supply chain network design. It proposes a quantum -inspired hybrid algorithm that combines a 
+quantum-inspired algorithm with a cla ssical optimization algorithm to address the complexities of 
+supply chain network optimization. The study demonstrates the effectiveness of the proposed 
+approach in improving the efficiency and cost-effectiveness of supply chain network design. 
+"Quantum Co mputing for Integrated Production and Maintenance Planning" by 
+Gunasekaran, A. et al. (2021): This research investigates the integration of production planning and 
+maintenance planning using quantum computing techniques. It proposes a quantum -inspired 
+algorithm that combines the principles of quantum computing with traditional optimization 
+approaches to simultaneously optimize production schedules and maintenance activities. The study 
+demonstrates the potential for improved system performance and cost reduc tion through the 
+integration of production and maintenance planning. 
+"Quantum-Assisted Optimization for Multi -Echelon Inventory Management" by Konečný, 
+M. et al. (2021): This study explores the application of quantum computing to address multi-echelon 
+inventory management problems. It presents a hybrid quantum-assisted optimization algorithm that 
+combines classical optimization techniques with a quantum subroutine. The research demonstrates 
+the potential of quantum-assisted optimization in improving inventory control policies and reducing 
+costs in multi-echelon supply chains. 
+Quantum computing has the potential to radically transform production planning by 
+overcoming the limitations of conventional computing methods. Utilizing quantum principles and 
+algorithms can improve production planning's optimization, accurate demand forecasting, and 
+supply chain management. This study intends to investigate the application of quantum computing 
+in production planning, bridge the gap between theory and practice, and prov ide valuable insights, 
+strategies, and recommendations for leveraging quantum computing to achieve increased efficiency, 
+cost reduction, and informed decision-making in production planning processes. 
+Method 
+The research methodology for exploring the potential of quantum computing in production 
+planning and addressing the stated research objectives will involve a combination of theoretical 
+analysis and practical experimentation. The methodology can be outlined as follows:  
+Literature Review: Conduct a c omprehensive review of existing literature and research 
+papers related to production planning, quantum computing, and their intersection. This step aims 
+to gather knowledge on traditional production planning methods, optimization algorithms, supply 
+chain management, and quantum computing principles, algorithms, and applications. The literature 
+review will provide a solid foundation for understanding the current state of the field and 
+identifying research gaps. 
+Analysis of Classical Production Planning Methods: Analyze and evaluate existing classical 
+production planning methods, optimization algorithms, demand forecasting techniques, and supply 
+chain management approaches. Identify their strengths, limitations, and areas where quantum 
+computing can potentiall y offer improvements. This analysis will serve as a benchmark for 
+comparing and assessing the performance of quantum computing approaches.  
+Understanding Quantum Computing Principles: Gain a deep understanding of the 
+principles of quantum computing, includi ng superposition, entanglement, and quantum 
+parallelism. Explore quantum algorithms relevant to production planning, such as the Quantum 
+Approximate Optimization Algorithm (QAOA), quantum annealing -based algorithms, and 
+quantum machine learning algorithms. This step involves studying relevant research papers, books, 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+167 
+and online resources to grasp the fundamental concepts and potential applications of quantum 
+computing in production planning. 
+Formulation of Quantum Production Planning Problems: Identify speci fic production 
+planning problems that can benefit from quantum computing approaches. Formulate these problems 
+as suitable mathematical models, such as combinatorial optimization problems or network 
+optimization problems, which can be solved using quantum a lgorithms. Consider factors such as 
+demand forecasting, resource allocation, scheduling, and supply chain optimization in the problem 
+formulations. 
+Development of Quantum Algorithms: Design and develop quantum algorithms tailored to 
+the formulated producti on planning problems. This step involves translating the mathematical 
+models into quantum representations, mapping the problem variables to qubits, and designing 
+quantum circuits or algorithms to solve the respective optimization or forecasting problems. 
+Leverage existing quantum libraries, frameworks, or quantum development platforms to implement 
+and simulate the developed quantum algorithms. 
+Experimental Evaluation: Conduct practical experimentation to assess the effectiveness and 
+efficiency of the develo ped quantum algorithms. Implement the algorithms on available quantum 
+computing platforms or simulators, taking into account the current capabilities and limitations of 
+quantum hardware. Evaluate the performance of the quantum algorithms in terms of soluti on 
+quality, computational time, and scalability. Compare the results with classical approaches to 
+quantitatively measure the advantages and limitations of quantum computing in production 
+planning. 
+Analysis and Interpretation of Results: Analyze the experim ental results and interpret the 
+findings. Evaluate the performance of the developed quantum algorithms against the benchmark 
+classical methods. Assess the advantages, limitations, and potential trade -offs of using quantum 
+computing in production planning. Identify the specific scenarios or problem domains where 
+quantum computing demonstrates significant improvements over classical approaches. Provide 
+insights and recommendations for leveraging quantum computing to enhance production planning 
+efficiency, cost reduction, and decision-making processes. 
+Discussion and Conclusion: Summarize the key findings, discuss the implications of the 
+research, and draw conclusions regarding the potential of quantum computing in production 
+planning. Discuss the limitations and challenges encountered during the research process. Highlight 
+the future research directions and areas that require further investigation to fully exploit the 
+capabilities of quantum computing in production planning. 
+Propose Mathematical formulation Model. 
+A mathematical formulation for a quantum production planning model:  
+ 
+Objective: 
+Minimize the total production cost while satisfying demand and resource constraints.  
+ 
+Parameters: 
+P : Set of production tasks 
+R : Set of resources 
+D : Set of time periods 
+𝑐𝑝 : Cost per unit of production for task p 
+𝑑𝑝  : Demand for task p 
+𝑟𝑟𝑝 : Resource requirement for task p and resource r 
+𝑠𝑝 : Production time for task p 
+𝑄𝑟𝑝 : Resource capacity for resource r in time period p 
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+168 
+ 
+Variables: 
+𝑥𝑝 : Binary variable indicating whether task p is selected for production (𝑥𝑝 = 1) or not (𝑥𝑝= 0) 
+𝑦𝑟𝑝 : Quantity of resource r allocated to task p in time period p 
+ 
+Objective Function: 
+Minimize the total production cost: 
+𝑚𝑖𝑛𝑖𝑚𝑖𝑧𝑒 𝑠𝑢𝑚(𝑐𝑝 𝑥𝑝) for all 𝑝 in 𝑃 ………………………………………………. (1) 
+ 
+Constraints: 
+Demand Constraint: Ensure that the total production meets the demand for each task:  
+𝑠𝑢𝑚(𝑦𝑟𝑝) = 𝑑𝑝 for all 𝑝 in 𝑃 ………………………………………………. (2) 
+ 
+Resource Constraint: Ensure that the resource capacity is not exceeded in each time period: 
+𝑠𝑢𝑚(𝑦𝑟𝑝 𝑟𝑟𝑝) ≤ 𝑄𝑟𝑝 for all 𝑟 in 𝑅, 𝑝 in 𝑃 ………………………………………………. (3) 
+ 
+Production Time Constraint: Ensure that tasks are completed within their respective production 
+times: 
+𝑠𝑢𝑚(𝑦𝑟𝑝 𝑠𝑝) ≤ 1 for all 𝑝 in 𝑃 ………………………………………………. (4) 
+ 
+Binary Variable Constraint: Ensure that the binary variable 𝑥𝑝 represents the task selection: 
+𝑥𝑝 is binary for all 𝑝 in 𝑃 ………………………………………………. (5) 
+ 
+This mathematical formulation represents a basic production  planning model with the objective of 
+minimizing production costs while satisfying demand and resource constraints. The decision 
+variables determine the selection of tasks and the quantity of resources allocated to each task in 
+different time periods. The objective function minimizes the total production cost, and the 
+constraints ensure that demand is met, resource capacity is not exceeded, and production times are 
+respected. 
+The algorithm of a new mathematical formulation Model. 
+Algorithm that implements the production planning problem based on the provided 
+mathematical formulation: 
+from qiskit import QuantumCircuit, Aer, execute  
+ 
+# Define the number of tasks, resources, and time periods  
+num_tasks = 3 
+num_resources = 2 
+num_periods = 2 
+ 
+# Define the cost per unit of production, demand, resource requirements, production times, and resource 
+capacities 
+cost_per_unit = [10, 8, 12] 
+demand = [100, 150, 200] 
+resource_requirements = [ 
+    [2, 1], 
+    [3, 2], 
+    [1, 2] 
+] 
+production_times = [0.5, 0.75, 1.2] 
+resource_capacities = [ 
+    [4, 5], 
+    [3, 4] 
+] 
+ 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+169 
+# Create a quantum circuit 
+qc = QuantumCircuit(num_tasks, num_resources)  
+ 
+# Apply Hadamard gates to task selection qubits 
+for i in range(num_tasks): 
+    qc.h(i) 
+ 
+# Define the constraints and objective function  
+def apply_constraints(qc): 
+    # Demand constraint 
+    for i in range(num_tasks): 
+        qc.cx(list(range(num_tasks)), num_tasks + i) 
+        qc.ccx(list(range(num_tasks)), num_tasks + i, num_ta sks + i + num_tasks) 
+ 
+    # Resource constraint 
+    for r in range(num_resources): 
+        for p in range(num_periods): 
+            for i in range(num_tasks): 
+                if resource_requirements[i][r] > 0: 
+                    qc.cx(i, num_tasks + num_tasks + r*num_periods + p) 
+            qc.mct(list(range(num_tasks)), num_tasks + num_tasks + r*num_periods + p)  
+            for i in range(num_tasks): 
+                if resource_requirements[i][r] > 0: 
+                    qc.cx(i, num_tasks + num_tasks + r*num_periods + p) 
+ 
+    # Production time constraint 
+    for p in range(num_periods): 
+        for i in range(num_tasks): 
+            qc.cx(i, num_tasks + num_tasks + num_resources*num_periods + p)  
+        qc.mct(list(range(num_tasks)), num_tasks + num_tasks + num_resources*num_periods + p)  
+        for i in range(num_tasks): 
+            qc.cx(i, num_tasks + num_tasks + num_resources*num_periods + p)  
+ 
+def apply_objective(qc): 
+    # Apply the objective function (total production cost)  
+    for i in range(num_tasks): 
+        qc.mct(list(range(num_tasks, num_tasks + num_periods + num_resources*num_periods)), 
+num_tasks + i) 
+        qc.x(num_tasks + i) 
+ 
+# Apply constraints and objective function 
+apply_constraints(qc) 
+apply_objective(qc) 
+ 
+# Measure the task selection qubits 
+qc.measure(range(num_tasks), range(num_tasks))  
+ 
+# Simulate the quantum circuit 
+backend = Aer.get_backend('qasm_simulator')  
+job = execute(qc, backend, shots=1000) 
+result = job.result() 
+counts = result.get_counts() 
+ 
+# Analyze the measurement results and extract the optimal task selection and resource allocation  
+optimal_task_selection = max(counts, key=counts.get)  
+optimal_resource_allocation = [] 
+for i in range(num_resources): 
+    resource_allocation = [] 
+    for p in range(num_periods): 
+        resource_allocation.append(counts[optimal_task_selection][num_tasks + num_tasks + 
+i*num_periods + p]) 
+    optimal_resource_allocation.append(resource_allocation)  
+ 
+# Print the results 
+print("Optimal task selection:", optimal_task_selec tion) 
+print("Optimal resource allocation:", optimal_resource_allocation)  
+Figure 1. Algorithm that implements the production planning problem based 
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+170 
+Results and discussion. 
+A numerical example based on the mathematical formulation provided earlier for a simplified 
+production planning problem: 
+ 
+Consider a production planning problem with the following data:  
+ 
+Set of production tasks (P): {1, 2, 3} 
+Set of resources (R): {A, B} 
+Set of time periods (D): {1, 2} 
+ 
+Cost per unit of production (𝑐𝑝): 
+𝑐1 = $10 
+𝑐2 = $8 
+𝑐3 = $12 
+ 
+Demand for each task (𝑑𝑝): 
+𝑑1 = 100 units 
+𝑑2 = 150 units 
+𝑑3 = 200 units 
+ 
+Resource requirement for each task and resource (𝑟𝑟𝑝): 
+𝑟1𝐴 = 2 units 
+𝑟1𝐵 = 1 unit 
+𝑟2𝐴 = 3 units 
+𝑟2𝐵 = 2 units 
+𝑟3𝐴 = 1 unit 
+𝑟3𝐵 = 2 units 
+ 
+Production time for each task (𝑠𝑝): 
+𝑠1 = 0.5 time units 
+𝑠2 = 0.75 time units 
+𝑠3 = 1.2 time units 
+ 
+Resource capacity for each resource and time period (𝑄𝑟𝑝): 
+𝑄𝐴1 = 4 units 
+𝑄𝐴2 = 5 units 
+𝑄𝐵1 = 3 units 
+𝑄𝐵2 = 4 units 
+ 
+We aim to minimize the total production cost while satisfying the demand and resource constraints. 
+ 
+Using the mathematical formulation and the given data, we can solve this production planning 
+problem: 
+ 
+Objective Function: 
+Minimize the total production cost: 
+minimize 10𝑥1 + 8𝑥2 + 12𝑥3 
+ 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+171 
+Constraints: 
+Demand Constraint: 
+𝑦1𝐴 + 𝑦1𝐵 = 100 (for task 1) 
+𝑦2𝐴 + 𝑦2𝐵 = 150 (for task 2) 
+𝑦3𝐴 + 𝑦3𝐵 = 200 (for task 3) 
+ 
+Resource Constraint: 
+2𝑦1𝐴 + 𝑦2𝐴 + 𝑦3𝐴 ≤ 4 (for resource A in time period 1) 
+2𝑦1𝐵 + 𝑦2𝐵 + 2𝑦3𝐵 ≤ 3 (for resource B in time period 1) 
+𝑦2𝐴 + 𝑦3𝐴 ≤ 5 (for resource A in time period 2) 
+𝑦2𝐵 + 2𝑦3𝐵 ≤ 4 (for resource B in time period 2) 
+ 
+Production Time Constraint: 
+0.5𝑦1𝐴 + 0.75𝑦2𝐴 + 1.2𝑦3𝐴 ≤ 1 (for time period 1) 
+0.5𝑦1𝐵 + 0.75𝑦2𝐵 + 1.2𝑦3𝐵 ≤ 1 (for time period 1) 
+0.5𝑦2𝐴 + 1.2𝑦3𝐴 ≤ 1 (for time period 2) 
+0.5𝑦2𝐵 + 1.2𝑦3𝐵 ≤ 1 (for time period 2) 
+ 
+Binary Variable Constraint: 
+𝑥1, 𝑥2, 𝑥3 are binary variables representing the task selection 
+ 
+Using an optimization solver or quantum algorithm such as QAOA or VQE, we can solve this 
+mathematical model to obtain the optimal values for 𝑥𝑝 (task selection) and 𝑦𝑟𝑝 (resource allocation) 
+variables, which will minimize the total production cost while satisfying the demand and resource 
+constraints. 
+Discussion 
+Based on the numerical example of the production planning problem and the mathematical 
+formulation provided earlier, let's discuss the potential results and implications: 
+After solving the mathematical model using an optimization solver or quantum algorithm, 
+the following results can be obtained: 
+- Optimal task selection (𝑥𝑝): The optimal values for the binary variables 𝑥𝑝 will indicate 
+which tasks are selected for production. For example, 𝑥1 = 1, 𝑥2= 0, and 𝑥3 = 1 means that 
+tasks 1 and 3 are selected for production, while task 2 is not selected. 
+- Optimal resource allocation ( 𝑦𝑟𝑝): The optimal values for the variables 𝑦𝑟𝑝 will indicate 
+the quantity of each resource allocated to each task in different time periods. For 
+instance, 𝑦1𝐴= 2, 𝑦1𝐵 = 0, 𝑦2𝐴 = 0, 𝑦2𝐵 = 2, 𝑦3𝐴 = 1, and 𝑦3𝐵 = 2 means that for task 1, 2 units 
+of resource A are allocated, and for task 2, 2 units of resource B are allocated, while task 
+3 receives 1 unit of resource A and 2 units of resource B. 
+- Total production cost: The objective function's value will provide the minimum total 
+production cost achieved by the optimal task selection and resource allocation. This cost 
+can be evaluated and compared against alternative production planning strategies or 
+classical optimization methods to assess the efficiency and cost reduction achieved 
+through quantum computing. 
+The obtained results and their analysis can p rovide valuable insights and discussions 
+regarding the effectiveness of applying quantum computing in production planning:  
+- Cost reduction: By optimizing the task selection and resource allocation, the production 
+planning model aims to minimize the total pr oduction cost. Comparing the total 
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+172 
+production cost achieved through the quantum algorithm with alternative approaches 
+or classical optimization methods can demonstrate the potential cost reduction benefits 
+of quantum computing in production planning. 
+- Resource utilization: The optimal resource allocation can shed light on the efficient 
+utilization of resources. By allocating resources optimally, quantum computing can 
+help minimize resource waste, maximize resource utilization, and improve overall 
+production efficiency. 
+- Trade-offs and limitations: The numerical example and results can also highlight any 
+trade-offs or limitations encountered during the optimization process. For instance, 
+there might be situations where meeting demand constraints conflicts with minimizing 
+production cost or resource constraints. These insights can guide decision -making and 
+further refinements in the production planning process. 
+- Scalability considerations: While the numerical example is simplified, scalability is a 
+critical aspect in real-world production planning problems. Researchers can discuss the 
+scalability implications of applying quantum computing algorithms to larger -scale 
+production planning problems and identify potential challenges and opportunities.  
+- Comparisons with cl assical approaches: Comparing the results obtained through the 
+quantum algorithm with traditional or classical optimization approaches can provide 
+insights into the quantum computing advantages and limitations in terms of solution 
+quality, computation time , and scalability. Such comparisons can contribute to the 
+understanding of the potential benefits and trade -offs associated with quantum 
+computing in the context of production planning. 
+Conclusion. 
+This study investigates the potential of quantum computing in the field of production planning and 
+its ability to surmount the limitations of conventional computing methods. Traditional production 
+planning techniques have demonstrated some effectiveness, but they struggle with complex 
+optimization problems, accurate demand forecasting, and effective supply chain management.  This 
+research seeks to bridge the gap between quantum computing and the field of production planning 
+by evaluating the potential benefits, limitations, and difficulties associated with employing quantum 
+computing to production planning. Using quantum computing techniques, the study proposes 
+algorithms and methodologies tailored to production planning problems.  Using a numerical 
+example and a mathematical formulation, it is shown how quantum comp uting can be utilized to 
+minimize total production costs while appeasing demand and resource constraints. The example 
+illustrates the capability of quantum algorithms, such as QAOA and VQE, to determine optimal 
+assignment selections and resource allocation s. The study emphasizes the advantages of quantum 
+computation in terms of cost reduction, enhanced efficiency, and decision -making processes. It also 
+emphasizes the importance of scalability considerations and comparisons with conventional 
+approaches in order to completely comprehend the benefits and drawbacks of quantum computing 
+in production planning.  By bridging the divide between quantum computing and production 
+planning, this research contributes to the development of novel strategies that can improve  
+production planning efficiency, reduce costs, and provide insightful information for decision -
+makers. This research paves the way for further exploration and application of quantum computing 
+in production planning, allowing organizations to optimize their  production processes and achieve 
+significant improvements in operational efficiency and cost -effectiveness by leveraging this 
+transformative technology. 
+Reference 
+Achillas, C., Aidonis, D., Iakovou, E., Thymianidis, M., & Tzetzis, D. (2015). A methodological framework for 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+173 
+the inclusion of modern additive manufacturing into the production portfolio of a focused factory. 
+Journal of Manufacturing Systems, 37, 328–339. 
+Ajagekar, A. (2020). Quantum computing for process systems optimization and data analytics. 
+Ajagekar, A., & You, F. (2019). Quantum computing for energy systems optimization: Challenges and 
+opportunities. Energy, 179, 76–89. 
+Bass, G., Henderson, M., Heath, J., & Dulny, J. (2021). Optimizing the optimizer: decomposition techniques for 
+quantum annealing. Quantum Machine Intelligence, 3, 1–14. 
+Bauer, B., Bravyi, S., Motta, M., & Chan, G. K. -L. (2020). Quantum algorithms for quantum chemistry and 
+quantum materials science. Chemical Reviews, 120(22), 12685–12717. 
+Bayerstadler, A., Becquin, G., Binder, J., Botter, T., Ehm, H., Ehmer, T., Erdmann, M., Gaus, N., Harbach, P., & 
+Hess, M. (2021). Industry quantum computing applications. EPJ Quantum Technology, 8(1), 25. 
+Beutel, A.-L., & Minner, S. (2012). Safety stock planning under causal demand forecasting. International Journal 
+of Production Economics, 140(2), 637–645. 
+Bixby, R. E. (2012). A brief history of linear and mixed -integer programming computation. Documenta 
+Mathematica, 2012, 107–121. 
+Bourdeau, M., qiang Zhai, X., Nefzaoui, E., Guo, X., & Chatellier, P. (2019). Modeling and forecasting building 
+energy consumption: A review of data-driven techniques. Sustainable Cities and Society, 48, 101533. 
+Costantino, N., Dotoli, M., Falagario, M., Fanti, M. P., & Mangini, A. M. (2012). A model for supply management 
+of agile manufacturing supply chains. International Journal of Production Economics, 135(1), 451–457. 
+Dima, I. C. (2013). Industrial production management in flexible manufacturing systems. IGI Global. 
+Egger, D. J., Gutiérrez, R. G., Mestre, J. C., & Woerner, S. (2020). Credit risk analysis using quantum computers. 
+IEEE Transactions on Computers, 70(12), 2136–2145. 
+Emami-Mehrgani, B., Neumann, W. P., Nadeau , S., & Bazrafshan, M. (2016). Considering human error in 
+optimizing production and corrective and preventive maintenance policies for manufacturing systems. 
+Applied Mathematical Modelling, 40(3), 2056–2074. 
+Eskandarpour, M., Dejax, P., Miemczyk, J., & Pét on, O. (2015). Sustainable supply chain network design: An 
+optimization-oriented review. Omega, 54, 11–32. 
+Farahani, R. Z., Rezapour, S., Drezner, T., & Fallah, S. (2014). Competitive supply chain network design: An 
+overview of classifications, models, solution techniques and applications. Omega, 45, 92–118. 
+Fuchigami, H. Y., & Rangel, S. (2018). A survey of case studies in production scheduling: Analysis and 
+perspectives. Journal of Computational Science, 25, 425–436. 
+Garg, K., Kannan, D., Diabat, A., & Jh a, P. C. (2015). A multi -criteria optimization approach to manage 
+environmental issues in closed loop supply chain network design. Journal of Cleaner Production , 100, 
+297–314. 
+Georgiadis, P., & Michaloudis, C. (2012). Real -time production planning and cont rol system for job -shop 
+manufacturing: A system dynamics analysis. European Journal of Operational Research, 216(1), 94–104. 
+Ghahremani-Nahr, J., Kian, R., & Sabet, E. (2019). A robust fuzzy mathematical programming model for the 
+closed-loop supply chain network design and a whale optimization solution algorithm. Expert Systems 
+with Applications, 116, 454–471. 
+Gould, O., Simeone, A., Colwill, J., Willey, R., & Rahimifard, S. (2016). A material flow modelling tool for 
+resource efficient production planning in multi-product manufacturing systems. Procedia CIRP, 41, 21–
+26. 
+Govindan, K., Fattahi, M., & Keyvanshokooh, E. (2017). Supply chain network design under uncertainty: A 
+comprehensive review and future research directions. European Journal of Operational Re search, 263(1), 
+108–141. 
+Grossmann, I. E. (2012). Advances in mathematical programming models for enterprise -wide optimization. 
+Computers & Chemical Engineering, 47, 2–18. 
+Hadfield, S. A. (2018). Quantum algorithms for scientific computing and approximate optimization. Columbia 
+University. 
+Han, C., & Zhang, Q. (2021). Optimization of supply chain efficiency management based on machine learning 
+and neural network. Neural Computing and Applications, 33, 1419–1433. 
+Harjunkoski, I., Maravelias, C. T., Bongers, P., Castro, P. M., Engell, S., Grossmann, I. E., Hooker, J., Méndez, 
+C., Sand, G., & Wassick, J. (2014). Scope for industrial applications of production scheduling models 
+and solution methods. Computers & Chemical Engineering, 62, 161–193. 
+
+=== PAGE BREAK ===
+
+         ISSN 1693-9220 (Print) | xxxx-xxxx (Online)   
+International Journal of Enterprise Modelling 
+174 
+He, N., Zhang, D. Z., & Li, Q. (2014). Agent -based hierarchical production planning and scheduling in make -
+to-order manufacturing system. International Journal of Production Economics, 149, 117–130. 
+Hou, G., Gong, L., Yang, Z., & Zhang, J. (2020). Multi -objective economic model predictive control for gas 
+turbine system based on quantum simultaneous whale optimization algorithm. Energy Conversion and 
+Management, 207, 112498. 
+Hu, J., & Guan, C. (2014). Granular computing model based on quantum computing theor y. 2014 Tenth 
+International Conference on Computational Intelligence and Security, 157–160. 
+Hübner, A. H., Kuhn, H., & Sternbeck, M. G. (2013). Demand and supply chain planning in grocery retail: an 
+operations planning framework. International Journal of Retail & Distribution Management. 
+Jain, S. (2015). Quantum computer architectures: A survey. 2015 2nd International Conference on Computing for 
+Sustainable Global Development (INDIACom), 2165–2169. 
+Jin, M., Wang, H., Zhang, Q., & Zeng, Y. (2020). Supply cha in optimization based on chain management and 
+mass customization. Information Systems and E-Business Management, 18, 647–664. 
+Kache, F., & Seuring, S. (2017). Challenges and opportunities of digital information at the intersection of Big 
+Data Analytics and  supply chain management. International Journal of Operations & Production 
+Management. 
+Kiran, D. R. (2019). Production planning and control: A comprehensive approach. Butterworth-heinemann. 
+Kouedeu, A. F., Kenné, J. -P., Dejax, P., Songmene, V., & Polotski,  V. (2015). Production and maintenance 
+planning for a failure-prone deteriorating manufacturing system: a hierarchical control approach. The 
+International Journal of Advanced Manufacturing Technology, 76, 1607–1619. 
+Kourentzes, N., Trapero, J. R., & Barrow , D. K. (2020). Optimising forecasting models for inventory planning. 
+International Journal of Production Economics, 225, 107597. 
+Kozlenkova, I. V, Hult, G. T. M., Lund, D. J., Mena, J. A., & Kekec, P. (2015). The role of marketing channels in 
+supply chain management. Journal of Retailing, 91(4), 586–609. 
+Kumar, P., Rosenberger, J. M., & Iqbal, G. M. D. (2016). Mixed integer linear programming approaches for land 
+use planning that limit urban sprawl. Computers & Industrial Engineering, 102, 33–43. 
+Li, D., G uo, W., Lerch, A., Li, Y., Wang, L., & Wu, Q. (2021). An adaptive particle swarm optimizer with 
+decoupled exploration and exploitation for large scale optimization. Swarm and Evolutionary 
+Computation, 60, 100789. 
+Li, H., & Womer, K. (2012). Optimizing the supply chain configuration for make -to-order manufacturing. 
+European Journal of Operational Research, 221(1), 118–128. 
+Li, X., & Gao, L. (2020). Effective methods for integrated process planning and scheduling (Vol. 2). Springer. 
+Mangla, S. K., Luthra, S., Mishra, N., Singh, A., Rana, N. P., Dora, M., & Dwivedi, Y. (2018). Barriers to effective 
+circular supply chain management in a developing country context. Production Planning & Control , 
+29(6), 551–569. 
+Mirzapour Al -E-Hashem, S. M. J., Malekly, H., & Arya nezhad, M. B. (2011). A multi -objective robust 
+optimization model for multi -product multi -site aggregate production planning in a supply chain 
+under uncertainty. International Journal of Production Economics, 134(1), 28–42. 
+Möller, M., & Vuik, C. (2017). O n the impact of quantum computing technology on future developments in 
+high-performance scientific computing. Ethics and Information Technology, 19, 253–269. 
+Mönch, L., Uzsoy, R., & Fowler, J. W. (2018). A survey of semiconductor supply chain models part I II: master 
+planning, production planning, and demand fulfilment. International Journal of Production Research , 
+56(13), 4565–4584. 
+Mousavi, S. M., Alikar, N., Niaki, S. T. A., & Bahreininejad, A. (2015). Optimizing a location allocation-inventory 
+problem in  a two -echelon supply chain network: A modified fruit fly optimization algorithm. 
+Computers & Industrial Engineering, 87, 543–560. 
+Nayak, S., Nayak, S., & Singh, J. P. (2012). Quantum Concepts in Neural Computation. Proceedings of the 
+International Confere nce on Soft Computing for Problem Solving (SocProS 2011) December 20 -22, 2011: 
+Volume 1, 415–421. 
+Orús, R., Mugel, S., & Lizaso, E. (2019). Quantum computing for finance: Overview and prospects. Reviews in 
+Physics, 4, 100028. 
+Ossorio-Castillo, J., & Tornero, J. M. (2018). Quantum computing from a mathematical perspective: a description 
+of the quantum circuit model. ArXiv Preprint ArXiv:1810.08277. 
+Papadimitrakis, M., Giamarelos, N., Stogiannos, M., Zois, E. N., Livanos, N. -I., & Alexandridis, A. (2021). 
+
+=== PAGE BREAK ===
+
+International Journal of Enterprise Modelling, Vol. 15, No. 3, September (2021)  
+ 
+Quantum computing for production planning (Fristi Riandari, et al) 
+175 
+Metaheuristic search in smart grid: A review with emphasis on planning, scheduling and power flow 
+optimization applications. Renewable and Sustainable Energy Reviews, 145, 111072. 
+Perdomo-Ortiz, A., Benedetti, M., Realpe -Gómez, J., & Biswas, R. (2018). Opport unities and challenges for 
+quantum-assisted machine learning in near-term quantum computers. Quantum Science and Technology, 
+3(3), 30502. 
+Pishvaee, M. S., & Razmi, J. (2012). Environmental supply chain network design using multi -objective fuzzy 
+mathematical programming. Applied Mathematical Modelling, 36(8), 3433–3446. 
+Priore, P., Ponte, B., Rosillo, R., & de la Fuente, D. (2019). Applying machine learning to the dynamic selection 
+of replenishment policies in fast -changing supply chain environments. International Journal of 
+Production Research, 57(11), 3663–3677. 
+Raza, M. Q., & Khosravi, A. (2015). A review on artificial intelligence based load demand forecasting techniques 
+for smart grid and buildings. Renewable and Sustainable Energy Reviews, 50, 1352–1372. 
+Ren, S., Zhang, Y., Liu, Y., Sakao, T., Huisingh, D., & Almeida, C. M. V. B. (2019). A comprehensive review of 
+big data analytics throughout product lifecycle to support sustainable smart manufacturing: A 
+framework, challenges and future research directions. Journal of Cleaner Production, 210, 1343–1365. 
+Rivera Letelier, O., Espinoza, D., Goycoolea, M., Moreno, E., & Muñoz, G. (2020). Production scheduling for 
+strategic open pit mine planning: a mixed -integer programming approach. Operations Research, 68(5), 
+1425–1444. 
+Şahin, M., & Kellegöz, T. (2019). A new mixed -integer linear programming formulation and particle swarm 
+optimization based hybrid heuristic for the problem of resource investment and balancing of the 
+assembly line with multi-manned workstations. Computers & Industrial Engineering, 133, 107–120. 
+Sampat, A. M., Martin, E., Martin, M., & Zavala, V. M. (2017). Optimization formulations for multi -product 
+supply chain networks. Computers & Chemical Engineering, 104, 296–310. 
+Sobri, S., Koohi-Kamali, S., & Rahim, N. A. (2018). Solar photovoltaic generation forecasting methods: A review. 
+Energy Conversion and Management, 156, 459–497. 
+Suryaningrat, I. B. (2016). Raw material procurement on agroindustrial supply chain management: a case survey 
+of fruit processing industries in Indonesia. Agriculture and Agricultural Science Procedia, 9, 253–257. 
+Uzsoy, R., Fowler, J. W., & Mönch, L. (2018). A survey of semiconductor supply chain models Part II: demand 
+planning, inventory management, and capacity planning.  International Journal of Production Research , 
+56(13), 4546–4564. 
+Van den Bossche, R., Vanmechelen, K., & Broeckhove, J. (2013). Online cost -efficient scheduling of deadline -
+constrained workloads on hybrid clouds. Future Generation Computer Systems, 29(4), 973–985. 
+Vigerske, S. (2013). Decomposition in multistage stochastic programming and a constraint integer programming 
+approach to mixed-integer nonlinear programming. 
+Wang, G., Gunasekaran, A., Ngai, E. W. T., & Papadopoulos, T. (2016). Big data analytics in logistics and supply 
+chain management: Certain investigations for research and applications. International Journal of 
+Production Economics, 176, 98–110. 
+Wang, Y. (2012). Quantum computation and quantum information. 
+Wittek, P. (2014). Quantum machine learning: what quantum computing means to data mining. Academic Press. 
+Yazdani, M., Kabirifar, K., Fathollahi -Fard, A. M., & Mojtahedi, M. (2021). Production scheduling of off -site 
+prefabricated construction components considering sequence dependent due date s. Environmental 
+Science and Pollution Research, 1–17. 
+Yin, J., Yang, L., Tang, T., Gao, Z., & Ran, B. (2017). Dynamic passenger demand oriented metro train scheduling 
+with energy -efficiency and waiting time minimization: Mixed -integer linear programming 
+approaches. Transportation Research Part B: Methodological, 97, 182–213. 
+Zentes, J., Morschett, D., Schramm-Klein, H., Zentes, J., Morschett, D., & Schramm -Klein, H. (2017). Logistics–
+Supply Chain Management and Information Management. Strategic Retail Mana gement: Text and 
+International Cases, 419–439. 
+Zhong, R. Y., Li, Z., Pang, L. Y., Pan, Y., Qu, T., & Huang, G. Q. (2013). RFID -enabled real -time advanced 
+planning and scheduling shell for production decision making. International Journal of Computer 
+Integrated Manufacturing, 26(7), 649–662. 
+Zhuang, C., Liu, J., & Xiong, H. (2018). Digital twin -based smart production management and control 
+framework for the complex product assembly shop -floor. The International Journal of Advanced 
+Manufacturing Technology, 96, 1149–1163. 

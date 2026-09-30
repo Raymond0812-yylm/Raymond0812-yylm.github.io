@@ -1,0 +1,2181 @@
+A case study in programming a quantum annealer for hard operational planning
+problems
+Eleanor G. Rieﬀel, Davide Venturelli, Bryan O’Gorman, Minh B. Do, Elicia Prystay, and Vadim N. Smelyanskiy
+QuAIL, NASA Ames Research Center, Moﬀett Field, CA 94035
+We report on a case study in programming an early quantum annealer to attack optimization
+problems related to operational planning. While a number of studies have looked at the perfor-
+mance of quantum annealers on problems native to their architecture, and others have examined
+performance of select problems stemming from an application area, ours is one of the ﬁrst studies of
+a quantum annealer’s performance on parametrized families of hard problems from a practical do-
+main. We explore two diﬀerent general mappings of planning problems to quadratic unconstrained
+binary optimization (QUBO) problems, and apply them to two parametrized families of planning
+problems, navigation-type and scheduling-type. We also examine two more compact, but problem-
+type speciﬁc, mappings to QUBO, one for the navigation-type planning problems and one for the
+scheduling-type planning problems. We study embedding properties and parameter setting, and
+examine their eﬀect on the eﬃciency with which the quantum annealer solves these problems. From
+these results we derive insights useful for the programming and design of future quantum annealers:
+problem choice, the mapping used, the properties of the embedding, and the annealing proﬁle all
+matter, each signiﬁcantly aﬀecting the performance.
+I. INTRODUCTION
+Quantum computing has been proven to provide more
+eﬃcient means for solving certain classes of specialized
+problems than is possible classically, and in other cases
+is strongly suspected to do so [31, 37]. There are other
+classes of problems, however, for which quantum comput-
+ing does not provide an advantage. One of the biggest
+open questions in quantum computing is the breadth of
+its applications. Many of the most complex computations
+carried out in the practical world today use heuristic al-
+gorithms which have not been mathematically proven to
+outperform other approaches, but have been shown to
+be more eﬀective empirically. Quantum heuristic algo-
+rithms exist, but it is only when quantum computational
+devices that can carry out these algorithms become avail-
+able that we can learn whether they are more eﬀective
+than current classical approaches. The most prominent
+quantum heuristic is quantum annealing.
+Quantum annealing [16, 18, 24, 42] is a metaheuristic
+for solving optimization problems which bears some re-
+semblance to simulated annealing, a classical metaheuris-
+tic. It works by starting the system in the ground state of
+a known, easy-to-implement Hamiltonian HI and gradu-
+ally varying the Hamiltonian until it becomes a Hamilto-
+nian HP that encodes the cost function for the problem
+at hand:
+H(s) =A(s)HI +B(s)HP, (1)
+where s∈ [0, 1], A(0) = 1 =B(1), and A(1) = 0 =B(0).
+The intuition behind quantum annealing is that it ex-
+plores the cost-function landscape, but has means of ex-
+ploration not open to classical methods such as quantum
+tunneling.
+Within the last couple of years, D-Wave quantum an-
+nealers have become available. While debate continues
+as to the extent to which the D-Wave machine is quan-
+tum [7, 8, 23, 40, 41, 43, 45, 46], these machines provide
+the ﬁrst opportunity for researchers to experiment with
+quantum annealing. Quantum computational hardware
+is maturing to the point that a number of diﬀerent quan-
+tum computational devices implementing specialized al-
+gorithms such as quantum annealing will become avail-
+able in the next several years.
+Because most physical interactions are 2-local (i.e.
+pairwise), most emerging quantum technologies will sup-
+port only 2-local interactions. For this reason, the prob-
+lem Hamiltonian HP should be Ising, containing only 2-
+local terms between the qubits. A standard translation
+maps between problem Hamiltonians on qubits and cost
+functions of binary variables. When translated to a cost
+function, the 2-local condition on the problem Hamiltio-
+nian means that the cost function must be a Quadratic
+Unconstrained Binary Optimization (QUBO) problem.
+Furthermore, limitations on the ability to couple a sin-
+gle qubit to more than a few other qubits, means that
+variables that appear in many terms will need to be rep-
+resented by multiple physical qubits in order to enable
+the required connections. For example, the D-Wave pro-
+cessors use a Chimera architecture in which each qubit is
+connected to at most 6 other qubits (See Fig. 13), so any
+logical qubit in problem Hamiltonian that appears with
+more than 6 other logical qubits must be represented by
+multiple physical qubits in order for the problem to be
+expressible in this architecture. The ﬁrst step, obtain-
+ing the QUBO, is referred to as mapping the problem to
+QUBO. The second step is referred to as embedding the
+QUBO in the hardware. Problems that ﬁt directly on
+the machine, so do not require an embedding step, are
+referred to as native problems.
+Given a speciﬁc quantum annealing hardware architec-
+ture, there are three high-level research challenges:
+• Problem design: Identify potential applications
+with appropriately diﬃcult combinatorial opti-
+mization problems; extract core aspects of these
+arXiv:1407.2887v1  [quant-ph]  10 Jul 2014
+
+=== PAGE BREAK ===
+
+2
+problems that contribute to their diﬃculty; gener-
+ate families of benchmark problems that are small
+enough to be run on the newly available devices,
+but are nevertheless interesting in spite of their
+smallness.
+• Mapping to QUBO: Design general approaches
+to map these problems to QUBO problems, and
+to make good choices of parameters, such as the
+relative weighting of QUBO terms.
+• Embedding in hardware: Determine which
+physical qubits should represent each logical qubit,
+the strength of the internal couplings (between
+qubits representing the same logical qubit), and
+how to distribute the external couplings (between
+sets of qubits representing coupled logical qubits).
+Thus, there are two aspects of embedding: the
+topological aspect and the parameter-setting as-
+pect.
+In future architectures, there will be additional research
+challenges, such as making good choices for the annealing
+time and the annealing proﬁle (the functions A(s) and
+B(s) determining the weighting of the driver Hamiltonian
+and the problem Hamiltonian throughout the run).
+A previous paper [38] focused on the design of
+two parametrized families of hard planning problems,
+navigation-type and scheduling-type, that capture as-
+pects common to many real-world planning problems, ex-
+hibit exponential scaling in hardness even at small sizes,
+and provide insights into state-of-the-art planning algo-
+rithms. These problems can be used to investigate novel
+approaches to planning problems, as we do here for quan-
+tum annealing. Since these problems are optimization
+versions of NP-complete problems, we expect any ap-
+proach, whether quantum or classical, to scale exponen-
+tially with problem size. In the classical case, the slope
+of that exponential can be radically diﬀerent from algo-
+rithm to algorithm, and we expect the same to be true
+for quantum heuristics. Some quantum heuristics will
+be better than others, and there is the exciting possibil-
+ity that quantum approaches could outperform classical
+heuristics on these or other hard combinatorial optimiza-
+tion problems. Such an algorithm would have signiﬁcant
+practical impact.
+This paper focuses on the second and third program-
+ming challenges, mapping and embedding, for hard com-
+binatorial optimization problems that arise in opera-
+tional planning. We explore multiple ways of mapping
+planning problems to QUBO problems, explore embed-
+dings of these problems, and provide comparisons of the
+eﬀectiveness of the DWave Two machine housed at NASA
+Ames in solving these problems under diﬀerent mappings
+and parameter choices. In particular, we examine two dif-
+ferent approaches for mapping general planning problems
+to QUBO problems, and apply both of these mappings to
+the navigation-type family and the scheduling-type fam-
+ily of planning problems of [38]. In part because we are
+only able to embed the smallest size problems in the D-
+Wave Two architecture under these mappings, we devel-
+oped two more compact but problem-type speciﬁc em-
+beddings, one for the navigation-type problems and one
+for the scheduling-type problems. Ultimately, we are in-
+terested in the general approaches, since only they would
+be applicable to real-world planning problems that con-
+tain aspects of both navigation and scheduling that are
+not easily separated. But at this early stage we can learn
+from the behavior of the quantum annealer on the prob-
+lems obtained from the more specialized mappings.
+We also explore embedding properties and parameter
+choices, and their relation to the eﬃciency with which the
+D-Wave Two solves these problems. For example, the in-
+ternal couplings between physical qubits representing the
+same logical qubits must be set. Here, we look at the case
+in which all internal couplings have the same strength
+Jint, and investigate how the performance is aﬀected by
+variations in this value. We are particularly interested
+in what these initial results tell us about how diﬀerent
+future machine architectures and diﬀerent programming
+choices could aﬀect the ability of these machines to solve
+these problems.
+Our work is the ﬁrst to explore the programming and
+performance of a D-Wave machine on parametrized fam-
+ilies of hard problems stemming from applications. A
+number of studies have benchmarked D-Wave perfor-
+mance on native problems [8, 39, 47–49]. A recent study
+[44] analyzes performance on families of non-native prob-
+lems, random 2-dimensional Ising lattices and random
+Ising problems on fully connected graphs. As non-native
+problems, they do require embeddings, and the paper ex-
+plores similar issues in that context to some we explore
+here such as the setting of the internal coupling constant
+Jint, but while these structures appear in appications,
+these problems do not come from a speciﬁc applications.
+On the other hand, a number of groups have explored
+applications [3, 5, 25, 32–34], but either on set of small
+instances for which there is no notion of hardness or a few
+larger, but speciﬁc instances, rather than parametrized
+families of instances whose hardness is expected to scale
+exponentially for all approaches, and on which the per-
+formance of the best classical approaches conﬁrms the
+exponentially increasing hardness with size. Very recent
+work [35] suggests a programmatic approach to some of
+the issues we discuss here, such as setting Jint, with ex-
+amples to problems from a few diﬀerent application do-
+mains.
+Our main contributions include an analysis of perfor-
+mance on a large, parametrized set of hard benchmark
+problems stemming from an application domain, a com-
+parison of the eﬀectiveness of diﬀerent mappings of these
+problems to QUBO, an investigation of embedding prop-
+erties and parameter setting and their eﬀect on perfor-
+mance, and an evaluation of future architectures in light
+of these ﬁndings. We derive from this study insights use-
+ful for the programming and design of future quantum
+annealers. Speciﬁcally,
+
+=== PAGE BREAK ===
+
+3
+• scheduling-type planning problems are more
+amenable to near-term quantum annealing ap-
+proaches than navigation-type planning problems,
+which are diﬃcult to embed in the hardware,
+• the choice of QUBO mapping makes a marked dif-
+ference in the success of an annealing algorithm
+even when the QUBO sizes are similar,
+• embedding metrics beyond embedding size and
+maximum component size are needed in order to
+predict and optimize performance,
+• increasing the size of the unit cells of the Chimera
+architecture (Fig. 13), and thereby the local con-
+nectivity, would much more signiﬁcantly impact
+our ability to run instances from applications than
+would simply increasing the number of unit cells,
+and
+• support for diﬀerent annealing proﬁles (weightings
+of the driver and problem Hamiltonians throughout
+the run) need to be supported and could potentially
+lead to signiﬁcantly improved results.
+We ﬁrst provide a brief review of classical planning
+(Sec. II), and then describe the parametrized families of
+hard navigation-type and scheduling-type planning prob-
+lems used in our experiments in Secs. III and IV respec-
+tively. Readers who have previously read [38] may skip
+to section Sec.V. In Sec.V, we describe the two general
+approaches to mapping classical planning problems to
+QUBO problems, followed by the two problem-type spe-
+ciﬁc mappings. Our methods, particularly the param-
+eters we used for our annealing runs, are described in
+Sec.VI. Sec.VII describes and analyzes our results on
+the scheduling-type family of planning problems, and
+Sec. VIII describes our few results on the navigation-
+type family of planning problems. Sec.IX examines the
+embeddability of these problems in future hardware ar-
+chitectures. In Sec.X, we conclude with a summary of
+our results and their implications for the programming
+and design of quantum annealers.
+II. AN OVERVIEW OF THE CLASSICAL
+PLANNING FORMALISM
+Classical planning problems, speciﬁcally STRIPS plan-
+ning problems [19, 20], are expressed in terms of binary
+state variables (sometimes called predicates) and actions
+(sometimes called operators). Examples of state vari-
+ables in the rover domain are “Rover R is in location X”
+and “Rover R has a soil sample from location X,” which
+may be true or false. Actions consist of two lists,
+• a set of preconditions and
+• a set of eﬀects (or postconditions).
+The set of preconditions can be divided into positive pre-
+conditions, those that must be true, and negative precon-
+ditions, those that must be false. The set of eﬀects can be
+divided similarly into a set of positive eﬀects and a set of
+negative eﬀects. In classical planning, it is conventional
+that the preconditions for an action must be positive, so
+the set of preconditions is a subset of state variables that
+must be set to true in order for the action to be possi-
+ble to carry out. When this convention is followed, the
+set of negative preconditions will be empty. The eﬀects
+of an action consists of a subset of state variables with
+the values they take on if the action is carried out. For
+example, the action “Rover R moves from location X to
+location Y” has one precondition, “Rover R is in location
+X = true” and has two eﬀects “Rover R is in location X
+= false” and “Rover R is in location Y = true.”
+A speciﬁc planning problem speciﬁes an initial state ,
+with values speciﬁed for all state variables, and a goal,
+speciﬁed values for one or more state variables. As for
+preconditions, goals are conventionally positive, so the
+speciﬁed value for the goal variables is true. Generally,
+the goal speciﬁes values for only a small subset of the
+state variables. A plan is a sequence of actions. A valid
+plan, or a solution to the planning problem, is a sequence
+of actions A1,A 2,...,A L such that the state at time step
+ti−1 meets the preconditions for action Ai, the eﬀects of
+action Ai are reﬂected in the state at time step ti, and
+the state at the end has all of the goal variables set to
+true.
+III. PARAMETERIZED FAMILIES OF
+NAVIGATION-STYLE PLANNING PROBLEMS
+Navigation is a critical component in many planning
+applications and existing planning benchmarks [21, 22,
+29]. Rover navigation is one such domain. Given a list
+of locations a rover must visit to, say, take picture or an-
+alyze samples, the planner must ﬁnd a route that makes
+optimal use of resources, such as time and power, satis-
+ﬁes multiple constraints, and achieves all goals. Under
+the assumptions that each location need be visited only
+once, the high-level navigation problem is similar to the
+Hamiltonian Path problems we investigate.
+A. Planning problems from undirected
+Hamiltonian path (UHP)
+The undirected Hamiltonian path (UHP) problem on
+an undirected graphG(V,E ), withn verticesV and a set
+of edgesE, is to ﬁnd a path that visits each node exactly
+once. A planning problem instance based on this graph
+may be formulated as follows. For each vertex v, there
+are:
+• An action av representing visiting v.
+
+=== PAGE BREAK ===
+
+4
+1  1  0  1  1  1  0  1  0  1
+1  1  *  1   *  *   *  *  1   *
+ 0  1  0   1  1  1  0  1  1  1  0  0  0   1  0  1  0  1  1  1  1  1  0   1  1  1  0  0  0  0
+0  1  1  1  1  1  0  1  1  0 0  1  0  1  1  1  0  0  1  0 0  1  0  1  1  1  0  0  1  0 0  0  0  1  0  1  0  0  1  0 0  1  0  1  1  1  0  0  1  0 0  0  0  1  0  1  0  0  1  0
+Initial State
+Goal State
+Selection pool of 
+available actions
+dead end dead end
+preconditions: B, I
+eﬀects: B=0, C=1, J=0
+A     B     C     D    E      F     G     H     I      J
+plan 1
+plan 2
+plan 1
+plan 2
+FIG. 1: Pictorial view of a planning problem. The initial state (e.g. Rover to the left behind the rocks, without payload) is
+speciﬁed by assigning True (1) or False (0) to state variables (named A-J in this oversimpliﬁed example). The planning software
+navigates a tree, where a path represents a sequence (with possible repetitions) of actions selected from a pool (colors). Each
+action has preconditions on the state variables (e.g. moves can be done around the rocks and not through) which need to
+be satisﬁed in order for the actions to be executed (the circles under the state variables in the search tree needs to match
+True=1) and has an eﬀect on the state (colored variables in shaded regions of the new state have changed values). A valid
+search plan (multiple valid plans are possible) will reach the goal state (e.g. Rover in front of the rocks to the right, with a
+sample collected).
+• A ‘goal’ state variablesg
+v to indicate thatv needs to
+be visited; sg
+v =T (true) means v has been visited.
+• An ‘internal’ state variable si
+v represents whether
+or not v has been visited. Speciﬁcally, si
+v = T
+means v has not been visited while si
+v =F (false)
+means that it has been visited. This variable en-
+sures that each vertex can be visited at most once.
+While including bothsg
+v andsi
+v (which always have
+opposite values) seems redundant, it is necessary
+because of the convention that allows only positive
+action preconditions and goals.
+• An ‘external’ state variable se
+v represents whether
+or not the vertex v can currently be visited given
+the edge structure of the graph. Speciﬁcally, it is
+set to T by an action av′ corresponding to visit-
+ing a vertex v′ that is connected to v by an edge.
+Otherwise, it is set to F .
+Each actionav has 2 preconditions: (1) si
+v =T , which
+indicates that this action has not been used in the plan
+already, and (2) se
+v = T , indicating that this action can
+legally follow the previous action.
+Each actionav hasn+1 eﬀects: (1) sg
+v =T , to indicate
+that v has been visited, (2) si
+v = F , thus excluding av
+from appearing twice in the plan, (3) sets each of the
+n− 1 external variables se
+v′ for each of the other vertices
+v′: if there is an edge from v tov′ thense
+v′ =T , enabling
+av′ to follow av; if there is no edge from v to v′ then av
+sets se
+v′ =F , preventing av′ from following av.
+The initial state has all goal variables sg
+v = F while
+all internal and external variables si
+v and se
+v have value
+T . Thus, any of the n actions av can be performed at
+the start. A valid plan is a sequence of the n actions
+that corresponds to a path along the edges that visits
+all vertices exactly once.
+Problem generation: We obtain a parametrized fam-
+ily of UHP-based planning problems, parametrized by n
+
+=== PAGE BREAK ===
+
+5
+andp, by using the Erd¨ os-R´ enyi modelGn,p to randomly
+generate graphs withn vertices such that, for any pair of
+vertices, the edge between them is included with prob-
+ability p. We then derive planning problems from these
+graphs as described in the preceding paragraphs. We use
+the scaling parameter p = (logn + log logn)/n that has
+been established as at the phase transition for the closely
+related Hamiltonian cycle problem [11, 28]. We wrote a
+simple C++ program to generate these problems.
+IV. PARAMETRIZED FAMILIES OF
+SCHEDULING-TYPE PLANNING PROBLEMS
+Many planning applications include scheduling aspects
+[12]. Scheduling, which deals with assigning resources
+and time to tasks while taking into account constraints,
+is in itself an important problem. Certain classes of
+scheduling problems correspond to graph coloring. For
+example, a scheduling problem, with a set of tasks and
+constraints that any pair of tasks competing for the same
+resource cannot be assigned the same time-slot, can be
+phrased as a vertex coloring, a well-known NP-complete
+problem. Speciﬁcally, the chromatic number (the small-
+est number of colors needed) represents the smallest num-
+ber of time-slots needed to complete a corresponding
+schedule, thus representing the minimum makespan.
+A. Planning problems from Vertex Coloring
+Given an undirected graph G ={V,E} with n ver-
+tices, the planning problem to color G with k colors is
+formulated as follows. For each vertex v there are:
+• k actions ac
+v representing coloring v with color c.
+• A ‘goal variable’ sg
+v representing whether or not v
+has been colored at all.
+• A state variable sc
+v representing whether or not v
+has been colored with the color c.
+Let C(v) be the set of neighboring vertices that are
+connected to v by an edge. For each action ac
+v, there are
+|C(v)| + 1 preconditions: (1) sg
+v = F , which indicates
+thatv is not already colored; and (2) for each vi∈C(v),
+sc
+vi = F , guaranteeing that none of neighboring vi are
+already colored with color c.
+Each action ac
+v has two eﬀects: sg
+v =T and sc
+v =T .
+In the initial state, none of the vertices are colored:
+∀v∈ V : sg
+v = F , and sc
+v = F . The goal state requires
+that all vertices are colored: ∀v∈ V : sg
+v = T . A plan
+is a sequence ofn actions, each of which colors a vertexv.
+Problem generation: As for the Hamiltonian path
+based problems, we obtain a parametrized family of
+graph-coloring-based planning problems by randomly
+generating Erd¨ os-R´ enyi graphsGn,p for a variety of val-
+ues of n and p. A phase transition threshold in the k-
+colorability ofG(n,p ) graphs has been established for all
+k≥ 3 in terms of the parameter c = m/n = p×n, the
+ratio of the number of edges to the number of vertices
+[1]. The threshold scales as c = k logk in the leading
+term, but the precise location of this threshold is still
+an open question, even for k = 3 [14]. Our runs were
+done with c = 4.5, a value intermediate to the best cur-
+rent lower bound [2] and upper bound [17] for the phase
+transition. We extended Culberson et al.’s [15] graph
+generator program, which provides methods to generate
+diﬀerent types of graph controlled by various parame-
+ters, to output PDDL ﬁles containing the speciﬁcation of
+planning problems derived from these graphs.
+V. MAPPING PLANNING PROBLEMS TO
+QUBO FORM
+The D-Wave quantum annealing machine can accept
+problems phrased in terms of a problem HamiltonianHP
+in Ising form:
+EIsing(s1,...,s N) =−
+N∑
+i=1
+h′
+isi +
+∑
+⟨i,j⟩∈ E
+J′
+i,jsisj, (2)
+wheresi =±1. In traditional computer science, it is un-
+usual to have variablessi whose values can be taken only
+from{−1, 1}, but it is common to have binary variableszi
+that take values from{0, 1}. It is easy to convert between
+the two forms by takingsi = 1−2zi. Any quadratic func-
+tion of variables zi can be converted to Ising form, up to
+a constant which does not aﬀect the energy minimization
+and so can be ignored:
+q(z1,...,z N) =−
+N∑
+i=1
+hizi +
+∑
+⟨i,j⟩∈ E
+Ji,jzizj, (3)
+Thus, it suﬃces to express any problem we want
+solved as a Quadratic Unconstrained Binary Optimiza-
+tion (QUBO) problem [13, 30, 42], which will then be
+converted to Ising form to run on the D-Wave machine.
+In this section, we describe two diﬀerent mappings
+from general classical planning problems, as described
+in Section II, to QUBO form. The ﬁrst is a time-slice
+approach. The second approach ﬁrst maps a planning
+problem to a constraint satisfaction problem, and then
+reduces higher order terms to quadratic terms through a
+series of moves. As we mentioned in Sec. II, some clas-
+sical planning algorithms follow the convention that an
+action can have only positive preconditions. Since it is
+easy to do, we deﬁne our mappings generally, so that they
+work with planning problems in which actions can have
+negative preconditions, as well as those that follow the
+convention.
+
+=== PAGE BREAK ===
+
+6
+A. Time-slice method
+This mapping from general classical planning problems
+to QUBO form is a variant of the one developed and
+described in [42].
+The method requires setting a speciﬁc plan length L.
+For the two families of problems we consider, the plan
+length L is easy to determine; for the navigation-type
+problems, it isn, the number of sites, and for scheduling-
+type problems, it is 1, since all vertices can be colored at
+the same time. In other cases, it may be necessary to run
+quantum annealing on QUBOs corresponding to diﬀerent
+plan lengths, or to employ more sophisticated techniques
+to determine the plan length to use [6].
+If the original planning problem has N state variables
+xi and M actions yj and we are looking for a plan of
+length L, then we deﬁne a time-slice QUBO problem in
+terms ofN(L + 1) +LM binary variables. There are two
+groups of binary variables. The ﬁrst group consists of
+N(L + 1) binary variablesx(t)
+i that indicate whether the
+state variablexi is 0 or 1 at time stept, fort∈{ 0,...,L }.
+The second group consists of LM binary variables y(t)
+j
+that indicate whether or not the action yj is carried out
+between time steps t− 1 and t. We can think of the
+entire set of binary variables as an alternating string of
+N variables corresponding to the state at a given time,
+followed by M variables corresponding to the actions,
+followed by a N variables corresponding to the state at
+the next time index, etc. The structure of the QUBO is
+illustrated in Figure 2.
+The total cost function is written as a sum
+H = Hinitial +Hgoal +Hno− op
++Hprecond +Heﬀects +Hconﬂicts.
+We ﬁrst give a mapping that is more general than we
+need, and then explain how it can be simpliﬁed in our
+situation. The ﬁrst two terms are straightforward. They
+capture the initial condition and the goal condition. Let
+I(+) be the set of state variables that are 1 in the ini-
+tial condition andI(−) be the set of state variables that
+are initially set to 0. Similarly, let G(+) be the set of
+goal variables with value 1 and G(−) be the set of goal
+variables with value 0. (We describe the mapping for gen-
+eral classical planning problems that do not necessarily
+follow the convention that preconditions and goals must
+be positive.) To capture the boundary conditions, the
+requirement that a plan start in the appropriate initial
+state and meets the goals, we include the following terms
+in the cost function:
+Hinitial =
+∑
+i∈I(+)
+(
+1−x(0)
+i
+)
++
+∑
+i∈I(−)
+x(0)
+i
+and
+Hgoal =
+∑
+i∈G(+)
+(
+1−x(L)
+i
+)
++
+∑
+i∈G(−)
+x(L)
+i .
+M actions
+N state variables
+no-op
+precond+eﬀects
+eﬀects
+yt=1
+yt=2
+xt=L
+xt=0
+xt=1
+initial
+goal
+single-action
+L-1 times
+FIG. 2: Time-slice QUBO structure for a planning problem
+with only positive preconditions and goals. Each node repre-
+sents a state variable (left) or an action (right) at any given
+time t. Time ﬂows from top to bottom, and variables y(t)
+i for
+the actions at time t are shown between the state variables
+x(t−1)
+i for one time step and the state variables x(t)
+i for the
+next time step. The node grayscale intensity represents the
+magnitude of local ﬁeld (bias) hi applied to a given qubit i,
+and the double contour in a node indicates a negative bias.
+(One interesting property of this mapping is that the nodes
+representing state variables for t⁄= 0 and t⁄= L have the
+same h value, since they all come from Hno−op. For this rea-
+son, they are all shown in same color in the diagram). Edges
+represents the couplings Jij. Their weight is not illustrated in
+the ﬁgure. In this example we consider Hsingle-action instead of
+Hconﬂicts, so all of the actions at a given time step are coupled
+to each other.
+We next add terms to the cost function that penalize
+a plan if an action is placed at time t but the prior state
+does not have the appropriate preconditions or if the sub-
+sequent state does not reﬂect the eﬀects of that action.
+Furthermore, we must penalize variable changes that are
+not the result of an action. We start with this term, the
+Hno-op term, that penalizes variable changes:
+Hno− op =
+L∑
+t=1
+N∑
+i=1
+[
+x(t−1)
+i +x(t)
+i − 2x(t−1)
+i x(t)
+i
+]
+This term gives cost penalty of 1 every time a variable
+is ﬂipped. Of course, when the eﬀect of an action does
+
+=== PAGE BREAK ===
+
+7
+result in a variable ﬂipping, we do not want this penalty,
+so we will make up for this penalty when we add the term
+that corresponds to the eﬀects of an action. First, the
+term that penalizes violation of the preconditions looks
+like
+Hprecond =
+L∑
+t=1
+M∑
+j=1
+
+
+∑
+i∈C(+)
+j
+(
+1−x(t−1)
+i
+)
+y(t)
+j
++
+∑
+i∈C(−)
+j
+x(t−1)
+i y(t)
+j
+
+
+whereC(+)
+j is the set of positive preconditions for actionj
+andC(−)
+j is the set of negative preconditions. LetE(+)
+j be
+the set of positive eﬀects for action j andE(−)
+j the set of
+negative eﬀects. The penalty if the appropriate eﬀects do
+not follow the actions is captured by the following term:
+Heﬀects =
+L∑
+t=1
+M∑
+j=1
+
+
+∑
+i∈E (+)
+j
+y(t)
+j
+(
+1 +x(t−1)
+i − 2x(t)
+i
+)
++
+∑
+i∈E (−)
+j
+y(t)
+j
+(
+2x(t)
+i −x(t−1)
+i
+)
+
+.
+In order to understand this term, we must consider it
+together with the no-op term. When y(t)
+j = 1, the cor-
+responding term for i ∈ E(+)
+j (resp. i ∈ E(−)
+j ), taken
+together with the no-op term , can be written
+(
+1 + 2x(t−1)
+i
+)(
+1−x(t)
+i
+)
+(resp.
+(
+3− 2x(t−1)
+i
+)
+x(t)
+i
+for negative eﬀects), resulting in a positive penalty unless
+x(t)
+i = 1 (resp. x(t)
+i = 0). By using this form we have
+corrected for the corresponding no-op term.
+Classical planners often allow for parallel plans not just
+“linear plans” in which more than one action can take
+place at one time if those actions could have been done
+in any order, meaning that the eﬀects of any one action
+do not conﬂict with preconditions of the other actions.
+What we have done so far works ﬁne when the precondi-
+tions mean that only one action can take place per time
+period as is the case in the navigation problems. In the
+scheduling problems, multiple actions can take place at
+the same time without conﬂicting. For general planning
+problems, we can either rule out multiple actions by im-
+posing an additional term
+Hsingle-action =
+L∑
+t=1
+
+
+M∑
+j=1
+y(t)
+j − 1
+
+
+2
+,
+or we need to add terms to penalize potential conﬂicts.
+To complicate matters, when more than one action can
+take place at a given time, we are in danger of over-
+correcting for the no-op term. If multiple actions at the
+same time have the same eﬀect, theHeﬀects term will add
+a term for each of those actions, thus overcompensating
+for the no-op penalty. To avoid overcompensating, we
+penalize multiple actions at the same time having the
+same eﬀect, discouraging all such actions. A less strin-
+gent way to avoid overcompensating would be to add this
+penalty only when the eﬀect changes the variable, as we
+have done in the no-op term. The problem is that na-
+tively that is not a quadratic term. Of course one could
+then reduce that term, but here we choose to use the
+more stringent solution. To ensure that two actions that
+conﬂict in the sense that positive preconditions of one
+overlap with negative eﬀects of the other or vice versa,
+and to avoid overcompensating, we include the penalty
+Hconﬂict =
+L∑
+t=1
+N∑
+i=1
+
+
+∑
+j|i∈C(+)
+j ∪E (−)
+j
+∑
+j′⁄=j|i∈E (−)
+j′
+y(t)
+j y(t)
+j′
++
+∑
+j
+⏐⏐⏐i∈C(−)
+j ∪E (+)
+j
+∑
+j′⁄=j
+⏐⏐⏐i∈E (+)
+j′
+y(t)
+j y(t)
+j′
+
+.
+While for explanatory purposes it was useful to in-
+clude variables for the state at time t = 0, those can be
+set ahead of time, so that we don’t need to include the
+Hinitial term. The same is true of the Hgoal term. We can
+also replace all of their occurrences in Hno-op,Hcondition,
+and Heﬀect with these set values to simplify those con-
+straints. Furthermore, if a state variable ﬁrst appears at
+time step t, then in the no-op term connecting it with
+the previous level, we can set it to 0. Finally, for the
+ﬁnal action time slot, we can remove any actions whose
+eﬀects conﬂict with the goals or do not contribute to
+the goals. These simpliﬁcations result in modiﬁed terms
+H′
+no-op, H′
+condition, and H′
+eﬀect. Additionally, since in our
+setting we have followed the convention that precondi-
+tions must be positive, we can use a simpler version of
+the Hprecond term:
+H′
+precond =
+L∑
+t=1
+M∑
+j=1
+∑
+i∈C(+)
+j
+(
+1−x(t−1)
+i
+)
+y(t)
+j .
+For the navigation problems, the QUBO simpliﬁes to
+H =H′
+no− op +H′
+precond +H′
+eﬀects,
+and for the scheduling problems the QUBO simpliﬁes to
+H = Hno− op
++H′
+precond +Heﬀects +Hsingle-action.
+
+=== PAGE BREAK ===
+
+8
+B. CNF approach
+A CNF expression overn Boolean variablesxi consists
+of a bunch of clausesCa consisting ofk variables, possibly
+negated, connected by logical ors:
+b1∨b2∨···∨ bk
+where
+bi∈{x1,x 2,...,x n,¬x1,¬x2,...,¬xn},
+and the number of variablesk in the clause can vary from
+clause to clause. A CNF for a k-SAT expression consists
+of clauses that all have the same number of variables k.
+In a CNF coming from 2-SAT, for instance, all clauses
+have the formb1∨b2. In a CNF, all of the clauses must be
+satisﬁed, which means they are connected by an and op-
+erator (the reason for the “conjunctive” in “conjunctive
+normal form”).
+We used the ﬁrst of the four PDDL to CNF translators
+built in to the SATPLAN planner [26], a classical SAT-
+based planner, to output planning problems in conjunc-
+tive normal form (CNF). Compilation planners such as
+SATPLAN perform some preprocessing, such as “reacha-
+bility” and “relevance” analysis, as part of the translation
+to reduce the size of the output. Reachability analysis
+makes a quick determination as to whether a given ac-
+tion can appear at a given time step, and removes from
+consideration at that time step any actions that it has
+determined cannot be carried out, which results in a sim-
+pliﬁed CNF expression. Similarly, if the possible actions
+at previous time steps cannot change a state variable,
+the resulting expression is simpliﬁed accordingly. For ex-
+ample, in the ﬁrst time step, only actions whose precon-
+ditions are satisﬁed in the initial state are considered.
+Then, only values of state variables that occurred in the
+initial state or are eﬀects of actions considered at the ﬁrst
+time step are considered. This process is iterated until it
+no longer results in simpiﬁcation. Relevance analysis is
+a similar process that starts its analysis in the last time
+step, considering only state variables that are goals, and
+then working backwards leaving only actions with eﬀects
+relevant to these goals in the last action time step. Rele-
+vant state variables at time step t represent the union of
+state variables at time stept+1 and the preconditions of
+all relevant actions at time step t. SATPLAN’s “action-
+based” encoding uses an advanced reachability and rel-
+evance heuristic analysis, and then further removes all
+variables representing state variables while adding con-
+straints that capture the relationships between actions in
+consecutive time steps that were previously enforced by
+relationships between actions and state variables.
+We convert a CNF instance to QUBO by ﬁrst trans-
+forming it to Polynomial Unconstrained Binary Opti-
+mization (PUBO), a generalization of QUBO in which
+the objective function is a pseudo-Boolean of arbitrary
+degree. For each clause in a given CNF instance, we in-
+troduce a term to the PUBO instance equal to the con-
+junction of the negation of the literals in that clause,
+where a positive literal is replaced by the corresponding
+binary variable and a negative literal is replaced by the
+diﬀerence of one and the corresponding binary variable.
+For example, the CNF term (x1∨¬x2∨¬x3∨x4) would
+correspond to the PUBO term (1 −x1)x2x3(1−x4).
+We then reduce higher degree terms in the PUBO in-
+stance using an iterative greedy algorithm that is related
+to one described in [9]. At each step, the pair of vari-
+ables that appears in the most terms is replaced by an
+ancilla variable corresponding to their conjunction. (If
+there are multiple such pairs, then one is chosen arbi-
+trarily.) A penalty term is introduced to enforce that the
+ancilla variable indeed corresponds to the requisite con-
+junction. The penalty weight we use is equal to one plus
+the greater of the sums of the magnitudes of the positive
+coeﬃcients and negative coeﬃcients of the terms the an-
+cilla is used to reduce [4]. The one is added to ensure
+that the constraint-satisfying states have lower energy
+than the constraint-violating states. One is convenient,
+and in keeping with the integer coeﬃcients for the other
+terms, but any positive constant would do. This proce-
+dure is repeated until the resulting PUBO is quadratic.
+C. Direct mapping of underlying graph problems
+to QUBO
+We now turn to two more compact, but problem-
+type speciﬁc mappings, the ﬁrst mapping navigation-type
+problems to QUBO problems and the second mapping
+scheduling-type problems to QUBO.
+1. Direct mapping of graph coloring to QUBO
+For a graph coloring problem with n vertices and k
+colors, we have kn binary variables, xic, where xic = 1
+means that vertex i is colored with color c, and xic = 0
+means it is not.
+The QUBO contains two diﬀerent types of penalty
+terms. The ﬁrst corresponds to the constraint that each
+vertex must be colored by one, and no more than one,
+color: ∑k
+c=1xic = 1. So for each vertex i, we have a term
+(
+1−
+k∑
+c=1
+xic
+)2
+.
+The second corresponds to the constraint that two ver-
+tices connected by an edge cannot be colored with the
+same color. For each vertex i, we have a term
+∑
+(i,j)∈E
+∑
+c
+xicxjc.
+Altogether the QUBO is
+n∑
+i=1
+(
+1−
+k∑
+c=1
+xic
+)2
++
+∑
+(i,j)∈E
+∑
+c
+xicxjc.
+
+=== PAGE BREAK ===
+
+9
+2. Direct mapping of Hamiltonian Path Problems to QUBO
+For a Hamiltonian path problem with n sites, we have
+n2 variables
+{x11,...,x 1n,x 21,...,x 2n,...,x n1,...,x nn.}
+The ﬁrst indexi gives the site, the second index gives the
+time slot, so xij = 1 means that the ith site is the jth
+site visited, and xij = 0 means that the ith site is not
+visited in the jth time slot.
+There are three types of terms in the QUBO cost func-
+tion: penalties if a site is visited more or less than once,
+penalities if more than one site is visited in a given time
+slot, and penalities for violation of edge constraints.
+The ﬁrst type of term enforceses that each site is visited
+exactly once: For each site i, we will have a term of the
+form
+(
+∑
+j
+xij− 1)2.
+The second type of term enforces that in each time slot
+no more than one site is visited (we may as well enforce
+it to be exactly one): For each time slot j, we have a
+term of the form
+(
+∑
+i
+xij− 1)2.
+The third type of term is a single term penalizing the
+violation of edge constraints. It penalizes bisiting thei′th
+site right after the ith site if they are not connected by
+an edge:
+j=n−1∑
+j=1
+∑
+i,i′st(i,i′) /∈E
+xijxi′,j+1.
+There are 2n + 1 terms all together.
+VI. METHODS
+All quantum annealing runs were performed on the
+509-qubit D-Wave Two machine housed at NASA Ames.
+In all cases, we used an annealing time of 20 µsec, the
+fastest annealing time currently available on the ma-
+chine, which is also D-Wave’s recommended annealing
+time given that current data suggests that an even faster
+annealing time would be optimal [39]. For each embed-
+ded QUBO instance, we performed 45 , 000 anneals at
+each of ten gauges, for a total of 450 , 000 anneals per
+QUBO instance. Gauges, which determine whether the
+bit values{0, 1} of each QUBO variable are mapped to
+{−1, 1} or{1,−1}, are used to reduce the eﬀects of asym-
+metries in the hardware [35, 39].
+From a QUBO instance generated as described in Sec-
+tion V, we generate the embedded instance by running D-
+Wave’s heuristic embedding software [10] on the original
+QUBO instance. We use the software’s default parame-
+ters, including a maximum of 10 tries, unless otherwise
+noted. The output of the embedding software is a set
+of disjoint connected components of the hardware graph
+Ci, one for each variable xi in the original QUBO. We
+performed our own parameter setting, rather than us-
+ing D-Wave’s which tries successive parameter values, so
+that we could obtain statistics for a variety of parameter
+settings.
+From the original QUBO instance, we obtain the logi-
+cal Ising instance
+hisi +Jijsisj
+through the standard translation of the variables si =
+1−2zi. To obtain the embedded Ising instance, we evenly
+distribute the bias hi in the logical Ising instance among
+the qubits corresponding to the nodes in Ci: we set the
+linear coeﬃcient for each variable y in Ci to be hi
+|Ci|.
+We set all internal couplings, couplings between physi-
+cal qubits that represent the same logical variable in the
+original QUBO, to the internal coupling constant Jint,
+a value we specify; the coeﬃcient of all quadratic terms
+yy′ such that y and y′ are both in Ci for some i are set
+to Jint. We describe shortly the results we obtained in
+experiments varying this value. The only other couplings
+are between sets of physical qubits Ci and Cj represent-
+ing two diﬀerent logical variables xi and xj that appear
+together in a quadratic term in the original QUBO. In
+many cases there is only one edge in the hardware graph
+between the qubits in Ci and Cj. In this case, we set
+the coupling between them to Ji,j. When more than one
+edge exists between these sets, we choose one of them,
+and set its coupling to Ji,j. All other couplings are set
+to zero.
+Our test set consists of 100 solvable problem instances
+at the phase transition for each size for both planning
+problem types. We generated the problems as described
+in [38], and then took the ﬁrst 100 solvable problems. For
+the sizes in which [38] already had generated problems,
+we use the ﬁrst 100 solvable instances tested there. The
+smallest size problems we considered of the navigation-
+type were of size 4. For the scheduling-type problems, we
+started at size 8 because the phase transition parameter
+is inaccurate for smaller sizes, biasing the results toward
+unsolvable instances.
+Because all of the problems we consider are solvable,
+we know the ground state energy in all cases; zero, the
+minimal value of the QUBO in all cases is attainable, and
+from that we can compute the ground state energy of the
+embedded Ising problem that was actually run. For each
+embedded instance, once we obtain the 450 , 000 results
+from the run, we check how many times the ground state
+energy was obtained, which gives us the probability of
+solution r for a 20 µsec anneal. We then compute the
+expected number of runs k = ln(1−0.99)
+ln(1−r) required to ob-
+tain a 99% success probability, multiply by the anneal
+time of 20 µsec, and report 20 k µsec, the expected to-
+tal anneal time to obtain a 99% success probability. We
+
+=== PAGE BREAK ===
+
+10
+are eﬀectively using a 0 .9 sec. cutoﬀ time, since the ex-
+pected anneal time when only one anneal solves is 0 .9
+secs. Given that classical planners solve these problems
+in less than 0 .1 secs., with the best planners for these
+problems solving them in less than 0 .01 secs. [38], this
+cutoﬀ time seems reasonable.
+We report the median expected total anneal time
+across 100 instances, with error bars corresponding to the
+35th and 65th percentiles. Thus each data point shown
+represents 45 million anneals. While the total anneal-
+ing time for each point is only 90 seconds, because the
+read-in and read-out take considerably longer than the
+anneal time, and because of contention for the machine,
+the wall clock time to obtain a single data point is hours
+not minutes. Finding the embedding, by far the longest
+step in the process, can take minutes for the largest in-
+stances, but fortunately needs to be performed only once
+per QUBO instance.
+The ground state energy of the embedded Ising model
+will not be obtained if the ﬁnal bit values diﬀer between
+any two physical qubits representing the same logical
+qubit. This observation suggests a simple, totally clas-
+sical error correction scheme that uses majority voting
+among all physical qubits representing the same logical
+qubit. This error correction scheme is working at a diﬀer-
+ent level from that in Pudenz et al. [36]; the benchmark
+problems in Pudenz et al. are native problems that do
+not require an embedding step in order to be run on the
+hardware. We report expected total anneal time both
+with and without this simple form of error correction.
+VII. RESULTS ON SCHEDULING-TYPE
+PLANNING PROBLEMS
+Because the scheduling-type planning problems em-
+bedded much more easily than the navigation-type plan-
+ning problems, we were able to do signiﬁcantly more
+analysis of the the choices aﬀecting the D-Wave Two’s
+performance on these problems than on the navigation-
+type problems. We ﬁrst examine performance of the D-
+Wave Two on scheduling-type instances mapped using
+the two general approaches for mapping planning prob-
+lems to QUBOs. We then turn to the results on these
+instances using the mapping speciﬁc to the scheduling
+approach, the direct mapping from scheduling-type plan-
+ning problems to QUBO.
+A. Time-slice and CNF mapping results
+Fig. 3 shows the relative performance, in terms of
+median expected total annealing time for 99% percent
+success, of the D-Wave Two on the benchmark set of
+scheduling-type planning problems. When at least half
+of the instances do not solve within the 0 .9 sec. eﬀective
+cutoﬀ time, we no longer show the point. For the CNF
+mapping, that happens already by problem size 11. For
+8 10 12 14 16
+Problem size n: number of tasks
+Median Expected Total Anneal Time 
+ to 99% success in microsecs.
+10 100 1000 1e+05
+CNF: α=1.76±0.104
+TS: α=1.37±0.087
+dirMap: α=1.01±0.045
+FIG. 3: Comparison of the median expected total an-
+neal time to 99% percent success for the three map-
+pings of scheduling-type planning problems. The re-
+sults with the best Jint are shown. (See Sec. VII D and
+Fig. 10 for how these values were determined.) For the CNF
+mapping, Jint was{1.2, 1.3, 1.4} for problem sizes {8, 9, 10}.
+For the time-slice mapping, Jint was{1.6, 1.7, 1.7, 1.7, 1.6} for
+problem sizes{8, 9, 10, 11, 12}. For the direct mapping, Jint
+was {1.1, 1.1, 1.3, 1.3, 1.3, 1.4, 1.4, 1.4, 1.4} for problem sizes
+{8, . . . ,16}. Each data point shows the median expected total
+annealing time to achieve 99% success over the 100 problems
+of each size given on the x-axis. The error bars are at the
+35th and 65th percentiles. When at least half of the instances
+do not solve within the 0 .9 sec. eﬀective cutoﬀ time, we no
+longer show the point. Also, when fewer than 65% solve, the
+top of the error bar is indeterminate, as happened for the last
+point shown in both the CNF and time-slice series.
+the time-slice instances, at least half do not solve within
+the cutoﬀ time by problem size 13, and for the direct map
+by problem size 17.
+Not surprisingly, the median expected total anneal
+time to 99% success is substantially lower for the direct
+map instances than for the time-slice or CNF instances;
+it is about a factor of 100 smaller for all problem sizes in
+the range. The direct mapping is tailored to this partic-
+ular kind of scheduling-type planning problems, rather
+than being applicable to planning problems in general.
+For this reason, the QUBO mapping is much more ef-
+ﬁcient (Fig. 4), exactly 3 /8 smaller than the time-slice
+QUBOs across the entire size range. The typicial embed-
+ding size (Fig. 6) is also smaller, roughly half that of the
+other mappings. For these reasons, it is to be expected
+that the performance on the directly mapped problem
+instances is signiﬁcantly better than the performance for
+either of the general-purpose mappings that, unlike the
+direct mapping, can be applied to any planning problem.
+More surprising is the substantial diﬀerence between
+the performance on the time-slice mapped instances and
+the CNF mapped instances, with the median expected
+total annealing time to achieve 99% success being about
+a factor of 5 greater for the CNF instances than the
+time-slice instances (Fig. 3). The scaling for the time-
+slice approach is also signiﬁcantly better than for the
+
+=== PAGE BREAK ===
+
+11
+8 10 12 14 16
+0 20 40 60 80 100
+Problem size n: number of tasks
+Median QUBO size
+CNF
+TS
+dirMap
+FIG. 4: Comparison of QUBO size across mappings
+of the scheduling-type planning problems. The QUBO
+size for the direct map is simply 3 n, and for the time-slice
+map it is 8 n, where n is the number of tasks that need to
+be scheduled. The QUBO sizes for the CNF mapping vary,
+so for this case, we are showing the median QUBO size over
+the 100 problems of that size. Some of the error bars for the
+CNF mapping at the 35th and 65th percentiles are too small
+to see.
+CNF approach, with an α value of 1.37 rather than 1.76
+(though the scaling is estimated on very few data points).
+The time-slice and CNF mappings yield comparably-
+sized QUBOs (Fig. 4), with similar numbers of comput-
+ings (Fig. 5). For problem size n, the time-slice mapping
+yields a QUBO of size 8 n qubits. The CNF approach
+yields variable size QUBOs, with the median size CNF
+QUBO over 100 problems only 4 to 8 qubits larger than
+the median size of the time-slice QUBOs for problem sizes
+{8, 9, 10, 11, 12}. The median number of couplings for
+the CNF QUBOs exceeds that of the time-slice QUBOs
+by only{8, 10, 8, 16, 9} for problem sizes{8, 9, 10, 11, 12}
+respectively. Even the median embedding sizes of the
+CNF QUBOs are only{7, 14, 26, 28, 12} qubits larger re-
+spectively than the embedded time-slice QUBOs in this
+range, no more than a 10% diﬀerence across this range
+(Fig. 6).
+B. Comparing embedding properties across
+mappings
+While the diﬀerence in performance between the CNF
+and time-slice instances is likely due in part to the some-
+what larger size of the embedded CNF QUBOs, other
+factors likely contribute to this diﬀerence. One possible
+factor is the size of the embedding components, the num-
+ber of physical qubits representing a logical qubit. For
+example, D-Wave recommends both minimizing the size
+of the embedding and the maximum component size in
+an embedding [10]. Also, for anti-ferromagnetic chains,
+Pudenz et al. [36] showed that the performance of the
+D-Wave Two decreases with chain size. Because in our
+8 10 12 14 16
+0 50 100 150 200
+Problem size n: number of tasks
+Median number of couplings
+CNF
+TS
+dirMap
+FIG. 5: Comparison of the number of couplings in the
+QUBOs obtained from the three diﬀerent mappings
+of the scheduling-type planning problems. The median
+number of couplings in the QUBOs for the 100 problems of
+each size is shown, with error bars at the 35th and 65th per-
+centiles.
+8 10 12 14 16
+0 100 200 300 400
+Problem size n: number of tasks
+Median embedding size
+CNF
+TS
+dirMap
+FIG. 6: Comparison of embedding size across map-
+pings of the scheduling-type planning problems. Me-
+dian embedding size over the 100 problems of size n. The
+error bars are at the 35th and 65th percentiles.
+case the components can have a more complex topology
+than a single chain, are subject to local ﬁelds, and have
+couplings to qubits outside the component, it is unclear
+to what extent we would see the same behavior. Thus,
+the relative component sizes require investigation.
+Fig. 7 (Top) conﬁrms, as would be expected given the
+similar enbedding and QUBO sizes for the CNF and time-
+slice instances, that the median average component size
+across the 100 problems is statistically indistiguishable
+in the two cases across the range of sizes. Furthermore,
+throughout the size range tested, the median median
+component size – the median over the 100 problem in-
+stances of the median component size of each instance
+– and even the median 65th percentile component size,
+for both mappings is 1. By the 90th percentile, the com-
+ponent size has increased signiﬁcantly in both cases, but
+
+=== PAGE BREAK ===
+
+12
+8 10 12 14 16
+0 1 2 3 4 5 6
+Problem size n: number of tasks
+Median average component size
+CNF
+TS
+dirMap
+8 10 12 14 16
+0 2 4 6 8 10 12
+Problem size n: number of tasks
+Median 90th percentile component size
+CNF
+TS
+dirMap
+8 10 12 14 16
+0 5 10 15
+Problem size n: number of tasks
+Median maximum component size
+CNF
+TS
+dirMap
+FIG. 7: Comparison of component sizes for scheduling-
+type planning problems. Median average component size
+(Top): We computed the average of the component sizes, the
+number of physical qubits representing each logical qubit, and
+then took the median over all the 100 problem instances of
+that size. Median 90th percentile component size (Middle) :
+We calculated the component size at the 90th percentile for
+each problem, and then took the median over all the 100
+problem instances of that size. Median maximum component
+size (Bottom): We determined the largest component size for
+each problem, and then took the median over all 100 instances
+of each size. Error bars are at the 35th and 65th percentiles.
+the two cases are statistically indistinguishable (Fig. 7
+(Middle)). Even the median maximum component size
+hardly diﬀers between the two mappings (Fig. 7 (Bot-
+tom)): for problem sizesn ={8, 9, 10, 11, 12}, the median
+maximum component size for the time-slice instances was
+{9, 11, 11, 12, 13}, whereas for the CNF instances it was
+{9, 11, 11.5, 13, 14}. Given that the median maximum
+component size was identical for the two smallest sizes,
+even though the performance was markedly diﬀerent in
+the two cases, and the diﬀerence between the median
+maximum component sizes was no more than 1 for the
+other sizes, we conclude that component size did not con-
+tribute signiﬁcantly to the diﬀerence in performance be-
+tween the time-slice and CNF instances.
+Even though the QUBO size under the direct map is
+never much more than roughly half the size of the QUBOs
+under the two general mappings in the size range consid-
+ered, both in terms of number of qubits (Fig. 4) and the
+number of couplings (Fig. 5), the typical component size
+in the embedded direct mapping instances is markedly
+larger than for the CNF and time-slice mappings. Fig. 7
+shows the median average component size. The direct
+map typical component size is signiﬁcantly greater than
+the typical component size for the CNF and time-slice
+mappings throughout the range of problem sizes. Even
+at problem size 8 it is markedly higher than for the other
+two. While, the median median component size was 1 for
+both the CNF and time-slice mappings throughout the
+range considered, the median median component size for
+the direct map started at around 4 at size 8 and rose to
+close to 4.5 by problem size 18.
+The size of the top 10 percent of the components in
+these embeddings, however, is markedly lower than that
+of the CNF and time-slice mappings; even at problem
+size 16 it is still lower than the value for problem size
+8 for the more general mappings. These ﬁndings are
+consistent with D-Wave’s recommendation to minimize
+the maximum component size, not just the total embed-
+ding size (or equivalently, the typical component size).
+The results for the time-slice versus CNF instances of
+the same underlying scheduling-type planning problems
+suggest that further investigation is needed as to what
+properties of mappings and embeddings correspond to
+better or worse performance, and that more sophisticated
+metrics for good embeddings are needed.
+C. Comparing two diﬀerent annealing proﬁles
+The D-Wave Two machine has ﬁxed functionsA(s) and
+B(s) for the weights of the driver and problem Hamilto-
+nians in the control Hamiltonian of Eqn. 1. The user
+can vary only the overall annealing time, and as men-
+tioned, the overwhelming evidence is that for the present
+machine the shortest possible annealing time is best. In-
+advertently, we were able to experiment with an alter-
+nate annealing proﬁle, albeit a nonstandard one. The
+D-Wave Two has two annealing lines, both common to
+
+=== PAGE BREAK ===
+
+13
+0 0.2 0.4 0.6 0.8 1
+1
+2
+3
+4
+5
+s
+GHz
+FIG. 8: Weightings of the diﬀerent components of the
+Hamiltonian prior to recalibration. The ﬁgure shows
+the discrepancy between the strength B′(s) of the local ﬁelds
+(dashed line) and the strength B(s) of the couplings (solid
+line) in the problem Hamiltonian during annealing prior to
+recalibration as they increase throughout the anneal. The
+strength of the driver Hamiltonian as it decreases throughout
+the anneal is also shown. Normally in an anneal, there is only
+a single weighting for the problem Hamiltonian, as in Eqn 1.
+Indeed, after recalibration, the strength of the local ﬁelds has
+been adjusted to equal that of the couplings, soB′(s) becomes
+B(s).
+all qubits. These lines aﬀect the local ﬁelds hi and cou-
+pling coeﬃcients Jij diﬀerently. When they are not fully
+synchronized, eﬀectively the B(s) weighting splits into
+two weightings, the original B(s) weighting for the cou-
+plings and a B′(s) weighting for the local ﬁelds. When
+we ﬁrst ran, these two lines were not fully synchronized.
+While the two converged near the end of the anneal, for
+much of the time, the strength of the local ﬁelds for the
+problem Hamiltonian was 2−3 GHz less than that of the
+coupling strength for the problem Hamiltonian (Fig. 8).
+The synchronization issue was ﬁxed by estimating the
+time-dependence of the persistent current and modifying
+the signal in annealing lines so as to compensate for the
+eﬀect and make the weights on the coupling and local
+ﬁelds uniform.
+Fig. 9 shows results on directly mapped instances both
+before and after the recalibration. While the recalibra-
+tion improved results for problems other groups were run-
+ning on the machine, it resulted in a substantial decrease
+in performance on the directly mapped scheduling-type
+planning problems, both in terms of the absolute total
+annealing time and in the scaling, withα increasing from
+0.6 to 1.0.
+D. Performance dependence on the internal
+coupling
+We now turn to how the value of Jint aﬀects perfor-
+mance for each of the three diﬀerent mappings. Naively,
+8 10 12 14 16
+Problem size n: number of tasks
+Median Expected Total Anneal Time 
+ to 99% success in microsecs.
+10 1000 1e+05
+Before calib:α=0.6±0.029
+After calib: α=1.01±0.045
+FIG. 9: Median expected total anneal time before and
+after a recalibration. The performance on the directly
+mapped scheduling-type planning problems decreased signiﬁ-
+cantly after recalibration. Shown is the median expected total
+anneal time for 99% percent success for Jint = 1.25 before the
+recalibration, and the results for the bestJint after calibration
+(same as in Fig. 3). The variability in the expected total an-
+neal time across the 100 problems also increased, as illustrated
+by the error bars at the 35th and 65th percentiles. While the
+recalibration improved results for other problems run on the
+machine, the reverse held for the planning problems we ran.
+one might expect that one should set Jint as high as
+possible, so as to penalize states in which the bit values
+of the physical qubits representing one logical qubit dif-
+fer, but there are reasons why setting it too high can be
+detrimental [13]. The ﬁrst is that doing so can increase
+the diﬃculty of transfering amplitude from a local mini-
+mum in which all of the bit values for a component are
+equal but set to the wrong value. The second is that the
+device has a ﬁnite range of possible couplings, and suf-
+fers from signiﬁcant precision issues, meaning that the
+noise in the applied coupling strengths is high enough
+that only about 16 diﬀerent values can be distinguished.
+When an Ising problem is sent to the machine, the prob-
+lem Hamiltonian is automatically rescaled so as to take
+advantage of the full range. If Jint is set too high, how-
+ever, when the problem is rescaled, all of the other ﬁeld
+strengths become indistinguishable from 0, and all infor-
+mation speciﬁc to the problem is lost. For these reasons,
+there is a sweet spot for Jint.
+For each mapping, a quick parameter sweep was done
+(not shown) to locate the correct range in which to per-
+form a more detailed evaluation. The tables in Fig. 10
+give the median expected total anneal time for 99% per-
+cent success over the benchmark problems under various
+values of Jint for each of the three mappings, with cell
+colorings determined from the success probabilities. The
+table for the direct mapping shows that the optimal value
+of Jint increases as the problem size and the component
+size increase, likely because a higher value ofJint is useful
+for pressuring all of the qubits in the larger components
+to take on the same value by the end of the computa-
+tion. The tables for the CNF and time-slice mapping are
+
+=== PAGE BREAK ===
+
+14
+65 691
+16 234
+12 649
+13 515
+15 873
+948 087
+151 238
+117 156
+88 075
+108 917
+/Infinity
+/Infinity
+/Infinity
+537 766
+426 749
+8 9 10
+1.1
+1.2
+1.3
+1.4
+1.5
+n
+Jint
+CNF mapping
+5143
+3495
+4218
+6059
+7737
+24 530
+24 966
+23 053
+27 766
+35 007
+115 032
+66 848
+61 395
+77 192
+110 587
+364 986
+217 579
+196 123
+219 875
+305 962
+/Infinity
+1 119 054
+/Infinity
+/Infinity
+/Infinity
+8 9 10 11 12
+1.5
+1.6
+1.7
+1.8
+1.9
+n
+Jint
+time/Minusslice mapping
+42
+44
+42
+48
+57
+49
+54
+73
+86
+108
+210
+205
+199
+229
+273
+818
+623
+532
+550
+655
+4396
+3503
+1929
+2136
+2560
+26 271
+13 153
+8463
+6832
+7507
+75 559
+20 613
+13 708
+11 349
+12 028
+777 120
+78 794
+67 129
+45 927
+59 552
+/Infinity
+162 471
+82 024
+63 255
+68 279
+8 9 10 11 12 13 14 15 16
+1.1
+1.2
+1.3
+1.4
+1.5
+n
+Jint
+direct mapping
+FIG. 10: Performance for diﬀerent values of Jint on the three diﬀerent mappings of scheduling-type planning
+problems. The numbers are the median expected total anneal time for 99% percent success over the benchmark set of 100
+hard but solvable scheduling-type problems of each size for diﬀerent values of Jint under the three mappings. The colors were
+determined from the success probabilities, with each column normalized by the largest value for the given mapping and size.
+Deep red indicates the largest value, with the colors ranging from orange to yellow to white indicating lower and lower success
+probabilities.
+less conclusive, particularly since only a handful of an-
+neals resulted in a solution for the largest sizes (the last
+column of each table), but they are consistent with this
+trend. The time-slice instances beneﬁt from somewhat
+higher values of Jint than the other two mappings. The
+same trend was also found in [44].
+E. Performance with a simple error correction
+scheme
+The simple error correction scheme of Sec.VI does not
+provide signiﬁcant improvements in performance on these
+problems under any of the mappings, as can be seen in
+Fig. 11. The time-slice results suggest that error cor-
+rection could provide more signiﬁcant improvements as
+the problem size increases. The results on the directly
+mapped instances, however, show no improvement with
+error correction over the whole range of problem sizes.
+The error correction scheme acts only on physical qubits
+representing the same logical bit that end up taking on
+opposite values. The reason for these opposite values is
+likely that there are conﬂicting constraints with neigh-
+boring values. For this reason, majority voting error cor-
+rection at this level, while it removes any energy penalties
+resulting from disagreements within the component, will
+often increase the penalties from constraints involving
+neighboring logical qubits.
+VIII. RESULTS ON NAVIGATION-TYPE
+PLANNING PROBLEMS
+For both the CNF and time-slice mappings of problems
+from the parametrized family of navigation-type plan-
+ning problems, the largest problem size that embedded
+was size 4. For the navigation-speciﬁc direct mapping,
+problems of size 6 embedded reliably, but problems of
+size 7 no longer embedded. We increased the number of
+embedding tries, and even asked D-Wave to try to em-
+bed these problems for us, but without success. Only
+problems with fewer than 33 vertices are guaranteed to
+embed in the 512 vertex (8 , 4)-Chimera graph, so these
+49-qubit QUBOs may not embed in the current hard-
+ware. While the directly mapped navigation-type plan-
+ning problems have QUBO graphs that are far from fully-
+connected - the number of edges in these graphs goes up
+linearly with size not quadratically - they appear to be
+suﬃciently connected that it may be impossible to em-
+bed any size 7 navigation-type planning problem in the
+current hardware. The next section explores embedding
+these problems in larger architectures. For those prob-
+
+=== PAGE BREAK ===
+
+15
+8 9 10 11 12
+Problem size n: number of tasks
+Median Expected Total Anneal Time 
+ to 99% success in microsecs.
+1000 10000 1e+05 1e+06 with EC: α=1.77±0.09
+w/o EC: α=1.76±0.104
+8 9 10 11 12
+Problem size n: number of tasks
+Median Expected Total Anneal Time 
+ to 99% success in microsecs.
+1000 10000 1e+05 1e+06 with EC: α=1.26±0.055
+w/o EC: α=1.37±0.087
+8 10 12 14 16
+Problem size n: number of tasks
+Median Expected Total Anneal Time 
+ to 99% success in microsecs.
+10 1000 1e+05
+with EC: α=1.01±0.041
+w/o EC:  α=1.01±0.045
+FIG. 11: Comparison of performance with and with-
+out simple error correction on the three mappings of
+scheduling-type planning problems. Median expected
+total anneal time for 99% percent success for each mapping,
+with the best Jint for each size, are shown. CNF mapping
+(Top): In the corrected case, Jint was{1.6, 1.5, 1.7, 1.5, 1.6}
+for problem sizes {8, 9, 10, 11, 12} respectively. For the un-
+corrected case, Jint was {1.6, 1.7, 1.7, 1.7, 1.6} respectively.
+Time-slice mapping (Middle): In the corrected case, Jint
+was {1.2, 1.3, 1.3} for problem sizes {8, 9, 10} respectively.
+For the uncorrected case, Jint was {1.2, 1.3, 1.4} respec-
+tively. Direct mapping (Bottom): In the corrected case, Jint
+was {1.1, 1.1, 1.2, 1.3, 1.3, 1.4, 1.4, 1.4, 1.4} for problem sizes
+{8, . . . ,12} respectively. For the uncorrected case, Jint was
+{1.1, 1.1, 1.3, 1.3, 1.3, 1.4, 1.4, 1.4, 1.4} respectively.
+lems that did embed, the D-Wave machine solved them
+reliably and quickly.
+IX. EMBEDDING IN FUTURE
+ARCHITECTURES
+We investigated the embeddability of the most embed-
+dable graph, the graph corresponding to the direct map-
+ping to QUBO of the trivial Hamiltonian path problem
+on the fully connected graph Kn of size n. This graph,
+which we call the intersecting-cliques graphIC n,n for rea-
+sons that will become apparent shortly, is a subgraph of
+all the directly mapped navigation problems of its size
+(and larger) so if this one doesn’t embed, none of the
+others will. The graph is far from fully connected, each
+of the n2 vertices having degree only 2( n− 1), but the
+degree does grow in linearly with the size of the prob-
+lem. The n2 vertices in the graph can be partitioned
+into a set of n cliques each containing n vertices in two
+diﬀerent ways. The ﬁrst clique partition corresponds to
+the QUBO term enforcing the condition that each site is
+visited exactly once, and the second to the QUBO term
+enforcing the condition that only one site is visited at
+a time. The n vertices in any one of the cliques in the
+ﬁrst set are all in diﬀerent cliques of the second set. This
+property inspired the name. Diagram of IC5,5 andIC3,3
+are shown in Fig. 12.
+We investigated the embeddability of these problems
+in potential future architectures, speciﬁcally ( M,L )-
+Chimera graphs 13 in which either the number of unit
+cells M2 or the size of the unit cell KL,L is increased,
+or both. A deterministic algorithm [27] provides an em-
+bedding of any graph with no more than ML + 1 ver-
+tices in an ( M,L )-Chimera graph, but for graphs that
+are far from fully connected, this algorithm is usually
+quite ineﬃcient in the number of qubits used, and in
+practice many graphs can embed in a smaller Chimera
+graph than is found by this algorithm. In particular,
+D-Wave’s heuristic embedding software often ﬁnds more
+eﬃcient embeddings.
+To investigate the embeddability of these problems
+in future architectures, we ran D-Wave’s heuristic em-
+bedding software 11 times per problem on each ( M,L )-
+Chimera graph architecture. The heuristic embedding
+software was run with default parameters, including up
+to 10 restarts if an embedding is not found on a given
+try. We recorded the 11 embedding sizes we obtained.
+Fig. 14 shows the minimum embedding size for archi-
+tectures in which the size of the unit cell KL,L remains
+constant with L remaining at its current value of L = 4,
+but the number of unit cells is increased. As can be seen
+in the ﬁgure, increasing the number of unit cells, while
+retaining the current size of the unit cells (L = 4), hardly
+improves the size of the embeddings of problems that em-
+beddeded in smaller architectures, but does extend the
+problem size that embeds somewhat.
+Fig. 15 shows the minimum embedding size for archi-
+
+=== PAGE BREAK ===
+
+16
+1,1
+1,2
+1,3
+1,4
+1,5
+2,1
+2,2
+2,3
+2,4
+2,5
+3,1
+3,2
+3,3
+3,4
+3,5
+4,1
+4,2
+4,3
+4,4
+4,5
+5,1
+5,2
+5,3
+5,4
+5,5
+1,1
+1,2
+1,3
+2,1
+2,2
+2,33,1
+3,2
+3,3
+FIG. 12: The intersecting-cliques graphs IC5,5 and
+IC3,3. The intersecting-cliques graph IC n,n is a subgraph
+of all navigation-type problems with n or more sites. It corre-
+sponds to the trivial navigation-type problem in which every
+site is connected directly to every other site. It is the most
+embeddable of the navigation-type problems, meaning that if
+it does not embed then neither will any of the other problems
+with the same number of sites (or more).
+tectures in which the size of the unit cellKL,L is increased
+while the number of unit cells stays constant at its current
+valueM2 = 64. As can be seen in the ﬁgure, increasing
+the size of the unit cells, and thus increasing the local
+connectivity of the graph, even while the number of unit
+cells constant, signiﬁcantly improves the embedding size
+and the embeddability of these problems.
+Fig. 16 explores the embeddability of IC k,k for k ∈
+FIG. 13: The (3, 4)-Chimera graph. A schematic diagram
+from [42] of the ( M, L)-Chimera graph underlying D-Wave’s
+architecture. In the (3 , 4)-Chimera graph shown, there are
+M2 = 9 unit cells, each of which is a fully-connected bipartite
+graph K4,4 containing 2L qubits. The qubits in the left col-
+umn of each unit cell are connected to the analogous qubits in
+the unit cells above and below (add or subtract M L = 24 to
+the index) and the qubits in the right column of each unit cell
+are connected to the analogous qubits in the unit cells to the
+right and left (add or subtract 2 L = 8 to the index). The D-
+Wave Two used in the experiments has a (8, 4)-Chimera graph
+architecture, but with 3 broken qubits that are not used.
+{7, 8, 9, 10} for the full range of architectures with M∈
+{8,..., 16} and L∈{ 4,..., 10}. The embedding soft-
+ware runs in seconds for problem sizes less than 7, but
+increases rapidly after that, with the 11 embedding trials
+taking 30− 45 minutes for some of the larger problem
+sizes. For this reason, we did not explore problem sizes
+larger than 10.
+By the end of 2014, a 1024 qubit D-Wave machine
+should be available at NASA, and sometime in 2015,
+a 2048 machine should be available. Unfortunately, if
+these qubit numbers are achieved by simply increasing
+the number of unit cells, rather than increasing the con-
+nectivity of the unit cells, or moving to a diﬀerent archi-
+tecture altogether, it looks likely that only navigation-
+type planning problems of size less than 10 will be able to
+be run on such machines due to the diﬃculty embedding
+larger instances in these hardware graphs. Alternative
+embedding strategies could improve these results, but
+in the near-term, scheduling-type planning problems ap-
+pear more suitable than navigation-type planning prob-
+lems for these near-term Chimera architectures withK4,4
+unit cell. For real world planning applications that com-
+bine both navigation and scheduling aspects, the design
+of new hardware architectures that will overcome the
+
+=== PAGE BREAK ===
+
+17
+0 
+200 
+400 
+600 
+800 
+1000 
+1200 
+1400 
+1600 
+1800 
+0 1 2 3 4 5 6 7 8 9 10 
+Minimum embedding size 
+Problem size 
+Minimum embedding size (L=4) 
+M=8 
+M=9 
+M=10 
+M=11 
+M=12 
+M=13 
+M=14 
+M=15 
+M=16 
+FIG. 14: IC k,k embedding sizes with increasing number
+of K4,4 unit cells. The embedding sizes of the intersecting-
+cliques graph IC k,k for k≤ 10 in ( M, 4)-Chimera graphs for
+M∈{ 8, . . . ,}. Increasing the number of unit cells, M2, does
+little to improve the embedding sizes of graphs that embedded
+in a smaller architecture, but does extend somewhat the range
+of k over which IC k,k embeds reliably within 11 runs of the D-
+Wave heuristic embedding software with default parameters.
+The points for sizes 0 and 1 were put in manually. The rest
+reﬂect runs of D-Wave’s heuristic embedding software.
+0 
+200 
+400 
+600 
+800 
+1000 
+1200 
+0 1 2 3 4 5 6 7 8 9 10 
+Minimum embedding size 
+Problem size 
+Minimum embedding size (M=8) 
+L=4 
+L=5 
+L=6 
+L=7 
+L=8 
+L=9 
+L=10 
+FIG. 15: IC k,k embedding sizes with increasing unit
+cell size. The embedding sizes of the intersecting-cliques
+graph IC k,k for k ≤ 10 in (8 , L)-Chimera graphs for L ∈
+{4, . . . ,10}. Increasing the size of the KL,L unit cells, and
+thereby the local connectivity of the hardware graph, while
+keeping the number of unit cells constant, enables improved
+embedding sizes of graphs that embedded in a smaller archi-
+tecture, as well as extending the range of k for which IC k,k
+embeds reliably.
+4 
+5 
+6 
+7 
+8 
+9 
+8 10 12 14 16 
+L 
+M 
+Embedded up to N=6 
+Embedded up to N=7 
+Embedded up to N=8 
+Embedded up to N=9 
+Embedded for N=0-10 
+FIG. 16: Embedding of IC k,k graphs in (M, L)-Chimera
+graphs. Embedding of IC k,k for k≤ 10 in ( M, L)-Chimera
+graphs for M∈{ 8, . . . ,16} and L∈{ 4, . . . ,8}. Dots show the
+largest size problem which embedded in the given architecture
+in 11 runs of the D-Wave heuristic embedding software with
+default parameters. Crosses indicate that the next largest
+size problem (n = 11) was not run, so we do not have data to
+indicate whether or not it would have embedded in the given
+Chimera architecture.
+programming bottleneck presented by embedding these
+problems is critical.
+While the scheduling-type planning problems embed
+better than the navigation-type planning problems, for
+both of the general mappings, by around problem size 15
+or 16, the heuristic embedding software has diﬃculty em-
+bedding these problems. For the direct map instances,
+the heuristic embedding software had no problems em-
+bedding instances up to problem size 17, begins to have
+occasional diﬃculties at problem size 18, and has serious
+diﬃculties embedding most of the problems by size 22.
+We ﬁnish the discussion of embedding in future archi-
+tectures with an analysis of the embeddability of the sim-
+plest solvable scheduling-type planning problem, the one
+that corresponds to a completely disconnected graph of
+n vertices. As in the navigation case, its QUBO graph is
+a subgraph of the QUBO graph for all of the scheduling-
+type problems, so if it doesn’t embed, none will. The
+analysis is easier than in the navigation case, and can
+be done by hand. The QUBO graph consists of n tri-
+angles (we are considering the 3 time slot case). Since
+k triangles can embed in a K2k,2k unit cell, an (M, 2k)-
+Chimera architecture supports the embedding of the sim-
+plestkM 2-task problem. Since 4 vertices are required to
+embed a triangle in Chimera graph architecture, this em-
+bedding is optimal. As an example, the simplest problem
+with 128 tasks embeds in a 512 qubit machine, and the
+512 task problem embeds in the 2048 machine projected
+for 2015. In addition, preliminary tests show that typical
+scheduling-type problems of size well past 50 will embed
+in the 2048 architecture.
+
+=== PAGE BREAK ===
+
+18
+X. CONCLUSIONS AND FUTURE WORK
+We have studied the eﬀectiveness of a quantum an-
+nealer in solving small instances within families of hard
+operational planning problems under various mappings
+and embeddings. From these results we derive insights
+useful for the programming and design of future quan-
+tum annealers: problem choice, the mapping used, prop-
+erties of the embedding, and annealing proﬁle all mat-
+ter, each signiﬁcantly aﬀecting the performance. While
+this initial study did not produce results competitive
+with state-of-the-art classical approaches, higher quality
+qubits, shorter annealing times, better precision, greater
+hardware connectivity, improved mappings and embed-
+dings, and alternative annealing proﬁles will all con-
+tribute to improved results.
+In future work, we will experiment with other map-
+pings, including experimenting with diﬀerent weightings
+of penalty terms in the QUBO funtion and other transla-
+tions of the problem to CNF form, and also other prob-
+lems from operational planning, such as job shop schedul-
+ing. We will also build on this work, exploring more em-
+beddings per problem to sort out how much of the vari-
+ation in runtime is due to the variation in the diﬃculty
+of the problems themselves versus how much is due to
+properties of the embedding independent of the problem.
+We will perform statistical analysis of the correlation be-
+tween a richer set of embedding properties and expected
+total annealing time in order to give insight into better
+metrics for evaluating embeddings of QUBO problems for
+quantum annealing.
+Acknowledgements
+The authors are grateful to Jeremy Frank, Alejandro
+Perdomo-Ortiz, Ross Beyer, Sergey Knysh, Chris Henze,
+and Itay Hen for helpful discussions, and to DWave for
+technical support and for discussions related to the cali-
+bration issue and our results before and after.
+[1] Achlioptas, D. and Friedgut, E. (1999). A sharp threshold
+for k-colorability. Random Structures and Algorithms ,
+14(1):63–70.
+[2] Achlioptas, D. and Moore, C. (2003). Almost all graphs
+with average degree 4 are 3-colorable. Journal of Com-
+puter and System Sciences , 67(2):441–471.
+[3] Babbush, R., Love, P. J., and Aspuru-Guzik, A. (2013a).
+Adiabatic quantum simulation of quantum chemistry.
+arXiv:1311.3967.
+[4] Babbush, R., O’Gorman, B., and Aspuru-Guzik, A.
+(2013b). Resource eﬃcient gadgets for compiling adi-
+abatic quantum optimization problems. Annalen der
+Physik, 525(10-11):877–888.
+[5] Babbush, R., Perdomo-Ortiz, A., O’Gorman, B.,
+Macready, W., and Aspuru-Guzik, A. (2012). Construc-
+tion of energy functions for lattice heteropolymer models:
+A case study in constraint satisfaction programming and
+adiabatic quantum optimization. arXiv:1211.3422.
+[6] Blum, A. and Furst, M. (1997). Planning through
+planning graph analysis. Artiﬁcial Intelligence Journal ,
+90:281–330.
+[7] Boixo, S., Albash, T., Spedalieri, F. M., Chancellor, N.,
+and Lidar, D. A. (2013). Experimental signature of pro-
+grammable quantum annealing. Nature communications,
+4.
+[8] Boixo, S., Rønnow, T. F., Isakov, S. V., Wang, Z.,
+Wecker, D., Lidar, D. A., Martinis, J. M., and Troyer,
+M. (2014). Evidence for quantum annealing with more
+than one hundred qubits. Nature Physics, 10(3):218–224.
+[9] Boros, E. and Hammer, P. L. (2002). Pseudo-boolean
+optimization. Discrete applied mathematics, 123(1):155–
+225.
+[10] Cai, J., Macready, B., and Roy, A. (2014). A practical
+heuristic for ﬁnding graph minors. arXiv:1406:2741.
+[11] Cheeseman, P., Kanefsky, B., and Taylor, W. M. (1991).
+Where the really hard problems are. In IJCAI, vol-
+ume 91, pages 331–337.
+[12] Chien, S., Johnston, M., Frank, J., Giuliano, M., Kave-
+laars, A., Lenzen, C., Policella, N., and Verfailie, G.
+(2012). A generalized timeline representation, services,
+and interface for automating space mission operations.
+In 12th International Conference on Space Operations .
+[13] Choi, V. (2008). Minor-embedding in adiabatic quantum
+computation: I. the parameter setting problem. Quan-
+tum Information Processing, 7(5):193–209.
+[14] Coja-Oghlan, A. (2013). Upper-bounding the
+k-colorability threshold by counting covers.
+arXiv:1305.0177.
+[15] Culberson, J., Beacham, A., and Papp, D. (1995). Hid-
+ing our colors. In Proceedings of the CP95 Workshop on
+Studying and Solving Really Hard Problems, pages 31–42.
+[16] Das, A. and Chakrabarti, B. K. (2008). Colloquium:
+Quantum annealing and analog quantum computation.
+Rev. Mod. Phys., 80:1061–1081.
+[17] Dubois, O. and Mandler, J. (2002). On the non-3-
+colourability of random graphs. arXiv:math/0209087.
+[18] Farhi, E., Goldstone, J., Gutmann, S., and Sipser, M.
+(2000). Quantum computation by adiabatic evolution.
+arXiv:quant-ph/0001106.
+[19] Fikes, R. E. and Nilsson, N. J. (1972). STRIPS: A new
+approach to the application of theorem proving to prob-
+lem solving. Artiﬁcial intelligence, 2(3):189–208.
+[20] Ghallab, M., Nau, D., and Traverso, P. (2004). Auto-
+mated planning: theory & practice . Elsevier.
+[21] Helmert, M. (2003). Complexity results for standard
+benchmark domains in planning. Artiﬁcial Intelligence
+Journal, pages 219–262.
+[22] Hoﬀmann, J. (2005). Where ignoring delete lists works:
+Local search topology in planning benchmarks. Journal
+of Artiﬁcial Intelligence Research , 24:685–758.
+[23] Johnson, M., Amin, M., Gildert, S., Lanting, T., Hamze,
+F., Dickson, N., Harris, R., Berkley, A., Johansson, J.,
+Bunyk, P., et al. (2011a). Quantum annealing with man-
+ufactured spins. Nature, 473(7346):194–198.
+
+=== PAGE BREAK ===
+
+19
+[24] Johnson, M. W., Amin, M. H. S., Gildert, S., and et al.
+(2011b). Quantum annealing with manufactured spins.
+Nature, 473:194–198.
+[25] Kassal, I., Whitﬁeld, J. D., Perdomo-Ortiz, A., Yung, M.-
+H., and Aspuru-Guzik, A. (2010). Simulating chemistry
+using quantum computers. arXiv:1007.2648.
+[26] Kautz, H. (2004). Satplan04: Planning as satisﬁabil-
+ity. Working Notes on the Fourth International Planning
+Competition (IPC-2004), pages 44–45.
+[27] Klymko, C., Sullivan, B. D., and Humble, T. S. (2014).
+Adiabatic quantum programming: minor embedding
+with hard faults. Quantum information processing ,
+13(3):709–729.
+[28] Koml´ os, J. and Szemer´ edi, E. (1983). Limit distribu-
+tion for the existence of Hamiltonian cycles in a random
+graph. Discrete Mathematics, 43(1):55–63.
+[29] Long, D. and Fox, M. (2003). The 3rd international plan-
+ning competition: Results and analysis. J. Artif. Intell.
+Res.(JAIR), 20:1–59.
+[30] Lucas, A. (2013). Ising formulations of many NP prob-
+lems. arXiv:1302.5843.
+[31] Nielsen, M. and Chuang, I. L. (2001). Quantum Com-
+puting and Quantum Information . Cambridge University
+Press, Cambridge.
+[32] O’Gorman, B., Perdomo-Ortiz, A., Babbush, R.,
+Aspuru-Guzik, A., and Smelyanskiy, V. (2014). Bayesian
+network structure learning using quantum annealing. In
+submission.
+[33] Perdomo-Ortiz, A., Dickson, N., Drew-Brook, M., Rose,
+G., and Aspuru-Guzik, A. (2012). Finding low-energy
+conformations of lattice protein models by quantum an-
+nealing. Scientiﬁc reports, 2.
+[34] Perdomo-Ortiz, A., Fluegemann, J., , Narasimhan, S.,
+Smelyanskiy, V., and Biswas, R. (2014a). A quantum ap-
+proach to diagnosis of multiple faults in electrical power
+systems. 5th IEEE international Conference on Space
+Mission Challenges for Information Technology. [To ap-
+pear.].
+[35] Perdomo-Ortiz, A., Fluegemann, J., Narasimhan, S.,
+Biswas, R., and Smelyanskiy, V. (2014b). Programming
+and solving real-world applications on a quantum anneal-
+ing device. arXiv:1406.7601.
+[36] Pudenz, K. L., Albash, T., and Lidar, D. A. (2014).
+Error-corrected quantum annealing with hundreds of
+qubits.
+[37] Rieﬀel, E. G. and Polak, W. (2011). A Gentle Intro-
+duction to Quantum Computing . MIT Press, Cambridge,
+MA.
+[38] Rieﬀel, E. G., Venturelli, D., Hen, I., Do, M., and
+Frank, J. (2014). Parametrized families of hard plan-
+ning problems from phase transitions. Proceedings of
+the Twenty-Eighth AAAI Conference on Artiﬁcial Intel-
+ligence (AAAI-14)[To appear].
+[39] Rønnow, T. F., Wang, Z., Job, J., Boixo, S., Isakov,
+S. V., Wecker, D., Martinis, J. M., Lidar, D. A., and
+Troyer, M. (2014). Deﬁning and detecting quantum
+speedup. arXiv:1401.2910.
+[40] Shin, S. W., Smith, G., Smolin, J. A., and Vazirani, U.
+(2014a). Comment on “Distinguishing classical and quan-
+tum models for the D-Wave device”. arXiv:1404.6499.
+[41] Shin, S. W., Smith, G., Smolin, J. A., and Vazirani,
+U. (2014b). How “quantum” is the D-Wave machine?
+arXiv:1401.7087.
+[42] Smelyanskiy, V. N., Rieﬀel, E. G., Knysh, S. I., Williams,
+C. P., Johnson, M. W., Thom, M. C., Macready, W. G.,
+and Pudenz, K. L. (2012). A near-term quantum comput-
+ing approach for hard computational problems in space
+exploration. arXiv:1204.2821.
+[43] Smolin, J. A. and Smith, G. (2013). Classical signature
+of quantum annealing. arXiv:1305.4904.
+[44] Venturelli, D., Mandra, S., Knysh, S., OGorman, B.,
+Biswas, R., and Smelyanskiy, V. (2014). Quantum opti-
+mization of fully-connected spin glasses. arXiv:1406.7553.
+[45] Vinci, W., Albash, T., Mishra, A., Warburton, P. A., and
+Lidar, D. A. (2014). Distinguishing classical and quan-
+tum models for the D-Wave device. arXiv:1403.4228.
+[46] Wang, L., Rønnow, T. F., Boixo, S., Isakov, S. V., Wang,
+Z., Wecker, D., Lidar, D. A., Martinis, J. M., and Troyer,
+M. (2013a). Comment on “Classical signature of quan-
+tum annealing”.
+[47] Wang, Z., Boixo, S., Albash, T., and Lidar, D. (2013b).
+Benchmarking the D-Wave adiabatic quantum optimizer
+via 2D-Ising spin glasses. In APS Meeting Abstracts, vol-
+ume 1, page 27005.
+[48] Wang, Z., Job, J., Isakov, S. V., Boixo, S., Lidar, D.,
+Martinis, J., Troyer, M., et al. (2014a). Probing for quan-
+tum speedup on D-Wave Two. Bulletin of the American
+Physical Society.
+[49] Wang, Z., Job, J., Troyer, M., Lidar, D. A., et al.
+(2014b). Performance of quantum annealing on random
+Ising problems implemented using the D-Wave Two.Bul-
+letin of the American Physical Society .

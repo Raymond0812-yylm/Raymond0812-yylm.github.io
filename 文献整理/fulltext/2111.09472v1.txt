@@ -1,0 +1,728 @@
+Exploring Airline Gate-Scheduling Optimization Using
+Quantum Computers
+Hamed Mohammadbagherpoor
+NC State University, hmohamm2@ncsu.edu
+Patrick Dreher
+NC State University, padreher@ncsu.edu
+Mohannad Ibrahim
+NC State University, mmibrah2@ncsu.edu
+Young-Hyun Oh
+IBM Corporation, ohy@us.ibm.com
+James Hall
+NC State University, jlhall4@ncsu.edu
+Richard E Stone
+Delta Air Lines, richard.stone@delta.com
+Mirela Stojkovic
+Delta Air Lines, mirela.stojkovic@delta.com
+This paper investigates the application of quantum computing technology to airline gate-scheduling
+quadratic assignment problems (QAP). We explore the quantum computing hardware architecture and soft-
+ware environment required for porting classical versions of these type of problems to quantum computers.
+We discuss the variational quantum eigensolver and the inclusion of space-eﬃcient graph coloring to the
+Quadratic Unconstrained Binary Optimization (QUBO). These enhanced quantum computing algorithms
+are tested with an 8 gate and 24 ﬂight test case using both the IBM quantum computing simulator and a
+27 qubit superconducting transmon IBM quantum computing hardware platform.
+Key words : Quadratic Unconstrained Optimization Problem, Gate-based Superconducting Quantum
+Computer, Quantum Computing Algorithms, Airline Gate Scheduling
+1. Introduction
+One of the many complex problems facing the airline industry today is how to optimize
+large combinations of cargo and passenger traﬃc among the planes, gates, personnel and the
+air traﬃc ﬂows originating or terminating at an airport. Finding solutions to this complex
+combinatorial optimization problem is important for airlines in order to be able to control
+costs and minimize ineﬃciencies (Stollenwerk et al. (2019)).
+1
+arXiv:2111.09472v1  [quant-ph]  18 Nov 2021
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+2 Article submitted to INFORMS Journal on Computing
+A mathematical framework that can be used to compute optimal solutions for this type
+of problem is known as the quadratic assignment problem (QAP). This is a diﬃcult combi-
+national optimization problem of the NP-hard class (Sahni and Gonzalez (1976)).
+A widely cited application of a QAP is the assignment of facilities to locations such that
+each facility is assigned to only one location. Given that facility versus location assignment
+costs are known, the problem is ﬁnding a minimum cost allocation of facilities to locations
+taking the costs as a sum of all distance and ﬂow products. A constrained QAP is a nat-
+ural framework for assigning ﬂights to gates under a variety of constraints and objectives.
+Generally, such QAP type problems of size n> 30 cannot be solved optimally on digital
+computers in reasonable time. For example, see (Loiola et al. (2007)), or (Gonçalves et al.
+(2017)). Improvements through approximations, heuristics and special structures (Kim et al.
+(2017)) can all be implemented in order to get reasonable solutions for some, but not all,
+purposes and time frames. The question remains if one can do better than reasonable or do
+more than some.
+One expectation of a viable quantum computer is the capability to ﬁnd an optimal solution
+to large quadratic assignment problems. Delta Air Lines has partnered with North Carolina
+State University in an eﬀort to explore how quantum computing may be able to address such
+types of ﬂight-gate scheduling optimizations. The goal will be to understand what are the
+potential capabilities for a quantum computer to be able to optimally solve large quadratic
+assignment problems that are so computationally prohibitive they could never be computed
+using classical digital computers.
+In Section 2 we present a combinatorial optimization model (CO) model that is a natural
+QAP approach to gate scheduling. In Section 3 we describe the quantum computing hardware
+architecture and software environment used when porting this type of model to a quantum
+computer. In Section 4 we discuss the simulations and experimental results and analysis and
+comparison between the digital and quantum computing methods. Finally in Section 5 there
+is a discussion of conclusions that can be inferred from the work and a look toward future
+steps for improving this algorithm as quantum computing hardware platforms become more
+robust.
+2. Digital Computing Implementation of Gate Scheduling Optimization
+Algorithms
+The natural base formulation of the gate-scheduling problem is a QAP where the decision
+is which gate to assign to each plane. The objective is naturally quadratic with the major
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 3
+component being the interaction of pairs of planes. For this paper we will use the passenger
+walking distance between gates given a predicted value of the number of passengers connect-
+ing between planes. To model the plotting problem at a ﬁxed point in time the following
+variables need to be speciﬁed.
+• P = Set of planes to park at gates
+• G = Set of gates at which to park planes
+• vij = Expected number of passengers connecting between planespi and pj
+• dkl = Walking distance between gatesgk and gl
+• xik = 1 if planepi is parked at gategk, 0 otherwise
+The challenge is to minimize the objective functionJ with respect to the constraints that
+follow:
+J =
+∑
+i,j∈P
+∑
+k,l∈G
+xikxjlvijdkl (1)
+such that
+∑
+k∈G
+xik = 1 ∀ i∈P (2)
+∑
+i∈P
+xik = 1 ∀ k∈G (3)
+where xik∈{ 0, 1} ∀i∈P and∀ k∈G
+Modiﬁcations to this initial generic formulation need to be made in order to arrive at a
+speciﬁc useful model. As an example, we would want to replace the constraint Eq.(3) with
+the following.
+∑
+i∈P
+xik ≤ 1 ∀ k∈G (4)
+The constraints in Eq.(2) and Eq.(4) mathematically state that a plane needs to be assigned
+a gate, but a gate does not need to be assigned a plane.
+This set of constraints should be modiﬁed further.
+∑
+i∈Pt
+xik ≤ 1 ∀ k∈G and∀ t∈T (5)
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+4 Article submitted to INFORMS Journal on Computing
+Here, Pt is the set of planes requiring a gate at time t in the time period T under
+consideration However, using all ofT would create redundant constraints. Fortunately, there
+are eﬃcient ways to ﬁnd a subset ofT which eliminates the redundancy without weakening
+this set of constraints.
+There is a long list of modiﬁcations that should be considered for a useful model. Here is
+a small sampling from this list.
+• Gate Restrictions For various reasons, not every gate can accommodate every plane.
+• Gate Closings Not all gates can be used all the time.
+• Contentions Even if two particular planes can individually be assigned to two particular
+gates, proximity may preclude both assignments being made at the same time.
+• Alleyway Congestion Gates using the same alleyway should avoid planes departing
+close in time.
+• Adjacent Gates Gates close in proximity should avoid planes departing close in time.
+Solving a realistic version of this gate plotting model for a large and busy airport would
+be impractical by normal methods. An interesting aspect of quantum computing is that the
+underlying QAP itself seems to be a more natural problem to solve. What one avoids in
+classical computing is instead what one uses in quantum computing. Exploring the option for
+utilizing a quantum computer to optimize these gate-scheduling problems may be a viable
+path forward in the future.
+3. Quantum Computing Implementation of Gate Scheduling Optimization
+Algorithms
+Calculating a complete solution of a plane-gate scheduling constrained QAP problem for a
+very large and busy airport is impractical with digital computing technologies. A quantum
+computer may have the potential to circumvent some of these diﬃculties.
+Exploring the possibility of implementing a gate scheduling optimization algorithm for a
+quantum computing system requires a re-design of the digital version. This includes both
+developing a working understanding of both the quantum computing hardware architecture
+and software environment so that the digital version of this QAP algorithm can be success-
+fully re-structured and migrated to a quantum computing hardware system.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 5
+3.1. Quantum Computing Hardware Architectures
+Quantum computers are based on a fundamentally diﬀerent premise for computation when
+compared to a digital computer. The digital computer operates on the mathematics of a
+base2 system, whereas the fundamental premise of computation for a quantum computer is
+based on something called a qubit. Unlike a classical bit that only has two states (sometimes
+designatedas"On"or"Oﬀ"or"0"or"1"),aquantumbit(qubit)canberepresentedbymany
+diﬀerent weighted, linear combinations of "0" and "1". The rules for quantum computation
+are based on the physics of quantum mechanics and concepts of superposition and quantum
+entanglement rather than the electrical engineering design of digital logic circuits. (Nielsen
+and Chuang (2009))
+Planning computations on a quantum computer and verifying proper operation of the
+algorithms running on the machine are also totally diﬀerent from digital computations.
+Unlike digital computations where it is possible to query a system’s state at diﬀerent points
+during the computation, it is impossible to observe the intermediate results for a quantum
+computation without destroying the quantum state. A system cannot be disturbed with
+any type of intermediate measurement until the completion of the calculation, otherwise the
+entire computation on the quantum computer will automatically be terminated in whatever
+stateitwasatwhenthemeasurementwasattempted.Thereisnopossibilityofre-startingthe
+computation from the point where an intermediate measurement was taken and continuing
+with that computation or of re-running a computation from the beginning in a deterministic
+way. Upon completion of the computation, the idea of an "answer" also has a very diﬀerent
+interpretation. Whereas a digital computer will give a deterministic answer, a quantum
+computer will provide a histogram representing a spectrum of measurements with their
+relative probabilities.
+Today there are several diﬀerent types of quantum computing hardware architectures that
+have been developed. These include an analog-based platform based on Quantum Annealing,
+various superconducting transmon devices based on non-linear Josephson junction circuits,
+and trapped ion devices. In this paper, the IBM superconducting, transmon-based quan-
+tum computing hardware platforms were used for the computations. We selected theIBMQ
+Toronto, which is a 27-qubit quantum computing processor.
+Noise is an additional consideration when running on a quantum computing hardware plat-
+form. Today’s quantum computers are best described as Noisy Intermediate Scale Quantum
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+6 Article submitted to INFORMS Journal on Computing
+Figure 1 IBM published information (IBM Quantum: (https://quantum-computing.ibm.com/) ) on the qubit layout
+on the IBMQ_Toronto quantum computing hardware processor. The ﬁgure on the top is the actual con-
+nectivity of the qubits. The ﬁgure on the bottom-left is a color coded "heat map" showing the individual 1
+qubit error rates and on the bottom-right is the direct 2 qubit connection error rates on Toronto.
+(NISQ) machines. Such types of noise present in these machines today adversely impacts
+the stability of the quantum computations. Noise essentially destroys the coherence of the
+quantum state and limits the size of the application that can be run on these machines.
+Mitigation of this noise and development of error correction methodologies that will extend
+the quantum computer’s computational capabilities are both active area of research. Fig. 1
+shows the general architecture and qubit connectivity of the machine and a graphical "heat
+map" showing the level of 1 qubit and 2 qubit errors for this processor.
+A critical component in the overall planning for the quantum computation is choosing
+the qubits for the computations on a quantum computing hardware architecture with the
+best proﬁle for low error rates on that platform. Quantum computing programs that run
+on today’s NISQ platforms carefully place the quantum codes for that algorithm on the
+subset of qubits and connections with the best coherence and smallest error parameters in
+order to deliver a better execution of the program. Some additional properties of the Toronto
+processor and a brief discussion of error rates and their impact on quantum calculations are
+presented in the Appendix.
+3.2. Software Environments
+3.2.1. Variational Quantum Eigensolver (VQE) Quantum computers have the poten-
+tial to solve speciﬁc mathematically structured classes of problems exponentially faster than
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 7
+classical computers. However, developing the methodologies and software for achieving this
+goal will take research and development eﬀort and may require new technologies to overcome
+today’s NISQ computer limits. Because both the quantum hardware and software limitations
+will continue to be limiting factors in the near future, researchers have been investigating
+hybrid algorithms that can be run eﬃciently using a combination of both quantum and clas-
+sical components. Eigenvalues, eigenvectors, and optimization problems play an important
+role in the development of such hybrid algorithms.
+Peruzzo et al. (2014) presented the Variational Quantum Eigensolver (VQE) algorithm as
+an improved method for ﬁnding the quantum state corresponding to the minimum energy
+of a Hamiltonian by applying a quantum/classical hybrid variational technique. In the VQE
+approach the Hamiltonian matrixH can be derived by the interaction spins or electronic
+systems in physical systems.H can be calculated to ﬁnd the eigenvectors|ψi(t)⟩ and the cor-
+responding eigenvaluesλi of the Hamiltonian matrix by converting an optimization problem
+to an adiabatic quantum computation. Using their technique, both classical and quantum
+computers are used together to iterate on an algorithm to converge intermediate results
+toward the correct solution.
+The main goal of VQE is to ﬁnd the desired eigenvectors and eigenvalues by optimizing a
+parameterized quantum program. The lowest eigenvalue is of primary interest in the VQE
+approach since it is the optimum solution of the problem, same as the lowest energy is the
+solution to a Hamiltonian in physical systems. VQE can be used to ﬁnd the solution for Eq.
+(6),
+E(θ) =m
+θ
+in⟨ψ(θ)|H|ψ(θ)⟩. (6)
+Because|ψ(θ)⟩ is the normalized solution for Eq. (6), it can be the minimum eigenvalue of
+H. H =∑
+iβiHi where Hi are the tensor products of Pauli operators andβi are the real
+coeﬃcients. By considering this reformulation forH matrix, Eq. (6) can be represented as,
+E(θ) =m
+θ
+in⟨ψ(θ)|H|ψ(θ)⟩ =m
+θ
+in
+∑
+i
+βi⟨ψ(θ)|Hi|ψ(θ)⟩. (7)
+Finding the minimum eigenvalue can be an NP-hard problem as the size of the Hamil-
+tonian matrix increases. To address this problem, diﬀerent quantum techniques have been
+developed (Moll et al. (2018)). Quantum phase estimation (QPE) is one of the main tech-
+niques that can be applied to a unitary quantum circuit derived from a problem to ﬁnd its
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+8 Article submitted to INFORMS Journal on Computing
+Figure 2 The schematic diagram of the variational quantum eigensolver (VQE) algorithm
+minimum eigenvalue, that is the solution of the Eq. (6). However, practical resource con-
+straints with today’s NISQ hardware limit the implementation of this algorithm. Hence, it
+is not possible to ﬁnd a complete solution to this problem using near-term noisy quantum
+computers.
+Alternatively, researchers have been developing some hybrid classical-quantum algorithms
+(e.g., VQE (Peruzzo et al. (2014)) and QAOA (Farhi et al. (2014), Wang and Abdullah
+(2018), Guerreschi and Matsuura (2019))) to solve a problem by ﬁnding the minimum eigen-
+value of the Hamiltonian MatrixH in a recursive optimization process using both NISQ
+quantum computers and classical computers. Fig. 2 illustrates the components of the VQE
+algorithm. In this hybrid system, all of the qubits in the quantum computer are initialized to
+the zero state. A parameterized quantum program (i.e., state preparation) is applied to the
+zero states and the expectation value of the corresponding Hamiltonian (⟨ψ(θ)|Hi|ψ(θ)⟩)
+is calculated. A classical optimizer is used to update the parameters and ﬁnd an optimum
+values for⃗θ through the classical optimization process (Farhi et al. (2014), Peruzzo et al.
+(2014)). This process is repeated recursively until the hybrid system ﬁnds the minimum
+eigenvalue of theH matrix (Wang et al. (2019)) or some optimization limit are reached. The
+parameterized quantum circuit (U (θ)) is known as anAnsatz. Choosing an ansatz operator
+as a variational form plays an important role in the optimization process. In most cases, an
+ansatz should be able to eﬃciently run in quantum devices.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 9
+Diﬀerent classical optimizers can be used to solve the optimum values forθ. These tech-
+niques perform various forms of gradient descent methods to apply iterative optimization
+algorithms to solve the problem (Kandala et al. (2017), Romero et al. (2018)).
+This paper considers two well-known classical optimizers.
+• Theconstrainedoptimizationbylinearapproximation(COBYLA)algorithmisanumer-
+ical optimization method that ﬁnds the min/max of the objective function without knowing
+the gradient value (Gomez and Hennart (1994)).
+• The simultaneous perturbation stochastic approximation (SPSA) algorithm is used to
+optimizeasystemwithmultipleunknownparameters.Thisalgorithmonlyusesthecostfunc-
+tion measurements and is eﬃcient in high-dimensional optimization problems. The gradient
+approximation using this technique requires only two measurements regardless of dimension
+of the problem which makes this algorithm to be a powerful technique to optimize a problem
+with multiple unknown parameters (Spall (1987)-Spall (1992)).
+The implementation and results for each of the optimizers will be presented in section 4.
+3.2.2. Binary Optimization Problem and Quantum HamiltonianCombinatorial opti-
+mization (CO) is a major class of optimization problems that has various applications in
+industry and research. In particular, CO for Graph Coloring has been extensively used in
+diﬀerent application domains such as transportation management, social media, telecommu-
+nication, and resource scheduling. Most of these applications are NP-hard problems that are
+attractive but challenging for researchers to solve.
+Three approaches can be considered to tackle CO: Exact Algorithms, Approximation Algo-
+rithms, and Heuristic algorithms. (Halim and Ismail (2017), Festa (2014))
+An exact algorithm, by deﬁnition, is one that is guaranteed to ﬁnd a solution, if one exists.
+Therefore, unless P = NP, an exact algorithm cannot have worst-case polynomial running
+time for an NP-hard problem. Thus, in practice, an exact algorithm can take too much time
+to reach an optimal solution, though it might ﬁnd good solutions in reasonable time.
+An approximation algorithm is an exact algorithm to an approximate version of the prob-
+lem. For example, an approximation algorithm might ﬁnd the solution over a subset of the
+set of feasible solutions, or use an approximate version of the objective function. Approxima-
+tion algorithms are a trade oﬀ between speed and solution quality in the cases where known
+exact algorithms are too slow. Ideally, an approximation algorithm has a guarantee of how
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+10 Article submitted to INFORMS Journal on Computing
+close it comes to optimal, e.g., the solution found will have an objective value at least 4/5
+of the true maximum of the original problem.
+A heuristic algorithm, whether it works on the original problem or an approximate version,
+does not have a proven guarantee that it will ﬁnd a solution in ﬁnite time for the problem
+on which it works. Heuristic algorithms are usually faster and often simpler than other
+algorithms and, so, represent another trade oﬀ between speed and solution quality.
+Recently, Quadratic Unconstrained Binary Optimization (QUBO) has been introduced to
+cover a large variety of CO problems (Hao et al. (2014), McGeoch (2014), Kadowaki and
+Nishimori (1998), Bertels et al. (2020)). The QUBO technique can ﬁnd an optimal solution
+for many types of NP-hard problems such as graph partitioning, graph coloring, scheduling
+management, and register allocation.
+A QUBO problem can be formulated by Eq. (8) as described in (Glover and Kochenberger
+(2018)),
+(8)
+J =min {XTQX +gTX +c}
+=
+∑
+i,j∈P
+∑
+k,l∈G
+xikxjlvijdkl + P
+∑
+i
+(
+1−
+∑
+k
+xik
+)2
++ P
+∑
+(i,j)
+∑
+k
+xikxjk
+where Q is an×n matrix with real numbers,X is the state vector with element of{0, 1}n
+and P is a positive and large number. The goal of Eq. (8) is to ﬁnd the minimum of the
+objective function which is the minimum eigenvalue of the matrixH. Eq. (8) can also be
+expressed by Eq. (9) as described in (Lucas (2014)),
+∑
+i,j
+Wijxi(1−xj) +
+∑
+i
+Wixi, (9)
+where Wi are the linear weightsQii for i = 1, 2,...,n and Wij are the quadratic weightsQij
+for i<j . Herexi is a binary variable that can take0 or 1 and as a resultx2
+i =xi. In order
+to transfer Eq. (9) into an Ising model, the following substitution can be used as
+xi =Zi + 1
+2 , (10)
+wherexi∈{ 0, 1} andZi∈{− 1, 1} fori = 0,...,n . By applying the substitution the Hamilto-
+nian matrix would be (Barahona et al. (1982), Istrail (2000)),
+∑
+i,j
+Wij
+4 (1−Zi)(1 +Zj) +
+∑
+i
+Wi
+2 (1−Zi)
+=− 1
+2
+∑
+i,j
+WijZiZj +
+∑
+i
+WiZi +c.
+(11)
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 11
+This Hamiltonian matrix will be a form of tensor products of PauliZ operators. Note
+that since theZ is a diagonal matrix, the Hamiltonian matrix should be diagonal so that it
+can be used in a VQE optimization process. In order to solve thek-coloring problem using
+the standard QUBO optimization technique,nk qubits are required. The required number
+of qubits is the main constraint of the standard QUBO optimization approach. Serra et al.
+(2021) has recently presented a quantum annealing (QA) technique to ﬁnd near optimal
+solution for the QUBO optimization problems by preparing the ground state of the Ising
+spin Hamiltonian. In this paper we have considered a diﬀerent type of quantum computer
+which is a universal Gate-based superconducting quantum computer and has capability to
+ﬁnd the optimum solution to the combinatorial optimization problem. In addition, in sec-
+tion 3.3 a new algorithm is introduced which solves thek-coloring optimization problem
+by applyingnlog (k) number of qubits which exponentially reduces the required number of
+qubits compared to the standard QUBO technique.
+3.3. Space-Eﬃcient Graph Coloring Quantum Computing algorithms
+In section 3.2.1, we showed that the standard QUBO optimization algorithm requiresnk
+number of qubits which increases exponentially with the problem size. Therefore, it is
+infeasable to run a gate scheduling problem with a reasonable size on existing NISQ devices.
+In this section, a new space-eﬃcient technique that maps ak-coloring problem to a lower
+number of qubits is explained. The number of colors is encoded tom bits (total 2m colors)
+and the goal is to assign a color labeled bym bitstrings to each vertex, (Tabi et al. (2021)-
+Krawiec and Zimborás (2020)). As mentioned in the standard k-coloring approach, two
+neighboring nodes should not have the same color, therefore in the space-eﬃcient technique
+a cost function should evaluate to nonzero if the neighboring nodes have the same color code.
+For a graph with adjacency matrixA, the graph coloring problem can be mapped to the
+ground state of the following Hamiltonian Eq. (12).
+H =
+∑
+i,j
+Aij
+∑
+a∈{0,1}m
+m∏
+l=1
+(1 + (−1)alZi,l)(1 + (−1)alZj,l) (12)
+The ground state of thenlog (k)-qubit Hamiltonian matrix is the solution to the graph
+coloring problem which corresponds to the proper bitstring assignment of the graph vertices.
+If the number of colors is not a power of2, i.e. 2m−1<k< 2m, m number of bitstrings is
+considered to map the colors, however, the bitstrings in which∑m
+i=1 2k−ibi<k are allowed for
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+12 Article submitted to INFORMS Journal on Computing
+vertex coloring. This means that new penalty terms should be added to Eq. (12) to satisfy
+this limitation. For example in casek = 3, two bitstrings{00, 01, 10, 11} should be considered
+to label the colors. Since only three colors are required to be assigned to the vertices, a
+term ∑n
+i=1(1−Zi,1)(1−Zi,2) should be added to the Hamiltonian matrix to penalize the
+non-allowed bitstring which is(b1,b 2) = (1, 1). By applying Eq. (12) and considering the new
+penalty term, the corresponding Hamiltonian matrix will be,
+H =
+n∑
+i,j=1
+Aij(1−Zi,1)(1−Zi,2)(1−Zj,1)(1−Zj,2)
++ (1 +Zi,1)(1 +Zi,2)(1 +Zj,1)(1 +Zj,2)
++ (1 +Zi,1)(1−Zi,2)(1 +Zj,1)(1−Zj,2)
++ (1−Zi,1)(1 +Zi,2)(1−Zj,1)(1 +Zj,2)
+‘ + (1−Zi,1)(1−Zi,2)
+(13)
+As seen in Eq. (13), the last term will be added since four colors has been considered for
+a problem that only requires three colors. This penalty term helps remove one of the binary
+coded colors from the list.
+4. Simulation and Experimental Results
+This section discusses the simulation and experimental results for both the standard QUBO
+optimization technique and the space-eﬃcient coloring scheme. All quantum simulations and
+computations on both IBM’s quantum simulator and quantum computing hardware plat-
+forms were accessed through the NC State University Quantum Computing Hub connection
+into the IBM Quantum Network.
+The gate scheduling problem described in this paper was formulated and mapped as a
+graph coloring problem and tested on both a quantum simulator and an actual quantum
+computinghardwareplatform.Weshowbothsimulationandexperimentalresultsofapplying
+both graph coloring implementations discussed in Sections 3.2.1 and 3.3 to ﬁnd an optimal
+solution for an example gate allocation problem and compare the results by considering
+diﬀerent criteria such as number of required qubits, run-time and circuit depth.
+For our example test case, we consider a setup with eight gates and 24 ﬂights. Fig. 3 shows
+the corresponding derived graph based on the ﬂights arrival and departure time interval. The
+graph nodes correspond to the ﬂights and an edge between two nodes shows the time overlap
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 13
+Figure 3 The corresponding derived graph based on the ﬂights arrival and departure time interval.
+between the two ﬂights. The goal here is to colorize the graph using quantum embedding
+approaches to minimize the problem objective function. By considering Eq. (11) and Eq. (12)
+and converting the graph coloring problem to the corresponding Hamiltonian matrices, the
+problem was mapped onto the IBM Qiskit platform, (Qiskit (2021)) and used to solve for
+the ground state of the Hamiltonian matrices.
+A Noise-Aware Compilation method from Qiskit was used for the circuit compilation and
+optimization. This method maps the circuit to match the hardware topology as discussed in
+Section 3.1 and also does light-weight optimizations by collapsing adjacent gates as appropri-
+ate. We notice a direct beneﬁt from the eﬃcient embedding in all aspects of the comparison.
+As both circuits run the same ansatz architecture, we see that the eﬃcient embedding proves
+advantageous, as it uses fewer qubits.
+As discussed in the hardware architecture section (Section 3.1) eﬃcient embedding for
+mapping the problem to qubits on the hardware platforms focuses on the minimization of
+the usage of SWAP operations. Quantum algorithms formulated with fewer 2-qubit interac-
+tions will require fewer SWAPS to implement them on quantum platform. A design change
+requiring fewer 2-qubit operations results in a shorter circuit (program) depth with a more
+eﬃcient embedding and hence a shorter run-time. As discussed in Section 3.3, the eﬃcient
+embedding scheme requires fewer qubits. This shorter run-time allows larger gate-scheduling
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+14 Article submitted to INFORMS Journal on Computing
+problem sizes to be implemented on the quantum platform. Simulation results were obtained
+using IBM’s Aer simulator. Experimental results were obtained by running the circuits on
+IBM’s Toronto 27 qubit quantum computing hardware platform. Fig. 4 shows that the graph
+was successfully colored by applying the quantum space eﬃcient embedding technique. As
+it can be seen the quantum machine is able to ﬁnd the optimum solution for this problem.
+We investigate diﬀerent classical optimizers, considering diﬀerent well-known methods such
+as COBYLA and SPSA to optimize the parameters of the quantum circuits. The results has
+been shown in Fig. 5. The optimizers have been evaluated under the same situation such
+as type of variational quantum circuit, depth of quantum circuit. The simulation results
+demonstrate that the optimizers converge to the correct value and are able to ﬁnd an optimal
+solution for the ﬂight gate allocation problem. It can be seen that the COBYLA has faster
+convergence rate compared to the SPSA algorithm. however, it was shown that the SPSA
+algorithm has better performance on today’s NISQ machines to optimize the parameters of
+quantum variational circuits.
+Figure 4 Quantum simulation results for 24 ﬂights and eight gates. The graph successfully colored by the applying
+the eﬃcient embedding technique.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 15
+Figure 5 Convergence of diﬀerent optimizers methods to update the parameters of quantum circuit.
+Due to the required number of qubits and the software/hardware limitation, the previous
+case study (24 ﬂights and 8 gates) cannot be solved by the standard graph coloring tech-
+nique using today’s quantum technologies. In order to evaluate and compare the presented
+quantum graph coloring techniques in terms of the number of qubits, program depth and
+run-time, a case study of ﬂight gate scheduling problem with ﬁve ﬂights has been considered.
+Both techniques were applied and the derived Hamiltonian matrices were run on the quan-
+tum machine. Table 1 shows a comparison between the two implementations described in
+sections 3.2.1 and 3.3 in terms of the number of qubits, run-time and circuit depth. As it can
+be seen for the standard embedding, the required number of qubits exponentially increases as
+the size of the problem increases. The eﬃcient embedding technique will reduce the number
+of qubits exponentially and requires smaller program depth which results in lower run-time
+on NISQ quantum machines to solve an optimization problem. Fig. 6 shows the measure-
+ment probability of the possible solutions for this case study by running the corresponding
+Hamiltonian, derived by eﬃcient embedding technique, on a noisy IBM quantum machine.
+The SPSA optimizer was utilized to optimize the circuit parameters. As can be seen the cor-
+rect solution has the highest probability among the other possibilities and IBM-Q machine
+was capable of solving this optimization problems however, there is still challenges to tackle
+the optimization problems with relevant practical dimension due to the hardware limitation
+(noise), the required number of qubits and program depth.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+16 Article submitted to INFORMS Journal on Computing
+Table 1 Comparison between the standard QUBO and the eﬃcient embedding approaches
+Standard Embedding Eﬃcient Embedding
+# Qubits n×k: 25 n×log(k): 15
+Circuit Depth 29 19
+Run-time (sec) 5569.84 395.48
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Correct Solution 
+Figure 6 Hardware results with the measurement probabilities for a bank with eight ﬂights and eight gates.
+5. Conclusions and Next Steps
+The experimental results reported here showed that smaller circuit size (program length)
+allows for a more eﬃcient mapping to match the limitations of the hardware topology. As a
+result we were able to map larger problem sets to the actual quantum hardware platforms.
+This is a critical advancement in the usage of variational quantum algorithms solving such
+optimization problems. Using quantum computers with the methodologies discussed here, it
+is possible to utilize variational algorithms such as VQE to gate allocation problems with
+large sizes in the near future.
+This eﬀort is forward-looking in the sense that actionable solutions to solve these com-
+plex gate-scheduling problems are currently beyond the capability of contemporary Noisy
+Intermediate-Scale Quantum (NISQ) technology. However, over the past several years there
+has been signiﬁcant advancements both in designing and manufacturing quantum hard-
+ware processors with larger numbers of qubits and improved performance characteristics.
+Advancements in error mitigation and error correction are also shaping the ability of appli-
+cation developers to formulae more complex problems that can be implemented on quantum
+computers.
+The technology for building larger quantum computer hardware processors is developing
+rapidly and possibly at some point in the next 5 to 10 years the computational capability
+of a quantum computer will overtake the capabilities of largest digital computers that can
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 17
+be manufactured for solving these type of NP hard optimization problems. The results from
+this basic research focused on developing and applying state-of-the-art quantum algorithms
+and programming for constrained QAP problems on today’s quantum computing hardware
+platforms will place Delta Air Lines in a "quantum ready" position to capitalize and exploit
+quantum computing technology in the future as an alternative to today’s digital computa-
+tional methods.
+6. Author Contributions
+HM, YO and MI wrote the python code and ran the simulations and quantum computations
+on Toronto. RS and JH organized the test gate-scheduling database and wrote the introduc-
+tion and classical optimization sections of the paper. PD, HM and MI wrote the quantum
+optimization, results, conclusions and appendix sections. PD did the overall organization
+and integration of the material in the paper and PD and MS did the ﬁnal editing of the
+document.
+Appendix. Superconducting Transmon Quantum Computing Architecture
+In this section, we brieﬂy describe the architecture of theIBMQ Toronto, a 27-qubit IBM superconducting
+transmon quantum computing hardware platform used in our experiments. Fig. 1 shows the general archi-
+tecture and qubit connectivity of the machine and the color coding map that indicates the expected error for
+each individual qubit and 2-qubit connection (CNOT error). A key aspect about IBM quantum hardware
+is that each qubit and qubit connection has diﬀerent error rates. These rates, and other system parameters
+such as qubit coherence times are not static and change with time. IBM performs periodic calibrations on
+their quantum systems and the system properties update once this calibration sequence is complete. The
+properties play a critical role in quantum circuit execution, as they are usually utilized in compiling and
+optimizing the quantum program.
+The IBM machines are accessed via a cloud portal where users can write quantum computing programs in
+python using jupyter notebooks. A jupyter notebook can then be submitted either to a quantum computing
+simulator or one of several diﬀerent hardware backends onto the actual quantum computing hardware plat-
+forms. The daily measured and published error rates are important factors and considerations when loading
+programs (circuits) representing quantum algorithms onto a quantum computing hardware platform.
+Programs loaded onto a quantum computer require that each computation in the program be executed on
+adjacent qubits. The actual physical layout of the qubits shows that there is limited connectivity between
+each qubit. For large programs it is not possible to place each computation on the qubits so that they are
+adjacent throughout the execution of the entire program. This limited connectivity of the qubits on the
+machine requires that the information for the calculation that is contained on distant qubits must to be
+moved until the two qubits are adjacent. This is called aSWAP operation. This has a major implication
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+18 Article submitted to INFORMS Journal on Computing
+on a quantum program’s length that can be executed on a quantum computer before the machine loses its
+quantum mechanical wavefunction coherence depth in time and stops functioning. A key goal of compiling a
+quantum program is to adequately map it to the subset of qubits and connections with the best coherence,
+error parameters and a connectivity that guarantees the minimum amount of extra computation (SWAP
+gates) so that it results in the best and longest execution of the program.
+References
+Barahona F, et al. (1982) On the computational complexity of ising spin glass models.Journal of Physics
+A: Mathematical and General15(10).
+Bertels K, Sarkar A, Hubregtsen T, Serrao M, Mouedenne AA, Yadav A, Krol A, Ashraf I (2020) Quantum
+computer architecture: Towards full-stack quantum accelerators.2020 Design, Automation & Test in
+Europe Conference & Exhibition (DATE)(IEEE), URL http://dx.doi.org/10.23919/date48585.
+2020.9116502.
+Farhi E, et al. (2014) A quantum approximate optimization algorithm. Preprint at
+https://arxiv.org/abs/1411.4028 .
+Festa P (2014) A brief introduction to exact, approximation, and heuristic algorithms for solving hard com-
+binatorial optimization problems.2014 16th International Conference on Transparent Optical Networks
+(ICTON) (IEEE), URL http://dx.doi.org/10.1109/icton.2014.6876285.
+Glover F, Kochenberger G (2018) A tutorial on formulating qubo models. arXiv preprint
+arXiv:1811.11538463 .
+Gomez S, Hennart JP (1994) A direct search optimization method that models the objective and
+constraint functions by linear interpolation. in [Advances in Optimization and Numerical Analy-
+sis],SpringerNetherlands 51–67.
+Gonçalves AD, Pessoa AA, Bentes C, Farias R, de A Drummond LM (2017) A graphics processing unit
+algorithm to solve the quadratic assignment problem using level-2 reformulation-linearization tech-
+nique. INFORMS Journal on Computing 29(4):676–687, URLhttp://dx.doi.org/10.1287/ijoc.
+2017.0754.
+Guerreschi GG, Matsuura AY (2019) QAOA for max-cut requires hundreds of qubits for quantum speed-up.
+Scientiﬁc Reports9(1), URL http://dx.doi.org/10.1038/s41598-019-43176-9.
+Halim AH, Ismail I (2017) Combinatorial optimization: Comparison of heuristic algorithms in travelling
+salesman problem. Archives of Computational Methods in Engineering26(2):367–380, URLhttp://
+dx.doi.org/10.1007/s11831-017-9247-y.
+Hao G, et al. (2014) The unconstrained binary quadratic programming problem: A survey, kochenberger.
+Journal of Combinatorial Optimization28(1):58–81.
+Istrail S (2000) Statistical mechanics, three-dimensionality and NP-completeness.Proceedings of the thirty-
+second annual ACM symposium on Theory of computing - STOC'00 (ACM Press), URLhttp://dx.
+doi.org/10.1145/335305.335316.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+Article submitted to INFORMS Journal on Computing 19
+Kadowaki T, Nishimori H (1998) Quantum annealing in the transverse ising model.Physical Review E
+58(5):5355–5363, URLhttp://dx.doi.org/10.1103/physreve.58.5355.
+Kandala A, et al. (2017) Hardware-eﬃcient variational quantum eigensolver for small molecules and quantum
+magnets. Nature 549:242–246.
+Kim SH, Feron E, Clarke JP, Marzuoli A, Delahaye D (2017) Airport gate scheduling for passengers, aircraft,
+and operations.Journal of Air Transportation25(4):109–114, URLhttp://dx.doi.org/10.2514/1.
+d0079.
+Krawiec AGA, Zimborás Z (2020) Space-eﬃcient binary optimization for variational computing.preprint
+arXiv URL https://arxiv.org/abs/2009.07309.
+Loiola EM, de Abreu NMM, Boaventura-Netto PO, Hahn P, Querido T (2007) A survey for the quadratic
+assignment problem.European Journal of Operational Research176(2):657–690, URLhttp://dx.doi.
+org/10.1016/j.ejor.2005.09.032.
+Lucas A (2014) Ising formulations of many np problems.Frontiers in Physics2:5.
+McGeoch CC (2014) Adiabatic quantum computation and quantum annealing: Theory and prac-
+tice. Synthesis Lectures on Quantum Computing 5(2):1–93, URL http://dx.doi.org/10.2200/
+s00585ed1v01y201407qmc008.
+Moll N, et al. (2018) Quantum optimization using variational algorithms on near-term quantum devices.
+Quantum Science and Technology3(3):030503.
+Nielsen MA, Chuang IL (2009)Quantum Computation and Quantum Information(Cambridge University
+Press), URL http://dx.doi.org/10.1017/cbo9780511976667.
+Peruzzo A, McClean J, Shadbolt P, Yung MH, Zhou XQ, Love PJ, Aspuru-Guzik A, O’Brien JL (2014)
+A variational eigenvalue solver on a photonic quantum processor.Nature Communications5(1), URL
+http://dx.doi.org/10.1038/ncomms5213.
+Qiskit (2021) Open-source quantum development. URLhttps://www.qiskit.org/.
+RomeroJ,etal.(2018)Strategiesforquantumcomputingmolecularenergiesusingtheunitarycoupledcluster
+ansatz. Quantum Science and Technology4:14008, URL http://iopscience.iop.org/article/10.
+1088/2058-9565/aad3e4.
+Sahni S, Gonzalez T (1976) P-complete approximation problems.Journal of the ACM23(3):555–565, URL
+http://dx.doi.org/10.1145/321958.321975.
+Serra T, Huang T, Raghunathan AU, Bergman D (2021) Template-based minor embedding for adiabatic
+quantum optimization.INFORMS Journal on ComputingURL http://dx.doi.org/10.1287/ijoc.
+2021.1065.
+Spall J (1992) Multivariate stochastic approximation using a simultaneous perturbation gradient approxima-
+tion. IEEE Transactions on Automatic Control37(3):332–341, URLhttp://dx.doi.org/10.1109/9.
+119632.
+
+=== PAGE BREAK ===
+
+Mohammadbagherpoor, et.al.: Gate-Scheduling QAP Using Quantum Computers
+20 Article submitted to INFORMS Journal on Computing
+Spall JC (1987) A stochastic approximation technique for generating maximum likelihood parameter esti-
+mates. 1987 American Control Conference, 1161–1167, URL http://dx.doi.org/10.23919/ACC.
+1987.4789489.
+Stollenwerk T, Lobe E, Jung M (2019) Flight gate assignment with a quantum annealer.Quantum Technology
+and Optimization Problems, 99–110 (Springer International Publishing), URLhttp://dx.doi.org/
+10.1007/978-3-030-14082-3_9.
+Tabi Z, et al. (2021) Quantum optimization for the graph coloring problem with space-eﬃcient embedding.
+arXiv:2009.07314 .
+Wang D, et al. (2019) Accelerated variational quantum eigensolver.Phys. Rev. Lett.122:140504.
+Wang Q, Abdullah T (2018) An introduction to quantum optimization approxima-
+tion algorithm. The University of Maryland , URL https://www.semanticscholar.
+org/paper/An-Introduction-to-Quantum-Optimization-Algorithm-Wang-Abdullah/
+32f82d9d4e496d80e4cdc994073c8ddd4e680256.

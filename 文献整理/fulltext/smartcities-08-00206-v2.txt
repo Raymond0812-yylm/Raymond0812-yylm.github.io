@@ -1,0 +1,1680 @@
+Academic Editor: Pierluigi Siano
+Received: 24 October 2025
+Revised: 6 December 2025
+Accepted: 8 December 2025
+Published: 11 December 2025
+Citation: Liu, P .; Parkinson, S.; Best,
+K. Quantum and Quantum-Inspired
+Optimisation in Transport and Logistics:
+A Systematic Review. Smart Cities
+2025, 8, 206. https://doi.org/10.3390/
+smartcities8060206
+Copyright: © 2025 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed under the terms and
+conditions of the Creative Commons
+Attribution (CC BY) license
+(https://creativecommons.org/
+licenses/by/4.0/).
+Systematic Review
+Quantum and Quantum-Inspired Optimisation in Transport and
+Logistics: A Systematic Review
+Paloma Liu 1,*
+ , Simon Parkinson 2
+ and Kay Best 1
+1 Huddersfield Business School, University of Huddersfield, Huddersfield HD1 3DH, UK; k.best@hud.ac.uk
+2 Department of Computer Science, University of Huddersfield, Huddersfield HD1 3DH, UK;
+s.parkinson@hud.ac.uk
+* Correspondence: n.liu2@hud.ac.uk
+Highlights
+What are the main findings?
+• Quantum and quantum-inspired methods show promise in transport optimisation but
+remain limited by hardware scale, data realism, and lack of standardised benchmarks.
+• Empirical studies reveal that data translation, queue latency, and energy consumption,
+not the quantum step itself, dominate total computation time.
+What is the implication of the main finding?
+• Progress toward real-world deployment depends on developing open benchmark suites,
+transparent energy and latency reporting, and hybrid quantum-classical workflows.
+• Addressing organisational readiness and interoperability standards is essential for
+quantum computing to become a viable component of future smart-mobility systems.
+Abstract
+Quantum computing offers transformative potential to solve complex optimisation prob-
+lems in transportation and logistics, particularly those that involve large combinatorial
+decision spaces such as vehicle routing, traffic control, and supply chain design. Despite
+theoretical promise and growing empirical interest, its adoption remains limited. This
+systematic literature review synthesises fifteen peer-reviewed studies published between
+2015 and 2025, examining the application of quantum and quantum-inspired methods to
+transport optimisation. The review identifies five key problem domains (vehicle routing,
+factory scheduling, network design, traffic operations, and energy management) and cate-
+gorises the quantum techniques used, including quantum annealing, variational circuits,
+and digital annealers. Although several studies demonstrate performance gains over classi-
+cal heuristics, most rely on synthetic datasets, lack statistical robustness, and omit critical
+operational metrics such as energy consumption and queue latency. Four cross-cutting
+barriers are identified: hardware limitations, data availability, energy inefficiency, and
+organisational readiness. The review identifies limited real-world deployment, a lack
+of standardised benchmarks, and scarce cost–benefit evaluations, highlighting key areas
+where further empirical work is needed. It concludes with a structured research agenda
+aimed at bridging the gap between laboratory demonstrations and practical implementa-
+tion, emphasising the need for pilot trials, open datasets, robust experimental protocols,
+and interdisciplinary collaboration.
+Keywords: quantum computing; transport optimisation; technology adoption barriers;
+systematic literature review
+Smart Cities 2025, 8, 206 https://doi.org/10.3390/smartcities8060206
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 2 of 33
+1. Introduction
+The complexity of contemporary transport and logistics arises from rapid urbanisa-
+tion, tightly coupled global supply chains, and ambitious decarbonisation targets. This
+complexity results in computationally intensive tasks for processing large volumes of data
+and/or considering large decision spaces to make optimal choices. Classical optimisation
+approaches, ranging from mixed-integer programming [1] to metaheuristic search [2], per-
+form well on narrowly scoped or static tasks, but struggle to deliver near-optimal decisions
+within the stringent temporal horizons required for city-scale vehicle routing, adaptive
+traffic control, or same-day fulfilment [3].
+Quantum computing represents a fundamentally different computational paradigm
+that exploits superposition, entanglement, and interference to accelerate the exploration of
+vast combinatorial spaces [4]. In classical computing, information is processed using bits
+that exist in one of two states: 0 or 1. Quantum computing uses quantum bits, or qubits,
+which can exist in a superposition of both 0 and 1 at the same time. This means that a
+quantum computer can explore many possible solutions simultaneously, rather than one at
+a time. Entanglement is another key principle, a quantum phenomenon in which qubits
+become linked in such a way that the state of one qubit instantly influences the state of
+another, no matter how far apart they are. This allows quantum computers to coordinate
+and correlate information across qubits in ways that classical systems cannot replicate.
+Finally, quantum interference is used to amplify the probability of correct solutions while
+cancelling out incorrect ones. By carefully orchestrating how quantum states evolve and
+interact, quantum algorithms can guide the system toward the most promising answers in
+a vast search space. Together, these properties enable quantum computers to accelerate the
+exploration of vast combinatorial spaces, such as those found in cryptography, optimisation,
+drug discovery, and materials science. In all these domains, the number of possible
+configurations grows exponentially and quickly overwhelms classical computing resources.
+Quantum computing is a rapidly progressing area, with recent breakthroughs making
+it more accessible to the user. Although quantum architecture is not widely available,
+research into the use of Quantum computers tends to focus on adopting and exploiting
+specific aspects of the architecture or underlying science.
+There are three lines of technological development that are particularly relevant for
+transport optimisation: quantum annealing hardware that directly solves binary quadratic
+models [5], variational circuits executed on noisy intermediate-scale quantum proces-
+sors [6], and quantum-inspired architectures that emulate tunnelling effects by means of
+complementary metal–oxide–semiconductor hardware [7]. Collectively, these platforms
+have produced promising results for logistics problems such as vehicle routing [8,9], supply
+chain planning [5], network design [10], and plug-in vehicle charging [11], although virtu-
+ally all empirical demonstrations remain confined to proof-of-concept instances [12,13].
+Despite this promise, quantum optimisation in transport is still distant from routine
+deployment. Current devices possess fewer than one hundred logical qubits, suffer from
+limited connectivity and modest gate fidelity that is not yet at the level required for fault-
+tolerant computation [14,15], and rely on software toolchains that remain immature [16].
+An independent energy audit experiment even reports that small quantum workloads
+can consume more electricity than a conventional desktop workstation [17]. Operational
+impediments intensify these technical constraints: most published case studies use synthetic
+or down-sampled data, none measure queue latency for cloud-hosted processors, and pilot-
+scale deployments have yet to appear in the academic record. Institutional factors add
+further inertia because organisations face shortages of interdisciplinary talent, encounter
+uncertain return-on-investment, and confront a near-absence of sector-wide benchmarks or
+standards [18–20].
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 3 of 33
+The existing literature is fragmented. Theoretical articles focus on overcoming techni-
+cal challenges to improve performance while neglecting the modelling effort required for
+real-world integration, whereas experimental reports highlight isolated performance gains
+without systematically evaluating their generalisability, energy cost, or organisational feasi-
+bility. Therefore, a comprehensive synthesis that unites empirical performance evidence
+with the multifaceted barriers that govern technology diffusion is essential. Such a synthe-
+sis can clarify the readiness for quantum optimisation for transport applications, expose
+research gaps that warrant priority, and inform policy aimed at responsible adoption.
+This study conducts a systematic review of peer-reviewed work published between
+2015 and June 2025. Fifteen peer-reviewed journal articles satisfy the inclusion criteria after
+exclusions for narrative reviews, non-transport domains, and weakness in methodological
+weakness. The review catalogues their problem settings, quantum techniques, dataset
+scales, comparative baselines, and methodological quality, then interprets these findings
+in terms of technical, operational, and institutional barriers. By integrating quantitative
+evidence with qualitative insight, the study seeks to clarify the current state of quantum
+optimisation in transport, identify the most pressing research gaps, and outline a structured
+agenda for future investigation and pilot implementation. The novel contributions of this
+article are as follows:
+• It is the first systematic review of quantum computing applications in transportation,
+mapping out key problem domains (such as vehicle routing, scheduling, and traffic
+control), and quantum techniques used.
+• It identifies the major barriers to adoption, including hardware limitations, lack of
+real-world data, energy inefficiency, and organisational challenges.
+• It proposes a structured research agenda to bridge the gap between laboratory studies
+and real-world deployment, emphasising the need for pilot trials, open benchmarks,
+and robust evaluation protocols.
+This review focuses specifically on optimisation problems within transport and logis-
+tics (e.g., routing, scheduling, network design, traffic control), rather than the full breadth
+of quantum applications in travel demand modelling or quantum cognition. Nevertheless,
+we acknowledge emerging quantum approaches to demand-side modelling (e.g., quantum
+discrete choice, quantum cognition) and briefly map these to highlight how optimisation
+fits within the broader transport-quantum landscape.
+Several prior surveys have reviewed quantum optimisation and quantum annealing
+in broader operations-research or process-systems contexts (e.g., [21,22]). However, these
+works are conceptual or method-oriented rather than transport-specific, and they do not
+synthesise empirical performance metrics, energy use, queue latency, or organisational
+readiness. In contrast, the present review undertakes a PRISMA-guided synthesis that
+focuses specifically on measured empirical evidence for quantum and quantum-inspired
+optimisation in transport and logistics.
+To our knowledge, no prior transport-focused review systematically aggregates em-
+pirical findings on quantum and quantum-inspired optimisation—particularly regarding
+energy footprint, queue latency, hardware constraints, and organisational readiness—which
+further motivates the need for this synthesis.
+The remainder of the paper is organised as follows. Section 2 introduces the relevant
+transport optimisation problems, summarises quantum computing methods, and presents
+the barrier taxonomy that motivates the review. Section 3 describes the review protocol
+and the quality assessment procedure. Section 4 synthesises the empirical results of the
+fifteen primary studies, while Section 5 discusses implications, limitations, and priorities
+for future work. Finally, a conclusion is provided in Section 6.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 4 of 33
+2. Background
+2.1. Transport and Logistics Optimisation Problems
+Efficient optimisation underpins every operational and strategic layer of modern
+transport and logistics, ranging from day-to-day vehicle routing choices to long-horizon
+investment in depots and inventory buffers. Canonical problems in this field include
+the travelling salesperson problem, the vehicle routing problem and its time window
+variant, crew and machine scheduling, multi-echelon inventory design, facility location
+and network expansion planning, adaptive traffic signal control, and fleet-level charging
+management [23]. All belong to the class of NP-hard combinatorial problems. The same
+exponential growth appears when a factory scheduler must allocate dozens of robots to
+hundreds of jobs or when a planner must choose which of several thousand links to add to
+a road network.
+Because the search space grows explosively with instance size, exact formulations such
+as mixed-integer programming are overwhelmed once realistic networks, stochastic travel
+times, or dynamic constraints are introduced [24]. Meta-heuristics and machine learning
+surrogates provide usable solutions faster, yet they do so by relinquishing global optimality
+and, in many cases, stability. This trade-off becomes sharper as urban networks become
+more dense, customer service windows shrink, and real-time decision cycles shorten [25,26].
+Figure 1 summarises the five problem families most often targeted by quantum optimisation
+research. There are vehicle and fleet routing, robot and factory scheduling, network design
+and facility location planning, adaptive traffic signal control, and energy-sensitive charging
+and dispatch.
+Beyond supply-side optimisation, quantum-theoretic perspectives have also begun
+to influence demand-side transport modelling. Although outside the specific scope of
+this review, which focuses on optimisation and operational decision-making, a small
+but growing body of literature explores quantum cognition and quantum-probabilistic
+approaches to travel behaviour. For example, quantum-utility formulations have been
+used to interpret traffic-count and perception data through interference-based probability
+structures [27], while quantum-probabilistic models have been applied to path-choice
+behaviour in small transport networks [28]. These studies address behavioural modelling
+rather than operational optimisation and therefore do not meet the inclusion criteria of
+this review, but they illustrate the broader emergence of quantum-based thinking across
+multiple layers of transport research.
+In parallel with these conceptual developments, several recent studies illustrate the
+growing methodological interest in quantum and quantum-inspired optimisation within
+transport and logistics. Examples include a comprehensive 2025 review of quantum anneal-
+ing technologies for transportation optimisation in quantum information processing [29];
+quantum-assisted traffic routing and electric-vehicle charging scheduling using VQE-based
+architectures [30]; intelligent traffic-management optimisation using quantum-theoretic
+and randomisation-based consensus models [31]; quantum-annealing-based optimal con-
+trol of traffic signals [32]; and integrated network-design and vehicle-routing formulations
+for road-transport systems [33]. These works provide additional context for the breadth
+of emerging transport-oriented applications of quantum methods and complement the
+empirical optimisation studies synthesised later in this review.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 5 of 33
+Figure 1. Problems that motivate quantum optimisation in transport and logistics.
+2.2. Quantum Computing: Principles and Methods
+Quantum computing offers a fundamentally different approach to computation by
+representing information in qubits. Unlike binary digits in classical computation systems,
+qubits can exist in a combination of 0 and 1 at the same time. This phenomenon is known
+as superposition, and it allows quantum computers to explore many possible solutions
+simultaneously. Additionally, qubits can be entangled, meaning that the state of one qubit
+is directly related to the state of another, even if they are far apart. This entanglement, along
+with quantum interference, enables quantum computers to perform certain calculations
+much more efficiently than classical computers by narrowing down the correct answers
+from a vast number of possibilities in a single step [4,34].
+Many transport optimisation problems can be expressed in a Quadratic Unconstrained
+Binary Optimisation (QUBO) [35] form:
+min
+x∈{0,1}n
+x⊤Qx + c⊤x, (1)
+where x∈{ 0, 1}n is a vector ofn binary decision variables (e.g., vehicle–customer assignment),
+Q∈ Rn×n encodes quadratic interaction penalties, andc∈ Rn represents linear costs.
+QUBO models map directly to an Ising Hamiltonian [ 36] by substituting
+xi = (1− si)/2, where si∈{− 1, +1} is a spin variable:
+H(s) = ∑
+i
+hisi + ∑
+i<j
+Jijsisj, (2)
+Here, s = (s1, . . ., sn) denotes the vector of spin variables, and H(s) is the Ising energy
+(Hamiltonian) associated with a given spin configuration, with indices i, j running over the
+n decision variables. The coefficients hi and Jij are directly derived from the corresponding
+QUBO parameters. This mapping enables routing, scheduling and network-design tasks to
+be encoded as energy-minimisation problems on a quantum annealer.
+There are two hardware paradigms that dominate in current research:
+• Quantum Annealers: These machines, such as those built by D-Wave Systems, are
+designed to solve optimisation problems where the goal is to find the best solution
+among many possible options. They do this by representing the problem as a math-
+ematical model called an unconstrained binary quadratic model and then using a
+quantum process called tunnelling to guide the system toward the lowest-energy (or
+most optimal) configuration [37]. This approach is particularly useful for problems
+like scheduling, logistics, and machine learning.
+In quantum annealing, the system evolves from an initial HamiltonianH0 with a known
+ground state to a problem HamiltonianHP that encodes the optimisation objective
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 6 of 33
+H(t) =
+ 
+1− s(t)
+
+H0 + s(t)HP, (3)
+Here, H(t) is the time-dependent Hamiltonian and s(t)∈ [0, 1] is a monotone anneal-
+ing schedule that interpolates between H0 and HP, increasing smoothly from 0 to 1
+during the anneal. Ideally, the system remains in (or near) the ground state of H(t),
+yielding a high-quality solution.
+• Gate-Based Quantum Processors: These are more general-purpose quantum comput-
+ers, developed by companies like IBM and Rigetti. They work by applying a series of
+quantum operations, called unitary gates, to qubits in a controlled sequence, similar
+to how classical computers use logic gates. These processors can run sophisticated
+algorithms such as the Quantum Approximate Optimisation Algorithm (QAOA) [38],
+which is used to solve complex optimisation problems.
+Gate-based quantum processors often implement QAOA [ 38], which alternates be-
+tween application of the problem Hamiltonian HC and a Hamiltonian mixer HM:
+|ψ(γ, β)⟩ =
+p
+∏
+k=1
+exp
+ 
+− iβkHM
+
+exp
+ 
+− iγkHC
+
+|+⟩⊗n. (4)
+Here,p denotes the number of alternating QAOA layers,(γ, β) = ((γ1, . . ., γp), (β1, . . ., βp))
+are real-valued variational parameters, + = (0 + 1)/
+√
+2 is the single-qubit equal-superposition
+state, andn is the number of qubits.
+These parameters are updated by a classical optimiser to minimise the expected cost
+⟨ψ(γ, β)| HC| ψ(γ, β)⟩,
+where HC encodes the constraint and cost structure of the transport optimisation task
+(e.g., delivery-tour sequencing or assignment decisions).
+The Variational Quantum Eigensolver (VQE) [39], which is useful for simulating molec-
+ular structures and quantum systems through sequences of parameterised quantum
+gates compiled by toolchains such as Qiskit [40–42].
+VQE uses a parametrised quantum circuit (ansatz) to approximate the ground state of
+an optimisation Hamiltonian [39]:
+|ψ(θ)⟩ = U(θ)|0⟩⊗n, (5)
+where U(θ) consists of layers of single-qubit rotations and entangling gates, and
+θ∈ Rm is the vector of trainable circuit parameters. The reference state|0⟩⊗n denotes
+the all-zero n-qubit initialization. A classical optimiser updates θ to minimise the
+expected energy
+E(θ) =⟨ψ(θ)| HP| ψ(θ)⟩. (6)
+Here HP denotes the problem Hamiltonian that encodes the objective and feasibil-
+ity constraints of the transport optimisation task. Logarithmic-qubit encodings for
+transport-routing tasks reduce qubit requirements by compressing location or sequenc-
+ing indices into compact binary representations within the ansatz.
+A third category, known as quantum-inspired digital annealers, offers a bridge be-
+tween classical and quantum computing. These systems are built using conventional
+computer hardware (such as CMOS chips), but they mimic certain quantum behaviours,
+especially tunnelling, using carefully designed algorithms [43]. Although they are not true
+quantum computers, they use similar mathematical models (such as the Ising model [36])
+and can serve as practical tools to solve problems while quantum hardware continues to
+mature [44]. The Ising model [ 36,45] is a simplified mathematical model used in statistical
+physics to study phase transitions, where each point on a lattice represents a magnetic spin
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 7 of 33
+that can be in one of two states (up or down), interacting with its neighbours and possibly
+an external magnetic field.
+To make quantum computing more accessible and scalable, researchers are also devel-
+oping compiler frameworks to help translate high-level tasks into quantum operations. An
+example is the ‘Naginata’ circuit synthesiser, which automates the design of reusable quan-
+tum circuit blocks, particularly for tasks in machine learning [46]. These tools are essential
+for building more complex quantum applications and making quantum computing usable
+by a broader range of developers and researchers. These interdependencies are visually
+brought together in Figure 2, which shows how hardware, algorithms, software infrastruc-
+ture, application domains, and adoption barriers constitute an integrated ecosystem for
+quantum optimisation in transport and logistics.
+Figure 2. Conceptual mind-map of the quantum-optimisation landscape for transport and logistics.
+2.3. Quantum Cognition and Quantum-Probabilistic Demand-Side Models
+Although this systematic review focuses exclusively on optimisation-orientated ap-
+plications of quantum and quantum-inspired computation in transport and logistics, it is
+important to recognise that quantum-theoretic approaches have also begun to influence
+demand-side transport modelling. These studies lie outside the inclusion criteria of the
+present PRISMA protocol, as they do not involve empirical optimisation or measurable com-
+putational performance. However, they illustrate how quantum perspectives are emerging
+across multiple layers of transport analysis.
+One stream applies quantum cognition and quantum probability to represent behavioural
+uncertainty , contextual interference effects, and non-classical substitution patterns in travel
+behaviour. For example, quantum-utility formulations have been used to interpret traffic
+count and perception data through probability amplitude structures (e.g., [27]). Related work
+has also demonstrated how quantum cognition can bridge stated-preference and revealed-
+preference data, providing an alternative probabilistic foundation for modelling travel choices
+(e.g., [47]). More recent work explores quantum-probabilistic path-choice models in small
+transport networks, demonstrating how interference terms can capture route-selection prefer-
+ences beyond classical random utility maximisation (e.g., [28]).
+Additional conceptual studies have introduced quantum-based enhancements to
+discrete-choice modelling frameworks, showing how superposition and phase parameters
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 8 of 33
+may encode preference ambiguity, context dependency, or order effects that are not easily
+handled by multinomial logit or nested-logit structures. This includes early demonstrations
+published in Transportation Research Part B and related outlets on quantum decision-
+making, quantum cognition, and hybrid quantum–classical behavioural representations.
+Although these contributions do not address optimisation problems such as routing,
+scheduling, or network design and therefore fall outside the empirical dataset reviewed
+in this study, they highlight the breadth of quantum-theoretic developments underway in
+transportation research. Their presence reinforces the rationale for focusing the present
+systematic review specifically on operational optimisation, where quantum and quantum-
+inspired techniques currently offer the most concrete, measurable, and computationally
+testable applications.
+2.4. Quantum Computing Applications in Transport and Logistics
+Research conducted over the past five years shows a clear thematic pattern, as seen
+in Table 1. We refer to these as “problem families” because each group corresponds to an
+established class of NP-hard optimisation problems in transport and logistics that share
+a common mathematical formulation and typical constraint patterns. Treating them as
+families therefore reflects both their historical treatment in the operations-research literature
+and their shared suitability for quantum optimisation approaches.
+Table 1. Quantum research in transport clusters into five problem families.
+Cluster Primary Studies Typical Quantum Model
+Vehicle- & fleet-routing (VRP/VRPTW) [48–53] Ising/QUBO on D-Wave, log-qubit-encoded vari-
+ational circuits
+Factory/robot scheduling [54,55] Q-inspired Digital Annealer, hybrid QAOA
+Network-design & supply-chain location [10,56] Hybrid QA with classical improvement loops
+Traffic-operations optimisation [57] QUBO for traffic-signal timing
+Energy & charging management [58] Noise-enhanced QA for plug-in hybrid charging
+Approximately half of the empirical corpus is focused on vehicle and fleet routing.
+These studies employ either Ising formulations solved on quantum annealers or logarith-
+mically encoded variational circuits executed on simulators. Factory and robot scheduling
+problems form a second cluster that exploits quantum-inspired digital annealing or hybrid
+variational approaches. A smaller but conceptually important group addresses challenges
+in network design and supply chain location with hybrid quantum-classical improvement
+loops, while some work explores traffic signal timing and plug-in vehicle charging. Across
+all domains, quantum annealing remains the most frequently adopted technique because
+the binary nature of the transport decision variables lends itself to Quadratic Unconstrained
+Binary Optimisation (QUBO); variational circuits appear mostly in proof-of-concept sim-
+ulators, whereas quantum-inspired annealers provide an intermediate step that already
+scales to thousands of decision variables.
+2.4.1. Vehicle and Fleet-Routing Problems
+Routing problems in transport and logistics involve determining how one or more
+vehicles should visit a set of delivery points while minimising total travel distance, time or
+cost, and satisfying operational constraints. In last-mile delivery, vehicles typically start
+from a depot, serve a set of geographically dispersed customers, and return once their
+assigned deliveries are completed. Real-world distribution networks include additional
+requirements, such as limited vehicle capacity, customer-specific delivery windows, maxi-
+mum route durations, and the need to manage traffic congestion or depot imbalance. These
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 9 of 33
+elements make routing tasks highly combinatorial, especially in dense urban environments
+where delivery schedules are tight and service expectations are time-critical. This subsec-
+tion provides contextual grounding only and does not attempt a full review of the classical
+VRP literature, which lies outside the optimisation-focused quantum scope of this study.
+Classical benchmark datasets, such as the widely used Solomon time-window in-
+stances [59], illustrate the practical features of real delivery networks, including spatial
+clustering of customers, heterogeneous service times, and varying delivery windows. These
+benchmarks are frequently used to demonstrate how routing complexity grows as more
+delivery points and constraints are added, and they provide a useful contextual reference
+for understanding the types of delivery-tour structure that quantum optimisation methods
+aim to address.
+Quantum and quantum-inspired optimisation approaches build on these classical
+routing structures by encoding sequencing, assignment, and feasibility relationships into
+binary formulations compatible with quantum hardware. QUBO representations [35] and
+the corresponding Ising mappings [36] offer a structured way to express which customers a
+vehicle should serve and in what order. Once encoded, these routing tasks can be explored
+by annealing-based devices, which search for low-energy configurations, or by gate-based
+variational algorithms, which use parameterised quantum circuits to navigate large solution
+spaces. Such approaches offer the potential to evaluate many routing alternatives in parallel,
+supporting faster or more efficient decision processes in operational last-mile logistics.
+2.4.2. Factory and Robot-Scheduling
+Modern distribution centres and production warehouses increasingly deploy fleets
+of automated guided vehicles (AGVs) in tandem with fixed robotic workstations. Each
+vehicle must collect materials, deliver them to the correct station, and sometimes perform
+intermediate processing steps while sharing aisles and transfer points with other vehicles.
+If two AGVs attempt to enter the same aisle segment or workstation simultaneously,
+they risk collision; even without physical contact, they can mutually block access routes
+and immobilise the fleet, a state of the system commonly referred to as deadlock [ 60].
+Throughput targets, battery constraints, task precedence relations, and machine eligibility
+rules further complicate the scheduling landscape. When these spatial and temporal
+restrictions are modelled in full detail, the schedule usually takes the form of a disjunctive
+graph or a time-indexed integer program. Such formulations generate NP hard sequencing
+and routing subproblems that classical branch -and-bound or constraint programming
+solvers can handle only for relatively modest instance sizes [61].
+Quantum and quantum-inspired methods are attractive because many of the un-
+derlying decisions are binary (e.g. vehicle i uses segment j at time t; job k assigned to
+machine m) and can therefore be encoded in the form Ising or the quadratic unconstrained
+binary optimisation (QUBO) [62]. Digital annealers already handle tens of thousands of
+binary variables in near-real time for shop floor-style benchmarks [54], and hybrid varia-
+tional/metaheuristic schemes have shown multi-objective improvements in simulated AGV
+scheduling environments [55]. Looking ahead, error-mitigated QAOA variants that com-
+bine shallow quantum circuits with classical repair heuristics could reduce makespan and
+congestion while enforcing collision-free and deadlock-free movement plans in high-density
+automated warehouses.
+However, several practical barriers remain. First, data-availability and scaling con-
+straints arise because real AGV-scheduling datasets include fine-grained aisle-occupancy
+logs, machine-availability calendars, and second-by-second AGV telemetry. These are data
+points that are often proprietary and require extensive preprocessing before they can be
+represented as QUBOs. Second, embedding overhead and qubit limits currently prevent
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 10 of 33
+full-scale industrial layouts from being encoded without aggressive simplifications. Third,
+energy consumption and queue latency make cloud-based quantum execution unsuitable
+for real-time AGV conflict resolution, where decisions often need to be refreshed every
+few seconds. Finally, organisational readiness, including integration with warehouse-
+management systems and risk-averse safety protocols remains a key barrier to deploying
+quantum-enabled scheduling in operational automated-warehouse settings.
+2.4.3. Network-Design and Supply-Chain Location
+Strategic design questions in freight distribution often require deciding which depots to
+open, which links to upgrade, and how to size intermediate facilities so that flows can be routed
+at minimum cost subject to capacity , service time, and reliability constraints [63,64]. These
+problems mix large numbers of binary location variables with non-linear or multi-commodity
+flow constraints; even with relaxations, standard branch-and-bound and Benders decomposition
+procedures deteriorate rapidly once network size exceeds a few hundred candidate sites or
+when multiple demand scenarios are considered.
+Quantum annealing offers a compact way to evaluate many facility configurations in
+parallel because the upper-level location choices can be represented as spins in an Ising
+energy landscape. Flow costs and interaction penalties map to pairwise couplers, and
+hybrid loops can call on a classical solver to re-optimise flows for each sampled configura-
+tion. Early experiments in the transport literature report sub-percentage optimality gaps
+relative to the tuned tabu search on benchmark transport network design instances [56]
+and demonstrate prototype annealing encodings for additional location expansion scenar-
+ios [10]. Although present hardware limits constrain the scale of these demonstrations,
+this approach suggests a shorter design iteration cycle for capital-intensive infrastructure
+planning once larger quantum or quantum-inspired platforms become available.
+However, several barriers currently restrict deployment. First, data availability and
+workflow constraints arise because full network design models require multilayer origin–
+destination matrices, scenario-specific reliability data, and cost-flow coefficients that are
+often proprietary or inconsistently formatted across logistics operators. Converting these
+datasets into QUBO form involves significant preprocessing and dimensionality reduction.
+Second, hardware limitations, including sparse connectivity, qubit-capacity ceilings, and
+long embedding chains currently prevent representing full multi-commodity or scenario-
+based formulations without drastic simplification. Third, energy consumption and queue
+latency become significant limiting factors, since evaluating thousands of candidate in-
+frastructure plans requires repeated sampling, making cloud access QPUs unsuitable for
+real-time strategic planning. Finally, organisational readiness issues, such as integration
+with long-term capital planning processes, regulatory oversight, cybersecurity, and vendor
+lock-in concerns pose additional challenges before quantum-enabled network-design tools
+can be adopted in operational logistics environments.
+2.4.4. Traffic-Operations Optimisation
+Traffic control strategies such as adaptive traffic lights, lane reversals, and ramp
+metering often use mixed-integer programming models that must be solved every 30–60 s.
+To make this work in real time, these models usually compromise on finding the best
+overall solution or coordinating the whole network.
+By converting traffic signal timing decisions into a QUBO format, quantum annealers
+can quickly explore thousands of possible timing plans in parallel [65]. If data input delays
+and system response can be reduced, quantum solvers have the potential to improve both
+local and global traffic optimisation in real-time urban networks.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 11 of 33
+Several barriers currently limit the practicality of this approach. First, traffic manage-
+ment depends on high-frequency detector data, turning counts, and signal-phase measure-
+ments that are often incomplete or inconsistently formatted across jurisdictions. Prepro-
+cessing these data into QUBO form adds latency and can reduce the effective resolution
+of the optimisation. Second, present quantum hardware capacity restricts the size of in-
+tersections or corridors that can be modelled without aggressive simplification. Third,
+real-time signal optimisation is highly sensitive to delay, yet current cloud-based quantum
+systems introduce queue latency and energy overhead that exceed the few-second decision
+window typically required for adaptive control. Finally, transport agencies often operate
+legacy signal-control software, and organisational readiness, procurement constraints, and
+cybersecurity requirements make it difficult to integrate emerging quantum optimisation
+tools into operational traffic-management centres.
+2.4.5. Energy and Charging Management
+Fleet-wide electric vehicle charging, vehicle grid integration, and microgrid schedul-
+ing require deciding how much energy to draw (or return) at many sites in many time
+intervals. The choice made now affects the battery state, network capacity, and feasible
+choices later, and all of these decisions must adapt to uncertain travel demand and volatile
+electricity prices. Classical mixed-integer formulations grow rapidly when this uncer-
+tainty is explicitly modelled and the solution times deteriorate. Therefore, recent work
+explores noise-enhanced quantum annealing [58] and hybrid variational methods [66] as
+alternative search engines that can sample complex and irregular cost landscapes more
+efficiently. These techniques may identify lower-cost charging plans or more resilient
+dispatch strategies within the short update cycles imposed by dynamic electricity markets.
+Across these domains, quantum annealing (QA) is the technique used because bi-
+nary QUBO formulations naturally map to commonly available hardware. Variational
+circuits (VQE/QAOA) appear mainly in proof-of-concept simulators, while “quantum-
+inspired” Ising machines (e.g., Fujitsu DA) bridge the gap with near-real-time performance
+of thousands of variables.
+Energy-management models require high-resolution electricity-price forecasts, transformer-
+capacity limits, and battery degradation parameters, but such data are often proprietary or noisy .
+Converting these multi-layer datasets into QUBO form introduces additional preprocessing
+and aggregation. Hardware limitations also restrict the number of time periods and charging
+sites that can be represented without severe simplification. Furthermore, energy-management
+applications require rapid updates during peak-load periods, yet quantum hardware introduces
+queue latency and high energy overhead, which reduces feasibility for short-cycle decisions.
+Finally , integration with existing grid-management systems and compliance with safety , cyber-
+security , and regulatory requirements means that organisational readiness remains a significant
+barrier to operational adoption in transport-energy coordination.
+2.5. Research Gap and Rationale
+Practical experience and the academic record both indicate that quantum optimisation
+for transport remains immature. Organisations may struggle to recruit professionals who
+combine quantum algorithm expertise with deep domain knowledge and face significant
+integration risk because quantum solvers must interoperate with legacy planning systems
+and ingest real-time telemetry not designed for quantum encodings. Rapid hardware
+obsolescence and uncertain return on investment further deter deployment, while the
+absence of sector-wide standards for model formulation, performance reporting, and
+security compliance adds friction for early adopters. Against this backdrop, the published
+literature converges on four unresolved gaps that this review seeks to clarify the following:
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 12 of 33
+• Statistically robust comparisons: Most studies rely on single-run or best-of-five report-
+ing, making it impossible to quantify variance and replicate results.
+• Real-time field trials: No paper validates quantum-optimised schedules or signal
+plans in a live operational environment.
+• Holistic energy-to-performance analyses: Only one study measures power consumption
+and none reports queue latency , leaving sustainability and cost–benefit claims unverified.
+• Hardware readiness beyond laboratory prototypes: Present-generation devices remain
+at a pre-commercial technology readiness level, with limited qubit counts, sparse
+connectivity, and rapidly evolving software stacks.
+Addressing these gaps will require research that couples algorithmic innovation with
+workforce development, systematic benchmarking, comprehensive energy and latency
+audits, and carefully designed pilot deployments.
+3. Methodology
+This review complies fully with the Preferred Reporting Items for Systematic Reviews
+and Meta-Analyses (PRISMA 2020) guidelines. All procedural decisions, including search
+construction, selection criteria, data extraction protocol, quality assessment, and synthesis
+plan, were pre-registered and executed without deviation.
+3.1. Search Strategy
+All bibliographic records were retrieved from Scopus, which provides broad multi-
+disciplinary coverage of both quantum-computing and transport-logistics journals. This
+review was preregistered on the Open Science Framework (OSF) prior to screening and
+analysis, and the preregistration record is available at https://osf.io/f8gmj, accessed on 27
+June 2025. The search string below was run on 27 June 2025 and was restricted to items
+published between 1 January 2015 and 27 June 2025. The following Boolean string was
+applied to title, abstract, and author keywords:
+TITLE-ABS-KEY (“quantum computing” OR “quantum algorithm” OR “quantum an-
+nealing” OR QAOA OR “quantum-inspired”) AND TITLE-ABS-KEY (“transport” OR “logis-
+tics” OR “mobility” OR “freight” OR “routing” OR “supply chain” OR “vehicle scheduling”)
+AND TITLE-ABS-KEY (“application” OR “implementation” OR “adoption” OR “barrier” OR
+“challenge” OR “limitation” OR “readiness” OR “feasibility” OR “case study”).
+The query returned 158 records. Although Scopus served as the primary index, sup-
+plementary searches of Web of Science and IEEE Xplore did not yield additional journal
+articles that met the inclusion criteria. To ensure completeness, we also screened addi-
+tional keyword families related to behavioural and demand-side modelling (e.g., “path
+choice”, “traffic assignment”, “travel demand”, “quantum choice”, “hybrid quantum classi-
+cal model”). These terms retrieved conceptual or behavioural-modelling studies, but none
+met the empirical optimisation-focused criteria required for inclusion. All metadata were
+exported to an Excel workbook that served as a screening log.
+3.2. Eligibility Criteria and Screening Procedure
+Four inclusion criteria were applied:
+• The article applied quantum or quantum inspired computation to a transport- or
+logistics-related optimisation problem and reported empirical findings relevant to
+barriers, limitations, readiness, or feasibility.
+• It reported empirical data drawn from numerical experiments, laboratory prototypes,
+or field cases.
+• It was a full-length peer-reviewed journal article written in English.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 13 of 33
+Exclusion criteria eliminated records that focused on physics, chemistry, finance, or
+genomics; lacked transport relevance; appeared as conference papers, editorials, patents, or
+preprints; or lacked full-text access.
+Identification stage Thirty-two records were removed prior to screening because they
+were non-English or non-journal items (n = 5) or clearly outside the domain (n = 27). No
+duplicates were found.
+Screening stage Titles and abstracts of the remaining 126 records were screened,
+excluding 103 that were outside the domain, theoretical only, literature reviews, or
+otherwise irrelevant.
+Eligibility stage Full texts of 23 articles were examined in depth; eight were excluded
+because the publication type, upon inspection, was a conference proceeding or editorial.
+A second reviewer selected a random sample of 20% of the title, abstract, and full-text.
+The interrater agreement yielded Cohen’s k = 0.86, indicating substantial concordance.
+Fifteen studies met all the criteria and form the basis of this review. The selection process is
+summarised in Figure 3.
+Figure 3. PRISMA 2020 flow diagram.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 14 of 33
+3.3. Study Characteristics
+The fifteen primary studies span publication years 2017 to 2025, with a clear accelera-
+tion after 2021. Most research addresses road-transport problems: six papers investigate
+variants of the vehicle-routing family, two examine factory or robot-scheduling tasks, and
+two focus on network-design decisions. More specialised contexts include traffic signal
+optimisation, disaster response routing, plug-in vehicle charging, and urban air mobility
+trajectory planning, illustrating the growing thematic breadth of the field.
+Quantum annealing is the dominant computational approach, appearing in eight stud-
+ies that deploy commercial D-Wave hardware. Three additional papers employ quantum-
+inspired digital annealers, while two explore variational circuits executed in noise-free
+simulators. The remaining studies present conceptual analyses, toolchain developments, or
+energy footprint measurements. Problem sizes range from toy four-customer routing in-
+stances to vehicle-routing-with-time-windows sets containing almost four thousand routes.
+Where classical baselines are reported, they include tabu search, simulated annealing,
+mixed-integer programming with the Gurobi solver, and, in one case, an Intel i7 desktop
+used for energy comparison.
+The methodological quality is mixed. Ten studies are judged to have moderate risk
+of bias because they provide at least one rigorous classical comparator and disclose key
+hardware parameters, while six are rated high risk due to single-run experiments, the
+absence of baselines or the heavy reliance on synthetic data. Only three studies release
+code or datasets and none report end-to-end latency that would be required for real-time
+deployment. Despite these limitations, the corpus offers a representative cross-section of
+current quantum and quantum-inspired activity in transport and logistics, serving as a
+credible basis for the synthesis that follows. For a complete summary, seeTables A1 and A2
+in the Appendix A.
+3.4. Data Extraction
+A pilot extraction form was implemented in Microsoft Excel. For each study, biblio-
+graphic metadata, transport domain, quantum technique, problem size, classical baseline,
+data provenance, and the availability of code or data were recorded. Quantitative per-
+formance outcomes were captured verbatim and free text fields summarised the stated
+limitations and the barrier category to which each limitation was assigned. The first author
+carried out the initial extraction; a second author independently re-entered all numerical
+fields and a 30%sample of the narrative fields. Disagreements were reconciled through dis-
+cussion and the final concordance rate exceeded 95%. The completed spreadsheet provides
+the source data for the synthesis presented in Section 4.
+3.5. Quality Appraisal
+Methodological quality was evaluated with a bespoke risk-of-bias rubric adapted
+from critical assessment checklists for computational experiments. The criteria probed the
+transparency of the problem formulation, the adequacy of classical comparators, statistical
+rigour, the realism of the dataset, and the disclosure of hardware parameters. Each study
+was classified as high or moderate risk and the rating was determined by its least robust
+component. The agreement between the authors for the appraisal stage matched the level
+attained during screening (k = 0.86; see Section 3.2).
+A formal certainty-of-evidence assessment such as GRADE was not applied, as the
+included studies are heterogeneous in design and outcome reporting and do not produce
+quantitative effect measures suitable for that framework.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 15 of 33
+The risk-of-bias rubric consisted of five components: (i) transparency of the problem
+formulation, (ii) adequacy of the classical comparator, (iii) statistical rigour and number of
+runs, (iv) realism of the dataset, and (v) disclosure of hardware parameters. Each compo-
+nent was scored as low, moderate, or high risk based on predefined criteria, and the overall
+risk rating for each study was determined by its highest-risk component. Disagreements
+between the two reviewers on risk-of-bias assignments were resolved through discussion.
+3.6. Synthesis
+Heterogeneity in problem types, hardware platforms, and outcome metrics precluded
+quantitative meta-analysis. Therefore, a narrative synthesis was conducted: studies were
+grouped by problem family and quantum approach, and their convergent and divergent
+findings were mapped onto the barrier taxonomy introduced in Section 2. The resulting pat-
+terns, gaps, and contradictions inform the results (Section 4) and the discussion (Section 5).
+A supplementary search of Web of Science, Springer Nature Link, and IEEE Xplore found
+no additional peer-reviewed journal articles that satisfied the inclusion criteria, suggesting
+that reliance on Scopus did not materially limit coverage.
+4. Results of the Systematic Review
+4.1. Problem-Domain Coverage
+The fifteen primary studies cluster into five application families (see Figure 4). Vehicle
+and fleet routing remains the dominant theme, accounting for six investigations (see Table 2
+studies 1, 8, 10, 12, 14, 15). Factory and robot scheduling appears in two experimental
+papers that benchmark automated guided vehicles and robotic cells (see Table 2 studies
+2, 3). Network design and facility location problems are treated in two hybrid annealing
+studies (see Table 2 studies 6, 11). Urban traffic signal control is explored in one quantum
+annealed proof of concept (see Table 2 study 7). Finally, we have a set of specialised topics,
+disaster response adjuster routing, plug-in vehicle charging, urban air mobility trajectory
+planning, and qualitative management cases. This is a signal of an emerging interest in
+non-traditional transport modes (see Table 2 studies 9, 13).
+Table 2. Study map by problem family. Abbreviations: QA—quantum annealing; DA—Digital
+Annealer; VRP—vehicle routing problem; VRPTW—vehicle routing with time windows;
+QUBO—quadratic unconstrained binary optimisation; UAM—urban air mobility.
+Study ID Author-Year Short Title Category
+1 Mohanty et al., 2023 [48] Vehicle-routing VQE Routing (VRP and shortest path)
+2 Leib et al., 2023 [54] Robot-lab scheduling DA Scheduling
+3 Zhou & Zhao, 2023 [55] AGV QMQAOA Scheduling
+4 Cooper, 2022 [67] Transport modelling concept Conceptual/Theory
+5 Desdentado et al., 2024 [17] QC energy footprint Energy/Benchmark
+6 Ding et al., 2021 [56] Hybrid QA network design Network design
+7 Marchesin et al., 2023 [57] Traffic-light QUBO Traffic control
+8 Syrichas & Crispin, 2017 [49] PI-QA CVRP Routing (VRP and shortest path)
+9 Xin et al., 2021 [58] NE-QA PHEV charging Energy/Charging
+10 Mori & Furukawa, 2023 [50] Adjuster routing QA Routing (VRP and shortest path)
+11 Dixit & Niu, 2023 [10] QA transport NDP Network design
+12 Dixit et al., 2024 [68] Stochastic TD path QC Routing (VRP and shortest path)
+13 Núñez-Merino et al., 2024 [51] QiC agility cases Qualitative/Management
+14 Leonidas et al., 2024 [52] Qubit-efficient VRPTW Routing (VRP and shortest path)
+15 Haba et al., 2025 [53] UAM QA routing Routing (VRP and shortest path)
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 16 of 33
+Figure 4. Frequency distribution of application domains among the fifteen reviewed studies.
+4.2. Quantum Techniques Employed
+Half of the corpus relies on quantum annealing or closely related Ising model abstrac-
+tions (see Figure 5), reflecting the binary decision structure of many transport problems
+and the availability of commercial D-Wave hardware (see Table 3, studies 6, 7, 8, 9, 10, 11,
+15). Quantum-inspired digital annealers solve fully connected QUBOs on CMOS hard-
+ware and appear in two scheduling experiments and one management case (see Table 3,
+studies 2, 13). Variational circuits executed in noise -free simulators are used to explore
+qubit-efficient encodings for VRP and hybrid AGV scheduling (see Table 3, studies 1, 3,
+14). One article presents an analytic Grover -based concept model (see Table 3, study 4),
+and another measures device energy rather than solution quality (see Table 3, study 5).
+However, no empirical paper has yet combined annealing and variational methods in a
+single end-to-end pipeline.
+Table 3. Study map by quantum technique.
+Study ID Author-Year Short Title Algorithm
+1 Mohanty et al., 2023 [48] Vehicle-routing VQE Variational (VQE)
+2 Leib et al., 2023 [54] Robot-lab scheduling DA Quantum-inspired (DA)
+3 Zhou & Zhao, 2023 [55] AGV QMQAOA Variational/Hybrid
+4 Cooper, 2022 [67] Transport modelling concept Grover/Analytic
+5 Desdentado et al., 2024 [17] QC energy footprint Benchmark study
+6 Ding et al., 2021 [56] Hybrid QA network design Quantum annealing
+7 Marchesin et al., 2023 [57] Traffic-light QUBO Quantum annealing
+8 Syrichas & Crispin, 2017 [49] PI-QA CVRP Quantum annealing
+9 Xin et al., 2021 [58] NE-QA PHEV charging Quantum annealing
+10 Mori & Furukawa, 2023 [50] Adjuster routing QA Quantum annealing
+11 Dixit & Niu, 2023 [10] QA transport NDP Quantum annealing
+12 Dixit et al., 2024 [68] Stochastic TD path QC Quantum annealing
+13 Núñez-Merino et al., 2024 [51] QiC agility cases Quantum-inspired (DA)
+14 Leonidas et al., 2024 [52] Qubit-efficient VRPTW Variational/Hybrid
+15 Haba et al., 2025 [53] UAM QA routing Quantum annealing
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 17 of 33
+Figure 5. Distribution of quantum and quantum -inspired techniques across the fifteen
+primary studies.
+4.3. Reported Performance Outcomes
+Performance evidence is concentrated in three application families: facility location
+network design, vehicle routing with time windows (VRPTW) [59], and traffic signal control
+(see Table 4). The facility location network design is a hybrid quantum annealing solver
+converged within 1% of the best-known objective on twelve benchmark instances and required
+roughly a third fewer iterations than the tuned tabu search or the simulated annealing [56].
+V ehicle-routing with time windows: A logarithmic qubit encoder embedded in a variational
+circuit reproduced Gurobi’s solution quality on VRPTW sets containing up to four thousand
+routes, although the experiments were performed entirely in a noise-free simulator [52].
+Traffic-signal control: A QUBO model+annealer reduced mean delay by fourteen per cent
+relative to rule-based control on a forty-eight-intersection synthetic network, but the study
+did not record queue latency or other cloud-access overheads [57]. Across all fifteen studies,
+no paper reports an end-to-end timing that spans job submission, quantum processing, and
+classical decoding. Each presents either a quantum sampling time or a classical post-processing
+time in isolation. Therefore, real-time feasibility remains unverified.
+Table 4. Quantitative findings.
+Finding Evidence
+QA can reach ≤1% optimality gaps on facility-location
+NDPs faster than SA/Tabu search.
+Ref. [56] (study 6): closed to 0.7% of the known opti-
+mum on twelve benchmark NDP instances and used
+35% fewer iterations than tuned tabu search.
+Log-qubit encoding retains Gurobi-level quality on VRPTW
+up to 4 k routes (simulated).
+Ref. [52] (study 14): mean gap 0.18% across ten VRPTW
+instances after 2000 circuit evaluations on a noise -free
+simulator.
+Traffic-signal QUBO reduces average delay vs. rule-based
+control but only in simulation.
+Ref. [ 57] (study 7): 14% reduction in mean delay on a
+forty-eight-intersection synthetic network; queue latency
+and hardware overhead not reported.
+No study reports end-to-end timing including QPU queue
+time; latency claims remain speculative.
+Corpus-wide observation: all fifteen studies publish par-
+tial timing measures only, making real-time feasibility
+speculative.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 18 of 33
+4.4. Methodological Quality and Reproducibility
+The methodological quality of the fifteen empirical studies was examined with a five-
+domain rubric adapted from optimisation-experiment checklists. The rubric considered the
+transparency of the problem formulation, the adequacy of classical comparators, statistical
+design and reporting, the realism and provenance of the data, and disclosure of hardware
+parameters. Nine studies satisfied at least four domains and were therefore classified as
+moderate risk, while six failed two or more domains and were classified as high risk (see
+Table 5). None achieved low risk in all criteria.
+Table 5. Risk-of-bias classification for the fifteen included studies.
+Study ID Author-Year Short Title Risk
+1 Mohanty et al., 2023 [48] Vehicle-routing VQE High
+2 Leib et al., 2023 [54] Robot-lab scheduling DA Moderate
+3 Zhou & Zhao, 2023 [55] AGV QMQAOA Moderate
+4 Cooper, 2022 [67] Transport modelling concept Moderate
+5 Desdentado et al., 2024 [17] QC energy footprint High
+6 Ding et al., 2021 [56] Hybrid QA network design Moderate
+7 Marchesin et al., 2023 [57] Traffic-light QUBO Moderate
+8 Syrichas & Crispin, 2017 [49] PI-QA CVRP Moderate
+9 Xin et al., 2021 [58] NE-QA PHEV charging High
+10 Mori & Furukawa, 2023 [50] Adjuster routing QA High
+11 Dixit & Niu, 2023 [10] QA transport NDP Moderate
+12 Dixit et al., 2024 [68] Stochastic TD path QC High
+13 Núñez-Merino et al., 2024 [51] QiC agility cases High
+14 Leonidas et al., 2024 [52] Qubit-efficient VRPTW Moderate
+15 Haba et al., 2025 [53] UAM QA routing Moderate
+Regarding problem formulation, every article states its objective function and constraints;
+however, only five provide sufficient mathematical detail for independent replication. Missing
+information typically includes scaling coefficients, chain strengths, or exact variational ansätze.
+Classical baselines are present in twelve studies, yet their calibration depth differs widely . For
+example, the hybrid study of the location of the quantum annealing facility [56] reports tuned
+parameters for tabu search and simulated annealing, while the adjuster routing paper [50]
+omits any baseline, thus inflating the perceived quantum advantage.
+Statistical design is another weak point. Only four investigations conduct twenty or
+more independent runs or report variance measures, whereas three rely on single best-run
+values. None applies formal hypothesis tests or confidence intervals. Data realism is
+also uneven. Nine studies use exclusively synthetic or down-sampled datasets; only the
+robot-lab scheduling benchmark [54] and PHEV charging optimisation [58] use industrial
+or fleet data. The lack of openly available domain-relevant datasets limits external validity.
+Hardware disclosure is often incomplete. All annealing studies list the qubit count and
+topology, yet only two specify the annealer temperature or calibration date, factors known
+to affect performance. Variational-circuit studies executed in simulators rarely provide
+gate-noise models, which hampers replication on physical processors. Reproducibility is
+therefore weak. Three papers make source code available, but two store it in personal
+repositories without persistent identifiers; no study supplies minor-embedding files or
+raw output samples. Only one article [17] reports energy consumption and queue latency,
+both of which are essential for cost–benefit analysis. In the corpus, the median information
+completeness score calculated from the five-domain rubric is 57%.
+High-quality reporting is nevertheless possible. The qubit-efficient VRPTW study [52]
+releases anonymised benchmark instances, detailed Gurobi parameter files, and complete
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 19 of 33
+circuit listings, while the facility location work [ 56] provides a replication script that
+regenerates all QUBO models from comma-separated input files. These cases show that
+researchers can achieve transparency even when proprietary hardware is involved. Overall,
+the current evidence base combines promising demonstrations with significant weaknesses
+in experimental design, data openness, and hardware transparency. Future research should
+adopt multi-seed statistical protocols, archive code, and datasets in citable repositories, and
+publish complete hardware metadata, including calibration logs and queue-latency traces,
+to enable rigorous assessment of quantum advantage.
+4.5. Cross-Cutting Barriers Identified in the Evidence Base
+The corpus points to four interrelated obstacles that currently confine quantum opti-
+misation to laboratory or simulator settings. First, hardware evolves so rapidly that qubit
+counts, connectivity graphs, and compiler tool-chains change every one to two years, mak-
+ing it difficult to reproduce results across device generations and build cumulative evidence.
+Second, key operational metrics (e.g., queue latency in cloud access, wall plug energy con-
+sumption, and idle-time power draw) remain largely undocumented even though they
+determine whether quantum solvers can meet subsecond decision windows and deliver a
+genuine cost advantage in real-time logistics. Third, the field lacks community benchmarks
+comparable to the Solomon [ 59] vehicle routing library. Without harmonised datasets,
+embedded instructions, and reporting conventions, performance claims cannot be objec-
+tively compared between hardware platforms or algorithms. Finally, companies struggle to
+recruit professionals who combine quantum algorithm expertise with deep understanding
+of network design, routing, scheduling, and routing practice, a scarcity that slows pilot
+deployment and increases the cost of experimentation. Overall, hardware volatility, un-
+measured operational overhead, missing benchmarks, and limited interdisciplinary talent
+explain why quantum optimisation, though technically promising on carefully bounded
+instances, has yet to move into routine transport planning workflows.
+5. Discussion
+5.1. Barriers to Practical Implementation of Quantum Computing in Transport and Logistics
+Considerable obstacles still separate laboratory demonstrations from operational de-
+ployment. At the hardware level, present-generation devices offer fewer than one hundred
+logical qubits and sparse connectivity, whereas gate fidelities and error-correction over-
+heads curtail circuit depth. An empirical energy audit even reports that modest quantum
+workloads can draw more power than a conventional desktop processor. Operational
+barriers compound these technical limits: published case studies overwhelmingly rely on
+synthetic or down-sampled datasets, rarely report queue latency for cloud-hosted proces-
+sors, and provide scant evidence of pilot-scale integration. Organisational factors further
+impede diffusion. Logistics firms struggle to recruit staff who combine quantum expertise
+with deep domain knowledge, face uncertain capital investment horizons, and navigate
+a landscape devoid of sector-wide benchmarks or de facto modelling standards [ 51,69].
+The cumulative effect of these constraints explains why quantum optimisation remains
+marginal in daily transport planning despite the clear theoretical promise. These multi-
+layer constraints are visually summarised in the concentric barrier diagram presented in
+Figure 6. The innermost layer represents hardware limitations that determine the funda-
+mental size and depth of problems that can be executed on current quantum devices. The
+second layer captures data availability and scale, reflecting the challenges of constructing
+well-structured QUBO/Ising models from real operational transport data. The third layer
+represents energy consumption and queue latency, covering execution overheads associ-
+ated with cloud QPUs, sampling costs and device power requirements. The outermost layer
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 20 of 33
+depicts organisational readiness, including workforce capability, IT-system integration,
+procurement pathways, cybersecurity, and change-management processes. The layering
+reflects decreasing technical specificity and increasing organisational complexity.
+The four barrier categories can be conceptually organised into a concentric structure,
+where the innermost layer represents the most fundamental technical constraints (hardware
+limitations), and the outer layers reflect progressively broader system-level requirements.
+Hardware constraints form the core because they determine the upper bounds of qubit avail-
+ability, coherence, and circuit depth, which directly limit the size of transport-optimisation
+instances that can be encoded. The next layer, data availability and scale, concerns the
+feasibility of constructing well-structured QUBO or Ising representations based on real
+operational data. The third layer, energy consumption and queue latency, reflects the
+practical execution costs of using current quantum devices. The outermost layer, organisa-
+tional readiness, represents institutional capacity, cybersecurity processes, integration with
+legacy IT, and procurement structures necessary to deploy quantum workflows. These
+layers reflect a decrease in technical specificity and an increase in organisational complexity,
+consistent with prior frameworks for the adoption of technology in transport systems [70].
+Figure 6. Concentric representation of four categories of barriers affecting the practical deployment
+of quantum and quantum-inspired optimisation in transport and logistics.
+5.1.1. Hardware Limitations
+Current quantum annealing systems provide only modest usable problem sizes once
+real transport models are mapped to hardware. D -Wave’s latest production platform,
+Advantage2, offers more than 4400 active qubits in the Zephyr topology with 20 -way
+native connectivity and improved energy scale relative to earlier Pegasus-based Advantage
+systems [1,2,14]. Real transport models rarely conform to this wiring pattern. To load
+a model, each logical decision variable is stretched across a chain of connected physical
+qubits, a process known as minor embedding. Chain overhead consumes qubits and, if
+chain strengths are not tuned correctly, can degrade solution quality; although the higher
+degree of Zephyr reduces the average chain length, the effective instance size still falls to
+only a few thousand binary variables for most transport encodings [71,72].
+Gate-based quantum processors are more programmable in principle but remain limited
+in practice by noise. Recent IBM devices exceed one thousand physical superconducting qubits,
+yet the number of error-corrected logical qubits available for computation is still well below one
+hundred, placing current platforms firmly in the noisy intermediate-scale quantum (NISQ)
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 21 of 33
+regime [4,73] IBM Quantum System Two Technical Brief [74,75]. Consequently , practical
+optimisation routines must employ shallow noise-aware ansätze together with error mitigation
+techniques such as zero-noise extrapolation or read-out correction [42,76]. These workarounds
+improve accuracy but require repeated measurements and parameter re-calibration, which
+prolong the total run time [48,52]. The combined effect of limited variable counts, sparse
+connectivity , and depth-induced noise explains why every applied demonstration in our
+corpus addresses problem instances far smaller than those confronted in commercial fleet
+dispatch or city-scale traffic management [52,56,57].
+5.1.2. Data Availability and Scale
+Most empirical quantum transport studies published to date have relied on synthetic
+or heavily downsampled datasets. Examples include very small vehicle routing test beds
+with only a handful of customers, stylised lattice networks for traffic signal experiments,
+and reduced reference instances for location-design prototypes [48,56,57]. Even the most
+ambitious qubit-efficient routing demonstrations validate their encodings on scaled or
+anonymised data rather than on full production fleets [52].
+Limited access to operational data is a major factor. High-resolution streams from
+telematics, warehouse management systems, and enterprise resource-planning platforms
+are commercially sensitive and often bound by confidentiality or privacy regulations, re-
+stricting data sharing with academic partners [51]. Firms also store data in heterogeneous
+schemas that require extensive cleaning and aggregation before they can be mapped into
+binary decision variables suitable for quantum encodings [45]. Unlike conventional opera-
+tions research, where reference libraries such as the Capacitated Vehicle Routing Problem
+Library (CVRPLIB) [77], Solomon’s VRPTW set [59], and the Transportation Network Test
+Problems [78], there is no open benchmark suite for quantum-ready transport formulations.
+The absence of standardised large-scale instances makes it difficult to compare hardware
+platforms, slows the development of robust encoding strategies, and limits the ability of
+researchers to reproduce published results across devices. Establishing a shared corpus
+of transport QUBOs and variational circuit benchmarks is therefore a prerequisite for
+cumulative progress.
+5.1.3. Energy Consumption
+Quantitative evidence on the energy cost of quantum optimisation is scarce, yet the
+limited data available raise caution. The only wall plug audit identified in our search mea-
+sured the electrical energy required to execute small optimisation kernels on four 5 qbit IBM
+superconducting processors and compared the results with the same kernels run on an Intel
+desktop CPU [17]. The quantum runs consumed orders of magnitude more energy per prob-
+lem instance than the classical runs. Most of the excess is attributable to the fixed overhead of
+cryogenic refrigeration, room-temperature control electronics, and the need to repeat circuit
+executions many times to obtain statistically reliable output distributions [17,75,79]. Engineer-
+ing surveys of superconducting platforms routinely report continuous kilowatt scale electrical
+loads to maintain millikelvin temperatures, far larger than the switching energy of the qubits
+themselves [75,79]. V endor site planning documents for current quantum annealing systems
+also list multikilowatt system power requirements for cryostats and control stacks [80,81],
+although no peer-reviewed workload-normalised annealer energy study has yet appeared.
+Apart from the Desdentado audit, none of the applied transport papers in our review reported
+the energy of the device, the idle time, or the dwell time of the cloud queue [52,56,57]. Until
+system-level metering protocols are standardised across hardware generations and work-
+loads, claims that quantum optimisation is inherently more energy-efficient than classical
+high-performance computing should be regarded as provisional [82].
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 22 of 33
+5.1.4. Organisational Readiness
+Evidence from a single multicase study in the corpus [51] indicates that human capital
+constraints remain the most immediate barrier to adoption. Firms report difficulty recruit-
+ing staff who combine quantum algorithmic competence with deep expertise in routing,
+scheduling, or inventory management, which lengthens evaluation cycles and inflates the
+cost of pilot projects, especially for small and medium-sized enterprises without dedicated
+R&D units [69,83]. Sector-wide analyses also highlight ‘talent’ as a foundational enabler for
+viable quantum innovation clusters.
+The risk of integration further discourages experimentation. Quantum optimisers must
+interoperate with enterprise resource-planning platforms, warehouse management systems,
+and high-frequency telematics feeds whose data schemas were never designed for uncon-
+strained quadratic binary optimisation inputs or parameterised quantum circuits [45,56,57].
+Industry landscape assessments emphasise the need for standardised platforms that facilitate
+quantum-classical integration, yet such middleware remains immature.
+Capital budgeting is complicated by rapid hardware evolution and uneven investment
+signals: large public programmes and private rounds continue to enter the field, but
+technology road maps and cost structures are still in flux, making payback calculations
+difficult for transport operators with tight margins [83].
+Finally, the transport sector lacks shared norms for model formulation, performance
+reporting, and cyber security compliance in quantum workflows. Global policy attention
+to the readiness for the ‘Q Day’ shows that data security standards and interoperability
+frameworks are moving up national and industry agendas, yet sector-specific guidance for
+transport and logistics has not emerged [83–85].
+In combination, talent scarcity, integration uncertainty, capital risk, and missing stan-
+dards constitute a substantial readiness gap that must be closed before quantum optimisa-
+tion can progress from laboratory pilots to routine operational use.
+5.2. Emerging Patterns
+Three regularities emerge from the evidence base. First, most empirical studies rely
+on quantum annealing hardware or Ising model abstractions. This dominance reflects the
+ease with which discrete transport decisions, such as vehicle-to-customer assignments,
+facility openings, and signal phasing, can be expressed in a quadratic unconstrained binary
+optimisation framework. Second, quantum-inspired digital annealers increasingly serve
+as an intermediate industrial solution: they inherit the modelling convenience of Ising
+formulations yet circumvent qubit scarcity by running on conventional complementary-
+metal–oxide–semiconductor chips, thereby addressing problems with tens of thousands of
+variables at subsecond speed. The robot lab scheduling benchmark (Study 2 [ 54]) is the
+only study in the corpus that achieves near-real-time performance at that scale. Finally,
+algorithmic progress is as much a matter of encoding engineering as of hardware advance.
+Logarithmic qubit encodings and other compression schemes enable variational circuits,
+even on noisy intermediate-scale quantum processors, to represent fleet-routing instances
+of realistic scale without breaching depth or connectivity limits.
+5.3. Inconsistencies and Contradictions
+The corpus exhibits several notable tensions. An energy footprint study reports that
+the execution of small optimisation workloads on current-generation quantum devices can
+draw more electrical power than an equivalently sized classical run (study 5 [17]), while
+a separate investigation of noise -enhanced annealing (study 9 [ 58]) for plug-in vehicle
+charging infers cost savings from reduced charging time. The divergence arises partly from
+different system boundaries: the former measures wall plug energy, including cryogenic
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 23 of 33
+cooling and repeated circuit sampling, while the latter models algorithmic runtime only and
+excludes hardware overhead. Until energy accounting is standardised at the system level,
+claims that quantum optimisation is intrinsically “greener” than classical computation
+remain unsubstantiated.
+Figure 7 compares the energy required to execute a single optimisation workload on
+three computing platforms that feature prominently in the recent literature. The classical
+reference system, an Intel i7 -10700 workstation, drew just 0.00016 Wh per run, a value
+measured at the wall plug by Desdentado et al. [17]. The same workload on a five-qubit
+gate-based device from IBM consumed 32 Wh once cryogenic cooling and repeated circuit
+sampling were included, again according to Desdentado et al. [ 17] (Tables 14 and 15).
+The centre bar represents a D -Wave quantum annealer and is set at 20 Wh per run, an
+upper-bound estimate obtained by multiplying the typical system power reported by the
+vendor (about 20 kW) by the three-to-four-second job times documented in recent annealing
+studies such as Ding et al. [ 56] and Marchesin et al. [ 57]. Because an annealer operates
+continuously at cryogenic temperature, most of its electrical load is incurred even when the
+processor is idle; consequently, the marginal energy per job can be expected to lie between
+the classical and gate-based extremes shown here. Taken together, these measurements
+indicate that, at the modest problem sizes addressed so far, quantum hardware remains
+several orders of magnitude more energy-intensive than commodity classical processors, a
+finding that calls for system-wide efficiency improvements before quantum optimisation
+can plausibly claim a sustainability advantage.
+Figure 7. Measured and estimated energy cost of solving a small optimisation task.
+A second inconsistency concerns performance claims. Several articles define “speed-
+up” solely in terms of quantum processing unit sampling time, omitting classical pre- and
+post-processing as well as queue latency, while others report end-to-end solver runtime.
+A second inconsistency concerns performance claims. Several articles define “speed-
+up” solely in terms of the sampling time of the quantum processing unit and omit classical
+pre- and post-processing, as well as queue latency; other articles report an end -to-end
+solver runtime that includes those stages. This distinction is especially consequential for
+shared cloud gate-based services such as IBM Quantum, where user jobs may wait orders
+of magnitude longer in a queue than the underlying circuit execution [48].
+Figure 8 illustrates the full latency path between the arrival of a transport optimisation
+request and the return of an actionable decision. The segment lengths in Figure 8 are
+illustrative, not prescriptive: 0.5 s for ingestion and 1 s for embedding reflect median values
+reported for high-throughput telemetry pipelines in logistics platforms; the 10 s queue
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 24 of 33
+dwell is a conservative figure drawn from typical IBM Quantum Runtime wait times in
+public cloud experiments; the 0.01 s quantum sampling bar matches the order of magnitude
+measured on both D Wave Advantage annealers and shallow gate-based circuits; and the
+final 0.5 s post-processing slot corresponds to route decoding routines in our Incoming
+telemetry or order records first enter an ingestion layer that cleans, aggregates, and time
+aligns the data. The cleansed stream is then converted into a representation suitable
+for quantum hardware, either a quadratic unconstrained binary optimisation matrix for
+an annealer or a parameterised gate circuit for a gate -based processor; this encoding
+step also performs minor embedding for annealers or qubit mapping for gate devices.
+The encoded job then joins a cloud-scheduler queue, where it may wait several seconds,
+and in busy public clouds often much longer than any other stage, before the quantum
+processor becomes available (IBM Quantum Runtime documentation: Estimate job run
+time and queue wait time, https://quantum.cloud.ibm.com/docs/en/guides/estimate-
+job-run-time accessed 1 July 2025). Once dequeued, the hardware executes the quantum
+sampling phase, which typically lasts only milliseconds on an annealer and a few hundred
+microseconds on a shallow variational circuit. The resulting bit strings or expectation
+values then undergo classical post-processing to decode vehicle routes, robot schedules,
+or signal plans. The decoded solution is finally relayed to the host decision service such
+as a fleet dispatch application programming interface or a traffic signal controller and is
+applied in the operational system. The stacked-bar timeline underscores that queue delay
+and classical workflow overhead dominate total turnaround, while the quantum step itself
+occupies a very small fraction of end-to-end latency.
+Figure 8. Illustrative end-to-end latency path for a cloud-based quantum optimisation job.
+Studies of practical deployments highlight that the nominal speed of the quantum step
+is often dwarfed by the combined duration of encoding, queue latency, and post-processing.
+Ding et al. [ 56] report minor embedding runtimes that can exceed the annealing time
+by a factor of two, while Marchesin et al. [ 57] note that queuing delays in shared cloud
+environments introduce variability that masks hardware level speed-ups. The absence of a
+shared benchmarking protocol hampers direct comparison and risks overstating quantum
+advantage. When performance is reported only for the quantum processing unit sampling
+step and excludes data embedding, post-processing, or cloud queue latency, the resulting
+figures are not comparable with studies that publish end-to-end runtimes; they also inflate
+the apparent quantum advantage.
+For practice, this finding implies two concrete needs: standardised reporting conventions
+and benchmarking. Until these non-quantum components are streamlined and measured
+alongside sampling time, claims of real-time performance will remain speculative.
+Other contradictions were found around the data translation overhead. Two annealing
+studies on facility location (study 6 [ 56]) and transport network design (study 11 [ 10])
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 25 of 33
+report that minor embedding, coefficient scaling, and solution decoding together consume
+more elapsed time than the quantum sampling phase itself, in some cases by a factor of
+two. This result indicates that the main bottleneck in current workflows resides in the inter-
+face layer rather than in the quantum processor, and calls into question speed-up claims
+that omit preprocessing costs. A rigorous assessment of quantum advantage therefore
+requires end-to-end latency accounting and the development of standardised automated
+embedding pipelines. At the same time, the predominance of data-translation overhead
+implies that quantum acceleration cannot be realised by hardware upgrades alone; perfor-
+mance depends just as critically on the software interface that maps transport problems
+into quantum-ready formats. For practitioners, this observation has several operational
+consequences, including unrealistic expectations about end-to-end decision latency and
+misguided toolchain investment.
+5.4. Key Unresolved Gaps
+Four critical gaps persist in the current research landscape (see Table 6). Firstly , empirical
+validation remains limited, as no reviewed study reports on a full-scale quantum optimisation
+deployment within a functioning traffic management system, logistics hub, or operational
+fleet-dispatch platform. Consequently , the practical applicability and external validity of
+quantum solutions have not been rigorously tested against real-world operational constraints.
+Addressing this shortcoming would require researchers to collaborate directly with transport
+operators and logistics providers to establish realistic pilot implementations, generating robust
+performance data under authentic operational conditions.
+Table 6. Key unresolved research gaps in quantum optimisation for transport and logistics.
+Gap Why It Matters Possible Remedy
+Real-world deployments No live traffic or logistics
+pilot yet
+Partner with city traffic-management centres or parcel car-
+riers for sandbox trials
+Standardised benchmarks Current studies use pri-
+vate toy data
+Launch an open “Quantum-Transport Benchmark Suite
+(QTBS)” with VRP , NDP , signal-timing QUBOs
+Statistical robustness Single-shot results over-
+state gains
+Adopt 30-run multi-seed protocols and report variance
+Energy & latency account-
+ing
+Adoption hinges on cost-
+benefit
+Publish full energy/wait-time audits alongside solution
+quality
+Secondly, the studies reviewed predominantly rely on artificially generated or simpli-
+fied datasets, limiting their relevance to practical scenarios. The absence of publicly avail-
+able, community-curated benchmark datasets tailored explicitly for quantum optimisation
+in transportation and logistics further exacerbates this challenge, hindering reproducibil-
+ity and comparative assessments across different hardware generations and algorithmic
+approaches. Developing a standardised Quantum Transport Benchmark Suite (QTBS),
+encompassing representative instances of vehicle routing, network design, traffic signal
+optimisation, and other canonical problems, would substantially enhance transparency,
+enable systematic replication, and accelerate the advancement of practical solutions.
+Third, statistical robustness and experimental rigour remain unrecognised in many
+studies. The majority report performance metrics derived from single-run or minimal-
+repeat experiments, which fail to capture the inherent variability and stochastic ability of
+quantum hardware, especially on noisy intermediate-scale quantum devices. This prac-
+tice inflates perceived performance and underestimates variance, potentially misleading
+practitioners with respect to the reliability of results. Implementing rigorous statistical pro-
+tocols, such as multi-instance testing with a sufficiently large number of independent runs
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 26 of 33
+(e.g., 30 or more) and consistently reporting variance or confidence intervals would signifi-
+cantly improve the robustness and credibility of the experimental outcomes.
+Lastly, comprehensive reporting of operational metrics, particularly energy consump-
+tion and queue latency, is notably absent. Given their critical role in determining the
+feasibility and cost-effectiveness of quantum computing in real-world scenarios, omitting
+these factors undermines thorough cost–benefit evaluations. To remedy this, future studies
+should systematically include full system-level audits of both energy usage and queue
+latency alongside traditional performance metrics, thus providing clearer insights into the
+practical implications of quantum optimisation deployments.
+In summary, addressing the four gaps of real-world pilot deployments, standardised
+benchmarking, robust statistical design, and comprehensive energy and latency accounting
+is essential to bridge the current divide between laboratory demonstrations and practical
+quantum optimisation applications in transport and logistics.
+5.5. Limitations and Future Research Directions
+This systematic review has several limitations. It exclusively searched the Scopus
+database, potentially excluding relevant grey literature, conference proceedings, and arti-
+cles indexed solely in other databases. Although supplementary searches of Web of Science,
+IEEE Xplore, and Springer Nature Link did not yield additional eligible studies, the possi-
+bility of missed literature remains. Moreover, given the rapid pace of quantum computing
+advancements, the findings and identified barriers reflect a snapshot of a rapidly evolving
+field, necessitating periodic updates to maintain relevance.
+Future research should prioritise controlled field trials in collaboration with municipal
+traffic management centres, logistics providers, and fleet operators to assess quantum-optimised
+solutions under realistic operational conditions. Such trials would directly test robustness
+against real-world variability , stochastic demand, and potential hardware downtimes, generating
+credible data on the operational feasibility and reliability of quantum technology .
+Comparative cross-layer studies examining the energy efficiency of quantum hard-
+ware, high-performance classical computers, and quantum-inspired digital annealers on
+identical optimisation workloads should also be conducted. Rigorous and transparent
+energy audits, coupled with standardised end-to-end latency measurements, would enable
+meaningful cost–benefit analyses and sustainability assessments, addressing critical gaps
+identified in this review.
+Moreover, algorithmic advances should continue to focus on hybrid methods with
+zero error. Techniques integrating quantum annealing or variational circuit sampling with
+classical local-search heuristics may improve overall solution quality and resilience against
+quantum hardware noise. Research into multi-objective optimisation frameworks explicitly
+incorporating not only cost and operational efficiency but also environmental emissions
+and equitable service distribution could align future quantum optimisation research with
+emerging transport policy priorities.
+Finally, developing interactive human-in-the-loop quantum optimisation interfaces
+is recommended to leverage expert domain knowledge effectively. Such interfaces could
+enable transport and logistics professionals to iteratively refine constraints and solution
+preferences during the quantum optimisation process, increasing practical usability and
+acceptance in real-world decision-making environments.
+In summary, these future research directions collectively represent a structured path
+toward operationally viable, transparently benchmarked, and methodologically rigorous
+quantum optimisation tools tailored explicitly for transport and logistics applications.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 27 of 33
+6. Conclusions
+This systematic review critically synthesised 15 empirical studies published between
+2015 and 2025, examining the application of quantum and quantum-inspired computational
+methods to optimisation problems in the transport and logistics domain. The findings
+indicate that quantum annealers can approach classical heuristic performance on small,
+constrained instances of routing, network design, and traffic-control problems in controlled
+conditions. Quantum-inspired digital annealers demonstrate improved scalability and have
+been applied to larger benchmark instances, although widespread industrial deployment
+in transport remains limited. Additionally, advances in qubit-efficient encoding techniques
+indicate that NISQ processors may, in the future, be able to address moderately sized
+routing scenarios in simulations, although significant scaling challenges remain.
+Despite these promising developments, significant methodological and empirical gaps
+persist. Many studies rely heavily on synthetic or simplified datasets, employ single-run or
+best-case experimental designs, and use performance metrics specific to particular hardware
+configurations, complicating any robust generalisation of results. Validations under live
+operational transport conditions remain rare. Most studies rely on synthetic or simplified
+datasets and seldom report energy-consumption or quantum-processor queue-latency
+measurements, both of which are critical for evaluating practical economic viability.
+Addressing these critical gaps requires methodological improvements, including es-
+tablishing open-access benchmark datasets, implementing statistically robust multi-run
+experimental protocols, and performing transparent, comprehensive energy and latency
+audits. Industry-academia collaborations will be crucial to obtain realistic datasets, de-
+fine sector-specific benchmarks, and rigorously test quantum methods under authentic
+operational conditions.
+Overall, this review identifies quantum optimisation as a nascent approach with
+potential for addressing complex optimisation tasks in transport and logistics, contingent
+on future progress in hardware scalability, energy efficiency, and methodological robustness.
+Realising this potential will require targeted efforts to improve methodological transparency
+and achieve practical validation through real-world deployment.
+Author Contributions: Conceptualization, P .L. and S.P .; methodology, P .L.; investigation, P .L.;
+writing—original draft preparation, P .L.; writing—review and editing, S.P . and K.B.; visualization,
+P .L.; All authors have read and agreed to the published version of the manuscript.
+Funding: This research received no external funding.
+Data Availability Statement: All articles used in this survey are in the public domain and the summary
+tables provided in this article provide the key information used from each underpinning study .
+Acknowledgments: During the preparation of this manuscript, the authors used ChatGPT (GPT-5,
+OpenAI; accessed July 2025) for grammar and style editing. The authors reviewed and edited the
+output and take full responsibility for the content.
+Conflicts of Interest: The authors declare no conflicts of interest.
+Appendix A
+Tables A1 and A2 presents summary information of the key 15 articles examined in
+this study.
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 28 of 33
+Table A1. Details of the fifteen key articles used in this study.
+Study ID Year Authors Short Title Paper (Full Title) Journal
+1 [48] 2023 Mohanty, Behara &
+Ferrie
+Vehicle-routing VQE Analysis of the vehicle routing problem solved via hybrid quantum algorithms in the presence of
+noisy channels IEEE Transactions on Quantum Engineering
+2 [54] 2023 Leib et al. Robot-lab scheduling DA An optimization case study for solving a transport robot scheduling problem on quantum-hybrid and
+quantum-inspired hardware Scientific Reports
+3 [55] 2023 Zhou & Zhao AGV QMQAOA A quantum-inspired Archimedes optimization algorithm for hybrid-load autonomous guided vehicle
+scheduling problem Applied Intelligence
+4 [67] 2022 Cooper Transport modelling concept Exploring potential applications of quantum computing in transportation modelling IEEE Transactions on Intelligent
+Transportation Systems
+5 [17] 2024 Desdentado et al. QC energy footprint Exploring the trade-off between computational power and energy efficiency: An analysis of the
+evolution of quantum computing and its relation to classical computing Journal of Systems and Software
+6 [56] 2021 Ding et al. Hybrid QA network design Implementation of a hybrid classical-quantum annealing algorithm for logistic network design SN Computer Science
+7 [57] 2023 Marchesin et al. Traffic-light QUBO Improving urban traffic mobility via a versatile quantum annealing model IEEE Transactions on Quantum Engineering
+8 [49] 2017 Syrichas & Crispin PI-QA CVRP Large-scale vehicle routing problems: Quantum annealing, tunings and results Computers & Operations Research
+9 [58] 2024 Xin, Wang & Jiao NE-QA PHEV charging Noise-enhanced quantum annealing approach and its application in plug-in hybrid electric vehicle
+charging optimization Electronics Letters
+10 [50] 2023 Mori & Furukawa Adjuster routing QA Quantum annealing for the adjuster routing problem Frontiers in Physics
+11 [10] 2023 Dixit & Niu QA transport NDP Quantum computing for transport network design problems Scientific Reports
+12 [68] 2024 Dixit et al. Stochastic TD path QC Quantum computing to solve scenario-based stochastic time-dependent shortest path routing Transportation Letters
+13 [51] 2024 Núñez-Merino et al. QiC agility cases Quantum-inspired computing technology in operations and logistics management International Journal of Physical Distribution &
+Logistics Management
+14 [52] 2024 Leonidas et al. Qubit-efficient VRPTW Qubit efficient quantum algorithms for the vehicle routing problem on Noisy Intermediate-Scale
+Quantum processors Advanced Quantum Technologies
+15 [53] 2025 Haba et al. UAM QA routing Routing and scheduling optimization for urban air mobility fleet management using
+quantum annealing Scientific Reports
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 29 of 33
+Table A2. Summary of the fifteen key articles used in this study.
+Study ID Transport Domain Quantum Technique/Algorith Classical Benchmark/Baseline Dataset/Problem Size Key Findings Gaps/Future Work
+1 [48] Vehicle Routing Problem
+(routing)
+Hybrid VQE with noise channels No explicit classical solver;
+performance analysed across
+noise models
+Toy VRP with 3–4 cities Solution quality highly sensitive to noise type;
+some channels degrade performance sharply.
+Extend to larger fleets;
+noise-mitigation strategies.
+2 [54] Robot scheduling in a lab
+(routing & scheduling)
+QUBO on D-Wave LBQM &
+Fujitsu Digital Annealer
+Gurobi (sequence &
+time-indexed MIP)
+161 minor & 99 major instances
+(2k–22k vars)
+Digital Annealer often matches Gurobi quality
+faster on hardest cases; hybrid QA promising
+but mixed.
+Larger labs, richer constraints,
+solver tuning.
+3 [55] AGV routing & scheduling
+(assembly line)
+Quantum-inspired Archimedes
++ Q-learning (QMQAOA)
+Gurobi, NSGA-II, AOA, EO, etc. 90 synthetic instances QMQAOA dominant on 3 Pareto metrics
+(>= 77/90 cases).
+Real-plant validation; energy
+modelling.
+4 [67] Network assignment,
+activity models
+Grover mean-estimation;
+quadratic optimisation
+Conceptual classical
+counterparts
+Analytic examples (no
+empirical data)
+Full speed-ups elusive; quadratic gain possible
+if reversible computation overhead addressed.
+Implement real-size models;
+mitigate space overhead.
+5 [17] energy footprint study Empirical runs on 5-qubit
+IBM devices
+Intel i7 desktop Multiple algorithmic kernels, 3
+time periods
+Quantum uses more energy than classical on
+low-complexity tasks; high variance across
+hardware generations.
+Broader workloads; greener
+quantum protocols.
+6 [56] Supply-chain facility location
+& assignment
+Hybrid classical-quantum
+annealing (D-Wave)
+Simulated annealing; LINDO
+optimal solutions
+12 benchmark NDPs <1% gap to known optima with fewer
+iterations than pure SA.
+On-prem QA hardware; custom
+annealing schedules.
+7 [57] Urban signal control
+(traffic assignment)
+QUBO solved on D-Wave
+Advantage
+Vehicle-actuated heuristic;
+classical SA
+Simulated city network; vars & traffic Reduces congestion vs heuristic; scalability
+linear in number of signals; HW limits benefit.
+Field trials; richer efficiency
+metrics.
+8 [49] Capacitated VRP Path-integral Quantum
+Annealing metaheuristic
+Simulated annealing Standard CVRP benchmarks up to
+121 nodes
+Introduces empirical parameter-transfer
+method; new best distances on large instances.
+Automated tuning; extend to
+other VRP variants.
+9 [58] Plug-in hybrid EV charging
+optimisation
+Noise-enhanced Quantum
+Annealing (NE-QAA)
+CEC-2013 meta-heuristic suite;
+GA, PSO, etc.
+CEC-2013 benchmarks + real
+PHEV case
+Multiple noise sources improve exploration;
+outperform baselines on charging cost.
+Scale to network-wide charging;
+hardware tests.
+10 [50] Disaster-response adjuster
+routing (VRP variant)
+QUBO model solved on D-Wave
+quantum annealer
+None reported
+(focus on feasibility)
+Synthetic post-disaster instances;
+sizes not specified
+Demonstrates viability of mapping ARP to
+QUBO and solving on current hardware
+Compare with classical VRP
+solvers; scale to larger disasters
+11 [10] Transport network design
+(capacity/link selection)
+Upper-level QUBO tackled via
+D-Wave quantum annealing
+Tabu Search meta-heuristic Illustrative network testbed (sizes
+not stated)
+Quantum annealing shows clear
+computational speed-up over Tabu Search
+Parameter tuning, larger
+real-world networks, hybrid
+methods
+12 [68] Stochastic time-dependent
+shortest path routing
+QUBO/quantum annealing
+formulation
+Not reported
+(complexity analysis)
+Theoretical complexity;
+example networks
+Quantum solver scales linearly w.r.t. problem
+size versus exponential classical growth
+Account for correlated link costs;
+empirical validation
+13 [51] Manufacturing & logistics
+agility (multi-case study)
+Quantum-inspired computing
+(Fujitsu Digital Annealer)
+Existing enterprise decision
+processes (qualitative)
+Multiple industrial use-cases QiC can boost operational flexibility and agility
+under Industry 4.0
+Quantitative performance
+studies; wider adoption hurdles
+14 [52] Vehicle Routing Problem
+w/Time Windows
+Variational circuit + logarithmic
+qubit encoding
+Gurobi MILP solver VRPTW instances: 11-3964 routes Cuts qubit count dramatically while retaining
+near-classical solution quality
+Hardware noise mitigation;
+larger-scale benchmarking
+15 [53] Urban air mobility fleet
+routing/scheduling
+MWIS-to-QUBO solved on
+quantum annealer
+Not specified (baseline routing
+heuristics implied)
+Singapore air-space simulator
+scenarios
+Reduces conflicts & balances air-space load
+across region
+Real-time re-planning; scaling to
+dense operations
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 30 of 33
+References
+1. Omu, A.; Choudhary, R.; Boies, A. Distributed energy resource system optimisation using mixed integer linear programming.
+Energy Policy 2013, 61, 249–266. [CrossRef]
+2. Alsattar, H.A.; Zaidan, A.A.; Zaidan, B.B. Novel meta-heuristic bald eagle search optimisation algorithm. Artif. Intell. Rev. 2020,
+53, 2237–2264. [CrossRef]
+3. Glover, N.; Dessimoz, C.; Ebersberger, I.; Forslund, S.K.; Gabaldón, T.; Huerta-Cepas, J.; Martin, M.J.; Muffato, M.; Patricio, M.;
+Pereira, C. Advances and applications in the quest for orthologs. Mol. Biol. Evol. 2019, 36, 2157–2164. [CrossRef] [PubMed]
+4. Preskill, J. Quantum computing in the NISQ era and beyond. Quantum 2018, 2, 79. [CrossRef]
+5. Weinberg, S.J.; Sanches, F.; Ide, T.; Kamiya, K.; Correll, R. Supply chain logistics with quantum and classical annealing algorithms.
+Sci. Rep. 2023, 13, 4770. [CrossRef]
+6. Murali, P .; Baker, J.M.; Javadi-Abhari, A.; Chong, F.T.; Martonosi, M. Noise-adaptive compiler mappings for noisy intermediate-
+scale quantum computers. In Proceedings of the Twenty-Fourth International Conference on Architectural Support for Program-
+ming Languages and Operating Systems, Providence, RI, USA, 13–17 April 2019; pp. 1015–1029.
+7. Lo, H.; Moy, W.; Yu, H.; Sapatnekar, S.; Kim, C.H. An Ising solver chip based on coupled ring oscillators with a 48-node all-to-all
+connected array architecture. Nat. Electron. 2023, 6, 771–778. [CrossRef]
+8. Azad, U.; Behera, B.K.; Ahmed, E.A.; Panigrahi, P .K.; Farouk, A. Solving vehicle routing problem using quantum approximate
+optimization algorithm. IEEE Trans. Intell. Transp. Syst. 2022, 24, 7564–7573. [CrossRef]
+9. Gautam, K.; Ahn, C.W. Quantum path integral approach for vehicle routing optimization with limited qubit. IEEE Trans. Intell.
+Transp. Syst. 2023, 25, 3244–3258. [CrossRef]
+10. Dixit, V .V .; Niu, C. Quantum computing for transport network design problems. Sci. Rep. 2023, 13, 12267. [CrossRef]
+11. Khatiri, A.; Mousavi, S.Y.M.; Golestan, S. Quantum neural networks for optimal energy management in renewable based
+microgrids with plug-in electric vehicles and battery energy storages. J. Energy Storage 2025, 129, 117304. [CrossRef]
+12. Calaza, K.C.; Erthal, F.C.; Pereira, M.G.; Macario, K.C.; Daflon, V .T.; David, I.P .; Castro, H.C.; Vargas, M.D.; Martins, L.B.; Stariolo,
+J.B. Facing racism and sexism in science by fighting against social implicit bias: A latina and black woman’s perspective. Front.
+Psychol. 2021, 12, 671481. [CrossRef]
+13. Feld, S.; Roch, C.; Gabor, T.; Seidel, C.; Neukart, F.; Galter, I.; Mauerer, W.; Linnhoff-Popien, C. A hybrid solution method for the
+capacitated vehicle routing problem using a quantum annealer. Front. ICT 2019, 6, 13. [CrossRef]
+14. Heeres, R.W.; Reinhold, P .; Ofek, N.; Frunzio, L.; Jiang, L.; Devoret, M.H.; Schoelkopf, R.J. Implementing a universal gate set on a
+logical qubit encoded in an oscillator. Nat. Commun. 2017, 8, 94. [CrossRef]
+15. Huang, W.; Yang, C.H.; Chan, K.W.; Tanttu, T.; Hensen, B.; Leon, R.; Fogarty, M.A.; Hwang, J.; Hudson, F.E.; Itoh, K.M. Fidelity
+benchmarks for two-qubit gates in silicon. Nature 2019, 569, 532–536. [CrossRef]
+16. Carter, J.; Dean, D.; Hebner, G.; Kim, J.; Landahl, A.; Maunz, P .; Pooser, R.; Siddiqi, I.; Vetter, J. ASCR Report on a Quantum
+Computing Testbed for Science 2017. Available online: https://www.osti.gov/biblio/1470992 (accessed on 1 July 2025).
+17. Desdentado, E.; Calero, C.; Moraga, M.A.; Serrano, M.; García, F. Exploring the trade-off between computational power and
+energy efficiency: An analysis of the evolution of quantum computing and its relation to classical computing. J. Syst. Softw. 2024,
+217, 112165. [CrossRef]
+18. Aiello, C.D.; Awschalom, D.D.; Bernien, H.; Brower, T.; Brown, K.R.; Brun, T.A.; Caram, J.R.; Chitambar, E.; Di Felice, R.; Edmonds,
+K.M. Achieving a quantum smart workforce. Quantum Sci. Technol. 2021, 6, 030501. [CrossRef]
+19. Carrascal, G.; Hernamperez, P .; Botella, G.; del Barrio, A. Backtesting quantum computing algorithms for portfolio optimization.
+IEEE Trans. Quantum Eng. 2023, 5, 1–20. [CrossRef]
+20. Resch, S.; Karpuzcu, U.R. Benchmarking quantum computers and the impact of quantum noise. ACM Comput. Surv. (CSUR)
+2021, 54, 1–35. [CrossRef]
+21. Yarkoni, S.; Raponi, E.; Bäck, T.; Schmitt, S. Quantum annealing for industry applications: Introduction and review. Rep. Prog.
+Phys. 2022, 85, 104001. [CrossRef] [PubMed]
+22. Ajagekar, A.; You, F. Quantum computing assisted deep learning for fault detection and diagnosis in industrial process systems.
+Comput. Chem. Eng. 2020, 143, 107119. [CrossRef]
+23. Toth, P .; Vigo, D. Vehicle Routing: Problems, Methods, and Applications; SIAM: Philadelphia, PA, USA, 2014.
+24. Applegate, D.L. The Traveling Salesman Problem: A Computational Study; Princeton University Press: Princeton, NJ, USA, 2006;
+Volume 17.
+25. Gendreau, M.; Potvin, J.Y. Handbook of Metaheuristics; Springer: Berlin/Heidelberg, Germany, 2010; Volume 2.
+26. Li, Z.; Tian, Y.; Sun, J.; Lu, X.; Kan, Y. Simulation-based optimization of large-scale dedicated bus lanes allocation: Using efficient
+machine learning models as surrogates. Transp. Res. Part C Emerg. Technol. 2022, 143, 103827. [CrossRef]
+27. Di Gangi, M.; Vitetta, A. Quantum utility and random utility model for path choice modelling: Specification and aggregate
+calibration from traffic counts. J. Choice Model. 2021, 40, 100290. [CrossRef]
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 31 of 33
+28. Vitetta, A. Path choice in transport systems: Comparing random, quantum, and fuzzy utility models in a small network. Front.
+Future Transp. 2025, 6, 1544947. [CrossRef]
+29. Mohammed, M.Q.; Meeß, H.; Otte, M. Review of the application of quantum annealing-related technologies in transportation
+optimization. Quantum Inf. Process. 2025, 24, 296. [CrossRef]
+30. Khalid, U.; Paracha, U.I.; Rizvi, S.M.A.; Shin, H. Quantum Computing for Intelligent Transportation Systems: VQE-Based Traffic
+Routing and EV Charging Scheduling. Mathematics 2025, 13, 2761. [CrossRef]
+31. Niu, Y.; Zhang, C.; Sangaiah, A.K.; Liu, K.; Lu, F.; Alenazi, M.J.; AlQahtani, S.A. Intelligent traffic management via personalized
+group consensus based on chimp optimization-guided random vector functional link and quantum theory: A perspective of
+randomization. Comput. Electr. Eng. 2025, 123, 110178. [CrossRef]
+32. Hussain, H.; Javaid, M.B.; Khan, F.S.; Dalal, A.; Khalique, A. Optimal control of traffic signals using quantum annealing. arXiv
+2019, arXiv:1912.07134. [CrossRef]
+33. Polimeni, A.; Vitetta, A. Network design and vehicle routing problems in road transport systems: Integrating models and
+algorithms. Transp. Eng. 2024, 16, 100247. [CrossRef]
+34. Nielsen, M.A.; Chuang, I.L. Quantum Computation and Quantum Information; Cambridge University Press: Cambridge, UK, 2010.
+35. Kochenberger, G.; Hao, J.K.; Glover, F.; Lewis, M.; Lü, Z.; Wang, H.; Wang, Y. The unconstrained binary quadratic programming
+problem: A survey. J. Comb. Optim. 2014, 28, 58–81. [CrossRef]
+36. Ising, E. Contribution to the theory of ferromagnetism. Z. Phys 1925, 31, 253–258. [CrossRef]
+37. Albash, T.; Lidar, D.A. Adiabatic quantum computation. Rev. Mod. Phys. 2018, 90, 015002. [CrossRef]
+38. Farhi, E.; Goldstone, J.; Gutmann, S. A quantum approximate optimization algorithm. arXiv 2014, arXiv:1411.4028. [CrossRef]
+39. Peruzzo, A.; McClean, J.; Shadbolt, P .; Yung, M.H.; Zhou, X.Q.; Love, P .J.; Aspuru-Guzik, A.; O’brien, J.L. A variational eigenvalue
+solver on a photonic quantum processor. Nat. Commun. 2014, 5, 4213. [CrossRef]
+40. Farhi, E.; Gopinath, G.; Itskhoki, O. Fiscal devaluations. Rev. Econ. Stud. 2014, 81, 725–760. [CrossRef]
+41. IBM. IBM Quantum 2024. Available online: https://www.ibm.com/quantum/assets/IBM-Quantum-Think-2024.pdf (accessed
+on 1 July 2025).
+42. Kandala, A.; Mezzacapo, A.; Temme, K.; Takita, M.; Brink, M.; Chow, J.M.; Gambetta, J.M. Hardware-efficient variational
+quantum eigensolver for small molecules and quantum magnets. Nature 2017, 549, 242–246. [CrossRef]
+43. Huang, T.; Xu, J.; Luo, T.; Gu, X.; Goh, R.; Wong, W.F. Benchmarking quantum (-inspired) annealing hardware on practical use
+cases. IEEE Trans. Comput. 2022, 72, 1692–1705. [CrossRef]
+44. Tran, C.; Tran, Q.B.; Son, H.T.; Dinh, T.N. Scalable Quantum-Inspired Optimization through Dynamic Qubit Compression. In
+Proceedings of the the AAAI Conference on Artificial Intelligence, Philadelphia, PA, USA, 25 February–4 March 2025; Volume 39,
+pp. 11353–11361.
+45. Lucas, A. Ising formulations of many NP problems. Front. Phys. 2014, 2, 5. [CrossRef]
+46. Pronin, C.B.; Ostroukh, A.V .; Maksimychev, O.I.; Kuftinova, N.G.; Yadav, A.K. Parametric synthesis of computational circuits for
+complex quantum algorithms in the transport and road sphere. In Proceedings of the 2022 Intelligent Technologies and Electronic
+Devices in Vehicle and Road Transport Complex (TIRVED), Moscow, Russia, 10–11 November 2022; pp. 1–4.
+47. Yu, J.G.; Jayakrishnan, R. A quantum cognition model for bridging stated and revealed preference. Transp. Res. Part B Methodol.
+2018, 118, 263–280. [CrossRef]
+48. Mohanty, N.; Behera, B.K.; Ferrie, C. Analysis of the vehicle routing problem solved via hybrid quantum algorithms in the
+presence of noisy channels. IEEE Trans. Quantum Eng. 2023, 4, 1–14. [CrossRef]
+49. Syrichas, A.; Crispin, A. Large-scale vehicle routing problems: Quantum Annealing, tunings and results. Comput. Oper. Res. 2017,
+87, 52. [CrossRef]
+50. Mori, N.; Furukawa, S. Quantum annealing for the adjuster routing problem. Front. Phys. 2023, 11, 1129594. [CrossRef]
+51. Núñez-Merino, M.; Maqueira-Marín, J.M.; Moyano-Fuentes, J.; Castano-Moraga, C.A. Quantum-inspired computing technology
+in operations and logistics management. Int. J. Phys. Distrib. Logist. Manag. 2024, 54, 247–274. [CrossRef]
+52. Leonidas, I.D.; Dukakis, A.; Tan, B.; Angelakis, D.G. Qubit Efficient Quantum Algorithms for the Vehicle Routing Problem on
+Noisy Intermediate-Scale Quantum Processors. Adv. Quantum Technol. 2024, 7, 2300309. [CrossRef]
+53. Haba, R.; Mano, T.; Ueda, R.; Ebe, G.; Takeda, K.; Terabe, M.; Ohzeki, M. Routing and scheduling optimization for urban air
+mobility fleet management using quantum annealing. Sci. Rep. 2025, 15, 4326. [CrossRef] [PubMed]
+54. Leib, D.; Seidel, T.; Jäger, S.; Heese, R.; Jones, C.; Awasthi, A.; Niederle, A.; Bortz, M. An optimization case study for solving a
+transport robot scheduling problem on quantum-hybrid and quantum-inspired hardware. Sci. Rep. 2023, 13, 18743. [CrossRef]
+55. Zhou, B.; Zhao, L. A quantum-inspired Archimedes optimization algorithm for hybrid-load autonomous guided vehicle
+scheduling problem. Appl. Intell. 2023, 53, 27725. [CrossRef]
+56. Ding, Y.; Chen, X.; Lamata, L.; Solano, E.; Sanz, M. Implementation of a Hybrid Classical-Quantum Annealing Algorithm for
+Logistic Network Design. SN Comput. Sci. 2021, 2, 68. [CrossRef]
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 32 of 33
+57. Marchesin, A.; Montrucchio, B.; Graziano, M.; Boella, A.; Mondo, G. Improving Urban Traffic Mobility via a Versatile Quantum
+Annealing Model. IEEE Trans. Quantum Eng. 2023, 4, 1. [CrossRef]
+58. Xin, G.; Wang, P .; Jiao, Y. Noise-enhanced quantum annealing approach and its application in plug-in hybrid electric vehicle
+charging optimization. Electron. Lett. 2021, 57, 314. [CrossRef]
+59. Solomon, M.M. Algorithms for the vehicle routing and scheduling problems with time window constraints. Oper. Res. 1987,
+35, 254–265. [CrossRef]
+60. Le-Anh, T.; De Koster, M. A review of design and control of automated guided vehicle systems. Eur. J. Oper. Res. 2006, 171, 1–23.
+[CrossRef]
+61. Rabadi, M.; Kim, M.; D’Agati, V .; Lee, H.T. Peptidyl arginine deiminase-4-deficient mice are protected against kidney and liver
+injury after renal ischemia and reperfusion. Am. J.-Physiol.-Ren. Physiol. 2016, 311, F437–F449. [CrossRef]
+62. Fu, W.; Trivedi, A.; Chen, G.; Gao, Y.; Srinivasan, D.; Danner, A. An evolutionary ising optimization framework for unconstrained
+binary quadratic programming. IEEE Trans. Evol. Comput. 2025. [CrossRef]
+63. Crainic, T.G.; Laporte, G. Transportation in supply chain management: Recent advances and research prospects. Int. J. Prod. Res.
+2016, 54, 403–404. [CrossRef]
+64. Farahani, R.Z.; Hekmatfar, M. Facility Location: Concepts, Models, Algorithms and Case Studies; Springer Science & Business Media:
+Berlin/Heidelberg, Germany, 2009.
+65. Salloum, H.; Zhanalin, S.; Badr, A.A.; Kholodov, Y. Mini-scale traffic flow optimization: An iterative QUBOs approach converting
+from hybrid solver to pure quantum processing unit. Sci. Rep. 2025, 15, 22904. [CrossRef]
+66. Dalyac, C.; Henriet, L.; Jeandel, E.; Lechner, W.; Perdrix, S.; Porcheron, M.; Veshchezerova, M. Qualifying quantum approaches
+for hard industrial optimization problems. A case study in the field of smart-charging of electric vehicles. EPJ Quantum Technol.
+2021, 8, 12. [CrossRef]
+67. Cooper, C.H.V . Exploring Potential Applications of Quantum Computing in Transportation Modelling.IEEE Trans. Intell. Transp.
+Syst. 2022, 23, 14712. [CrossRef]
+68. Dixit, V .V .; Niu, C.; Rey, D.; Waller, S.T.; Levin, M.W. Quantum computing to solve scenario-based stochastic time-dependent
+shortest path routing. Transp. Lett. 2024, 16, 793. [CrossRef]
+69. Institute, C.R. Seizing the Commercial Value of Quantum Technology. 2024. Available online: https://www.capgemini.com/wp-
+content/uploads/2024/05/Seizing-the-commercial-value-of-quantum.pdf (accessed on 1 July 2025).
+70. Cohen, A.; Shaheen, S. Planning for Shared Mobility; APA: Chicago, IL, USA, 2018.
+71. Boothby, K.; Bunyk, P .; Raymond, J.; Roy, A. Next-generation topology of d-wave quantum processors. arXiv 2020,
+arXiv:2003.00133.
+72. Pelofske, E.; Hahn, G.; Djidjev, H.N. Reducing quantum annealing biases for solving the graph partitioning problem. In
+Proceedings of the 18th ACM International Conference on Computing Frontiers, Virtual, 11–13 May 2021; pp. 133–139.
+73. Quantum, I. IBM Quantum Developmen & Innovation Roadmap; IBM: Armonk, NY, USA, 2024.
+74. Jurcevic, P .; Javadi-Abhari, A.; Bishop, L.S.; Lauer, I.; Bogorin, D.F.; Brink, M.; Capelluto, L.; Günlük, O.; Itoko, T.; Kanazawa, N.
+Demonstration of quantum volume 64 on a superconducting quantum computing system. Quantum Sci. Technol. 2021, 6, 025020.
+[CrossRef]
+75. Kjaergaard, M.; Schwartz, M.E.; Braumüller, J.; Krantz, P .; Wang, J.I.; Gustavsson, S.; Oliver, W.D. Superconducting qubits:
+Current state of play. Annu. Rev. Condens. Matter Phys. 2020, 11, 369–395. [CrossRef]
+76. Endo, S.; Cai, Z.; Benjamin, S.C.; Yuan, X. Hybrid quantum-classical algorithms and quantum error mitigation. J. Phys. Soc. Jpn.
+2021, 90, 032001. [CrossRef]
+77. Augerat, P .; Naddef, D.; Belenguer, J.; Benavent, E.; Corberan, A.; Rinaldi, G.Computational Results with a Branch and Cut Code for
+the Capacitated Vehicle Routing Problem; Istituto di Analisi dei Sistemi ed Informatica: Roma Italy, 1995.
+78. Patriksson, M. The Traffic Assignment Problem: Models and Methods; Courier Dover Publications: Mineola, NY, USA, 2015.
+79. Krantz, P .; Kjaergaard, M.; Yan, F.; Orlando, T.P .; Gustavsson, S.; Oliver, W.D. A quantum engineer’s guide to superconducting
+qubits. Appl. Phys. Rev. 2019, 6, 021318. [CrossRef]
+80. D-Wave. Advantage2 System: Our Most Advanced and Performant Quantum Computer 2025. Available online: https:
+//www.dwavequantum.com/solutions-and-products/systems/ (accessed on 1 July 2025).
+81. D-Wave. Performance Gains in the D-Wave Advantage2 System at the 4400-Qubit Scale. 2025. Available online: https:
+//www.dwavequantum.com/media/wakjcpsf/adv2_4400q_whitepaper-1.pdf (accessed on 1 July 2025).
+82. Andersson, M.P .; Jones, M.N.; Mikkelsen, K.V .; You, F.; Mansouri, S.S. Quantum computing for chemical and biomolecular
+product design. Curr. Opin. Chem. Eng. 2022, 36, 100754. [CrossRef]
+83. Company, M. Quantum Technology Monitor. 2025. Available online: https://www.mckinsey.com/~/media/mckinsey/
+business%20functions/mckinsey%20digital/our%20insights/the%20year%20of%20quantum%20from%20concept%20to%20
+reality%20in%202025/quantum-monitor-2025.pdf (accessed on 1 July 2025).
+
+=== PAGE BREAK ===
+
+Smart Cities 2025, 8, 206 33 of 33
+84. ENISA. Post-Quantum Cryptography Current State and Quantum Mitigation. 2021. Available online: https:
+//www.enisa.europa.eu/sites/default/files/publications/ENISA%20Report%20-%20Post-Quantum%20Cryptography%
+20Current%20state%20and%20quantum%20mitigation-V2.pdf (accessed on 1 July 2025).
+85. NIST. Transition to Post-Quantum Cryptography Standards. 2024. Available online: https://csrc.nist.gov/pubs/ir/8547/ipd
+(accessed on 1 July 2025).
+Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.

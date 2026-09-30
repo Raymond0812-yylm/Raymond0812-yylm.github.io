@@ -1,0 +1,828 @@
+21 April 2026
+POLITECNICO DI TORINO
+Repository ISTITUZIONALE
+Scheduling of Satellite Constellation Operations in EO Missions Using Quantum Optimization / Marchioli, Vinicius;
+Boggio, Mattia; Volpe, Deborah; Massotti, Luca; Novara, Carlo. - ELETTRONICO. - (2024), pp. 227-242. ( OL2A:
+International Conference on Optimization, Learning Algorithms and Applications San Cristóbal de La Laguna (SPA) July
+24-26, 2024) [10.1007/978-3-031-77432-4_16].
+Original
+Scheduling of Satellite Constellation Operations in EO Missions Using Quantum Optimization
+Springer postprint/Author's Accepted Manuscript
+Publisher:
+Published
+DOI:10.1007/978-3-031-77432-4_16
+Terms of use:
+Publisher copyright
+This version of the article has been accepted for publication, after peer review (when applicable) and is subject to
+Springer Nature’s AM terms of use, but is not the Version of Record and does not reflect post-acceptance improvements,
+or any corrections. The Version of Record is available online at: http://dx.doi.org/10.1007/978-3-031-77432-4_16
+(Article begins on next page)
+This article is made available under terms and conditions as specified in the  corresponding bibliographic description in
+the repository
+Availability:
+This version is available at: 11583/2996638 since: 2025-01-23T10:52:42Z
+Springer Nature
+
+=== PAGE BREAK ===
+
+Scheduling of Satellite Constellation Operations
+in EO Missions using Quantum Optimization
+Vinicius Marchioli1, Mattia Boggio 1, Deborah Volpe 1, Luca Massotti 2, and
+Carlo Novara1
+1 Politecnico di Torino, 10124 Turin, Italy
+vinicius.marchioli@studenti.polito.it, mattia.boggio@polito.it,
+deborah.volpe@polito.it, carlo.novara@polito.it
+2 European Space Agency - ESTEC, Noordwijk, The Netherlands
+luca.massotti@esa.int
+Abstract. As Earth Observation (EO) missions advance towards Ag-
+ile Earth Observation Satellites, the complexity of scheduling problems
+increases, posing challenges for traditional optimization methods. This
+paper investigates the potential of a quantum algorithm to address the
+scheduling problem in EO constellations. In particular, a novel formula-
+tion of the satellite constellation optimization problem is proposed, trans-
+lating it into a Quadratic Unconstrained Binary Optimization (QUBO)
+problem, i.e., compliant with quantum solvers. Penalty functions are
+incorporated to optimize mission energy consumption. The formulated
+QUBO problem is then implemented and solved on a real quantum com-
+puter (a D-Wave Quantum Annealer). The performance provided by the
+quantum machine is compared with established classical meta-heuristic
+solvers like Simulated Annealing and Tabu Search. The results show
+that the proposed quantum optimization process achieves better results
+in terms of both solution quality and computational efficiency.
+Keywords: Quantum optimization · QUBO · Earth Observation mis-
+sion · Satellite Constellation Scheduling
+1 Introduction
+As space exploration becomes increasingly accessible through both private and
+governmental entities, Earth Observation (EO) missions have emerged as a criti-
+cal area of concern and interest [4,35]. They aid scientific research, particularly in
+studying natural phenomena [9,16,28] and climate change dynamics [4,14], and
+they may enhance national security by monitoring borders and resources [10].
+Over the past decades, the EO missions have seen a significant transformation
+moving from long-lasting, multi-functional satellites, such as SPOT, ENVISAT,
+and ERS [11], to Agile Earth Observation Satellites (AEOSs). AEOSs are smaller
+and more agile satellites, where an extra degree of freedom around the pitch axis
+enables the satellites for fast and precise orientation changes in nadir. They oper-
+ate in Low Earth Orbits (LEO), often in constellations, and can perform specific
+
+=== PAGE BREAK ===
+
+2 V. Marchioli et al.
+(a) AEOS’s enhanced manoeuvrability
+around the pitch axis.
+(b) Comparison of the observation ca-
+pability of EOS and AEOS.
+Fig. 1: Agile Earth Observation Satellites (AEOSs).
+tasks efficiently [30, 32]. Fig. 1a shows the additional manoeuvrability of these
+satellites, while in Fig. 1b the main difference in observation capability between
+Non-Agile Earth Observation Satellite (EOS) and AEOS is illustrated. For the
+EOS, the specific Observation Time Window (OTW), which is the time period
+required for the satellite to observe a specific area on Earth, coincides with its
+Visible Time Window (VTW), namely the time period when the target is phys-
+ically visible to the satellite’s instruments. In contrast, AEOSs have expanded
+observation capabilities, offering multiple feasible OTWs for a single target.
+While the agile characteristic greatly improves the observation efficiency and
+flexibility of AEOS, it also significantly increases the complexity of the schedul-
+ing problem for EO missions. This problem consists of selecting and scheduling
+satellite observation tasks to maximize the entire observation profit while satisfy-
+ing all the operational constraints. For traditional EOS, the scheduling problem
+is relatively straightforward as VTW coincides with OTW. Instead, for AEOS,
+each VTW contains multiple potential OTWs, resulting in a considerable expan-
+sion in the search space for scheduling observations. This makes the scheduling
+problem NP-hard and thus potentially challenging for traditional optimization
+methods. Indeed, these approaches may either struggle to find a global solution
+or require too long execution times to achieve satisfactory results. The limita-
+tions of traditional approaches become even more pronounced when dealing with
+constellations of AEOS, namely the case study considered in this paper, where
+the complexity of the scheduling problem increases further.
+With the rise of quantum technologies, it is becoming clear that quantum
+computers have the potential to significantly improve the efficiency and quality
+of solutions to complex optimization problems [3, 27]. There are two different
+approaches for leveraging quantum computers in the optimization context: gate-
+based quantum computing [5] and adiabatic quantum computation (AQC) [2].
+In the gate model, the computation is performed by applying a series of unitary
+gates to a set of quantum bits (qubits), which can be measured at the end of
+the computation, for developing various algorithms including optimization ones.
+On the other hand, in AQC, an initial multi-qubit quantum state is prepared
+as the ground state of a simple Hamiltonian, followed by an adiabatic time
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 3
+evolution that transforms the system into a final Hamiltonian whose ground
+state represents the solution of an optimization problem. This paper focuses
+on AQC and in particular on the Quantum Annealing (QA) paradigm, which
+exploits the adiabatic principle to solve optimization problems [22]. The first
+company to develop a real quantum annealer was D-Wave in 2011 [17].
+Recent literature has provided substantial demonstrations of the applicabil-
+ity of quantum computers and algorithms to address real-world optimization
+challenges. For instance, in [23], a D-Wave quantum annealer is used for peptide
+and protein design tasks. Furthermore, a novel approach that uses the quantum
+annealing paradigm and D-Wave’s machines for optimizing traffic light control
+in urban areas was introduced in [21]. Other application domains in which quan-
+tum computing has already been exploited include, e.g., machine learning [6],
+cryptography [26], finance [24], and logistics [33].
+In the realm of aerospace applications, a pioneering work that applies the
+quantum paradigm to the scheduling problem of EO missions is [29]. This work
+investigates the potential and maturity of then-available quantum computers
+for solving a “small-scale” scheduling problem, using a Quadratic Unconstrained
+Binary Optimization (QUBO) formulation. A comparative analysis is conducted
+between traditional optimization methodologies and a D-Wave 2000Q quantum
+annealer. The results show that the quantum annealer can be faster and its
+solution quality is comparable for “small” problems, but it degrades for larger
+ones due to the limited qubit connectivity and noise issues.
+Following the line of [29], the present paper explores the use of a Dwave
+quantum annealer, using in particular a Hybrid quantum annealing algorithm
+(HQA) [8], for an EO constellation scheduling problem, comparing its perfor-
+mance to established classical meta-heuristic solvers like Simulated Annealing
+(SA) [19] and Tabu Search (TS) [13]. The HQA is a hybrid classical/quantum
+algorithm that implements state-of-the-art classical algorithms with intelligent
+allocation of the Dwave Quantum Processing Unit (QPU) to suitable parts of
+the problem in order to speed up the execution and enhance solutions for large
+problem sizes. In summary, the main contributions of our study are the fol-
+lowing: (i) Formulation of the satellite constellation optimization problem and
+translation into a QUBO problem. To the best of our knowledge, this is the
+first work that provides a rigorous and complete formulation of this problem
+for a constellation of several satellites. (ii) Integration of penalty functions in
+the optimization problem, allowing us to reduce the propellant consumption of
+the mission, i.e. extending the lifetime. (iii) Implementation and solution of the
+obtained QUBO problem on a real quantum annealer. Note that the implementa-
+tion is not trivial since the choice of the annealer setting and related parameters
+may be quite complex and/or critical. Moreover, we solve QUBO problems with
+a significantly larger number of decision variables than the existing works consid-
+ering similar mission planning problems. (iv) Extensive simulations, using a real
+D-Wave quantum annealer, and comparison with state-of-the-art QUBO solvers
+running on classical computers.
+
+=== PAGE BREAK ===
+
+4 V. Marchioli et al.
+(a) Constellation orbits over the globe.
+ 0°
+15°N
+30°N
+45°NLatitude
+ 0° 15°E 30°E
+Longitude
+Orbital projections
+ 500 mi 
+ 1000 km 
+Satellite 1 ground track
+Satellite 2 ground track
+Satellite 3 ground track
+(b) Orbital projections over Europe
+and Africa.
+Fig. 2: Example of a three-satellite constellation, characterized by heliosyn-
+chronous, highly polar, circular orbits.
+This article is organized as follows. Section 2 introduces the mathemati-
+cal formulation of the constellation scheduling problem. Section 3 presents the
+translation of this formulation into a QUBO problem. In section 4, the mission
+scenario for the EO scheduling problem is described and a comparative analy-
+sis of the results obtained using the quantum annealer and classical solvers is
+presented. Finally, the conclusions are drawn in Section 5.
+2 Constellation Scheduling Problem
+Consider a constellation of NS satellites traveling on different orbits. The three-
+satellite constellation, considered in this study and characterized by heliosyn-
+chronous, highly polar, circular orbits, is depicted in Figs. 2a and 2b. In par-
+ticular, Fig. 2a depicts the S/C orbits over the globe, while Fig. 2b shows the
+orbital projections over Europe and Africa. It should be noted that the QUBO
+formulation developed in this paper is general and does not depend on the par-
+ticular constellation considered. Here, we have chosen to use the SuperView-1
+constellation, which consists of Chinese commercial and remote sensing satel-
+lites [31]. Although Satellites 2 and 3 share similar orbits, they can be used to
+observe different targets, thereby reducing fuel consumption. For more details,
+please refer to Section 4.
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 5
+The orbits are designed in such a way that an arc of each orbit lies above a
+given region of the Earth containing NT targets. When a satellite is traveling in
+its orbit, it spends a fraction of the orbit period on the arc above the region and,
+in this time interval, it can acquire observations/images of the targets. The frac-
+tion of the orbit period spent on the arc is called Visible Time Window (VTW).
+The orbit arc is divided into smaller segments, corresponding to sub-intervals
+of duration ∆T of the VTW. While flying on a segment, a satellite can acquire
+observations of a subset of targets. For simplicity, a single orbital revolution is
+considered, so that a target may be observed by a satellite no more than once.
+The goal is to find an optimal observation scheduling for the satellites of the
+constellation. To formalize the optimization problem, the following quantities
+are defined:
+– S .= {1,...,N S}: Satellite index set. An index j ∈ S indicates the jth
+satellite of the constellation.
+– T .={1,...,N T}: Target index set. An index i∈T indicates the ith target.
+– VTW ji, i∈T, j∈S: Orbit segment index set. VTW ji contains the indices
+associated to the orbit segments from which the jth satellite can acquire
+an image of the ith target. The indices in VTW ji are ordered by increasing
+traveling time.
+– wjik∈ R≥0, j∈S, i∈T, k∈VTW ji: Profit associated to a target. wjik is
+related to the priority of acquiring an image of the ith target. The priority
+may depend on the satellite and the orbit segment.
+– ξjik∈{ 0, 1}, j∈ S, i∈ T, k∈ VTW ji: Decision variable. ξjik indicates if
+the jth satellite has acquired an image of the ith target while flying in the
+orbit segment with index k∈ VTW ji. ξjik = 1 if the acquisition has been
+accomplished, ξjik = 0 otherwise.
+– n =PNS
+j=1
+PNT
+i=1 card(VTW ji) : Number of decision variables ξjik∈{ 0, 1}.
+Note that, in general, n≤NSNT .
+– ζ .= (ξj1i1k1,...,ξ jninkn)∈{ 0, 1}n ⊂ Nn×1, j1,...,j n,∈ S, i1,...,i n ∈ T ,
+k1∈ VTW j1i1,... kn∈ VTW jnin: Vector containing all the decision vari-
+ables. The order in which theξjik’s appear inζ is arbitrary. The one adopted
+in this paper is as follows: ijk ∈{ 111, 112,..., 121, 122,..., 211, 212,...,
+221, 222,... }. The symbol N denotes the set of natural numbers including 0.
+Based on these definitions, the ideal profit of the whole mission is
+JP
+.=
+X
+i∈T
+X
+j∈S
+X
+k∈VTW ji
+wjikξjik.
+In this work, we have chosen to make a single acquisition for each target in
+order to avoid excessive fuel consumption. This can be imposed by the following
+constraints:
+X
+j∈S
+X
+k∈VTW ji
+ξjik≤ 1,∀i∈T. (1)
+
+=== PAGE BREAK ===
+
+6 V. Marchioli et al.
+It must also be taken into account that the observation of two consecutive
+targets may be not feasible, since there may be not enough time for a satellite to
+maneuver from one acquisition to the subsequent one. The following constraints
+avoid to plan unfeasible consecutive observations:
+ξji1k1 +ξji2k2≤ 1,∀j∈S,
+∀i1,i 2∈T,i 1̸=i2,∀(k1,k 2)∈Fji1i2, (2)
+where Fji1i2 is a so-called forbidden maneuver region. This set is defined as
+Fji1i2
+.={(k1,k 2)∈VTW ji1×VTW ji2 :
+τji2k2 <τ ji1k1 +TF},
+where τjik is the start time of the ith target acquisition, accomplished by the
+jth satellite from the kth orbit segment, and TF is the sum of the duration of
+an acquisition and the duration of the maneuver.
+In order to penalize acquisitions which require a high attitude adjustment
+and thus a high fuel consumption, the following term is introduced:
+JC
+.=
+X
+i∈T
+X
+j∈S
+X
+k∈VTW ji
+λjikξjik.
+Finally, we define the objective function
+J(ζ) .=−JP +JC,
+where ζ .= (ξ111,ξ 112,...,ξ 121,...,ξ 211,...,ξ NS 11,... ).
+To sum up, an optimal observation scheduling for the satellites of the con-
+stellation can be found by solving the following optimization problem:
+ζ∗ = arg min
+ζ∈{0,1}n
+J(ζ)
+subject to :
+(i)
+X
+j∈S
+X
+k∈VTW ji
+ξjik≤ 1,∀i∈T
+(ii) ξji1k1 +ξji2k2≤ 1,∀j∈S,
+∀i1,i 2∈T,i 1̸=i2,∀(k1,k 2)∈Fji1i2.
+(3)
+In general, (3) is an Integer Linear Programming (ILP). Due to the discrete
+nature of the decision variables, this kind of problem is NP-hard for a classical
+computer. Quantum computers and, in particular, quantum annealers have the
+potential to significantly reduce the computational complexity of these classes
+of problems, finding better solutions with a polynomial speedup compared to
+classical computers [3]. A formulation of the optimization problem (3) that is
+compliant with quantum annealers is called QUBO (Quadratic Unconstrained
+Binary Optimization) and is developed in the next section.
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 7
+3 QUBO Formulation
+In this section, the optimization problem of Equation (3) is formulated according
+to the QUBO model [12]. In the QUBO formulation, the objective function is of
+the form
+H =ζ⊤Qζ, (4)
+where Q∈ Rn×n is a matrix of real numbers and ζ ∈ {0, 1}n ⊂ Nn×1 is a
+vector of binary variables. This optimization model can consider a constraint
+only through an aggregation method. In particular, it is taken into account by
+including in the function a quadratic penalty function, assuming a value of 0 for
+configurations satisfying the constraints and a positive amount otherwise.
+The operations needed to obtain the QUBO formulation (4) of the optimiza-
+tion problem (3) are now described in detail.
+The function J(ζ) can be written as
+J .=−JP +JC
+=
+X
+i∈T
+X
+j∈S
+X
+k∈VTW ji
+(λjik−wjik)ξjik
+=
+X
+i∈T
+X
+j∈S
+X
+k∈VTW ji
+(λjik−wjik)ξ2
+jik,
+where it has been considered ξjik =ξ2
+jik,∀j,i,k .
+The constraints (1) are translated into the following penalty terms:
+ρi
+.= 1
+2
+X
+j1,k1,j2,k2
+ξj1ik1ξj2ik2,∀i∈T,
+for all j1,j 2∈S, k1∈VTW j1i, k2∈VTW j2i, (j2,k 2)̸= (j1,k 1). It can be easy
+verified that ρi = 0 if and only if the constraint P
+j∈S
+P
+k∈VTW ji
+ξjik ≤ 1 is
+satisfied.
+In a similar way, the constraints (2) are translated into the following penalty
+terms:
+ηl
+.=ξji1k1ξji2k2,∀j∈S,
+∀i1,i 2∈T,i 1̸=i2,∀(k1,k 2)∈Fji1i2,
+where l = 1,...,N U and NU is the number of unfeasible maneuvers. Also the
+penalties ηl are in the QUBO compatible format, i.e. expressed as a quadratic
+penalty function, and give nonzero off-diagonal elements in the Q matrix.
+The following objective function can now be defined:
+H .=−JP +JC +Λ
+ NTX
+i=1
+ρi +
+NUX
+l=1
+ηl
+!
+, (5)
+where Λ is a positive real number. If Λ is properly sized, the minimizers of H
+are solutions of the optimization problem (3). However, its dimensioning is not
+
+=== PAGE BREAK ===
+
+8 V. Marchioli et al.
+trivial since its value has to be sufficiently high to penalize invalid solutions
+without flattening the problem function too much, avoiding effective solution
+space explorations.
+While JP represents the ideal profit of the mission, −H gives the profit
+adjusted by the penalties. The quantity −H is thus called Practical Profit.
+A fundamental observation is thatH is a quadratic function ofζ = (ζ1,...,ζ n).= (ξj1i1k1,...,ξ jninkn), so it is compliant with the QUBO formulation (4). The
+construction of the matrix Q is simple and can be accomplished considering
+that the coefficients λjik−wjik of J =−JP +JC are on the main diagonal of
+Q, whereas the penalty terms ρi and ηl give off-diagonal entries equal to Λ. In
+detail, let qαβ, α,β = 1,...,n be the entries of Q. Then, Q is constructed as
+follows:
+– diag(Q) = (pj1i1k1,...,p jninkn), pjik
+.=λjik−wjik.
+– qαβ =Λ if, for some i, the term ζαζβ is contained in ρi, or, for some l, it is
+contained in ηl.
+– qαβ = 0 otherwise.
+Once Q has been defined according to these indications, a typical operation
+is to make Q symmetric by posing Q := (Q + QT )/2. This operation does not
+change the optimization problem and allows us to use QUBO solvers that require
+symmetric matrices Q.
+The objective function (5) is thus equal to H = ζ⊤Q ζ, and the resulting
+optimization is written in the QUBO form
+ζ∗ = arg min
+ζ∈{0,1}n
+ζ⊤Qζ. (6)
+For sufficiently large values ofΛ, the solutions of (6) are also solutions of the
+optimization problem (3). Similarly to (3), also the optimization problem (6) is
+NP-hard for a classical computer. As discussed above, quantum annealers may
+overcome the limitations of classical solvers in this context.
+3.1 Quantum annealers
+Quantum annealers [17, 18] are special-purpose quantum computers suitable
+to solve QUBO problems like (6) with a significant computational speedup
+(quadratic) compared to classical computers [7,34], possibly improving also the
+solution quality. Now, we summarize what is a quantum annealer and how it
+works. Defining
+σ = (σ1,...,σ n) .= 2ζ−I∈{− 1, 1}n⊂ Zn×1,
+the QUBO objective can be written as
+H =ζ⊤Qζ = 1
+4(σ +I)⊤Q (σ +I) = 1
+4σ⊤Qσ + 1
+2I⊤Qσ + 1
+4 =HF + 1
+4.
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 9
+STRONG TRANSVERSE 
+ FIELD
+WEAK TRANSVERSE  
+FIELD
+(a) Spins evolution during an-
+nealing. When a strong trans-
+verse field is applied, spins are
+in a superposition state. Reduc-
+ing the transverse field, spins
+assume a spin-down or spin-up
+state to reach the lowest energy
+configuration.
+Strong
+transverse 
+ field
+00 01 10 11
+00 01 10 11
+00 01 10 11
+Weak 
+transverse
+field
+(b) Quantum
+annealer system
+evolution ex-
+plained through
+a simple hy-
+draulic model.
+Configurations
+Cost/Energy
+Simulated
+annealing
+Quantum
+annealing
+00...0 11...1
+(c) Quantum tunneling vs.
+thermal climbing. The first
+represents the exploration
+mechanism of quantum an-
+nealing, while the second
+that of simulated anneal-
+ing.
+Fig. 3: Overview of quantum annealing.
+The function HF defined as
+HF
+.=σ⊤JFσ +hFσ, J F
+.= 1
+4σ⊤Q, h F
+.= 1
+2I⊤Q (7)
+is called transverse-field Ising Hamiltonian and represents the energy of a physi-
+cal system consisting of n interacting particles, described by two-state variables
+σi, i = 1,...,n (e.g., spin of electrons, polarization of photons, superconduct-
+ing loops, etc.). A Quantum Annealer (QA) is indeed a lattice of n interacting
+nodes, called qubits, described by two-state variables, which obey the laws of
+quantum mechanics. They are physically implemented by means of supercon-
+ducting loops [15, 17]. While a bit of a classical computer is allowed to be in
+one of two possible states, a qubit can be in a superposition of both states si-
+multaneously. This property, peculiar of quantum systems, enables the so-called
+quantum parallelism, where the computer can explore simultaneously multiple
+solutions of a problem, unlike classical computers that explore only one solu-
+tion at a time. Such a parallelism is one of the key features of QAs. Another
+important feature is quantum tunneling, which allows the computer to bypass
+energy barriers, thus reducing the issue of trapping in local solutions, as shown
+in Fig. 3c. The main steps accomplished by a QA to solve a QUBO-like problem
+are as follows.
+Quantum Annealing Process
+1. Initialization: The QA system is initialized in a superposition of states, repre-
+senting all the possible configurations of the optimization problem. It means
+that each qubit is in a superposition of its basis state 0 and 1. The cor-
+responding initial Hamiltonian is denoted by HI. This can be graphically
+represented by the spins aligned on the x-axis of Fig. 3a or by the flat bot-
+tom of the tank in the hydraulic model usually exploited for explaining QA
+system evolution of Fig. 3b.
+
+=== PAGE BREAK ===
+
+10 V. Marchioli et al.
+2. Adiabatic evolution: The Hamiltonian is continuously modified from HI,
+whose ground state is easily configured as initial state, to the final Hamil-
+tonian HF in (7), which encodes the optimization problem. The evolu-
+tion is controlled in an adiabatic manner, in such a way that the QA re-
+mains in the ground state during the whole process, also avoiding local min-
+ima thanks to quantum tunneling. The evolution is described by HQA =
+φ(t)HI + (1−φ(t))HF , where HQA is the QA Hamiltonian and φ(t) is a
+continuous function of time such thatφ(0) = 1 andφ(TA) = 0, beingTA > 0
+called the annealing time. This can be graphically represented in Fig. 3b with
+the hydraulic model as a gradual deformation of the tank’s bottom for de-
+scribing the objective function, and the water begins to flow towards the
+lowest points. Alternatively, it can be represented as spins of 3a which start
+to modify their orientation to assume the lowest energy configuration.
+3. Measurement: Once the evolution process is complete, the final spin vector
+σ∗ is measured. This vector corresponds to a minimum of the Hamiltonian
+which, at the end of the process, isHF =H−1/4. It follows that the solution
+of the QUBO problem (6) is ζ∗ = (σ∗ +I)/2.
+4. Post-processing: The obtained solution might not be perfect due to noise and
+defects in the quantum hardware. Post-processing techniques like classical
+optimization algorithms can be used to refine the solution (e.g., simulated
+annealing or tabu search).
+5. Repetitions: The whole procedure (steps 1 - 4) can be repeated several times
+and the best result is selected. 2
+After the initialization step, the system is a superposition condition, guaran-
+teeing a simultaneous and parallel exploration of the solution space, giving an
+exponential speedup with respect to a classical computer, where the solutions
+must be explored one at a time. However, the evolution from the initial to the
+final Hamiltonian cannot be arbitrarily fast. The Adiabatic Theorem states that
+a quantum system starting from a ground state persists in a ground state, pro-
+vided that the change in time of the Hamiltonian is sufficiently slow. Let TA be
+the annealing time, i.e., the time taken to change the Hamiltonian from HI to
+HF . According to the Adiabatic Theorem, the ground state is maintained during
+the change if
+TA≥ 1
+mint∈[0,TA]∆E(t)2 , (8)
+where ∆E is the gap between the two lowest energy levels of the QA. The
+combination of the exponential speedup in the initialization step and the limit
+imposed by the Adiabatic Theorem yield in any case a significant computational
+complexity reduction with respect to classical computers. Indeed, despite it is
+notoriously difficult to analyze the runtime of adiabatic optimization algorithms,
+several works in the literature show that a quadratic speedup with respect to
+classical computers can be guaranteed [7,34].
+If inequality (8) is not satisfied, there is a non-null probability for the QA to
+jump from the lowest energy level to the second lowest level, or even to higher
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 11
+Table 1: OE for the satellite constellation.
+ID a (km) i ( °) Ω (°) e ω (°) ν (°)
+1000 6903.67 97.58 97.85 16 .55e−4 130.99 2.03
+2000 6909.06 97.58 93.20 9 .97e−4 254.46 155.23
+3000 6898.60 97.58 92.36 14 .60e−10 276.73 140.19
+energy levels, which correspond to sub-optimal solutions of the optimization
+problem. This gives rise to a trade-off between computational speed and quality
+of the solution: sub-optimal solutions can be found, which require a shorter an-
+nealing time with respect to an optimal solution but are satisfactory in practice.
+A leading company in the field of QAs is D-Wave Systems [1], which is
+developing QAs with a growing number of qubits (more than 5000), enabling
+the solution of increasingly complex optimization problems. Quantum annealing
+is still an evolving technology, and there are ongoing efforts worldwide to improve
+its performance and reliability.
+4 Simulation Results
+In this section, the proposed quantum algorithm is validated and compared
+with the following classical meta-heuristic algorithms: Tabu Search (TS) [13]
+and Simulated Annealing (SA) [19]. Firstly, the mission scenario for the EO
+scheduling problem is described in detail. Then, a comprehensive analysis of the
+results obtained considering both quantum and classical algorithms is reported.
+4.1 Mission scenario description
+The scenario considered in this paper for the EO scheduling problem is shown
+in Fig. 4a. It includes a list of all the European capitals and many UNESCO
+Natural World Heritage sites. The main characteristics of the scenario are shown
+below:
+1. Number of decision variables: 1471.
+2. Number of unique targets: 55.
+3. Constraint density: 22.51%.
+To accomplish this mission, three satellites have been taken into account.
+Their parameters, presented in Table 1, are based on the well-documented
+SuperView-1 constellation consisting of Chinese commercial and remote sensing
+satellites [31], launched in 2018. Their agile nature allows to perform maneuvers
+in the roll and pitch directions, with a range of ±45°, for both angles.
+The first column shows the unique ID of the S/Cs, while the OE are presented
+from columns 2 to 7, respectively: semi-major axisa, inclinationi, right ascension
+of the ascending nodeΩ, eccentricitye, argument of perigeeω and mean anomaly
+ν. From the original specifications, the orbital elements (OE) for satellite 1, with
+ID 1000, is slightly modified to fit the generated data requirements for sparsity.
+
+=== PAGE BREAK ===
+
+12 V. Marchioli et al.
+These OE account for heliosynchronous, highly polar and almost circular orbits.
+One orbital revolution for the constellation is around 95 minutes.
+The chosen profit, from 1 to 5, and duration are arbitrarily selected to be
+as generic as possible while still preserving the realistic nature of the problem.
+Alongside the ground tracks, two auxiliary roll lines, computed during the pre-
+treatment phase, are plotted, providing a good visual indication of each satellite’s
+line-of-sight reach (as can be seen in Fig. 4a). In practice, the down-sampled data
+are used for the problem formulation, considerably reducing the number of vari-
+ables, but still maintaining the system’s physical characteristics and real-world
+applicability [31]. Some authors prefer a finer resolution [25], while others [20]
+opt for an even larger time step. It should be noted that this scenario consists
+of a high-density dataset due to the close vicinity and the number of targets.
+Indeed, satellites two and three may observe more than 30 targets in less than 10
+minutes with many overlapping VTWs. Consequently, the resulting Q matrix
+is highly dense, making the problem hard to solve, especially with QA, as it
+requires more physical qubits to embed the variable relations.
+4.2 Results comparison
+The tests conducted in this study involved the implementation of the proposed
+strategies using Matlab for QUBO formulation. Then, depending on the strat-
+egy used, these QUBO problems were solved using different solvers provided
+by D-Wave. In particular: i) the D-Wave Leap Hybrid Sampler for the HQA,
+ii) the D-Wave SimulatedAnnealingSampler for the SA, and iii) the D-Wave
+TabuSampler for the TS.
+Note that, before deciding to use the HQA, we carefully compared it with
+pure QA, finding that nowadays the latter is not able to produce satisfactory
+solutions for large-scale problems. This is due to the known problems of quantum
+hardware, such as environmental noise, a limited number of physical qubits, and
+intricate problem-embedding strategies.
+To evaluate the performance, the algorithms under consideration were exe-
+cuted 100 times in order to obtain a comparative distribution. The metrics used
+for the comparison are: i) the mean value of the Practical Profit −H (Mean
+Pract. Profit −H), ii) its standard deviation (SD Pract. Profit −H), iii) the
+mean value of the Runtime (Mean Runtime), and iii) its standard deviation (SD
+Runtime).
+Taking into account the characteristics of the scenario described in Section
+4.1, it can be observed that, although the targets across Europe are densely
+geographically distributed, the resulting matrix exhibits only around 22% con-
+straint density. Nevertheless, as the number of decision variables increases, the
+complexity of solving the problem escalates considerably. Indeed, classical solvers
+experience a decline in performance, highlighting the efficacy of adopting the hy-
+brid quantum approach. Considering the best outcome of the 100 executions of
+the HQA, a maximum Practical Profit of 103 .33 was obtained with 40 unique
+targets captured. This result is visually depicted in Fig. 4b.
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 13
+30°S
+ 0°
+30°N
+60°NLatitude
+30°W  0° 30°E
+Longitude
+Targets over local projection
+ 1000 mi 
+ 2000 km 
+Targets
+Satellite 1 ground track
+Max and min line of sight
+Satellite 2 ground track
+Max and min line of sight
+Satellite 3 ground track
+Max and min line of sight
+(a) Target disposition and constellation
+ground tracks over local projection.
+30°S
+ 0°
+30°N
+60°NLatitude
+30°W  0° 30°E 60°E
+Longitude
+Mission results with HQA. Profit = 103.3334
+ 1000 mi 
+ 2000 km 
+Targets
+Satellite 1 ground track
+Satellite 2 ground track
+Satellite 3 ground track
+Satellite 1 captured targets
+Satellite 2 captured targets
+Satellite 3 captured targets
+(b) Captured targets over Europe and
+Africa with HQA.
+Fig. 4: EO scheduling problem.
+Table 2 collects the mean results of all the 100 executions of the three algo-
+rithms, based on the metrics previously described. All the methods yield viable
+and feasible mission results with comparable Practical Profit−H and, most im-
+portantly, without any constraint violation. However a clear advantage of the
+HQA can be noted in terms of runtime. On average, it is 1 .6 times faster than
+TS and 6 times faster than SA. Additionally, from the outcomes of the 100 mis-
+sion, a comparative distribution is presented in Fig. 5. The HQA outperforms
+its classical counterparts not only in terms of mean values but also by yielding
+a lower standard deviation, with more reliable results. These remarkable results
+were obtained using around 40 ms of QPU access time with respect to the 4
+s of total runtime, showing the effectiveness of combining the classical meta-
+heuristics with quantum methods. It should be noted that, ideally, increasing
+the number of reads can improve the quality of optimal solutions obtained with
+Table 2: Comparison between classic and hybrid quantum algorithms.
+Mean Pract. Profit −H SD Pract. Profit −H Mean Runtime (s) SD Runtime (s)
+TS 90.76 1.07 6.96 1.31
+SA 99.23 0.74 25.46 2.83
+HQA 101.94 0.37 4.0140 0.0038
+
+=== PAGE BREAK ===
+
+14 V. Marchioli et al.
+classical solvers. However, this approach may not be feasible for real-time satel-
+lite scheduling due to the time constraints involved. Additionally, it leads to an
+increase in the standard deviation of the associated profit, negatively impacting
+overall solution precision.
+Fig. 5: Results distribution for 100 runs.
+5 Conclusions
+In conclusion, this paper introduces a novel QUBO formulation for the AEOSs
+scheduling problem. This formulation has been implemented onto the real Dwave
+quantum computer using the HQA approach and compared with classical op-
+timization solvers, such as SA and TS. The obtained results show improved
+performance in terms of both quality of the solutions and computational time,
+suggesting that hybrid techniques are ready to be used in real and scalable mis-
+sion scenarios
+The proposed formulation could be further improved by relaxing model con-
+straints for broader applicability and introducing an integer-valued unicity con-
+straint that allows multiple target acquisitions. Additionally, despite the in-
+creased in complexity, the solver could potentially handle a one-day scheduling
+horizon, effectively simulating real missions. Finally, a reconfigurable model for
+movable targets could optimize both orbital adjustments and target acquisition.
+It is important to note that the current quantum devices are limited in terms of
+number of qubits availability, connectivity and fidelity. These limitations neces-
+sitate the use of hybrid solvers for contemporary industrial applications. Despite
+these challenges, the results obtained are encouraging. They demonstrate that
+exploring quantum solutions can provide valuable insights for the future of real-
+time satellite scheduling research.
+Acknowledgement. We would like to thank D-Wave Systems for providing
+access to their quantum annealer through the free monthly user program.
+
+=== PAGE BREAK ===
+
+Quantum Optimization for EO Satellite Constellation Scheduling 15
+References
+1. D-wave systems. https://www.dwavesys.com/
+2. Albash, T., Lidar, D.A.: Adiabatic quantum computation. Rev. Mod. Phys. 90,
+015002 (Jan 2018)
+3. Albash, T., Lidar, D.A.: Demonstration of a scaling advantage for a quantum
+annealer over simulated annealing. Physical Review X 8(3), 031016 (2018)
+4. Anderson, K., Ryan, B., Sonntag, W., Kavvada, A., Friedl, L.: Earth observation
+in service of the 2030 agenda for sustainable development. Geo-spatial Information
+Science 20(2), 77–96 (2017)
+5. Barenco, A., Bennett, C.H., Cleve, R., DiVincenzo, D.P., Margolus, N., Shor, P.,
+Sleator, T., Smolin, J.A., Weinfurter, H.: Elementary gates for quantum computa-
+tion. Phys. Rev. A 52, 3457–3467 (Nov 1995)
+6. Biamonte, J., Wittek, P., Pancotti, N., Rebentrost, P., Wiebe, N., Lloyd, S.: Quan-
+tum machine learning. Nature 549(7671), 195–202 (2017)
+7. Boixo, S., Ortiz, G., Somma, R.: Fast quantum methods for optimization. The
+European Physical Journal Special Topics 224(1), 35–49 (2015)
+8. Booth, M., Reinhardt, S.P., Roy, A.: Partitioning optimization problems for hybrid
+classical/quantum execution. Technical Report pp. 01–09 (2017)
+9. Chuvieco, E., Mouillot, F., van der Werf, G.R., San Miguel, J., Tanase, M., Kout-
+sias, N., Garc´ ıa, M., Yebra, M., Padilla, M., Gitas, I., Heil, A., Hawbaker, T.J.,
+Giglio, L.: Historical background and current developments for mapping burned
+area from satellite earth observation. Remote Sensing of Environment 225, 45–64
+(2019)
+10. Dolce, F., Di Domizio, D., Bruckert, D., Rodr´ ıguez, A., Patrono, A.: Earth Ob-
+servation for Security and Defense, pp. 705–731. Springer International Publishing
+(2020)
+11. Dubock, P.A., Spoto, F., Simpson, J., Spencer, D., Schutte, E., Sontag, H.: The
+Envisat satellite and its integration. ESA Bulletin 106, 26–45 (Jun 2001)
+12. Glover, F., Kochenberger, G., Du, Y.: Quantum Bridge Analytics I: a tutorial on
+formulating and using QUBO models. 4OR 17(4), 335–371 (12 2019)
+13. Glover, F., Laguna, M.: Tabu search. Springer (1998)
+14. Guo, H.D., Zhang, L., Zhu, L.W.: Earth observation big data for climate change
+research. Advances in Climate Change Research 6(2), 108–117 (2015), special issue
+on advances in Future Earth research
+15. Hauke, P., Katzgraber, H.G., Lechner, W., Nishimori, H., Oliver, W.D.: Perspec-
+tives of quantum annealing: Methods and implementations. Reports on Progress
+in Physics 83(5), 054401 (2020)
+16. Hirschmugl, M., Gallaun, H., Dees, M., Datta, P., Deutscher, J., Koutsias, N.,
+Schardt, M.: Methods for mapping forest disturbance and degradation from optical
+earth observation data: A review. Current Forestry Reports 3, 32–45 (2017)
+17. Johnson, M.W., Amin, M.H., Gildert, S., Lanting, T., Hamze, F., Dickson, N.,
+Harris, R., Berkley, A.J., Johansson, J., Bunyk, P., et al.: Quantum annealing
+with manufactured spins. Nature 473(7346), 194–198 (2011)
+18. Kadowaki, T., Nishimori, H.: Quantum annealing in the transverse ising model.
+Physical Review E 58(5), 5355 (1998)
+19. Kirkpatrick, S., Gelatt, C.D., Vecchi, M.P.: Optimization by simulated annealing.
+Science 220(4598), 671–680 (1983)
+20. Liu, X., Laporte, G., Chen, Y., He, R.: An adaptive large neighborhood search
+metaheuristic for agile satellite scheduling with time-dependent transition time.
+Computers & Operations Research 86, 41–53 (2017)
+
+=== PAGE BREAK ===
+
+16 V. Marchioli et al.
+21. Marchesin, A., Montrucchio, B., Graziano, M., Boella, A., Mondo, G.: Improving
+urban traffic mobility via a versatile quantum annealing model. IEEE Transactions
+on Quantum Engineering 4, 1–13 (2023)
+22. Morita, S., Nishimori, H.: Mathematical foundation of quantum annealing. Journal
+of Mathematical Physics 49(12), 125210 (12 2008)
+23. Mulligan, V.K., Melo, H., Merritt, H.I., Slocum, S., Weitzner, B.D., Watkins, A.M.,
+Renfrew, P.D., Pelissier, C., Arora, P.S., Bonneau, R.: Designing peptides on a
+quantum computer. bioRxiv (2020)
+24. Or´ us, R., Mugel, S., Lizaso, E.: Quantum computing for finance: Overview and
+prospects. Reviews in Physics 4, 100028 (2019)
+25. Peng, G., Song, G., Xing, L., Gunawan, A., Vansteenwegen, P.: An exact algo-
+rithm for agile earth observation satellite scheduling with time-dependent profits.
+Computers & Operations Research 120, 104946 (03 2020)
+26. Pirandola, S., Andersen, U.L., Banchi, L., Berta, M., Bunandar, D., Colbeck, R.,
+Englund, D., Gehring, T., Lupo, C., Ottaviani, C., Pereira, J.L., Razavi, M., Shaari,
+J.S., Tomamichel, M., Usenko, V.C., Vallone, G., Villoresi, P., Wallden, P.: Ad-
+vances in quantum cryptography. Adv. Opt. Photon. 12(4), 1012–1236 (Dec 2020)
+27. Roland, J., Cerf, N.J.: Quantum search by local adiabatic evolution. Physical Re-
+view A 65(4) (Mar 2002)
+28. Ruf, C., Unwin, M., Dickinson, J., Rose, R., Rose, D., Vincent, M., Lyons, A.:
+Cygnss: Enabling the future of hurricane prediction [remote sensing satellites].
+IEEE Geoscience and Remote Sensing Magazine 1(2), 52–67 (2013)
+29. Stollenwerk, T., Michaud, V., Lobe, E., Picard, M., Basermann, A., Botter, T.:
+Agile earth observation satellite scheduling with a quantum annealer. IEEE Trans-
+actions on Aerospace and Electronic Systems 57(5), 3520–3528 (2021)
+30. Verfaillie, G., Lemaˆ ıtre, M.: Selecting and scheduling observations for agile satel-
+lites: Some lessons from the constraint reasoning community point of view. In:
+Principles and Practice of Constraint Programming - CP. pp. 670–684 (11 2001)
+31. Wang, X., Han, C., Zhang, R., Gu, Y.: Scheduling multiple agile earth observation
+satellites for oversubscribed targets using complex networks theory. IEEE Access
+7, 110605–110615 (2019)
+32. Wang, X., Wu, G., Xing, L., Pedrycz, W.: Agile earth observation satellite schedul-
+ing over 20 years: Formulations, methods, and future directions. IEEE Systems
+Journal 15(3), 3881–3892 (09 2021)
+33. Yarkoni, S., Huck, A., Sch¨ ulldorf, H., Speitkamp, B., Tabrizi, M.S., Leib, M., B¨ ack,
+T., Neukart, F.: Solving the shipment rerouting problem with quantum optimiza-
+tion techniques. In: Mes, M., Lalla-Ruiz, E., Voß, S. (eds.) Computational Logistics.
+pp. 502–517. Springer International Publishing, Cham (2021)
+34. Zanca, T., Santoro, G.E.: Quantum annealing speedup over simulated annealing
+on random ising chains. Phys. Rev. B 93, 224431 (Jun 2016)
+35. Zhao, Q., Yu, L., Du, Z., Peng, D., Hao, P., Zhang, Y., Gong, P.: An overview
+of the applications of earth observation satellite data: Impacts and future trends.
+Remote Sensing 14(8) (2022)

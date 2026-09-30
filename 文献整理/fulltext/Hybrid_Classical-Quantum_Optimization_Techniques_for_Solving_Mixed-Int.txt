@@ -1,0 +1,1680 @@
+Quantum Computing Engineeringuantum
+Transactions onIEEE
+Received 30 March 2022; revised 13 June 2022; accepted 27 June 2022; date of publication 29 June 2022;
+date of current version 21 July 2022.
+Digital Object Identiﬁer 10.1109/TQE.2022.3187367
+Hybrid Classical-Quantum Optimization
+Techniques for Solving Mixed-Integer
+Programming Problems in Production
+Scheduling
+AKSHAY AJAGEKAR ,K U M A I LA LH A M O U D,
+AND FENGQI YOU (Senior Member, IEEE)
+Cornell University, Ithaca, NY 14853 USA
+Corresponding author: Fengqi You (e-mail: fengqi.you@cornell.edu)
+This work was supported by the used resources of the Oak Ridge Leadership Computing Facility, which is a Department of Energy
+Office of Science User Facility supported under Contract DE-AC05-00OR22725.
+ABSTRACT Quantumcomputing(QC)holdsgreatpromisetoopenupaneweraofcomputingandhasbeen
+receiving significant attention recently. To overcome the performance limitations of near-term QC, utilizing
+the current quantum computers to complement classical techniques for solving real-world problems is of
+utmost importance. In this article, we develop QC-based solution strategies that exploit quantum annealing
+andclassicaloptimizationtechniquesforsolvinglarge-scaleschedulingproblemsinmanufacturingsystems.
+Theapplicationsoftheproposedalgorithmsareillustratedthroughtwocasestudiesinproductionscheduling.
+First,wepresentahybridQC-basedsolutionapproachforthejob-shopschedulingproblem.Second,wepro-
+poseahybridQC-basedparametricmethodforthemultipurposebatchschedulingproblemwithafractional
+objective. The proposed hybrid algorithms can tackle optimization problems formulated as mixed-integer
+linear and mixed-integer fractional programs, respectively, and provide feasibility guarantees. Performance
+comparison between state-of-the-art exact and heuristic solvers and the proposed QC-based hybrid solution
+techniques is presented for both job-shop and batch scheduling problems. Unlike conventional classical
+solutiontechniques, theproposedhybridframeworksharnessquantum annealing tosupplement established
+deterministic optimization algorithms and demonstrate performance efficiency over standard off-the-shelf
+optimization solvers.
+INDEX TERMS Hybrid techniques, optimization, quantum annealing, quantum computing (QC),
+scheduling.
+I. INTRODUCTION
+With the advent of technological advancements, quantum
+computing (QC) has attracted widespread attention owing
+to the realization of speedups offered by quantum tech-
+niques for several complex computational problems [1].
+This has led to transformational breakthroughs on certain
+tasks achieved with near-term quantum devices [2], [3].
+QC offers higher computational power than classical com-
+puters [4] and could speed up solving complex optimiza-
+tion problems. Scheduling is a major optimization problem
+in systems operation planning and may serve as a testbed
+for rigorous benchmarking of such quantum solution tech-
+niques. As a result, several quantum-assisted algorithms
+have been developed for solving complex scheduling prob-
+lems [5] to validate their practical viability. Variants of
+scheduling problems have also been tackled by quantum
+approaches using both gate-model [6] and annealing-based
+[7] devices. However, such approaches may not prove com-
+petitive until the inadequacies of QC, including the lim-
+ited number of qubits and limited error correction capabil-
+ities, are overcome by further technological advancements
+[8]. To this end, several hybrid quantum-classical solu-
+tion techniques that harness the complementary strengths
+of quantum and classical computers have been proposed
+to tackle scheduling problems [9], [10]. Both tailored [11]
+and general [12] hybrid QC-based optimization techniques
+This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 License.
+For more information, see https://creativecommons.org/licenses/by-nc-nd/4.0/
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+have also been investigated for mixed-integer optimization
+problems.
+Complex scheduling problems emerge in many areas,
+ranging from power generation scheduling in electrical
+power systems [13] and charge scheduling of electric
+vehicles [14] to a multitude of scheduling problems in
+chemical process industries [15]. Job-shop scheduling is
+a commonly occurring scheduling problem in production
+scheduling. Scheduling of batch operations is also an
+important class of scheduling problems in manufacturing
+processes with areas of applications ranging from micro-
+processors to large-scale industrial processes. Approaches
+tosolving scheduling problems have generated considerable
+industrial and academic interest. Solution techniques based
+onmathematicalprogrammingmaydemonstrateexponential
+timecomplexityforcomplexschedulingproblems,whilethe
+heuristic methods allow for faster solution times at the ex-
+penseofoptimality.QCcanpotentiallyimprovethesolution
+times for optimization problems arising in various domains
+ranging from the energy sector [16] to chemical product de-
+sign[17].Therefore,toovercometheshortcomingsofclassi-
+cal solution approaches, the development of novel quantum
+solution approaches is required.
+Real-world scheduling problems vary across scales and
+suffer from complexities emerging from the continuous-
+discrete optimization domain and operational constraints.
+Classical approaches may provide high-quality solutions
+at the expense of high computational costs or vice-versa.
+Quantum-inspired heuristic techniques implemented on a
+classical computer are also not known to solve large-scale
+optimization problems any better than other popular heuris-
+tics[18].Ontheotherhand,realizingthepromiseofquantum
+optimization techniques would require fault-tolerant quan-
+tum devices with error correction capabilities [19]. So, it
+is imperative to utilize both classical and near-term QC to
+tackle such optimization problems of varying complexities
+and scales [11]. The development of physical devices that
+realizequantumannealingisapromisingnear-termtechnol-
+ogy for binary optimization [20]–[22]. However, these also
+exhibitlimitationsintermsofthenumberofqubitsandtheir
+connectivity. There have been previous attempts to develop
+hybrid solution strategies that exploit quantum annealing
+for optimization problems [10], but they may suffer from
+longercomputationaltimeswithnofeasibilityguaranteesfor
+large-scale scheduling problems due to the inefficient use of
+quantumsolutiontechniques.Weproposeanovelhybridso-
+lution framework that utilizes the complementary strengths
+of both quantum annealing and classical solution techniques
+through decomposition of the problem into smaller tractable
+subproblems.
+Findingefficientdecompositionschemesthatfacilitatethe
+use of QC-based techniques presents three research chal-
+lenges. First, the performance of quantum hardware is lim-
+ited by the problem size. Therefore, we need to ensure that
+the subproblems solved by the quantum computer are small
+enough to achieve the desired speedup. Second, we need
+to formulate the problems in the form of discrete energy
+minimization that quantum computers could solve. Such
+problems can be tackled by both gate-model devices and
+quantum annealers. Third, efficient integer cuts should be
+derived to iteratively reduce the search space and accelerate
+the convergence of the QC-based solution methods. In this
+work, we develop algorithms for two complex scheduling
+problems to demonstrate the potential of such hybrid ap-
+proaches. The first one is the job-shop scheduling problem
+formulated as a mixed-integer linear program (MILP). The
+otheroneisamixed-integerfractionalprogramming(MIFP)
+formulation of the multipurpose batch scheduling problem.
+We propose novel schemes that utilize classical solution
+techniquesandquantumannealingimplementedonquantum
+devices to search for optimal solutions iteratively for both
+problems.Theserequiredecomposingthecomplexproblems
+intotractablesubproblems,oneofwhichcanbesolvedeasily
+with classical solvers and the other with quantum annealers.
+The performance of the proposed hybrid QC-based methods
+is verified by comparing their computational performance
+with that of general-purpose optimization solvers.
+The remainder of this article is organized as follows. Sec-
+tion II presents preliminaries on quantum annealing. The
+followingtwosectionspresentapplicationsofQC-basedhy-
+brid algorithms in process scheduling. We first describe a
+hybrid QC-MILP strategy for solving the job-shop schedul-
+ing problem. We then present a novel QC-based parametric
+algorithm to solve multipurpose batch scheduling problems.
+Bothapplicationsaresupportedwithdetailedcomputational
+comparisons with off-the-shelf deterministic and heuristic
+optimization solvers in Sections III and IV. Conclusions are
+drawn in Section V.
+II. QUANTUM ANNEALING PRELIMINARIES
+Adiabatic QC (AQC) is a model of computation wherein
+computation proceeds by continuous-time evolution of a
+quantum state from a known initial state to a final state un-
+der adiabatic conditions [23]. The gradual transition from
+an initial Hamiltonian to a final Hamiltonian to obtain the
+ground state of the final Hamiltonian as governed by the
+adiabatic evolution path is the main idea behind AQC [24].
+Inpractice,however,nonidealitiesexhibitedbythequantum
+physical systems lead to difficulties in realizing the strin-
+gent adiabatic conditions required for operations in AQC.
+A relaxation of such conditions can be captured by quan-
+tumannealing,whichemploysquantumtunnelingtotraverse
+the energy landscape and escape local minima [25]. Certain
+properties of the AQC model can be relaxed to implement
+quantumannealingwiththeinstructionsetofferedbyAQCto
+solve combinatorial optimization problems. In quantum an-
+nealing,thesystemisinitializedtothelowest-energystateof
+awell-definedHamiltonianatthebeginningoftheannealing
+process. As the annealing process progresses, the problem
+Hamiltonian is introduced while the initial Hamiltonian’s
+influenceisslowlyreduced.Thisyieldsalowenergystateof
+thefinalHamiltonianrepresentedbyaclassicalbinarystring
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+that is sufficiently close to the ground state and corresponds
+to an approximate solution of the combinatorial optimiza-
+tion problem [26]. As compared to simulated annealing that
+incorporates thermal fluctuations [27], quantum annealing
+demonstrates convergence to the ground state with a larger
+probability under similar conditions [25].
+Quantumannealersnativelyoffersearchingforlowenergy
+configurationsoftheIsingmodelrepresentedbytheproblem
+Hamiltonian asHf = ∑
+ihiσz
+i + ∑
+i,j Jij σz
+i σz
+j where σz
+i de-
+notes the Pauli-Z operator applied to theith qubit, whileh
+and J are problem-dependent parameters. Within the quan-
+tumprocessingunit(QPU), handJrepresentthequbitbiases
+and coupling strengths between qubits, respectively, that are
+applied during the quantum annealing process. Quadratic
+unconstrained binary optimization (QUBO) problems of the
+form minx∈{0,1}xTQx can be easily translated to an Ising
+Hamiltonianandcanbesolvedwithquantumannealers.The
+first step toward solving QUBO problems on the QPU in-
+volves mapping the corresponding problem graph onto the
+physical hardware graph of qubits and couplers. The QUBO
+problem graph can be defined by the binary variables as
+nodes with the linear and quadratic coefficients as the node
+and edge weights, respectively. Obtaining the mapping of
+logical graphs to physical graphs is referred to as minor
+embedding [28]. Finding an optimal graph-minor embed-
+ding is an NP-hard problem and is typically performed with
+heuristics-based tools [29]. D-Wave quantum annealers of-
+fer limited connectivity of qubits that impose restrictions
+on the sizes and logical graphs associated with the QUBO
+problems.Despitethese,largerQUBOproblemsthatcannot
+be directly embedded on physical hardware graphs can be
+solved by partitioning them into smaller subproblems with
+heuristics-based utilities [30].
+III. JOB-SHOP SCHEDULING
+In this section, we demonstrate the effectiveness of QC-
+based solution methodologies by developing a hybrid de-
+compositionalgorithmforthejob-shopschedulingproblem.
+The job-shop scheduling problem aims to find an optimal
+scheduling assignment for the jobs on the machines given
+a set of operational constraints. While exact optimization
+algorithms based on the branch-and-cut method exist for
+job-shop scheduling, they could exhibit inefficiencies for
+industrial-scaleproblems[31],[32].Moreover,thequalityof
+thesolutionsprovidedbyapproximatealgorithms,whichuse
+heuristics like simulated annealing, is not guaranteed [33].
+Hybriddecompositionmethodsthatuseconstraintprogram-
+ming(CP)andMILPtolowerthecomplexityofthisproblem
+have been proposed [34]. Furthermore, a hybrid decompo-
+sition strategy that integrates QC with classical computing
+hasbeenshowntosolvelargejob-shopschedulinginstances
+[10].However,solvingindustrial-scaleinstancesusingthese
+algorithmsmaytakeaprohibitivelylongtime.Weproposean
+improvedapproachthatleveragesmoreefficientdecomposi-
+tions to leverage QC-based techniques and solve job-shop
+scheduling problems at industrial scales within a reasonable
+time and with minimal space requirements.
+A. MODEL FORMULATION
+Consider the following single-stage job-shop scheduling
+problem [34]. We are given a set of machinesM and a set
+of jobsJ. The processing cost of jobj on machinem isCjm,
+and the duration required to complete the processing isPjm.
+The release date for jobj is given asRj, and the due date is
+denoted byDj. Any job should begin and finish processing
+after the release date and before the due date, respectively.
+Theobjectiveofthejob-shopschedulingproblemistomini-
+mize the total processing cost incurred. This problem aims
+to minimize the total processing costs by determining the
+optimaljobtomachineassignments.Thecontinuousvariable
+tsj represents the start time of jobj, while the assignment
+of jobj to machinem is indicated by the binary assignment
+variablexjm.The binary sequencing variableyjj’ isone ifjob
+j precedes processing of jobj’if assigned to the same ma-
+chine and is 0 otherwise. The job-shop scheduling problem
+is formulated as follows:
+min
+∑
+j∈J
+∑
+m∈M
+Cjmxjm (1)
+s.t. tsj ≥Rj ∀j ∈J (2)
+tsj +
+∑
+m∈M
+Pjmxjm ≤Dj ∀j ∈J (3)
+∑
+m∈M
+xjm = 1 ∀j ∈J (4)
+yjj ′+yj′j ≥xjm +xj′m −1 ∀j, j′∈J, j′≥ j ∀m ∈M
+(5)
+tsj′ ≥tsj + ∑
+m∈M
+Pjmxjm −U
+(
+1 −yjj ′
+)
+∀j, j′∈J,
+j ⁄= j′, U = ∑
+j∈J
+max
+m∈M
+{
+Pjm
+} (6)
+yjj ′+yj′j ≤ 1 ∀j, j′∈J, j′> j (7)
+yjj ′+yj′j +xjm +xj′m′ ≤ 2 ∀j, j′∈J, j′> j
+∀m,m′∈M, m′⁄=m
+(8)
+tsj ≥ 0, xjm ∈ {0,1} ∀j ∈J ∀m ∈M (9)
+yjj ′ ∈ {0,1} ∀j, j′∈J, j′⁄= j. (10)
+Constraints (2) and (3) are start time and due date con-
+straints. Processing each job only on an individual machine
+is modeled by constraint (4). Constraints (5) and (6) ensure
+that the machine processes multiple jobs sequentially rather
+than simultaneously. Constraints (7) and (8) are logical cuts
+that significantly narrow the search space of the problem
+[34]. The last two constraints enforce the nonnegativity of
+the start timestsj and the binary nature of the assignment
+and sequencing variablesxjm andyjj’.
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+B. PROPOSED HYBRID QC-MILP METHOD
+In order to improve the computational tractability of the
+job-shop scheduling problem, complicating constraints or
+variables need to be identified. The idea is to decompose
+theschedulingproblemintotwosubproblemsforassignment
+andsequencing,respectively.Relaxingthefeasibleregionof
+theoriginalproblemproducestractablesubproblemsthatcan
+besolvedwithgeneral-purposesolverstoobtaintheoptimal
+assignments.Thesequencingsubproblemcanbeformulated
+asaQUBOproblemandcanbesolvedwithquantumanneal-
+erstodeterminethefeasibilityoftheassignmentsefficiently.
+1) RELAXED MILP PROBLEM
+The feasible region of the job-shop scheduling problem can
+be relaxed by dropping the complicating constraints identi-
+fiedasthesequencingconstraintsin(5)–(8).Theresultingre-
+laxedMILPproblemthencomprisestheobjectivefunctionin
+(1), subject to timing constraints in (2) and (3), assignments
+constraints in (4), and variable types in (9). This relaxed
+MILP problem exhibits a less constrained feasible region
+and is easier to solve than the original job-shop scheduling
+problem[35].Wecanalsoincludeanyintegercutswithinthis
+relaxed MILP problem to exclude infeasible job to machine
+assignments. The integer cuts are nothing but constraints
+thatexcludespecificassignmentsasdictatedbytheproposed
+hybrid QC-MILP technique.
+Definition 1.1: The relaxed MILP subproblem solved at
+nth iteration with integer cuts is given byRPn, where xk ∈
+{0,1}|J|×|M| andSk
+m denotetheassignmentsobtainedandthe
+setofjobsassignedtothesamemachine mafterkthiteration
+(k <n) of the proposed hybrid QC-MILP method
+(
+RPn)
+min
+∑
+j∈J
+∑
+m∈M
+Cjmxjm
+s.t. tsj ≥Rj ∀j ∈J
+tsj +
+∑
+m∈M
+Pjmxjm ≤Dj ∀j ∈J
+∑
+m∈M
+xjm = 1 ∀j ∈J
+∑
+j∈Sm
+xjm ≤
+⏐⏐Sk
+m
+⏐⏐−1 ∀m ∈M,
+∀k ∈ {1,2,..., n −1}
+Sk
+m =
+{
+j, j′|xk
+jm =xk
+j′m = 1, ∀j, j′∈J
+}
+tsj ≥ 0, xjm ∈ {0,1} , ∀j ∈J, ∀m ∈M.
+TheMILPproblem RPn comprisesof |J|continuousvari-
+ables and|J||M|binary variables. Solving the relaxed MILP
+problem yields the optimal assignments and start times.
+These can be represented by{xn
+jm,tsn
+j, ∀j ∈J, ∀m ∈M}∈
+argmin RPn. It should be noted that the relaxed MILP prob-
+lem is easier to solve than the job-shop scheduling prob-
+lem and can be efficiently tackled with off-the-shelf MILP
+solvers.
+2) QUBO FORMULATION AND EVALUATION
+The obtained solutions for the relaxed MILP problemxn
+jm
+andtsn
+j can be treated as parameters in the sequencing con-
+straints (5)–(8). These inequalities then comprise the binary
+sequencing variables y only and can be formulated as a
+QUBOproblem.Theassignmentsobtainedfromtherelaxed
+MILP problem guarantee∑
+m∈M xn
+jm = 1, ∀j ∈J, meaning
+that the job assignments on machinem are independent of
+the set of jobs on machinem′⁄=m. For each machinem,the
+feasible set for the corresponding sequencing variables can
+be defined as follows.
+Definition 1.2: For a given set of assignments and start
+times obtained by solvingRPn to optimality, let the set of
+feasible sequences satisfying sequencing constraints (5)–(8)
+bedefinedas Yn
+m foreachmachine m.Sequencingconstraints
+areapplicableonlyformachineswithmultipleassignedjobs
+that isj ∈Sn
+m.A sxn
+jm = 1 ∀j ∈Sn
+m in (5), constraint (7) be-
+comesactive.Also,notethat(8)turnsintoavalidinequality.
+Therefore,Yn
+m is defined as shown below. The first equality
+is a direct consequence of two jobs assigned to a single
+machine and can only be processed one after the other. The
+following constraints that describeYn
+m can be derived from
+the constraint (6) of the original job-shop scheduling prob-
+lem formulation by substituting the values for the obtained
+assignmentsxn
+jm andxn
+j′m. These constraints ensure that the
+binarysequencingvariablesaredeterminedbythestarttimes
+of the jobs assigned to a single machine.
+Yn
+m :=
+⎧
+⎪⎪⎪⎪⎨
+⎪⎪⎪⎪⎩
+y
+⏐⏐⏐⏐⏐⏐⏐⏐⏐⏐
+yjj ′+yj′j = 1
+tsn
+j′ ≥tsn
+j +Pjm −U
+(
+1 −yjj ′
+)
+tsn
+j ≥tsn
+j′+Pj′m −U
+(
+1 −yj′j
+)
+∀j, j′∈Sn
+m, y ∈ {0,1}
+(
+|Snm|
+2
+)
+⎫
+⎪⎪⎪⎪⎬
+⎪⎪⎪⎪⎭
+It is possible to represent the sequencing constraints as a
+QUBO problem. However, the decoupling of jobs on ma-
+chine m from jobs on machinem’ allows us to formulate
+smaller QUBOs that are easier to solve for determining the
+sequencing variables associated with each machine sepa-
+rately. For each machinem, the decoupled QUBO can then
+be formulated as
+miny Hn
+m (y) =Hn
+m,1 (y) +Hn
+m,2
+(
+y,tsn)
+Hn
+m,1 (y) =
+∑
+j,j′∈Snm
+[
+2yjj ′yj′j −yjj ′−yj′j
+]
+Hn
+m,2
+(
+y,tsn)
+=−
+∑
+j,j′∈Snm
+[
+Kjj ′yjj ′+Kj′jyj′j
+]
+(11)
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+whereSn
+m =
+{
+j, j′|xn
+jm =xn
+j′m = 1, ∀j, j′∈J
+}
+∀m ∈M
+andKij =
+tsn
+j−tsn
+i −∑
+m∈M Pimxn
+im
+U
+The validity of the formulated QUBO problems can be
+expressed by the following lemma.
+Lemma1: Let assignmentsxn
+jm and job start timestsn
+j be
+given for thenth iteration of the proposed hybrid QC-MILP
+algorithm. Then, any feasible sequence ˜y ∈Yn
+m also satisfies
+˜y ∈ argminyHn
+m(y).
+Proof:Letussupposethatthereexists ˜y ∈ argminyHn
+m(y),
+such that ˜y /∈Yn
+m. Then either (a) there is at least an (r,r′) ∈
+Sn
+m suchthat ˜yrr′+ ˜yr′r ⁄= 1;or(b)thereisatleastan( r,r′) ∈
+Sn
+m such thattsn
+r′ <tsn
+r +Prm −U(1 − ˜yrr′) andtsn
+r <tsn
+r′+
+Pr′m −U(1 − ˜yr′r).
+For case (a), consider the feasible sequencey ∈Yn
+m.I t
+then follows from Definition 1.2 and (˜yrr′− ˜yr′r)2 = 0,
+that Hn
+m,1(y) =Hn
+m,1(˜y) −1. Further, it follows that,
+Hn
+m,2(y,tsn) +Krr′yrr′+Kr′ryr′r =Hn
+m,2(˜y,tsn) +Krr′˜yrr′+
+Kr′r ˜yr′r. From the assumptions in case (a), we also
+have Krr′yrr′+Kr′ryr′r −Krr′˜yrr′−Kr′r ˜yr′r ≥ 0a s
+Krr′+Kr′r < 0. Thus, we have that
+Hn
+m,1 (˜y) >Hn
+m,1 (y)
+Hn
+m,2
+(
+˜y,tsn)
+≥Hn
+m,2
+(
+y,tsn)
+. (12)
+Analogously in case (b),Hn
+m,1(y) =Hn
+m,1(˜y) for a feasible
+sequencey ∈Yn
+m. The underlying conditions of the case (b)
+holdtrueonlyif ˜yrr′ = ˜yr′r = 1.Followingtheequalityabove
+that, Krr′yrr′+Kr′ryr′r −Krr′−Kr′r > 0, we have for case
+(b) that
+Hn
+m,1 (˜y) =Hn
+m,1 (y)
+Hn
+m,2
+(
+˜y,tsn)
+>Hn
+m,2
+(
+y,tsn)
+. (13)
+From (12) and (13), it can be seen that Hn
+m,1(˜y) +
+Hn
+m,2(˜y,tsn) >Hn
+m,1(y) +Hn
+m,2(y,tsn) holds for both cases.
+Thus, we have that Hn
+m(˜y) >Hn
+m(y), which contradicts
+the optimality of ˜y. Therefore ˜y ∈Yn
+m also satisfies ˜y ∈
+argminyHn
+m. □
+The formulated QUBO problems are solved with a quan-
+tum annealer. Evaluation of solving the QUBO problems
+withquantumannealersisreliantonfactorslikecomputation
+of thelinear and quadratic coefficients of theQUBO and the
+numberofqubitsrequiredtosolveeachQUBOproblem[36].
+The annealing time is also an important aspect of evaluat-
+ingperformanceandisaffectedbytheannealingparameters
+used by specific quantum annealers [37]. However, this is
+subject to ongoing research and is treated as constant in this
+work[36],[38].Foreachmachine m ∈M,thecorresponding
+QUBOproblem Hn
+m isdirectlydependentontheset Sn
+m which
+includes the jobs assigned to this machine. As observed in
+(11), Hn
+m(y) comprises dim(y) =|Sn
+m|(|Sn
+m|− 1)binary vari-
+ables.QuadraticcoefficientsineachQUBOproblemarecon-
+stant and require dim(y)/2 filling steps, while the computa-
+tion of linear coefficients requires dim(y) steps of constant
+order O(1). Using this and ∑
+m |Sn
+m|=| J| indicating that
+all jobs must be assigned to a machine, we determine the
+overall time complexity of filling the coefficient matrices
+for all QUBO problems to beO(|J|2/|M|). Furthermore, the
+QUBOproblemisvalidonlyformachines m ∈Mthatsatisfy
+|Sn
+m| > 1,thusestablishing |M|asanupperboundonthetotal
+numberofQUBOproblemsgeneratedineachiterationofthe
+proposed solution approach.
+Each QUBO problemHn
+m(y) corresponding to individual
+machinesm ∈Mformsasparseproblemgraph.Assuch,em-
+bedding this problem onto a physical hardware graph would
+require |Sn
+m|(|Sn
+m|− 1) qubits. Previous quantum annealing-
+based approaches for the job-shop scheduling problems in
+[39] and [10] require/Omega1(|J|2|M|2) and O(|J|2) qubits, re-
+spectively, where/Omega1indicates the asymptotic lower bound.
+ConstructingthecoefficientmatrixfortheQUBOproblemin
+[10]alsorequires O(|J|2)steps.Incomparison,theproposed
+QUBOformulationschemeexhibitsbetterperformanceboth
+in terms of QUBO coefficient matrix construction and the
+required number of qubits to solve each problem.
+3) ITERATIVE PROCEDURE
+The proposed solution approach is an iterative process that
+exploitsthedeterministicnatureofMILPtoobtainimproved
+job assignments and quantum annealing to determine their
+sequence. Fig. 1 summarizes the implementation of the pro-
+posed algorithm. Each iteration of the proposed algorithm
+involves two phases. In the first phase, the relaxed MILP
+problem is solved with an MILP solver to produce partial
+optimalsolutionsfortheassignmentandstarttimesforeach
+job. It should be noted that if no optimal assignment exists
+in the feasible space of the relaxed MILP problem, the al-
+gorithm terminates as the job-shop scheduling problem is
+infeasible. The second phase uses partial solutions to search
+forfeasiblesequencesofjobsassignedtotheircorresponding
+machines.
+Anoptimalsolutiontothejob-shopschedulingproblemis
+obtained only if feasible sequences exist for all job assign-
+ments. For any machinem ∈M, if the sequencing QUBO
+problemsolvedwithaquantumannealeryieldsaninfeasible
+sequence, we add corresponding integer cuts to the relaxed
+MILPprobleminthesubsequentiterationstopreventassign-
+ing the same set of jobs to this machine. We use the integer
+cut ∑
+j∈Snm
+xjm ≤|Sn
+m|− 1 whereSn
+m is defined in (11), to
+exclude infeasible job assignments. A set of jobs cannot be
+assigned to a machine unless a feasible schedule exists for
+these jobs on the corresponding machine [34]. The feasibil-
+ity proof for the proposed hybrid QC-MILP method can be
+established as follows.
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+FIGURE 1. Proposed hybrid QC-MILP solution approach for the job-shop scheduling problem.
+Theorem1: If the proposed hybrid QC-MILP method is
+used to solve job-shop scheduling problems (1)–(10), then
+the obtained solution is feasible.
+Proof: Let xn be the optimal assignments obtained after
+solvingtherelaxedsubproblem RPn givenbyDefinition1.1.
+The algorithm terminates if no feasible solution is returned
+forRPn. Note that for iterationsk <n, the relaxed subprob-
+lems RPk are feasible and subproblems in the QC step are
+infeasible. The subproblemRPn with integer cuts is also a
+relaxation of the original problem, because the integer cut at
+each iteration does not exclude any feasible solution to the
+original problem. From Lemma 1, it can be followed that
+a feasible sequence is a solution to subproblems in the QC
+step in (11). Since sequencing constraintsYn
+m in Definition
+1.2alongwith RPn formthejob-shopschedulingproblemin
+(1)–(10), feasible sequence ˜y ∈ argminyHn
+m(y) and optimal
+assignments obtained throughRPn is a feasible solution to
+the original problem. Subproblems in the QC step will not
+return a feasible sequence if the original problem is infeasi-
+ble. The integer cuts resulting from the infeasibility of sub-
+problems in the QC step further reduce the feasible domain
+of x with each iteration. Eventually, this results in an in-
+feasible subproblem for the relaxed subproblem. Therefore,
+the algorithm will converge in finite number of iterations
+if the original problem is feasible or terminated in case of
+infeasibility. □
+The number of iterations required for convergence or the
+number of subproblems solved during the proposed hybrid
+QC-MILP solution approach applied to job-shop scheduling
+problems with|J|≥| M| is O(|J||J|) in the worst case. The
+worst case here implies traversal of each combination of
+job to machine assignments which is precluded by solving
+theRPn problem leading to exploration of assignments that
+minimize the processing costs. It should be noted that the
+proposed solution approach traverses assignments in the di-
+rection of lower to higher processing costs. In comparison,
+sophisticated MILP solution techniques like branch-and-cut
+exhibit an exponential running time in the worst case [40],
+requiring solving at least/Omega1(2|J||M|)subproblems, which is
+much larger than that of the proposed hybrid QC-based so-
+lution approach.
+In the next subsection, we perform computational experi-
+ments to test the performance and accuracy of the proposed
+solution approach on large-scale instances of the job-shop
+scheduling problem.
+C. COMPUTATIONAL RESUL TS
+To demonstrate the viability of the proposed solution ap-
+proach for job-hop scheduling problems across scales, we
+solve problem instances of varying sizes. These job-shop
+scheduling problem instances are randomly generated for
+testingandvalidation.Theprobleminstancesusedforbench-
+marking in this work can be found at https://github.com/PE
+ESEgroup/qc-scheduling.git. Within the intermediate steps
+of the proposed hybrid QC-based algorithm, the relaxed
+MILP problems are solved using the Gurobi solver, while
+the QUBO problems are solved with the D-Wave 2000Q
+quantum annealer. We also solve the QUBO problems with
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+FIGURE 2. (a) Gantt chart representation of scheduling results obtained
+for a job-shop scheduling problem instance with 10 jobs and 4 machines,
+and (b) the 50th, 75th, and 90th percentiles of annealing times over a set
+of 93 instances for both simulated and quantum annealing.
+simulated annealing to contend the choice of quantum an-
+nealers for solving QUBO problems over simulated an-
+nealing. Additionally, we also solve the job-shop schedul-
+ing problem instances with classical solution techniques for
+comparisonandbenchmarkingpurposesthatincludeGurobi
+8 solver employing a branch-and-cut approach [41], an evo-
+lutionary heuristic algorithm NSGA-III [42], and the hybrid
+algorithm presented in [10]. All the classical computing op-
+erations are performed on a Dell Optiplex system with Intel
+CoreTM i7-6700 3.40 GHz CPU and 32 GB RAM. Each
+QUBO problem occurring during all iterations of the pro-
+posed solution approach is solved with the 2000Q D-Wave
+system. A 1000 annealing runs are performed on the QPU
+for each QUBO problem with an anneal time of 20μsf o r
+each repetition.
+TheproposedhybridQC-MILPalgorithmisvalidatedona
+small instance of ten jobs and four machines, for illustration
+purposes. The instance is solved by the hybrid QC-based
+algorithm in [10] and by our proposed hybrid QC-MILP
+decompositionalgorithm.Thetwoalgorithmsproduceiden-
+tical schedules that place each job on a single machine and
+achieve an optimal objective value. The optimal schedule
+that uses all available machines is presented in Fig. 2(a).
+In Fig. 2(b), we plot the total annealing time of simulated
+annealing and D-Wave 2000Q QPU for QUBO problems
+of varying sizes encountered while solving the job-shop
+scheduling problem instances. Although the annealing time
+for each run on the quantum annealer is fixed at 20µs, we
+measure the QPU access time for each QUBO problem. The
+QPU access time includes the time required to program the
+QPU, anneal time overall annealing repetitions, the readout
+time of qubits, as well as the delay between anneals. The
+computationaleffortofsimulatedannealingisalsomeasured
+intermsoftheruntimeonthequad-coreCPU[43].Simulated
+annealing is performed with a geometric temperature sched-
+ule.AsseeninFig.2(b),the50th,75th,and90thpercentiles
+of the annealing times over a set of 93 instances are plotted.
+Simulated annealing performs poorly for all QUBO prob-
+lems occurring during the solution of job-shop scheduling
+problemwiththeproposedquantumannealing-basedhybrid
+approach.The2000Qquantumannealerisapproximately14
+times faster than simulated annealing for the largest QUBO
+problemsolved.Fromthesebenchmarks,theuseofquantum
+annealersoversimulatedannealingtosolveQUBOproblems
+arisingintheproposedsolutionapproachisclearlyjustified.
+The computational results for the job-shop scheduling
+problems solved with various techniques are presented in
+Table1.Gurobiisawidelyusedstate-of-the-artMILPsolver,
+yet it is clear from Table 1 that the proposed QC-MILP
+approach performs better than Gurobi, even for small prob-
+lems. NSGA-III performs poorly for all problems. The evo-
+lutionaryalgorithmisunabletoyieldsolutionsforproblems
+larger than 50 jobs due to memory allocation limitations.
+Clearly, evolutionary algorithms like NSGA-III cannot han-
+dle complex, large-scale job-shop scheduling problems. We
+alsovisualizethecontributionofclassicalandquantumcom-
+ponentsoftheproposedhybridQC-MILPsolutionapproach
+for each job-shop scheduling problem instance by plotting
+thecorrespondingproportionsoftotalcomputationaltimein
+Fig. 3(a). Since the computational efforts incurred by classi-
+cal and quantum techniques in the decomposition approach
+depend on the solution space of the particular instance, no
+discerniblepatternisobservedinthecontributionplotasthe
+problem size increases.
+As the problem size increases, the algorithm still spends
+relativelyshortcomputationtimeintheQUBOproblemfor-
+mulation and solving compared to the classical solution ap-
+proach to yield assignments. For example, the hybrid QC-
+MILPstrategyachievesan84%computationaltimespeedup
+over Gurobi for a problem comprising 70 machines and
+70 jobs. Another advantage the proposed method provides
+is that it requires fewer memory resources. For large-scale
+problems,thebranch-and-cutsearchtreeforGurobibecomes
+prohibitively large. In our experiments, problems with more
+than 70 jobs and machines exceed the allocated memory
+resourcesforGurobi,sonocomputationtimesandsolutions
+obtained with this method are reported for these instances.
+On the other hand, the proposed hybrid QC-MILP solution
+approach can solve problems with 280 jobs and machines
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+TAB LE 1. Computational Results of the Job-Shop Scheduling Problems With Reported Times in Seconds
+aMemory limit of 32 GB RAM exceeded, and no solution is returned.
+bRun time exceeds 24 hours, and the algorithm is stopped before convergence.
+FIGURE 3. (a) Contribution plot of the computational time required by classical and quantum components of the proposed hybrid QC-MILP method and
+(b) ranking of the algorithms used for comparison to solve job-shop scheduling problems.
+within a reasonable time. The proposed hybrid QC-MILP
+methodprovidestimeandmemoryadvantageswhileachiev-
+ing optimal objective values, making it suitable for large-
+scale job-shop scheduling. Computational results reported
+in Table 1 show that the proposed hybrid QC-MILP ap-
+proach also performs better than the hybrid method in [10].
+Bothalgorithmsusequantumannealingtodeterminefeasible
+schedules in the sequencing step. As the size of the problem
+increases,theproportionofassignmentsonasinglemachine
+returned by the MILP assignment problem may increase.
+Consequently, the QUBO problem defined in [10] that rep-
+resents the sequencing problem grows prohibitively larger
+as the number of assignments increases. This requires the
+use of additional partitioning steps to solve the large QUBO
+problems [30] and could be time-consuming.
+In Table 1, the mean computational times and objec-
+tive values for each solution technique are also reported.
+The ranking of the algorithms is performed for each in-
+stancebycomparingtheindependentrunswithat-test.Since
+all solvers used for comparison purposes along with the
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+proposed hybrid QC-MILP approach yield the same objec-
+tive values in each run, we compare the required solution
+timestorankthealgorithmsaccordingly.Weobservethatthe
+proposed hybrid QC-MILP method outperforms the other
+exact and heuristic solution techniques for all instances with
+theexceptionofJS 2.Overall,theproposedhybridQC-MILP
+decomposition method obtains the shortest mean computa-
+tional times for job-shop scheduling instances of varying
+scales. The ranking of the algorithms is also summarized
+in Fig. 3(b). Evidently, the proposed hybrid QC-based so-
+lution approach performs better than state-of-the-art exact
+and heuristic optimization techniques. The proposed hybrid
+QC-MILPmethodcansolvelarge-scalejob-shopscheduling
+problems in a reasonable time as compared to both classi-
+calcomputing approaches andthehybridsolutionapproach.
+Thus,theproposedmethodcantacklechallengingindustrial-
+scale problems with demonstrated time efficiency and mini-
+mal memory requirements.
+IV . BATCH PROCESS SCHEDULING
+Multipurpose batch scheduling in batch manufacturing is
+representative of the scheduling problems emerging in in-
+dustries.Thisprobleminvolvesassigningtaskstoequipment
+resources, sequencing tasks on each equipment unit, and
+determining the optimal batch sizes. The batch scheduling
+problemcomprisesvariousresourceandstorageconstraints.
+MIFP scheduling problems are widely applicable in process
+systems engineering [44]. Exact solution methods based on
+linear programming reformulation for linear fractional pro-
+grams have been proposed [45]. Because MIFP problems
+are a special class of mixed-integer nonlinear programming
+(MINLP)problems,general-purposeMINLPalgorithmscan
+beusedtosolveMIFPproblems[46].Duetothecomplexity
+of its search space, this MIFP scheduling problem belongs
+to the class of NP-hard optimization problems, and it is in-
+tractable to optimize on a large-scale using general-purpose
+MINLPmethods.Toovercomesuchdifficulties,wepropose
+a novel approach that integrates an inexact parametric algo-
+rithm [47] with a QC-based strategy to solve this optimiza-
+tion problem.
+A. MATHEMATICAL FORMULATION
+A resource task network-based batch scheduling problem
+in the continuous-time domain is considered here [48]. The
+productivity of a batch process can be quantified in two
+main ways: the process output per the process input or the
+performanceperunittime.Specifically,themaximizationof
+revenue per the make-span is an important case, which is
+considered here for this batch process scheduling problem.
+Inthismultipurposebatchschedulingproblem,thefollowing
+sets are given: a set of tasksT, a set of chemical material
+resourcesM,andasetofequipmentunitresource E.Nisthe
+number of time periods into which the scheduling horizon
+is divided. Tasks that consume resourcer are in set TIr,
+while tasks that produce resourcer are inTOr. A selection
+of parameters specifying bounds on batch sizes, material
+demand, fixed and varying processing times, storage capac-
+ity, and rates of consumption of material resources by each
+task is also available. For resourcer and taski, the problem
+parameter ρI
+iris the rate of generation whileρO
+ir is the rate of
+consumption. Ir represents the set of tasks that are allowed
+to use equipment unit resourcer.
+At time pointn, the beginning and end of taski are rep-
+resented by binary variablesWsin andWfin, respectively. At
+time pointn, binary variableR2rn indicates the use of re-
+source r. Bsin and Bfin represent the batch sizes for taski
+at the start and the end of periodn, respectively, whileBpin
+denotes the batch size during the processing of taskiat time
+period n. R1rn indicates the available amount of resourcer
+at timen.The time at periodnis given byTn, while variable
+H denotes the scheduling horizon, otherwise known as the
+network’s make-span. Multipurpose batch scheduling aims
+to determine the optimal task to unit assignment, their se-
+quencing, batch sizes, and duration of each task. The MIFP
+formulation to maximize profit per unit time is as follows:
+max
+∑
+r∈M pricer (R1rN −initr)
+H (14)
+s.t. bmin
+i Wsin ≤Bsin ≤bmax
+i Wsin ∀i ∈T,∀n (15)
+bmin
+i Wfin ≤Bfin ≤bmax
+i Wfin ∀i ∈T,∀n (16)
+bmin
+i
+(
+∑
+m<n
+Wsim − ∑
+m′≤n
+Wfim′
+)
+≤Bpin ∀i ∈T,∀n
+Bpin ≤bmax
+i
+(
+∑
+m<n
+Wsim − ∑
+m′≤n
+Wfim′
+)
+∀i ∈T,∀n
+(17)
+Bsi(n−1) +Bpi(n−1) =Bpin +Bfin ∀i ∈T, ∀n (18)
+R1rN ≥ demandr ∀r ∈M (19)
+R1rn =R1r(n−1) + ∑
+i∈TOr
+ρO
+ir ·Bfin − ∑
+i∈TIr
+ρI
+ir ·Bsin
+∀n > 1,r ∈M
+(20)
+R1rn ≤ storagemax
+r ∀r ∈M,∀n (21)
+R2rn =R2r(n−1) +
+∑
+i∈Ir
+(Wsin −Wfin) ∀r ∈E,∀n (22)
+Tm −Tn ≥
+∑
+i∈Ir
+(fdi ·Wsin + vdi ·Bsin) ∀r ∈E,∀n (23)
+∑
+n
+Wsin =
+∑
+n
+Wfin ∀i ∈T (24)
+WsiN =Wfi1 = 0 ∀i ∈T (25)
+T1 = 0, TN =H (26)
+R2rN = 0 ∀r ∈E (27)
+Bsin,Bfin,Bpin,R1rn,Tn,H ≥ 0 ∀n,∀r ∈M ∀i ∈T
+(28)
+Wsin,Wfin,R2rn ∈ {0,1} ∀n∀r ∈E,∀i ∈T. (29)
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+Theobjectivein(14)istomaximizerevenueperunittime.
+Constraints (15)–(17) are batch size constraints, wherebmin
+i
+and bmax
+i indicate the minimum and maximum allowable
+batchsizeforeachtask i.Theseconstraintsenforcethebatch
+sizelimitsfortasksthatstart,finish,andarebeingprocessed
+at time pointn,respectively. Constraint (18) models the log-
+ical relationship betweenBsin, Bfin, and Bpin for a given
+task and can be considered as a mass balance relationship
+for taski over consecutive time periods. Meeting demand
+requirements for the produced material resource is ensured
+by constraint (19). The mass balance and storage limitations
+are modeled with (20) and (21), respectively. At any time
+periodn, the equipment unit constraint (22) allows only one
+task on the corresponding unitr. The time difference be-
+tweentwoconsecutivetimeperiodsshouldbeatleasthigher
+than the processing time of tasks and is ensured by timing
+constraint (23). Constraint (24) expresses that all tasks must
+finish. Constraint (25) forbids starting and finishing of tasks
+inlastandfirstperiods,respectively.Constraint(26)dictates
+the initial condition while (27) sets the final conditions for
+the batch process.
+B. HYBRID QC-MIFP PARAMETRIC METHOD
+Due to the nonconvexity stemming from its fractional ob-
+jective and the combinatorial nature of its formulation, this
+MIFPproblemrequiressophisticatedtechniquestooptimize
+on an industrial scale. To solve this complex scheduling
+problem, we develop a novel algorithm that integrates a
+parametric method [47] with a hybrid QC-based approach.
+The equipment unit constraints that couple the equipment
+assignments at consecutive time points can be considered as
+the complicating constraints. They can be removed to relax
+the feasible region of the original problem to form tractable
+subproblemsinthedecompositionprocedure.Equipmental-
+locations can be obtained by formulating QUBO problems
+and solving them with quantum annealers.
+1) RELAXED PARAMETRIC PROBLEM
+Wefirstconsiderasimplifiedproblemwithalinearobjective
+obtained by replacing the fractional objective in (14)
+max
+∑
+r∈M
+pricer (R1rN −initr) − λ ·H (30)
+where λ is a parameter that is iteratively updated. The para-
+metricMILPthatconsistsofconstraints(15)–(29)alongwith
+the objective in (30) is challenging to optimize on a large
+scale. To this end, the equipment assignment constraint (22)
+is identified as the complicating constraint and is dropped to
+form the relaxed parametric problem. We include an addi-
+tional constraint (31) to reduce the search space and prevent
+theinfeasibilityofsubsequentlyoccurringsubproblems.Ad-
+ditionally, the relaxed problem includes the integer cuts to
+exclude certain equipment assignments as specified by each
+iteration of the proposed solution approach
+−1 ≤
+∑
+i∈Ir
+(Wsin −Wfin) ≤ 1 ∀r ∈E ∀n. (31)
+Definition 2.1: The relaxed parametric problem with a
+linearized parametric objective subject to constraints (15)–
+(21), (23)–(26), and (31) along with the integer cuts at the
+kthouteriterationofthehybridQC-MIFPparametricdecom-
+position method is denoted byRFPk. It is given as follows,
+where λk−1 is the parameter calculated from the previous
+iteration:
+(
+RFPk)
+max ∑
+r∈M pricer (R1rN −initr) − λk−1 ·H
+s.t. (15 −21) ,(23 −26) , (32) , (33) .
+Therelaxedparametricproblem RFPk isanMILPproblem
+andcomprises N(3|T|+ 1) +|M|+ 1continuousand2 N|T|
+binaryvariables,where Ndenotesthenumberoftimeperiods
+over the scheduling horizon. The start and end time assign-
+ments,Wsk
+in andWf k
+in, are obtained by solvingRFPk.T h i s
+MILP problem can be solved with an off-the-shelf solver
+and is considerably easier to solve than the original MINLP
+problem.
+2) QUBO FORMULATION AND EVALUATION
+By treating the solutions obtained by solving the relaxed
+parametric problem as parameters, we formulate QUBO
+problems to obtain the equipment assignments R2. The
+equipment allocation constraints (22) and (27) directly de-
+scribethefeasiblesetofequipmentallocationsthatisdefined
+as follows.
+Definition 2.2: The set of feasible equipment
+allocations that satisfies exclusive utilization con-
+straints is given by Rk
+r :={R2rn|R2rn =R2r(n−1)
++ ∑
+i∈Ir (Wsk
+in −Wf k
+in) ∀n}for each equipment resourcer.
+Notethattheintersectionofthefeasibleregionof RFPk with
+Rk
+r forms the feasible region of the original batch process
+scheduling problem.
+The equipment assignment constraints only influence the
+operation of individual equipment units over the scheduling
+horizon. As a result, we can formulate|E| QUBO problems
+todeterminetheequipmentassignments.Foreachequipment
+r ∈E, the QUBO problem is constructed as shown in (32).
+Lemma 2 establishes the validity of the formulated QUBO
+problem
+minHr (R2) =
+∑
+n
+R2r(n−1) ·(1 +2Kn)
++
+∑
+n
+R2rn ·(1 −2Kn) −2R2r(n−1)R2rn
+where Kn =
+∑
+i∈Ir
+(
+Wsk
+in −Wf k
+in
+)
+∀r ∈E. (32)
+Lemma2: For any given start and end time assignments,
+Wsk
+in and Wf k
+in, the feasible equipment allocations R2 ∈
+Rk
+r ∀r ∈E also satisfyR2 ∈ argmin Hr in the QC step.
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+Proof: Let us suppose thatR2 ∈ argmin Hrand R2 /∈Rk
+r.
+Then there exists a time pointm, such thatR2rm violates
+constraint (22). Consider a feasible equipment allocation
+R2′∈Rk
+r. Because equipment assignments are constrained
+for consecutive time periods inRk
+r given by (22), it follows
+thatR2rn ⁄=R2′
+rn, ∀n ≥m, provided thatKn ⁄= 0. Further, it
+follows that
+Hr
+(
+R2′)
+= 0 =Hr (R2) −
+∑
+n>m
+R2r(n−1) ·(1 +2Kn)
++
+∑
+n>m
+[
+R2rn ·(1 −2Kn) −2R2r(n−1)R2rn
+]
+as given by the QC step. Thus, ifKn ⁄= 0 ∀n ≥m,w eh a v e
+Hr(R2) >Hr(R2′).Thisviolatestheoptimalityof R2.There-
+fore,R2 ∈Rk
+r ∀r ∈E also satisfiesR2 ∈ argmin Hr. □
+The QUBO problems described above can be solved with
+aquantumannealer.Apartfromthevalidityoftheformulated
+QUBO problems, we also evaluate the efficiency of solv-
+ing them in terms of computation required for constructing
+the coefficient matrix and qubit requirement on the quan-
+tum annealer [36]. Each QUBO problem corresponding to
+the equipment unitr ∈E comprises N-1 binary variables.
+Filling the quadratic as well as the linear coefficients of
+Hr(R2) require O(N) steps. The overall time complexity of
+constructing all the QUBO problems during each iteration
+of the proposed solution approach isO(N|E|). The QUBO
+problemHr(R2)formsalogicalgraphwithverticesofdegree
+two. On the D-Wave 2000Q quantum annealer, solving this
+QUBO would requireN-1 qubits. It is important to note that
+both the time complexity of QUBO coefficient matrix con-
+struction and the required number of qubits on the quantum
+annealerscalewiththenumberoftimeperiodsintowhichthe
+scheduling horizon is divided. For a fixed batch scheduling
+problem instance, increasing the number of time points over
+thescheduling horizonmayimprovethesolutionqualitybut
+results in a linear increase in the number of required qubits
+and coefficient matrix computation time. As a result, it is
+crucial to maintain a balance between the solution quality
+and resource utilization for solving batch scheduling prob-
+lems with the proposed quantum annealing-based solution
+approach.
+3) SOLUTION APPROACH
+We introduce a solution approach for the batch scheduling
+problemthatemploystwoiterativeprocesses.Theprimaryor
+theouteriterationdealswithsolvingtheschedulingproblem
+witha linear objective in(30) tooptimality and updating the
+parameter value. The secondary or the inner process solves
+the relaxed parametric problem with a MILP solver, fol-
+lowed by searching for feasible equipment allocations with
+a quantum annealer in an iterative manner. The proposed
+solution approach is summarized in Fig. 4. We integrate an
+efficient parametric algorithm with the hybrid decomposi-
+tion approach to tackle the multipurpose batch scheduling
+problem. The initial value of dynamic parameterλ is set to
+zero, and a tolerance valueδ is specified. The fractional ob-
+jective for the original MIFP problem is computed using the
+solutionobtainedfromtheinneriterativeprocess.Everypri-
+mary iteration in the algorithm also involves computing the
+absolute difference betweenλ and the objective. The algo-
+rithmconvergesandreturnsanoptimalsolutionfortheMIFP
+problem if the tolerance level is larger than this difference.
+Otherwise,thealgorithmmovesontothenextouteriteration
+by updating λ to the value of the last computed fractional
+objective.
+Within each inner iteration, the start times, finish times,
+andbatchsizesoftasksareobtainedaftersolvingtherelaxed
+parametricproblem.Nosolutionexistsforthebatchschedul-
+ing problem if the relaxed problem is proven infeasible and
+the algorithm stops. The optimal schedule for equipment
+assignments is determined by solving the QUBO problems.
+The main idea behind this is that if the equipment resources
+cannot be balanced, then the partial solutions returned from
+the relaxed parametric problem are not valid. For any equip-
+ment unitr ∈E, we incorporate integer cuts in the relaxed
+parametric problem if the corresponding QUBO problems
+return infeasible allocation sequences. The quality of the
+integer cuts added to the relaxed MILP after performing the
+feasibility checks is important for the hybrid algorithm to
+converge within a reasonable time. Subsequently, when no
+feasible schedules exist for equipmentr and the assigned
+tasks, we can exclude this assignment with the following
+integer cut:
+∑
+i∈Ir
+∑
+n∈S′
+Win ≤
+⏐⏐S′
+r
+⏐⏐−1
+S′
+r ≡
+{
+n|Wk
+in = 1, ∀i ∈Ir
+}
+. (33)
+The number of secondary iterations or the number of re-
+laxed parametric subproblems solved until feasible equip-
+ment unit assignments are obtained isO(N2) in the worst
+case,foreachprimaryiteration.Comparedtotheexponential
+time complexity of branch-and-cut for solving MILP prob-
+lems[40],theworst-caserunningtimeofindividualprimary
+iterations is polynomial in the number of time periodsN. It
+should be noted that the probabilistic nature of QC could
+result in suboptimal solutions for the parametric problem.
+Becauseagloballyoptimalsolutionateachprimaryiteration
+is not required for convergence of the inexact parametric
+method, the proposed hybrid parametric solution strategy
+utilizesthesophisticatedquantumannealing-basedapproach
+to obtain high-quality solutions for each outer iteration. We
+can further establish guarantees of feasibility and solution
+quality for the hybrid QC-MIFP parametric decomposition
+method.
+Theorem 2: If the hybrid QC-MIFP parametric decom-
+position method is used to solve batch scheduling problem,
+thealgorithmyieldsfeasiblesolutionsateachouteriteration,
+and the fractional objective improves with each iteration.
+Proof:LetRFPk be the relaxed MILP subproblem solved
+atouteriteration kfollowedbytheQCstep.FromLemma2,
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+FIGURE 4. Hybrid QC-MIFP parametric algorithm for batch process scheduling.
+itfollowsthatfeasibleequipmentallocationscanbeobtained
+fromtheQCstep.Theinnerloopterminatesonlyifafeasible
+solution is returned which is readily followed by Theorem
+1. As the domain of the original batch scheduling problem
+and the linearized parametric MILP is same, the obtained
+solution at each iteration is feasible for the original problem
+domain.
+Let λk be the fractional objective calculated af-
+ter kth iteration of the hybrid QC-MIFP paramet-
+ric decomposition method which is given as λk =∑
+r∈M pricer(R1k
+rN −initr)/Hk where R1k and Hk are
+the obtained optimal material amounts and scheduling
+horizon for the parametric MILP problem. Also, let
+λk+1,R1k+1
+rN ,Hk+1followthesamenotationforthenextiter-
+ationk+1, thenλk+1 = ∑
+r∈M pricer(R1k+1
+rN −initr)/Hk+1.
+As (R1k+1
+rN ,Hk+1)∈argmax ∑
+r∈M pricer(R1rN −initr)−λkH,
+it follows that
+∑
+r∈M pricer(R1k+1
+rN −initr) − λkHk+1 ≥
+∑
+r∈M pricer
+(R1k
+rN −initr) − λkHk.
+Dividing both sides byHk+1 > 0 and by definition ofλ,
+weseethat λk+1 ≥ λk.Therefore,eachiterationofthehybrid
+QC-MIFP parametric decomposition method yields feasible
+solutions that improve the fractional objective.□
+C. COMPUTATIONAL RESUL TS
+We conduct computational experiments with batch schedul-
+ing problems of varying sizes to illustrate the effectiveness
+of the proposed hybrid QC-MIFP parametric method. All
+classicalandquantumannealingoperationsthroughoutthese
+experimentsareperformedusingthecomputingenvironment
+mentioned in Section III-C. For benchmarking purposes, we
+use the general-purpose MINLP solvers BARON v20.4 and
+Bonmin v15.0 that utilize an exact deterministic solution
+algorithm. A preliminary performance comparison for the
+proposedsolutiontechniquewasconductedintheconference
+paper [49]. For a broader comparison, we also compare the
+performance of the hybrid QC-MIFP parametric approach
+with that of the evolutionary algorithm NSGA-III [42]. Re-
+laxed parametric subproblems within the proposed solution
+approacharesolvedwiththeGurobisolver,whiletheQUBO
+problems are tackled with the D-Wave 2000Q quantum an-
+nealer.
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+FIGURE 5. (a) Gantt chart of scheduling results of the Dow chemicals’
+batch scheduling problem, and (b) the 50th, 75th, and 90th percentiles
+of annealing times over a set of 60 instances for both simulated and
+quantum annealing.
+A small industrial scheduling instance originating from
+Dow Chemicals is solved to illustrate the applicability of
+the proposed hybrid approach [48]. This multipurpose batch
+schedulingproblemconcernseighttasks:twopackingtasks,
+one preparation task, two drumming tasks, and three reac-
+tion tasks. Moreover, the network involves fourteen chem-
+ical material resources: four product resources (P1-P4), six
+intermediate resources (I1-I6), and four raw resources (M1-
+M4). In addition, two reactors, one mixer, one drumming
+line, and one finishing system form the network’s equip-
+ment units. The instance was solved using BARON v20.4,
+Bonmin v15.0, and the proposed hybrid QC-MIFP para-
+metric algorithm. Fig. 5(a) illustrates the schedule obtained
+by the hybrid QC-based solution strategy. QUBO problems
+of varying sizes are also solved with simulated annealing
+implemented with a geometric temperature schedule. We
+compare the annealing times for both simulated annealing
+implemented on the quad-core CPU and the D-Wave 2000Q
+quantum system as described in Section III-C. Fig. 5(b) rep-
+resentsthe50th,75th,and90thpercentilesofannealingtimes
+obtained over a set of 60 instances. These times include the
+runtime in terms of CPU compute for simulated annealing
+and the overall QPU access times for the quantum annealer.
+As previously mentioned, the QPU access times comprise
+thetimerequiredtoprogram theQPU,theanneal timeover-
+all annealing repetitions, the delay between anneals, and
+the readout time of qubits. Simulated annealing performs
+poorly as compared to the quantum annealer for all QUBO
+problems collected during the hybrid QC-MIFP parametric
+solution procedure over multiple batch scheduling problem
+instances.ForthelargestQUBOproblem,theD-Wavequan-
+tumannealerisapproximately21timesfasterthansimulated
+annealing.
+As illustrated in Table 2, near-optimal solutions are ob-
+tainedwiththehybridQC-basedparametricalgorithmwithin
+reasonable computation times. The performance of the
+BARON solver deteriorates beyond problems with 18 tasks,
+andnofeasiblesolutionsarereturnedforproblemswithmore
+than 40 tasks even after a day. Although Bonmin solves
+smallerproblemstooptimalitywithinreasonableruntimes,it
+doesnotperformcompetitivelyagainstBARON.Mediumto
+large-scale problems cannot be solved by Bonmin even with
+24 hours of computation time. A similar trend can be seen
+for BARON with larger-scale batch scheduling problems.
+Comparedtotheexactsolvers,NSGA-IIIproducessolutions
+in less computational time. However, this is performed at
+the expense of solution quality, as evident from Table 2.
+For the large-scale multipurpose batch-scheduling problems
+with 40 tasks and higher, NSGA-III does not return any
+feasible solutions. The proposed hybrid QC-MIFP paramet-
+ric method performs competitively against general-purpose
+MINLPsolversforbatchschedulingproblemsacrossscales.
+For the batch scheduling problem with 52 tasks, the hybrid
+QC-MIFP parametric method yields high-quality solutions
+in under 900 s. Overall, the proposed method performs sig-
+nificantly better than off-the-shelf classical MINLP solvers
+intermsofcomputational timeanddemonstrates scalability.
+The ratios of computational times consumed by both
+classical and quantum techniques in the proposed hybrid
+QC-MIFPparametricmethodtothetotalcomputationaltime
+are shown in Fig. 6(a) for all batch scheduling problem in-
+stances.Itcanbeseenthatforverylarge-scaleinstances,the
+proportion of computational efforts incurred by the quan-
+tum annealing-based steps is very small in comparison to
+the classical component of the hybrid QC-based paramet-
+ric approach. This indicates that further improvement of the
+proposed approach can only be possible with a computa-
+tional speedup in solving classical subproblems for large-
+scale batch scheduling problems. Computational results of
+the batch process scheduling problem reported in Table 2
+are obtained by conducting multiple independent runs for
+eachinstancesolvedbyallthesolversusedforacomparison
+study.Foreachbatchschedulinginstance,thealgorithmsare
+ranked by conducting a t-test on the independent samples
+obtained. We use solution time for ranking the algorithms
+since they yield the same objective in each run with a feasi-
+ble solution obtained in reasonable time taking precedence
+over better solutions obtained in excessively high computa-
+tional times. As evident from Table 2, the proposed hybrid
+QC-MIFPparametricdecompositionmethodisrankedhigh-
+est for each batch scheduling instance, thus leading to the
+best overall performance compared to other exact MINLP
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+TAB LE 2. Computational Results of the Batch Scheduling Problems With Reported Times in Seconds
+aRun time exceeds 24 h. BARON and Bonmin are stopped after exceeded allowed runtime of 24 h.
+bNo feasible solution returned.
+FIGURE 6. (a) Contribution plot of the computational time required by classical and quantum components of the proposed hybrid QC-MIFP parametric
+method and (b) ranking of the algorithms used for comparison to solve the batch scheduling problem.
+solvers and heuristic algorithms. We also plot the algorith-
+mic ranking analysis for the batch scheduling problem in
+Fig. 6(b). It can be seen that the proposed hybrid QC-MIFP
+parametric approach is more effective than any other exact
+or heuristic technique for solving large-scale multipurpose
+batchschedulingproblems.ThehybridQC-MIFPparametric
+method can yield an economic advantage due to its compu-
+tational advantages when applied to the challenging MIFP
+multipurpose batch scheduling problem.
+V . CONCLUSION
+In this article, we proposed two hybrid QC-based optimiza-
+tion techniques for solving large-scale MILP and MIFP
+scheduling problems. The proposed algorithms exploited
+thecomplementarystrengthsofclassicaloptimizationmeth-
+ods and quantum annealing. The applicability and perfor-
+mance of the hybrid methods were demonstrated through
+twowell-knownschedulingproblemsinindustrialmanufac-
+turing, namely job-shop scheduling and multipurpose batch
+scheduling. For the job-shop scheduling problem, we devel-
+oped a novel hybrid QC-MILP approach. In the proposed
+solutiontechnique,relaxedMILPproblemsweresolvedwith
+anoff-the-shelfMILPsolvertofindpossibleoptimalassign-
+mentsofjobsonmachines,andQUBOproblemsweresolved
+with a quantum annealer to search for feasible schedules
+basedonthoseassignments.Wedevelopedanovelalgorithm
+that integrates a hybrid QC-based scheme with a paramet-
+ric algorithm to solve the multipurpose batch scheduling
+3102216 VOLUME 3, 2022
+
+=== PAGE BREAK ===
+
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES Engineeringuantum
+Transactions onIEEE
+problem. The proposed hybrid QC-based methods yield
+tractable subproblems, especially QUBO problems, in the
+intermediate steps resulting in scalable approaches that effi-
+cientlyutilizequantumannealers.Computationalresultspre-
+sented here demonstrate that the hybrid QC-based solution
+strategies perform significantly better than state-of-the-art
+exact MILP and MINLP solvers and heuristic methods in
+terms of both solution quality and computation time. Over-
+all, the proposed solution approaches demonstrate a promis-
+ing direction toward using QC for solving large-scale con-
+strained optimization problems as attested by their ability
+to solve industrial scheduling problems that are otherwise
+intractable to solve using exact deterministic solvers with
+limited computational resources.
+It should also be noted that the applicability of the pro-
+posed solution techniques in this work is not limited to the
+job-shopandbatchschedulingproblems,butcanbeextended
+toMILPandMIFPoptimizationproblemsthatsharesimilar-
+ities with respect to their formulation with the problems ad-
+dressedhere.Despitethecomputationalefficiencyofthepro-
+posed hybrid quantum-classical solution techniques, certain
+research challenges may arisewhileadopting them forother
+MILP and MIFP scheduling problems. The complicating
+constraintsthataredroppedtorelaxthefeasibleregionofan
+optimization problem must involve binary variables, which
+may otherwise lead to difficulties during the formulation of
+theQUBOproblems.Ensuringthatthesizeandconnectivity
+of the QUBO problems constructed in each iteration of the
+solution approach do not exceed the maximum allowable
+limitsofthequantumannealerisanotherresearchchallenge.
+As the integer cuts used to exclude specific infeasible solu-
+tionsaredependentonthesolutionstotheQUBOproblems,
+itisimportantthattheoriginaloptimizationproblemconsists
+ofconstraintsthatrelatethebinaryvariablesintheQUBOto
+thoseintheintegercuts.Toapplythepresentedhybridsolu-
+tiontechniquesforotherschedulingproblems,itiscrucialto
+studytheproblemstructurewhilepayingcarefulattentionto
+the above-mentioned research challenges.
+REFERENCES
+[1] A. Montanaro, “Quantum algorithms: An overview,”NPJ Quantum Inf.,
+vol. 2, no. 1, pp. 1–8, 2016. doi:https://doi.org/10.1038/npjqi.2015.23.
+[2] A. Peruzzo et al., “A variational eigenvalue solver on a photonic quan-
+tum processor,”Nature Commun., vol. 5, no. 1, 2014, Art. no. 4213,
+doi:10.1038/ncomms5213.
+[3] F. Arute et al., “Quantum supremacy using a programmable super-
+conducting processor,”Nature, vol. 574, no. 7779, pp. 505–510, 2019,
+doi:10.1038/s41586-019-1666-5.
+[4] M. A. Nielsen and I. L. Chuang, Quantum Computation and Quan-
+tum Information. Cambridge, U.K.: Cambridge Univ. Press, 2010,
+doi:10.1017/CBO9780511976667.
+[5] D. Venturelli, D. Marchand, and G. Rojo, “Job shop scheduling
+solver based on quantum annealing,” in Proc. Workshop Con-
+straint Satisfaction Techn. Plan. Scheduling , 2016, pp. 25–34,
+doi:https://doi.org/10.48550/arXiv.1506.08479.
+[6] T. Stollenwerk, S. Hadfield, and Z. Wang, “Toward quantum gate-model
+heuristicsforreal-worldplanningproblems,” IEEETrans.QuantumEng. ,
+vol. 1, 2020, Art. no. 3101816, doi:10.1109/TQE.2020.3030609.
+[7] K. Ikeda, Y. Nakamura, and T. S. Humble, “Application of quantum
+annealing to nurse scheduling problem,”Sci. Rep., vol. 9, no. 1, 2019,
+Art. no. 12837, doi:10.1038/s41598-019-49172-3.
+[8] D. E. Bernal, A. Ajagekar, S. M. Harwood, S. T. Stober, D. Trenev, and
+F. You, “Perspectives of quantum computing for chemical engineering,”
+AIChEJ., vol. 68, no. 6, 2022, Art. no. e17651, doi:10.1002/aic.17651.
+[9] T. T. Tran et al., “A hybrid quantum-classical approach to solving
+scheduling problems,” inProc. 9th Annu. Symp. Combinatorial Search,
+2016.
+[10] A. Ajagekar, T. Humble, and F. You, “Quantum computing based hy-
+brid solution strategies for large-scale discrete-continuous optimization
+problems,” Comput. Chem. Eng., vol. 132, 2020, Art. no. 106630,
+doi:10.1016/j.compchemeng.2019.106630.
+[11] L. Braine, D. J. Egger, J. Glick, and S. Woerner, “Quantum algo-
+rithms for mixed binary optimization applied to transaction settle-
+ment,” IEEE Trans. Quantum Eng., vol. 2, 2021, Art. no. 3101208,
+doi:10.1109/TQE.2021.3063635.
+[12] C.-Y. Chang, E. Jones, and P. Graf, “On quantum computing
+for mixed-integer programming,” 2020, arXiv:2010.07852,
+doi:https://doi.org/10.48550/arXiv.2010.07852.
+[13] Q. P. Zheng, J. Wang, and A. L. Liu, “Stochastic optimization for
+unit commitment—A review,”IEEE Trans. Power Syst., vol. 30, no. 4,
+pp. 1913–1924, Jul. 2015, doi:10.1109/TPWRS.2014.2355204.
+[14] J. C. Mukherjee and A. Gupta, “A review of charge scheduling of elec-
+tric vehicles in smart grid,”IEEE Syst. J., vol. 9, no. 4, pp. 1541–1553,
+Dec. 2015, doi:10.1109/JSYST.2014.2356559.
+[15] J. Kallrath, “Planning and scheduling in the process in-
+dustry,” OR Spectr. , vol. 24, no. 3, pp. 219–250, 2002,
+doi:https://doi.org/10.1007/s00291-002-0101-7.
+[16] A. Ajagekar and F. You, “Quantum computing for energy systems op-
+timization: Challenges and opportunities,”Energy, vol. 179, pp. 76–89,
+2019, doi:10.1016/j.energy.2019.04.186.
+[17] M. P. Andersson, M. N. Jones, K. V. Mikkelsen, F. You, and S. S.
+Mansouri, “Quantum computing for chemical and biomolecular prod-
+uct design,”Curr. Opin. Chem. Eng., vol. 36, 2022, Art. no. 100754,
+doi:https://doi.org/10.1016/j.coche.2021.100754.
+[18] B. Li and L. Wang, “A hybrid quantum-inspired genetic algo-
+rithm for multiobjective flow shop scheduling,” IEEE Trans. Syst.,
+Man, Cybern., B, Cybern., vol. 37, no. 3, pp. 576–591, Jun. 2007,
+doi:10.1109/TSMCB.2006.887946.
+[19] A.AjagekarandF.You,“Newfrontiersofquantumcomputinginchemical
+engineering,”Korean J. Chem. Eng., vol. 39, no. 4, pp. 811–820, 2022,
+doi:10.1007/s11814-021-1027-6.
+[20] F. Neukart, G. Compostella, C. Seidel, D. Von Dollen, S. Yarkoni, and B.
+Parney,“Trafficflowoptimizationusingaquantumannealer,” Front.ICT,
+vol. 4, pp. 29, 2017, doi:https://doi.org/10.3389/fict.2017.00029.
+[21] E. G. Rieffel, D. Venturelli, B. O’Gorman, M. B. Do, E. M. Prystay, and
+V. N. Smelyanskiy, “A case study in programming a quantum annealer
+for hard operational planning problems,”QuantumInf.Process. , vol. 14,
+no. 1, pp. 1–36, 2015, doi:https://doi.org/10.48550/arXiv.1407.2887.
+[22] A. Ajagekar and F. You, “Quantum computing and quantum artificial
+intelligence for renewable and sustainable energy: A emerging prospect
+towards climate neutrality,”Renewable Sustain. Energy Rev., vol. 165,
+2022, Art. no. 112493, doi:10.1016/j.rser.2022.112493.
+[23] T. Albash and D. A. Lidar, “Adiabatic quantum computation,”Rev.Mod.
+Phys., vol. 90, no. 1, Jan. 2018, Art. no. 015002, doi:10.1103/RevMod-
+Phys.90.015002.
+[24] C.C.McGeoch,“Adiabaticquantumcomputationandquantumannealing:
+Theory and practice,”Synth. Lectures Quantum Comput., vol. 5, no. 2,
+pp. 1–93, 2014, doi:10.2200/S00585ED1V01Y201407QMC008.
+[25] T. Kadowaki and H. Nishimori, “Quantum annealing in the transverse
+ising model,”Phys. Rev. E - Stat. Phys., Plasmas, Fluids, Related In-
+terdiscipl. Topics, vol. 58, pp. 5355–5363, 1998, doi: 10.1103/Phys-
+RevE.58.5355.
+[26] E. K. Grant and T. S. Humble, “Adiabatic quantum computing
+and quantum annealing,” Oxford Res. Encyclopedia Phys. , 2020,
+doi:https://doi.org/10.2200/S00585ED1V01Y201407QMC008.
+[27] S. Kirkpatrick, C. D. Gelatt, Jr, and M. P. Vecchi, “Optimization by
+simulated annealing,”Science, vol. 220, no. 4598, pp. 671–680, 1983,
+doi:10.1126/science.220.4598.671.
+[28] C. Klymko, B. D. Sullivan, and T. S. Humble, “Adiabatic quantum pro-
+gramming: Minor embedding with hard faults,”Quantum Inf. Process.,
+vol. 13, no. 3, pp. 709–729, 2014, doi:10.1007/s11128-013-0683-9.
+[29] J. Cai, W. G. Macready, and A. Roy, “A practical heuris-
+tic for finding graph minors,” 2014, arXiv:1406.2741.
+doi:https://doi.org/10.48550/arXiv.1406.2741.
+VOLUME 3, 2022 3102216
+
+=== PAGE BREAK ===
+
+Engineeringuantum
+Transactions onIEEE
+Ajagekar et al.: HYBRID CLASSICAL-QUANTUM OPTIMIZATION TECHNIQUES
+[30] D-Wave. “Qbsolv documentation,” D-Wave Systems Inc.,
+2018. Accessed: Jul. 13, 2022. [Online]. Available:
+https://docs.ocean.dwavesys.com/projects/qbsolv
+[31] L. T. Biegler and I. E. Grossmann, “Retrospective on optimiza-
+tion,” Comput. Chem. Eng., vol. 28, no. 8, pp. 1169–1192, Jul. 2004,
+doi:10.1016/j.compchemeng.2003.11.003.
+[32] I. E. Grossmann and L. T. Biegler, “Part II. Future perspective on opti-
+mization,”Comput.Chem.Eng. ,vol.28,no.8,pp. 1193–1218,Jul.2004,
+doi:10.1016/j.compchemeng.
+[33] C.Low,“Simulatedannealingheuristicforflowshopschedulingproblems
+with unrelated parallel machines,”Comput. Oper. Res., vol. 32, no. 8,
+pp. 2013–2025, 2005, doi:10.1016/j.cor.2004.01.003.
+[34] V. Jain and I. E. Grossmann, “Algorithms for hybrid MILP/CP models
+for a class of optimization problems,”InformsJ.Comput. , vol. 13, no. 4,
+pp. 258–276, 2001, doi:10.1287/ijoc.13.4.258.9733.
+[35] L.A.WolseyandG.L.Nemhauser, IntegerandCombinatorialOptimiza-
+tion, vol. 55, John Wiley & Sons, 1999.
+[36] T. Krauss, J. McCollum, C. Pendery, S. Litwin, and A. J. Michaels,
+“Solving the max-flow problem on a quantum annealing computer,”
+IEEE Trans. Quantum Eng. , vol. 1, 2020, Art. no. 3101910,
+doi:10.1109/TQE.2020.3031085.
+[37] T. Krauss and J. McCollum, “Solving the network shortest path prob-
+lem on a quantum annealer,”IEEE Trans. Quantum Eng., vol. 1, 2020,
+Art. no. 3101512, doi:10.1109/TQE.2020.3021921.
+[38] R. D. Somma, D. Nagaj, and M. Kieferová, “Quantum speedup by quan-
+tum annealing,”P h y s .R e v .L e t t ., vol. 109, no. 5, 2012, Art. no. 050501,
+doi:10.48550/arXiv.1202.6257.
+[39] D. Venturelli, D. J. Marchand, and G. Rojo, “Quantum anneal-
+ing implementation of job-shop scheduling,” 2015,arXiv:1506.08479.
+doi:https://doi.org/10.48550/arXiv.1506.08479.
+[40] S. Dash, “Exponential lower bounds on the lengths of some classes of
+branch-and-cut proofs,”Math. Oper. Res., vol. 30, no. 3, pp. 678–700,
+2005. [Online]. Available: http://www.jstor.org/stable/25151677
+[41] J. E. Mitchell, “Branch-and-cut algorithms for combinatorial opti-
+mization problems,” Handbook of Applied Optimization 1.1, 2002,
+pp. 65–77.
+[42] K. Deb and H. Jain, “An evolutionary many-objective optimization algo-
+rithm using reference-point-based nondominated sorting approach, part
+I: Solving problems with box constraints,” IEEE Trans. Evol. Com-
+put., vol. 18, no. 4, pp. 577–601, Aug. 2014, doi:10.1109/TEVC.2013.
+2281535.
+[43] V. S. Denchev et al., “What is the computational value of finite-
+range tunneling?,”P h y s .R e v .X, vol. 6, no. 3, 2016, Art. no. 031015,
+doi:https://doi.org/10.48550/arXiv.1512.02206.
+[44] S. Schaible, “Fractional programming: Applications and algo-
+rithms,” Eur. J. Oper. Res. , vol. 7, no. 2, pp. 111–120, 1981,
+doi:10.1016/0377-2217(81)90272-1.
+[45] A.CharnesandW.W.Cooper,“Programmingwithlinearfractionalfunc-
+tionals,”Nav. Res. Logistics Quart., vol. 9, no. 3–4, pp. 181–186, 1962,
+doi:10.1002/nav.3800090303.
+[46] M. Tawarmalani and N. V. Sahinidis, “A polyhedral branch-and-cut
+approach to global optimization,” Math. Program., vol. 103, no. 2,
+pp. 225–249, 2005, doi:10.1007/s10107-005-0581-8.
+[47] Z. Zhong and F. You, “Globally convergent exact and inexact
+parametric algorithms for solving large-scale mixed-integer
+fractional programs and applications in process systems en-
+gineering,” Comput. Chem. Eng. , vol. 61, pp. 90–101, 2014,
+doi:https://dx.doi.org/10.1016/j.compchemeng.2013.10.017.
+[48] C. Ning and F. You, “A data-driven multistage adaptive robust optimiza-
+tionframeworkforplanningandschedulingunderuncertainty,” AIChEJ.,
+vol. 63, pp. 4343–4369, 2017, doi:10.1002/aic.15792.
+[49] A. Ajagekar and F. You, “A hybrid solution approach for Large-scale
+batch scheduling with quantum computing,” in Computer Aided
+Chemical Engineering, vol. 50, M. Türkay and R. Gani, Eds.
+Amsterdam, The Netherlands: Elsevier, 2021, pp. 1747–1753,
+doi:10.1016/B978-0-323-88506-5.50271-0.
+3102216 VOLUME 3, 2022

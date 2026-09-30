@@ -1,0 +1,901 @@
+Article https://doi.org/10.1038/s41467-024-55346-z
+Towards large-scale quantum optimization
+solvers with few qubits
+Marco Sciorilli 1,6 ,L u c a sB o r g e s1,2,6,T a y l o rL .P a t t i3, Diego García-Martín1,4,
+Giancarlo Camilo 1, Anima Anandkumar 5 &L e a n d r oA o l i t a1
+Quantum computers hold the promise of more efﬁcient combinatorial opti-
+mization solvers, which could be game-changing for a broad range of appli-
+cations. However, a bottleneck for materializing such advantages is that, in
+order to challenge classical algorithms in practice, mainstream approaches
+require a number of qubits prohibitively large for near-term hardware. Here we
+introduce a variational solver for MaxCut problems over m = Oðnk Þ binary
+variables using onlyn qubits, with tunablek > 1. The number of parameters and
+circuit depth display mild linear and sublinear scalings in m, respectively.
+Moreover, we analytically prove that the speciﬁcq u b i t - e fﬁcient encoding
+brings in a super-polynomial mitigation of barren plateaus as a built-in feature.
+Altogether, this leads to high quantum-solver performances. For instance, for
+m = 7000, numerical simulations producesolutions competitive in quality
+with state-of-the-art classical solvers. In turn, form = 2000, experiments with
+n = 17 trapped-ion qubits feature MaxCut approximation ratios estimated to be
+beyond the hardness threshold 0.941. Our ﬁndings offer an interesting heur-
+istics for quantum-inspired solvers as well as a promising route towards sol-
+ving commercially-relevant problems on near-term quantum devices.
+Combinatorial optimizations are ubiquitous in industry and
+technology1. The potential of quantum computers for these problems
+has been extensively studied2–10. However, it is unclear whether they
+will deliver advantages in practice before fault-tolerant devices appear.
+With only quadratic asymptotic runtime speed-ups expected in
+general11–13 and low clock-speeds14,15, a major challenge is the number of
+qubits required for quantum solvers to become competitive with
+classical ones. Current implementations are restricted to noisy
+intermediate-scale quantum devices 16, with variational quantum
+algorithms17,18 as a promising alternative. These are heuristic models—
+based on parameterized quantum circuits — that, although con-
+ceptually powerful, face inherent practical challenges 19–25.A m o n g
+them, hardware noise is particularly serious, since its detrimental
+effect rapidly grows with the number of qubits. This canﬂatten out the
+optimization landscape — causing exponentially-small gradients
+(barren plateaus)24 or underparametrization25— or render the algorithm
+classically simulable20. Hence, near-term quantum optimization sol-
+vers are unavoidably restricted to problem sizes thatﬁt within a limited
+number of qubits.
+In view of this, interesting qubit-ef ﬁcient schemes have been
+explored26–32.I nr e f s .26,27, two or three variables are encoded into the
+(three-dimensional) Bloch vector of each qubit, allowing for a linear
+space compression. In contrast, the schemes of refs.28–32 encode the
+m variables into a quantum register of size O logðmÞðÞ . However, such
+exponential compressions both render the scheme classically simul-
+able efﬁciently and seriously limit the expressivity of the models 28,31.
+Moreover, in refs. 28–32, binary problems are relaxed to quadratic
+programs. These simpli ﬁcations strongly affect the quality of the
+solutions. In addition, the measurements required by those methods
+can be statistically demanding. For instance, in a deployment with
+Received: 13 May 2024
+Accepted: 10 December 2024
+Check for updates
+1Quantum Research Center, Technology Innovation Institute, Abu Dhabi, UAE.2Federal University of Rio de Janeiro, Rio de Janeiro, RJ, Brazil.3NVIDIA, Santa
+Clara, CA, USA. 4Information Sciences, Los Alamos National Laboratory, Los Alamos, NM, USA.5Department of Computing + Mathematical Sciences (CMS),
+California Institute of Technology (Caltech), Pasadena, CA, USA.6These authors contributed equally: Marco Sciorilli, Lucas Borges.
+e-mail: Marco.Sciorilli@tii.ae
+Nature Communications|          (2025) 16:476 1
+1234567890():,;
+1234567890():,;
+
+
+=== PAGE BREAK ===
+
+m =3 9 6 4v a r i a b l e s30, most of the measurement outcomes needed did
+not occur and were replaced by classical random bits, leading to a low
+quality solution compared to state-of-the-art solvers. To the best of our
+knowledge, no experimental quantum solver has so far produced non-
+trivial solutions to problems with m beyond a few hundreds 8–10,33.
+Furthermore, the interplay between qubit-number compression, loss
+function non-linearity, trainability, and solver performance in general
+is mostly unknown.
+Here we explore this territory. We introduce a hybrid quantum-
+classical solver for binary optimization problems of size m poly-
+nomially larger than the number of qubitsn used. This is an interesting
+regime in that the scheme is highly qubit-ef ﬁcient while at the same
+time preserving the classical intractability in m, leaving room for
+potential quantum advantages. We encode the m variables into Pauli
+correlations across k qubits, for k an integer of our choice. A para-
+meterized quantum circuit is trained so that its output correlations
+minimize a non-linear loss function suitable for gradient descent. The
+solution bit string is then obtained via a simple classical post-
+processing of the measurement outcomes, which includes an ef ﬁ-
+cient local bit-swap search to further enhance the solution ’s quality.
+Moreover, a beneﬁcial, intrinsic by-product of our scheme is a super-
+polynomial suppression of the decay of gradients, from barren pla-
+teaus of heights 2 −Θ(m) with single-qubit encodings to 2 /C0 Θðm1=k Þ with
+Pauli-correlation encodings. In turn, the circuit depth scales sub-
+linearly inm,a s Oðm1=2Þ for quadratic (k = 2) compressions andOðm2=3Þ
+for cubic ( k = 3) ones. All these features make our scheme more
+experimentally- and training-friendly than previous quantum schemes,
+leading to signiﬁcantly higher quality of solutions.
+For example, for m =2 0 0 0 a n dm = 7000 MaxCut instances, our
+numerical solutions are competitive with those of semi-de ﬁnite pro-
+gram relaxations, including the powerful Burer-Monteiro algorithm.
+This is relevant as a basis for quantum-inspired classical solvers. In
+addition, we deploy our solver on IonQ and Quantinuum quantum
+devices, observing a good performance even without quantum error
+mitigation. For example, for a MaxCut instance withm =2 0 0 0v e r t i c e s
+encoded into n = 17 trapped-ion qubits, we obtain estimated approx-
+imation ratios above the hardness threshold r ≈ 0.941. We note that
+previous experiments addressed instance sizes of a few tens for
+MaxCut8,33 and up to few hundreds for combinatorial optimization in
+general9,10, but attaining signi ﬁcantly lower solution qualities. Our
+results open up a promising framework to develop competitive solvers
+for large-scale problems with small quantum devices.
+Results
+Quantum solvers with polynomial space compression
+We solve combinatorial optimizations overm = Oðnk Þ binary variables
+using only n qubits, for k a suitable integer of our choice. Such com-
+pression is achieved by encoding the variables into m Pauli-matrix
+correlations across multiple qubits. More precisely, with the short-
+hand notation [m]: = { 1 ,2 , … m}, let x : = fxigi2½m/C138 denote the string of
+optimization variables and choose a speci ﬁcs u b s e tΠ : = fΠigi2½m/C138 of
+m ≤ 4n − 1 traceless Pauli strings Πi,i . e . ,o fn-fold tensor products of
+identity ( 1)o rP a u l i( X, Y,a n d Z) matrices, excluding the n-qubit
+identity matrix 1/C10 n.W ed e ﬁne a Pauli-correlation encoding (PCE)
+relative to Π as
+xi : =s g n hΠii
+/C0/C1
+for all i 2½ m/C138 , ð1Þ
+w h e r es g ni st h es i g nf u n c t i o na n dhΠii : = Ψh ∣Πi∣Ψi is the expec-
+tation value of Πi over a quantum state ∣Ψi. In Supplementary
+Note 2, we prove that expectation values of magnitude Θ(1/m)a r e
+enough to guarantee the existence of such states for all bit strings
+x. In practice, however, we observe magnitudes signi ﬁcantly lar-
+ger than Θ(1/m)) (see Supplementary Fig. 1). We focus on strings
+with k single-qubit traceless Pauli matrices. In particular, we
+consider encodings ΠðkÞ : = ΠðkÞ
+1 , ... , ΠðkÞ
+m
+no
+where each ΠðkÞ
+i is a
+permutation of either X /C10 k /C10 1/C10 n/C0 k , Y /C10 k /C10 1/C10 n/C0 k ,o r Z /C10 k /C10 1/C10 n/C0 k
+(see left panel of Fig. 1 for an example with k =2 ) . T h a t i s ,Π(k) is
+the union of 3 sets of mutually-commuting strings. This is
+experimentally convenient since only three measurement settings
+are required throughout. Using all possible permutations for the
+encoding yields m =3 ð n
+k Þ. In this work, we deal mostly with k =2
+and k =3 , c o r r e s p o n d i n g t om = 3
+2 nðn /C0 1Þ and m = 1
+2 nðn /C0 1Þðn /C0 2Þ,
+respectively. The single-qubit encodings of refs. 26,27, in turn,
+correspond to PCEs with k =1 .
+The speciﬁc problem we solve is weighted MaxCut, a paradig-
+matic NP-hard optimization problem over a weighted graphG,d eﬁned
+by a (symmetric) adjacency matrixW 2 Rm × m.E a c he n t r yWij contains
+Fig. 1 | Quantum optimization solvers with polynomial space compression.
+Encoding: An exemplary MaxCut (or weighted MaxCut) problem ofm = 9 vertices
+(graph on the left) is encoded into 2-body Pauli-matrix correlations acrossn =3
+qubits (Q1,Q 2,Q 3). The color code indicates which Pauli string encodes which
+vertex. For instance, the binary variablex1 of vertex 1 is encoded in the expectation
+value of Z 1 /C10 Z 2 /C10 13 , supported on qubits 1 and 2, while x9 is encoded in
+Y 1 /C10 12 /C10 Y 3, over qubits 1 and 3 (see Eq. (1)). This corresponds to a quadratic space
+compression of m variables into n = Oðm1=2 Þ qubits. More generally, k-body corre-
+lations can be used to attain polynomial compressions of order k. The Pauli set
+chosen is composed of three subsets of mutually-commuting Pauli strings. This
+allows one to experimentally estimate allm correlations using only 3 measurement
+settings throughout. Quantum-classical optimization: we train a quantum circuit
+parametrized by gate parametersθ using a loss functionL of the Pauli expectation
+values that mimics the MaxCut (or weighted MaxCut) objective function (see Eq.
+(2)). The variational Ansatz is a brickwork circuit with the number of 2-qubit gates
+and variational parameters scaling very mildly withm (see Fig. 2), and circuit depth
+sublinear in m. This makes both experimentally- and training-friendly (see Fig.3).
+Solution: once the circuit is trained, we read out its outputx from the correlations
+across single-qubit measurement outcomes on its output state. Finally, we perform
+an efﬁcient classical bit-swap search aroundx to ﬁnd potential better solutions
+nearby. The result of that search, x*,i st h e ﬁnal output of our solver.
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 2
+
+
+=== PAGE BREAK ===
+
+the weight of an edge (i, j)i n G. The set E of edges of G consists of all
+(i, j)s u c ht h a tWij ≠ 0. We denote by ∣E∣ the cardinality ofE. The special
+case where all weights are either zero or one deﬁnes the (still NP-hard)
+MaxCut problem, where each instance is fully speci ﬁed by E (see
+MaxCut problems). The goal of these problems is to maximize the total
+weight of edges cut over all possible bipartitions ofG.T h i si sd o n eb y
+maximizing the quadratic objective function VðxÞ : = P
+ði, jÞ2E W ij ð1 /C0
+xi xj Þ (the cut value).
+We parameterize the state in Eq. ( 1) as the output of a quantum
+circuit with parameters θ, ∣Ψi = ∣ΨðθÞ
+/C11
+, and optimize over θ using a
+variational approach17,18 (see also Supplementary Note 9 for alternative
+ideas on how to optimize the state). As circuit Ansatz, we use the
+brickwork architecture shown in Fig. 1 (see “Numerical details” for
+details on the variational Ansatz). The goal of the parameter optimi-
+zation is to minimize the non-linear loss function
+L =
+X
+ði, jÞ2E
+W ij tanh α hΠii
+/C0/C1
+tanh α hΠj i
+/C16/C17
++ LðregÞ: ð2Þ
+The ﬁrst term corresponds to a relaxation of the binary problem where
+the sign functions in Eq. ( 1) are replaced by smooth hyperbolic tan-
+gents, better suited for gradient-descent methods27. The second term,
+LðregÞ (see Regularization term), forces all correlators to go towards
+zero, which is observed to improve the solver ’s performance (see
+Supplementary Note 1).
+However, too-small correlators restrict the tanh to a linear regime
+(tanhðzÞ/C25 z for ∣z∣ << 1), which is inconvenient for the training. Hence,
+to restore a non-linear response, we introduce a rescaling factorα >1 .
+We observe a good performance for the choice α ≈ n⌊k/2⌋ (see Supple-
+mentary Note 3). Once the training is complete, the circuit output state
+is measured and a bit-stringx is obtained via Eq. (1). Then, as a classical
+post-processing step, we perform one round of single-bit swap search
+(of complexity OðjEjÞ)a r o u n dx in order to ﬁnd potential better solu-
+tions nearby (see“Numerical details”). The result of the search,x*,w i t h
+cut value Vðx*Þ,i st h e ﬁnal output of our solver.
+Our work differs from refs. 28–32 in fundamental ways. First of
+all, as mentioned, those studies focus mainly on exponential com-
+pressions in qubit numbers. These are also possible with PCEs since
+there are 4 n − 1 traceless operators available. However, besides
+automatically rendering the schemes classically simulable
+efﬁciently28,31, exponential compressions strongly limit the expres-
+sivity of the model, since L-depth circuits contain OðL × log ðmÞÞ
+parameters. This affects the quality of the solutions. Conversely,
+our method operates manifestly in the regime of classically
+intractable quantum circuits. Secondly, as for experimental feasi-
+bility, while the previous schemes require the measurement of
+probabilities that are (at best) of order m−1, our solver is compatible
+with signi ﬁcantly larger expectation values (see Supplementary
+Fig. 1). Third, while in refs. 28–31 the problems are related to
+quadratic programs 28, Eq. ( 2)d e ﬁnes a highly non-linear
+optimization.
+Circuit complexities and approximation ratios
+Here, we investigate the quantum resources (circuit depth, two-
+qubit gate count, and number of variational parameters) required
+by our scheme. Due to the strong reduction in qubit number, an
+increase in required circuit depth is expected to maintain the
+same expressivity. We benchmark on graph instances whose exact
+solution Vmax : =m a xx VðxÞ is unknown in general. Therefore, we
+denote by rexact : = Vðx*Þ=Vmax the exact approximation ratio and
+by r : = Vðx*Þ=Vbest the estimated approximation ratio based on
+the best-known solution Vbest available (see Numerical details).
+In Fig. 2 (left panel), we plot the gate complexity required to reach
+r =1 6=17 /C25 0:941 without doing the ﬁnal local search step (to capture
+the resource scaling exclusively due to the quantum subroutine) on
+non-trivial random MaxCut instances of increasing sizes, for the
+encodings Π(2) and Π(3).F o r rexact, this value gives the threshold for
+worst-case computational hardness. By non-trivial instances, we mean
+instances post-selected to discard easy ones (see Numerical details).
+The results suggest that the number of gates scales approximately
+linearly with m. The same holds also for the number of variational
+parameters, which is proportional to the number of gates. In turn, the
+number of circuit layers scales as Oðm=nÞ. For quadratic and cubic
+compressions, e.g., this corresponds to Oðm1=2Þ and Oðm2=3Þ,r e s p e c -
+tively. These mild scalings translate directly into experimental feasi-
+bility and model training ease. In fact, we observe (see Supplementary
+Note 5) that the number of epochs needed for training also scales
+linearly with m. Moreover, in Supplementary Note 6, we prove worst-
+Fig. 2 | Gate complexity and performance. Left: Number of two-qubits gates (in
+bubble plot) needed for achieving an average estimated approximation ratio
+r ≥ 16=17 /C25 0:941 (over 250 non-trivial random MaxCut instances and 5 random
+initializations per instance) without the local bit-swap search (quantum-circuit’s
+output x alone) versus m, for quadratic and cubic compressions. The larger the
+bubble, the greater the fraction of instances requiring the corresponding number
+of gates. A linear scaling is observed in both cases. Right: Medianr (now including
+the local bit-swap search step) over random initializations for three speciﬁc MaxCut
+instances of different sizes as functions of the compression degreek.I n t e r v a l s
+indicating the highest and lowest observed values are also displayed. Them =8 0 0
+graph is planar and used 10 random initializations, while the m =2 0 0 0a n d
+m = 7000 ones are random graphs and used 10 and 5 initializations, respectively
+(see Table 1 for graph details). For a fair comparison, the total number of para-
+meters is kept the same for allk. The horizontal lines denote the reported results of
+the leading gradient-based SDP solver35 (dotted lines) and the powerful Burer-
+Monteiro algorithm36,37 (dashed lines). Our solver outperforms the former in all
+cases and even the latter for m =2 0 0 0a tk =6a n d7 .
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 3
+
+
+=== PAGE BREAK ===
+
+case upper bounds on the number of measurements required to esti-
+mate LðθÞ. These bounds scale with the problem size as
+~Oðm ð6jEj + mÞ2Þ for even k and ~Oðm1/C0 1=k ð6jEj + mÞ2Þ for odd k.
+In Fig. 2 (right), in turn, we plot solution qualities versus k,f o r
+three MaxCut instances from the benchmark set Gset34 (see “Numer-
+ical details”). The total number of variational parameters isﬁxed by m
+(or as close tom as allowed by the circuit Ansatz) for a fair comparison,
+with the circuit depths adjusted accordingly for each k. In all cases, r
+increases with k up to a maximum, after which the performance
+degrades. This is consistent with a limit in compression capability
+before compromising the model’s expressivity, as expected. Remark-
+ably, the results indicate that our solutions are competitive with those
+of state-of-the-art classical solvers, such as the leading gradient-based
+SDP solver35, based on the interior points method, and even the Burer-
+Monteiro algorithm36,37, based on non-linear-programming. Moreover,
+our quantum solver (including the overhead in parameter initializa-
+tions for the training) makes a smaller number of queries to the loss
+function than Burer-Monteiro (see Supplementary Note 7). Impor-
+tantly, while our solver performs a single optimization followed by a
+single-bit swap search, the Burer-Monteiro algorithm includes multiple
+re-optimizations and two-bit swap searches (see Supplementary
+Note 7). This highlights the potential for further improvements of our
+scheme. All in all, the performance seen in Fig.2 is not only relevant for
+quantum solvers but also suggests our scheme as an interesting
+heuristic for quantum-inspired classical solvers.
+Intrinsic mitigation of barren plateaus
+Another appealing feature of our solver emerging from the qubit-
+number reduction is an intrinsic mitigation of the infamous barren
+plateau (BP) problem due to the curse of dimensionality 23,38–41,w h i c h
+constitutes one of the main challenges for training variational quan-
+tum algorithms. BPs are characterized by a vanishing expectation value
+of ∇L over random parameter initializations and an exponential decay
+(in n) of its variance. This jeopardizes the applicability of variational
+quantum algorithms in general19. For instance, the gradient variances
+of a two-body Pauli correlator on the output of universal 1D brickwork
+circuits are known to plateau at levels exponentially small in n for
+circuit depths of about 10 × n23. Alternatively, BPs can equivalently be
+deﬁned in terms of an exponentially vanishing variance of L itself
+(instead of its gradient)42. This is often more convenient for analytical
+manipulations.
+In Supplementary Note 10 we prove that, if the random parameter
+initializations make the circuits sufﬁciently random (namely, induce a
+Haar measure over the special unitary group), the variance ofL is given
+by
+VarðLÞ = α4
+d2
+X
+ði, jÞ2E
+w2
+ij + O α6
+d3
+/C18/C19
+, ð3Þ
+with d =2 n the Hilbert-space dimension. Interestingly, the leading term
+in Eq. ( 3) appears also if one only assumes the circuits to form a 4-
+design, though it is unclear how to bound the higher-order terms
+without the full Haar-randomness assumption. For 1D brick-work
+random circuits, the unitary-design assumption is approximately met
+at depth OðnÞ43,44. In practice, for our loss function, we observe
+convergence to Eq. (3)a td e p t h so fa b o u t8 . 5×n.T h i si si l l u s t r a t e di n
+Fig. 3 for linear, quadratic, and cubic compressions, where we plot as a
+function of m the average sample variance Var ðLÞ of L over 100 non-
+trivial random MaxCut instances and 100 random parameter initializa-
+tions per instance. As shown in the inset, a depth of roughly 1.05 ×n is
+needed to reach r > 0.941 on average with the circuit ’so u t p u ta l o n e ,
+while barren plateaus are reached at roughly 8.5 ×n.
+One observes an excellent agreement between Var ðLÞ and the
+ﬁrst term of Eq. ( 3)f o rl a r g em.A s m decreases, small discrepancies
+appear, especially for k =2a n d k = 3. This can be explained by noting
+that α ~1 . 5f o rk =1 w h e r e a sα ~ 1.5 × n for k = 2 and k = 3 (see Supple-
+mentary Note 3) so that the second term in ( 3)s c a l e sa s2−3n for the
+former but as n6 2−3n for the latter. Hence, as m (and so n) decreases,
+that term requires smallerm to become non-negligible for the former
+than for the latter. Remarkably, the scaling Var ðLÞ2 Θðα4 2/C0 2nÞ in n
+translates into a super-polynomial suppression of the decay speed inm
+when compared to single-qubit (linear) encodings. This means, for
+Fig. 3 | Loss-function variance decay.Main: Average sample varianceVar ðLÞ of L,
+normalized byα4 P
+ði:jÞ2E w2
+ij , after plateauing, for the encodingsΠ(1), Π(2),a n dΠ(3),a s
+a function of m (in log-linear scale). Error bars are not shown since they are too-
+small to be visible in this scale. The agreement with the analytical expression in Eq.
+(3) is excellent (the dashed, blue curve corresponds to the ﬁrst term of the equa-
+tion, which decreases as 2−2n). Since n = Oðm1=k Þ, this translates into a super-
+polynomial suppression inm of the decay speed of Var ðLÞ for k >1 .I n s e t :a v e r a g e
+variances of the entries of the gradient ofL as functions of the number of layers, for
+quadratic compression (Π(2)). Each curve corresponds to a different n.N o t et h e
+decay of the plateau (rightmost) values with n. The black crosses indicate the
+depths needed to reach average approximation ratios > 0.941 (computational-
+hardness threshold) with the quantum-circuit’s output x alone, i.e., excluding the
+ﬁnal bit-swap search. In all cases such ratios are attained before the variances have
+converged to their asymptotic, steady values.
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 4
+
+
+=== PAGE BREAK ===
+
+instance, that quadratic encodings feature Var ðLÞ2 Θðα4 2/C0 2 ﬃﬃﬃmp
+Þ,
+instead of Var ðLÞ2 Θðα4 2/C0 2mÞ displayed by linear encodings.
+Importantly, the scaling obtained still represents a super-polynomial
+decay in m. Yet, the enhancement obtained makes a signi ﬁcant dif-
+ference in practice, as shown in theﬁgure by the orders of magnitude
+separating the three curves.
+Experimental deployment on quantum hardware
+We demonstrate our quantum solver on IonQ’s Aria-1 and Quantinuum
+H1-1 trapped-ion devices, for two MaxCut instances of m =8 0 0 a n d
+2000 vertices and a weighted MaxCut instance of m =5 1 2 v e r t i c e s .
+Details on the hardware and model training are provided in Experi-
+mental details, while the choice of instances is detailed in Numerical
+details (see Table 1). We optimize the circuit parameters of ﬂine via
+classical simulations and experimentally deploy the pre-trained circuit.
+Figure 4 depicts the obtained approximation ratios for each instance
+as a function of the number of measurements for the quadratic ( Π(2))
+and cubic ( Π(3)) Pauli-correlation encodings. For each instance, we
+collected enough statistics for the approximation ratio to converge
+(see ﬁgure inset). The circuit size is limited by gate in ﬁdelities. For
+IonQ, we found a good trade-off between expressivity and total in ﬁ-
+delity at a total of 90 two-qubit gates. Quantinuum ’s device displays
+signiﬁcantly higher ﬁdelities, which allows for larger circuits, but we
+used the same number of gates for comparison. This is below the
+number required for these instance sizes according to Fig. 2 (left),
+especially for k = 2. However, remarkably, our solver still returns
+solutions of higher quality than the Göemans-Williamson bound in all
+cases, and than the worst-case hardness threshold in 4 out of the 5
+experiments. As a reference, the largest MaxCut instance previously
+solved experimentally with QAOA 2 had m = 414 and average and
+maximal approximation ratios 0.57 and 0.69, respectively (see Table 4
+in ref. 33).
+Discussion
+We introduced a scheme for solving binary optimizations on m deci-
+sion variables using a number of qubits polynomially smaller than m.
+Pauli correlations across few qubits encode each binary variable. The
+circuit depth is sublinear in m, while the numbers of parameters and
+training epochs are approximately linear in m.M o r e o v e r ,t h eq u b i t -
+number compression brings in the bene ﬁcial by-product of a super-
+polynomial suppression of the decay in m of the variances of the loss
+function (and its gradient), which we have both analytically proven and
+veriﬁed numerically. A drawback of our multi-qubit encoding, how-
+ever, is a slight deterioration in sample complexity as compared to the
+single-qubit case (for∣E∣ linear in m,f r o m~Oðm2Þ to ~Oðm3Þ in the worst
+case), but this is not severe in view of the advantages mentioned above.
+As a matter of fact, these features, together with an educated choice of
+non-linear loss function, allow us to solve large, computationally non-
+trivial instances with high quality.
+Numerically, our solutions for m = 2000 and m = 7000 MaxCut
+instances are competitive with those of state-of-the-art solvers such as
+the powerful Burer-Monteiro (BM) algorithm. Moreover, in all the
+cases analyzed our algorithm makes a smaller number of queries to the
+loss function than BM (see Supplementary Note 7). Experimentally, in
+turn, for a deployment using 17 trapped-ion qubits, we estimated
+approximation ratios beyond the worst-case computational hardness
+threshold 0.941 for a non-trivial MaxCut instance with m =2 0 0 0 v e r -
+tices. We stress that these results are based on raw experimental data,
+Table 1 | Benchmark instances used in this work
+Graph m ∣E∣ Wij Type Use
+pm3-8-50 512 1536 ± 1 3 D torus grid Experiment
+G1 800 19176 1 random Experiment
+G14 800 4694 1 planar Numerics
+G23 2000 19990 1 random Numerics
+G35 2000 11778 1 planar Experiment
+G60 7000 17148 1 random Numerics
+Apart from the number of vertices, edges, and edge weights, we also include the type of graph
+as well as its use.
+Fig. 4 | Trapped-ion experimental implementation.Main: estimated approx-
+imation ratios for our scheme deployed on IonQ's Aria-1 (I) and Quantinnum H1-1
+(Q) devices as functions of the number of measurements (per each of the three
+measurement settings). Three problem instances (see main text for details) are
+shown: one weighted MaxCut instance of m = 512, solved with quadratic com-
+pression using n = 19 qubits (purple pentagons), one MaxCut instance ofm =8 0 0 ,
+solved with quadratic compression onn = 23 qubits (red circles) and cubic com-
+pression on n = 13 qubits (yellow triangles), and another MaxCut instance of
+m = 2000, solved with cubic compression onn =1 7q u b i t s( b l u es q u a r e s ) .T h eb l a c k
+horizontal lines indicate the Goemans-Williamson threshold (dotted), atr ≈ 0.878,
+and the worst-case computational-hardness threshold (dashed), atr = 16/17. Inset:
+loss function L (at ﬁxed, optimized parameters) versus number of measurement
+shots (same shot range as in main ﬁgure), for the m = 2000 instance with cubic
+compression. The solid, pink curve corresponds to our numerical simulation, while
+the blue dots are the experimental data for the implementation on Quantinuum
+(the highest-ﬁdelity one).
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 5
+
+
+=== PAGE BREAK ===
+
+without any quantum error mitigation procedure to the observables
+measured. Yet, our method is indeed well-suited for standard error
+mitigation techniques45–47, the use of which may enhance the solver ’s
+performance even further.
+While the focus here has been on MaxCut problems, the techni-
+que can be extended to generic Quadratic Unconstrained Binary
+Optimization (QUBO) problems, which can be mapped to a MaxCut
+problem through a simple change of variables. In addition, since
+MaxCut is NP-hard, any NP problem can be mapped to a MaxCut
+instance with a polynomial overhead in m. Although for certain pro-
+blems this overhead may be in practice signiﬁcant, we emphasize that
+our approach is still advantageous over any scheme based on quantum
+MaxCut (or QUBO) solvers with standard encodings requiring as many
+qubits as decision variables. Besides, the framework can also be
+extended to polynomial unconstrained binary optimization (PUBO)
+problems48 using as loss function a higher-order polynomial of the
+hyperbolic tangents and without any increase in qubit number. This is
+in contrast to conventional PUBO-to-QUBO reformulations, which
+incur in expensive overheads in extra qubits49. Interestingly, for pro-
+blems with speciﬁc structures, such as the traveling salesperson pro-
+blem, PUBO reformulations exist that are more qubit-efﬁcient than the
+corresponding QUBO versions50. Combining such reformulations with
+our techniques could allow for polynomial qubit-number reductions
+on top of that.
+We note that, although slightly higher than with single-qubit
+encodings, as mentioned, our worst-case sample complexity upper
+bound is signi ﬁcantly better than in VQAs for chemistry. There, the
+sample complexity of estimating the loss function (the energy) scales
+as the problem size (number of orbitals) to the eighth power for
+popular basis sets such as STO-nG 51. In addition, further improve-
+ments to our sample complexity are possible via optimization of
+hyperparameters (α and β) in a problem-dependent way. Moreover,
+the circuit depth and training run-time may be further improved by
+suitable pre-training strategies, such as those based on classical
+tensor-network simulations52. Another potentially relevant tool for
+pre-training is given in Supplementary Note 9, where we derive
+parent Hamiltonians whose ground states give approximate MaxCut
+solutions via our multi-qubit encoding. Such Hamiltonians may be
+used for QAOA schemes 2 to prepare warm-start input states for the
+core variational circuit.
+Finally, an important question is whether our scheme can lead to
+quantum advantages over classical solvers. This will depend on both
+hardware advances and algorithmic developments, such as in the cir-
+cuit Ansatz, regularization term, hyper-parameters, and circuit opti-
+mizer. Particularly intriguing are the role of entanglement in our solver
+and its relationship with classical schemes where, instead of a quantum
+circuit, generative models are used to produce the correlations (see
+Supplementary Note 4). For the latter, the fact that our circuits become
+hard to simulate classically as the number of qubits increases gives our
+approach interesting prospects. These are all exciting open questions
+to study in the future. All in all, our work offers a promising machine
+learning framework to explore quantum optimization solvers on large-
+scale problems, using either near-term quantum devices or quantum-
+inspired classical techniques.
+Methods
+MaxCut problems
+The weighted MaxCut problem is an ubiquitous combinatorial opti-
+mization problem. It is a graph partitioning problem de ﬁned on
+weighted undirected graphs G =( V, E) whose goal is to divide the m
+vertices in V into two disjoint subsets in a way that maximizes the sum
+of edge weightsWij shared by the two subsets— the so-called cut value.
+If the graph G is unweighted, that is, if Wij =1o r Wij =0f o re v e r ye d g e
+(i, j) ∈ E, the problem is referred to simply as MaxCut. By assigning a
+binary labelxi to each vertexi ∈ V, the problem can be mathematically
+formulated as the binary optimization
+maximize
+x2f/C0 1, 1gm
+X
+i, j2½m/C138
+Wij ð1 /C0 xi xj Þ : ð4Þ
+Since ∑i,j∈[m]Wij is constant over x,E q .( 4) can be rephrased as a
+minimization of the objective function xTWx.T h i ss p e c iﬁcf o r m a ti s
+known as a quadratic unconstrained binary optimization (QUBO). For
+generic graphs, solving MaxCut exactly is NP-hard 53. Moreover, even
+approximating the maximum cut to a ratio rexact> 16
+17 /C25 0:941 is NP-
+hard54,55. In turn, the best-known polynomial-time approximation
+scheme is the Goemans-Williamson (GW) algorithm 56,w i t haw o r s t -
+case ratio rexact ≈ 0.878. Under the Unique Games Conjecture, this is
+the optimal achievable by an ef ﬁcient classical algorithm with worst-
+case performance guarantees. If, however, one does not require
+performance guarantees, there exist powerful heuristics that in
+practice produce cut values often higher than those of the GW
+algorithm. Two examples are discussed in “Best Solutions known” in
+“Numerical details”.
+Regularization term
+The regularization term in Eq. ( 2) penalizes large correlator values,
+thereby forcing the optimizer to remain in the correlator domain
+where all possible bit string solutions are expressible. Its explicit form
+is
+LðregÞ = β ν 1
+m
+X
+i2V
+tanh αhΠii
+/C0/C1 2
+"# 2
+: ð5Þ
+The factor 1/m normalizes the term in square brackets toOð1Þ.T h e
+parameterν is an estimate of the maximum cut value: it sets the overall
+scale of LðregÞ so that it becomes comparable to theﬁrst term in Eq. (2).
+For weighted MaxCut, we use the Poljak-Turzík lower bound
+ν = wðGÞ=2+ wðTminÞ=457,w h e r ew(G)a n d wðTminÞ are the weights of
+the graph and of its minimum spanning tree, respectively. For MaxCut,
+this reduces to the Edwards-Erdös bound58ν = ∣E∣/2 + (m − 1)/4. Finally,β
+is a free hyperparameter of the model, which we optimize over random
+graphs to get β = 1/2. Such optimizations systematically show
+increased approximation ratios due to the presence ofLðregÞ in Eq. (2)
+(see Supplementary Note 1).
+Numerical details
+Choice of instances . The numerical simulations of Fig. 2 (left) and
+Fig. 3 were performed on random MaxCut instances generated with
+the well-knownrudy graph-generator59 post-selected so as toﬁlter out
+easy instances. The post-selection consisted in discarding graphs with
+less than 3 edges per node on average or those for which a random cut
+gives an approximation ratior >0 . 8 2 .T h el a t t e ri ss u fﬁciently far from
+the Goemans-Williamson ratio 0.878 while still allowing efﬁcient gen-
+eration. For the numerics in Fig. 2 (right) and the experimental
+deployment in Fig. 4 we used 6 graphs from standard benchmarking
+sets: the former used theG14, G23,a n dG60 MaxCut instances from the
+Gset repository34, while the latter usedG1 and G35 from Gset and the
+weighted MaxCut instance pm3-8-50 from the DIMACS library60
+(recently employed also in27). Their features are summarized in Table1.
+Best solutions known. For the generated instances, the best solution
+is taken as the one with the highest cut value between the (often
+coinciding) solutions produced by two classical heuristics, namely the
+Burer-Monteiro36 and the Breakout Local Search61 algorithms. For the
+instances from benchmarking sets, we considered instead the best-
+known documented solution. The corresponding cut value, Vbest,i s
+used to de ﬁne the approximation ratio achieved by the quantum
+solution x*, namely r = Vðx*Þ=Vbest.
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 6
+
+
+=== PAGE BREAK ===
+
+Variational Ansatz. As circuit Ansatz, we used the brickwork archi-
+tecture shown in Fig. 1, with layers of single-qubit rotations, para-
+meterized by a single angle, followed by a layer of Mølmer-Sørensen
+(MS) two-qubit gates, each with three variational parameters. Each
+single-qubit gate layer contains rotations around a single direction (X,
+or Y, or Z), one at a time, sequentially. Furthermore, we observed that
+many of the other commonly used parameterized gate displays the
+same numerical scalings up to a constant.
+Quantum-circuit simulations. The classical simulations of quantum
+circuits have been done using two libraries: Qibo62,63 for exact state-
+vector simulations of systems up to 23 qubits, and Tensorly-
+Quantum64 for tensor-network simulations of larger qubit systems.
+Optimization of circuit parameters. Two optimizers were used for the
+model training. SLSQP from the scipy library was used for systems
+small enough to calculate the gradient using ﬁnite differences. In all
+other cases, we used Adam from the torch/tensorﬂow libraries,
+leveraging automatic differentiation to speed up computational time.
+As a stopping criterion for Adam, we halted the training after 50 steps
+whose cumulative improvement to the loss function was less than 0.01.
+For both optimizers, the default optimization parameters were used.
+Classical bit-swap search as post-processing step.A sm e n t i o n e d ,a
+single round of local bit-swap search is performed on the bit string x
+output by the trained quantum circuit. This consists of sequentially
+swapping each bit ofx and computing the cut value of the resulting bit
+string. If the cut value improves, we retain the change. Else, the local bit
+ﬂip is reverted. There are altogether Θ(m) local bit ﬂips. A bit ﬂip on
+vertex i affects Θ(d(i)) edges, withd(i) the degree of the vertex. Hence,
+an update of onlyΘ(d(i)) terms inVðxÞ is required per bitﬂip. The total
+complexity of the entire round is thus Θ(∣E∣).
+Experimental details
+Hardware details. The experiments were deployed on IonQ’sA r i a - 12 5 -
+qubit device and on Quantinuum’sH 1 - 12 0 - q u b i td e v i c e .B o t hd e v i c e s
+are based on trapped ytterbium ions and support all-to-all con-
+nectivity. The VQA architecture of Fig. 1 was adapted accordingly to
+hardware native gates. We used alternating layers of partially entan-
+gling Mølmer-Sørensen (MS) gates and, depending on the experiment,
+rotation layers composed of one or two native single-qubit rotations
+GPI and GPI2 (see Table2). Since the z rotation is done virtually on the
+IonQ Aria chip, parameterized RZ rotation was also added at the end of
+every rotation layer without any extra gate cost.
+The native gates in Quantinuum’s H1-1 chip are the double para-
+meterized U1q gate, a virtual z rotation, and the entangling arbitrary-
+angle two-qubit rotation RZZ. In our experiment, the circuit pre-
+trained for them = 2000 vertices instance using IonQ native gates was
+transpiled into a Quantinuum nati ve gates circuit with the same
+number of 1 and 2-qubit gates.
+Resource analysis. We run a total of four experimental deployments.
+The three selected instances were trained using exact classical simu-
+lation with Adam optimizer, as detailed in Numerical details. In an
+attempt to get the best possible solution within the limited depth
+constraints of the hardware, the stopping criteria were relaxed to allow
+150 non-improving steps. This resulted in a total number of training
+epochs considerably larger than the average case scenario (see Sup-
+plementary Note 7). Table 2 reports the precise quantum (number of
+qubits and gate count) and classical (number of epochs) resources, as
+well as the observed results.
+Data availability
+The data that support the ﬁndings of this study are available here:
+https://doi.org/10.5281/zenodo.14049120.
+Code availability
+The code that supports the ﬁndings of this study is available here:
+https://doi.org/10.5281/zenodo.14049120.
+References
+1. Korte, B. H., Vygen, J., Korte, B. & Vygen, J. Combinatorial optimi-
+zation, vol. 1 (Springer, 2011).
+2. Farhi, E., Goldstone, J. & Gutmann, S. A quantum approximate
+optimization algorithm.arXiv 1411.4028 (2014).
+3. Guerreschi, G. G. & Matsuura, A. Y. QAOA for max-cut requires
+hundreds of qubits for quantum speed-up.Sci. Rep.9,6 9 0 3( 2 0 1 9 ) .
+4. Akshay, V., Philathong, H., Morales, M. & Biamonte, J. Reachability
+deﬁcits in quantum approximate optimization.P h y s .R e v .L e t t .124,
+090504 (2020).
+5. Akshay, V., Rabinovich, D., Campos, E. & Biamonte, J. Parameter
+concentrations in quantum approximate optimization.Phys. Rev. A
+104, L010401 (2021).
+6. Wurtz, J. & Love, P. Maxcut quantum approximate optimization
+algorithm performance guarantees forp >1 . Phys. Rev. A 103,
+042612 (2021).
+7. Pagano, G. et al. Quantum approximate optimization of the long-
+range ising model with a trapped-ion quantum simulator.Proc. Natl
+Acad. Sci. 117,2 5 3 9 6– 25401 (2020).
+8. Harrigan, M. P. et al. Quantum approximate optimization of non-
+planar graph problems on a planar superconducting processor.
+Nat. Phys. 3, 1745 (2021).
+9. Ebadi, S. et al. Quantum optimization of maximum independent set
+using rydberg atom array. Science 376, 1209 (2022).
+10. Yarkoni, S., Raponi, E., Bäck, T. & Schmitt, S. Quantum annealing for
+industry applications: introduction and review.Rep. Prog. Phys.85,
+104001 (2022).
+11. Dürr, C. & Hoyer, P. A quantum algorithm for ﬁnding the minimum.
+CoRRquant-ph/9607014 (1996).
+12. Ambainis, A. Quantum search algorithms. ACM SIGACT N. 35,
+22– 35 (2004).
+13. Montanaro, A. Quantum speedup of branch-and-bound algorithms.
+P h y s .R e v .R e s .2,0 1 3 0 5 6( 2 0 2 0 ) .
+14. Babbush, R. et al. Focus beyond quadratic speedups for error-
+corrected quantum advantage.PRX Quantum 2, 010103 (2021).
+15. Campbell, E., Khurana, A. & Montanaro, A. Applying quantum
+algorithms to constraint satisfaction problems.Quantum 3,
+167 (2019).
+16. Preskill, J. Quantum computing in the NISQ era and beyond.
+Quantum 2,7 9( 2 0 1 8 ) .
+17. Cerezo, M. et al. Variational quantum algorithms. Nat. Rev. Phys. 3,
+625– 644 (2021).
+Table 2 | Details about the experimentally deployed instances
+r
+Graph k n 1-q 2-q Epochs Sim . Exp.
+pm3-8-50 2 19 199 90 13485 0.967 0.921
+G1 2 24 192 36 4027 0.954 0.957
+G1 3 13 170 36 2022 0.940 0.965
+G35 3 17 193 88 4100 0.935 0.951
+For each instance, we display k, n, the 1-qubit and 2-qubit gate counts, and number of optimi-
+zation epochs used during classical training. The last two columns report the approximation
+ratios given by the classical simulation of the noiseless circuit (sim.) and the best one observed in
+the experiment (exp.). We note that all ratios lie more than 3 standard deviations away from the
+average solution obtained via a single-bit search over a randomly picked bit string (see Sup-
+plementary Note 8).
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 7
+
+
+=== PAGE BREAK ===
+
+18. Bharti, K. et al. Noisy intermediate-scale quantum algorithms. Rev.
+Mod. Phys. 94, 015004 (2022).
+19. Cerezo, M. et al. Does provable absence of barren plateaus imply
+classical simulability? or, why we need to rethink variational quan-
+tum computing 2312.09121 (2023).
+20. Stilck França, D. & Garcia-Patron, R. Limitations of optimization
+algorithms on noisy quantum devices.Nat. Phys.17,1 2 2 1– 1227 (2021).
+21. Bittel, L. & Kliesch, M. Training variational quantum algorithms is np-
+hard. Phys. Rev. Lett. 127, 120502 (2021).
+22. Anschuetz, E. R. & Kiani, B. T. Quantum variational algorithms are
+swamped with traps. Nat. Commun. 13, 7760 (2022).
+2 3 . M c C l e a n ,J .R . ,B o i x o ,S . ,S m e l y a n s k i y ,V .N . ,B a b b u s h ,R .&N e v e n ,
+H. Barren plateaus in quantum neural network training landscapes.
+Nat. Commun. 9,4 8 1 2( 2 0 1 8 ) .
+24. Wang, S. et al. Noise-induced barren plateaus in variational quan-
+tum algorithms. Nat. Commun. 12, 6961 (2021).
+25. García-Martín, D., Larocca, M. & Cerezo, M. Effects of noise on
+the overparametrization of quantum neural networks.Phys. Rev.
+Research 6, 013295 (2024).
+26. Fuller, B. et al. Approximate solutions of combinatorial problems via
+quantum relaxations.IEEE Trans. Quantum Eng. 5,1 – 15 (2021).
+27. Patti, T. L., Kossai ﬁ, J., Anandkumar, A. & Yelin, S. F. Variational
+quantum optimization with multibasis encodings.P h y s .R e v .R e s .4,
+033142 (2022).
+28. Tan, B., Lemonde, M.-A., Thanasilp, S., Tangpanitanon, J. & Ange-
+lakis, D. G. Qubit-efﬁcient encoding schemes for binary optimisa-
+tion problems. Quantum 5,4 5 4( 2 0 2 1 ) .
+2 9 . H u b e r ,E .X . ,T a n ,B .Y .L . ,G r i fﬁn, P. R. & Angelakis, D. G. Exponential
+qubit reduction in optimization forﬁnancial transaction settlement.
+EPJ Quantum Technol. 11,5 2( 2 0 2 4 ) .
+30. Leonidas, I. D., Dukakis, A., Tan, B. & Angelakis, D. G. Qubit efﬁcient
+quantum algorithms for the vehicle routing problem on NISQ pro-
+cessors. Adv. Quantum Technol.7,5( 2 0 2 4 ) .
+31. Tene-Cohen, Y., Kelman, T., Lev, O. & Makmal, A. A variational qubit-
+efﬁcient maxcut heuristic algorithm. arXiv: 2308.10383 (2023).
+3 2 . P e r e l s h t e i n ,M .R .e ta l .N i s q - compatible approximate quantum
+algorithm for unconstrained and constrained discrete optimization.
+Quantum 7, 1186 (2023).
+33. Abbas, A. et al. Challenges and opportunities in quantum optimi-
+zation. Nature Reviews Physics6,7 1 8– 735 (2024).
+34. Ye, Y. Gset test problems. https://web.stanford.edu/~yyye/yyye/
+Gset/ (unpublished).
+35. Choi, C. & Ye, Y. Solving sparse semide ﬁnite programs using the
+dual scaling algorithm with an iterative solver.https://web.
+stanford.edu/~yyye/yyye/cgsdp1.pdf(2000).
+36. Burer, S. & Monteiro, R. D. C. A nonlinear programming algorithm
+for solving semideﬁnite programs via low-rank factorization.Math.
+Program. Ser. B. 95,3 2 9– 357 (2003).
+37. Dunning, I., Gupta, S. & Silberholz, J. What works best when? a
+systematic evaluation of heuristics for Max-Cut and QUBO.
+INFORMS J. Comput. 30,6 0 8– 624 (2018).
+38. Cerezo, M., Sone, A., Volkoff, T., Cincio, L. & Coles, P. J. Cost
+function dependent barren plateaus in shallow parametrized
+quantum circuits.Nat. Commun. 12,1 7 9 1( 2 0 2 1 ) .
+39. Wang, S. et al. Noise-induced barren plateaus in variational quan-
+tum algorithms. Nat. Commun. 12, 6961 (2021).
+40. Fontana, E. et al. Characterizing barren plateaus in quantum ansätze
+with the adjoint representation.Nat Commun 15,7 1 7 1( 2 0 2 4 ) .
+41. Ragone, M. et al. A Lie algebraic theory of barren plateaus for
+deep parameterized quantum circuits.Nature Commun 15,
+7172 (2024).
+42. Arrasmith, A., Holmes, Z., Cerezo, M. & Coles, P. J. Equivalence of
+quantum barren plateaus to cost concentration and narrow gorges.
+Quantum Sci. Technol.7, 045015 (2022).
+43. Brandão, F. G. S. L., Harrow, A. W. & Horodecki, M. Local random
+quantum circuits are approximate polynomial-designs.Commun.
+Math. Phys. 346,3 9 7– 434 (2016).
+44. Haferkamp, J. Random quantum circuits are approximate unitary t-
+designs in depth Oðnt5+ oð1ÞÞ. Quantum 6, 795 (2022).
+45. Li, Y. & Benjamin, S. C. Ef ﬁcient variational quantum simulator
+incorporating active error minimization.Phys. Rev. X 7,0 2 1 0 5 0
+(2017).
+4 6 . T e m m e ,K . ,B r a v y i ,S .&G a m b e t t a ,J .M .E r r o rm i t i g a t i o nf o rs h o r t -
+depth quantum circuits.Phys. Rev. Lett. 119,1 8 0 5 0 9( 2 0 1 7 ) .
+47. Cai, Z. et al. Quantum error mitigation. Rev. Mod. Phys. 95,
+(2023).
+48. Chermoshentsev, D. A. et al. Polynomial unconstrained binary
+optimisation inspired by optical simulation.ArXiv: 2106.13167
+(2022).
+49. Biamonte, J. D. Nonperturbative k-body to two-body commuting
+conversion Hamiltonians and embedding problem instances into
+Ising spins. Phys. Rev. A 77,0 5 2 3 3 1( 2 0 0 8 ) .
+5 0 . G l o s ,A . ,K r a w i e c ,A .&Z i m b o r á s ,Z .D i a g n o s i n gb a r r e np l a t e a u sw i t h
+tools from quantum optimal control.NPJ Quantum Inf.8, 39 (2022).
+51. McArdle, S., Endo, S., Aspuru-Guzik, A., Benjamin, S. C. & Yuan, X.
+Quantum computational chemistry.Rev. Mod. Phys. 92,0 1 5 0 0 3
+(2020).
+52. Rudolph, M. et al. Synergistic pretraining of parametrized quantum
+circuits via tensor networks.Nat. Commun. 14,8 3 6 7( 2 0 2 3 ) .
+53. Karp, R. M. Reducibility among Combinatorial Problems,8 5– 103
+(Springer US, Boston, MA, 1972).https://doi.org/10.1007/978-1-
+4684-2001-2_9.
+54. Håstad, J. Some optimal inapproximability results. J. ACM 48,
+798– 859 (2001).
+55. Trevisan, L., Sorkin, G. B., Sudan, M. & Williamson, D. P. Gadgets,
+approximation, and linear programming.SIAM J. Comput. 29,
+2074– 2097 (2000).
+56. Goemans, M. X. & Williamson, D. P. Improved approximation algo-
+rithms for maximum cut and satisﬁability problems using semi-
+deﬁnite programming.J. ACM 42, 1115– 1145 (1995).
+57. Poljak, S. & Turzík, D. A polynomial time heuristic for certain sub-
+graph optimization problems with guaranteed worst case bound.
+Discret. Math. 58,9 9– 104 (1986).
+58. Bylka, S., Idzik, A. & Tuza, Z. Maximum cuts: improvementsand local
+algorithmic analogues of the edwards-erdos inequality.Discret.
+Math. 194,3 9– 58 (1999).
+59. Rinaldi, G. Rudy graph generator. http://www-user.tu-chemnitz.de/
+~helmberg/rudy.tar.gz(unpublished).
+60. Pataki, G. & Schmieta, S. H. The DIMACS library of mixed
+semideﬁnite-quadratic-linear programs.http://archive.dimacs.
+rutgers.edu/Challenges/Seventh/Instances/(unpublished).
+61. Benlic, U. & Hao, J.-K. Breakout local search for the Max-Cut pro-
+blem. Eng. Appl. Artif. Intell. 26, 1162– 1173 (2013).
+62. Efthymiou, S. et al. Qibo: a framework for quantum simulation with
+hardware acceleration.Quantum Sci. Technol.7, 015018 (2021).
+63. Efthymiou, S., Lazzarin, M., Pasquale, A. & Carrazza, S. Quantum
+simulation with just-in-time compilation.Quantum 6, 814 (2022).
+64. Patti, T. L., Kossai ﬁ, J., Yelin, S. F. & Anandkumar, A. Tensorly-
+quantum: quantum machine learning with tensor methods.ArXiv:
+2112.10239 (2021).
+Acknowledgements
+The authors would like to thank Marco Cerezo and Tobias Haug for
+helpful conversations. D.G.M. is supported by Laboratory Directed
+Research and Development (LDRD) program of LANL under project
+numbers 20230527ECR and 20230049DR. At CalTech, A.A. is sup-
+ported in part by the Bren endowed chair and Schmidt Sciences AI2050
+senior fellow program.
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 8
+
+
+=== PAGE BREAK ===
+
+Author contributions
+M.S., L.B., T.L.P., D.G.M., G.C., A.A. and L.A. all contributed signiﬁcantly
+to this work.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary informationThe online version contains
+supplementary material available at
+https://doi.org/10.1038/s41467-024-55346-z.
+Correspondenceand requests for materials should be addressed to
+Marco Sciorilli.
+Peer review informationNature Communicationsthanks Patrick Becker
+and the other, anonymous, reviewer(s)for their contribution to the peer
+review of this work. A peer review ﬁle is available.
+Reprints and permissions informationis available at
+http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to jur-
+isdictional claims in published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution and
+reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the
+Creative Commons licence, and indicate if you modiﬁed the licensed
+material. You do not have permission under this licence to share adapted
+material derived from this article or parts of it. The images or other third
+party material in this article are included in the article’s Creative
+Commons licence, unless indicatedotherwise in a credit line to the
+material. If material is not included in the article’s Creative Commons
+licence and your intended use is not permitted by statutory regulation or
+exceeds the permitted use, you will need to obtain permission directly
+from the copyright holder. To view a copy of this licence, visit http://
+creativecommons.org/licenses/by-nc-nd/4.0/.
+© The Author(s) 2025
+Article https://doi.org/10.1038/s41467-024-55346-z
+Nature Communications|          (2025) 16:476 9

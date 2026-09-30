@@ -1,0 +1,888 @@
+Scheduling of Operations in Quantum Compiler ∗
+Toshinari Itoko
+IBM Quantum
+IBM Research - Tokyo
+Takashi Imamichi
+IBM Quantum
+IBM Research - Tokyo
+Abstract—When scheduling quantum operations, a shorter
+overall execution time of the resulting schedule yields a better
+throughput and higher ﬁdelity output. In this paper, we demon-
+strate that quantum operation scheduling can be interpreted as
+a special type of job-shop problem. On this basis, we provide
+its formulation as Constraint Programming while taking into
+account commutation between quantum operations. We show
+that this formulation improves the overall execution time of
+the resulting schedules in practice through experiments with a
+real quantum compiler and quantum circuits from two common
+benchmark sets.
+I. I NTRODUCTION
+Although rapid progress in quantum computing device
+technology has dramatically increased the coherence time
+of quantum bits (or qubits), the currently available quantum
+computers remain in the so-called noisy intermediate scale
+quantum regime [1]. For noisy quantum computers, it is
+important to schedule the operations on qubits to be as
+short as possible because this increases the probability of
+completing all of the operations before any qubit decoheres,
+thus obtaining computational results with higher ﬁdelity. Even
+for fault-tolerant quantum computers, shortening the duration
+of compiled schedules would increase the throughput.
+Compilers for quantum computers (or quantum compilers)
+take a quantum circuit, which is a sequence of quantum
+operations, as an input program and generate a corresponding
+sequence of control instructions that are executable on the
+target hardware. For example, in the case of quantum computers
+using superconducting qubits, a quantum operation is compiled
+into several controls (e.g., a microwave pulse) for a certain
+period of time. In general, any given quantum operation has
+its own processing time and occupies its acting qubits for
+the duration as a computational resource. For this reason,
+scheduling, through which the execution start time of each
+quantum operation is determined without any overlapping, is an
+essential task in quantum compilers. We call this task quantum
+operation scheduling. In this paper, we aim to minimize the
+overall execution time. In the context of scheduling tasks across
+multiple resources (qubits, in the case of quantum operation
+scheduling), the time between the start of the ﬁrst task and
+*) © 2020 IEEE. Personal use of this material is permitted. Permission from
+IEEE must be obtained for all other uses, including reprinting/republishing
+this material for advertising or promotional purposes, collecting new collected
+works for resale or redistribution to servers or lists, or reuse of any copyrighted
+component of this work in other works. Full citation of this paper: Toshinari
+Itoko and Takashi Imamichi. “Scheduling of Operations in Quantum Compiler,”
+in Proceedings of the International Conference on Quantum Computing and
+Engineering. IEEE, 2020, pp. 337-344.
+the end of the ﬁnal task across all resources is known as the
+makespan of the schedule. Schedule length, overall execution
+time, and makespan are used interchangeably in this work.
+The rough compilation ﬂow considering the quantum opera-
+tion scheduling task independently is as follows.
+1) Gate decomposition: A task decomposes unitary opera-
+tions called gates with three or more qubits into those
+with one or two qubits.
+2) Local simpliﬁcation: A task simpliﬁes a speciﬁc sequence
+of gates into one gate (or cancels them out).
+3) Qubit routing: A task transforms a given circuit into an
+equivalent circuit so that all two-qubit gates are executed
+on limited pairs of qubits (depending on the physical
+implementation of the quantum computing device).
+4) Quantum operation scheduling.
+5) Control instruction mapping: A task maps each quantum
+operation to the corresponding control instructions.
+Most of the previous studies on quantum compilers have
+handled quantum operation scheduling within the context of its
+before and after tasks, e.g., qubit routing and control instruction
+mapping [2]–[5]. However, in practice, decomposing an entire
+compilation job into independent tasks is becoming more
+common in the software architecture of quantum compilers,
+similar to that of classical compilers, e.g., [6]. Therefore,
+we focus on the following research question: How much
+can we optimize the resulting schedule in quantum operation
+scheduling by itself?
+In this paper, we examine quantum operation scheduling
+(QOS) and analyze its theoretical properties and practical
+usefulness. Our main contributions are as follows.
+• We show that QOS obtains greater degrees of freedom
+for optimizing the resulting schedule by further consider-
+ing the commutativity of particular quantum operations
+(Section III-A).
+• We demonstrate that QOS can be reduced to a special
+type of job-shop problem that has a disjunctive graph
+representation (Section III-C) so that we can formulate
+QOS as Constraint Programming and Mixed Integer
+Programming, which are common techniques for the job-
+shop problem or scheduling in general (Section IV).
+• We demonstrate through experiments with two common
+benchmark sets that the consideration of commutativity
+in QOS reduces the schedule length by up to 7.36% (Sec-
+tion V).
+arXiv:2011.04936v1  [quant-ph]  10 Nov 2020
+
+=== PAGE BREAK ===
+
+II. R ELATED WORK
+The job-shop problem, also known as job shop scheduling,
+is a well known optimization problem in computer science
+and operations research, and many variations of it have been
+studied [7], [8]. See Section III-B for its deﬁnition. Algorithms
+to solve this problem include exact ones such as branch-
+and-bound based on a Mixed Integer Programming (MIP)
+formulation [9], heuristic ones such as shifting bottleneck [10],
+and meta-heuristic ones such as simulated annealing [11]. In
+this paper, we mainly focus on the exact algorithm, as we
+want to determine the effect of optimizing quantum operation
+scheduling (QOS).
+Task scheduling, which is the scheduling of computational
+tasks on multiple classical processors, has been extensively
+studied [12], [13]. A special type of task scheduling, Directed
+Acyclic Graph (DAG) scheduling, which deals with hetero-
+geneous processors [14], [15], is most similar to QOS, but
+it differs in the way that resource constraints are handled. In
+DAG scheduling, every task can be executed on any processor
+with a different cost, i.e., the resource constraint is soft, while
+in quantum operation scheduling, every quantum operation
+has ﬁxed qubit operands that are not interchangeable, i.e., the
+resource constraint is hard.
+Qubit routing is a task that transforms a given circuit into
+an equivalent circuit so that all two-qubit operations in it can
+be executed on limited pairs of qubits. Schedule length can be
+approximated by circuit depth, which is the schedule length
+when assuming all operations have the same unit processing
+time. Therefore, qubit routing with the objective of minimizing
+the circuit depth [16], [17] or two-qubit gate depth [18], [19]
+can be viewed as approximate quantum operation scheduling
+with qubit routing. Although the algorithms for this may be
+applicable to scheduling without qubit routing, they provide
+only approximate solutions, not the exact ones to QOS.
+While we deﬁne quantum operation scheduling indepen-
+dently of hardware technology, there are several studies on
+scheduling specialized for quantum computers based on ion
+trap technology [20], [21]. These works consider a combination
+of scheduling and qubit routing under a hardware structure
+model, called macroblocks, and propose heuristic algorithms
+to solve it.
+Several studies have considered the commutation of quantum
+operations in scheduling [2]–[5]. Venturelli et al. [2] examined
+the scheduling of quantum operations as a subproblem of
+qubit routing. They proposed an exact method using a tem-
+poral planner and showed it works well for QAOA circuits,
+which have many commuting gates. Although their method
+is applicable to quantum operation scheduling without qubit
+routing, our methods discussed in Section IV are simpler
+and perform sufﬁciently well for the speciﬁc scheduling
+problem considered in this paper. Guerreschi and Park [4]
+proposed a two-step solution that decomposes the problem
+with qubit routing and solves quantum operation scheduling
+(without qubit routing) in the ﬁrst step. They provide a
+list scheduling heuristic algorithm using upward ranking but
+not any exact algorithm for scheduling. Other studies have
+considered quantum operation scheduling as a subtask of qubit
+routing [3] or control optimization [5]. While they provide
+practical heuristic algorithms for solving the task that includes
+scheduling, the exact algorithm for scheduling is not discussed.
+III. P ROBLEM
+A. Quantum Operation Scheduling
+We deﬁne quantum operation scheduling as the problem of
+ﬁnding a schedule for a given quantum circuit. A quantum
+circuit is a sequence of quantum operations. Many of them are
+unitary operations called gates. Each of the quantum operations
+has acting qubits and its own processing time. A quantum
+circuit is given as a sequence: e.g., [H(1), CX (1, 2), X(2)].
+Here, H(1) denotes a Hadamard gate acting on qubit 1,
+CX (1, 2) denotes a Controlled-NOT (or CNOT) gate acting on
+control qubit 1 and target qubit 2, and X(2) denotes a NOT
+gate acting on qubit 2. Quantum circuits are typically depicted
+in a circuit diagram, as shown in Fig. 1. For simplicity, we
+Qubits
+Operations
+1
+2
+1 2 3
+Fig. 1: Diagram representation of a quantum circuit
+assume all of the operations have the same unit processing time
+in Fig. 1. If we ignore commutation between gates, the gate
+dependency graph is linear, i.e., H(1) must precede CX (1, 2)
+and CX (1, 2) must precede X(2), and we obtain a trivial
+schedule (makespan = 3), as shown in Fig. 2. We call the
+graph representing the dependencies among gates in a circuit
+the dependency graph. In contrast, if we consider that CX (1, 2)
+and X(2) commute, we have a different dependency graph:
+H(1) must precede CX (1, 2), but there is no restriction on
+X(2), so we can obtain a shorter schedule (makespan = 2), as
+shown in Fig. 3. This is compelling evidence that commutation
+rules should be considered when scheduling circuit operations.
+21 3
+(a) Standard DAG
+Qubit
+1:
+2:
+1
+time
+2
+3
+1 2 30 (b) Schedule with makespan = 3
+Fig. 2: Standard dependency graph and resulting schedule
+A schedule is deﬁned by the start times of the operations in
+a given circuit. Any schedule must satisfy two elementary
+constraints: precedence and non-overlap. The precedence
+constraint restricts the execution order of operations to obey
+
+=== PAGE BREAK ===
+
+21
+3
+(a) Extended DAG
+Qubit
+1:
+2:
+1
+time
+2
+3
+1 20 (b) Schedule with makespan = 2
+Fig. 3: Extended dependency graph and resulting schedule
+a partial order represented as a dependency graph. The non-
+overlap constraint allows only the processing of one operation
+on a qubit at a time.
+Generally, the supported basic operations and the processing
+times depend on the target hardware. Hereafter, we assume that
+basic operations are given and that all circuits have already been
+decomposed into them. We also assume that each processing
+time of the basic operations is ﬁxed and given as a parameter.
+The dependency graph of a provided quantum circuit varies
+depending on which commutation rules are considered. Taking
+these details into account, we formally deﬁne a quantum
+operation scheduling problem as follows.
+Quantum Operation Scheduling : Given a quantum circuit
+as a sequence of basic operations, each processing time of
+each operation, and a set of commutation rules between basic
+operations, ﬁnd a schedule that satisﬁes precedence and non-
+overlap constraints with the minimum makespan.
+B. Job-shop Problem and its Disjunctive Graph Representation
+We review a basic version of the job-shop problem as
+follows. Let J = {J1, . . . , Jn} be a set of n jobs and
+M ={M1, . . . , Mm} be a set of m machines. Each job Jj has
+an operation sequence Oj to be processed in a speciﬁc order,
+called the precedence constraint. We denote the k-th operation
+in Oj by Ojk. Each operation Ojk requires exclusive use of a
+speciﬁc machine for its processing time pjk, called the non-
+overlap constraint. A schedule is a set of start (or completion)
+times for each operation tjk that satisﬁes both constraints.
+The objective of the job-shop problem is minimization of the
+makespan.
+The job-shop problem is often represented by a disjunctive
+graph G = (V, C∪ D), where
+• V is a set of nodes representing the operations Ojk,
+• C is a set of conjunctive (directed) edges representing the
+order of the operations in any job, and
+• D is a set of disjunctive edges representing pairs of
+operations that must be processed on the same machine.
+For each node, the processing time and the required machine
+of its corresponding operation is attached. Conjunctive edges
+C represent the precedence constraint and disjunctive edges
+D represent the non-overlap constraint. Note that disjunctive
+edges whose direction is ﬁxed by some conjunctive edges can
+be omitted. That means any disjunctive edge can be removed
+if there exists a path from one end of the edge to the other
+on a conjunctive graph (V, C). Figure 4 shows an example
+of a disjunctive graph representing the job-shop problem. The
+operation O11 must be processed in machine M1 and it takes
+1 time unit. The disjunctive edge (O12, O13) is omitted since
+its direction is ﬁxed by the conjunctive edge at the same place.
+𝑂"" 𝑂"# 𝑂"$
+𝑂#" 𝑂##
+𝑀",𝑝""=1 𝑀#,𝑝"#=1 𝑀#,𝑝"$=1
+𝑀",𝑝#"=2 𝑀#,𝑝##=1
+Conjunctive edge
+Disjunctive edge
+Fig. 4: Disjunctive graph representation of a job-shop problem
+On the basis of this disjunctive graph representation, the
+job-shop problem can be seen as a problem of determining the
+direction of disjunctive edges while keeping the resulting graph
+acyclic. This is equivalent to determining the ordering of the
+operations processed on the same machine, and such ordering
+yields a unique schedule, called a semi-active schedule [22], by
+sequencing operations as early as possible. Figure 5 shows two
+Machine
+𝑀"	:
+𝑀$	:
+𝑂""
+time
+1 2 30
+𝑂$"
+𝑂"$ 𝑂"& 𝑂$$
+4
+𝑂"" 𝑂"$ 𝑂"&
+𝑂$" 𝑂$$
+𝑂"" 𝑂"$ 𝑂"&
+𝑂$" 𝑂$$
+Machine
+𝑀"	:
+𝑀$	:
+𝑂""
+time
+1 2 30
+𝑂$"
+𝑂"$ 𝑂"&𝑂$$
+4 5
+Solution A:
+Solution B:
+Fig. 5: Two solutions to the job-shop problem in Fig. 4
+solutions to the job-shop problem deﬁned by the disjunctive
+graph depicted in Fig. 4. As shown, a different selection of
+the direction of the disjunctive edges results in a different
+solution. Among the operations {O12, O13, O22}, we cannot
+select{(O22, O12), (O13, O22)} because it produces a cycle
+O12→ O13→ O22→ O12. In Solution A, the directed edge
+(O11, O21) determines the order of operations processed on
+machine M1, and{(O12, O22), (O13, O22)} determine that on
+machine M2.
+C. Disjunctive Graph Representation of Quantum Operation
+Scheduling
+Technically, quantum operation scheduling can be seen as a
+special type of job-shop problem with the following properties:
+(1) one job has one operation, (2) a precedence constraint is
+given as a partial ordering among all operations instead of
+total ordering of operations per job, and (3) multiple machines
+(i.e., qubits) can be occupied by a single operation at the
+same time. Those properties preserve enough conditions to
+represent the problem by a disjunctive graph G = (V, C∪ D).
+For property (1), we need to deﬁne the problem on operations
+without jobs, but this does not change the fact that nodes V
+represent operations. For properties (2) and (3), we need to
+
+=== PAGE BREAK ===
+
+modify the deﬁnition of conjunctive edges C and disjunctive
+edges D, respectively as follows.
+The quantum operation scheduling can be represented by a
+disjunctive graph G = (V, C∪ D), where
+• V is a set of nodes representing the quantum operations
+in a given circuit,
+• C is a set of conjunctive edges representing dependencies
+among the operations, i.e., edges of the dependency graph,
+and
+• D is a set of disjunctive edges representing pairs of
+operations that act on the same qubit and (possibly)
+commute with one another.
+For each operation (i.e., node) i∈ V , the processing time pi
+and the acting qubits are attached. Note that conjunctive graph
+(V, C) is a DAG given as a dependency graph. Conjunctive
+edges C and disjunctive edges D still represent the precedence
+constraint and non-overlap constraint, respectively. It is known
+that the dependency graph for any circuit can be computation-
+ally constructed under several popular commutation rules [23].
+When provided with the dependency graph of a quantum circuit,
+the disjunctive graph representation can be computationally
+constructed. In fact, it is possible to deﬁne disjunctive edges
+by all the pairs of nodes that acting on the same qubit. This
+deﬁnition is redundant, but there is no problem with including
+edges (pairs of operations) that do not commute with one
+another. The point is that it must include all of the commuting
+pairs. Starting from the redundant edges, we can deﬁne the
+minimal disjunctive edges by removing edges that have a path
+on the conjunctive graph. However, this comes at a signiﬁcant
+computation cost. There is an in-between deﬁnition that picks
+up operations acting on any qubit and splits them into sets of
+operations commuting each other within each of the sets. We
+used this deﬁnition for the experiments discussed in Section V.
+Although this cannot provide the minimal edges because the
+operations within a set may not commute each other when
+considering operations acting on the other qubits, it has fewer
+edges than the most redundant deﬁnition and requires less
+computation cost than the minimal deﬁnition.
+With the disjunctive graph representation of the quantum
+operation scheduling, we take the commutation of operations
+into account on the basis of the difference of the dependency
+graph. We call the dependency graph that considers only the
+trivial commutation between operations not sharing their acting
+qubits standard DAG and the dependency graph that considers
+commutation rules in addition to the trivial ones extended DAG.
+Figure 6 shows disjunctive graphs representing two quantum
+operation scheduling problems that have the same operations
+but different dependency (conjunctive) graphs (standard DAG
+and extended DAG). In the case of extended DAG, we can
+select the order of O2 and O3, while in standard DAG, all the
+orders among operations are ﬁxed.
+It generally holds that if we consider a standard DAG, there
+are no disjunctive edges, i.e., D =∅. This means there is
+a unique semi-active schedule because each ordering of the
+operations processed on the same qubit is uniquely determined
+by the conjunctive DAG. However, if we consider an extended
+1 2 3
+{1},𝑝&=1 {1,2},𝑝(=1 {2},𝑝)=1
+Conjunctive edge
+Disjunctive edge
+(a) Standard DAG
+1 2
+3
+{1},𝑝&=1 {1,2},𝑝*=1
+{2},𝑝+=1 (b) Extended DAG
+Fig. 6: Disjunctive graphs representing quantum operation
+scheduling for different dependency graphs
+DAG, we have fewer edges in C and some edges in D. This
+creates the room for selecting a better ordering of the operations
+processed on the same qubit, i.e., optimizing the schedule.
+IV. F ORMULATION
+We provide a Constraint Programming (CP) formulation
+and a Mixed Integer Programming (MIP) formulation for the
+quantum operation scheduling problem (QOS) deﬁned in the
+previous section. By solving them, we can ﬁnd the optimal
+solution of QOS and analyze how much we can improve
+the resulting schedule in QOS. In this section, we assume
+that the disjunctive graph representation of quantum operation
+scheduling G = ( V, C∪ D) for a given circuit has already
+been constructed.
+A. Constraint Programming Formulation
+Let xi be an interval variable describing the start and end
+time of operation i ∈ V , whose duration is ﬁxed to its
+processing time pi. Using functions commonly supported by
+CP solvers, e.g. interval var, quantum operation scheduling
+is formulated as a CP:
+minimize max{end of(xi)| i∈ V}
+subject to end before start(xi, xj), ∀(i, j)∈ C,
+no overlap(xk, xl), ∀(k, l)∈ D,
+xi≡ interval var(duration = pi), ∀i∈ V.
+Here end of(xi) takes the end time of xi, so the objec-
+tive is the minimization of the makespan. The constraint
+end before start(xi, xj) means the end time of xi must
+precede the start time xj, so it represents the precedence con-
+straint. The constraint no overlap(xk, xl) means the interval
+xk must not overlap the interval xl, so it represents the non-
+overlap constraint. Note that, for any operation pair (i, j)⁄∈ D,
+the precedence constraint guarantees no overlap between
+them. All of end of, end before start, no overlap, and
+interval var are supported in the IBM ILOG CP Optimizer.
+B. Mixed Integer Programming Formulation
+Let xi be a variable representing the start time of operation
+i∈ V and pi be a constant parameter representing its processing
+time. Let t be a makespan of the schedule deﬁned by x. Let
+ykl be an indicator (Boolean) variable that takes True (1) if
+operation k precedes operation l and False (0) if l precedes k.
+
+=== PAGE BREAK ===
+
+Using these, quantum operation scheduling is formulated as a
+MIP:
+minimize t
+subject to xi + pi≤ xj, ∀(i, j)∈ C,
+ykl⇒ xk + pk≤ xl, ∀(k, l)∈ D,
+¬ykl⇒ xl + pl≤ xk, ∀(k, l)∈ D,
+xi + pi≤ t, ∀i∈ V,
+0≤ xi∈ R, ∀i∈ V,
+ykl∈{ 0, 1}, ∀(k, l)∈ D.
+The inequality xi + pi ≤ xj represents the precedence
+constraint. The two inequalities using ⇒ represent the non-
+overlap constraint. Note that the constraints with indicator
+variables y can be translated into linear constraints by applying
+the so-called the big-M technique. However, recent MIP solvers
+have the capability to handle such indicator constraints very
+well, so we leave the formulation with indicator variables.
+V. E XPERIMENT
+We conducted two experiments. In the ﬁrst one, we evaluate
+how much the consideration of commutation between opera-
+tions improves the schedule in quantum operation scheduling.
+In the second one, we investigate how much the extent of
+improvement in scheduling can be affected by the optimization
+level in a previous task.
+A. Common Experimental Settings
+Both of the experiments were conducted in a real compiling
+environment. As the target quantum computing device for
+compilation, we used the IBM Q Johannesburg, which has
+20 qubits (see [24] for the details). We implemented our
+scheduling algorithms within Qiskit 0.18.0 (Terra 0.13.0), which
+is an open-source quantum computing software development
+framework [6].
+We ﬁrst transpiled all of the circuits to make them executable
+on the IBM Q Johannesburg, i.e., we solved the qubit routing
+problem to map given circuits onto the device topology. For
+this, we used the “transpile()” function in Qiskit and set the
+ibmq johannesburg backend, ﬁxed the seed transpiler to 1, the
+optimization level to 2, and left the other options as the default.
+During transpiling, all of the circuits were decomposed into
+the basis gates {u1, u2, u3, CX}, which are elementary gates
+supported by the backend. Here u1, u2, u3 are single-qubit
+gates and CX is a two-qubit gate. The execution time for each
+gate (gate length) is provided as the backend properties. Note
+that it can differ depending on which qubit(s) the gate acts on,
+e.g. the length of u3(1) can be different from that of u3(2).
+We used those as of April 11, 2020.
+We then applied our scheduling algorithms to the transpiled
+circuits. We used the real processing time for each of the basis
+gates provided as backend properties. We considered three
+commutation rules on the basis gates— u1(i) ↔ CX (i, j),
+CX (i, j) ↔ CX (i, k), and CX (i, k) ↔ CX (j, k)—in the
+construction of the extended DAGs for the transpiled circuits.
+We used the IBM ILOG CP Optimizer and CPLEX 12.9.0
+to solve the scheduling problem based on the CP and MIP
+formulation described in Section IV, respectively.
+B. Improvement by Considering Commutation in Quantum
+Operation Scheduling
+In the ﬁrst experiment, we quantiﬁed the signiﬁcance of
+considering the commutation of operations in quantum opera-
+tion scheduling. Speciﬁcally, we evaluated the improvement by
+comparing the best solutions (makespans) of the formulation
+constrained by standard DAG with those by extended DAG as
+shown in Table I.
+TABLE I: Comparison of makespans [ dt] ( 1 dt = 2 /9 ns)
+obtained by the formulation based on standard-DAG (Std-DAG)
+and those based on extended DAG (Ext-DAG) for 16 circuits
+from the RevLib benchmark. For the Ext-DAG formulation, the
+solutions by the Constraint Programming solver with the time
+limit of ten seconds are listed. The Qubits and Gates columns
+list the number of qubits and gates in the input circuits. The ∆
+column lists the improvement rate from Std-DAG to Ext-DAG.
+Circuit name Qubits Gates Std-DAG Ext-DAG ∆
+mini alu 305 10 173 24,940 24,308 2.53%
+qft 10 10 200 24,358 24,074 1.17%
+sys6-v0 111 10 215 30,604 30,114 1.60%
+rd73 140 10 230 35,848 35,484 1.02%
+ising model 10 10 480 4,210 4,210 0.00%
+wim 266 11 986 141,914 138,658 2.29%
+sym9 146 12 328 50,458 50,170 0.57%
+rd53 311 13 275 40,420 40,164 0.63%
+ising model 13 13 633 4,210 4,210 0.00%
+0410184 169 14 211 40,356 39,074 3.18%
+sym6 316 14 270 47,178 46,404 1.64%
+rd84 142 15 343 39,812 38,490 3.32%
+cnt3-5 179 16 175 19,630 19,366 1.34%
+cnt3-5 180 16 485 69,854 68,326 2.19%
+qft 16 16 512 50,674 50,088 1.16%
+ising model 16 16 786 4,370 4,370 0.00%
+For this experiment, we used quantum circuits from the test
+dataset provided by Zulehner et al. [25], which originated from
+the RevLib benchmark [26]. We selected 16 circuits with
+10–16 qubits and less than 1000 gates from among them. We
+used the as-soon-as-possible heuristic scheduling algorithm
+implemented in Qiskit to ﬁnd the unique solutions from the
+standard DAG formulation (Std-DAG). We also used the CP
+solver with a 10-sec time limit to ﬁnd the best possible solutions
+from the extended DAG formulation (Ext-DAG).
+Looking at the ∆ column in Table I, i.e., the improvement
+rates from Std-DAG to Ext-DAG, we can see they were non-
+negative and varied depending on the circuit structures from
+0.00% to 3.32% (median 1.26%). These results demonstrate
+that the commutation-aware formulation we proposed in
+Section III-A can improve the resulting schedule length in a
+practical situation. Although they may look marginal, they may
+be welcomed by those who have abundant time for compilation
+and need more optimization.
+We also examined the MIP solver (with the same 10-sec
+time limit) to ﬁnd solutions of the Ext-DAG; however, all of the
+solutions were slightly worse or equal to those by the CP solver.
+Hence, we omitted these results in Table I. As for the solutions
+(i.e., makespans) from the standard DAG formulation, we
+veriﬁed that those by the CP and MIP solvers were exactly the
+
+=== PAGE BREAK ===
+
+TABLE II: Difference in improvement rates ( ∆ column) of makespans from scheduling with standard DAG (Std-DAG)
+compared to those with extended DAG (Ext-DAG) using CP solver after applying a naive gate decomposition or optimized gate
+decomposition.
+Circuit name Naive gate decomposition Optimized gate decomposition
+Std-DAG Ext-DAG ∆ Std-DAG Ext-DAG ∆
+Mod 5 4 6,328 5,984 5.44% 6,016 5,578 7.28%
+VBE-Adder 3 19,126 18,852 1.43% 11,416 11,148 2.35%
+CSLA-MUX 3 22,238 21,438 3.60% 19,774 18,778 5.04%
+RC-Adder 6 28,606 27,564 3.64% 20,408 18,906 7.36%
+Mod-Red 21 33,160 32,348 2.45% 28,320 27,494 2.92%
+Mod-Mult 55 13,942 13,740 1.45% 14,478 14,070 2.82%
+Toff-Barenco 3 12,388 12,388 0.00% 4,812 4,812 0.00%
+Toff-NC 3 9,108 9,108 0.00% 3,818 3,818 0.00%
+Toff-Barenco 4 15,992 15,582 2.56% 9,006 8,678 3.64%
+Toff-NC 4 12,272 11,834 3.57% 8,016 7,626 4.87%
+Toff-Barenco 5 21,600 21,378 1.03% 19,424 19,138 1.47%
+Toff-NC 5 13,536 12,984 4.08% 9,262 8,920 3.69%
+Toff-Barenco 10 90,940 89,248 1.86% 59,282 57,282 3.37%
+Toff-NC 10 43,156 42,546 1.41% 28,720 28,322 1.39%
+GF(24)-Mult 33,160 32,492 2.01% 33,646 33,148 1.48%
+GF(25)-Mult 37,948 36,480 3.87% 44,702 44,030 1.50%
+GF(26)-Mult 63,856 61,870 3.11% 64,784 64,180 0.93%
+same as those by the as-soon-as-possible heuristic scheduling
+algorithm implemented in Qiskit as expected.
+C. Performance Variation by Optimization Level of Previous
+Task
+In the second experiment, we investigated how a previous
+task affects the solution quality in the quantum operation
+scheduling task. To this end, as a previous task, we picked the
+gate decomposition task that decomposes gates with three or
+more qubits into those with one or two qubits. We changed
+the optimization level in the gate decomposition task and
+observed how it affects the improvement rates of makespans
+from scheduling with standard DAG (Std-DAG) compared to
+those with extended DAG (Ext-DAG), as shown in Table II.
+For this experiment, we used 17 circuits from the test dataset
+provided by Nam et al. [27]. To change the optimization level
+in the gate decomposition task, we used both their input circuit
+data (with “ before” sufﬁx in their ﬁle names) and output
+circuit data after the heavy optimization proposed in [27] (with
+“ after heavy” sufﬁx) as our input circuits to be scheduled.
+Those correspond with the Naive gate decomposition column
+and Optimized gate decomposition column, respectively. Note
+that, in the Naive case, gates are decomposed by a simple
+rule-based algorithm implemented in Qiskit before scheduling.
+As in the previous experiment, we used the as-soon-as-possible
+heuristic scheduling algorithm implemented in Qiskit to ﬁnd
+the unique solutions from the Std-DAG formulation and the
+CP solver with a 10-sec time limit to ﬁnd the best possible
+solutions from the Ext-DAG formulation.
+As shown in the two ∆ columns in Table II, we can observe
+clear improvement from Std-DAG to Ext-DAG no matter
+which gate decomposition algorithm we used before QOS:
+Min: 0.00%–Median: 2.45%–Max: 5.44% (Naive) and Min:
+0.00%–Median: 2.82%–Max: 7.36% (Optimized). This again
+conﬁrms that our commutation-aware formulation proposed in
+Section III-A can improve the resulting schedule length in a
+practical situation.
+When we compare the improvement rates ( ∆ column) from
+scheduling after the naive gate decomposition with those after
+the optimized gate decomposition in Table II, there are two
+key ﬁndings. First, they have a similar median: 2.45% (Naive)
+and 2.82% (Optimized). This suggests that, on average, our
+commutation-aware scheduling can stably improve the resulting
+schedule no matter how much circuits has been optimized in a
+previous task (at least in the gate optimization task). Second, the
+improvement rates for each individual circuit differs between
+Naive and Optimized. Speciﬁcally, they increase from Naive
+to Optimized for ten circuits and decrease for ﬁve circuits.
+This suggests that the optimization level of the previous task
+signiﬁcantly affects the optimization gain in QOS.
+Comparing the makespans in the Std- or Ext-DAG column
+under naive gate decomposition with those under optimized gate
+decomposition in Table II, we can see that they decrease for 13
+out of 17 circuits, as expected, but increase for four circuits. The
+latter four exceptional cases stem from negative interference
+among optimization tasks before scheduling, i.e., between gate
+decomposition and some tasks done within ‘transpile()‘ in
+Qiskit, and they are not caused by any errors in the scheduling.
+VI. D ISCUSSION
+The basic version of the job-shop problem as a decision
+problem is known to be NP-complete [28]. Since QOS is
+a special variant of the job-shop problem, as discussed in
+Section III-C, it is not necessary for it to be NP-complete.
+Identifying the theoretical complexity of QOS would be an
+interesting avenue for future work.
+Throughout this paper, we have investigated how to minimize
+the overall execution time of the resulting schedule. Although
+this certainly contributes to obtaining computational results
+with higher ﬁdelity, there should be more direct approaches
+that attempt to maximize the output ﬁdelity by considering
+gate-dependent errors. In fact, such approaches have recently
+proposed in qubit routing [29]–[31]. Utilizing techniques like
+this for QOS is also left for future work.
+
+=== PAGE BREAK ===
+
+The two formulations (CP/MIP) discussed in Section IV
+are useful for the theoretical best case analysis because their
+solvers implement exact algorithms that can ﬁnd the optimal
+solution in the long run. They may also be sufﬁcient for certain
+practical applications, since CP/MIP solvers usually implement
+problem-agnostic heuristic algorithms to ﬁnd the best possible
+solution within a limited time. However, for the use cases where
+the compilation time is too critical to use CP/MIP solvers, it is
+worth considering heuristic algorithms specialized for QOS. As
+an example, we developed a heuristic algorithm based on the
+Heterogeneous-Earliest-Finish-Time (HEFT) algorithm for task
+scheduling. We provide its details in Appendix. Such a heuristic
+algorithm can complement the CP/MIP-based approach.
+VII. C ONCLUSION
+We investigated quantum operations scheduling for the
+problem of scheduling quantum operations in a given circuit
+with the shortest total execution time. We demonstrated that
+quantum operations scheduling can be interpreted as a special
+type of job-shop problem where we consider the commutation
+between quantum operations to make room for optimization. We
+provided a Constraint Programming formulation and showed
+through experiments with real circuits and a compiler that
+solving quantum operations scheduling independently improved
+the schedule length by the modest rate up to 7.36%.
+ACKNOWLEDGMENT
+We thank Dmitri Maslov, Lauren Capelluto, Thomas A.
+Alexander, and Rudy Raymond for their helpful comments.
+REFERENCES
+[1] J. Preskill, “Quantum Computing in the NISQ era and beyond,” Quantum,
+vol. 2, p. 79, 2018.
+[2] D. Venturelli, M. Do, E. Rieffel, and J. Frank, “Temporal planning for
+compilation of quantum approximate optimization circuits,” in Proceed-
+ings of the International Joint Conference on Artiﬁcial Intelligence , 2017,
+pp. 89–101.
+[3] T. S. Metodi, D. D. Thaker, A. W. Cross, F. T. Chong, and I. L. Chuang,
+“Scheduling physical operations in a quantum information processor,”
+in Quantum Information and Computation IV , vol. 6244, International
+Society for Optics and Photonics. SPIE, 2006, pp. 210–221.
+[4] G. G. Guerreschi and J. Park, “Two-step approach to scheduling quantum
+circuits,” Quantum Science and Technology , vol. 3, no. 4, p. 045003,
+2018.
+[5] Y . Shi, N. Leung, P. Gokhale, Z. Rossi, D. I. Schuster, H. Hoffmann,
+and F. T. Chong, “Optimized compilation of aggregated instructions
+for realistic quantum computers,” in Proceedings of the Twenty-Fourth
+International Conference on Architectural Support for Programming
+Languages and Operating Systems . ACM, 2019, pp. 1031–1044.
+[6] Qiskit, “Qiskit: An open-source framework for quantum computing,”
+2019, https://www.qiskit.org/.
+[7] J. Bła˙zewicz, W. Domschke, and E. Pesch, “The job shop scheduling
+problem: Conventional and new solution techniques,” European Journal
+of Operational Research , vol. 93, no. 1, pp. 1–33, 1996.
+[8] J. Zhang, G. Ding, Y . Zou, S. Qin, and J. Fu, “Review of job shop
+scheduling research and its new perspectives under industry 4.0,” Journal
+of Intelligent Manufacturing , vol. 30, no. 4, pp. 1809–1830, 2019.
+[9] A. S. Manne, “On the job-shop scheduling problem,” Operations
+Research, vol. 8, no. 2, pp. 219–223, 1960.
+[10] J. Adams, E. Balas, and D. Zawack, “The shifting bottleneck procedure
+for job shop scheduling,” Management Science, vol. 34, no. 3, pp. 391–
+401, 1988.
+[11] P. J. M. van Laarhoven, E. H. L. Aarts, and J. K. Lenstra, “Job shop
+scheduling by simulated annealing,” Operations Research, vol. 40, no. 1,
+pp. 113–125, 1992.
+[12] H. Topcuoglu, S. Hariri, and M.-Y . Wu, “Performance-effective and
+low-complexity task scheduling for heterogeneous computing,” IEEE
+Transactions on Parallel and Distributed Systems , vol. 13, no. 3, pp.
+260–274, 2002.
+[13] O. Sinnen, Task scheduling for parallel systems . John Wiley & Sons,
+2006.
+[14] L.-C. Canon, E. Jeannot, R. Sakellariou, and W. Zheng, “Comparative
+evaluation of the robustness of DAG scheduling heuristics,” in Grid
+Computing, 2008, pp. 73–84.
+[15] C. Valouxis, C. Gogos, P. Alefragis, G. Goulas, N. V oros, and E. Housos,
+“DAG scheduling using integer programming in heterogeneous parallel
+execution environments,” in Proceedings of the Multidisciplinary Inter-
+national Conference on Scheduling: Theory and Applications (MISTA
+2013), 2013, pp. 392–401.
+[16] D. Maslov, S. M. Falconer, and M. Mosca, “Quantum circuit placement,”
+IEEE Transactions on Computer-Aided Design of Integrated Circuits
+and Systems, vol. 27, no. 4, pp. 752–763, 2008.
+[17] D. Bhattacharjee and A. Chattopadhyay, “Depth-optimal quantum circuit
+placement for arbitrary topologies,” arXiv preprint arXiv:1703.08540 ,
+2017.
+[18] A. Cowtan, S. Dilkes, R. Duncan, A. Krajenbrink, W. Simmons, and
+S. Sivarajah, “On the qubit routing problem,” in 14th Conference on the
+Theory of Quantum Computation, Communication and Cryptography ,
+2019.
+[19] A. M. Childs, E. Schoute, and C. M. Unsal, “Circuit transformations for
+quantum architectures,” in 14th Conference on the Theory of Quantum
+Computation, Communication and Cryptography , 2019.
+[20] N. Mohammadzadeh, M. S. Zamani, and M. Sedighi, “Improving
+latency of quantum circuits by gate exchanging,” in Proceedings of
+12th Euromicro Conference on Digital System Design, Architectures,
+Methods and Tools. IEEE, 2009, pp. 67–73.
+[21] T. Bahreini and N. Mohammadzadeh, “An MINLP model for scheduling
+and placement of quantum circuits with a heuristic solution approach,”
+ACM Journal on Emerging Technologies in Computing Systems (JETC) ,
+vol. 12, no. 3, p. 29, 2015.
+[22] T. Yamada and R. Nakano, “Job-shop scheduling,” in Genetic algorithms
+in engineering systems . The Institution of Electrical Engineers, 1997,
+ch. 7, pp. 134–160.
+[23] T. Itoko, R. Raymond, T. Imamichi, and A. Matsuo, “Optimization of
+quantum circuit mapping using gate transformation and commutation,”
+Integration, vol. 70, pp. 43–50, 2020.
+[24] A. D. C ´orcoles, A. Kandala, A. Javadi-Abhari, D. T. McClure, A. W.
+Cross, K. Temme, P. D. Nation, M. Steffen, and J. Gambetta, “Challenges
+and opportunities of near-term quantum computing systems,” Proceedings
+of the IEEE , 2019.
+[25] A. Zulehner, A. Paler, and R. Wille, “An efﬁcient methodology for
+mapping quantum circuits to the IBM QX architectures,” IEEE Transac-
+tions on Computer Aided Design of Integrated Circuits and Systems
+(TCAD), 2018, . Implementation with test data set is available at
+https://github.com/iic-jku/ibm qx mapping.
+[26] M. Soeken, S. Frehse, R. Wille, and R. Drechsler, “RevKit: An open
+source toolkit for the design of reversible circuits,” in Proceedings of
+the International Workshop on Reversible Computation . Springer, 2011,
+pp. 64–76, RevLib is available at http://www.revlib.org.
+[27] Y . Nam, N. J. Ross, Y . Su, A. M. Childs, and D. Maslov, “Automated
+optimization of large quantum circuits with continuous parameters,” npj
+Quantum Information, vol. 4, no. 1, p. 23, 2018.
+[28] M. R. Garey and D. S. Johnson, Computers and intractability . W. H.
+Freeman and Company, 1979.
+[29] S. S. Tannu and M. K. Qureshi, “Not all qubits are created equal: a case
+for variability-aware policies for NISQ-era quantum computers,” in Pro-
+ceedings of the Twenty-Fourth International Conference on Architectural
+Support for Programming Languages and Operating Systems , 2019, pp.
+987–999.
+[30] P. Murali, J. M. Baker, A. Javadi-Abhari, F. T. Chong, and M. Martonosi,
+“Noise-adaptive compiler mappings for noisy intermediate-scale quan-
+tum computers,” in Proceedings of the Twenty-Fourth International
+Conference on Architectural Support for Programming Languages and
+Operating Systems, 2019, pp. 1015–1029.
+[31] S. Nishio, Y . Pan, T. Satoh, H. Amano, and R. V . Meter, “Extracting
+success from IBM’s 20-qubit machines using error-aware compilation,”
+ACM Journal on Emerging Technologies in Computing Systems (JETC) ,
+vol. 16, no. 3, pp. 1–25, 2020.
+
+=== PAGE BREAK ===
+
+TABLE III: Makespans and their improvement rates ( ∆) from scheduling with standard DAG (Std-DAG) compared to those
+with extended DAG (Ext-DAG) using HEFT heuristic algorithm or CP solver after applying a naive gate decomposition or
+optimized gate decomposition.
+Circuit name Naive gate decomposition Optimized gate decomposition
+Std-DAG Ext-DAG Std-DAG Ext-DAG
+HEFT (∆) CP ( ∆) HEFT (∆) CP ( ∆)
+Mod 5 4 6,328 6,076 (3.98%) 5,984 (5.44%) 6,016 5,670 (5.75%) 5,578 (7.28%)
+VBE-Adder 3 19,126 18,972 (0.81%) 18,852 (1.43%) 11,416 11,148 (2.35%) 11,148 (2.35%)
+CSLA-MUX 3 22,238 21,444 (3.57%) 21,438 (3.60%) 19,774 18,914 (4.35%) 18,778 (5.04%)
+RC-Adder 6 28,606 27,584 (3.57%) 27,564 (3.64%) 20,408 19,136 (6.23%) 18,906 (7.36%)
+Mod-Red 21 33,160 32,640 (1.57%) 32,348 (2.45%) 28,320 27,570 (2.65%) 27,494 (2.92%)
+Mod-Mult 55 13,942 13,822 (0.86%) 13,740 (1.45%) 14,478 14,270 (1.44%) 14,070 (2.82%)
+Toff-Barenco 3 12,388 12,388 (0.00%) 12,388 (0.00%) 4,812 4,998 ( −3.87%) 4,812 (0.00%)
+Toff-NC 3 9,108 9,108 (0.00%) 9,108 (0.00%) 3,818 3,818 (0.00%) 3,818 (0.00%)
+Toff-Barenco 4 15,992 15,786 (1.29%) 15,582 (2.56%) 9,006 8,678 (3.64%) 8,678 (3.64%)
+Toff-NC 4 12,272 11,834 (3.57%) 11,834 (3.57%) 8,016 7,698 (3.97%) 7,626 (4.87%)
+Toff-Barenco 5 21,600 21,388 (0.98%) 21,378 (1.03%) 19,424 19,220 (1.05%) 19,138 (1.47%)
+Toff-NC 5 13,536 13,002 (3.95%) 12,984 (4.08%) 9,262 8,920 (3.69%) 8,920 (3.69%)
+Toff-Barenco 10 90,940 89,418 (1.67%) 89,248 (1.86%) 59,282 57,678 (2.71%) 57,282 (3.37%)
+Toff-NC 10 43,156 42,600 (1.29%) 42,546 (1.41%) 28,720 28,494 (0.79%) 28,322 (1.39%)
+GF(24)-Mult 33,160 32,508 (1.97%) 32,492 (2.01%) 33,646 33,160 (1.44%) 33,148 (1.48%)
+GF(25)-Mult 37,948 36,734 (3.20%) 36,480 (3.87%) 44,702 44,464 (0.53%) 44,030 (1.50%)
+GF(26)-Mult 63,856 62,174 (2.63%) 61,870 (3.11%) 64,784 64,278 (0.78%) 64,180 (0.93%)
+APPENDIX
+We show how the Heterogeneous-Earliest-Finish-Time
+(HEFT) algorithm for task scheduling can be used for quantum
+operation scheduling with a slight modiﬁcation. The original
+HEFT algorithm is designed for scheduling with a soft resource
+constraint, i.e., every operation can be executed on any
+processor with a different cost. We adjust it here so that it can
+work with a hard resource constraint, i.e., every operation has
+ﬁxed qubit operands that are not interchangeable.
+The original HEFT algorithm consists of two phases: an
+operation prioritizing phase for computing the priorities of all
+operations based on upward ranking and a processor selection
+phase for scheduling the highest priority operation at the
+moment on the processor, which minimizes the operation’s
+ﬁnish time [12]. In the processor selection phase, the algorithm
+considers the possibility of inserting an operation in the earliest
+idle time-slot between two already scheduled operations. Only
+the idle time-slots that preserve precedence constraints, i.e.,
+that comply with the dependency graph, are considered in this
+phase. This insertion-based policy allowing the insertion in the
+idle time-slot characterizes the HEFT algorithm.
+While keeping this insertion-based policy, we adjust the
+HEFT algorithm so that every operation is assigned to the
+ﬁxed qubits (i.e., processors in the original term), which means
+we no longer need to select qubits in the processor selection
+phase. Note that it is necessary for the adjusted HEFT algorithm
+to maintain scheduled time-slots across qubits, whereas the
+original algorithm simply maintains the time-slots by processors.
+The process ﬂow of the HEFT algorithm for quantum operation
+scheduling is shown in Algorithm 1.
+We conducted experiments to check the solution quality
+of the adjusted HEFT algorithm with the same benchmark
+sets and experimental settings as used in Section V. For all
+of the instances under the formulation with extended DAG
+(Ext-DAG), the HEFT algorithm always succeeded in ﬁnding
+Algorithm 1 HEFT algorithm for QOS
+1: G = (V, C ): dependency graph of a QOS problem
+2: Compute upward rank r(u) for each operation u ∈ V by
+r(u) = d(u) + max
+v∈succ(u)
+r(v)
+where succ(u) is the set of immediate successors of u, d(u) is
+the duration of u, and r(e) = d(e) for any exit operation e.
+3: ready time(u) = 0 for all u ∈ V .
+4: for all u ∈ V in descending order of r(u) do
+5: Insert u at the start time t of the earliest idle time-slot (whose
+duration > d(u)) after ready time(u).
+6: for all v ∈ succ(u) do
+7: ready time(v) = max( ready time(v), t + d(u)).
+8: end for
+9: end for
+solutions slightly worse than or equal to those by the CP solver.
+The medians of improvement rates from Std-DAG to Ext-DAG
+with the HEFT algorithm (the CP solver) were 1.16% (1.26%)
+for circuits by Zulehner et al. [25] used in Table I and 1.67%
+(2.45%) and 2.35% (2.82%) for circuits by Nam et al. [27]
+used in Table II with naive and optimized gate decomposition,
+respectively. This suggests that the HEFT algorithm is a good
+option for adding a bit more optimization in cases where not
+much compilation time is available.
+All the results of these latter two experiments are listed in
+Table III. We can see a negative improvement at Toff-arenco 3
+using optimized gate decomposition and the HEFT algorithm.
+This can happen because considering further commutation in
+the formulation with Ext-DAG yields a broader search space
+for algorithms, and it provides an opportunity to ﬁnd not only
+a better solution than Std-DAG but also a worse one. However,
+this is not a big issue in practice in cases where we can afford
+to select the better of the solution by the as-soon-as-possible
+algorithm with Std-DAG and that by the HEFT algorithm with
+Ext-DAG.

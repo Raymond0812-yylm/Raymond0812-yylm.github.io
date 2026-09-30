@@ -1,0 +1,2014 @@
+Quantum Computing – Strategic
+Recommendations for the Industry
+Marvin Erdmann∗1, Lukas Karch1, Abhishek Awasthi 2, Caitlin Isobel
+Jones2, Pallavi Bhardwaj 3, Florian Krellner 3, Jonas Stein 4, Claudia
+Linnhoff-Popien4, Nico Kraus 5, Peter Eder 6,7, Sarah Braun 6, and Tong Liu 6
+1BMW Group, Munich, Germany
+2BASF Digital Solutions GmbH, Ludwigshafen, Germany
+3SAP SE, Walldorf, Germany
+4LMU Munich, Munich, Germany
+5Aqarios GmbH, Munich, Germany
+6Siemens AG, Garching, Germany
+7Technical University Munich, Munich, Germany
+Abstract
+This whitepaper surveys the current landscape and short- to mid-
+term prospects for quantum-enabled optimization and machine learn-
+ing use cases in industrial settings. Grounded in the QCHALLenge
+program, it synthesizes hardware trajectories from different quantum
+architectures and providers, and assesses their maturity and poten-
+tial for real-world use cases under a standardized traffic-light evalua-
+tion framework. We provide a concise summary of relevant hardware
+roadmaps, distinguishing superconducting and ion-trap technologies,
+their current states, modalities, and projected scaling trajectories.
+The core of the presented work are the use case evaluations in the
+domains of optimization problems and machine learning applications.
+For the conducted experiments, we apply a consistent set of evalua-
+tion criteria (model formulation, scalability, solution quality, runtime,
+and transferability) which are assessed in a shared system of three
+categories, ranging from optimistic (solutions produced by quantum
+computers are competitive with classical methods and/or a clear path
+to a quantum advantage is shown) to pessimistic (significant hurdles
+prevent practical application of quantum solutions now and poten-
+tially in the future). The resulting verdicts illuminate where quantum
+approaches currently offer promise, where hybrid classical-quantum
+strategies are most viable, and where classical methods are expected
+to remain superior.
+∗Corresponding author: marvin.erdmann@bmw.de
+1
+arXiv:2601.08578v1  [quant-ph]  13 Jan 2026
+
+=== PAGE BREAK ===
+
+1 Introduction
+The project ”Quantum-Classical Hybrid Optimization Algorithms for Logis-
+tics and Production Line Management” (QCHALLenge), funded by the Ger-
+man Federal Ministry of Research, Technology and Space (BMFTR), explores
+the industrial applicability of quantum computing (QC) in optimization and
+machine learning [1]. Led by a consortium including BASF, BMW Group,
+SAP SE, Siemens, and LMU Munich, the project aims to evaluate quantum-
+classical hybrid algorithms for real-world production and logistics challenges.
+Several industrial use cases are tested on different quantum algorithms, along
+with their implementations on noisy intermediate-scale quantum (NISQ) de-
+vices, focusing on hybrid software that mitigates hardware limitations such
+as low qubit counts, limited connectivity, and error susceptibility. These
+algorithms are benchmarked against classical solvers to test efficacy of quan-
+tum algorithms and the quantum hardware. Benchmarking is central to the
+project’s technical roadmap. During the course of this project, we utilize
+quantum hardware from IBM, IonQ, DWave [2, 3].
+Key aspects of the QCHALLenge projects are:
+•A top-down approach and focuses on application-layer tools to reduce
+complexity for non-experts.
+•Development of a hybrid analysis and evaluation tool to assess problem
+complexity and performance across QC hardware.
+•Emphasis on logistics and production due to their high industrial rele-
+vance and repeatability.
+This report is part of one of the overarching goals of QCHALLenge in
+providing methodological recommendations for the industry, grounded in the
+estimated business impact of QC on selected use cases in production and
+logistics. This catalog also includes the QC roadmaps of several hardware
+vendors tested during this project, and their suitability for use cases provided
+by the project members. Please note, that we refer to the hardware vendors’
+respective technology roadmaps publicly available on the date of publication
+of this work.
+The QCHALLenge project is part of a broader quantum ecosystem and
+connects the following other projects, initiatives and industries.
+2
+
+=== PAGE BREAK ===
+
+•PlanQK: Commercial quantum platform focused on small and medium-
+sized enterprises; QCHALLenge complements it by targeting large in-
+dustry [4].
+•Luna: Commercial quantum solution suite provided by Aqarios, a spin-
+off from the Quantum Applications and Research Laboratory (QAR-
+Lab) at LMU Munich; They collaborated with all members of QCHAL-
+Lenge and supported the research for this study [5].
+•QUARK: Quantum computing application benchmarking framework;
+QCHALLenge provides public plugin with its use cases and metrics [6].
+•QuCUN: User-oriented quantum computing platform; QCHALLenge
+contributes tools and demonstrators [7].
+•QUTAC: Industry consortium; QCHALLenge aligns with its mission
+to industrialize quantum computing [8].
+•Events & Dissemination: QCHALLenge contributes to high-profile con-
+ferences and public events like the Bitkom Quantum Summit and mul-
+tiple QCE conferences and informs the public about these events on its
+own webpage [9–11].
+The remainder of the paper is structured as follows: Section 2 presents
+the publicly available technology roadmaps of selected quantum hardware
+providers with a focus on quantum architectures that were used in the experi-
+ments conducted for this study, namely superconducting devices (Section 2.1)
+and ion traps (Section 2.2). In Section 3, we first introduce the categories
+and the evaluation framework used to assess the performance and potential
+of quantum approaches in this work. Following that, we describe industry
+applications from the domains of optimization problems (Section 3.2) and
+machine learning (Section 3.3), assess the capabilities of quantum solutions,
+and make a verdict on the potential of quantum computing for each case.
+We conclude with an overview (Section 3.4) and outlook on the promises of
+quantum computing for industrial use cases based on our results and give
+recommendations for users of the evaluated technologies (Section 4).
+3
+
+=== PAGE BREAK ===
+
+2 Quantum Hardware Roadmap
+Quantum hardware roadmaps are a foundational element for both indus-
+try and research, enabling strategic planning, prioritization, and disciplined
+resource allocation across projects, budgets, and time horizons. A reliable
+roadmap translates technical capability ceilings into actionable milestones,
+supports risk assessment, and guides decisions on experimentation, procure-
+ment, and collaboration. By aligning anticipated hardware evolutions with
+concrete use cases, organizations can anticipate near-term feasibility, adjust
+expectations for mid- to long-term impact, and orchestrate the allocation of
+expertise, resources, and funding accordingly. In this sense, robust roadmaps
+are the basis for the entire development pipeline from research to deployment.
+Qubit counts, while the most transparent and widely communicated met-
+ric offered by vendors, constitute only one dimension of quantum hardware
+capacity. Other critical factors are also relevant for practical performance:
+qubit quality, including coherence times and gate fidelities; qubit connectiv-
+ity and the architectural layout that determines embeddability; error rates
+and the prospects for error correction; the breadth of native gate sets; and
+the maturity of software stacks, including compilers, embedding techniques,
+and ecosystem tooling [12]. Nevertheless, for the purposes of this study, we
+employ qubit counts as the core metric. This choice reflects the practical
+advantages of qubit-count comparisons: they offer a straightforward, con-
+sistently reported benchmark that facilitates the evaluation across diverse
+hardware platforms and provides an intuitive basis for long-range planning
+and cross-site benchmarking.
+This section focuses on the product roadmaps of providers that build two
+kinds of quantum technology. Section 2.1 surveys superconducting quan-
+tum computers, detailing their current state, the coexistence of gate-based
+and annealing modalities within this modality, and the prevailing scaling
+trajectories in terms of qubit counts. Section 2.2 turns to ion-trap-based
+quantum computers, describes their physical concept, and presents the tech-
+nology roadmaps of providers of such devices. Alternative quantum-related
+hardware families, such as neutral-atom-based [13], photonic [14] and topo-
+logical quantum computers [15], were not used for the evaluation of the use
+cases in this study and are therefore not in the focus of this section.
+4
+
+=== PAGE BREAK ===
+
+2.1 Superconducting Quantum Computers
+Superconducting devices represent a prominent class of quantum computing
+technology, distinguished by their use of superconducting materials to create
+qubits. These qubits operate at extremely low temperatures, where materi-
+als exhibit zero electrical resistance, allowing for the efficient manipulation
+of quantum states. Superconducting qubits are typically implemented us-
+ing Josephson junctions, which enable the creation of non-linear inductive
+elements that are essential for quantum operations.
+One of the key advantages of superconducting devices is their compatibil-
+ity with existing semiconductor fabrication techniques, which can accelerate
+the development and scaling of quantum systems. This compatibility allows
+for the potential mass production of superconducting qubits, making them
+a viable option for future quantum computing applications. However, chal-
+lenges remain, particularly in terms of managing the thermal environment
+and minimizing noise, which can adversely affect qubit performance.
+Superconducting qubits are one of several ways how to realize quantum
+computing hardware (another are ion traps which are introduced in Sec-
+tion 2.2). Two computational methods that use superconducting qubits are
+quantum annealing and gate-based devices.
+One of the primary distinctions between gate-based quantum computing
+and quantum annealers lies in their operational principles. Gate-based sys-
+tems rely on a sequence of quantum gates to perform calculations. These
+gates manipulate the quantum states of qubits, allowing for the implementa-
+tion of universal quantum algorithms. The flexibility of gate-based quantum
+computers enables them to tackle a broad spectrum of problems, from fac-
+toring large numbers to simulating quantum systems.
+In contrast, quantum annealers are specifically designed for optimization
+problems. They operate by finding the lowest energy state of a system, which
+corresponds to the optimal solution of a given problem. Quantum annealers
+do not utilize a series of gates; instead, they leverage quantum tunneling
+and superposition to explore multiple solutions simultaneously. This makes
+them particularly effective for specific types of optimization tasks, but less
+versatile than gate-based systems for general-purpose quantum computing.
+5
+
+=== PAGE BREAK ===
+
+2.1.1 Quantum Annealers
+Quantum annealing is a distinct approach within the realm of quantum com-
+puting, setting itself apart from other quantum technologies such as gate-
+based quantum computing. In contrast to other quantum technologies that
+may require complex circuit designs and extensive error correction, quantum
+annealing offers a more direct pathway to solving specific types of optimiza-
+tion problems, making it particularly suited for applications where finding
+optimal solutions is critical.
+The technology roadmap for quantum annealing has seen significant ad-
+vancements, particularly through the efforts of companies like D-Wave [16,
+17], which has been at the forefront of this technology. The evolution of
+quantum annealers has been marked by a steady increase in qubit count and
+improvements in hardware capabilities. This growth is crucial as the number
+of qubits directly impacts the complexity of problems that can be addressed.
+However, the scaling of qubits is not merely a linear progression; it involves
+overcoming significant challenges related to embedding problems into the
+quantum architecture and ensuring that the qubits maintain coherence long
+enough to perform calculations.
+The roadmap for quantum annealing also emphasizes the need for en-
+hanced error correction and noise reduction techniques. Current quantum
+annealers operate in the NISQ era, where qubits are prone to errors that can
+affect the reliability of solutions. As such, future developments will focus on
+improving qubit fidelity and developing more sophisticated algorithms that
+can effectively utilize the available qubits.
+Moreover, the anticipated advancements in quantum annealing are not
+just about increasing qubit counts. They also involve refining the algorithms
+used to translate real-world problems into a quadratic unconstrained binary
+optimization (QUBO) model suitable for quantum processing. This trans-
+formation is often complex and can introduce inefficiencies that diminish the
+potential advantages of quantum solutions over classical methods.
+Figure 1 depicts the historic and advertised qubit counts according to
+the technology roadmap of D-Wave, as well as the qubit counts of devices
+provided by NEC [18] and Qilimanjaro [19], two smaller companies from
+Japan and Spain, respectively, with a footprint in quantum annealing.
+With a history of 100+ qubit quantum annealers since 2011, D-Wave is
+the leading manufacturer of such devices since the very beginning of this tech-
+nology’s engineering. Their largest device in terms of the number of qubits is
+6
+
+=== PAGE BREAK ===
+
+Advantagewhich was made publicly available in 2020 and features 5760 phys-
+ical, superconducting flux qubits [20, 21]. Since then, D-Wave worked on the
+successor,Advantage2, which was made fully publicly available in 2025 fo-
+cusing on increasing the qubit interconnectivity and coherence, and reducing
+noise [22]. While currently being limited to about 4400 physical qubits, D-
+Wave communicated their plans to update their devices continuously, aiming
+for a 100,000 qubit system in 2030 [23].
+Outside of D-Wave, the landscape of quantum annealing hardware pro-
+viders is very scarce. NEC Corporation, Tohuku University, Japan’s National
+Institute of Advanced Industrial Science and Technology, and ParityQC all
+partnered in 2023 to build an 8-qubit quantum annealing machine, mainly
+used for public research [18]. Qilimanjaro went a step beyond that when they
+integrated a 10-qubit adiabatic quantum processing unit into the Barcelona
+Supercomputing Center in 2025, making it the first high performance com-
+puting (HPC-)integrated quantum annealing device in Europe [19, 24]. How-
+ever, no future development plans have been communicated by any quantum
+annealing hardware provider but D-Wave.
+Figure 1: Historical and projected qubit count development of D-Wave’s
+quantum annealing devices (blue) compared with qubit counts of devices
+manufactured by NEC (orange) and Qilimanjaro (green).
+In summary, the future success of quantum annealing will rely on its
+advancements in qubit scaling but maybe even more so in overcoming chal-
+7
+
+=== PAGE BREAK ===
+
+lenges like limited qubit connectivity, error correction, and algorithmic effi-
+ciency. As the technology matures, it may turn out to be the directest path
+to a practical quantum advantage by solving complex optimization problems
+across various industries. However, achieving these advancements will re-
+quire continued research and development to address the inherent challenges
+of quantum hardware and algorithm design. The fact that with D-Wave
+there is only one globally relevant provider of quantum annealing hardware,
+makes this technology relatively vulnerable to the commercial success and
+stability of this player in a highly dynamic ecosystem.
+2.1.2 Gate-based Devices
+Gate-based quantum computing is a versatile approach that utilizes quan-
+tum gates to manipulate qubits, enabling the execution of a wide range of
+quantum algorithms. This method is characterized by its ability to perform
+complex computations through a series of quantum operations, making it
+suitable for various applications, including quantum simulations, cryptogra-
+phy, and optimization problems.
+The roadmaps for gate-based devices from providers like IBM [25] and
+IQM [26] foresee rapid advancements, particularly in improving coherence
+times, gate fidelities, and the number of physical (and later also logical)
+qubits. As researchers continue to refine the design and fabrication processes,
+the performance of superconducting qubits has steadily improved, enabling
+more complex quantum algorithms to be executed. Additionally, the modular
+nature of gate-based circuits allows for the potential integration of various
+qubit types and classical control systems, enhancing the overall functionality
+of quantum processors.
+The graph in Figure 2 includes the historical development of gate-based
+quantum computers built by three of the leading providers of this technology
+(IBM, Google, and IQM) and the projected development according to their
+respective technology roadmaps.
+Compared to quantum annealing, the landscape of providers for gate-
+based quantum computers is significantly more dense when it comes to qubit
+counts. While Google held the record for the most qubits in a gate-based
+quantum computer between 2015 and 2020 [27, 28], including theSycamore
+processor with which Google claimed quantum supremacy in 2019 [29], IBM’s
+Eagleprocessor was the first gate-based quantum computing device with
+more than 100 qubits in 2021 [30]. In the same year, IQM provided access
+8
+
+=== PAGE BREAK ===
+
+Figure 2: Historic and projected development of the physical qubit counts
+of gate-based quantum computers manufactured by IBM (blue), Google (or-
+ange), and IQM (green)
+to their 5-qubitSparkdevices [31], joining the race for leadership between
+manufacturers of superconducting gate-based quantum computers. In 2023,
+IBM built the largest such device to date:Condoris a 1121-qubit quantum
+processor with which IBM announced ”the beginning of the era of quantum
+utility” [32].
+Since then, IBM focused on single-qubit quality improvements, qubit con-
+nectivity, and modularity, leading to the development of smaller but more
+powerful chips in 2024 (Heron[33, 34]) and 2025 (Nighthawk[35]). In
+that time frame, Google and IQM closed the gap with GoogleWillow(105
+qubits) [36] and IQMRadiance(150 qubits) [37].
+According to the hardware roadmaps of IBM [25] and IQM [26], both
+providers plan to further scale their quantum machines. Google also pub-
+lished a list of milestones they plan to achieve but no concrete timeline [38].
+All of them agree on the goal to build an error-corrected, fault-tolerant quan-
+tum computer within this decade, starting to formulate their target numbers
+in terms of logical qubits rather than physical qubits at some point during
+their respective roadmaps (we only consider communicated projections for
+physical qubits in the figures presented in this work). This clear path to-
+wards fault-tolerance allows to estimate the date at which industry-relevant
+9
+
+=== PAGE BREAK ===
+
+problems can be efficiently solved on quantum hardware and will be the basis
+on which we evaluated the use cases in Section 3.
+In summary, superconducting devices are among the leading technologies
+in the quantum computing landscape, characterized by their broad spectrum
+of application domains and rapid advancements in performance. As research
+progresses, these devices are expected to play a crucial role in the realization
+of practical quantum utilization and a potential quantum advantage, capable
+of tackling complex, large-scale industry problems that are currently beyond
+the reach of classical computing technologies.
+2.2 Ion Traps
+Ion trap technology is a different approach to realize qubits in the field of
+quantum computing compared to superconducting devices. Its distinguishing
+feature is its use of charged particles, or ions, as qubits. Unlike supercon-
+ducting devices, which rely on solid-state systems, ion traps utilize electro-
+magnetic fields to confine and manipulate individual ions in a vacuum. This
+method allows for high-fidelity quantum operations, as ions can be precisely
+controlled using laser beams to perform quantum gates. The inherent sta-
+bility of trapped ions contributes to longer coherence times compared to
+many other qubit implementations, making them particularly attractive for
+processes that require many quantum gate operations per qubit.
+One of the primary differences between ion traps and superconducting
+devices lies in their operational environment. Ion traps operate at room tem-
+perature, simplifying the cooling requirements compared to superconducting
+qubits that must be maintained at cryogenic temperatures. This character-
+istic can facilitate easier integration with classical control systems and may
+reduce the complexity of the overall quantum computing architecture.
+Additionally, ion trap systems typically exhibit a high degree of connec-
+tivity between qubits, allowing for more flexible quantum circuit designs.
+This contrasts with superconducting devices, where qubit connectivity can
+be limited by the physical layout of the chip. The ability to perform entan-
+gling operations between any pair of ions in a trap enhances the potential
+for implementing complex quantum algorithms.
+While offering some theoretical and practical advantages to other qubit
+technologies, historically, trapped-ion-based quantum computers also faced
+unique challenges, particularly in terms of scalability. While individual ion
+traps can achieve excellent performance, creating large-scale quantum pro-
+10
+
+=== PAGE BREAK ===
+
+cessors with many qubits remains a significant hurdle for hardware providers
+like Quantinuum, IonQ, and AQT. The complexity of managing multiple
+ions and ensuring precise control over their interactions can complicate the
+scaling process.
+The two leading trapped-ion quantum computing manufacturers Quantin-
+uum and IonQ advertise considerable increases in qubit counts of upcoming
+devices until the year 2030, while AQT does currently not provide a public
+hardware roadmap. Figure 3 shows that, in 2025, the largest trapped-ion-
+based quantum computer in terms of qubits is Quantinuum Helios with 96
+physical Barium-137 qubits [39]. IonQ advertises a device with 2 Million
+individual ions within five years from now [40], while Quantinuum expects a
+more moderate growth to “1000s physical qubits,” focusing on reducing the
+logical error rates, according to their latest technology roadmap [41].
+Figure 3: Historic and projected development of trapped-ion-based quantum
+computers manufactured by Quantinuum (blue) and IonQ (orange), com-
+pared with qubit counts of devices manufactured by AQT (green).
+In summary, ion trap technology offers a distinct approach to quantum
+computing, characterized by its use of trapped ions as qubits and its op-
+erational advantages in terms of coherence and connectivity. As research
+continues to advance in this area, ion traps are expected to contribute signif-
+icantly to the development of practical quantum computers, complementing
+the capabilities of superconducting devices.
+11
+
+=== PAGE BREAK ===
+
+3 Industrial Use Cases Considered
+One of the most important tasks in the QCHALLenge project is the use
+case identification and evaluation in the field of combinatorial optimization
+and machine learning with quantum computing. Each use case is assessed
+using both classical and QC-based approaches, with an estimation of benefits
+with quantum computing and further steps required in obtaining a quantum
+advantage.
+The code basis used for the experiments conducted for the project is
+available as an open-source GitHub repository [42]. The results can also be
+reproduced and benchmarked with other solution methods and (quantum)
+hardware backends due to its implementation as a plugin of the Quantum
+Computing Application Benchmarking (QUARK) framework [6].
+3.1 Traffic-Light-based Evaluation
+3.1.1 Considered Aspects of Use Cases
+Evaluating quantum computing through a set of well-defined, standardized
+aspects provides a structured and transparent way to understand its capabil-
+ities, limitations, and potential for practical application. These aspects help
+identify where quantum approaches already offer advantages, where signifi-
+cant challenges remain, and what areas require further research. By apply-
+ing consistent criteria across diverse use cases, it becomes possible to make
+meaningful comparisons, prioritize development efforts, and understand the
+realistic prospects for industrial implementation. Additionally, in some in-
+stances, specific use cases may require the examination of supplementary,
+use-case-specific aspects. These additional evaluations are intended to high-
+light particular advantages, disadvantages, or unique properties of individual
+applications, rather than to serve as a basis for direct comparison with other
+use cases.
+•Model and Implementation: This aspect evaluates how the prob-
+lem is formulated and represented in the quantum computing context,
+including the specific algorithms, encodings, and problem structures
+used. It measures how well the problem fits into quantum-friendly
+formats like QUBO or a binary quadratic program (BQP) and how ef-
+fectively the model can be implemented on quantum hardware, e.g., if
+12
+
+=== PAGE BREAK ===
+
+slack variables are needed to implement constraints and if they hinder
+the performance.
+•Scalability: This aspect assesses the ability of quantum computing
+approaches to handle increasing problem sizes. It considers the number
+of variables, qubits, and the computational resources needed as the
+problem complexity grows, and whether current or future hardware
+can support large-scale industrial problems.
+•Solution Quality: This measures the optimality, accuracy, and stabil-
+ity of solutions produced by quantum algorithms compared to classical
+methods. It evaluates whether quantum approaches can find better,
+faster, or more reliable solutions in practice.
+•Runtime: This aspect examines the time efficiency of quantum solu-
+tions in comparison to classical methods. It considers the total time
+taken for problem solving, including embedding, execution, and post-
+processing, and its suitability for real-time or near-real-time applica-
+tions.
+•Transferability: This evaluates the applicability of quantum solutions
+across different problem types or domains. It reflects the flexibility of
+the evaluated quantum methods to adapt to various use cases and the
+potential for broad industrial deployment.
+3.1.2 Categories, Evaluation, and Verdict
+The traffic-light-based system is a straightforward and intuitive method for
+categorizing the performance and potential of quantum computing across dif-
+ferent aspects. By using the colors green, yellow, and red, this system quickly
+conveys the current state, short-term prospects, and long-term challenges
+associated with each aspect. Green indicates that quantum approaches are
+competitive or promising, yellow signifies areas where benefits are uncertain
+or depend on future developments, and red highlights aspects where signifi-
+cant hurdles prevent practical application now and potentially in the future.
+This visual and easily understandable framework facilitates clear communi-
+cation of complex technical evaluations, helping stakeholders quickly grasp
+the strengths and limitations of quantum computing in various use cases. It
+also supports strategic decision-making by highlighting priority areas for re-
+search and development, as well as identifying aspects that require long-term
+13
+
+=== PAGE BREAK ===
+
+investment and innovation, which is provided at the conclusion of each use
+case section in theverdict.
+•Green Light: In these aspects, quantum computing (or hybrid ap-
+proaches) is competitive to or better than classical methods evaluated
+for this use case. There is a clear path to a tangible short-term quantum
+advantage.
+•Yellow Light: It remains to be seen if and when quantum comput-
+ers can compete or provide a benefit in aspects categorized as yellow
+compared to classical solutions.
+•Red Light: The results produced in this study clearly indicate that
+quantum computing cannot compete with classical methods in regards
+of these aspects. According to the available technology roadmaps, there
+is no clear path to quantum advantage within the next five to eight
+years.
+3.2 Optimization Use Cases
+The QCHALLenge project tackles a diverse set of industrial optimization
+use cases, each selected for its complexity, economic relevance, and potential
+for quantum advantage. These use cases span multiple industrial consortium
+partners, and are designed to benchmark quantum computing approaches
+against classical methods. Each use case is rigorously benchmarked on both
+simulated and real quantum hardware (if possible), including D-Wave, IBM
+and IonQ quantum computers, to assess feasibility and performance.
+In the next sections, we present a short description of the use cases, along
+with the modeling of the problems for classical and quantum solvers, as the
+mathematical model of a problem is one of the most important aspects of
+any solving method (classical or quantum). We then present the overview of
+the evaluation of different aspects of the use case as described above.
+3.2.1 Production Assignment and Scheduling
+The Production Assignment and Scheduling problem is an NP-hard combina-
+torial optimization problem involving several jobs and machines and focuses
+on balancing the processing time on the machines and reducing the manufac-
+turing time of products while maximizing the value of the produced items,
+as shown in Figure 4.
+14
+
+=== PAGE BREAK ===
+
+Figure 4: An exemplary solution to a problem with 16 jobs and 4 machines.
+The idle times of the machines between adjacent jobs depict the required
+set-up times. The objective is to reduce the total setup time, uniformly
+distribute the busy times of all machines, and maximize the total value [2].
+This optimization task arises, e.g., at business units of BASF. Currently,
+the optimization process, i.e., finding an optimal or good enough solution,
+is a time-consuming process and any significant speed-up is highly desirable,
+especially in the case of an inadvertent breakdown of operations. In the
+project, quantum annealing and hybrid quantum annealing approaches are
+tested against the industry scale classical solver.
+We develop two distinct mathematical models tailored to the strengths of
+each solver type. For classical solvers, the problem is formulated as a mixed-
+integer convex program, leveraging the structure and precision of traditional
+optimization techniques. In contrast, the quantum-classical approach uses a
+BQP formulation, which aligns with the capabilities of D-Wave’s Leap Hybrid
+Solver [43]. This modeling choice ensures that each solver is evaluated using
+the most appropriate representation of the problem, allowing for a fair and
+meaningful comparison.
+The benchmarking spans problem sizes up to approximately 150,000 vari-
+ables, a scale that reflects genuine industrial complexity. The study compares
+an industry-grade classical solver with D-Wave’s hybrid quantum solver, an-
+alyzing performance across various metrics. Notably, the quantum-classical
+solver delivers competitive results, and in some cases, even outperforms the
+classical solver in terms of speed, demonstrating the potential of hybrid ap-
+proaches in production environments.
+15
+
+=== PAGE BREAK ===
+
+Traffic-Light-based Evaluation
+•Green Light
+– Scalability: The results from this use case demonstrate that D-
+Wave’s hybrid quantum solver can handle problem sizes up to
+150,000 variables, which is significant for real-world industrial
+scheduling. This shows that quantum-classical solvers are not just
+theoretical but can scale to practical workloads.
+– Runtime: In some benchmark cases, the quantum-classical solver
+outperformed the classical solver in speed, especially when the
+problem was modeled in a way that suits quantum optimization
+(e.g., binary quadratic format). This is a strong indicator of quan-
+tum benefit when the problem structure is well aligned.
+•Yellow Light
+– Model and Implementation: The quantum solver’s perfor-
+mance is highly dependent on how the problem is formulated.
+The binary quadratic model was necessary to solve the problem
+efficiently with a quantum computer, while the classical solver
+benefited from a convex formulation. This means quantum bene-
+fit is not automatic – it requires thoughtful modeling.
+– Solution Quality: The study shows that while quantum solvers
+can be competitive, classical solvers still excel in certain struc-
+tured problems. The benefit of quantum solvers is conditional on
+problem type and formulation, not universal.
+•Red Light
+– Transferability: The current size of pure quantum hardware
+does not allow to address limitations like qubit count, connectiv-
+ity, or noise – factors that still constrain quantum computing in
+practice. These could limit applicability in other domains or on
+different hardware.
+–No Pure Quantum Benchmark: Since the currently available quan-
+tum annealers can not handle the problem sizes which are practi-
+cally relevant in industry, this work uses D-Wave’s hybrid solver,
+which combines classical and quantum resources. However, there
+16
+
+=== PAGE BREAK ===
+
+is no clear information of the amount of quantum computing car-
+ried out to get the final results. Hence, it is unclear how much of
+the performance gain is due to quantum computation alone.
+Verdict
+Overall, the work on this use case underscores the importance of problem
+modeling in unlocking the strengths of both classical and quantum solvers.
+It provides a compelling case for D-Waves hybrid optimization workflows,
+especially in domains where traditional methods struggle with scale or non-
+linearity.
+•Promising and Practically Viable – With Caveats: This use
+case is well-suited for hybrid quantum-classical approaches. We demon-
+strated that when the problem is modeled appropriately, e.g., as a bi-
+nary quadratic program, D-Wave’s hybrid solver can handle large-scale
+industrial problems (up to 150,000 variables) and deliver competitive
+performance, even outperforming classical solvers modeled as a mixed-
+integer linear program (MILP). This suggests that quantum comput-
+ing is not just a theoretical possibility but practically viable for certain
+classes of industrial optimization problems, especially when:
+–The problem is non-linear or combinatorial.
+–Classical solvers face scalability or performance bottlenecks.
+–The problem can be reformulated into QUBO or BQP, which
+aligns with quantum solver strengths.
+•However, Quantum Benefit Is Conditional: The quantum advan-
+tage is not universal. It depends heavily on:
+–Modeling choices: Classical solvers excel with convex formula-
+tions, while quantum solvers need binary/quadratic structures.
+–Solver maturity: The study uses a hybrid solver, not a pure quan-
+tum one, so the quantum contribution is blended with classical
+resources.
+–Hardware constraints: The current size of pure quantum hardware
+does not allow addressing limitations like qubit count or noise,
+which could affect generalizability, in scaling the problem sizes.
+17
+
+=== PAGE BREAK ===
+
+•Recommendation: For organizations exploring quantum computing,
+this use case provides a strong case for hybrid workflows. It is worth
+investing in:
+–Solver-aware problem modeling.
+–Benchmarking hybrid solvers on real workloads.
+–Collaborating with quantum vendors to tailor formulations.
+3.2.2 Train Routing
+In this use case we investigate the challenge of rescheduling and rerouting
+trains (hereinafter referred to astrain routing) in a rail network after dis-
+turbances such as equipment failures, environmental hazards, or unexpected
+delays. Normally, rail schedules are tightly optimized to balance limited re-
+sources like tracks and platforms. Once disruptions occur, additional delays
+emerge as trains compete for these scarce resources. Traditional heuristics
+and human-driven adjustments often yield workable solutions, but they lack
+guarantees of optimality. This motivates the exploration of quantum opti-
+mization techniques, which can exploit simultaneous state-space exploration
+to identify globally optimal schedules in exponentially large search spaces.
+The problem is formulated first as a MILP, which incorporates real-world
+constraints such as minimal passing times, single-track exclusivity, station
+capacities, and headway conditions between trains. Each train’s delay is
+decomposed into primary (unavoidable) and secondary (avoidable) compo-
+nents, and the optimization objective minimizes the sum of secondary delays
+weighted by train priorities. Binary precedence variables govern the ordering
+of trains in shared track segments and binary selection variables determines
+the selection of track segments to route the trains, while constraints enforce
+no early departure and minimal station stop requirements. Considering the
+large scale and high complexity nature of the problem, decomposition tech-
+niques have been explored to break the problem into smaller subproblems. In
+particular, both Lagrangian relaxation and Benders decomposition have been
+studied as potential approaches to improve computational efficiency. Specif-
+ically, with Lagrangian relaxation, each subproblem solves the scheduling
+and routing of a single train over the network. With Benders decomposition,
+the delay of each station-train pairs is solved in a master problem, while all
+the track level coordination, formulated as satisfiability problem, is solved in
+18
+
+=== PAGE BREAK ===
+
+a subproblem. This significantly reduces the complexity and improves the
+scalability.
+A QUBO model is then derived to map the problem or subproblem after
+the decomposition to quantum hardware. Classical solvers like CPLEX or
+Gurobi can solve tiny cases in milliseconds and even larger cases below a
+second. But for large problems as they exist in industry, classical solvers
+struggle to find the optimum in few seconds, as it is required.
+Figure 5: Microscopic illustration of a part of the Norwegian railway network.
+The colored circles represent the positions of the trains. Visualization based
+on data from [44].
+Traffic-Light-based Evaluation
+•Yellow Light
+– Scalability: To encode the entire problem as a QUBO formula-
+tion, the evaluation shows that the number of decision variables
+scales quadratically with the number of trains and linearly with
+the number of stations in the worst-case network. This results
+in cubic scaling when both trains and stations increase, which is
+19
+
+=== PAGE BREAK ===
+
+acceptable compared to other problems. The scaling matches clas-
+sical MILP formulations, apart from a constant factor (which is
+large). However, by applying Benders decomposition, a quantum
+annealer was able to solve an instance involving 47 tracks, 6 sta-
+tions and 6 trains using fewer than 240 qubits, while a gate-based
+method (QAOA+) solved the same instance with fewer than 40
+qubits. These results highlight the importance of proper problem
+decomposition in making quantum approaches more scalable and
+efficient.
+– Transferability: This use case shares similarities with the sche-
+duling and routing of AGV fleets with predefined paths. There-
+fore, transferability to such use case can be considered in the future
+research.
+•Red Light
+– Runtime: The rescheduling have to be done in seconds in indus-
+try. This can be problematic for quantum computing, as there is
+some overhead due to embedding and pre-/postprocessing steps.
+Besides, the current results of gate-based quantum hardware takes
+much longer than the classical computer, while quantum anneal-
+ing is fast.
+– Solution Quality: Using Benders decomposition, both quantum
+annealing and gate-based (QAOA+) quantum computing meth-
+ods successfully solve a problem instance involving 47 tracks and 6
+trains.The gate-based model achieves solution quality close to op-
+timal for those small instances, while the quantum annealer yields
+solutions of lower quality than optimal.
+– Model and Implementation: Current modeling of the use
+case introduces simplifications such as neglecting the continuous
+train dynamics, omitting the coordination of transfer options be-
+tween trains, ignoring the cancellation of trains, and excluding
+the scheduling of trains at depots. In reality, these factors would
+introduce additional constraints that increase the complexity of
+the problem. This further underscores the importance of employ-
+ing proper decomposition techniques to extract a (sub-)problem
+structure that is suitable for quantum computing.
+20
+
+=== PAGE BREAK ===
+
+Verdict
+•Current Limitation: Attempting to encode the entire problem as a
+single QUBO formulation turns out to be less efficient and scalable.
+Currently available hardware is not sufficient to handle real-world in-
+stances. Even in the next 10 years, it is unlikely that a system with a
+sufficiently large number of qubits to fit large real-world instances will
+be available, given the current roadmaps of the hardware providers.
+Even when in some point of time hardware is sufficient to embed the
+problem, it remains to be shown whether the solutions are better than
+those from classical algorithms. However, it must be emphasised that,
+due to hardware limitations, only small problem instances can currently
+be considered. Therefore, based on the investigations carried out, only
+very limited conclusions can be drawn about future results.
+•Encouraging Findings: Proper combination of decomposition tech-
+nique and quantum algorithm is crucial to improve efficiency and scal-
+ability. With Benders decomposition, the master problem only encodes
+the delay of station-train pairs and mathematically equivalent to a set-
+covering problem, which can be successfully solved by the gate-based
+quantum algorithm QAOA+ while maintaining a quite low number of
+Qubits. Its solution quality is comparable to that of classical solvers.
+•Future Potential: The potential future benefit is high, especially
+since quantum annealing is very fast and well-suited for real-time ad-
+justments, given that the solution quality of quantum annealing will
+be significantly improved and proper decomposition technique can be
+developed.
+•Recommendation: To improve scalability and efficiency, proper de-
+composition is essential for solving train routing problems with quan-
+tum computing. Combining Benders decomposition and Gate-based
+methods like QAOA+ shows promising solution quality with minimal
+Qubit usage, while quantum annealing offers solution speed but cur-
+rently lower solution quality. Further research work in this direction is
+recommended.
+21
+
+=== PAGE BREAK ===
+
+3.2.3 Pod Coordination
+The pod coordination problem (PCP) models a demand-responsive, door-to-
+door transport system utilizing passive modular containers (pods) carried by
+active vehicles such as trains or trucks. This problem falls under the cate-
+gory of active-passive vehicle routing problems with multiple synchronization
+constraints, necessitating tight coordination between pods and bases. The
+PCP integrates elements of the dial-a-ride problem, the multi-depot vehi-
+cle routing problem, heterogeneous fleets, and multiple modalities, aiming
+to optimize service quality and operational efficiency. Currently, this use
+case has not been implemented in a real-life setting, and the complexity of
+the problem presents significant challenges for both classical and quantum
+solvers.
+Figure 6: The PCP combines vehicle routing, scheduling, and ordering prob-
+lems. The goal is to provide an improved experience for users of public
+transportation services while reducing the operation costs for providers. This
+figure is adapted from [45]. Copyright©2025 Elsevier.
+In this project, we explored various classical solution methods, includ-
+ing mixed integer linear programming (MILP), adaptive large neighborhood
+search, and iterative beam search. The problem’s complexity is highlighted
+by the requirement for a substantial number of qubits; for instance, even the
+22
+
+=== PAGE BREAK ===
+
+smallest test instances necessitate over 10,000 qubits, making them imprac-
+tical for current quantum hardware.
+Traffic-Light-based Evaluation
+•Yellow Light
+– Model and Implementation: The theoretical framework for
+applying quantum computing to the PCP was successfully imple-
+mented. However, the need for efficient handling of continuous
+variables in the MILP formulation, which are required for the
+synchronization constraints, poses a challenge for quantum com-
+puting. Future developments in quantum algorithms that can
+effectively address these variables will be crucial.
+•Red Light
+– Scalability: The number of qubits required even for the simplest
+instances (over 10,000 for five customers) far exceeds the capa-
+bilities of current quantum hardware. This presents a significant
+barrier to practical implementation. However, due to these hard-
+ware limitations, it is currently impossible to make any reliable
+statements about scalability with future systems.
+– Solution Quality: Due to the high qubit requirements, no tests
+have been performed on quantum hardware. Classical problem-
+tailored heuristics have demonstrated the ability to find high-
+quality solutions quickly. This suggests that significant advances
+in hardware and algorithms are required for quantum approaches
+to offer a competitive advantage.
+– Runtime: Due to its intrinsic complexity and high number of
+hard constraints, embedding the PCP in a quantum circuit cur-
+rently seems highly inefficient in terms of circuit depth, mapping
+overhead, and consequently runtime. However, as no tests could
+be performed on quantum hardware, the current investigations
+have limited relevance to possible future developments.
+– Transferability: Even though the PCP represents a rather gen-
+eral problem class and is closely related to the vehicle routing
+problem and – in its core – the traveling salesperson problem, its
+23
+
+=== PAGE BREAK ===
+
+additional constraints and objectives make it hard to implement
+on any quantum computer that relies on quantum circuits or a
+QUBO formulation of the problem.
+Verdict
+Overall, the pod coordination use case highlights the significant challenges
+that quantum computing faces in practical applications, particularly in the
+realm of constraint-heavy optimization related vehicle routing problems.
+•Limited Current Viability: The high qubit requirements and the
+inability to conduct experiments on quantum hardware currently render
+this use case impractical for quantum solutions. The classical methods
+employed have proven effective, and the existing heuristics outperform
+quantum approaches at this stage.
+•Questionable Future Potential: Should advancements in quantum
+hardware and algorithms occur, there may be potential for quantum
+computing to provide benefits in this area. However, this is highly con-
+ditional on overcoming the current limitations of qubit count and the
+ability to handle hard constraints and continuous variables effectively.
+•Recommendation: Organizations interested in exploring quantum
+computing for problems related to the pod coordination use case should
+consider to find models of their problem that rely on discrete variables
+and fewer (hard) constraints. Otherwise, the PCP is currently not
+expected to be among the first problem classes that provide a tangi-
+ble benefit for the industry from advancements in quantum technology
+within the foreseeable future.
+3.2.4 Sensor Positioning
+In the automotive industry, freshly produced vehicles need to be transported
+from the end of the production line to the distribution area. With automated-
+driving software on board of latest-generation vehicles this task can be done
+without a human driver. One requirement for this is an environment that is
+covered by infrastructure-based sensors. The positions of these sensors need
+to be optimized, such that the covered area is maximized while the number
+of sensors is minimized.
+24
+
+=== PAGE BREAK ===
+
+Figure 7: An exemplary scenario with 38 possible sensor positions and 194
+street points to cover in a setting inspired by a real-world production envi-
+ronment.
+Figure 8: The solution of the example scenario in Figure 7 is shown here. 12
+sensors are placed on the 38 possible positions and all 194 street points are
+covered.
+25
+
+=== PAGE BREAK ===
+
+This task can be formulated as a combinatorial optimization problem,
+typically represented using a QUBO formulation. In this formulation, binary
+decision variables indicate whether a sensor is placed at a specific location
+(1) or not (0). The objective function aims to maximize the total coverage
+area while adhering to constraints related to sensor range and the number of
+sensors available.
+Key components of the formulation include coverage constraints, which
+ensure that all critical areas are monitored by at least one sensor, and cost
+considerations that account for installation, maintenance, and operational
+expenses. Additionally, the model includes structural obstacles like columns
+that can produce coverage shadows, ensuring that sensors can operate effec-
+tively in the intended environment.
+Hyperparameter optimization of the quantum annealing process includes
+tuning encoding schemes, penalty factors, chain strengths, and annealing
+time. Moreover, different decomposition strategies are evaluated, iteratively
+dividing the model into smaller subproblems, which ensures feasible and scal-
+able solutions for large-scale sensor positioning scenarios. Find more details
+about this use case in the accompanying paper [46].
+Traffic-Light-based Evaluation
+•Green Light
+– Transferability: The set cover QUBO model we formulated for
+the sensor positioning use case efficiently identifies minimal cov-
+erage solutions, a principle transferable to other domains like test
+scenario selection for the simulation of driving situations or task-
+based staffing and scheduling. Its ability to minimize resources
+while ensuring full coverage makes it adaptable across various au-
+tomotive and industrial applications requiring optimal coverage
+with limited assets.
+•Yellow Light
+– Model and Implementation: The problem fits well into the set
+cover and maximum independent set frameworks, which are sup-
+ported by current quantum algorithms and hardware paradigms.
+Variable counts in classical models are dominated by the sensor
+26
+
+=== PAGE BREAK ===
+
+positions, while for quantum approaches, we need many slack vari-
+ables for each constraint.
+– Runtime: If quantum hardware continues to improve in qubit
+count, coherence times, and error correction as expected, industry-
+relevant instances could become solvable within this decade and
+provide computation times comparable to classical methods ac-
+cording to the test cases we evaluated in this study.
+•Red Light
+– Solution Quality: Experiments with quantum annealers have
+produced solutions with low stability and suboptimal quality in-
+ferior to classical solvers like Gurobi or heuristics like simulated
+annealing.
+– Scalability: For the QUBO formulation of the problem, the num-
+ber of variables scales nearly cubically with the sensor and street
+point density, implying that large instances with high-resolution
+grids of possible sensor position and covered street points will re-
+quire orders of magnitude more qubits than currently expected
+available within the next years.
+Verdict
+The sensor positioning use case illustrates the current limitations of quan-
+tum hardware in tackling large-scale, industry-relevant problems. While toy
+instances with up to 60 qubits have been successfully solved, the solutions
+are not yet competitive with classical methods in terms of solution quality
+or stability.
+•Limited Current Utility: Existing quantum annealing and other
+quantum approaches are limited to small problem sizes, with solutions
+often inferior to classical heuristics, and do not justify practical deploy-
+ment at this stage.
+•Scaling Prospects: The linear increase in the number of variables
+with problem size is promising, suggesting that instances with thou-
+sands of sensors could become solvable as hardware improves, possibly
+in the next decade.
+27
+
+=== PAGE BREAK ===
+
+•Future Outlook: With continued hardware scaling, error correction,
+and improved embedding techniques, quantum methods could even-
+tually provide cost-effective and optimal sensor placement solutions,
+reducing infrastructure costs and increasing coverage efficiency.
+•Recommendation: Organizations should monitor hardware develop-
+ments and invest in problem modeling strategies that align with quan-
+tum capabilities. Collaborations with hardware vendors and research
+into scalable embeddings are advisable to prepare for future large-scale
+applications.
+3.2.5 Auto-Carrier Loading
+The auto-carrier loading problem (ACLP) is an optimization challenge in the
+automotive industry, particularly concerning the distribution of new vehicles.
+While trains are the preferred mode for overland transport, manufacturers
+often resort to road transport via auto carriers due to flexibility or the un-
+availability of rail networks. Auto carriers are specialized trucks equipped
+with flexible loading platforms, and determining the optimal configuration
+of these platforms is complex due to the varying sizes, shapes, and weights
+of passenger vehicles.
+Typically, a truck and its trailer can carry up to ten vehicles at a time.
+The vehicles can be arranged on platforms that can be individually angled or
+combined to maximize space utilization. Additionally, vehicles can be placed
+either forward or backward to further optimize the load. Constraints related
+to weight, height, and length must be adhered to for both the truck and
+trailer, as well as the total load.
+In theory, the solution space for the ACLP scales exponentially with the
+number of vehicles, leading to a vast number of possible arrangements [47].
+However, the objective is highly discretized, meaning that while many ar-
+rangements may meet the requirements, identifying an optimal solution can
+be relatively straightforward due to the potential for simple heuristics or
+human decision-making to yield satisfactory results.
+In this project, we explore various classical solution methods, including
+simulated annealing and CPLEX [48], a commercial optimization software,
+alongside the D-Wave quantum annealer [20]. The complexity of the problem
+is highlighted by the requirement for a substantial number of variables; for
+instance, toy problems have been investigated with a pool of up to 18 cars
+28
+
+=== PAGE BREAK ===
+
+placed on up to six platforms, leading to QUBO matrices with up to 1000
+variables. However, the currently available quantum hardware is insufficient
+to solve industry-scale problem instances.
+Figure 9: Example solution for loading seven vehicles on a truck and a trailer.
+Traffic-Light-based Evaluation
+•Green Light
+– Model and ImplementationThe theoretical framework for ap-
+plying quantum computing to the ACLP exists. If hardware lim-
+itations are overcome, quantum methods could potentially op-
+timize complex loading problems more effectively than classical
+methods.
+•Yellow Light
+– Scalability & Runtime: The problem scales linearly with the
+number of cars. This holds for classical MILP formulations as
+well as for QUBO formulations, which makes quantum computing
+promising. However, the problem has a lot of constraints, some
+of them of fourth order. This leads to many slack variables in
+the QUBO formulation, which means that the number of vari-
+ables for quantum computing is higher by a constant but large
+factor. The currently available quantum hardware is not suffi-
+cient to solve industry-scale problem instances and it remains to
+be seen if quantum methods can compete with runtimes achieved
+with classical heuristics that produce sufficient solution qualities.
+– Solution Quality: The D-Wave quantum annealer has provided
+results for small problem instances comparable to solutions found
+with classical heuristics like simulated annealing, indicating that
+29
+
+=== PAGE BREAK ===
+
+the solution quality could also be competitive for larger problem
+sizes once quantum hardware matures.
+– Transferability: If advancements in quantum hardware occur,
+there may be potential for quantum computing to optimize en-
+tire fleets of trucks at a level of detail currently only possible for
+individual auto carriers.
+Verdict
+The question if there is a clear path to quantum advantage in the ACLP
+within the near future is delicate. The implications would be significant for
+related problems in logistics in the automotive sector and beyond.
+•Encouraging Findings: Empirical observations suggest that the num-
+ber of model variables increases linearly with the number of cars in-
+cluded in the problem. This linear relationship implies that problems
+involving up to 100 cars and 10 trucks could potentially be addressed
+with approximately 100,000 noisy qubits, meaning real-world-related
+problem sizes could be solved with quantum devices within a matter of
+years.
+•Limited Potential for Improvement: While the D-Wave quantum
+annealer has been able to solve small problem instances, the results ob-
+tained were not significantly better than those achieved through classi-
+cal heuristic solutions. This indicates that it might be hard for quantum
+computing to provide a competitive advantage for this specific appli-
+cation due to the relatively good performance of classical methods.
+•Recommendation: Until quantum hardware is mature and provides
+the necessary qubit counts to solve large-scale problems, industries that
+rely on efficient logistics and face challenges similar to the ACLP should
+explore the integration of quantum solutions into existing logistics sys-
+tems. This would accelerate the transition to improved decision-making
+processes that have a huge scaling potential due to the high number
+of vehicles and trucks involved in the logistic frameworks of globally
+acting manufacturers.
+30
+
+=== PAGE BREAK ===
+
+3.2.6 Modular Production Logistics
+In this use case we study a complex industrial scheduling problem involv-
+ing autonomous guided vehicles (AGVs) in a modular logistics setting, and
+present a comparative study of quantum-classical and classical optimization
+methods. Figure 10 shows an illustration of a small process involving different
+jobs and AGVs.
+Figure 10: A schematic diagram of problem instance with two AGVs, total
+2 jobs and 3 machines. The transportation of any job from one machine to
+another is carried out by an AGV.
+The use case arises at several filling floors at BASF, where pallets are
+filled with different products and are then wrapped for shipping. In this
+project, we evaluate how different modeling approaches affect solver per-
+formance and to explore whether quantum-classical metaheuristics can offer
+practical advantages over traditional methods.
+Two distinct mathematical models are developed for the same scheduling
+problem. The first is a time-indexed MILP, which is well-suited for classi-
+cal mathematical programming solvers. The second is a binary optimization
+model with both linear and quadratic constraints and a linear objective func-
+tion, designed to be compatible with quantum-classical metaheuristics. This
+dual-modeling approach allows us to assess solver performance not just across
+technologies, but also across formulations tailored to each solver’s strengths.
+31
+
+=== PAGE BREAK ===
+
+Our study finds that modeling choices significantly influence optimiza-
+tion outcomes. Classical solvers perform well with the MILP formulation,
+while the quantum-classical metaheuristic shows strong results with the bi-
+nary quadratic model. This highlights the importance of aligning problem
+structure with solver capabilities. The quantum-classical approach, in partic-
+ular, benefits from the novel modeling technique, suggesting that quantum-
+inspired methods can be competitive in real-world industrial contexts when
+the problem is appropriately framed.
+Overall, the results obtained using classical computing are far better than
+quantum computing. However, this use case provides a compelling evidence
+that quantum-classical metaheuristics are a viable tool for industrial schedul-
+ing, especially when traditional solvers face limitations mainly due to ill-
+modeled mathematical formulations of the optimization problem. It thus
+reinforces the broader insight that solver-aware modeling is essential to un-
+lock the full potential of any computational paradigm, classical or quantum.
+Traffic-Light-based Evaluation
+•Yellow Light
+– Model and Implementation:The quantum-classical metaheu-
+ristic solver performs well when the problem is modeled as a binary
+optimization problem with quadratic constraints. This formula-
+tion aligns with the strengths of hybrid classical-quantum solvers,
+allowing them to deliver competitive results. However, this benefit
+is not inherent to quantum computing—it is highly dependent on
+the modeling strategy. The classical solver, using a time-indexed
+MILP formulation, outperform the hybrid solvers. This shows
+that quantum benefit is conditional, and solver performance is
+tightly coupled to how the problem is framed.
+– Scalability:The quantum-classical solver used is a metaheuris-
+tic, which means it does not guarantee optimality. While it shows
+promising results, its performance is instance-specific and may
+vary depending on the complexity and constraints of the schedul-
+ing task. This limits its predictability and reliability in broader
+applications without further tuning.
+– Solution Quality:The D-Wave hybrid solver produced feasible
+solutions for the scheduling problem, but the solution quality was
+32
+
+=== PAGE BREAK ===
+
+noticeably lower than that achieved by state-of-the-art classical
+solvers like Gurobi. However, the results are far from negligi-
+ble—they demonstrate that hybrid quantum solvers can tackle
+complex optimization tasks and provide a foundation for future
+improvements.
+•Red Light
+– Transferability:While the results are promising for the specific
+AGV scheduling use case, there is limited evidence of generalis-
+ability. It remains uncertain whether a quantum-classical benefits
+would be observed in other logistics optimization problem without
+comparable modeling adaptations.
+– Runtime: The hybrid solver achieved feasible solutions for the
+scheduling problem but generally required longer total runtimes
+than Gurobi. While Gurobi consistently solved instances to near-
+optimality within seconds or minutes, the hybrid approach showed
+higher variability in runtime, sometimes taking several minutes for
+complex cases.
+–No Pure Quantum Solution: Due to proprietary nature of D-
+Waves hybrid solvers, we could not assess the actual effect of
+quantum computing alone, so it’s unclear how much of the perfor-
+mance gain is attributable to quantum computation versus classi-
+cal heuristics embedded in the hybrid solver. This makes it diffi-
+cult to assess or quantify for a true quantum advantage. Addition-
+ally, the size of the hardware restricts us to address hardware con-
+straints such as qubit count, connectivity, or noise—factors that
+are critical in assessing the scalability and feasibility of quantum
+solutions in real-world settings.
+Verdict
+•Quantum-Classical Optimization Is Promising: Binary formula-
+tions with quadratic constraints allow hybrid solvers to perform com-
+petitively, showing that quantum-inspired methods can be applied to
+real-world industrial challenges, especially when problems are modeled
+to suit quantum paradigms.
+33
+
+=== PAGE BREAK ===
+
+Quantum Advantage Is Conditional and Model-dependent:
+Classical solvers using time-indexed MILP outperform hybrids when
+the problem structure leads to linear or convex formulations. Bench-
+marking against pure quantum solvers was not feasible due to hardware
+limitations.
+•Quantum-Classical Approaches Are Complementary to Clas-
+sical Methods: While effective in certain scenarios, they are not re-
+placements. Classical solvers remain robust and reliable, particularly
+when the problem structure aligns with their strengths, and quantum
+benefits are not yet broadly validated.
+In summary, the work on this use case shows that quantum-classical meta-
+heuristics can be effective for industrial scheduling – but the quantum benefit
+is conditional, modeling-dependent, and not yet broadly validated. Classical
+solvers remain robust and reliable, especially when the problem structure
+suits their strengths.
+•Recommendation: For organizations exploring quantum computing,
+this use case provides a strong case for hybrid workflows. It’s worth
+investing in:
+–Invest in solver-aware modeling frameworks: The study shows
+that quantum-classical solvers perform well when the problem is
+modeled as a binary optimization problem with quadratic con-
+straints. Future efforts should focus on developing automated or
+semi-automated modeling pipelines that can translate industrial
+scheduling problems into quantum-suitable formats like QUBO or
+BQP. This will reduce the manual effort and expertise required to
+unlock quantum benefits.
+–Benchmark against pure quantum solvers: To better understand
+the true quantum contribution, future work should include com-
+parative benchmarks with pure quantum solvers (e.g., gate-based
+systems or annealers without classical augmentation). This will
+help isolate quantum performance and guide decisions on when
+hybrid vs. pure quantum approaches are most appropriate.
+–Explore generalizability cross logistics domains: The current study
+focuses on AGV scheduling in modular logistics. Future research
+34
+
+=== PAGE BREAK ===
+
+should test quantum-classical metaheuristics on other logistics
+problems—such as warehouse routing, supply chain optimization,
+or multi-modal transport planning—to assess how broadly the
+modeling and solver strategies apply.
+–Integrate hardware-aware constraints: Quantum hardware limita-
+tions (e.g., qubit count, connectivity, noise) are not addressed as
+the hardware size is extremely restrictive for this use case. Fu-
+ture implementations should incorporate hardware-aware model-
+ing and scheduling, ensuring that problem instances are tailored
+to the capabilities of available quantum devices. This will improve
+feasibility and performance in real deployments.
+3.2.7 Cooling System Optimization
+The Cooling System Optimization problem addresses the challenge of design-
+ing an optimal architecture for mechatronic systems composed of different
+components (e.g., batteries, engines, coolers, pumps). The task involves de-
+ciding which components should be included and how they should be inter-
+connected under given operational conditions and constraints (e.g., weight,
+cost, or thermal limits). Evaluating system performance requires simulating
+the physical behavior of the components, which is modeled by (differential)
+equations. The problem combines elements of optimization and simulation
+and falls into the academic area of Optimization of Dynamic Systems (closely
+related to Optimal Control). The industrial goal is to balance system per-
+formance with cost and efficiency in a way that is computationally tractable.
+The system is defined by a set of differential equations which can be linearized
+into a linear system of equations. The connections between the components
+are represented by binary variables which signal if a component is connected
+or not. These can be integrated into the linear system by multiplying the
+relevant equation with the corresponding decision variable (i.e. connection).
+Optimal solutions then are represented by the minimal assignment of the
+connection variables that optimizes a certain metric (e.g., the temperature
+in one or multiple components).
+The test instances scale from minimal setups (four components and six
+possible connections) to industrially relevant cases with around ten com-
+ponents under fifty operating conditions. Classical methods currently rely
+on genetic algorithms combined with explicit integration schemes, with run-
+times extending to several hours for larger cases. For the quantum approach,
+35
+
+=== PAGE BREAK ===
+
+engine
+pump
+coolercooler
+battery
+(a) (b)
+Figure 11: Simple example of a cooling system and its mathematical abstrac-
+tion into a linear system.
+the use case explores the Quantum Approximate Optimization Algorithm
+(QAOA) for optimization, alongside Quantum Singular Value Transforma-
+tion (QSVT) for simulation. Since the circuit depth of QSVT is prohibitive
+for current NISQ devices the approach was simulated only and not tested
+on actual quantum hardware. More information can be found in the paper
+detailing the implementation and evaluation [49].
+Traffic-Light-based Evaluation
+•Green Light
+– Transferability: The approach could be extended to other use
+cases where linear systems form the core simulation step (e.g., unit
+commitment or topology optimization).
+•Yellow Light
+– Solution Quality: Given sufficient resources the algorithm was
+able to find the optimal solution for very small systems. Larger
+systems could not be simulated due to the complexity of the algo-
+rithm so the effectiveness of QAOA remains to be tested. Using
+Grover would render an algorithm with provable effectiveness.
+•Red Light
+– Scalability: For the optimization each possible connection is rep-
+resented by a qubit. In the worst case (all-to-all connectivity) he
+36
+
+=== PAGE BREAK ===
+
+number of connections scales quadratically with the number of
+components. Current NISQ devices cannot support QSVT due to
+noise and circuit depth; logical qubits on fault-tolerant machines
+are required.
+– Runtime: The actual extent of runtime advantage achievable
+depends on an efficient encoding of the system (i.e. matrix and
+solution vector) and is not demonstrated for general realistic sce-
+narios.
+– Model and Implementation: Modeling the use case as a linear
+system limits the complexity of the dynamical system to systems
+without non-linear elements which is not sufficient for industrial
+problems.
+Verdict
+The cooling system optimization case is assessed as Red in the traffic-light
+evaluation.
+•Open Challenges: Although the theoretical potential for runtime
+speedups is significant—particularly in solving linear systems—the ap-
+proach is currently limited by both hardware readiness and algorithmic
+barriers. The restriction to linear systems limits the usefulness of the
+approach for the specific use case of optimizing dynamical systems. In
+general an efficient encoding of the system matrix is not given and re-
+duces any potential speedup. This represents a challenge independent
+of the current hardware capabilities. As the approach utilizes fault-
+tolerant algorithms hardware limitations however still negate current
+applicability.
+•Transferable Findings: The applicability to problems defined by
+linear systems holds great value in many other use cases, especially in
+solving numerical simulations of physical quantities which have an ef-
+ficient classical approach (e.g., Finite-Element Method, Finite Volume
+Method, etc.) to discretizing the problem into linear systems. Further
+utilizing the result from a quantum linear system solver within an op-
+timization algorithm like QAOA or Grover, can remove the bottleneck
+of reading out the full state vector and making use of solving the linear
+system in superposition.
+37
+
+=== PAGE BREAK ===
+
+Figure 12: Photo of a physical realization of a cart pole.
+•Recommendation: Continued exploration is justified, especially in
+contexts where linear formulations are natural, but breakthroughs in
+both algorithm design and hardware capabilities are prerequisites for
+industrial deployment. Especially an efficient way to improve the scal-
+ing of the condition number (influencing the complexity of QSVT) and
+an efficient encoding are important challenges to overcome.
+3.3 Machine Learning Use Cases
+3.3.1 Cart Pole Quantum Twin
+The Cart Pole Quantum Twin problem is based on the well-known cart-pole
+or inverted pendulum benchmark from control engineering. While the sys-
+tem is very low-dimensional (four variables), it is nonlinear and non-trivial,
+making it a representative case for general control tasks. In this project,
+the cart-pole serves as a proxy for more complex industrial control problems
+(e.g., gas turbine control with hundreds or thousands of sensors), while re-
+maining small enough to be simulated on today’s quantum simulators. The
+use case was investigated with quantum machine learning approaches and
+explores whether quantum-enhanced training methods can provide benefits
+over classical approaches in designing control policies.
+The toy instance can be represented using four qubits, while realistic in-
+dustrial benchmarks (e.g., the industrial benchmark by Hein et al. 2017)
+would likely require 30–50 qubits. The key performance criterion is solution
+quality, with secondary attention to computation time. In practice, quan-
+tum solutions achieved nearly comparable quality to classical methods, but
+were 10–100 times slower. Classical baselines included neural networks opti-
+mized with particle swarm optimization. On the quantum side, experiments
+38
+
+=== PAGE BREAK ===
+
+used variational quantum circuits (VQCs), quantum long short-term mem-
+ory (LSTM), and quantum–particle swarm hybrids. All implementations
+were conducted on simulators via Qiskit, with no results on actual quantum
+hardware.
+The proof-of-concept confirmed that the approach works on toy problems
+but did not extend beyond them. The main advantage anticipated for quan-
+tum approaches lies in their ability to explore the solution space without
+relying on gradients and without being trapped in local minima. Current
+NISQ hardware is insufficient due to noise and depth limitations, but the
+path forward involves scaling to noiseless 30–50 qubit systems with circuit
+depths of around 20 VQC layers for simulation and thousands for optimiza-
+tion. The expectation is that future fault-tolerant devices will be required
+for meaningful industrial-scale experiments. No major unforeseen blockers
+were encountered during implementation. For further details the use case
+and experiments are published in [50].
+Traffic-Light-based Evaluation
+•Green Light
+– Solution Quality: Simulations show comparable results com-
+pared to classical machine learning methods — better quantum
+hardware should enable larger and more realistic benchmarks.
+– Transferability: Transfer opportunities exist for real-world con-
+trol problems such as plasma stabilization in fusion reactors, wind
+turbine regulation, design optimization, and even drug discovery.
+•Yellow Light
+– Scalability: It is not yet known how well quantum methods will
+scale to more realistic benchmarks beyond toy models, nor what
+requirements are posed on coherence time and noise to facilitate
+training on actual quantum hardware.
+– Model and Implementation: Quantum machine learning mod-
+els are similarly applicable compared to classical machine learning
+models and featured comparable performance for small instances.
+Scalability to larger instances still needs to be proven on larger
+hardware.
+39
+
+=== PAGE BREAK ===
+
+•Red Light
+– Runtime: Current quantum simulations are significantly slower
+(10–100x) than classical methods. Without speedups, practical
+relevance remains limited.
+Verdict
+The Cart Pole Quantum Twin is assessed as Green in the traffic-light eval-
+uation. The path to demonstrating potential quantum advantage appears
+clearer than for many other use cases, as the problem is well defined, scal-
+able in principle, and closely linked to industrial relevance.
+•Reliance on Future Hardware: Meaningful results depend entirely
+on future advances in fault-tolerant quantum hardware due to require-
+ments on circuits with more layers than current hardware can handle
+without accumulating to many errors.
+•Optimistic Outlook and Applicability: The main appeal lies in
+the possibility of optimization of quantum circuits to avoid local min-
+ima and explore larger solution spaces, potentially yielding better-than-
+classical controllers. Transfer potential is broad, suggesting this line of
+research could eventually support high-impact industrial applications
+once sufficient hardware capabilities are available.
+•Recommendation: Closely monitor hardware developments and test
+problem instances with higher complexity on improved quantum pro-
+cessors.
+3.3.2 Contextual Bandit
+The Contextual Bandit problem involves identifying an optimal decision in a
+high-dimensional space where the best action depends on external contextual
+information, which itself may also be high-dimensional. This problem often
+arises in optimal control of industrial machines and systems. Deciding on
+the best control input depends on many external variables (in complex cases
+hundreds or more) and thus finding the best option that maximizes a certain
+goal is non-trivial. In machine learning, this is referred to as the continuous
+action contextual bandit problem. For this project, the Industrial Benchmark
+[51] was used as a representative environment, designed to capture realistic
+40
+
+=== PAGE BREAK ===
+
+aspects of industrial control scenarios. In this framing, optimization requires
+searching over control variables while keeping them fixed, and then measuring
+system performance in response. This use case falls under machine learning
+and aims to assess whether quantum approaches can improve search efficiency
+in large, complex spaces.
+The initial experiments were conducted on toy instances modeled with
+five qubits. Classical baselines used neural networks, while quantum vari-
+ants were implemented using variational quantum circuits (VQCs) with Ten-
+sorFlow Quantum. While practical limitations concerning computational
+resources and existing hardware persist, the robust generalization perfor-
+mance of VQCs, combined with rapid progress in quantum technologies,
+highlights their potential for industrial optimization tasks, particularly in
+high-dimensional settings and underscores the need for further exploration
+within quantum machine learning. For industry-scale problems, the number
+of required qubits and performance characteristics remain unknown.
+The experiments demonstrated that the contextual bandit formulation
+can be mapped to a small quantum system but did not extend beyond the toy
+case. No runs were performed on real hardware; instead, classical worksta-
+tions were used to simulate quantum circuits. While the potential of quantum
+contextual bandit solvers is high—especially in domains where exhaustive ex-
+ploration of vast solution spaces is required—the practical challenges remain
+unresolved. These include how to handle large data volumes, what is the best
+ansatz for a specific problem, and how to integrate a quantum circuit based
+bandit into real-world workflows. More details on the benchmark problem
+and performed investigations can be taken from [52]
+Traffic-Light-based Evaluation
+•Green Light
+– Transferability: Contextual bandits underpin numerous appli-
+cations, from recommendation systems and online advertising to
+clinical decision support, robotics, and financial optimization.
+•Yellow Light
+– Solution Quality: The quality of the solutions from the quantum
+circuits show competitive performance and even feature a better
+generalization compared to classical models.
+41
+
+=== PAGE BREAK ===
+
+•Red Light
+– Runtime: Industrial instances of the contextual bandit often
+have real-time constraints which pose challenges on the integra-
+tion of quantum hardware into workflows. Current quantum sim-
+ulations are significantly slower (10–100x) than classical methods.
+Without speedups, practical relevance remains limited.
+– Scalability: The quantum resource requirements for real-world
+contextual bandit problems are not yet quantified, leaving uncer-
+tainty about whether practical quantum advantage is attainable.
+– Model and Implementation: Efficient encodings of real-world
+data are not known for general cases.
+Verdict
+The Contextual Bandit use case is assessed as Amber in the overall traffic-
+light evaluation.
+•Reliance on Future Hardware: On current hardware no usable
+solutions could be generated and thus future hardware has to improve
+to yield comparable results to the performed simulations.
+•Applicability: Theoretical impact is high — given the ubiquity of con-
+textual bandits across industries — but practical application requires
+both better hardware and new modeling strategies.
+•Recommendation: Expanding tests beyond toy problems by increas-
+ing context dimensionality and means for efficiently encoding real-world
+data.
+3.3.3 Forecasting
+Forecasting timeseries is a very important topic in many areas, such as fi-
+nance, logistics (e.g., commodity price forecasting) or other areas like weather
+prediction.
+We considered one-dimensional time series with equally spaced time steps,
+where the task was to predict the next values based on a look-back window
+of the lastntime steps. As a starting point, we predicted simple functions
+42
+
+=== PAGE BREAK ===
+
+Figure 13: A conceptual visualization of time-series forecasting.
+such as sine waves or repeating values. For benchmarking stock data from
+Apple and Sales data from a pasta brand were used.
+Many different models were compared. On the classical side, an LSTM,
+ARIMA and a basic method that just takes the last value as a prediction
+for the next value. As quantum models, three versions of a quantum neural
+network, a quantum deep Boltzmann machine (QDBM), quantum reservoir
+computing and a quantum LSTM were developed. All quantum models were
+run on a simulator several times to get stable results. To make this possible,
+Quriosity, BASF’s high-performance computing cluster, was used to handle
+this resource-intensive task.
+On Apple stock data, the simple last value prediction was the best model
+across all quantum and classical models, suggesting that this time series is
+essentially a random walk. On pasta sales data, the LSTM has the best
+performance, followed by the QNN.
+The QDBM had large variations on different hyperparameter and on
+weight initialization. This can be seen as a weakness of the model or an
+opportunity to find better settings for future work. Also for other models,
+hyperparameter optimization had often a greater impact than the difference
+between the models.
+43
+
+=== PAGE BREAK ===
+
+Traffic-Light-based Evaluation
+•Green Light
+– Scalability: Quantum models need one qubit for each timestep
+in the look-back window. Thus already full experiments could run
+on today’s hardware: Quantum deep Boltzmann machines can be
+run on D-Wave’s quantum annealers, which enables already larger
+networks, up to several thousand qubits on real hardware today.
+– Runtime & Model and Implementation: Quantum reservoir
+computing does not need training. After running a given amount
+of samples, the fitting process happens classically, which makes it
+highly suitable for early NISQ devices.
+–Hybrid Methods: Hybrid networks with a quantum and a classi-
+cal part can be implemented easily to gain advantages from both
+worlds in one model.
+•Yellow Light
+– Solution Quality: The quantum models could achieve a com-
+parable performance to the classical models. However, there is
+currently no clear sign of a possible advantage for any quantum
+model compared to a classical one.
+–Dimensionality: Most real-world datasets have multiple dimen-
+sions, which cannot be evaluated on real hardware with a suffi-
+ciently large look-back window today.
+•Red Light
+– Transferability: Stock data is close to being a random walk,
+which means it cannot be predicted. This theory is supported by
+the fact, that the last-value method outperformed all models on
+this dataset, including the classical models, during our evaluation.
+Thus achieving results similar to classical models does not provide
+meaningful insights.
+Verdict
+•Current Viability: The currently available hardware is sufficient for
+this simple example of a one-dimensional timeseries with a small look-
+44
+
+=== PAGE BREAK ===
+
+back window. However, hardware access is costly, making full train-
+ing with hundreds of epochs impractical. Most real-world applications
+would involve multiple dimensions, which are difficult to fit on real
+hardware.
+•Future Potential: The future potential is high as this use case has
+many applications in different areas. At the same time machine learning
+is a black box and it is difficult to find general theoretical advantages.
+•Recommendation: Keep in mind, that quantum machine learning is
+a viable tool for time series forecasting in the future. It can be seen
+as a new tool in the toolset of every machine learning expert and it
+is already useful for datasets with one dimension and when a small
+lookback window is sufficient. In 5 to 10 years it can be advanced to
+more complex examples.
+3.3.4 Multi-criteria Optimization
+Multi-criteria optimization aims to find the best combination of different
+input features to achieve desired values for the output features. This can
+be visualized as a Pareto front, where we get a multidimensional surface
+displaying the best input combinations.
+In this use case, we investigated a machine learning surrogate model de-
+signed to approximate the underlying relationship between inputs and out-
+puts. This is very helpful if the experiments to get one datapoint are very
+expensive and fewer experiments are needed to get a good approximation of
+the efficient frontier.
+The machine learning model used was a standard regression model in
+supervised learning. For classical comparison, random forest and a multi-
+layer perceptron are used. In addition, we built a quantum deep neural
+network composed of a feature map and an ansatz layer, forming a full layer.
+Data reuploading and trainable feature maps increased the expressive power
+of the model.
+We tested the model on a synthetic dataset consisting of the functions
+perm,rosenbrock,rastrigin, andschwefel, which were combined into a multi-
+output function, requiring 4 qubits. For real-world applications we used a
+paint dataset provided by BASF, requiring 15 qubits for the 15 input features.
+45
+
+=== PAGE BREAK ===
+
+Figure 14: A conceptual visualization of multi-criteria optimization.
+Traffic-Light-based Evaluation
+•Green Light
+– Scalability: The quantum model was trained on a simulator, and
+predictions were made on IonQ’s quantum gate-based computer.
+The results on real hardware were similar to the ones on the simu-
+lator when few layers were used. This suggests that larger models
+could also be trained and run once hardware becomes more af-
+fordable and less noisy.
+– Transferability: This use case is a standard supervised learning
+task, namely regression via surrogate modeling to approximate an
+unknown function and predict new data points for multi-criterial
+optimization. As regression is among the most common ML tasks,
+the approach is widely transferable, though in quantum machine
+learning very high-dimensional inputs may exceed qubit resources
+and limit applicability.
+•Yellow Light
+– Solution Quality: The quantum model achieved results compa-
+rable to the classical machine learning models. While the classical
+46
+
+=== PAGE BREAK ===
+
+models performed slightly better, the difference was not substan-
+tial. It should be noted, however, that the classical baseline mod-
+els were not fine-tuned, whereas the quantum models underwent
+extensive tuning. Thus, the performance of the classical models
+may be somewhat underestimated in this comparison.
+– Model and Implementation: Barren plateaus are a complex
+issue similar to vanishing gradient problems in classical machine
+learning. There is no solution for it now and it might limit quan-
+tum machine learning, especially as this problem increases with
+larger circuits.
+– Runtime: Training on a simulator is very slow and only small cir-
+cuits are feasible right now. Real hardware is very expensive and
+a full training cycle of several thousand epochs would cost around
+1 million euros right now on ion-based quantum computers.
+Verdict
+•Current Viability: There is already hardware available to test spe-
+cific use cases like the paint data on real hardware. However, limited
+reliability and uptime of current hardware remain significant barriers
+for consistent practical use. Future improvements in noise reduction
+would enable the use of deeper circuits and more qubits for complex
+tasks.
+•Future Potential: This use case is highly relevant, as it is a common
+regression task with supervised learning and covers most machine learn-
+ing tasks out there today. As hardware matures and larger datasets like
+images and text can be processed by quantum machine learning it has
+great potential to show advantages over classical machine learning at
+least in some areas. For industry, this could translate into substantial
+impact on product design.
+•Recommendation: The most important task now is to investigate
+more into different ways how to set up the circuit and how to use ma-
+chine learning techniques to prevent barren plateaus and to avoid local
+optima. It can already be used for datasets with few datapoints and
+low dimensions. As soon as the hardware matures it can be very inter-
+esting for a wide range of machine learning tasks. In parallel, careful
+47
+
+=== PAGE BREAK ===
+
+benchmarking against well-tuned classical baselines will be essential to
+identify genuine advantages.
+3.4 Evaluation Overview of Considered Use Cases
+The industry applications evaluated during the project can broadly be cate-
+gorized into three categories. An overview of the evaluation of all use cases
+is presented in Table 1.
+The use cases best aligned with current quantum hardware and algo-
+rithms show comparable results to classical approaches for small test prob-
+lem instances. For these, existing algorithms could already provide benefits
+compared to or in synergy with classical algorithms.
+Production assignment and schedulingis promising and practically vi-
+able in hybrid form, though quantum benefit is conditional on modeling and
+hardware, with limitations arising from the need to reformulate into binary
+quadratic form. Industrial relevance for instances with hundreds of thousand
+of qubits is already in the vicinity of hybrid solvers and estimated for around
+2030 for pure quantum approaches according to roadmaps for quantum an-
+nealers and gate based devices.
+Forecastingof time series is feasible and shows comparable solution qual-
+ities to classical machine learning models in simple one-dimensional setups
+and has potential for more complex cases. However, it currently shows no
+clear advantage and lacks demonstrated scalability to multidimensional data.
+It is estimated that it could show industrial relevance within five to ten years
+once quantum hardware facilitates deeper circuits for tens to hundreds of
+logical qubits.
+Thecart pole quantum twinis conceptually strong with broad transfer-
+ability, though its scalability beyond toy models remains unproven and cur-
+rent implementations are much slower than classical ones. Similar to the
+forecasting use case, hardware needs to mature so that the number of layers
+can be increased for tens to hundreds of qubits.
+Auto-carrier loadingis not yet competitive with classical heuristics, lim-
+ited by inferior runtime and solution quality despite favorable scaling char-
+acteristics. For larger instances (e.g., fleet-level optimization) it could show
+benefits with larger and less error-prone future hardware. Industrial rele-
+vance could arise around 2030 according to current roadmaps judging on
+the requirement of hundreds of thousands of qubits for industrial relevant
+problems.
+48
+
+=== PAGE BREAK ===
+
+Multi-criteria optimizationis viable for small datasets but limited by
+barren plateaus and heavy fine-tuning, which render scalability uncertain.
+Given hardware matures to support more layers which can be trained without
+the problem of barren plateaus we could envision a relevance for industrial
+problems in the early 2030s.
+Overall, these use cases are limited less by modeling or algorithmic gaps
+and more by current qubit counts, noise, and circuit depth, with industrial
+relevance expected around or after 2030, ranging from early applicability in
+hybrid approaches to the need for deeper, less error-prone circuits.
+The second category also features quantum algorithms that can tackle the
+full problem in a sufficient manner. However, it can already be estimated
+that for industrial relevant problem sizes the complexity increases strongly,
+rendering quantum approaches with the current technology infeasible.
+Modular production logisticsshows conditional promise for hybrid solvers,
+but the advantage is highly dependent on specific formulations while classi-
+cal MILPs remain stronger for generic problems. Quantum hardware after
+2030 could support solving industrial relevant problems which would require
+hundreds of thousand of qubits but current experiments show lower solution
+quality compared to classical solvers.
+In thesensor positioninguse case, quantum methods are currently inferior
+to classical methods, mainly due to inflated qubit requirements from slack
+variables and poor stability of solutions. While the problem fits naturally
+into QUBO form, modeling inefficiencies severely limits scalability, and the
+solution quality lags behind classical solvers. This use case could become
+attractive for large-scale sensor grids only after 2035, as current roadmaps
+do not predict qubit counts and improved error correction to handle the
+inflated problem sizes until then.
+Similarly, thecooling system optimizationuse case is interesting for lin-
+earizable problems only. Such problems, however, are ample in the engi-
+neering domain. The quantum approach is inferior to classical alternatives
+until general systems (represented by the matrix and vector of the linear
+system) can be encoded efficiently. While runtime and scaling advantages
+for general cases remain purely theoretical under certain constraints (e.g., if
+all possible solutions need to be evaluated) the developed algorithm could
+present a runtime benefit which needs to be proven on future hardware that
+supports running the full algorithm for small instances which we estimate to
+be available not before 2035.
+Finally, three use cases are challenged by insufficient modeling to facilitate
+49
+
+=== PAGE BREAK ===
+
+the solution of full industrial problems on quantum hardware. Thecontextual
+bandithas high theoretical impact but depends critically on solving open
+challenges in encoding and circuit efficiency; its limitation lies in the absence
+of general, efficient encodings for realistic data and simulations that are far
+slower than classical methods. Industrial relevance is unclear due to the open
+challenges and thus contingent on scalable encodings.
+Train routingshows promise through decomposition, but current mod-
+els omit key real-world constraints and large instances remain intractable,
+making it clear that more effective modeling and algorithmic strategies are
+required. Similar to the contextual bandit, without being able to model the
+full set of constraints the industrial relevance remains unclear.
+Pod coordinationis currently impractical due to the absence of modeling
+approaches that can incorporate continuous variables and the extreme qubit
+demand, exceeding 10,000 even for toy cases. These use cases face primary
+barriers in algorithmic innovation as well as hardware availability, with in-
+dustrial relevance unclear or far-distant. Future developments in quantum
+algorithms and modeling will show if these use cases can benefit of quantum
+computing in the future.
+50
+
+=== PAGE BREAK ===
+
+Use
+Case
+Run-
+time
+Scala-
+bility
+Model &
+Impl.
+Solution
+Quality
+Transfer-
+ability
+Forecast-
+ing Green Green Green Yellow Red
+Production
+Assignment &
+Scheduling
+Green Green Yellow Yellow Red
+Cart Pole
+Quantum Twin Red Yellow Yellow Green Green
+Auto-Carrier
+Loading Yellow Yellow Green Yellow Yellow
+Multi-criteria
+Optimization Yellow Green Yellow Yellow Green
+Modular
+Production
+Logistics
+Red Yellow Yellow Yellow Red
+Sensor
+Positioning Yellow Red Yellow Red Green
+Cooling
+System
+Optimization
+Red Red Red Yellow Green
+Contextual
+Bandit Red Red Red Yellow Green
+Train
+Routing Red Yellow Red Red Yellow
+Pod
+Coordination Red Red Yellow Red Red
+Table 1: Overview of use cases evaluated in this work, separated in three
+categories from more to less optimistic about current and future quantum
+computing performance compared to classical methods.
+51
+
+=== PAGE BREAK ===
+
+4 Recommendations for the Industry and
+Stakeholders of the Quantum Ecosystem
+Based on the use-case analyses and insights from this study, several recom-
+mendations can be derived for industry stakeholders, quantum technology
+providers, and the broader ecosystem. These recommendations span short-,
+mid-, and long-term perspectives, highlighting both practical actions and
+strategic directions for collaboration and innovation.
+1. In the short term, no clear benefits from pure quantum devices should
+be expected. The utility of hybrid devices should be investigated and
+thoroughly benchmarked against purely classical solutions, especially
+for optimization use cases that can be naturally mapped to QUBO
+formulations and do not suffer from significant overhead due to the
+requirement of slack variables. The evaluated use cases – production
+assignment and scheduling, modular production logistics, and auto-
+carrier loading – can serve as good reference problems.
+2. Quantum machine learning use cases that show results comparable to
+classical machine learning approaches should be continuously tested on
+improved hardware to determine if they scale similarly to their classi-
+cal counterparts. Runtime and cost of solution remain important fac-
+tors that require consideration and improvement. Joint investigations
+with hardware providers to optimize these metrics are recommended
+as valuable efforts. Reference examples from the investigated use case
+list include forecasting, the cart pole quantum twin, and multi-criteria
+optimization.
+3. Benefits for use cases in the second category depend on improvements
+in modeling and more efficient encoding. Research in these areas should
+be industrially motivated, with collaborations between industry, aca-
+demia, algorithm developers, and hardware providers to develop opti-
+mized mappings and algorithms tailored to specific industrial use cases
+and hardware modalities. Several investigated use cases in this project
+fall into this category. The sensor positioning problem requires a more
+efficient encoding or one that does not rely on slack variables. The
+cooling system optimization use case would benefit from a more scal-
+able system encoding. Additionally, the auto-carrier loading use case
+52
+
+=== PAGE BREAK ===
+
+could benefit from more optimal modeling to achieve better solution
+quality and shorter runtimes. Specific hardware modalities combined
+with optimized modeling strategies could further improve the results
+obtained.
+4. The insights gained and implementations conducted in this project
+should serve as a blueprint for identifying additional industrial prob-
+lems suitable for quantum computing. Building on these examples,
+both academia and industry can collaborate to develop reusable compo-
+nents, open-source frameworks, and standardized benchmarking proto-
+cols. These efforts will enable consistent tracking of progress and ensure
+comparability across different approaches. Collaborative initiatives
+such as QCHALLenge and QUTAC highlight the importance of align-
+ing problem definitions, hardware roadmaps, and software toolchains
+among stakeholders. Continued cooperation will strengthen the Eu-
+ropean quantum ecosystem, foster reproducible experimentation, and
+accelerate the realization of industrially relevant quantum utility.
+5. Looking ahead, the evolution of quantum computing hardware is char-
+acterized by rapid advancements accompanied by ongoing uncertain-
+ties. Superconducting and gate-based architectures continue to im-
+prove through higher fidelities and modular designs, while quantum
+annealing remains valuable for heuristic exploration of combinatorial
+problems. Ion-trap systems offer high-fidelity operations, though their
+scalability to industrial levels remains open. Emerging approaches such
+as photonic, neuromorphic, and topological quantum computing show
+promise but currently have limited industrial integration. Over the
+next decade, progress is expected along three interdependent threads:
+solver-aware problem modeling that formulates industrial challenges
+compatible with both classical and quantum solvers; hardware matura-
+tion focused on embedding efficiency, error mitigation, and integration
+with classical control systems; and sustained collaboration among in-
+dustry, academia, and hardware providers through shared benchmarks,
+data, and open frameworks like QUARK.
+53
+
+=== PAGE BREAK ===
+
+Acknowledgments
+This paper was partially funded by the German Federal Ministry of Research,
+Technology and Space (BMFTR) through the funding program “Quantum
+Computing – Applications for the Industry” (QCHALLenge) based on the al-
+lowance “Development of digital technologies” (contract number: 01MQ22008).
+AI tools (OpenAI ChatGPT) were used to support text refinement and visual
+material. The authors retained full responsibility for the scientific content.
+54
+
+=== PAGE BREAK ===
+
+References
+[1] QAR Lab.Projekt QCHALLenge, BMWK. [Accessed 15-07-2025].url:
+https://qarlab.de/qchallenge/.
+[2] Abhishek Awasthi et al. “Real World Application of Quantum-Classical
+Optimization for Production Scheduling”. In:2024 IEEE International
+Conference on Quantum Computing and Engineering (QCE). Vol. 02.
+2024, pp. 239–244.
+[3] Florian Krellner et al. “Solving a real-world modular logistic schedul-
+ing problem with a quantum-classical metaheuristics”. In:2025 Inter-
+national Conference on Quantum Computing and Engineering (QCE).
+July 2025. pre-print - arXiv:2507.21701(quant-ph).
+[4] KIPU Quantum.PlanQK. [Accessed 04-09-2025].url:https://platform.
+planqk.de/community.
+[5] Aqarios.Unlock Quantum-Powered Optimization with Luna. [Accessed
+04-09-2025].url:https://aqarios.com/platform/.
+[6] GitHub.QUARK-framework. [Accessed 04-09-2025].url:https : / /
+github.com/QUARK-framework/QUARK-framework.
+[7] QuCUN.Das Quantum Computing User Network in Deutschland. [Ac-
+cessed 04-09-2025].url:https://qucun.de.
+[8] Quantum Technology and Application Consortium – QUTAC et al.
+“Industry quantum computing applications”. In:EPJ Quantum Tech-
+nol.8.1 (2021), p. 25.doi:10.1140/epjqt/s40507- 021- 00114- x.
+url:https://doi.org/10.1140/epjqt/s40507-021-00114-x.
+[9] QAR Lab. Accessed September 30, 2025.url:https://qarlab.de/
+en/talk-on-bitcom-2024.
+[10] QAR Lab. Accessed September 30, 2025.url:https://qarlab.de/
+en / qchallenge - publications - for - qce - conference - 2024 - in -
+montreal.
+[11] QAR Lab. Accessed September 30, 2025.url:https://qarlab.de/
+en/contributions-to-qce-conference-2025.
+55
+
+=== PAGE BREAK ===
+
+[12] Hassan Soubra et al. “Comprehensive Review of Metrics and Measure-
+ments of Quantum Systems”. In:Metrics2.2 (2025).issn: 3042-5042.
+doi:10.3390/metrics2020009.url:https://www.mdpi.com/3042-
+5042/2/2/9.
+[13] Karen Wintersperger et al. “Neutral atom quantum computing hard-
+ware: performance and end-user perspective”. In:EPJ Quantum Tech-
+nology10.1 (Aug. 2023).issn: 2196-0763.doi:10.1140/epjqt/s40507-
+023- 00190-1.url:http://dx.doi.org/10.1140/epjqt/s40507-
+023-00190-1.
+[14] Koen Alexander et al.A manufacturable platform for photonic quan-
+tum computing. 2024. arXiv:2404.17570 [quant-ph].url:https:
+//arxiv.org/abs/2404.17570.
+[15] David Aasen et al.Roadmap to fault tolerant quantum computation
+using topological qubit arrays. 2025. arXiv:2502.12252 [quant-ph].
+url:https://arxiv.org/abs/2502.12252.
+[16] D-Wave.Quantum Realized. [Accessed 15-07-2025].url:https : / /
+www.dwavequantum.com.
+[17] D-Wave.The AdvantageTM Quantum Computer. [Accessed 15-07-2025].
+url:https://www.dwavequantum.com/solutions-and-products/
+systems/.
+[18] ParityQC.Accelerating Research with a Unique Approach NEC’s Quan-
+tum Computer Research. [Accessed 23-07-2025].url:https://parityqc.
+com/a-new-quantum-annealer-by-nec.
+[19] Ana Palacios et al.A scalable 2-local architecture for quantum anneal-
+ing of Ising models with arbitrary dimensions. 2025.doi:https : / /
+doi.org/10.1103/PhysRevApplied.23.054070. arXiv:2404.06861
+[quant-ph].url:https://arxiv.org/abs/2404.06861.
+[20] D-Wave. Accessed August 8, 2025.url:https://www.dwavequantum.
+com/media/3xvdipcn/14-1058a-a_advantage_processor_overview.
+pdf.
+[21] R. Harris et al. “Experimental demonstration of a robust and scalable
+flux qubit”. In:Physical Review B81.13 (Apr. 2010).issn: 1550-235X.
+doi:10.1103/physrevb.81.134510.url:http://dx.doi.org/10.
+1103/PhysRevB.81.134510.
+56
+
+=== PAGE BREAK ===
+
+[22] D-Wave. Accessed August 8, 2025.url:https://www.dwavequantum.
+com/media/wakjcpsf/adv2_4400q_whitepaper-1.pdf.
+[23] D-Wave. Accessed August 8, 2025.url:https://www.nextplatform.
+com/2025/03/31/d- wave- pushes- back- at- critics- shows- off-
+aggressive-quantum-roadmap/.
+[24] Qilimanjaro. Accessed August 5, 2025.url:https://www.qilimanjaro.
+tech/qilimanjaro-quantum-tech-and-do-it-now-selected-to-
+advance-european-quantum-computing-as-part-of-eurohpc-ju-
+initiative/.
+[25] IBM Quantum Computing.Technology for the Quantum Future. [Ac-
+cessed 15-07-2025].url:https://www.ibm.com/quantum/technology#
+roadmap.
+[26] IQM.Development Roadmap. [Accessed 15-07-2025].url:https://
+meetiqm.com/technology/roadmap/.
+[27] J. Kelly et al. “State preservation by repetitive error detection in a
+superconducting quantum circuit”. In:Nature519.7541 (Mar. 2015),
+pp. 66–69.issn: 1476-4687.doi:10.1038/nature14270.url:http:
+//dx.doi.org/10.1038/nature14270.
+[28] Julian Kelly. Accessed August 8, 2025.url:https : / / research .
+google/blog/a-preview-of-bristlecone-googles-new-quantum-
+processor/.
+[29] Frank Arute et al. “Quantum supremacy using a programmable super-
+conducting processor”. In:Nature574.7779 (Oct. 2019), pp. 505–510.
+issn: 1476-4687.doi:10 . 1038 / s41586 - 019 - 1666 - 5.url:http :
+//dx.doi.org/10.1038/s41586-019-1666-5.
+[30] Jerry Chow, Oliver Dial, and Jay Gambetta. Accessed August 8, 2025.
+url:https://www.ibm.com/quantum/blog/127- qubit- quantum-
+processor-eagle.
+[31] Jami R¨ onkk¨ o et al. “On-premises superconducting quantum computer
+for education and research”. In:EPJ Quantum Technology11.1 (Apr.
+2024).issn: 2196-0763.doi:10.1140/epjqt/s40507-024-00243-z.
+url:http://dx.doi.org/10.1140/epjqt/s40507-024-00243-z.
+[32] Jay Gambetta. Accessed August 8, 2025.url:https://www.ibm.com/
+quantum/blog/quantum-roadmap-2033.
+57
+
+=== PAGE BREAK ===
+
+[33] IBM. Accessed August 8, 2025.url:https://newsroom.ibm.com/
+2023-12-04-IBM-Debuts-Next-Generation-Quantum-Processor-
+IBM- Quantum- System- Two, - Extends- Roadmap- to- Advance- Era-
+of-Quantum-Utility.
+[34] Jay Gambetta and Ryan Mandelbaum. Accessed August 8, 2025.url:
+https://www.ibm.com/quantum/blog/qdc-2024.
+[35] Ryan Mandelbaum et al. Accessed August 8, 2025.url:https://www.
+ibm.com/quantum/blog/large-scale-ftqc.
+[36] Rajeev Acharya et al. “Quantum error correction below the surface
+code threshold”. In:Nature638.8052 (Dec. 2024), pp. 920–926.issn:
+1476-4687.doi:10.1038/s41586- 024- 08449- y.url:http://dx.
+doi.org/10.1038/s41586-024-08449-y.
+[37] IQM. Accessed August 8, 2025.url:https://meetiqm.com/products/
+iqm-radiance/.
+[38] Google Quantum AI.Our quantum computing roadmap. [Accessed 15-
+07-2025].url:https://quantumai.google/roadmap.
+[39] Quantinuum.Technical perspective: By the end of the decade, we will
+deliver universal, fully fault-tolerant quantum computing.https : / /
+www.quantinuum.com/blog/technical-perspective-by-the-end-
+of- the- decade- we- will- deliver- universal- fault- tolerant-
+quantum-computing. [Accessed 15-08-2025].
+[40] Inc. IonQ.IonQ’s Accelerated Roadmap: Turning Quantum Ambition
+into Reality — ionq.com.https://ionq.com/blog/ionqs-accelerated-
+roadmap-turning-quantum-ambition-into-reality. [Accessed 24-
+06-2025].
+[41] Quantinuum.Quantinuum Unveils Accelerated Roadmap to Achieve
+Universal, Fully Fault-Tolerant Quantum Computing by 2030.https:
+/ / www . quantinuum . com / press - releases / quantinuum - unveils -
+accelerated- roadmap- to- achieve- universal- fault- tolerant-
+quantum-computing-by-2030. [Accessed 24-06-2025].
+[42] GitHub.QCHALLenge-FW. [Accessed 29-09-2025].url:https : / /
+github.com/Project-QCHALLenge/QCHALLenge-FW.
+[43] D-Wave. Accessed October 27, 2025.url:https://docs.dwavequantum.
+com/en/latest/industrial_optimization/leap_hybrid.html.
+58
+
+=== PAGE BREAK ===
+
+[44] railOscope.Infrastracture. [Accessed 29-09-2025].url:https://railoscope.
+com/workspace/6074970aaba15e47fca2625d?capability=TcBEfyVmiJTWLZm8&
+branchId=6281fc03a6ce9f408c072307&noTT=true.
+[45] Peter J. Eder et al. “Efficient active–passive vehicle coordination in
+multimodal transportation networks”. In:Transportation Research Part
+E: Logistics and Transportation Review203 (Nov. 2025), p. 104318.
+issn: 1366-5545.doi:10 . 1016 / j . tre . 2025 . 104318.url:http :
+//dx.doi.org/10.1016/j.tre.2025.104318.
+[46] Nico Kraus et al.Quantum Annealing Hyperparameter Analysis for
+Optimal Sensor Placement in Production Environments. 2025. arXiv:
+2507.16584 [cs.ET].url:https://arxiv.org/abs/2507.16584.
+[47] Christian J¨ ack, Jochen G¨ onsch, and D¨ ormann-Osuna Hans. “Load Fac-
+tor Optimization for the Auto Carrier Loading Problem”. In:Trans-
+portation Science57.6 (2023).
+[48] IBM ILOG Cplex. “V12. 1: User’s Manual for CPLEX”. In:Interna-
+tional Business Machines Corporation46.53 (2009), p. 157.
+[49] Leonhard H¨ olscher et al.Quantum Simulation-Based Optimization of
+a Cooling System. 2025. arXiv:2504.15460 [quant-ph].url:https:
+//arxiv.org/abs/2504.15460.
+[50] Yize Sun et al.First Experience with Real-Time Control Using Simu-
+lated VQC-Based Quantum Policies. 2025. arXiv:2508.01690 [quant-ph].
+url:https://arxiv.org/abs/2508.01690.
+[51] Daniel Hein et al. “A benchmark environment motivated by industrial
+control problems”. In:2017 IEEE Symposium Series on Computational
+Intelligence (SSCI). IEEE, Nov. 2017, pp. 1–8.doi:10.1109/ssci.
+2017 . 8280935.url:http : / / dx . doi . org / 10 . 1109 / SSCI . 2017 .
+8280935.
+[52] Lukas Schulte et al.Variational Quantum Circuits in Offline Con-
+textual Bandit Problems. 2025. arXiv:2509.07633 [quant-ph].url:
+https://arxiv.org/abs/2509.07633.
+59

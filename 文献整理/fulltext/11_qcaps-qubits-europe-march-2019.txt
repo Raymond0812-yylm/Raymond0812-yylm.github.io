@@ -1,0 +1,285 @@
+1 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+Quantum Computing Algorithms for 
+optimised Planning & Scheduling (QCAPS)
+Qubits Europe 2019 conference
+Dr Roberto Desimone
+March 2019
+
+=== PAGE BREAK ===
+
+2 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+QCAPS Quantum computing algorithms for optimised planning/scheduling
+InnovateUK task  (£400k task  12 months     Oct 2017-Oct 2018)
+Premise
+• Existing techniques can be enhanced by quantum algorithms to deliver 
+optimised plans/schedules in real-time for complex tasks
+o Processing power may be increased by several orders of magnitude
+o When could this happen? How large a quantum processor is required?
+Technical feasibility
+• Perform initial experiments with quantum annealing (D-Wave)
+• Explore how/where universal quantum algorithm could realise further 
+gains in optimised planning applications
+Business Feasibility
+• Explore use cases within telecoms optimisation/job-shop scheduling
+• What other business/market applications will benefit?
+
+
+=== PAGE BREAK ===
+
+3 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP1: Quantum annealing experiments
+ Reviewed existing AI planning algorithms for benchmarking
+ Explored options for enhancing using quantum annealing
+ Mapped algorithms onto D-Wave processor and run experiments
+WP2: Telecom network optimisation use cases
+ Identified candidates for telecom network optimisation 
+ Re-ran experiments and explored speedup/scaling issues
+WP3: Comparison quantum annealing vs gate-model approaches (universal)
+ Performed theoretical analysis of improved speedup/scaling for gate-model approaches
+ Explored strength/weakness of both quantum computing approaches
+WP4: Business feasibility for optimisation tasks
+ Organised market-focussed innovation workshop, inviting key industry/market players
+o Distribution logistics/traffic-flow optimisation
+o Telecom network optimisation
+o Operations management (Manufacturing/Infrastructure/Military)
+Work packages – quantum algorithms for optimised planning/scheduling
+
+
+=== PAGE BREAK ===
+
+4 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP1/2 Experiments – Mapping onto D-Wave processor
+Transforming job-shop scheduling tasks into QUBO formalism
+• Currently require strong mathematic background to generate QUBOs
+o Key issue is characterising constraints within QUBO formalism
+o As more constraints added, QUBO formalism becomes more complex
+• Libraries of QUBOs would help non-mathematicians to represent JSPs
+Mapping onto D-Wave processors
+• Allocating physical qubits vs logical qubits
+o Minimising chains of physical qubits to represent logical qubits
+o Allocating weights and coupling strengths to individual qubits
+• D-Wave provide software for 
+o Mapping qubits and setting weights/coupling
+o qbsolv algorithm for larger scheduling problems
+Opportunities for quantum annealing software
+• Which parts should be left classical, which quantum
+o Classical: manage global search trees, check validity/quality of candidate solutions
+o Quantum: sampled from problem space, guide exploration/pruning of search trees
+
+
+=== PAGE BREAK ===
+
+5 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP1/2 Quantum annealing experiments – Achievements
+Reviewed several types of optimised planning/scheduling tasks
+• Confirmed quantum annealing better suited to optimised scheduling, rather  than planning
+• Complexity of optimised planning requires power of universal quantum computing algorithms
+Performed quantum annealing experiments for JSPs and telecoms network optimisation
+• Explored key factors in mapping onto annealers and where best to apply quantum to hybrid solutions
+• Explored largest size tasks addressable by DW2000Q and benchmarked against Google OR-tools
+o DW2000Q cannot address hard JSPs,  needs 109 physical qubits with existing chimera topology (6x connectivity)
+o For half-duplex mesh problems, needs 300,000 physical qubits for national scale (50,000 cells)
+o Annealing generates near-optimum solutions after few anneal, even for large problems
+Determined what needs to be done to address hard JSPs/telecoms use cases 
+• Improved vertex connectivity is more challenging than increasing number of qubits (Next Gen)
+• Libraries of QUBOs would help non-mathematicians to represent hard problems
+• Improved software for mapping qubits and setting weights/coupling 
+
+=== PAGE BREAK ===
+
+6 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+Known (square-root, provable) quantum speedups include:
+ Unstructured combinatorial search / optimisation
+ Backtracking (trial and error)
+ Monte Carlo methods for parameter estimation
+A quantum speedup is unlikely to be achievable when:
+ The algorithm needs to operate on large amounts of data
+ There is already a fast classical competitor
+Determining whether a theoretical quantum speedup is actually achieved in practice 
+can be a significant challenge!
+WP3 Optimised planning/scheduling using universal QC
+Existing quantum algorithms
+• Not all quantum algorithms relevant for optimisation problems
+• Most deliver quadratic speedup, rather than exponential
+
+=== PAGE BREAK ===
+
+7 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+Reviewed several quantum algorithms (gate-model) for planning/scheduling
+• Emphasised algorithms with rigorous performance/correctness guarantees
+• Graph colouring problems good for representing optimised scheduling tasks
+Provided detailed complexity analysis for quantum backtracking (graph colouring)
+• Analysis proves backtracking algorithm outperforms classical processor (specific scenarios)
+Comparison of gate-model versus quantum annealing approaches
+WP3 – Universal (gate-model) approaches versus quantum annealing 
+
+=== PAGE BREAK ===
+
+8 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP4 Business feasibility for optimisation – Achievements
+Engaging with key stakeholders
+• Held innovation workshop with 50+ participants
+o Potential end-users, quantum experts (academia/industry/fund-holders)
+• Provide update on current experiments and other case study applications
+o Use case: Telecoms network optimisation (BT)
+o Use case: Traffic flow optimisation (VW)
+o Use case: Distribution Logistics (Ocado)
+Characterised major business applications
+• Identified range of practical optimisation problems across 3 market sectors
+o Questionnaire covering top 20 questions (technical/business feasibility), including 
+major enablers and barriers to introduction in key markets
+Market assessment for optimised planning and scheduling tasks
+• Defined potential global market size for hybrid solutions over next 5-10 years
+• Supply-chain opportunities for UK business for hybrid solutions/services
+• Roadmaps for pragmatic capability development
+
+
+=== PAGE BREAK ===
+
+9 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP4 Innovation workshop – Brainstorming outputs
+Team1 : Telecoms 
+• Traffic engineering
+o Quality of service
+o Routing/spectrum management 
+o Batching streams & content
+• Traffic monitoring
+o Feature analysis/pattern ID
+o Deep packet inspection (DPI)
+o Applications of machine learning
+• Resource scheduling
+o Workforce optimisation
+o Network operations/maintenance
+• Topology design
+o Infrastructure layout design
+o Location of base stations/masts
+Team2: Distribution 
+• Distribution logistics
+o Vehicle routing (trunk/local networks)
+o Warehousing/supply depots
+o Logistics scheduling (strategic/tactical)
+• Traffic-flow optimisation
+o Vehicle flow optimisation(cars/trucks)
+o Rail network optimisation
+o Maritime traffic management
+o Air traffic management/control
+• Maintenance scheduling
+o Predictive maintenance
+o Staff resource allocation
+o Automated manufacturing
+Team3: Operations 
+• Scheduling operations
+o Hospital planning
+o Fleet/inventory management
+o Airport/flight scheduling
+o Military operations
+o Power/grid management
+o Oil/gas (upstream/downstream)
+• Strategic decision-making
+o Drug discovery/development
+o Materials modelling
+o Cancer screening/food standards
+o Met Office forecasting
+• Supply chain optimisation
+o Infrastructure management (cities)
+o Urban transportation networks
+o Critical national infrastructure (CNI)
+• Operational resilience
+o Managing data deluge (IoT)
+o Understanding daily threats
+o Managing critical nodes (global)
+
+=== PAGE BREAK ===
+
+10 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+WP4 Business feasibility – Market assessment
+Assumption: Hybrids solutions/services at 5% overall market size(2021-23) and 15% (2026-28)
+Global market for hybrid solutions Hybrid (overall) date Hybrid (overall) date
+Telecoms network optimisation $1.6Bn ($31.8Bn) 2023 $6.9Bn ($46.4Bn) 2028)
+Distribution logistics $0.97Bn ($19.4Bn) 2021 $4.9Bn ($32.9Bn) 2026
+Traffic-flow optimisation (land/air/sea/rail) $1.4Bn ($28.1Bn) 2022 $12.7Bn ($84.8Bn) 2027
+Roadmap: Capability development
+• Quantum annealing: optimal scheduling 8-15 years
+o Improved connectivity/near optimal/relaxed quantum advantage: 3-5 years
+• Universal (gate-model): optimal planning/scheduling 15-20 years
+o Improved fault tolerance/near optimal/relaxed quantum advantage: >10 years
+• Other factors affecting emergence of hybrid solutions
+o Strongly integrated hybrid quantum classical systems/solutions
+o SWAP benefits of quantum processors
+
+=== PAGE BREAK ===
+
+11 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+Hardware & Systems
+ Specialist quantum processors (e.g. D-Wave, IonQ)
+ Hybrid quantum/classical system engineering (Design/Test/Integration)
+ Supply chain components (photonics, cryostat) (e.g. e2V, M2Lasers, Oxford instruments)
+Software
+ Compilers, Code optimisers (e.g. CQC)
+ Algorithms and Programming languages (e.g Riverlane Research)
+ Libraries of quantum designs
+End-users organisations & specialist groups
+ Finance, Transport, Logistics, Telecoms, Energy, Manufacturing, Defence/Security
+ Specialist consulting orgs (e.g. 1QBit, QxBranch, QCware)
+Academia
+ Continued development of science, technology and systems engineering
+ Training the next generation of quantum experts & practitioners
+Opportunities for UK plc
+
+=== PAGE BREAK ===
+
+12 Copyright © 2019 BAE Systems. All Rights Reserved.
+BAE SYSTEMS is a trade mark of BAE Systems plc.
+(See final slide for restrictions on use.)
+| 
+Summary of achievements – Quantum algorithms for optimisation problems
+WP1: Quantum annealing experiments
+ Confirmed quantum annealing  better suited to optimised scheduling, rather  than planning
+ Performed quantum annealing experiments for JSPs (mapping/hybrid solutions)
+ Determined how to address hard JSPs (increase connectivity/number of qubits)
+WP2: Telecom quantum annealing experiments
+ Characterised several hard problems in telecoms network optimisation
+ Performed quantum annealing experiments on half-duplex mesh network and FAP problems
+ Highlighted size of processor required to address key telecoms industry problems 
+WP3: Optimised planning/scheduling using universal(gate-model) approaches 
+ First detailed comparison different quantum approaches (gate-model versus annealing)
+ Confirmed number of logical/physical qubits for graph colouring for both approaches
+ Outlined technology roadmap for addressing (industry-scale)optimisation problems
+WP4: Business feasibility for optimisation 
+ Engaged with key quantum stakeholders and characterised several business applications (3 market sectors)
+ Provided a detailed market assessment (market size, UK opportunities/roadmaps for early adoption)
+Delivered thorough technical/business feasibility study of hybrid solutions for 
+optimised planning/scheduling tasks in three market sectors 

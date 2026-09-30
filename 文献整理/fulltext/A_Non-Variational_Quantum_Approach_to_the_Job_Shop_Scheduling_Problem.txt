@@ -1,0 +1,2158 @@
+A Non-Variational Quantum Approach to the Job Shop
+Scheduling Problem
+Miguel Angel Lopez-Ruiz 1, Emily L. Tucker 2, Emma M. Arnold 2, Evgeny Epifanovsky 1,
+Ananth Kaushik 1, and Martin Roetteler 1
+1IonQ Inc., 4505 Campus Dr, College Park, MD 20740, USA
+2Department of Industrial Engineering, 211 Fernow St, Clemson University, Clemson, SC 29634-0920, USA
+Quantum heuristics offer a potential ad-
+vantage for combinatorial optimization
+but are constrained by near-term hard-
+ware limitations. We introduce Iterative-
+QAOA, a variant of QAOA designed to
+mitigate these constraints. The algorithm
+combines a non-variational, shallow-depth
+circuit approach using fixed-parameter
+schedules with an iterative warm-starting
+process. We benchmark the algorithm on
+Just-in-Time Job Shop Scheduling Prob-
+lem (JIT-JSSP) instances on IonQ Forte
+Generation QPUs, representing some of
+the largest such problems ever executed
+on quantum hardware. We compare the
+performance of the algorithm against both
+the Variational Quantum Imaginary Time
+Evolution (VarQITE) algorithm and the
+non-variational Linear Ramp (LR) QAOA
+algorithm. We find that Iterative-QAOA
+robustly converges to find optimal solu-
+tions as well as high-quality, near-optimal
+solutions for all problem instances evalu-
+ated. We evaluate the algorithm on larger
+problem instances up to 97 qubits using
+tensor network simulations. The scaling
+behavior of the algorithm indicates poten-
+tialforsolvingindustrial-scaleproblemson
+fault-tolerant quantum computers.
+1 Introduction
+The Job Shop Scheduling Problem (JSSP) is
+among the most widely studied combinatorial op-
+timization problems [1–3]. Its variants arise regu-
+larly in industry [4], most notably supporting ad-
+Miguel Angel Lopez-Ruiz: miguel.lopezruiz@ionq.co
+Emily L. Tucker: etucke3@clemson.edu
+vanced manufacturing [5–7]. In its baseline form,
+there are a set ofJ jobs that should be manufac-
+tured across a set ofM machines in a sequence
+of operations. A common objective is to mini-
+mize makespan (i.e., the total length of time from
+start of production to completion) [3]. Alterna-
+tive objectives (e.g., minimize mean flow time [8],
+energy [9], and workload [10]) allow companies to
+tailor to their particular setting. Its many vari-
+ants include the Just-in-Time JSSP (JIT-JSSP)
+in which each task has a due date [11]; the Flexi-
+ble JSSP (FJSSP) [12, 13] in which a task can be
+accomplished on multiple machines; and the dy-
+namic JSSP in which jobs arrive after production
+begins [14].
+JSSP is an NP-hard problem [15], and addi-
+tional jobs increase the complexity of the problem
+exponentially [16]. Exact solution approaches
+have focused on branch-and-bound or disjunc-
+tive methods [17–19]. In practice, heuristics are
+commonly used [20] because of the problem com-
+plexity and computational time. These include
+the shifting bottleneck [17], local search [21], or
+simple dispatching rules (e.g., shortest process-
+ing time [7, 22]). Metaheuristic methods are also
+widespread (e.g., genetic algorithms [23, 24] and
+Tabu search [25, 26]).
+While classical heuristics can yield high-quality
+solutions for the JSSP, its NP-hard nature mo-
+tivates the exploration of alternative compu-
+tational paradigms, such as quantum comput-
+ing. Quantum approaches for solving the JSSP
+can be broadly categorized by their hardware
+paradigm. Quantum annealing has been used
+to solve QUBO formulations of both the stan-
+dard JSSP [27–30] and the more complex FJSSP
+[31–33]. In gate-based quantum computing, most
+prior research relied on variational quantum algo-
+rithms (VQAs) [34–36]; however, non-variational
+1
+arXiv:2510.26859v2  [quant-ph]  9 Dec 2025
+
+=== PAGE BREAK ===
+
+approaches have also been explored, e.g., digi-
+tized adiabatic evolution in Ref. [37]. Within this
+paradigm, a significant focus has also been placed
+on developing more efficient encodings to reduce
+the resource requirements for near-term hardware
+[38–40].
+Among the various gate-based methods, the
+Quantum Approximate Optimization Algorithm
+(QAOA) has emerged as a leading hybrid
+quantum-classical method for tackling combina-
+torial optimization problems [41]. Conceptu-
+ally, QAOA can be viewed as a time-discretized
+form of adiabatic quantum computing. Its rela-
+tivelysimplecircuitstructuremakesitwell-suited
+for implementation on Noisy Intermediate-Scale
+Quantum (NISQ) devices, and there is evidence
+that, for certain problem classes, it may offer an
+advantage over classical algorithms [42–44]. Nev-
+ertheless, QAOA lacks general performance guar-
+antees, and the classical optimization of its pa-
+rameters can be a significant challenge [45].
+A key determinant of performance in VQAs,
+such as QAOA, is the choice of initial state. A
+well-chosen starting point can reduce convergence
+time, help avoid poor local minima during the
+classical optimization stage, and improve solu-
+tion quality. A promising strategy for enhanc-
+ing QAOA is “warm-starting”, in which a biased
+initial state is prepared using prior information
+rather than starting from a uniform superposi-
+tion [46]. Moreover, beyond accelerating conver-
+gence, an appropriate initialization may also mit-
+igate training issues such as barren plateaus [47].
+Multiple warm-starting strategies have been
+proposed. One approach leverages other quan-
+tum processes, such as using the output of a
+quantum annealing run to prepare the initial
+QAOA state [48, 49]. Another employs itera-
+tive feedback, introducing adaptive longitudinal
+bias fields in the mixer Hamiltonian that are dy-
+namically updated during the optimization pro-
+cess [50–52]. A prominent approach draws on
+classical heuristics, where an approximate clas-
+sical solution is used to construct a biased ini-
+tial state that steers the quantum search toward
+promising regions of the Hilbert space [46, 53].
+This idea has been extended by combining classi-
+cal warm-starts with engineered mixer Hamilto-
+nians [54, 55]. Orthogonal to state initialization,
+other heuristics seek effective QAOA parameters
+bypassing the classical optimization stage, for in-
+stance through optimized or extrapolated param-
+eter schedules from small problem instances [56–
+65].
+In this work, we introduce a QAOA variant
+that combines a non-variational heuristic with an
+iterative warm-starting process. The algorithm
+leverages a fixed parameter schedule, bypassing
+the need for a classical optimization loop and
+any associated barren plateaus. The core of our
+method is a feedback mechanism that refines the
+initialstateateachiterationbycomputingabias-
+field using only information from previous quan-
+tum measurement outcomes [66]. A key distinc-
+tion from prior work is our use of a normalized
+Boltzmann distribution to assign weights to mea-
+surementoutcomesforthebias-fieldupdate. This
+technique inherently gives greater significance to
+results associated with lower energy states.
+The remainder of this paper is structured as
+follows. In Section 2, we introduce the general
+mathematical formulation of the JSSP. Section 3
+provides an overview of the general approach for
+mapping combinatorial optimization problems to
+quantum Hamiltonians, details the construction
+of our proposed algorithm, and introduces the
+variational algorithm used for comparison. In
+Section 4, we describe the specific JSSP problem
+formulation and present the results of applying
+the algorithms to various problem sizes in both
+ideal simulations and on quantum hardware. Fi-
+nally, inSection5, wesummarizeourfindingsand
+discuss avenues for future research.
+2 Job Shop Scheduling Problem
+The Job Shop Scheduling Problem (JSSP) [2]
+is a classical combinatorial optimization prob-
+lem renowned for its computational complexity
+and broad industrial relevance. The problem in-
+volves scheduling a set of J jobs, denoted as
+J ={j1,...,j J}, on a set ofM machines,M =
+{m1,...,m M}. Each jobj consists of a sequence
+of operations that must be executed in a specific
+order. Eachoperationhasapre-assignedmachine
+and a fixed processing time. The primary ob-
+jective is to find a schedule that minimizes the
+makespan, i.e., the total time required to com-
+plete all jobs, subject to two main constraints:
+each machine can only process one operation at a
+time, and the precedence order of operations for
+each job must be respected.
+2
+
+=== PAGE BREAK ===
+
+A common approach to solve the JSSP on
+a quantum computer is to first map it to a
+Quadratic Unconstrained Binary Optimization
+(QUBO) problem. Following the time-indexed
+representation approach [29, 35], the schedule is
+defined using a set of binary variablesxmjt, where
+the indices represent the machine, job, and start
+time slot, respectively
+xmjt =
+
+
+
+1 if the operation of jobj on
+machinem starts at timet,
+0 otherwise.
+(1)
+This variable definition presumes that for any
+given jobj, there is at most one operation that
+runs on a specific machinem, which holds for the
+standard JSSP.
+The time indext is discretized and constrained
+by a deadlineT, which represents the maximum
+allowable time for all jobs to complete. T is
+bounded and can be estimated heuristically. Let
+pmj be the processing time of the operation for
+job j on machine m. The upper bound on the
+makespan, Tmax, is the total processing time of
+all operations
+Tmax =
+∑
+j∈J
+∑
+m∈Mj
+pmj, (2)
+whereMj is the set of machines that jobj must
+visit. The lower boundTmin is the time required
+for the single longest job
+Tmin = max
+j∈J
+∑
+m∈Mj
+pmj. (3)
+The JSSP constraints are enforced by con-
+structing a cost function C(x) composed of
+penalty terms. A valid schedule must satisfy
+three primary constraints: (1) each operation
+must be scheduled exactly once (job assign-
+ment constraint); (2) no two operations can be
+processed on the same machine simultaneously
+(time assignment constraint); and (3) the orig-
+inal precedence order of operations within each
+job must be preserved (process order constraint).
+A schedule is feasible if and only if all of these
+penalty terms are zero. To guide the search to-
+wards solutions with small makespans, an objec-
+tive term is added that penalizes late finishing
+times. The final cost function is a sum of these
+penalty and objective terms
+C(x) =λ1c1(x) +λ2c2(x) +λ3c3(x) +cobj(x),
+(4)
+where x is the complete set of binary variables
+and{λi} are penalty weights chosen to be large
+enough to enforce the constraints. Each term
+ci(x) and cobj(x) is constructed to be at most
+quadratic in the variablesxmjt, thus ensuring the
+entire cost function is a valid QUBO [35].
+3 Quantum Approach to Combinato-
+rial Optimization
+Having formulated the JSSP as a QUBO prob-
+lem, the goal is to find the binary assignmentx⋆
+thatminimizesthecostfunctioninEq.(4). Inthe
+quantumcomputingparadigm, thisisachievedby
+finding the ground state of a corresponding Ising
+Hamiltonian. To map the classical QUBO cost
+function C(x) to a quantum Hamiltonian HC,
+each binary variablexk in the vector x is pro-
+moted to a quantum operator acting on a single
+qubit via the transformationxk → (1−σk
+z )/2,
+where σk
+z is the Pauli-Z matrix acting on thek-
+th qubit. This converts the cost function into a
+diagonal Hamiltonian of the form
+HC =C
+(
+xk→ 1−σk
+z
+2
+)
+. (5)
+In this representation, the optimal solution to the
+JSSP corresponds to the ground state ofHC.
+The predominant strategy for finding this
+ground state on current generation of NISQ hard-
+warehasbeenthroughVQAs. InaVQA,onepre-
+pares a parameterized trial state (ansatz)|ψ(θ)⟩,
+on the quantum computer. A classical opti-
+mizer then iteratively updates the real-valued pa-
+rameters θ to minimize the expectation value of
+the Hamiltonian, ⟨ψ(θ)|HC|ψ(θ)⟩. This itera-
+tive quantum-classical optimization loop charac-
+teristic of VQAs can suffer from challenges such
+as “barren plateaus”, which are regions in the
+parameter landscape where cost function gra-
+dients with respect to the variational parame-
+ters vanish exponentially with increasing prob-
+lem size [45], making the classical optimization
+intractable. Furthermore, performance is highly
+dependent on the choice of the ansatz, and the
+optimization can become trapped in poor local
+minima.
+To address these challenges, in this work we
+introduce the Iterative-QAOA, a non-variational
+variant of the standard QAOA, and benchmark
+3
+
+=== PAGE BREAK ===
+
+its performance against the Variational Quantum
+Imaginary Time Evolution (VarQITE) for solving
+the JSSP.
+3.1 Iterative-QAOA
+The Iterative-QAOA algorithm is built upon the
+standard QAOA [41, 42] framework, which we
+briefly summarize here. The algorithm begins
+by encoding the problem into a cost Hamiltonian
+HC in Eq. (5), whose ground state corresponds to
+the optimal solution. A parameterized quantum
+state, or ansatz, is then prepared on a quantum
+computer. Starting from an initial state|ψinit⟩,
+typically the uniform superposition|+⟩⊗N, thep-
+layer QAOA ansatz is constructed by alternately
+applying unitary operators derived from the cost
+Hamiltonian HC and a mixer HamiltonianHM.
+A common choice for the mixer, is the trans-
+verse field Hamiltonian,HM =∑N
+i=1σi
+x. The full
+ansatz is then given by
+|ψp(γ, β)⟩ =
+p∏
+k=1
+e−iβkHMe−iγkHC|ψinit⟩, (6)
+where γ = (γ1,...,γ p) and β = (β1,...,β p) are
+2p real-valued variational parameters. A classical
+optimizeristhenusedtofindtheoptimalparame-
+ters (γ⋆, β⋆) by minimizing the expectation value
+of the cost HamiltonianHC. However, as men-
+tioned earlier, this quantum-classical process can
+be resource-intensive and is susceptible to chal-
+lenges common to VQAs.
+To circumvent this often costly classical opti-
+mization, several non-variational QAOA strate-
+gies have been proposed. In these approaches,
+the parameters (γ, β) are determined by a pre-
+defined schedule rather than being variationally
+optimized. Such schedules are frequently inspired
+by insights from quantum annealing and adia-
+batic evolution [57–59], where the QAOA proce-
+dure is viewed as a digitized version of an analog
+process [48]; or by exploiting symmetries of the
+classical objective function [60]. A prime example
+and arguably the most straightforward schedule
+is used in the Linear Ramp QAOA (LR-QAOA)
+[61–63]. The LR-QAOA protocol replaces the
+variational search for optimal angles with a fixed,
+linear schedule. For ap-layer ansatz, this sched-
+uleisdefinedbyonlytwoglobalhyperparameters,
+∆γ and ∆β, which set the range for the respec-
+tive parameter ramps. The parameters for layer
+k (for k = 0,...,p − 1) are then given by
+βk =
+(
+1− k
+p
+)
+∆β, γ k = k + 1
+p ∆γ. (7)
+To enhance the performance of fixed-schedule
+protocols such as LR-QAOA, we propose an it-
+erative method that refines the algorithm’s ini-
+tial state. Our approach (Iterative-QAOA) pe-
+riodically updates the starting state based only
+on measurement outcomes from the previous run
+[66], while keeping the number of QAOA layers
+and the parameter schedule fixed. After each
+run j, the set of measurement bitstrings {sj}
+and their corresponding energies {Ej}, where
+Ej =⟨sj|HC|sj⟩, is used to guide the search for
+the next iteration.
+The update mechanism calculates a bias [67]
+for each qubit q by computing the thermal ex-
+pectation value of its Pauli-Z operator σq
+z, from
+the measurement outcomes. This is achieved
+using a Boltzmann distribution over the mea-
+sured states,P (sj) = exp(−βTEj)/Z, whereZ =∑
+k exp(−βTEk) is the canonical partition that
+normalizes the distribution andβT is a hyperpa-
+rameter, analogous to the inverse temperature of
+the ensemble. The role ofβT here is to control
+the intensity of the feedback; a large value cre-
+ates a sharp probability distribution that focuses
+the update on the lowest-energy states, while a
+smaller value incorporates a wider sample of out-
+comes for a more gradual update. The bias for
+each qubit is then the thermal expectation value
+of σq
+z with respect to this distribution
+⟨σq
+z⟩T =
+∑
+i
+P (si)⟨si|σq
+z|si⟩. (8)
+From these biases, a new initial product state
+|ψ(j+1)
+init ⟩ is prepared for the next iteration (j +
+1). The state for each qubit is updated based on
+the probabilitypq of it being initialized to the|1⟩
+state, calculated as
+pq = 1
+2 (1−η⟨σq
+z⟩T ), (9)
+where η∈{− 1, 1} is a hyperparameter that di-
+rects the feedback, either reinforcing(η = +1) or
+reversing (η =−1) the trend observed in the low-
+energy states. The new initial state is a product
+state of the form
+|ψ(j+1)
+init ⟩ =
+N⨂
+q=1
+(√
+1−pq|0⟩q +√pq|1⟩q
+)
+. (10)
+4
+
+=== PAGE BREAK ===
+
+1 p0
+¢∞
+¢Ø Øk
+∞k
+1 p0
+Øk
+∞k
+Figure 1: Workflow of the Iterative-QAOA algorithm.(a) A non-variational QAOA ansatz is prepared using a fixed
+number of layersp and a predetermined schedule for the angles{βk} and{γk}. The circuit applies alternating
+cost (UC(γk) = exp[−iγkHC]) and mixer (UM(βk) = exp[−iβkHM]) unitaries to an initial state|ψ(j)
+init⟩. (b) This
+circuit is executed on quantum hardware (QPU) yielding(c) a set of classical bitstrings. (d) These measurement
+outcomes are used to compute a statistical bias for each qubit, given by the thermal expectation value⟨σq
+z⟩T. (e)
+The computed bias determines the angles{ϕq} of the next iteration’s initial state|ψ(j+1)
+init ⟩, which is prepared by a
+layer of single-qubit rotationsRy(ϕq).
+This state is efficiently prepared by applying
+a layer of single-qubit rotations Ry(ϕq) to the
+|0⟩⊗N state, with rotation angles given byϕq =
+2 arcsin
+(√pq
+)
+and the mixer HamiltonianHM is
+suitably modified such that this new initial state
+is an eigenstate of the mixer [46]. The algo-
+rithm proceeds by repeating this process which
+progressively directs the search towards areas of
+the Hilbert space corresponding to optimal solu-
+tions. In Fig. 1 we summarize the workflow of
+this algorithm.
+3.2 Variational Quantum Imaginary Time Evo-
+lution
+The Variational Imaginary Time Evolution (Var-
+QITE) algorithm provides an efficient method to
+approximate the ground state|ψGS⟩ of a Hamil-
+tonianHC, such as those encoding combinatorial
+optimization problems. In imaginary timeτ≡it,
+the normalized quantum state evolves according
+to
+∂
+∂τ|ψ(τ)⟩ =−(HC−Eτ)|ψ(τ)⟩, (11)
+where Eτ is a normalization factor. For a static
+Hamiltonian, the formal solution
+|ψ(τ)⟩ = e−τH C
+√
+⟨ψ(0)|e−2τH C|ψ(0)⟩
+|ψ(0)⟩ (12)
+projects any initial state, with non-zero ground-
+state overlap, toward|ψGS⟩ as τ→∞ .
+Implementing the non-unitary operator
+exp(−τHC) directly on quantum hardware is,
+however, impractical. Instead, VarQITE ap-
+proximates this evolution using a parameterized
+quantum circuit |ψ(θ)⟩ = U(θ)|+⟩⊗N, where
+U(θ) defines a unitary ansatz characterized
+by real parameters θ = (θ1,θ 2,...,θ Np). The
+goal is to update these parameters as functions
+of imaginary time, θ(τ), so that the varia-
+tional state |ψ(θ(τ))⟩ approximates the exact
+imaginary-time-evolved state. Rather than using
+the McLachlan variational principle [68, 69],
+which requires O(N 2
+p ) circuit evaluations per
+step, we employ the more efficient formulation
+of Ref. [70], which enforces the dynamics of each
+Pauli termPi in HC through
+∂⟨Pi⟩
+∂τ =
+∑
+j
+2 Re
+[
+⟨ψ(θ)|Pi
+∂
+∂θj
+|ψ(θ)⟩
+]
+˙θj
+=−⟨ψ(θ)|{Pi,HC−Eτ}|ψ(θ)⟩, (13)
+5
+
+=== PAGE BREAK ===
+
+yielding the linear system of the form∑
+jAij ˙θj =
+Bi, where
+Aij = Re
+[
+⟨ψ(θ)|Pi
+∂
+∂θj
+|ψ(θ)⟩
+]
+,
+Bi =−1
+2⟨ψ(θ)|{Pi,HC−Eτ}|ψ(θ)⟩. (14)
+Each column of A is obtained from two
+parameter-shift measurements [71, 72], while for
+QUBO Hamiltonians containing only commuting
+Pauli-Z terms, all elements of B can be evalu-
+ated from a single circuit. The parameters are
+then evolved in imaginary time via a first-order
+update rule, θ→ θ + ∆τ ˙θ, where ˙θ is computed
+by solving the above linear system.
+This formulation requires only2Np + 1 circuit
+evaluations per time step, significantly improving
+efficiency over previous implementations while re-
+taining the key physics of imaginary-time evolu-
+tion. It thus offers a practical and potentially
+scalableapproachforground-statepreparationon
+near-term quantum hardware.
+The imaginary time step∆τ is a critical hyper-
+parameter governing the algorithm’s convergence
+and accuracy. Its selection involves a trade-off
+between fidelity and efficiency; a small step size
+improves the accuracy of the Euler integration at
+the cost of more iterations, whereas a large step
+size can lead to numerical instability and hinder
+convergence. While a constant step size is the
+simplest approach, we find that using a step-size
+schedule ∆τ(τ) yields substantially better per-
+formance. This suggests that adaptive strategies,
+where ∆τ is adjusted dynamically based on the
+system’s state, could further enhance the algo-
+rithm’s efficiency and robustness.
+4 Results and Discussion
+In this section, we present a comprehensive eval-
+uation of the Iterative-QAOA algorithm applied
+to instances of a specific JSSP variant. We eval-
+uate its performance against two key reference
+algorithms: the underlying non-variational LR-
+QAOA establishing the fixed parameter schedule,
+and VarQITE as a representative of the varia-
+tional algorithms class. We begin by detailing the
+specific JSSP cost function used. The algorithms
+are then evaluated across a range of problem sizes
+(seeAppendixAfordetailsonprobleminstances)
+using both ideal noiseless simulations and execu-
+tions on a trapped-ion quantum processor (see
+Appendix E for technical details of the quantum
+hardware) to assess the algorithms’ performance
+and robustness to hardware noise. We conclude
+with an investigation of the method’s scaling po-
+tential using large-scale simulations up to∼ 100
+qubits.
+4.1 JSSP Formulation
+Following the formulation proposed in Ref. [36],
+we consider a JIT-JSSP variant tailored to a
+steel manufacturing process in which due dates
+are defined for each job, and the objective is
+to minimize deviations from the due dates and
+changeover (switching) costs.
+In this problem, a set ofJ jobs must each be
+processed on M machines in a fixed order with
+fixed idle slots. The schedule of each machine is
+divided into T consecutive time slots, and each
+non-idle time slot must be assigned to exactly
+one job. The processing times for all job opera-
+tions are assumed to be equal. To represent the
+schedule, we introduce binary decision variables
+xmjt∈{ 0, 1} that indicate whether jobj is pro-
+cessed by machinem at timet.
+Each job j has a due time dj, and finishing
+before or after this time incurs a penalty that
+scales linearly with the deviation. The early/late
+deliverycostforjob j canbeformulatedasfollows
+uj(x) =ce
+dj∑
+t=1
+(dj−t)xMjt
++cl
+T∑
+t=dj +1
+(t−dj)xMjt
+∀j = 1,...,J, (15)
+wherece andcl are constants controlling the mag-
+nitude of the early and late delivery penalties,
+respectively.
+Each operation is associated with a production
+group, and switching production groups in con-
+secutive time slots on the same machine incurs
+a switching cost. LetPmj denote the production
+groupofjob j onmachine m, anddefineG(m)
+j1j2 = 1
+if Pmj1̸=Pmj2 and 0 otherwise. The production
+6
+
+=== PAGE BREAK ===
+
+switching cost for machinem is then given by
+sm(x) =cp
+J∑
+j1,j2=1
+Tm−1∑
+t=1
+G(m)
+j1j2xmj1txmj2(t+1)
+∀m = 1,...,M, (16)
+where cp is the production switching cost coeffi-
+cient. The total cost for a given schedule is then
+c(x) =
+J∑
+j=1
+uj(x) +
+M∑
+m=1
+sm(x). (17)
+The schedule of each machine comprises a tight
+sequence of J jobs within the total number of
+time slots Tm, on machinem, and feasibility is
+ensured by the following three sets of constraints.
+Job assignment constraints ensure that each job
+j is scheduled exactly once on each machinem:
+gmj(x) =
+Tm∑
+t=1
+xmjt = 1
+∀m = 1,...,M ; j = 1,...,J. (18)
+The time assignment constraints limit each
+time slott on machinem to its appropriate ca-
+pacity. Let
+ℓmt(x) =
+J∑
+j=1
+xmjt
+∀m = 1,...,M ; t = 1,...,T m, (19)
+and letAm and Im denote, respectively, the sets
+of active and idle slots on machinem, withAm∪
+Im ={1,...,T m} and Am∩Im =∅. We impose
+ℓmt(x) =
+{
+1, ∀m = 1,...,M ; t∈Am,
+0, ∀m = 1,...,M ; t∈Im. (20)
+Finally, the process order constraints enforce
+that jobs must progress through the machines in
+the correct order, preventing any job from ap-
+pearing earlier on a later machine or appearing
+on multiple machines in the same time slot:
+qmj(x) =
+J∑
+t=2
+t∑
+t′=1
+xmjtx(m+1)jt′ = 0,
+∀m = 1,...,M − 1; j = 1,...,J. (21)
+To incorporate these constraints within a quan-
+tum framework, we convert the total cost func-
+tion into a QUBO form by adding penalty terms
+yielding
+C(x) =c(x) +λ
+M∑
+m=1
+J∑
+j=1
+(gmj(x)− 1)2
++λ
+M∑
+m=1
+
+∑
+t∈Am
+(ℓmt(x)− 1)2 +
+∑
+t∈Im
+ℓmt(x)2
+
+
++λ
+M−1∑
+m=1
+J∑
+j=1
+qmj(x), (22)
+where λ > 0 is a penalty weight. In this for-
+mulation, the idle slots are treated as fixed zero-
+capacity positions.
+This formulation closely follows that of
+Ref. [36], with only two key modifications. First,
+we enforce a stricter sequential processing con-
+straint, requiring a job to finish on one machine
+before starting on the next. This is reflected in
+the upper limit of the inner sum in the process
+order constraint (Eq. (21)), which changes from
+t−1 tot. Second, we treat idle slots (Im) as fixed
+parameters in the problem definition, rather than
+handling them as optimizable dummy variables
+as is done in Ref. [36]. This modification simpli-
+fies the model by reducing the total number of
+variables.
+It is worth noting that this setup defines due
+dates at the job level. More complex variants
+of the JIT-JSSP exist where due dates apply at
+the operation level, leading to significantly higher
+complexity and greater difficulty in obtaining op-
+timal solutions [11].
+The JIT-JSSP instances evaluated in this work
+originate from a master problem comprisingJ =
+20 jobs and M = 3 machines. Using the time-
+indexed formulation with binary variablesxmjt
+(Eq. (1)), the total number of variables for the
+full instance isnvar =∑M
+m=1JTm = 1, 300, where
+Tm denotes the number of time slots per ma-
+chine m, which in this case isTm ={20, 22, 23}
+for m∈ {1, 2, 3} respectively. In our quantum
+approach, a one-hot encoding (Eq. (5)) is uti-
+lized to map each binary variable to a qubit.
+Solving the full 1,300-variable instance via quan-
+tum simulation or on current quantum hardware
+is intractable. However, state-of-the-art classi-
+cal solvers are capable of handling instances of
+this size (see Appendix B). As detailed in Ap-
+pendix A, the full instance was solved classically,
+yielding an optimal makespan of 193. The sub-
+instances were then constructed by fixing (“freez-
+7
+
+=== PAGE BREAK ===
+
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+32 qubits
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+33 qubits
+200 250 300 350
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0
+200 250 300 350
+Cost
+Iter = 3
+200 250 300 350
+Cost
+Iter = 9
+36 qubits
+Ideal Sim. QPU QPU + DNL Optimal Sol.
+Figure 2: Performance of Iterative-QAOA on JSSP instances of two different sizes executed on IonQ Forte Generation
+QPU. Shown here are the low-energy sectors of the cost probability distributions for the 32- (top row), 33- (middle
+row), and 36- (bottom row) qubit instances. The columns display the distribution’s evolution at the initial (Iter =
+0), an intermediate (Iter = 3), and the final (Iter = 9) iteration. Each panel compares the ideal noiseless simulation
+results with raw data from the QPU executions and the error-mitigated results after applying DNL. The dashed
+vertical line indicates the known optimal cost. The algorithm parameters used are∆β/γ = 0.17 and a quadratic
+schedule forβT∈ [0.1, 1].
+ing”) most variables to the optimal solution, al-
+lowing us to generate problems ranging from 24
+to 36 qubits for QPU execution, and larger 50-
+and97-qubitinstancessuitablefortensornetwork
+simulations. Hence, the optimal schedule for all
+sub-problems corresponds to the classically com-
+puted global optimum, with a ground state en-
+ergy of 193. The detailed methodology for gen-
+erating these sub-instances is described in Ap-
+pendix A, where we also show the specific prob-
+lem parameters (Tables 2 and 3).
+4.2 Performance of Iterative-QAOA
+We evaluate the performance of our Iterative-
+QAOA algorithm on JIT-JSSP instances with 32,
+33, and 36 qubits (see Fig. 9). The quantum cir-
+cuit within each iteration is based on the LR-
+QAOA schedule (see Eq. (7)), with an ansatz
+depth of p = 5 for the 32- and 33-qubit in-
+stances and p = 6 for the 36-qubit instance.
+Based on an extensive parameter search detailed
+in Appendix C, an optimal ramp parameter of
+∆β/γ = 0 .17 was used for all instances. For
+the feedback loop that creates the updated initial
+state at each iteration, the inverse temperature
+hyperparameterβT was set to a quadratic sched-
+ule that grows from 0.1 to 1.0 over 10 iterations.
+All runs were executed with 4,000 measurement
+shots per circuit both on the ideal quantum sim-
+ulator as well as on quantum hardware. The two
+smallest instances were simulated using a stat-
+evector simulator while the ideal results for the
+36-qubit instance were obtained using a Matrix
+8
+
+=== PAGE BREAK ===
+
+200 300 500 1000 2000
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0
+200 300 500 1000 2000
+Cost
+Iter = 3
+200 300 500 1000 2000
+Cost
+Iter = 9
+Ideal Sim. QPU QPU + DNL Optimal Sol.
+Figure 3: Evolution of the full cost distribution for the 33-qubit JSSP instance under Iterative-QAOA on the IonQ
+Forte Generation QPU. The panels display the distributions at the initial (Iter = 0), an intermediate (Iter = 3),
+and the final (Iter = 9) iteration. The algorithm parameters used are∆β/γ = 0.17 and a quadratic schedule for
+βT∈ [0.1, 1].
+Product State (MPS) [73, 74] simulator with a
+maximum bond dimension ofχ = 256.
+The evolution of the algorithm’s performance
+is shown in Fig. 2, which displays the low-energy
+sector of the cost distribution at initial, interme-
+diate, and final iterations. In ideal noiseless sim-
+ulations, the algorithm proved to be highly effec-
+tive. For all three problem instances, the iterative
+process converged successfully, producing a final
+distributionwheretheprobabilityofsamplingthe
+optimal solution (i.e. the ground state) exceeded
+78%.
+On the QPU, the effects of hardware noise be-
+come more apparent as the algorithm evolves.
+This is further illustrated in Fig. 3, which shows
+the full cost distributions of the 33-qubit in-
+stance. In the ideal case, the algorithm rapidly
+“squeezes” the probability distribution towards
+the ground state, resulting in a final distribution
+highly skewed towards the optimal solution. The
+evolution on the hardware is qualitatively similar
+but less pronounced, indicating that noise effec-
+tively broadens the final distribution reducing the
+probability of sampling the ground state.
+To mitigate the impact of hardware induced
+errors on the QPU executions, we applied a
+debiasing with non-linear filtering (DNL) post-
+processing technique to the raw measurement
+data (see Appendix F for more details). In both
+Figs. 2 and 3, the DNL technique effectively sup-
+presses the high-energy tails of the noisy dis-
+tribution while enhancing the probability of the
+target low-energy states. Nevertheless, even in
+the raw, unmitigated case, the algorithm demon-
+strated sufficient robustness to find the optimal
+solution for the 32- and 33-qubit instances and a
+high-quality sub-optimal solution, corresponding
+to the first excited state, for the 36-qubit prob-
+lem.
+To further probe the robustness of the algo-
+rithm, we repeated the experiments using a de-
+liberately sub-optimal parameter configuration.
+We selected a ramp parameter of∆β/γ = 1.25,
+a value far from the optimal region (see Ap-
+pendix C), and a fixed βT = 0.5. As detailed
+in Appendix D, we observed that the iterative
+warm-starting process was powerful enough to
+guide the less effective QAOA ansatz toward the
+optimal solution in both ideal simulations and
+hardware runs.
+Moreover, we compared the performance of
+Iterative-QAOA against the underlying LR-
+QAOA. For this comparison, we used a 24-qubit
+JIT-JSSP instance with an optimized ramp pa-
+rameter ∆β/γ = 0 .17 (see Appendix C). The
+noiseless simulations were performed using 4,000
+measurement shots.
+The results are summarized in Fig. 4. For LR-
+QAOA, a shallow circuit withp = 4layers did not
+sampletheoptimalsolution. Increasingthedepth
+to p = 25 and p = 50 resulted in ground state
+populations of 0.35% and 3.82%, respectively. In
+contrast, after only 10 iterations, the Iterative-
+QAOA protocol using a fixed depth of justp = 4
+layers achieved a ground state sampling probabil-
+ity of approximately 97.92%.
+This performance difference highlights the ad-
+vantages of an efficient warm-starting process,
+particularly for current and near-term quantum
+hardware where errors accumulate rapidly with
+9
+
+=== PAGE BREAK ===
+
+200 250 300 350
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+LR-QAOA (p = 4)
+200 250 300 350
+Cost
+LR-QAOA (p = 25)
+200 250 300 350
+Cost
+LR-QAOA (p = 50)
+200 250 300 350
+Cost
+Iterative-QAOA (p = 4)
+Ideal Sim. Optimal Sol.
+Figure 4: Comparison of LR-QAOA and Iterative-QAOA performance on the 24-qubit JIT-JSSP instance. All panels
+show the low-energy sector of the final cost distribution from ideal noiseless simulations with 4,000 measurement
+shots. The first three panels (from left to right) display the results for a standard LR-QAOA circuit with increasing
+depth ofp = 4, 25, and 50 layers, respectively. The results show that even at a significant depth ofp = 50, the
+probability of sampling the ground state remains low (< 4%). The rightmost panel shows the distribution forp = 4
+Iterative-QAOA after 10 iterations, resulting in a ground state population of 97.92%. The algorithm parameters used
+are ∆β/γ = 0.17 and a quadratic schedule forβT∈ [0.1, 1].
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+50 qubits ( p = 6)
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+97 qubits ( p = 6)
+200 400 600
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0
+200 400 600
+Cost
+Iter = 3
+200 400 600
+Cost
+Iter = 9
+97 qubits ( p = 7)
+Ideal MPS Sim. Optimal Sol.
+Figure 5: Performance of Iterative-QAOA on 50- and 97-qubit JIT-JSSP instances with an ideal MPS simulator and
+bond dimensionχ = 256. Each panel shows the low-energy sectors of the cost probability distributions at the initial
+(Iter = 0), an intermediate (Iter = 3), and the final (Iter = 9) iteration. The number of layers for the 50-qubit
+instance wasp = 6 while for the 97-qubit instance we show the two cases ofp = 6 and 7. The algorithm parameters
+used are ∆β/γ = 0.17 and a quadratic schedule forβT∈ [0.1, 1].
+circuit depth. The p = 50 LR-QAOA circuit requires 4,824 single-qubit and 3,900 two-qubit
+10
+
+=== PAGE BREAK ===
+
+gates. The shallow p = 4 circuit used in each
+Iterative-QAOA run, however, requires only 408
+single-qubit and 312 two-qubit gates; an order
+of magnitude fewer resources per iteration. This
+makes the iterative approach significantly more
+robust and practical for execution on current de-
+vices.
+Furthermore, thescalingofLR-QAOApresents
+a challenge for larger problem instances. As de-
+tailed in Appendix C, the circuit depth required
+for LR-QAOA to achieve a certain solution qual-
+ity is expected to grow with the problem size,
+reaching prohibitive gate counts, particularly for
+larger instances on near term quantum comput-
+ers.
+Finally, to probe the algorithm’s scaling on
+instances beyond the capacity of the quantum
+hardware, we simulated 50- and 97-qubit JIT-
+JSSP instances. Given the large Hilbert space,
+as with the 36-qubit instance, these simulations
+were performed using an MPS simulator with a
+fixed, maximum bond dimension ofχ = 256. We
+used an ansatz depth ofp = 6 for the 50-qubit
+case, and explored both p = 6 and p = 7 for
+the 97-qubit case, with 4,000 measurement shots
+for all runs. To test the robustness of our hyper-
+parameter selection, we used the same values of
+∆β/γ = 0.17 and a quadratic schedule forβT.
+The results, shown in Fig. 5, indicate that both
+large-scale instances demonstrated convergence
+after 10 iterations, with their final probability
+distributions becoming heavily skewed towards
+the low-energy sector. Although the true ground
+state was not sampled in either case, the 50-qubit
+instance sampled the first excited state of the
+Hamiltonian. In contrast, the 97-qubit runs con-
+verged to a solution of slightly lower quality (4th
+excited state), indicating increased difficulty of
+the problem at this scale. One potential reason
+for this decreased solution quality could be that
+the circuit depths ofp = 6 andp = 7 may not be
+sufficiently expressive to resolve the ground state
+for problems of this scale. Another possible rea-
+son could be that increasing circuit depth also
+generates more entanglement, requiring a larger
+bond dimension to maintain accuracy in the MPS
+approximation, and thus greater classical compu-
+tational resources. This effect is visible in the
+97-qubit case, where increasing the depth from
+p = 6 top = 7, yielded no improvement in the fi-
+nal energy. This suggests that, at a fixed bond di-
+mension, the simulation could not capture all ad-
+ditional correlations generated by the deeper cir-
+cuit. Nevertheless, the ability of Iterative-QAOA
+to consistently find high-quality sub-optimal so-
+lutions, even within this constrained scenario, re-
+mains a strong indicator of its potential for large-
+scale problems. All the results discussed in this
+section are summarized in Table 1.
+4.3 Performance of VarQITE
+We also evaluated the performance of the Var-
+QITE algorithm on a representative JIT-JSSP
+instance of 32 variables, corresponding to a 32-
+qubitHamiltonian. Forthevariationalcircuit, we
+employ a two-layer ansatz with nearest-neighbor
+connectivity andNp = 64 variational parameters,
+as depicted in Fig. 6. As pointed out in Sec-
+tion 3.2, a critical hyperparameter for VarQITE
+is the imaginary time step∆τ. Through prelim-
+inary optimization, we identified a variable step-
+size schedule of the form
+∆τ(τ) = ∆0(1−r)τ, (23)
+to be most effective, using the optimized values
+∆0 = 0.1 and r = 0.06 for the evolution.
+The algorithm was executed for 65 imaginary
+time steps, at which point convergence was ob-
+served. Weperformedbothidealnoiselesssimula-
+tions and executions on quantum hardware, using
+120measurementshotsforeachofthe129circuits
+required per time step. The results of these runs
+are portrayed in Fig. 7 and summarized in Ta-
+ble 1. The best schedule sampled from the ideal
+simulation corresponded to a cost of 228, while
+the QPU execution yielded a lower best cost of
+208. In both cases, this best solution was found
+with a low probability of approximately 0.83%
+(corresponding to a single measurement shot).
+Relative to the optimal value of 193, these costs
+correspond to the fourteenth and fourth excited
+states of the problem Hamiltonian, respectively.
+Although VarQITE did not reach the ground
+state for this 32-qubit problem, the results high-
+light two of its key characteristics. First, the al-
+gorithm exhibits a surprising robustness to hard-
+ware noise. The overall convergence on the QPU
+was comparable to the ideal simulation, yet it
+sampled a single state with a lower cost. Given
+that this occurred in only a single measurement
+shot, it is likely due to statistical fluctuation in-
+ducedbynoise. Second, insmaller-scaletestruns,
+11
+
+=== PAGE BREAK ===
+
+Layer 1 Layer 2
+|0⟩ H Ry(θ0) Ry(θ5)
+|0⟩ H Ry(θ1) Ry(θ6)
+|0⟩ H Ry(θ2) Ry(θ7)
+|0⟩ H Ry(θ3) Ry(θ8)
+|0⟩ H Ry(θ4) Ry(θ9)
+Figure 6: Structure of the two-layer variational ansatz|Ψ(θ)⟩ used for VarQITE runs. The figure shows a simplified
+5-qubit version to illustrate the overall layout. The full 32-qubit circuit consists ofNp = 64 variational parameters.
+0 20 40 60
+Imaginary Time ( τ)
+200
+400
+600
+800
+1000Cost
+Ideal Sim.
+Avg. Cost
+Best Sample
+10th to 90th
+percentile
+Optimal Sol.
+0 20 40 60
+Imaginary Time ( τ)
+200
+400
+600
+800
+1000Cost
+QPU
+Avg. Cost
+Best Sample
+10th to 90th
+percentile
+Optimal Sol.
+200 250 300 350
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Ideal Sim. QPU Optimal Sol.
+Figure 7: Performance of the VarQITE algorithm on the 32-qubit JIT-JSSP instance. The leftmost plots show the
+convergence for the ideal noiseless simulation and the QPU execution, respectively, as a function of imaginary time
+τ. In both convergence plots, the solid blue line corresponds to the average cost⟨HC⟩, while the shaded region
+indicates the range between the 10th and 90th percentiles of the sampled distribution. The orange line tracks the
+cost of the best (lowest-energy) sampled at each time step. The right-most plot displays the low-energy sector of
+the cost distribution of the last time step.
+the algorithm performed significantly better indi-
+cating potential challenges for scaling this algo-
+rithm to larger problem instances.
+4.4 Discussion
+The key results presented in the preceding sec-
+tions are summarized in Table 1. The classical
+computational time required to solve these in-
+stances scales approximately exponentially with
+the number of variables, as shown in Fig. 10 of
+Appendix B. Given that the number of variables
+scales at least quadratically with the number of
+jobsJ (specifically asO(J 2M) whenTm≈J), it
+follows that even moderate increases in problem
+size could potentially render the problem clas-
+sically impractical. For instance, extrapolating
+the observed scaling suggests that a problem with
+J = 30 jobs andM = 3 machines (corresponding
+to at least 2,700 binary variables) would require
+approximately 4 days to solve using the bench-
+marked classical solver (see Fig. 10).
+Investigating the potential quantum scaling is
+therefore crucial. Our exploration using 50- and
+97-qubit MPS simulations provides preliminary
+insights, albeit with limitations inherent to the
+tensor network approximation. Two key factors
+govern the feasibility of scaling quantum algo-
+rithms: qubit count and gate counts, where the
+latter is limited by gate fidelity, at least in the
+NISQ era. Extrapolating the observed scaling of
+required QAOA layers, as shown in Fig. 8(b), a
+2,700-variable JIT-JSSP instance might require a
+12
+
+=== PAGE BREAK ===
+
+Algorithm
+Instance
+Size
+(Qubits)
+Circuit
+Layers
+(p)
+Total Circuit
+Executions
+1Q
+Gates
+2Q
+Gates Backend Best
+Solution
+Opt. Sol.
+Probability
+Iterative-
+QAOA
+24 4 40,000 408 312 Ideal Sim. 193 0.979
+32 5 40,000 672 780
+Ideal Sim. 193 0.780
+QPU 193 0.007
+QPU+DNL 193 0.693
+33 5 40,000 693 840
+Ideal Sim. 193 0.914
+QPU 193 0.009
+QPU+DNL 193 0.755
+36 6 40,000 900 972
+Ideal Sim.
+(MPS) 193 0.794
+QPU 198 0.000
+QPU+DNL 198 0.000
+50 6 40,000 1,250 1,686 Ideal Sim.
+(MPS) 198 0.000
+97 6 40,000 2,425 5,208 Ideal Sim.
+(MPS)
+206 0.000
+7 40,000 2,813 6,076 206 0.000
+LR-QAOA 24
+4 4,000 408 312
+Ideal Sim.
+198 0.000
+25 4,000 2,424 1,950 193 0.004
+50 4,000 4,824 3,900 193 0.038
+VarQITE 32 2* 1,006,200 72 46 Ideal Sim. 228 0.000
+QPU 208 0.000
+Table 1: Summary of performance of Iterative-QAOA, LR-QAOA, and VarQITE across ideal noiseless simulations
+(statevector or MPS), raw QPU executions, and DNL error-mitigated runs. Resource requirements are quantified by
+circuit depth(p), gate counts (two-qubit gates are accounted asRZZ since they are native to this class of hardware),
+and total circuit executions, which aggregates all shots and iterations to represent the overall workload on the QPU.
+Performance is measured by the best (lowest-cost) solution obtained for the makespan of the JIT-JSSP problem and
+the sampling probability of the optimal configuration. The number of layers for VarQITE, marked with an asterisk
+(*), corresponds to the depth of the variational ansatz defined in Fig. 6. Optimal solutions are shown in bold.
+p∼ 102 layer ansatz. Assuming quadratic scal-
+ing for the gate counts (see Fig. 8(a)), this cor-
+responds to∼ 107 two-qubit gates, making it a
+promising target for fault-tolerant quantum com-
+puters. Additionally, ongoing improvements in
+gate fidelities, gate count pruning techniques, and
+the development of robust error mitigation meth-
+ods [44] can accelerate progress significantly.
+It is important to emphasize that Iterative-
+QAOA remains a heuristic algorithm and as such,
+the observed scaling behavior does not come with
+rigorous proofs. Nevertheless, exploring resource-
+efficient strategies, such as efficient qubit encod-
+ings [38–40] or combining classical decomposi-
+tion methods [27, 75–77] that break down large
+probleminstancesintomanageablesub-problems,
+with quantum heuristics remains a promising di-
+rection for leveraging near-term quantum devices
+for complex optimization problems.
+5 Summary and Outlook
+In this work, we developed and evaluated a
+quantum heuristic method, Iterative-QAOA, de-
+signed to solve the NP-hard JSSP. This algo-
+rithm combines two resource-efficient strategies:
+a non-variational approach using shallow, fixed-
+parameter QAOA circuits and an iterative warm-
+starting process. The core of this method is an
+iterative mechanism that uses thermal averages
+of quantum measurement outcomes from one it-
+eration to prepare a biased, more efficient initial
+state for the next iteration. This mechanism pro-
+gressively guides the quantum search toward the
+low-energy sector of the cost Hamiltonian with-
+out increasing the depth of the quantum circuit.
+Through numerical simulations and hardware
+executions, we benchmarked Iterative-QAOA
+against both its LR-QAOA baseline and the Var-
+13
+
+=== PAGE BREAK ===
+
+100 200 300 400 500
+No. of Qubits
+0
+2500
+5000
+7500
+10000
+12500
+15000No. of Gates
+(a)1Q gates per layer
+2Q gates per layer
+Quadratic ﬁt
+50 100 150 200
+No. of Qubits
+2
+4
+6
+8
+10
+12Layers (p)
+(b)JIT-JSSP instances
+Linear ﬁt
+Figure 8: (a) Scaling of single- and two-qubit gate
+counts per QAOA layer as a function of instance size
+(number of qubits). Data points correspond to JIT-
+JSSP sub-instances derived from the 1,300-qubit full in-
+stance. The three largest points represent circuits gen-
+erated solely to construct the QAOA ansatz and extract
+gate counts (these circuits were not simulated or exe-
+cuted on quantm hardware). Two-qubit gates (native
+RZZ on this class of hardware) follow an approximately
+quadratic scaling with instance size, as indicated by the
+dashed fity = 0.028x2+10.493x−298.214. (b)Number
+of QAOA layerspused for each sub-instance executed on
+a simulator or quantum hardware in this work, represent-
+ingthecircuitdepthrequiredtoachievesufficientexpres-
+sivity. A linear fit (dashed line),y = 0.034x + 3.973,
+provides an approximate extrapolation of the depth ex-
+pected for larger instances of comparable expressivity.
+QITE algorithm. Our results confirm that a
+shallow-depth Iterative-QAOA significantly out-
+performs a deep-circuit LR-QAOA, converging
+to ground-state configurations with much higher
+probabilities. Compared to VarQITE, where we
+observed unfavorable scaling for this problem
+class, Iterative-QAOA demonstrated robust per-
+formance, finding high-quality solutions even for
+the 97-qubit instance. Furthermore, execution
+on trapped-ion quantum processors confirmed
+the algorithm’s viability on near-term hardware
+where, even without significant error mitigation,
+it successfully identified optimal or high-quality
+sub-optimal solutions.
+While the results presented are promising,
+we acknowledge that for the problem sizes
+studied, state-of-the-art classical heuristics can
+still achieve superior time-to-solution (see Ap-
+pendix B). The primary value of quantum heuris-
+ticssuchasIterative-QAOA,however, liesintheir
+potential for scalability to fault-tolerant quantum
+computers and their ability to explore solution
+spaces in fundamentally different ways. Although
+demonstrated here on the JSSP, the algorithm
+provides a general framework for combinatorial
+optimization. A key direction for future work is
+to apply this iterative method to other classes of
+problems, particularly those for which classical
+solution methods are known to scale poorly.
+In addition, the Iterative-QAOA framework it-
+self offers several avenues for refinement. In this
+work, we used a simple linear ramp schedule with
+the constraint ∆β = ∆γ, reducing the schedule
+to a single hyperparameter. Exploring non-linear
+schedules could lead to a more faithful approxi-
+mation of the underlying adiabatic evolution, po-
+tentially yielding improved performance on larger
+problem instances. We also used a Boltzmann
+distribution to compute the weights of the lin-
+ear combination of solutions that constructs the
+initial state of the algorithm. Exploring more
+sophisticated methods of constructing the initial
+state could also potentially accelerate the conver-
+genceofthealgorithmleadingtoabettertime-to-
+solution. Another promising direction is the use
+of more efficient qubit encodings [38–40]. While
+such encodings could allow larger instances to be
+mapped on current hardware, this often comes at
+a cost of introducing higher-order local interac-
+tions in the Hamiltonian. Analyzing this trade-
+off, in the context of Iterative-QAOA, could be
+an interesting future research direction.
+Acknowledgments
+We would like to thank Felix Tripier, Yvette de
+Sereville, Andrew Arrasmith, and Andrii Maksy-
+mov for helpful discussions on DNL filtering and
+error mitigation techniques in general. This pub-
+lication is supported by funding from The South
+Carolina Quantum Association.
+14
+
+=== PAGE BREAK ===
+
+References
+[1] Hegen Xiong, Shuangyuan Shi, Danni Ren,
+and Jinjin Hu. “A survey of job shop
+scheduling problem: The types and mod-
+els”. Computers and Operations Research
+142, 105731 (2022).
+[2] Alan S. Manne. “On the Job-Shop Schedul-
+ing Problem”. Operations Research8, 219–
+223 (1960).
+[3] A. S. Jain and S. Meeran. “Deterministic
+job-shop scheduling: Past, present and fu-
+ture”. European Journal of Operational Re-
+search 113, 390–434 (1999).
+[4] Tung Kuan Liu, Yeh Peng Chen, and
+Jyh Horng Chou. “Solving Distributed and
+Flexible Job-Shop Scheduling Problems for
+a Real-World Fastener Manufacturer”. IEEE
+Access 2, 1598–1606 (2015).
+[5] Jian Zhang, Guofu Ding, Yisheng Zou,
+Shengfeng Qin, and Jianlin Fu. “Review
+of job shop scheduling research and its new
+perspectives under Industry 4.0”. Jour-
+nal of Intelligent Manufacturing30, 1809–
+1830 (2019).
+[6] S. Meeran and M. S. Morshed. “A hy-
+brid genetic tabu search algorithm for solv-
+ing job shop scheduling problems: A case
+study”. Journal of Intelligent Manufacturing
+23, 1063–1078 (2012).
+[7] F. Smaili. “Simulation-based study of dis-
+patching rules in a real-world job shop
+scheduling problem”. Journal of Simulation
+00, 1–16 (2025).
+[8] Adil Baykasoğlu and Fatma S. Karaslan.
+“Solving comprehensive dynamic job shop
+scheduling problem by using a GRASP-
+based approach”. International Journal of
+Production Research55, 3308–3325 (2017).
+[9] Oussama Masmoudi, Xavier Delorme, and
+Paolo Gianessi. “Job-shop scheduling prob-
+lem with energy consideration”. Interna-
+tionalJournalofProductionEconomics 216,
+12–22 (2019).
+[10] Edilson Reis Rodrigues Kato, Gabriel Diego
+de Aguiar Aranha, and Roberto Hideaki
+Tsunaki. “A new approach to solve the flex-
+ible job shop problem based on a hybrid
+particle swarm optimization and Random-
+Restart Hill Climbing”. Computers and In-
+dustrial Engineering125, 178–189 (2018).
+[11] Mohammad Mahdi Ahmadian, Amir Sale-
+hipour, and T C E Cheng. “A meta-heuristic
+to solve the just-in-time job-shop schedul-
+ing problem”. Eur. J. Oper. Res. 288, 14–
+29 (2021).
+[12] Stéphane Dauzère-Pérès, Junwen Ding, Liji
+Shen, and Karim Tamssaouet. “The flexi-
+ble job shop scheduling problem: A review”.
+European Journal of Operational Research
+314, 409–432 (2024).
+[13] Imran Ali Chaudhry and Abid Ali Khan. “A
+research survey: Review of flexible job shop
+scheduling techniques”. International Trans-
+actions in Operational Research 23, 551–
+591 (2016).
+[14] Nilsen Kundakci and Osman Kulak. “Hybrid
+genetic algorithms for minimizing makespan
+in dynamic job shop scheduling problem”.
+Computers and Industrial Engineering 96,
+31–51 (2016).
+[15] M. R. Garey, D. S. Johnson, and Ravi Sethi.
+“The Complexity of Flowshop and Jobshop
+Scheduling”. Mathematics of Operations Re-
+search 1, 117–129 (1976).
+[16] Peter Brucker, Yu N. Sotskov, and Frank
+Werner. “Complexity of shop-scheduling
+problems with fixed number of jobs: A sur-
+vey”. Mathematical Methods of Operations
+Research 65, 461–481 (2007).
+[17] Michael L. Pinedo. “Scheduling”. Springer
+International Publishing. Cham (2022). 6th
+edition edition.
+[18] Peter Brucker, Bernd Jurisch, and Bernd
+Sievers. “A branch and bound algorithm for
+the job-shop scheduling problem”. Discrete
+Applied Mathematics49, 107–127 (1994).
+[19] Wen Yang Ku and J. Christopher Beck.
+“Mixed integer programming models for job
+shop scheduling: a computational analy-
+sis”. Computers and Operations Research
+73, 165–173 (2016).
+[20] Bernd Waschneck, Thomas Altenmüller,
+Thomas Bauernhansl, and Andreas Kyek.
+“Production scheduling in complex job shops
+from an industry 4.0 perspective: A review
+and challenges in the semiconductor indus-
+try”. InSAMI@iKNOW. (2016). url:https:
+//api.semanticscholar.org/CorpusID:
+579206.
+[21] R. J. M. Vaessens, E. H. L. Aarts, and J. K.
+Lenstra. “Job Shop Scheduling by Local
+15
+
+=== PAGE BREAK ===
+
+Search”. INFORMS Journal on Computing
+8, 302–317 (1996).
+[22] Wayne E. Smith. “Various optimizers for
+single-stage production”. Naval Research Lo-
+gistics Quarterly3, 59–66 (1956).
+[23] M. A.B. Candido, S. K. Khator, and R. M.
+Barcia. “A genetic algorithm based proce-
+dure for more realistic job shop scheduling
+problems”. International Journal of Produc-
+tion Research36, 3437–3457 (1998).
+[24] Busra Tutumlu and Tugba Saraç. “A MIP
+model and a hybrid genetic algorithm for
+flexible job-shop scheduling problem with
+job-splitting”. Computers and Operations
+Research 155, 106222 (2023).
+[25] Mauro Dell’Amico and Marco Trubian. “Ap-
+plying tabu search to the job-shop schedul-
+ingproblem”. AnnalsofOperationsResearch
+41, 231–252 (1993).
+[26] Jin Xie, Xinyu Li, Liang Gao, and Lin Gui.
+“A hybrid genetic tabu search algorithm for
+distributedflexiblejobshopschedulingprob-
+lems”. JournalofManufacturingSystems 71,
+82–94 (2023).
+[27] A I Pakhomchik, S Yudin, M R Perelshtein,
+A Alekseyenko, and S Yarkoni. “Solving
+workflow scheduling problems with QUBO
+modeling” (2022). arXiv:2205.04844.
+[28] Costantino Carugno, Maurizio Fer-
+rari Dacrema, and Paolo Cremonesi.
+“Evaluating the job shop scheduling prob-
+lem on a D-wave quantum annealer”. Sci.
+Rep. 12, 6539 (2022).
+[29] Davide Venturelli, Dominic J J Marchand,
+and Galo Rojo. “Quantum annealing im-
+plementation of job-shop scheduling” (2015).
+arXiv:1506.08479.
+[30] Lukas Schmidbauer, Carlos A Riofrío,
+Florian Heinrich, Vanessa Junk, Ulrich
+Schwenk, Thomas Husslein, and Wolf-
+gang Mauerer. “Path matters: Industrial
+data meet quantum optimization” (2025).
+arXiv:2504.16607.
+[31] Berend Denkena, Fritz Schinkel, Jonathan
+Pirnay, and Sören Wilmsmeier. “Quantum
+algorithms for process parallel flexible job
+shop scheduling”. CIRP J. Manuf. Sci. Tech-
+nol. 33, 100–114 (2021).
+[32] Philipp Schworm, Xiangqian Wu, Moritz
+Glatt, and Jan C Aurich. “Solving flexible
+job shop scheduling problems in manufactur-
+ingwithquantumannealing”. Prod.Eng. 17,
+105–115 (2022).
+[33] Philipp Schworm, Xiangqian Wu, Matthias
+Klar, and Jan C Aurich. “Evalua-
+tion of quantum annealing-based algorithms
+for flexible job shop scheduling” (2024).
+arXiv:2408.15671.
+[34] Yize Sun, Jiarui Liu, Yunpu Ma, and Volker
+Tresp. “Differentiable quantum architec-
+ture search for job shop scheduling prob-
+lem” (2024). arXiv:2401.01158.
+[35] Krzysztof Kurowski, Tomasz Pecyna, Ma-
+teusz Slysz, Rafal Rozycki, Grzegorz Walig-
+ora, and Jan Weglarz. “Application of quan-
+tum approximate optimization algorithm to
+job shop scheduling problem”. Eur. J. Oper.
+Res. 310, 518–528 (2023).
+[36] David Amaro, Matthias Rosenkranz,
+Nathan Fitzpatrick, Koji Hirano, and Mat-
+tia Fiorentini. “A case study of variational
+quantum algorithms for a job shop schedul-
+ing problem”. EPJ Quantum Technol. 9,
+1–20 (2022).
+[37] Archismita Dalal, Iraitz Montalban, Naren-
+dra N Hegade, Alejandro Gomez Cadavid,
+Enrique Solano, Abhishek Awasthi, Davide
+Vodola, Caitlin Jones, Horst Weiss, and
+Gernot Füchsel. “Digitized counterdiabatic
+quantumalgorithmsforlogisticsscheduling”.
+Phys. Rev. Appl.22, 064068 (2024).
+[38] Daniel Alexander Leidreiter. “Investi-
+gating evolving ansatz VQE algorithms
+for job shop scheduling”. Master’s the-
+sis. Institut Für Informatik - Der
+Ludwig–Maximilians–Universität München.
+(2024). url: https://elib.dlr.de/2060
+87/1/Leidreiter-Investigating-Evolv
+ing-Ansatz-VQE-Algorithms-for-Job-S
+hop-Scheduling.pdf.
+[39] Mathias Schmid, Sarah Braun, Rudolf Sol-
+lacher, and Michael J Hartmann. “Highly
+efficient encoding for job-shop scheduling
+problems and its application on quantum
+computers” (2024). arXiv:2401.16381.
+[40] Eric Bourreau, Gerard Fleury, and
+Phlippe Lacomme. “Indirect job-shop
+coding using rank: application to QAOA
+(IQAOA)” (2024). arXiv:2402.18280.
+[41] Edward Farhi, Jeffrey Goldstone, and
+Sam Gutmann. “A quantum approx-
+16
+
+=== PAGE BREAK ===
+
+imate optimization algorithm” (2014).
+arXiv:1411.4028.
+[42] Edward Farhi and Aram W Harrow. “Quan-
+tum supremacy through the quantum ap-
+proximate optimization algorithm” (2016).
+arXiv:1602.07674.
+[43] Ashley Montanaro and Leo Zhou. “Quan-
+tum speedups in solving near-symmetric
+optimization problems by low-depth
+QAOA” (2024). arXiv:2411.04979.
+[44] Ruslan Shaydulin, Changhao Li, Shouvanik
+Chakrabarti, Matthew DeCross, Dylan Her-
+man, Niraj Kumar, Jeffrey Larson, Danylo
+Lykov, Pierre Minssen, Yue Sun, Yuri Alex-
+eev, Joan M Dreiling, John P Gaebler,
+Thomas M Gatterman, Justin A Gerber,
+Kevin Gilmore, Dan Gresh, Nathan He-
+witt, Chandler V Horst, Shaohan Hu, Ja-
+cob Johansen, Mitchell Matheny, Tanner
+Mengle, Michael Mills, Steven A Moses,
+Brian Neyenhuis, Peter Siegfried, Romina
+Yalovetzky, and Marco Pistoia. “Evidence
+of scaling advantage for the quantum ap-
+proximate optimization algorithm on a clas-
+sically intractable problem”. Sci. Adv. 10,
+eadm6761 (2024).
+[45] Jarrod R McClean, Sergio Boixo, Vadim N
+Smelyanskiy, Ryan Babbush, and Hartmut
+Neven. “Barren plateaus in quantum neu-
+ral network training landscapes”. Nat. Com-
+mun. 9, 4812 (2018).
+[46] Daniel J Egger, Jakub Mareček, and Ste-
+fan Woerner. “Warm-starting quantum
+optimization”. Quantum 5, 479 (2021).
+arXiv:2009.10095v4.
+[47] Edward Grant, Leonard Wossnig, Mateusz
+Ostaszewski, and Marcello Benedetti. “An
+initialization strategy for addressing bar-
+ren plateaus in parametrized quantum cir-
+cuits” (2019). arXiv:1903.05076.
+[48] Dennis Willsch, Madita Willsch, Fengping
+Jin, Kristel Michielsen, and Hans De Raedt.
+“GPU-accelerated simulations of quantum
+annealing and the quantum approximate op-
+timization algorithm”. Comput. Phys. Com-
+mun. 278, 108411 (2022).
+[49] Stefan H Sack and Maksym Serbyn. “Quan-
+tum annealing initialization of the quantum
+approximateoptimizationalgorithm”. Quan-
+tum 5, 491 (2021). arXiv:2101.05742v3.
+[50] Yunlong Yu, Chenfeng Cao, Carter Dewey,
+Xiang-Bin Wang, Nic Shannon, and Robert
+Joynt. “Quantum approximate optimization
+algorithm with adaptive bias fields”. Phys.
+Rev. Res.4, 023249 (2022).
+[51] Yunlong Yu, Chenfeng Cao, Xiang-Bin
+Wang, Nic Shannon, and Robert Joynt. “So-
+lution of SAT problems with the adaptive-
+bias quantum approximate optimization al-
+gorithm”. Phys. Rev. Res.5, 023147 (2023).
+[52] Linghua Zhu, Ho Lun Tang, George S
+Barron, F A Calderon-Vargas, Nicholas J
+Mayhall, Edwin Barnes, and Sophia E
+Economou. “Adaptive quantum approximate
+optimization algorithm for solving combina-
+torial problems on a quantum computer”.
+Phys. Rev. Res.4, 033029 (2022).
+[53] Reuben Tate, Jai Moondra, Bryan Gard,
+Greg Mohler, and Swati Gupta. “Warm-
+started QAOA with custom mixers prov-
+ably converges and computationally beats
+goemans-williamson’s max-cut at low cir-
+cuit depths”. Quantum 7, 1121 (2023).
+arXiv:2112.11354v4.
+[54] Rafael S do Carmo, Marcos C S Santana,
+Felipe F Fanchini, Victor Hugo C de Al-
+buquerque, and João Paulo Papa. “Warm-
+starting QAOA with XY mixers: A novel ap-
+proach for quantum-enhanced vehicle rout-
+ing optimization” (2025). arXiv:2504.19934.
+[55] Yunlong Yu, Xiang-Bin Wang, Nic Shannon,
+and Robert Joynt. “Warm-start adaptive-
+bias quantum approximate optimization al-
+gorithm”. Phys. Rev. A112, 012422 (2025).
+[56] Leo Zhou, Sheng-Tao Wang, Soonwon Choi,
+Hannes Pichler, and Mikhail D Lukin.
+“Quantum approximate optimization algo-
+rithm: Performance, mechanism, and imple-
+mentation on near-term devices”. Phys. Rev.
+X. 10, 021067 (2020).
+[57] Fernando G S L Brandao, Michael
+Broughton, Edward Farhi, Sam Gut-
+mann, and Hartmut Neven. “For fixed
+control parameters the quantum approx-
+imate optimization algorithm’s objective
+function value concentrates for typical
+instances” (2018). arXiv:1812.04170.
+[58] Maximilian Hess, Lilly Palackal, Abhishek
+Awasthi, and Karen Wintersperger. “Effec-
+tive embedding of integer linear inequalities
+for variational quantum algorithms” (2024).
+arXiv:2403.18395.
+17
+
+=== PAGE BREAK ===
+
+[59] Ryo Sakai, Hiromichi Matsuyama, Wai-
+Hong Tam, and Yu Yamashiro. “Trans-
+ferring linearly fixed QAOA angles: per-
+formance and real device results” (2025).
+arXiv:2504.12632.
+[60] Ruslan Shaydulin, Stuart Hadfield, Tad
+Hogg, and Ilya Safro. “Classical symmetries
+and the quantum approximate optimization
+algorithm”. Quantum Inf. Process. 20, 1–
+28 (2021).
+[61] Vladimir Kremenetski, Anuj Apte, Tad
+Hogg, Stuart Hadfield, and Norm M
+Tubman. “Quantum alternating opera-
+tor ansatz (QAOA) beyond low depth
+with gradually changing unitaries” (2023).
+arXiv:2305.04455.
+[62] J A Montañez-Barrera and Kristel
+Michielsen. “Toward a linear-ramp QAOA
+protocol: evidence of a scaling advantage
+in solving some combinatorial optimiza-
+tion problems”. Npj Quantum Inf. 11,
+1–12 (2025).
+[63] Vanessa Dehn, Martin Zaefferer, Gerhard
+Hellstern, Florentin Reiter, and Thomas
+Wellens. “Extrapolation method to opti-
+mize linear-ramp QAOA parameters: Eval-
+uation of QAOA runtime scaling” (2025).
+arXiv:2504.08577.
+[64] Ruslan Shaydulin and Marco Pistoia.
+“QAOA with n · p ≥ 200” (2023).
+arXiv:2303.02064.
+[65] Jonathan Wurtz and Danylo Lykov. “Fixed-
+angle conjectures for the quantum approx-
+imate optimization algorithm on regular
+MaxCut graphs”. Phys. Rev. A 104,
+052419 (2021).
+[66] Haomu Yuan, Songqinghao Yang, and
+Crispin H W Barnes. “Iterative quantum
+optimisation with a warm-started quantum
+state” (2025). arXiv:2502.09704.
+[67] Alejandro Gomez Cadavid, Archismita
+Dalal, Anton Simen, Enrique Solano, and
+Narendra N Hegade. “Bias-field digi-
+tized counterdiabatic quantum optimiza-
+tion”. Phys. Rev. Res.7, L022010 (2025).
+[68] Xiao Yuan, Suguru Endo, Qi Zhao, Ying Li,
+and Simon C Benjamin. “Theory of vari-
+ational quantum simulation”. Quantum 3,
+191 (2019). arXiv:1812.08767v4.
+[69] Sam McArdle, Tyson Jones, Suguru Endo,
+Ying Li, Simon C Benjamin, and Xiao Yuan.
+“Variational ansatz-based quantum simula-
+tionofimaginarytimeevolution”. NpjQuan-
+tum Inf.5, 1–6 (2019).
+[70] Titus D Morris, Ananth Kaushik, Martin
+Roetteler, and Phillip C Lotshaw. “Perfor-
+mant near-term quantum combinatorial op-
+timization” (2024). arXiv:2404.16135.
+[71] K Mitarai, M Negoro, M Kitagawa, and
+K Fujii. “Quantum circuit learning”. Phys.
+Rev. A98, 032309 (2018).
+[72] Maria Schuld, Ville Bergholm, Christian
+Gogolin, Josh Izaac, and Nathan Killoran.
+“Evaluating analytic gradients on quantum
+hardware”. Phys. Rev. A99, 032331 (2019).
+[73] Guifré Vidal. “Efficient classical simula-
+tion of slightly entangled quantum computa-
+tions”. Phys. Rev. Lett.91, 147902 (2003).
+[74] Ulrich Schollwöck. “The density-matrix
+renormalization group in the age of ma-
+trix product states”. Ann. Phys. 326, 96–
+192 (2011).
+[75] Moises Ponce, Rebekah Herrman, Phillip C
+Lotshaw, Sarah Powers, George Siopsis,
+Travis Humble, and James Ostrowski.
+“Graph decomposition techniques for solving
+combinatorial optimization problems with
+variational quantum algorithms” (2023).
+arXiv:2306.00494.
+[76] Mohammed M S El-Kholany, Martin Geb-
+ser, and Konstantin Schekotihin. “De-
+composition strategies and multi-shot ASP
+solving for job-shop scheduling” (2022).
+arXiv:2205.07537.
+[77] S David Wu, Eui-Seok Byeon, and Robert H
+Storer. “A graph-theoretic decomposition of
+the job shop scheduling problem to achieve
+scheduling robustness”. Oper. Res.47, 113–
+124 (1999).
+[78] Jwo-Sy Chen, Erik Nielsen, Matthew Ebert,
+Volkan Inlek, Kenneth Wright, Vandiver
+Chaplin, Andrii Maksymov, Eduardo Páez,
+Amrit Poudel, Peter Maunz, et al. “Bench-
+marking a trapped-ion quantum computer
+with 30 qubits”. Quantum8, 1516 (2024).
+[79] Sangtaek Kim, Robert R. McLeod,
+M. Saffman, and Kelvin H. Wagner.
+“Doppler-free, multiwavelength acousto-
+optic deflector for two-photon addressing
+arrays of Rb atoms in a quantum in-
+formation processor”. Appl. Opt. 47,
+1816–1831 (2008).
+18
+
+=== PAGE BREAK ===
+
+[80] I. Pogorelov, T. Feldker, Ch. D. Marciniak,
+L. Postler, G. Jacob, O. Krieglsteiner,
+V. Podlesnic, M. Meth, V. Negnevitsky,
+M. Stadler, et al. “Compact Ion-Trap Quan-
+tum Computing Demonstrator”. PRX Quan-
+tum 2, 020343 (2021).
+[81] Ivan A Chernyshev, Roland C Farrell, Marc
+Illa, Martin J Savage, Andrii Maksymov,
+Felix Tripier, Miguel Angel Lopez-Ruiz,
+Andrew Arrasmith, Yvette de Sereville,
+Aharon Brodutch, Claudio Girotto, Ananth
+Kaushik, andMartinRoetteler. “Pathfinding
+quantum simulations of neutrinoless double-
+β decay” (2025). arXiv:2506.05757.
+A JSSP Instance Generation
+Parameter Symbol Value
+Machines M 3
+Jobs J 20
+Time Slots Tm {20, 22, 23}
+Earliness Cost ce 1
+Lateness Cost cl 3
+Production Switching Cost cp 5
+Penalty Weight λ 10
+Table 2: Parameters for the full JIT-JSSP instance used in the experimental validation. The meaning of the variables
+are explained in Section 4.1.
+2 1 3 5 6 4 8 7 9 11 10 12 13 14 19 15 16 18 20 17
+2 1 3 5 6 4 8 7 9 11 10 12 13 14 19 15 16 18 20 17
+2 1 3 5 6 4 8 7 9 11 10 12 13 14 19 15 16 18 20 17
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+Machine 1
+Machine 2
+Machine 3
+Time slots 23
+Figure 9: Gantt chart representing an optimal solution to the full instance and the time slots unfrozen in the 33-qubit
+instance. Each row corresponds to a machine and each column is a time slot that has an assigned job. Orange
+boxes represent fixed job assignments, gray boxes represent the fixed empty (idle) time slots assignments, while white
+boxes are free (unfrozen) time periods that are optimized. Dashed boxes denote empty time slots which were not
+classically optimized. Unit penalties are accrued for each production group switch (crossing arrows), early deliveries
+(green minus signs), and late deliveries (red plus signs). The production groups and due times of the underlying
+JIT-JSSP instance are defined in Table 3.
+Machine Jobs
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+Production
+Groups
+1 A B C D C B C D C B C D A B C D D B C D
+2 A A B B C D A B D C D C D D A A B B D B
+3 B B B A A A C C B D D A A A B D B D C B
+Due
+Times − 3 3 5 6 6 8 10 11 11 12 13 13 15 17 17 19 20 20 21 21
+Table 3: Production groups and due times of the full JIT-JSSP instance.
+We designed a problem instance withJ = 20 jobs, each of which had to be processed onM = 3
+machines. On machine 1, all time slots were active (i.e., processed a job), and there were no idle slots.
+Following this, the number of time slots needed for machine 1 wasT1 = J = 20. On machine 2, two
+19
+
+=== PAGE BREAK ===
+
+Free Variables
+(nvar)
+Machine 1 Machine 2 Machine 3
+Jobs Time Slots n1 Jobs Time Slots n2 Jobs Time Slots n3
+24 16-18, 20 17-20 4 17, 20 20-21 2 17, 20 21-22 2
+32* 15-18, 20 16-20 5 17, 20 20-21 2 17, 20 21-22 2
+33 15-18, 20 16-20 5 17, 20 20-21 2 17, 20 21-22 2
+36 16-18, 20 17-20 4 16-18, 20 18-21 4 17, 20 21-22 2
+50 15-18, 20 16-20 5 16-18, 20 18-21 4 17-18, 20 20-22 3
+97 15-20 15-20 6 15-20 16-21 6 15-18, 20 18-22 5
+Table 4: Construction of JIT-JSSP sub-instances. Free (unfrozen) jobs and time slots used to generate all instances
+evaluated in this work. The number of free jobs/time slots at the end of the schedule for each machine (n1,n 2,n 3)
+follows Eq. (24), with the condition thatn1≥n2≥n3. The 32-variable instance (*) is derived from the 33-variable
+instance by additionally fixing variablex1,15,20 to its optimal value of 0. The Gantt chart representing the 33-variable
+instance is shown in Fig. 9.
+time slots were allowed to be idle, corresponding toT2 = J + 2 = 22, and on machine 3, three time
+slots were allowed to be idle, corresponding toT3 =J + 3 = 23.
+The original formulation we solved is similar to the formulation presented in Section 4.1, with one
+key difference: it did not exogenously specify which time slots on each machine were idle. That is, it
+did not include sets of active (Am) and idle (Im) time slots for each machinem; rather, it followed
+the time assignment and idle slot constraints as presented in Ref. [36]. Solving the original instance
+produced the optimal solution presented in Fig. 9. After the original instance was generated, we used
+it to exogenously define the sets of active and idle time slots on each machine, essentially pre-defining
+whether a time slot on a machine would be active or idle. The resulting sets of idle time slots were
+I1 =∅,I 2 ={1, 22},I 3 ={1, 2, 23} (the grey boxes on Fig. 9) and active time slots on each machinem
+were given byAm ={1,...,T m}\ Im (the orange and white boxes on Fig. 9). We used the resulting
+formulation with exogenously defined sets of active and idle slots (given in Section 4.1) for all analyses
+and discussion, and we refer to it throughout the paper as the “full instance.” Note that the optimal
+job-machine assignments in the original and full instances are the same.
+We solved the full instance classically using Gurobi Optimizer software version 12.0.2 on an Intel(R)
+Core(TM) i7-8550U CPU @ 1.80GHz. This problem had 1,300 binary variables and 23 continuous
+variables; thecontinuousvariablesrepresenttheduedateandproductioncostpenalties, fartoomanyto
+be solved via a quantum simulation or current quantum hardware. In order to end up with problems of
+suitable sizes for our simulator and hardware, we designed several sub-instances, where we strategically
+“froze” most variables in the full instance to their optimal value, but left a subset of the variables
+unfrozen, so that we could solve each sub-instance for these variables using quantum simulation and/or
+hardware. The free slots remain fixed once the full instance is solved, so each sub-instance only
+considers a subset of thexmjt variables. Ref. [36] followed a similar process of freezing most variables,
+then solving for the unfrozen variables using quantum technology. Our goal was to generate a set of
+sub-instances that covered a wide range of number of variables, so that we could assess the performance
+of Iterative-QAOA across a range of problem sizes. The process of how we designed each sub-instance
+and determined the associated number of unfrozen variables is detailed below.
+1. We chose the number of slots (and therefore, the same number of jobs) to leave unfrozen on each
+machine, abiding by the following constraints:
+(a) We always freed up jobs at the end of each machine’s time slots.
+(b) The number of free slots on machine 1≥ the number of free slots on machine 2≥ the number
+of free slots on machine 3.
+Note: These rules served two purposes. First, they prevented us from choosing trivial cases where
+visual inspection of the problem would allow it to be reduced to a smaller number of variables.
+20
+
+=== PAGE BREAK ===
+
+Second, they ensured that we could use the same formula (shown in step 2) to calculate the number
+of variables in each sub-instance.
+2. We calculated the number of unfrozen variables associated with this set of free slots as follows
+n2
+1 +n2
+2 +n2
+3 =nvar. (24)
+This result is fairly intuitive, on machinei, we haveni free jobs, each of which can be placed in
+any ofni slots; therefore, we need to have an unfrozen variable for each potential job/slot pair, so
+we haven2
+1 variables for machine 1,n2
+2 variables for machine 2, andn2
+3 variables for machine 3.
+3. If the problem size calculated in step 2 was useful for us, we added it to the list of instances and
+returned to the first step to generate other instances as needed. If it was not useful for us, we
+returned to the first step to generate other instances. When our goal was to arrive at a specific
+number of variables, and this number couldn’t be achieved exactly via steps 1 and 2, we proceeded
+to step 4.
+4. Starting with the smallest sub-instance with more variables than our desired number, we refroze
+variables until we arrived at our desired number of variables (note thatnvar decreased by 1 for
+each variable that we refroze). We refroze variables whose optimal value was 0, because freezing
+variables whose optimal value is 1 would have resulted in a much less interesting problem. We
+now have our set of unfrozen variables, and this sub-instance is complete.
+In Table 2, we show all the parameter values used to construct the cost function (Eq. (22)) of the
+full problem instance, and Table 3 shows the production groups and due dates.
+To illustrate the instance construction process, Fig. 9 displays a specific sub-problem overlaid on an
+optimal solution of the full instance. In the Gantt chart, orange boxes represent variables fixed (frozen)
+to the their optimal values, while white boxes, denote the free (unfrozen) variables that define the sub-
+instance to be solved. Dashed boxes indicate empty time slots, arrows mark production group switches,
+and the plus and minus signs represent a late/early delivery of the job on machine 3, respectively. In
+this example, the number of free slots (white boxes) per machine aren1 = 5, n2 = 2, and n3 = 2.
+According to Eq. (24), this configuration corresponds tonvar = 33 free binary variables. The 33-
+variable cost function (Eq. (22)) is then mapped onto a 33-qubit Hamiltonian (one-hot encoding) using
+the transformation Eq. (5). In Table 4 we show the specific configurations of unfrozen jobs and time
+slots utilized to generate all sub-instances used in this work.
+B Classical Solvers
+The JIT-JSSP instances we consider in this paper can also be solved using classical hardware. We
+present the time to solve to optimality using the Gurobi Optimizer (with presolve) software version
+12.0.2 solved on a PC with Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz. Appendix B shows the
+solution times to solve sub-instances with progressively fewer frozen variables. The time horizon[t,Tm]
+associated with each row represents the time slots on machinem that are optimized in a given sub-
+instance, i.e., with unfrozen variables; all other variables are frozen to the optimal solution presented in
+Fig. 9. Note that the row with the time horizon of [1,Tm] corresponds to the full instance. Exponential
+scaling in computational time as a function of instance size is shown in Fig. 10.
+C LR-QAOA Parameter Exploration
+The performance of LR-QAOA is primarily determined by the ramp parameters∆β and ∆γ and the
+number of layersp. To simplify the parameter search, we assume equal slopes, defining∆β/γ≡ ∆β =
+∆γ. The optimal value of∆β/γ is identified by computing the expectation value of the cost Hamiltonian
+⟨HC⟩, from 4,000 measurement shots in ideal simulations for each point in the parameter landscape.
+21
+
+=== PAGE BREAK ===
+
+Time horizon
+[t,T m]
+Free Variables
+(nvar)
+Computational time [sec]
+Run 1 Run 2 Run 3 A vg.
+[17,T m] 88 0.03 0.03 0.03 0.03
+[16,T m] 123 0.04 0.05 0.03 0.04
+[15,T m] 164 0.08 0.07 0.07 0.07
+[14,T m] 211 0.10 0.08 0.11 0.10
+[13,T m] 264 0.21 0.12 0.11 0.15
+[12,T m] 323 0.33 0.29 0.53 0.39
+[11,T m] 388 0.51 0.48 0.46 0.48
+[10,T m] 459 1.30 1.09 1.10 1.16
+[9,T m] 536 2.14 2.03 1.96 2.04
+[8,T m] 619 2.28 2.36 2.46 2.36
+[7,T m] 708 3.73 3.59 3.35 3.56
+[6,T m] 803 7.95 9.18 9.34 8.82
+[5,T m] 904 28.25 32.83 32.56 31.21
+[4,T m] 1011 53.28 41.31 33.37 42.65
+[3,T m] 1,124 112.62 98.76 131.12 114.17
+[2,T m] 1,221 124.64 129.96 103.53 119.38
+[1,T m] 1,300 226.00 229.74 229.93 228.56
+Table 5: Time to solve to optimality on a classical computer for sub-instances of the full instance. The unfrozen
+(free) binary variables in each sub-instance are the binary decision variables betweent and Tm (inclusive) that are
+optimized; this excludes any decision variable associated with a jobj assigned to machinem in a time period prior
+to t.
+0 1000 2000 3000 4000
+Instance size ( nvar)
+10□2
+100
+102
+104
+106
+108
+Comp. Time [sec]
+(20,3) (25,3) (30,3) (35,3)
+(J, M)
+JIT-JSSP sub-instances
+Exp. ﬁt
+Figure 10: Classical computational time for sub-instances beginning at time periodt. The data points correspond
+to the mean time-to-solution values from Appendix B. The dashed line shows an exponential fit, extrapolating the
+expected computational time for larger problems. The extrapolated computational time is only an approximate guide
+and will need to be verified by actual execution. The upper horizontal axis shows example combinations of jobsJ
+and machinesM that correspond to the lower bound of instance sizeJ 2M. The dotted red line indicates a problem
+size for which the current formulation of the JSSP would take around 4 days to execute. This could represent a point
+beyond which quantum computation may begin to have advantage over classical computation.
+In Fig. 11 we present the landscapes for three JIT-JSSP instances of increasing size: 12, 24, and 32
+qubits. For visual clarity, the color scale in each panel is normalized as
+⟨HC⟩
+max⟨HC⟩, (25)
+where max⟨HC⟩ denotes the maximum expectation value computed across all values of∆β/γ andp for
+a given problem instance; ensuring a uniformz-scale across all panels.
+22
+
+=== PAGE BREAK ===
+
+Figure 11: LR-QAOA performance landscape for JIT-JSSP instances of increasing size. Each panel correspond to a
+different problem instance: 12, 24, and 32 qubits (from left to right). The color scale shows the average cost⟨HC⟩
+normalized by max⟨HC⟩ as a function of QAOA layersp and ramp parameter∆β/γ. The dashed horizontal line at
+∆β/γ = 0.17 highlights the optimal parameter trajectory for all three instances.
+A key feature across all three cases is the emergence of a clear “performance valley” [61, 62], a
+region where the algorithm most effectively minimizes the cost Hamiltonian as circuit depth increases.
+Notably, the optimal trajectory along this valley is consistently located at a ramp parameter of∆β/γ≈
+0.17, regardless of the problem size. We selected this value for all experiments in the main text,
+assuming this optimal parameter holds or deviates only slightly for larger instances.
+While the normalization⟨HC⟩/ max⟨HC⟩ helps visualize the “performance valley”, the absolute per-
+formance of LR-QAOA is still size-dependent. The lowest average energymin⟨HC⟩, increases as system
+size grows for a fixedp. This shows how the complexity of the problem increases with system size,
+therefore requiring deeper circuits to reach high-quality solutions.
+D Performance with sub-optimal LR-QAOA parameters
+Tostudyrobustness, weevaluatedtheperformanceofIterative-QAOAusingasub-optimalparameter
+schedule, selecting a ramp parameter of∆β/γ = 1.25; a value located far from the optimal performance
+valley (see Fig. 11).
+The results of these simulations and hardware runs for the same 32-, 33-, and 36-qubit instances are
+shown in Figs. 12 and 13. Like in the main text, the two smallest instances were simulated using a
+statevector simulator, while the 36-qubit instance ideal results were obtained using an MPS simulator
+with a maximum bond dimension ofχ = 256. Despite the sub-optimal schedule, the iterative process is
+still able to effectively drive the cost distributions towards the low-energy sector, successfully sampling
+the optimal solution in both ideal noiseless simulations and quantum hardware runs. While the final
+probabilities of sampling the ground state are lower than those achieved with the optimal schedule,
+this result underscores the robustness of the algorithm. It demonstrates that the iterative refinement of
+the initial state is a powerful mechanism that can compensate for a poorly chosen parameter schedule.
+E Trapped-ion Quantum Hardware
+The experiments were performed on IonQ’s Forte-generation trapped-ion quantum processors, specif-
+ically the Forte and Forte Enterprise systems [78]. Both devices employ chains of 36171Yb+ ions,
+with quantum information encoded in the ground state hyperfine levels. Ions are produced via laser
+ablation and photoionization, and confined in a surface linear Paul trap integrated within a vacuum
+package.
+Universal control is achieved through two-photon Raman transitions driven by355 nmpulsed lasers,
+enabling arbitrary single-qubit rotations and nativeRZZ-type entangling gates. At the time of experi-
+23
+
+=== PAGE BREAK ===
+
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+32 qubits
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0 Iter = 3 Iter = 9
+33 qubits
+200 250 300 350
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0
+200 250 300 350
+Cost
+Iter = 3
+200 250 300 350
+Cost
+Iter = 9
+36 qubits
+Ideal Sim. QPU QPU + DNL Optimal Sol.
+Figure 12: Performance of Iterative-QAOA on IonQ Forte Generation QPU on problems with 32, 33 and 36 qubits.
+These problems were executed with a sub-optimal LR-QAOA ramp parameter of∆β/γ = 1.25 and a fixedβT = 0.5.
+Even with sub-optimal parameters, the algorithm is robust enough to sample the optimal solution for the 32 qubits
+and 33 qubits problem instances and the first excited state in the 36 qubit problem instance when executed on
+quantum hardware.
+200 300 500 1000 2000
+Cost
+10□4
+10□3
+10□2
+10□1
+100
+Quasi-probability
+Iter = 0
+200 300 500 1000 2000
+Cost
+Iter = 3
+200 300 500 1000 2000
+Cost
+Iter = 9
+Ideal Sim. QPU QPU + DNL Optimal Sol.
+Figure 13: Performance of Iterative-QAOA on a 33-qubit JIT-JSSP instance executed on IonQ Forte generation QPU
+with a sub-optimal LR-QAOA ramp parameter of∆β/γ = 1.25 and a fixedβT = 0.5.
+mentation, direct randomized benchmarking (DRB) reported median two-qubit gate fidelities of 99.3%
+(Forte) and 99.17% (Forte Enterprise), with single-qubit fidelities near 99.98%. Gate durations were
+approximately 130 µs for single-qubit and950 µs for two-qubit operations.
+A key architectural feature is the use of acousto-optic deflectors (AODs) for independent beam
+24
+
+=== PAGE BREAK ===
+
+steering, which reduces crosstalk and alignment errors [79, 80]. Combined with automated calibration
+and control protocols, this enables robust high-fidelity operation across extended ion chains.
+F Error Mitigation: Debiasing with Non-Linear Filtering
+Figure 14: Aggregation process with non-linear filtering for a single measured bitstring [81].(a) The distribution
+of the bitstring’s probabilities is collected from each of the symmetrized circuit variants.(b) These probabilities
+are then sorted and converted into a survival plot, which shows the number of variants that observed the bitstring
+at or above a given probability. The normalized area under this curve corresponds to the unmitigated probability,
+which is equivalent to a simple average of all variant outcomes. (c) Finally, a non-linear filter is applied by setting
+a threshold vth, discarding bitstrings observed by fewer than a minimum number of variants. This step removes
+likely noise-induced artifacts that are inconsistent across the different circuit realizations, and the final, mitigated
+probability is calculated from the area under the filtered curve.
+In this appendix we summarize the Debiasing with Non-linear Filtering (DNL) method used for error
+mitigation. DNL is a resource-efficient technique that suppresses hardware-induced errors by exploiting
+circuit and device symmetries. The method relies on executing multiple “variants” of a target circuit,
+which are equivalent in the noiseless limit but differ in their physical implementation. Variants can
+be generated, for example, by remapping logical qubits to different physical ions, using different gate
+decompositions, or by pairing circuits that differ only by final NOT gates. This construction sym-
+metrizes dominant error sources such as location-dependent noise or measurement bias, enabling their
+suppression in post-processing.
+The DNL aggregation algorithm goes as follows. For each measured bitstring, record and order its
+probability distribution across all variants (Fig. 14a). Obtain the number of variants as a function of
+the measured probabilities of the bitstring and normalize the area under the curve (Fig. 14b). Apply
+a non-linear weighting filterW (v) (Fig. 14c) which discards any bitstring observed by fewer than a
+minimum number of variantsvth. The specific weighting function used in this work is given by
+W (v) =
+
+
+
+( v
+vmax
+)α
+, v >v th,
+0, v ≤vth,
+(26)
+where vmax is the total number of variants andα > 0 controls how sharply outcomes observed in
+fewer variants are attenuated; we useα = 4. The final, mitigated probability for each bitstring is then
+calculated as a weighted average of its frequencies, with the weight for each bitstring determined by
+W (v). This approach preserves bitstrings that are consistently observed across many variants while
+suppressing those that appear in only a few, which are treated as likely noise artifacts.
+25

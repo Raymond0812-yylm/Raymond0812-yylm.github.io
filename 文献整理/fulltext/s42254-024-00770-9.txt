@@ -1,0 +1,2179 @@
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 718
+nature reviews physics
+Review article
+https://doi.org/10.1038/s42254-024-00770-9
+ Check for updates
+Challenges and opportunities 
+in quantum optimization
+Amira Abbas    1,2, Andris Ambainis3, Brandon Augustino4, Andreas Bärtschi    5, Harry Buhrman1,2,6, 
+Carleton Coffrin    7, Giorgio Cortiana    8, Vedran Dunjko    9, Daniel J. Egger    10, Bruce G. Elmegreen11, 
+Nicola Franco    12, Filippo Fratini    13, Bryce Fuller    14, Julien Gacon    10,15, Constantin Gonciulea16, 
+Sander Gribling    17, Swati Gupta4, Stuart Hadfield    18,19, Raoul Heese    20, Gerhard Kircher    13, 
+Thomas Kleinert    21, Thorsten Koch    22,23, Georgios Korpas    24,25,26, Steve Lenk    27,28, Jakub Marecek    25, 
+Vanio Markov16, Guglielmo Mazzola    29, Stefano Mensa    30, Naeimeh Mohseni    8, Giacomo Nannicini    31, 
+Corey O’Meara    8, Elena Peña Tapia10, Sebastian Pokutta    32,33, Manuel Proissl    10, Patrick Rebentrost34, 
+Emre Sahin    30, Benjamin C. B. Symons    30, Sabine Tornow    35, Víctor Valls36, Stefan Woerner10 , 
+Mira L. Wolf-Bauwens10, Jon Yard37, Sheir Yarkoni    38, Dirk Zechiel21, Sergiy Zhuk    36 & Christa Zoufal    10
+Abstract
+Quantum computers have demonstrable ability to solve problems at 
+a scale beyond brute-force classical simulation. Interest in quantum 
+algorithms has developed in many areas, particularly in relation to 
+mathematical optimization — a broad field with links to computer 
+science and physics. In this Review, we aim to give an overview of 
+quantum optimization. Provably exact, provably approximate and 
+heuristic settings are first explained using computational complexity 
+theory, and we highlight where quantum advantage is possible in 
+each context. Then, we outline the core building blocks for quantum 
+optimization algorithms, define prominent problem classes and 
+identify key open questions that should be addressed to advance 
+the field. We underscore the importance of benchmarking by 
+proposing clear metrics alongside suitable optimization problems, for 
+appropriate comparisons with classical optimization techniques, and 
+discuss next steps to accelerate progress towards quantum advantage 
+in optimization.
+Sections
+Introduction
+Quantum advantage and 
+complexity theory
+Problem classes and 
+algorithms
+Benchmarks
+The path towards quantum 
+advantage
+Outlook
+ e-mail: wor@zurich.ibm.comA full list of affiliations appears at the end of the paper.
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 719
+Review article
+upfront. This makes comparing quantum and classical algorithms rather 
+tricky, given the limitations of what can be run on today’s quantum 
+hardware. T o establish systematic, reproducible and comparable bench-
+marks, we introduce fair metrics and relevant optimization problems to 
+which different algorithms can be applied. This is crucial to identify opti-
+mal strategies and guide the development of new quantum optimization 
+algorithms. Finally, we propose next steps towards quantum advantage.
+Quantum advantage and complexity theory
+In theoretical computer science, complexity classes group computa-
+tional problems together in terms of the amount of resources, such as 
+computational time and memory, required to solve them. Complex-
+ity theory is thus often the guiding compass when seeking classes of 
+problems that are hard for classical computers to solve, but perhaps 
+demand less resource on quantum computers. This is a reasonable 
+and rigorous way to formulate a quantum advantage, but proving that 
+problems require strictly more resources classically than they would 
+on a quantum computer can be a monumental task. Additionally, com-
+plexity theory is traditionally concerned with worst-case instances of a 
+problem: in practice, the concrete problem instance to be solved might 
+be easier than the hardest, worst-case instances14,15. Hence, even when 
+worst-case complexity-theoretic results rule out quantum speedups 
+for hard problems, quantum computers might still outperform clas-
+sical computers for certain classes of problem instance. Our notion of 
+quantum advantage in practice should cast the net wider than formal 
+proofs and worst-case scenarios, but within a reasonable range guided 
+by complexity-theoretic arguments.
+Categorizing the complexity of an optimization problem depends 
+on its formulation and the desired quality of the solution. Much of 
+the complexity theory deals with decision problems, that is, deciding 
+whether a particular solution to a problem exists or not. The most 
+notable complexity classes containing decision problems are labelled P 
+(polynomial time) and NP (non-deterministic polynomial time): P con-
+tains the set of decision problems known to require an amount of 
+time to solve that grows at most polynomially with the input size; NP 
+contains problems whose solutions are verifiable in polynomial time. 
+In practice, finding an actual solution to a problem is more important 
+than determining its existence. For example, in the TSP, merely know-
+ing that there exists a path of a certain length to travel to all cities and 
+back is not enough to benefit; the actual path to travel is needed. This 
+leads to the notion of relational problems, which generalize decision 
+problems and are classified by their own functional complexity classes, 
+denoted FP and FNP. The classes PO  ⊂ FP and NPO  ⊂ FNP are the sets 
+of optimization problems analogous to P and NP (ref. 16). (A compre-
+hensive overview of various complexity classes pertinent for practical 
+scenarios is given in the Supplementary information.)
+Although it is widely believed that quantum computers will not 
+offer exponential speedups for NPO-hard problems (the most difficult 
+optimization problems to solve), the story does not end there. An inter-
+esting open question is whether quantum algorithms can solve opti-
+mization problems that are average-case hard for classical algorithms. 
+In particular, problems with a so-called overlap gap property 17 have 
+been proven to be average-case hard for certain families of classical 
+algorithms (and local low-depth quantum algorithms), but it remains 
+unclear whether these problems can be addressed by higher-depth or 
+more sophisticated quantum algorithms18–22. If so, this would be very 
+convincing evidence for useful superpolynomial quantum advantage, 
+given that such problems naturally arise in combinatorial optimization, 
+statistical physics and high-dimensional statistics.
+Key points
+ • Quantum computing is advancing rapidly, and quantum optimization 
+is a promising area of application.
+ • Quantum optimization algorithms — whether provably exact, 
+provably approximate or heuristic — offer opportunities to demonstrate 
+quantum advantage.
+ • Systematic benchmarking is crucial to guide research, track progress 
+and further advance understanding of quantum optimization.
+ • Theoretical research and empirical research using real hardware can 
+complement each other, in the move towards demonstrating quantum 
+advantage.
+Introduction
+Quantum computing has the potential to revolutionize optimization 
+and thereby impact science and numerous businesses. Optimization 
+problems arise almost everywhere, and improvements over state-of-
+the-art classical algorithms using quantum computers could occur 
+across multiple dimensions, such as solution quality, solution diversity, 
+time-to-solution and cost-to-solution. But how tangible are the benefits 
+of quantum optimization? Grover’s search1, quantum annealing, adiaba-
+tic quantum optimization2,3 and the quantum approximate optimiza-
+tion algorithm (QAOA)4 provided a promising start, but it has become 
+clear that more is needed to realize a practical quantum advantage 
+in optimization. Here, we address — for researchers and practition-
+ers in quantum computing, optimization and related domains — the 
+potential of quantum optimization from various angles: complex -
+ity theory, problem classes and algorithmic design, fair and robust 
+benchmarking and the next steps towards real-world applications.
+For some combinatorial optimization problems in a worst-case 
+setting, the required effort using known classical approaches scales 
+exponentially with the problem size5. Quantum computers may offer a 
+quadratic speedup (for example, via Grover’s search) — but a quadratic 
+speedup over an exponential run time is still an exponential run time. 
+The situation can, however, change drastically if we consider a concrete 
+problem instance instead of the general worst-case scenario. Classi -
+cally, many algorithms and heuristics can obtain an (almost) optimal 
+solution in a reasonable time, even for some large problems. The most 
+prominent example is the travelling salesperson problem (TSP), which 
+is often used to illustrate the difficulty of combinatorial optimization 
+but, in practice, very large problem instances can be solved close to 
+optimality classically6–11. By contrast, there exist problems with fewer 
+than 100 variables that are difficult to tackle classically12,13. Although 
+quantum optimization algorithms will not necessarily improve perfor-
+mance for all instances of a problem, they do provide additional tools 
+with new properties that can improve performance for some problem 
+instances and thus improve our overall capabilities in optimization. It 
+is crucial to understand exactly where advantages might lie, theoreti-
+cally and empirically. Furthermore, synergies with classical algorithms 
+can certainly improve the performance of quantum algorithms. We 
+discuss these points formally, by laying the foundation for quantum 
+optimization algorithms within various well-studied problem classes.
+In practice, it is often necessary to rely on optimization heuristics, 
+in which the performance for given problem instances is not known 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 720
+Review article
+Additionally, in practice, an exact solution to a problem might not 
+be required. An approximation to the exact solution is often acceptable, 
+leaving room for the possibility of exponential quantum speedups 
+in realistic settings. Studying the ability of quantum algorithms to 
+approximate solutions — that is, the hardness of approximation with 
+quantum computing — raises many questions. For example, there are 
+empirical investigations into whether quantum algorithms can achieve 
+better approximation ratios (a measure of how close an approximate 
+solution is to optimality) than classical methods23–26.
+An ‘approximable’ problem is said to belong to the complexity 
+class APX, which contains the set of NPO problems for which there 
+are polynomial-time approximation algorithms with approximation 
+ratios bounded above by some constant c  (ref. 27). An interesting 
+subclass of NPO problems that admit a so-called polynomial-time 
+approximation scheme is PTAS (refs. 15,16). For any problem in PTAS, 
+there is a polynomial-time algorithm that is guaranteed to find a solu-
+tion whose value is within a factor 1 + ε of the optimum, in which ε > 0. 
+However, there are cases in which the exponent of the polynomial 
+might even depend exponentially on 1/ε. T o account for this, the class 
+FPTAS — for fully polynomial-time approximation scheme — can be 
+considered, which demands a polynomial run time in the input size and 
+in 1/ε. The hierarchy of these optimization problem classes is shown in 
+Fig. 1, and the hardness of approximation is discussed more formally 
+in the Supplementary information. When combined with quantum 
+computing, this area makes for an exciting and rather unexplored 
+research direction — where quantum algorithms could serve as entirely 
+new approaches or improve over existing classical PTAS algorithms.
+Relaxing the requirement of a provably approximate solution to 
+one deemed ‘good enough’ (by some reasonable standard) enables 
+heuristic approaches, which are arguably of greatest practical rel -
+evance. Heuristic algorithms are understood as algorithms without 
+provable performance or running time guarantees. The success of 
+classical heuristic algorithms motivates the study of quantum heuris-
+tics. Here, the aim is to design algorithms that leverage quantum com-
+putation to provide reasonable solutions to problems where classical 
+approaches either cannot or take too long15. The word ‘reasonable’ is 
+context-dependent, making heuristic approaches difficult to analyse 
+theoretically. Noteworthy efforts are discussed in the Supplementary 
+information.
+Although substantial progress has been made in the quantum 
+and classical complexity theory28–30, the discussion mentioned earlier 
+highlights issues that arise when restricting our notion of quantum 
+advantage strictly to complexity-theoretic separations in the context 
+of optimization. The key takeaway is that understanding complexity 
+theory is extremely useful for gauging a possible quantum advan -
+tage in optimization, but rigorous complexity-theoretic separations 
+are not necessary nor sufficient when seeking a practical quantum 
+advantage.
+Again, the TSP is an illuminating example. Its most general decision 
+version is NP-hard and the optimization version is APX-hard. If the 
+problem is restricted to the Euclidean TSP (in which all points are in 
+the d-dimensional space dR  and edge weights equal their Euclidean 
+distances), then, remarkably, there exists an explicit PTAS to solve such 
+TSP instances31. Using heuristic algorithms, it is possible in practice to 
+solve TSP problems with millions of nodes. Finally, if we instead con-
+sider the shortest-path problem (finding the shortest path between 
+two places), we have a problem in P. This illustrates the nuance of 
+complexity theory that should be kept in mind when designing quan-
+tum optimization algorithms. Importantly, if provable quantum 
+speedups seem unattainable, quantum heuristic algorithms might still 
+offer meaningful results. But developing quantum heuristic methods 
+that exploit structure in a problem, or enhance classical approaches, 
+is not straightforward: in Box 1, we lay out various building blocks for 
+the careful design of quantum optimization algorithms.
+Problem classes and algorithms
+Optimization problems can be classified according to, for example, types 
+of variables, objective function (functions), constraints and uncertainty.  
+A problem can often be modelled in different ways. Although these 
+formulations might be equivalent, the choice of formulation can have 
+a crucial role in how a problem is solved. Indeed, different formulations 
+place more or less emphasis on certain properties of the problem. Fur-
+thermore, the available algorithms might only work for certain problem 
+classes. In addition, it is crucial to understand how the performance of 
+algorithms changes when executed on noisy quantum hardware and how 
+instances can be optimally mapped to the hardware to minimize noise. 
+Because these questions are difficult to answer, systematic benchmark-
+ing is very important. Here, we focus on the most prominent problem 
+classes in the literature and discuss available algorithms, based on the 
+paradigms mentioned in Box 1. (More details and additional problem 
+classes, such as robust optimization or multi-objective optimization, 
+are given in the Supplementary information).
+Discrete optimization
+Unconstrained discrete optimization.  Quadratic unconstrained  
+binary optimization (QUBO) is a foundational example of unconstrained  
+discrete optimization:
+xQ xmin. (1)x
+T
+∈{0,1}n
+Optimization problems
+NPO
+APX
+PTAS
+FPTAS
+PO
+Fig. 1 | Complexity classes for optimization problems. In the hierarchy of 
+complexity classes, NPO (which stands for non-deterministic polynomial-time 
+optimization) is the set of optimization problems that is analogous to the 
+NP class of decision problems, whose solutions are verifiable in polynomial 
+time. An ‘approximable’ problem — for which there are polynomial-time 
+approximation algorithms with guaranteed approximation ratios — belongs to 
+the class APX (for approximable), within NPO and PTAS is a further subset, for 
+which polynomial-time algorithms exist that are guaranteed to find a solution 
+that is within a predefined factor 1 ± ε of the optimum, in which ε > 0 denotes 
+the optimality target. FPTAS is a more restricted class than PTAS, containing 
+problems that admit algorithms whose running time is polynomial in both 
+input size and the inverse of the desired optimality target ε. Finally, PO (for 
+polynomial-time optimization) is the class of optimization problems that 
+is analogous to the polynomial-time class P. FPTAS, fully polynomial-time 
+approximation scheme; PTAS, polynomial time approximation scheme.
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 721
+Review article
+Here, x denotes the decision variables, RQ ∈ nn×  is the cost matrix 
+and Nn ∈  is the number of decision variables. Other types of uncon-
+strained discrete-optimization problems include higher-order 
+polynomial objective functions 32 (polynomial unconstrained binary 
+optimization, black-box objective functions 33 and (bounded) integer 
+variables). Some problems, such as the maximum-cut (MAXCUT) 
+problem, are naturally formulated as a QUBO, and most uncon -
+strained discrete-optimization problems can be mapped to QUBOs34–37,  
+for example, by replacing integer variables with a suitable 
+encoding 38,39 or by converting higher-order polynomial terms to 
+additional binary variables and quadratic terms 40,41. In general, QUBO 
+is NP-hard42. QUBO is also APX-hard, that is, there cannot exist a PTAS 
+for QUBO unless P = NP (ref. 43 ). In principle, Grover search (Box  1) 
+or quantum annealing could be used to solve QUBOs; however, these 
+algorithms with provable approximation-ratio guarantees are 
+expected to require FTQC.
+The relationship between solving a QUBO and finding the ground 
+state of a Hamiltonian is fundamental to many quantum optimization 
+algorithms. The most common translation first substitutes binary 
+variables x ∈ {0, 1} with spin variables z = 1 − 2 x, in which z ∈ {−1, +1} is 
+known as the Ising model. These spin variables are then replaced with 
+Pauli Z matrices, resulting in a diagonal Hamiltonian H ∈ 2× 2nn
+R  that 
+encodes the objective values of equation ( 1). The ground state of  
+H represents the QUBO’s optimal solution34.
+The first quantum-computing approach proposed for solving 
+unconstrained discrete-optimization problems was the quantum anneal-
+ing algorithm2,3,44. Quantum annealing is a quantum adiabatic algorithm 
+method that specializes in finding the ground state of a classical Ising 
+model by conducting a continuous time evolution (‘annealing’) between 
+an initial uniform superposition state and a target Ising Hamiltonian 
+(Box 1). The run time of the quantum annealing algorithm is determined 
+by the speed of the time evolution. The adiabatic theorem states that if the 
+Box 1 | Paradigms in the design of quantum optimization algorithms
+ 
+Multiple approaches lead to exact quantum optimization algorithms, 
+such as Grover (adaptive) search225–227 and the quantum adiabatic 
+algorithm (QAA). Here, we briefly introduce the core concepts 
+deployed as subroutines in various quantum optimization algorithms. 
+Many of them are expected to require fault-tolerant quantum 
+computing. However, they also serve as theoretical motivation for 
+approximation algorithms and heuristics, which may already lead to 
+quantum advantages with noisy quantum computers. (More details 
+can be found in the Supplementary information).
+Grover search. The seminal Grover algorithm for searching an 
+unstructured database achieves a quadratic advantage over classical 
+search in terms of reducing the number of queries to the database1. 
+In exact quantum optimization, this advantage extends to function 
+minimization77,225, achieving a quadratic speedup over brute-force 
+search in combinatorial optimization problems. Although, in general, 
+this is the best that can be hoped for228, the advantage is often less 
+pronounced in practical problem classes in which brute-force search 
+is not the best classical algorithm. Still, combining Grover Search 
+with other quantum or classical algorithms can lead to an overall 
+quadratic speedup in specific cases209.
+Quantum adiabatic algorithm (QAA). QAA (refs. 2,3,44) is another 
+exact optimization algorithm related to homotopy methods in 
+numerical mathematics229. It relies on a problem Hamiltonian  
+whose ground state represents the solution and a mixing Hamiltonian 
+with an easy-to-prepare ground state. QAA gradually evolves the  
+state by interpolating between these Hamiltonians, ensuring that  
+the final state is close to the solution of the considered problem  
+when the evolution is sufficiently slow. Although theoretically 
+powerful, the — in general — exponential time required for precise 
+adiabatic evolution limits its practicality as an exact optimization 
+algorithm. However, QAA may be an effective heuristic in 
+non-adiabatic implementations44,168,169,174,230–233.
+Quantum phase estimation (QPE). QPE estimates eigenphases 
+of unitary operators234,235, enabling the calculation of eigenvalues 
+for specific matrices and the solving of Hamiltonian-related 
+problems236–238. Shor’s algorithm239 leverages QPE to achieve an 
+exponential speedup over the best-known classical algorithms  
+for factoring and related problems222,223. QPE is also valuable for  
+optimization when a problem is encoded into non-diagonal 
+Hamiltonians240,241.
+Gibbs sampling. Gibbs sampling generates sample sequences 
+from complex probability distributions, for example, by using 
+a Markov-chain Monte Carlo algorithm242. Its significance in 
+optimization, particularly in classical Markov-chain Monte Carlo 
+algorithms, extends to solving problems such as constraint 
+satisfaction243. Believed to be at least QMA-hard244,245 (in which 
+QMA stands for Quantum Merlin–Arthur, and is a complexity class, 
+containing P and NP, of problems that are in general not believed 
+to be efficiently solvable by quantum computers), quantum Gibbs 
+sampling246 has a crucial role in various optimization algorithms, 
+such as discrete and convex optimization. Quantum speedups are 
+possible because, under certain conditions, Gibbs states can be 
+prepared more efficiently quantumly than classically69,246–252.
+Approximation algorithms. In addition to exact algorithms, 
+there exist approximation algorithms that guarantee a certain 
+approximation ratio. Quantum computing may accelerate known 
+classical approximation algorithms via quantum subroutines. For 
+instance, semidefinite programming relaxations — as used in the 
+famous Goemans-Williamson algorithm for the maximum-cut 
+problem64,253 or in more general variants for the quadratic 
+unconstrained binary optimization problem254 — may profit from 
+quantum semidefinite-programming solvers.
+Variational quantum algorithms (VQAs). VQAs are a family of search 
+algorithms, originally proposed for quantum chemistry applications255, 
+which utilize parameterized quantum states and cost functions 
+to iteratively optimize parameters and find good solutions4,256–258. 
+Although finding optimal parameters can be NP-hard259,260, VQAs 
+provide a heuristic approach with potential quantum advantages.
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 722
+Review article
+evolution is slow enough, this process will identify optimal solutions of 
+the classical combinatorial optimization problem45. The amount of time 
+needed to ensure that quantum annealing produces optimal solutions is 
+proportional to the minimum gap in the eigenspectrum of the quantum 
+Hamiltonian during the evolution process, which is known to shrink 
+exponentially with n for many interesting optimization problems46. Given 
+that quantum annealing can encode APX-hard computations, this result 
+is an expected consequence of computational complexity theory. The 
+continuous-time nature of the quantum annealing algorithm makes it 
+difficult to analyse using purely mathematical methods. Hence, quantum 
+annealing research tends to focus on empirical studies of the behaviour 
+of the algorithm in ideal47 and noisy computational settings48,49.
+The QAOA 4 is a variational quantum algorithm motivated  
+by quantum annealing that is tailored for implementation as low-depth 
+quantum circuits. The QAOA uses a particular problem-dependent 
+ansatz given by pairs of unitaries in each layer. These unitaries are
+Uβ e() =, (2)X
+iβH− X
+Uγ e() =, (3)P
+iγH−
+and they are known as mixing and problem unitaries, respectively. 
+Here, H denotes the problem Hamiltonian and HX denotes the mixing 
+Hamiltonian (see Supplementary information). Both unitaries are 
+alternated and repeated p times, with individual parameters βj, γj for 
+j = 1, …, p. The p layers are applied to the initial state + n⊗ .
+In terms of positive results, there are certain problems and algo-
+rithmic settings in which the QAOA can be seen as an approximation 
+algorithm with worst-case performance bounds. For example, there 
+exists worst-case performance guarantees for QAOA with p = 1, 2, 3 
+layers for the MAXCUT problem on three-regular graphs. Specifically, 
+for p = 1, a lower bound on the approximation ratio of 0.692 has been 
+derived4; also a lower bound of 0.7559 for p  = 2 and (under certain 
+assumptions) 0.7924 for p = 3 (ref. 50). Aside from these and a handful 
+of other limited settings, performance guarantees for the QAOA are in 
+general not known and the QAOA thus remains a heuristic. Considering 
+that the energy of the QAOA state for any Ising Hamiltonian can be effi-
+ciently and explicitly computed classically for p = 1 (ref. 51), this does 
+not immediately imply a guarantee on the approximation ratio. The 
+performance of the QAOA for (large-girth) d-regular graphs has been 
+analysed numerically, and it can outperform many known relaxations 
+based on semidefinite programming (SDP) from p ≥ 11 (refs. 52,53).
+Some variants adjust the QAOA to warm-start it from solutions 
+obtained by classical algorithms, for example, by leveraging classical 
+SDP relaxations and adjusting the QAOA mixers54,55. These approaches 
+inherit some of the performance guarantees of the classical algorithms 
+used for warm-starting and can greatly outperform the standard QAOA 
+in certain instances. Other QAOA variants restart the search on encoun-
+tering a barren plateau 56, that is, exponentially decaying gradients: 
+the more the barren regions and the higher their proportion in the 
+parameter space, the higher the speedup obtained by restarting.
+Another alternative to the QAOA is the recursive QAOA (ref. 57), 
+which uses a quantum computer to produce a sequence of reduced 
+problem instances. Correlations between variables are estimated 
+iteratively, and the problem Hamiltonian is reduced by identifying the 
+strongest pair-wise correlation and replacing one of the involved varia-
+bles by  ±1 times the other variable, in which the sign depends on the sign 
+of the correlation. This process is iterated until the reduced problem 
+becomes small enough for (provably exact or heuristic) classical solv-
+ers, which then yields an approximate solution to the input problem. 
+Recent works58–61 have generalized recursive quantum approaches to 
+problems beyond MAXCUT and to circuit ansatz beyond the QAOA. 
+Another family of near-term compatible approximation algorithms 
+for MAXCUT is given by quantum random access optimization62,63.
+In terms of negative results, in the large-problem limit, a constant- 
+depth QAOA cannot outperform the classical Goemans–Williamson 
+approximation 64 for certain instances of MAXCUT on d -regular  
+graphs — the depth needs to grow with the size of the problem57. How-
+ever, these results are not applicable to alternative approaches such 
+as other QAOA variants or the recursive QAOA. Further results on the 
+limitations of the QAOA include that QAOA ‘needs to see the whole 
+graph’ for a particular QAOA approach to the maximum-independent-
+set problem65; similar obstructions to the low-depth QAOA have also 
+been shown to apply to k-local generalizations of MAXCUT ( Nk ∈ ) and 
+constraint satisfaction problems in the average case66,67.
+A heuristic based on time evolution is quantum imaginary time 
+evolution (QITE)68,69. Similar to the quantum adiabatic algorithm, QITE 
+assumes an initial state ψ ⟩0∣  with a non-zero overlap with the ground 
+state of H. Then, it applies the evolution
+∣∣ψ e
+Z ψ⟩= ⟩, (4)τ
+Hτ
+τ
+−
+0
+in which τ = it (imaginary time) and ∣∣Z ψe ψ=⟨ ⟩τ
+Hτ
+0
+−2
+0  denotes a nor-
+malization factor related to the partition function. QITE amplifies the 
+amplitudes of the ground state and exponentially suppresses the ampli-
+tudes of the other eigenstates. However, because QITE is a non-unitary 
+evolution, it is challenging to implement on a quantum computer69, 
+and only heuristic variants of QITE exist33,69–72 at present. QITE would, 
+however, make it possible to solve QMA-hard problems such as generic 
+ground-state search or Gibbs state preparation73.
+Alternative cost functions can help to increase the robustness 
+against noise or relax the requirements on an ansatz. For example, the 
+conditional value at risk74,75 does not average over the objective values 
+corresponding to all samples obtained from measuring a quantum 
+state, but sorts them and only takes the average over the best α-fraction 
+of samples, for a predefined α  ∈ [0, 1]. Another cost function is the 
+Gibbs objective function76. As with conditional value at risk, it biases 
+the estimate by emphasizing good samples over bad samples through 
+applying different weights.
+Constrained discrete optimization. Constrained discrete optimiza-
+tion is defined by adding constraints of the type g(x) = 0 or g(x) ≤ 0 to 
+an unconstrained discrete-optimization problem. For simplicity, we 
+consider QUBO and add linear inequality and equality constraints, 
+although some of the algorithms are applicable to more complex 
+types of constraints. The conversions of higher-order polynomial 
+objective functions to quadratic functions and from integer to binary 
+variables still apply as already discussed for unconstrained discrete 
+optimization. Thus, the considered problems are
+xQ x
+Ax
+Cx
+min
+s.t. =
+≤
+(5)
+x∈{0,1}
+T
+n
+b
+d
+for matrices A and C and vectors b and d of appropriate dimensions. 
+Unlike for QUBOs, linear objective functions (that is, a diagonal Q) are 
+interesting owing to the presence of constraints.
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 723
+Review article
+Under mild assumptions for A and C, equation (5) can always be 
+converted to QUBO by adding slack variables to convert all inequality 
+constraints to equality constraints and then converting equality con-
+straints to penalty terms by squaring the right-hand side and adding 
+it to the objective function with a large weight36. Some constraints can 
+also be encoded into penalty terms more efficiently (see, for exam -
+ple, ref. 36); however, although always possible, this might come at a 
+substantial cost in terms of additional binary variables and a dramatic 
+increase in non-zero terms in the cost matrix in equation (5) — that is, it 
+often maps an otherwise sparse matrix Q to a dense one.
+We will now discuss strategies to incorporate constraints 
+directly. As in unconstrained discrete optimization, Grover search 
+can be leveraged to achieve a quadratic speedup over brute-force 
+search77. This requires not only an oracle for the objective function 
+but also one for each constraint, to mark all feasible solutions. Simi -
+larly, a quantum branch and bound algorithm can accelerate classical 
+branch-and-bound algorithms78. The algorithm adapts Grover search 
+to search branch-and-bound trees, but has the disadvantage that no a 
+posteriori bounds on the optimality gap are generated, which often 
+enable an early termination of such search schemes.
+There are multiple proposals to incorporate constraints in vari-
+ational quantum algorithms. The quantum alternating operator 
+ansatz79,80 generalizes the QAOA to much wider classes of problems and 
+encodings, in particular to problems with hard constraints. Here, more 
+general initial states are considered, such as ones from the subspace of 
+feasible states for constrained problems. Alternatively, one can also 
+directly replace the mixing Hamiltonian HX in equation (2), for example, 
+for Hamming-weight constraints by an XY-model Hamiltonian81,82, or 
+by a Grover-based83,84 Hamiltonian. However, the resulting mixers are 
+more complex and challenging to implement. Another approach is to 
+leverage quantum Zeno dynamics to repeatedly project the state back 
+to the feasible subspace85. Or iterative or recursive QAOA variants may 
+be adapted to enforce constraints as suggested in ref. 60. Here, as for the 
+unconstrained case, problems are solved iteratively and usually one vari-
+able is removed at a time. Adjusting the selection rules for how variables 
+are fixed makes it possible to enforce constraints in certain cases.
+Continuous optimization
+Convex optimization. A quite general convex optimization problem 
+is to minimize a convex function f :→ nRR  over all Rx xx R∈{ ∈: ≤}n
+2∥∥  
+for a norm upper bound R > 0, given black-box access to evaluate f and 
+possibly its derivatives. Gradient descent, for example, works in this 
+framework.
+A natural question is whether quantum computers offer a speedup 
+in query complexity or run time, and the answer is not always positive. 
+For example, refs. 86,87 consider black-box access to f  and its (sub)
+gradients. In this setting, classical and quantum algorithms have the 
+same lower bound for the query complexity in general: no 
+n-dependence, but a polynomial scaling in the inverse of the desired 
+precision ε. Alternatively, a polynomial n-dependence can be allowed, 
+but only a polylogarithmic dependence on ε. Then, under mild assump-
+tions, general convex optimization problems can be solved in polyno-
+mial time using, for example, the ellipsoid method 88. In this general 
+setting, the aim can be to solve a problem of the form cx xKmin s.t. ∈T , 
+for some bounded convex set K , to which there are various types of 
+oracle access (membership, separation and optimization). Here mild 
+quantum speedups (and no-go results) are known89,90.
+Often, much more can be said when the convex optimization 
+problems have a certain structure. The most notable such classes are 
+arguably linear programming and SDP. Here, the objective is to mini-
+mize a linear function subject to linear inequalities on non-negative 
+vectors (for linear programming) or on positive semidefinite matrices 
+(for SDP). SDP can be expressed in the form
+CX
+AX bi m
+maxt r( )
+s.t. tr() ≤∀ ∈[ ],
+(6)X
+ii
+0≽
+in which the problem is defined by symmetric matrices C A,, …,1
+RA ∈m
+nn×  and a vector Rb ∈ m. Linear programming is a special case 
+of SDP in which each of the input matrices is diagonal. Quantum algo-
+rithms for these problems usually trade off an improved dependence 
+on the dimension n  and the number of inequalities m  with a worse 
+dependence on the precision ε  with which the problem is solved. 
+Quantum algorithms for these problems can be categorized based on 
+the solution methodology.
+The first quantum algorithms for SDP were first-order methods, 
+based on the multiplicative weights update (MWU) frame work91.  
+In this framework, candidate solutions X  are proportional to 
+ρ yA yA=e xp(∑ )/tr(exp(∑ ))i
+m
+i ii
+m
+i i=1 =1  for some (sparse) vector Ry ∈ m — 
+that is, proportional to Gibbs states, which naturally correspond to 
+trace-normalized positive semidefinite matrices and can be efficiently 
+prepared on a quantum computer under some conditions. T o imple-
+ment the MWU framework, it is also necessary to compute trace inner 
+products tr(Aρ) between such Gibbs states ρ and a matrix A (which is 
+either one of the Ai’s or C) and essentially solve a search problem based 
+on these values.
+All of these steps can be performed on a quantum computer, with 
+various levels of efficiency. The run time of quantum MWU methods 
+depends on several parameters: the dimension n, the number of con-
+straints m and the desired (additive) error ε in the objective function 
+and on two instance-specific parameters, typically denoted by R, and r, 
+that are related to the diameter of the feasible region for the primal 
+( XRtr( )≤ ) and dual problems (∥y∥1 ≤ r) and bound the so-called width 
+of the oracle. Initial results had a run time of mn s~ (p oly( ))
+Rr
+ε
+2O , in 
+which s is the row sparsity of the input matrices and O~  ignores poly-
+logarithmic factors in all variables 92,93. Later work94–96 has improved 
+this to mn s~ (( +) poly() )
+Rr
+ε
+2O .
+In comparison with classical algorithms, the best-known general 
+SDP solvers, which approximate the optimal value to additive error 
+ε, scale as mm nm ns~ (( ++ ))ω2O , in which ω ∈[ 2, 2.373) is the unknown 
+optimal matrix exponent for multiplication 97. Thus, quantum SDP 
+solvers seem to be beneficial in the regimes where n and m are large; 
+however, the input models of the classical and quantum algorithms 
+are not necessarily equivalent so it is not entirely fair to compare these 
+results. Furthermore, the parameters r,  R and ε usually appear 
+together as one ‘scale-invariant’ parameter γ  = Rr/ε, which can scale 
+poorly in terms of n and m (ref. 93), especially when r  and R scale lin-
+early or superlinearly with n (see Supplementary information for more 
+details). Notable exceptions are applications to shadow tomography, 
+quantum state discrimination and E-optimal design (optimal design 
+in which the smallest eigenvalue of the information matrix is  
+maximized)94,95. First-order methods other than MWU could also be 
+studied (see, for example, ref. 98 ), but the speedup there is poorly 
+understood.
+Interior point methods (IPMs) are popular second-order methods 
+to solve structured convex optimization problems both from a theo-
+retical and from a practical perspective. IPMs start from a point lying 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 724
+Review article
+in the interior of a convex feasible set R⊂ nX  and use Newton’s method 
+to solve a sequence of barrier problems:
+ηc xf xmin⋅ ⟨, ⟩+ () , (7)x∈ nR
+in which 〈 ⋅ , ⋅ 〉 is an inner product on R η,≥ 0n  and ↦ RXf :i nt ()  is a 
+barrier function encoding the constraints defining X. That is, f(x) → ∞ 
+as x approaches the boundary of X, and thus the only ‘constraint’ present 
+in equation (7) is that f is only defined on the interior points of X. Each 
+step requires solving a linear system. It is therefore natural to ask 
+whether quantum linear-system solvers99–101, followed by quantum 
+state tomography, can be used to speedup such a task. However, mul-
+tiple issues emerge. The use of state tomography introduces inexactness 
+in the search direction and a 1/ε dependence in the run time, in which 
+ε is the tomographic precision102. Furthermore, using the quantum 
+linear-systems algorithm introduces a run time dependence on the 
+condition number of the Newton linear system, which, unfortunately, 
+goes to ∞ as optimality is approached — although these two issues can 
+be partly dealt with by IPMs that allow inexact search directions103 and 
+by iterative refinement techniques104,105. Overall, assuming access to 
+quantum random access memory (QRAM), quantum IPMs achieve 
+favourable dependence on the size of the problem (m and n) for linear 
+and semidefinite optimization compared with classical algorithms, but 
+the remaining dependence on some numerical parameters (such as a 
+condition number bound for Newton systems) makes it unclear whether 
+an overall speedup is achieved. Although concrete proposals to build 
+QRAM exist106,107, a scalable fault-tolerant implementation is yet to be 
+found108–110, making this at best a long-term prospect.
+Only very recently, a quantum speedup for IPMs was achieved 
+without introducing a dependence on a condition number 111. Under 
+some mild assumptions and access to QRAM, this IPM achieves a quan-
+tum speedup for linear programmes in which the number of linear 
+inequalities m is much larger than the number of variables n . In par-
+ticular, the best classical solver achieves a scaling of mn n(+ )2.5̃O 112, 
+whereas the quantum analogue scales as mn ε⋅p oly( ,l og(1/) ).
+Quantum algorithms for convex optimization can also be designed 
+by providing a Schrödinger equation whose trajectory follows a descent 
+path (as in gradient descent) and simulating the corresponding dynami-
+cal system. This approach was pioneered in ref. 113, leading to a quan-
+tum algorithm with convergence guarantees on convex and non-convex 
+problems, although the latter may require exponential time in general. 
+The approach has been extended114 to follow the central path for linear 
+programming, giving an alternative approach to IPMs with better 
+running time in most parameters, even without QRAM.
+Non-convex optimization. In general, non-convex optimization can 
+be defined as:
+fxmin( ). (8)x∈ nR
+Many variants are undecidable115, especially in the cases of periodic 
+functions f, or sufficiently non-smooth functions, but kth order critical 
+points of non-convex functions can be studied.
+There are clear limits to the speedup in non-convex optimization116, 
+echoing the situation in convex optimization86. In particular, when the 
+first Nk ∈  partial derivatives of f are available via an oracle or there is 
+access to stochastic gradients, and no further assumptions are made, 
+classical lower bounds apply to quantum algorithms too. Hence, suit-
+able special cases are sought, such as by considering the numbers of 
+local minima, local behaviour of the functions around those minima 
+and behaviour of the trajectories connecting nearby local minima (the 
+‘barriers’).
+It has also been shown 117 that there are query upper bounds on 
+finding critical points with quantum algorithms for stochastic gradient 
+descent. With access to a probability-weighted superposition over the 
+bounded-variance stochastic gradient, the algorithm requires O nε() −3  
+queries, which is only better than the classical algorithm O(ε−4) when 
+the dimension is lower than ε −2. This can be improved with access to 
+mean-squared smooth stochastic gradients, from O(ε−3) to O nε() −5/2 . 
+The run time for all of these algorithms both classically and quantumly 
+will, in most cases, be polynomial in n.
+In high-dimensional situations, the availability of the quantum 
+linear-systems algorithm and of quantum linear-algebra methods 
+motivates the direct quantum implementation of gradient descent 
+over O(polylog(n)) qubits118,119 to provide descriptions of stationary 
+points of non-convex functions. With a non-convex differentiable 
+function fx() :→ nRR  and an initial point Rx ∈ n0 , consider the gradient 
+descent update x → x − η ∇ f(x) with η > 0. For T ∈ N, the task is to output 
+a quantum state proportional to x T, in which the update is applied  
+T times starting from x0. Although the algorithm may admit a polylog(n) 
+complexity, amplifying the 0  state at the end of the gradient proce-
+dure can cost O(2T) and an efficient circuit may be constructed only  
+for special cases 118,120 or could be approximated via pre-training a 
+parameterized quantum circuit.
+Mixed-integer programming
+Combining discrete decision variables and continuous decision vari-
+ables, mixed-integer programmes are non-convex and at least as hard 
+as the discrete-optimization and continuous-optimization problems 
+they subsume.
+There are several potential algorithms to approach mixed-integer 
+programming (MIP) using a quantum computer. ‘Branch-and-
+bound-and-cut’ is the main workhorse in classical MIP. One possibility 
+for a hybrid implementation is that discrete decisions are handled by 
+branching and generation of cuts implemented classically, whereas 
+the continuous, possibly convex relaxations could be solved on the 
+quantum computer. Considering the progress in quantum algorithms 
+for convex optimization, this approach seems plausible, albeit distant. 
+More ambitiously, the branching decisions could be determined quan-
+tumly as well, which would yield an additional quadratic speedup78,121–123 
+over the speedup of quantum algorithms for convex optimization, 
+while increasing the requirements on the numbers of qubits and fault 
+tolerance substantially. Some earlier works78,121 consider the speedup 
+in the case of locating all optima (measured against the classical cost of 
+finding all optima), whereas others122,123 consider the speedup of obtain-
+ing one optimum (out of possibly multiple ones), measured against the 
+classical cost of finding one optimum. It has recently been suggested124 
+that super-quadratic speedups might be possible in some cases.
+Similarly, decomposition algorithms (such as splitting, or the 
+alternating direction method of multipliers) for MIP often solve 
+the QUBO subproblem using a quantum computer 125,126, while solv -
+ing the continuous subproblem classically. Under some restrictive 
+conditions126, such an iterative approach can be shown to be globally 
+convergent. A similar approach has been tested 127 in the context of 
+Benders decomposition.
+Alternatively, MIP can be reformulated to an unconstrained 
+optimization problem. A decomposition has been explored128,129 that 
+minimizes values of the slack variables used to convert inequality 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 725
+Review article
+constraints to equality constraints, with a Lagrangian relaxation of 
+the resulting equality-constrained continuous-valued problem. Such 
+Lagrangian methods are well understood130,131, but global-convergence 
+results are limited by very restrictive conditions, in general, or require 
+some form of backtracking132.
+MIP could also be reformulated to high-dimensional linear pro-
+gramming using techniques that date back to the work of Dantzig and 
+Wolfe in the 1960s (ref. 133). Similarly, using moment or sum-of-squares 
+techniques134,135, MIP can be reformulated to infinite-dimensional linear 
+programming, with an SDP relaxation in a dimension much higher than 
+n + d and sometimes136 exponential in n + d. If quantum algorithms for SDP 
+could make it possible to solve such instances with run time independ-
+ent of the dimension, this might be an interesting avenue for quantum 
+algorithms for MIP. Finally, a mathematically elegant reformulation of an 
+MIP problem results in a linear programme over the dual of the cone of 
+copositive matrices137. For a fixed n, these matrices form a convex cone138, 
+but even the test of membership in this cone is NP-hard139. A possible 
+way to exploit this reformulation in the context of a hybrid solver140 is to 
+use a quantum computer to solve the difficult cut generation problem, 
+whereas the classical computer solves a convex problem.
+Dynamic programming
+Dynamic programming is a very generic mathematical optimization 
+method that breaks down large optimization problems into smaller 
+ones and combines results for the overall problem in a recursive fashion. 
+A dynamic programming algorithm consists of repeatedly optimizing 
+the Bellman equation:
+Vx Tx aV x() =m in (, )+ () , (9)a a
+in which a are the actions that are available in the state x and xa = F(x, a) 
+is the state reached by applying a in the state x. The entries V(x) can be 
+arranged into a dynamic programming table. A dynamic programming 
+algorithm then computes all the entries V(x) in this table. The order in 
+which the entries are computed is chosen so that, whenever the algo-
+rithm has to compute V(x), all V(xa) have already been computed and 
+V(x) can be computed from equation (9). The complexity of a dynamic 
+programming algorithm is O(Sm), in which S is the number of possible 
+states x for which we have to optimize the Bellman equation and m is the 
+maximum number of actions in one state. For many problems, S increases 
+exponentially with the size (called ‘the curse of dimensionality’), often 
+implying an exponential run time for dynamic programming.
+Quantum speedups are known for a substantial number of clas -
+sical dynamic-programming algorithms, utilizing a combination of 
+classical dynamic programming and Grover’s search. For example, 
+the quantum algorithm for the TSP in ref. 141 first uses dynamic pro-
+gramming to compute the shortest paths through sets of cities that 
+contain up to 24% of all cities and then uses Grover’s search to find 
+the shortest combination of those paths that visits all of the cities and 
+returns to the starting point. Similar ideas can be applied to other 
+problems, in which the classical algorithm uses an exponentially large 
+dynamic-programming table indexed by subsets of an n-element 
+set. Examples include graph colouring 142, the minimum Steiner tree 
+problem143,144, tree width145 and single-machine scheduling146. The prob-
+lems amenable to this approach are typically vertex-ordering problems 
+(in which the task is to find the optimal ordering of vertices in a graph, 
+as in the TSP) or set-partitioning problems (in which the task is to find 
+the optimal partition of a set, as in set cover or graph colouring). Such 
+problems lead to a dynamic programming table in the form of a Boolean 
+hypercube (2n entries indexed by x ∈ {0, 1}n), which can often be handled 
+by computing part of the table and then using Grover’s search to find the 
+best solution, leading to an overall — usually subquadratic — speedup.
+A generic dynamic programming problem can be reformulated 
+with the dynamic programming table in the form of hypercube, with 
+the result that, in the generic case, the quantum speedup can be at 
+most quadratic141. It is an open problem whether quantum speedups 
+can be obtained for algorithms with a dynamic programming table of 
+a different structure.
+Optimal control
+Optimization with differential equations as constraints is a subject of 
+optimal control theory. A standard finite-horizon optimal control 
+problem takes the following form: find a control function u with values 
+in a given set U solving
+U
+∫
+̇
+ℓx tu tt hx T
+xf xu xt tT
+min( () ,( ))d +( () )
+s.t. =( ,) ,( )∈ ,∈ [0,) ,
+(10)ut
+T
+n
+() ∈ 0
+R
+for some nice functions ℓ ,  f  and h (see, for example, ref. 147 ).  
+A globally optimal solution of this problem, the so-called feedback 
+optimal-control policy u*(x, t), can be found by introducing a value 
+function:
+
+
+
+
+Vz tℓ xs us sh xT xf xu xt z(, )= min( () ,( ))d +( ( )), =( ,) ,( )= .( 11)
+ut t
+T
+() ∈U
+∫ ̇
+Generalizing classical dynamic programming ideas, it can be 
+demonstrated that V solves the following Hamilton–Jacobi–Bellman 
+(HJB) equation backwards in time:
+U
+V
+t ℓx uf xu Vx t∂
+∂ +m in{( ,) +( ,) ∇( ,) }= 0, (12)
+u x∈
+⊤
+subject to the terminal condition V(x, T) = h(x), for all Rx ∈ n. Given the 
+solution of equation (12), the optimal-control policy in the feedback 
+form is computed as follows:
+ut xℓ xu fx uV xt*(, )= argmin{( ,) +( ,) ∇( ,) }. (13)
+u x∈U
+⊤
+The key problem associated with the HJB equation, continuous or 
+discrete, is the ‘curse of dimensionality’ . Solving equation (12) by con-
+ventional methods of numerical analysis quickly becomes intractable 
+even in rather modest dimensions (for example, if x t() ∈ nR  for n ≥ 10). 
+In other words, a direct approach to solving the HJB equation has slim 
+chances of succeeding classically.
+In addition to optimal control, the HJB equation has many appli-
+cations: from nonlinear filtering or state estimation for differential 
+equations148 to discrete optimization — the most relevant applica -
+tion in the context of this Review. For instance, the HJB equation for 
+discrete-time dynamics can be seen as the famous Bellman equation 
+of dynamic programming, which in turn connects HJB equations with 
+reinforcement learning, a family of algorithms in which an agent aims 
+to learn optimal decisions in unknown environments through the 
+experience of taking actions and observing the rewards gained (see 
+the Supplementary information for details).
+Quantum approaches can be classified based on whether the 
+learning agent has a standard classical access to the environment or 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 726
+Review article
+whether the interaction itself is quantum. In the latter case, numerous 
+types of quantum oracular access to the task environment have been 
+explored: for example, where coherent access to a unitary encoding 
+the transition function is possible149, or where the environment closely 
+mimics classical reinforcement-learning settings, allows only actions 
+as inputs and has memory 150. The main conceptual limitations are  
+the requirement to coherently access the task environment, which 
+might only be possible in very restricted or constructed cases. In 
+some works, the focus was also on identifying the exact solutions, 
+for which, in real-world problems, the search spaces are simply too 
+large. The up-side of the aforementioned results is that the speedups 
+concern the number of interactions with the environment and are not 
+contingent on any assumptions in complexity theory.
+It has been shown 151 that quadratic speedups in policy optimi -
+zation are possible as long as the policies satisfy certain regularity  
+conditions — which are, for example, satisfied for policies defined by 
+parameterized quantum circuits. The lower bounds for this problem 
+have been established for a more general setting 152 and they show 
+that these quadratic improvements cannot be improved further. 
+However, if the environments are not arbitrary but special, more sub-
+stantial improvements are possible, including provable exponential 
+speedups153. The contrived nature of these environments makes these 
+results unlikely to have implications in practice.
+When the access to the task environment is restricted to be clas-
+sical, provable speedups are possible too. For example, it has been 
+proved154,155 that there exists task environments with a super-polynomial 
+advantage for quantum reinforcement-learning algorithms (with 
+respect to finding optimal policies and optimal q -functions), unless 
+the discrete logarithm problem has an efficient classical solution.
+Benchmarks
+Benchmarking can provide valuable insights into the practical per -
+formance of optimization algorithms in situations in which purely 
+analytical methods are insufficient. In fact, it can even be misleading 
+to rely only on analytically assessed performance because theoretical 
+complexity analysis typically pertains to general problem classes and 
+considers mostly asymptotic scaling behaviour or worst-case scenarios. 
+The theoretical worst-case bounds often fail to describe the difficul-
+ties of solving real-world applications that focus on a specific problem 
+instance of practical use, nor do they faithfully describe how well practi-
+cally relevant problems can be solved for fixed size and data. Meaningful 
+and systematic benchmarks are therefore essential to demonstrate 
+practical usefulness of optimization algorithms. However, conduct-
+ing such benchmarking with well-defined assumptions, considering 
+implementation, data and metrics, is a challenging task.
+Here, we will highlight best practices for benchmarking and pro-
+vide a set of interesting problems that enable a thorough, robust, 
+fair and reproducible framework for comprehensive comparisons of 
+different classical and quantum approaches. We first give an overview 
+of related work, then present benchmark design choices such as the 
+metrics to be evaluated and finally elaborate on various optimization 
+problems, which are difficult for state-of-the-art solvers and might 
+provide interesting benchmarking problems for quantum methods.
+Related work
+General introductions to computational benchmarking can be found 
+in refs. 156–161. Several important collections of classical optimization 
+benchmarks have originated from publicly hosted ‘benchmarking chal-
+lenges’ or competitions. The aim of these challenges is to understand 
+and improve the practical performance of algorithms for various opti-
+mization problems, particularly those that are theoretically hard. The 
+challenges aid in evaluating realistic algorithm performance condi-
+tioned on the resources available at the time of the competition. Some 
+of the most relevant, regularly held optimization challenges, tackling 
+problems using classical digital computers, are the Discrete Math -
+ematics and Theoretical Computer Science (DIMACS) implementation 
+challenges  (http://dimacs.rutgers.edu/programs/challenge/) and the 
+Satisfiability competition162.
+Optimization competitions and libraries that are compatible with 
+(near-term) quantum computers have not yet been widely established, 
+but would enable streamlined benchmarking of quantum optimi -
+zation methods. Previous work has focused on application-centric 
+quantum-hardware benchmarking frameworks that employ optimiza-
+tion problems as an exemplary use-case163–166. We give an overview of 
+selected experimental quantum optimization results run on gate-based 
+quantum computers with more than 16 qubits in the Supplementary 
+information — these results represent excellent starting points for 
+comprehensive quantum optimization benchmarks. Further bench-
+marks that investigate different properties of quantum annealing 
+methods — some including comparisons to classical algorithms — for 
+optimization problems can be found in refs. 166 –175. A comparison 
+of Ising machines that checks success probabilities for finding the 
+ground state and the corresponding time-to-solution is presented in 
+ref. 176. Various QUBO solvers are compared in ref. 177 with respect to 
+the solution quality and time-to-solution, which is a good baseline for 
+an optimization benchmark.
+None of these works offers holistic optimization benchmarking 
+frameworks, but they do provide useful insights that can help to define 
+reproducible, representative and fair benchmark libraries, which will 
+facilitate identifying the advantages and disadvantages of various 
+(quantum) solvers.
+Design
+T o ensure reproducibility as well as replicability of a benchmark, 
+it is important to clearly define the specifics of model selection, 
+pre-processing, computational platform, target metrics and selected 
+algorithm (provably exact, heuristic and so on) including suitable 
+hyperparameters. Relevant algorithmic paradigms are given in Box 1, 
+and quantum algorithms for optimization problem classes have already 
+been presented. We now discuss the remaining levels of design choices.
+Model independence. T o find the optimal (or at least a sufficiently 
+good) solution of a concrete problem, the optimization problem must 
+be formulated in terms of a rigorous mathematical model, such as MIP 
+or QUBO, before selecting a particular algorithm or computational plat-
+form. The model choice is usually not unique and can strongly affect 
+the performance of algorithms: certain models and algorithms are bet-
+ter suited for certain problems than others. Hence, to find the overall 
+best solution to a given problem, a model-independent benchmark 
+must be defined, allowing all possibilities to model a certain problem. 
+Alternatively, the aim might be to find the best algorithm or hardware 
+platform to solve a problem given a specific model formulation, which 
+results in a model-dependent benchmark.
+Model-independent benchmarks without limitations on admissi-
+ble solution strategies are crucial to demonstrate quantum advantage 
+for optimization. Quantum advantage may stem from novel prob -
+lem formulations that could not be captured on a model-dependent 
+level. Furthermore, quantum hardware is evolving quickly, and 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 727
+Review article
+model-independent benchmarks are better suited for comparability 
+and compatibility between different generations of hardware, enabling 
+leverage of new features that might not have been available in earlier 
+generations, such as dynamic quantum circuits 178. We expect these 
+benchmarks to eventually show how quantum optimization algorithms 
+are approaching, meeting and exceeding the capabilities of classical 
+techniques for solving particular problem instances.
+In the remainder of this section, we focus on the model-  
+independent setting. However, we would like to highlight the impor-
+tance of model-dependent benchmarks, for example, in comparing 
+hardware capabilities of different gate-based quantum computers by 
+solving a given QUBO model and in tracking progress in hardware and 
+algorithmic development.
+Pre-processing. The term ‘pre-processing’ or ‘pre-solving’ refers to a 
+set of methods that are applied to a problem instance or data before the 
+actual optimization algorithm is executed. The goal of pre-processing 
+is to modify the problem in such a way that it enables the optimiza -
+tion algorithm to work more efficiently. Pre-processing can have a 
+substantial impact on benchmarking results and should be chosen 
+and reported on with care.
+How pre-processing is implemented in practice depends on the 
+data, the optimization algorithm and its mathematical formulation 
+and on the computational platform. In fact, it is not uncommon for 
+many problems — such as the Euclidean TSP, or Steiner tree problems in  
+graphs — that pre-processing is able to remove 95% of the variables 
+and, hence, substantially reduce the problem size and resource 
+requirements179,180. Considering the example of QUBO, various reduc-
+tion techniques to eliminate optimization variables have been sug -
+gested in the literature and are reviewed in ref. 180 . For example, 
+analytic reduction rules181 make it possible to conditionally fix certain 
+optimization variables, while guaranteeing that at least one optimal 
+solution will remain in the search space. In addition to the number of 
+optimization variables, their degree of correlation (which is deter -
+mined by the sparsity of the QUBO matrix) is also of interest. In the case 
+that certain groups of decision variables are not correlated, QUBOs 
+can be decomposed trivially into smaller sub-QUBOs to be solved 
+independently.
+More generally, decomposition approaches can be an option to 
+break large problems into smaller subproblems. Decomposition is well 
+established in classical optimization but can also help quantum opti-
+mization — for example, in fitting a large problem on a smaller quan-
+tum computer. However, decomposition often introduces a trade-off 
+between the size and number of subproblems and the overall resulting 
+solution quality. Thus, achieving a quantum advantage in the subprob-
+lems is necessary but not sufficient for achieving a quantum advantage 
+for the global problem. But as long as the advantage can be carried 
+over, decomposition can be a key tool towards quantum advantage. 
+The development of quantum-specific decomposition schemes might 
+further help achieve this goal.
+Platforms. Different platforms have different strengths and suffer 
+from different bottlenecks, and hence some may be better suited 
+for certain optimization problems or modelling tasks than others. 
+Furthermore, depending on the platform, the optimization models 
+and applicable algorithms do vary, resulting in better or worse perfor-
+mance for a given problem. Understanding the intrinsic properties of 
+a hardware platform is crucial to put the results of a benchmark into 
+perspective and to define benchmarks that allow for fair comparison 
+between systems that can function very differently — a non-trivial 
+task. Cross-platform benchmarking can be used to better understand 
+the advantages and disadvantages of different platforms for different 
+optimization problems.
+We will now elaborate on the various hardware types that are rel-
+evant for optimization problems — that is, classical versus quantum, 
+and analog versus digital. An illustration of the platform ecosystem is 
+shown in Fig. 2.
+Classical digital systems are the workhorse of today’s computer 
+technology. The basic units of information are the binary values 0 
+and 1, and information is processed by compositions of logical opera-
+tions such as AND and NOT gates, which can be expressed in a circuit 
+model. Digital classical computational models often rely on a combina-
+tion of central processing units (CPUs), which excel at sequential and 
+general data-processing tasks, and graphical processing units (GPUs), 
+which specialize in parallel processing tasks.
+There are several other types of processors and specialized 
+hardware accelerators designed for specific tasks and applica -
+tions, for example, tensor processing units for deep learning and 
+field-programmable gate arrays for signal processing and embed -
+ded systems, to name just two. The combination of CPU, GPU and 
+special-purpose processors forms the foundation for classical 
+high-performance computation in a wide range of applications. Clas-
+sical digital hardware devices are incorporated in a wide range of com-
+puting platforms, including desktop computers, computing clusters, 
+cloud services, mobile phones and many more. All of these platforms 
+can be used to solve optimization problems.
+Special-purpose systems for optimization also exist, devel -
+oped to simulate quantum phenomena such as quantum anneal-
+ing. Well-known examples of this type of technology are the Fujitsu 
+Digital Annealer 182,183, which is based on a hardware-accelerated 
+Classical
+digital
+Quantum
+digital
+Quantum
+analog
+Universal
+quantum
+computing
+Quantum computing
+Digital computingAnalog computing
+Hybrid
+computing
+Specialized
+hardware
+accelerators
+Digital
+simulation
+Analog
+simulation
+Quantum
+annealing
+Classical
+high-performance
+computing
+Classical computing
+Classical
+analog
+Fig. 2 | The optimization-platform ecosystem. Various hardware types are 
+relevant for solving optimization problems — digital or analog, classical or 
+quantum, and even hybrid computing schemes — some better suited to certain 
+optimization problems than others. In our discussion of benchmarking, we focus 
+on digital classical computing and on digital and analog quantum computing.
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 728
+Review article
+Markov-chain Monte Carlo approach; the Hitachi CMOS Anneal -
+ing Machine 184, whose in-memory computing architecture rep -
+resents an Ising model with local interactions; and the T oshiba 
+Simulated Bifurcation Machine 185,186, which does not approximate 
+an annealing process but instead implements a highly parallelizable 
+approximation of Ising dynamics using classical hardware (GPU and 
+field-programmable gate arrays), enabling computation of heuristic 
+solutions to problems with up to millions of variables in a time frame 
+of seconds.
+In digital quantum computing187, the basic units of information are 
+qubits instead of bits. The information processing consists of consecu-
+tive quantum gate operations such as CNOT gates and single-qubit 
+rotation gates, which, together, form a quantum circuit, similar to a 
+classical logical circuit. Important bottlenecks of existing digital quan-
+tum computers are limited coherence times, which result in limited 
+circuit depths, limited qubit numbers and limited qubit connectivity. 
+There are various ways to quantify the performance of a digital quan-
+tum computer. An overview of best practices for executing quantum 
+optimization algorithms on noisy digital quantum hardware is given 
+in the Supplementary information.
+Analog quantum computing hardware is a more specialized kind 
+of quantum computer that performs continuous time evolution of the 
+Schrödinger equation188. These types of computers are a natural fit for 
+quantum simulation applications 188–196. Additionally, the quantum 
+annealing algorithm (discussed earlier) provides a way for these com-
+puters to be used for unconstrained optimization tasks as well2,3,167,197,198. 
+Thus far, analog quantum computers have been developed for solving 
+optimization problems in the format of Ising models 199 and special 
+cases of the maximum independent set 200. In contrast with digital 
+quantum computing, which is very flexible, analog quantum comput-
+ing focuses on a more limited scope of optimization tasks, compatible 
+with analog hardware.
+Metrics. Owing to the technological differences between classical 
+and quantum systems, it is crucial to select metrics that enable a fair 
+comparison. The main metric categories are resource cost and solution 
+quality.
+The resource cost includes any quantum or classical computa -
+tional resources that are employed to solve an optimization problem, 
+including any potential pre-processing or post-processing steps and 
+resources that are used in parallel. Classical computing resources 
+are typically measured with respect to factors such as used memory, 
+required memory bandwidth and CPU specifications, including clock 
+speed and the number of cores. Quantum computational resources can 
+be measured in terms of the number of circuits, the number of executed 
+gates per circuit, the number of qubits and shots per circuit execution 
+and the quality of the qubits. Of course, the resource cost should also 
+consider resources that are required for problem-dependent calibra-
+tions and error mitigation or, if applicable, correction. The number of 
+qubits in a quantum programme strongly depends on the mapping 
+of problem variables to qubits; hence, algorithmic improvements 
+in mapping schemes can lead to a reduction in qubit requirements. 
+Resource-cost reporting must also include the run time, that is, the 
+duration of usage of quantum or classical computational resources.
+Unfortunately, several of these resource costs are difficult to 
+compare over different platforms and algorithms. Although, ideally, 
+it would be good to check absolute metrics such as the total energy 
+usage required to get a solution, that kind of information is usually 
+difficult to access for the end-user. The overall run time is one of the 
+most important metrics for providing an objectively fair comparison 
+of different computational platforms — but this still strongly depends 
+on the benchmarking setting (such as what pre-processing is used), and 
+it is hence of utmost importance to clearly define what determines a 
+faster algorithm. The effective end-to-end run time of an algorithm 
+consists of the time used for pre-processing, transpilation, embed -
+ding, compilation, execution and post-processing. For existing quan-
+tum computing software, transpilation, embedding and compilation 
+times contribute substantially. However, these are areas of active  
+research and development and we expect the times to be reduced in 
+the near future.
+The solution quality strongly relies on the nature of the problem. 
+First, a solution must be compatible with the problem constraints — 
+that is, it must be feasible, which can be easily checked. Ultimately, 
+the hope is to find the optimal solution or at least a solution that is ε,  
+which is close to the optimal solution, but note that the evaluation of 
+optimality might be resource-intensive or even intractable. Given a 
+feasible solution, the optimality gap can be identified via bounds given 
+by continuous relaxations201 or dual representations202. Furthermore, 
+in certain applications, a set of diverse solutions, of comparable (good) 
+quality, might be of interest: for instance, in the case that a complex 
+real-world optimization problem has to be represented by a simplified 
+model. Given a diverse set of solutions, a decision-maker may pick the 
+one that best matches (possibly informal) constraints and preferences 
+that could not be directly added to the optimization problem. Other 
+examples are multi-objective optimization (Supplementary informa-
+tion) and accelerating branching strategies in MIP solvers. Solution 
+diversity is difficult to quantify in general as its utility depends mostly 
+on the context.
+T o provide a holistic quantum optimization benchmark, metrics 
+that describe algorithm and solution properties should be measured. 
+Depending on the problem, model, algorithm and execution plat -
+form, the respective metrics should be chosen carefully and reported 
+transparently.
+Problems
+We will now present a set of model-independent problems that show 
+promise for establishing standardized quantum optimization bench-
+marks. The problem instances chosen may be crafted, random or 
+real-world problems.
+Crafted instances, designed to represent challenging problems, 
+are most likely the best way to find problem instances that are hard to 
+solve by classical methods. However, there is a risk that there is also a 
+classical method (or one could be developed) that takes advantage of 
+the special problem structure or that the instances are of no practical 
+value. Random instances are different because they lack structure. 
+Depending on the problem, this can make them particularly easy or 
+very difficult to solve, and how meaningful these instances are can 
+be debated. Real-world instances correspond in many practically rel-
+evant cases to MIPs that can be solved up to sufficient accuracy using 
+existing solvers. However, instances that are relevant and difficult to 
+solve with existing methods are hard to find in a setting that fits the 
+dimensionality and density limitations of current quantum hardware. 
+In fact, these problems are generally hard to find because open prob-
+lems of industrial relevance are rarely published or may be ill-defined. 
+This highlights a common selection bias: we rarely model practically 
+relevant problems in a way we know we cannot solve.
+The problems chosen should be sufficiently hard for state-of-
+the-art classical solvers to leave a margin for quantum methods, but 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 729
+Review article
+should also be within an intermediate size range in which current or 
+near-term quantum technologies can be effectively deployed. Ideal 
+problem instances are those for which existing methods are unable 
+to provide provably optimal or feasible solutions. Furthermore, it is 
+crucial that the problem can be formulated as a quantum-compatible 
+model, that is, with sufficiently few variables and qubits, limited con-
+nection density, relatively small coefficients and so on. In other words, 
+a sweet spot for current quantum systems is sought, which enables the 
+investigation of quantum advantage compared with suitably chosen 
+digital algorithms. It can also be valuable for tracking the progress in 
+algorithmic and hardware development to identify a family of problems 
+that are similar in their nature but differ in their difficulty.
+The following are binary problems that are promising candidates 
+for quantum optimization benchmarking problems (additional details 
+can be found in the Supplementary information). These problems 
+are random or crafted instances and relate to only a few practical 
+applications. Nevertheless, they offer a good testbed for algorithm 
+development and progress tracking.
+Maximum independent set. This is a classic NPO-hard problem and 
+there are known instances (https://oeis.org/A265032/a265032.html) 
+that are hard to solve to proven optimality using existing methods, 
+starting at problem sizes of several hundred variables. The allure of this 
+problem class for quantum optimization benchmarking is that it is well 
+suited for translation into relatively sparse QUBOs203–206.
+Knapsack or market share. The goal of a (multidimensional) knapsack 
+problem (or market share) is to find the maximal set of items that can be 
+added according to a set of given weights, such that the resulting sum 
+is lower or equal to a given knapsack constraint. For carefully chosen 
+coefficients, these problems can be difficult to solve using classical 
+methods to proven optimality15,207,208. We believe that this problem class 
+is a good candidate for quantum optimization benchmarking because 
+there is clear evidence that it is already challenging for classical digital 
+systems to find (approximate) solutions — even for small system sizes 
+in the multidimensional case.
+Low autocorrelation binary sequences. This is a difficult binary non-
+linear optimization problem13, with the goal of finding, using binary 
+variables, a sequence S of length k that minimizes a given energy func-
+tion. There is only one particular instance per size N; hence, the frontier 
+of what is possible is always well defined. Given the spin-like binary 
+variables, it might be possible to find a model formulation that could 
+provide a natural fit for a quantum platform, although the quartic 
+objective function creates challenges in doing so209.
+Quadratic assignment problem.  This problem210 has remained one 
+of the great challenges in combinatorial optimization. It is still consid-
+ered a computationally nontrivial task to solve to optimality, even for 
+modestly sized problems (n  ≈ 30 facilities and locations). Modelling 
+this problem as a QUBO results in a dense formulation with n 2 vari-
+ables. The long and unsuccessful search for improvements in classi-
+cal methods indicates that there might be room here for quantum 
+advantage.
+Sports timetabling problems. These problems describe scheduling 
+problems for sports leagues or tournaments and are generated in a way 
+that ensures at least one feasible solution exists per instance211. Interest-
+ingly, for several medium-sized instances, no known (and investigated) 
+method has been able to find even a single feasible solution212,213. What 
+is particularly interesting about these problems is that instances can 
+be generated at variable size and difficulty to track progress, but it is 
+known that sufficiently large problems are difficult for state-of-the-art 
+methods.
+Spin glasses. The mapping of a spin-glass problem onto a QUBO is 
+trivial and leads to relatively sparse models. Classical solvers often per-
+form well on spin glasses defined on regular lattices; however, the pos-
+sibility of digital quantum optimizers having better performance still 
+exists — possibly on non-regular lattice structures214. Hence, spin-glass 
+problems are interesting candidates for quantum benchmarks, espe-
+cially in a cross-platform setting. Moreover, spin-glass problems have 
+properties that make them provably average-case hard for various 
+families of classical algorithms21. It is an open question whether quan-
+tum algorithms can do better in these average-case settings, and thus, 
+superpolynomial speedups for spin-glass problems are still possible.
+Classical methods that can be used to approach all of these 
+problems include branch-and-cut-based integer (linear, nonlinear 
+or semi-definite) programming 215, pseudo-Boolean optimization 216, 
+satisfiability solving 162,217, constraint programming 218 and several 
+other general techniques219 as well as a multitude of specific heuristic 
+approaches.
+The path towards quantum advantage
+Classical algorithms can be developed both theoretically and empiri-
+cally. Algorithms that work well empirically may only later be fully 
+understood theoretically. By contrast, quantum algorithms are pri-
+marily developed theoretically owing to limited hardware availability. 
+However, this is changing. The rise of gate-based quantum computers 
+with hundreds of qubits enables complex circuits beyond exact classi-
+cal simulability220,221. T o develop and improve quantum optimization 
+algorithms, in addition to continued technological progress, it is crucial 
+to combine theoretical and empirical research — similar to classical 
+algorithms. In this context, we believe that there are three key directions 
+to advance on the path towards quantum advantage.
+First, real-world optimization problems should be identified that 
+are promising candidates to demonstrate quantum advantage. This is 
+challenging owing to the many open questions about the future perfor-
+mance of quantum optimization algorithms, their heuristic nature and 
+the overhead introduced by quantum error correction. Additionally, 
+these problems must be truly challenging for classical solvers; if clas-
+sical solvers are sufficient, there is no margin for quantum advantage. 
+A formal understanding of the actual goal of application is required. 
+This may sound trivial, but practical challenges can arise when trying 
+to formally define objective functions, constraints or preferences in 
+a rigorous mathematical way, or when trying to get the required data.
+Furthermore, as mentioned earlier, problems are typically mod-
+elled to be solvable, often involving simplifications such as lineariza-
+tion. Although the impact of these simplifications can be negligible 
+in some cases, it might be notable in terms of practical impact or solv-
+ability in others. Challenging and relevant problems must be rigor -
+ously defined, ideally in a model-independent way, and necessary data 
+should be available to construct instances using different modelling 
+approaches.
+Once a concrete problem instance is identified, it should be com-
+pared with the state-of-the-art classical algorithms. Two illustrative 
+applications (discussed further in the Supplementary information) 
+are financial asset allocation and the sustainable energy transition: 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 730
+Review article
+although these may not be the first domains to benefit from quantum 
+advantage in optimization, they are well suited to illustrate different 
+levels of modelling complexity, data requirements and the scale needed 
+for real-world applications. The resulting problems, including all intro-
+duced features, can be difficult to solve classically. Such a playground to 
+construct real-world motivated benchmarking problems with increas-
+ingly complex features is essential to test algorithms and track progress 
+from toy examples towards practically relevant problems.
+The second direction involves finding application-agnostic (pos-
+sibly hand-crafted) optimization problem instances and the corre-
+sponding (heuristic) quantum algorithms that can outperform the best 
+classical algorithms. If (artificial) instances are found where quantum 
+algorithms excel, it might be then possible to discover related appli-
+cations or understand the source of the advantage and extend it to 
+broader classes of problems or algorithms. These instances may even 
+motivate completely new algorithmic primitives.
+An example in which quantum algorithms might achieve a prov-
+ably exponential speedup over the best-known classical algorithms is 
+optimization problems, which are reductions (for example, factoring 
+problems222,223). However, such examples are unlikely to occur in prac-
+tice other than by encoding problems that are in NP  ∩ BQP. Here, we 
+suggest an empirical approach to identify more generally applicable 
+quantum heuristics and less formal problem structures in which these 
+heuristics have an advantage in certain instances.
+For the third direction, theoretical understanding of the potential 
+and the limitations of quantum optimization algorithms should be 
+enhanced, and new algorithms developed that ideally achieve more 
+than a quadratic speedup. This includes research on exact algorithms, 
+approximations and heuristics, as well as answering more general 
+questions such as about the potential of quantum optimization in the 
+average case in contrast to the worst case. Theoretical insights help 
+to identify promising directions for empirical testing and to explore 
+scenarios that cannot be tested empirically yet. For instance, to enable 
+practical advantages, there should be a move away from relying on 
+QRAM for designing quantum optimization algorithms with rigorous 
+quantum speedups: although the QRAM model has led to elegant 
+results, its physical realization remains a distant possibility at best. 
+Furthermore, finding quantum speedups beyond quadratic is crucial 
+for practical quantum advantage 224. New theories can inspire new 
+algorithms that address this difficult task, unlock new problem classes 
+and create opportunities to find problem instances that may benefit 
+from quantum optimization.
+T o conclude, use of quantum hardware is already critical in 
+accelerating progress towards quantum advantage. Simultaneously, 
+state-of-the-art classical optimization must be leveraged to identify 
+where better solutions are needed. Empirical studies do not replace 
+theoretical research, but rather they complement each other.
+Outlook
+We have provided a comprehensive overview of the potential, the chal-
+lenges and the emerging research areas in quantum optimization. We 
+observed that although complexity theory is useful as a guide to prov-
+able performance guarantees, it may not always be useful for finding 
+practical quantum advantage. This underscores the need to develop 
+and analyse quantum heuristics to augment theoretical research. We 
+have highlighted key problem classes in optimization, reviewed exist-
+ing algorithms and suggested new research directions. We have also 
+discussed the importance of benchmarking for identifying quantum 
+advantage.
+As quantum hardware evolves, a new era is beginning in which 
+progress in quantum algorithms comes from both theoretical analysis 
+and empirical methods. There is a strong need to continue discovering 
+new theories and algorithms with provable performance guarantees, 
+but there must also be increased development of quantum heuristics 
+and benchmarking of their performance on real quantum computers. 
+The improving quantum capabilities unlock opportunities to further 
+advance quantum optimization (including the co-design of quantum 
+algorithms that account for hardware limitations, discussed in the Sup-
+plementary information). Even if there is no immediate practical quan-
+tum advantage, the intuition gained from running experiments on real 
+hardware will at least enable quick validation of proposals and may also 
+inspire new theoretical research.
+In addition to technical advances in quantum optimization, there 
+is also the question of responsible use of this new technology. Future 
+research should be done with the awareness that optimization use cases 
+occur in a multitude of contexts — some with positive societal impact, 
+others with nefarious intent. We hope that open scientific discussions 
+will encourage the advance of quantum optimization and we advocate 
+responsible use of the insights presented in this article. Where appli-
+cations of quantum optimization algorithms are chosen and funded, 
+we encourage the prioritization of those with positive social impact.
+Quantum optimization holds vast potential for various applica -
+tions, but challenges remain in demonstrating practical quantum 
+advantage. When a tangible quantum advantage is demonstrated, 
+we expect that quantum optimization will rapidly influence many 
+domains, given the widespread relevance of optimization.
+Published online: 28 October 2024
+References
+1. Grover, L. K. A fast quantum mechanical algorithm for database search. In Proc. Twenty-Eighth 
+Annual ACM Symposium on Theory of Computing 212–219 (Association for Computing 
+Machinery, 1996).
+2. Kadowaki, T. & Nishimori, H. Quantum annealing in the transverse Ising model. Phys. Rev. E 
+58, 5355 (1998).
+3. Farhi, E., Goldstone, J., Gutmann, S. & Sipser, M. Quantum computation by adiabatic 
+evolution. Preprint at https://arxiv.org/abs/quant-ph/0001106 (2000).
+4. Farhi, E., Goldstone, J. & Gutmann, S. A quantum approximate optimization algorithm. 
+Preprint at https://arxiv.org/abs/1411.4028 (2014).
+5. Liśkiewicz, M. & Schuster, M. R. A new upper bound for the traveling salesman problem 
+in cubic graphs. J. Discrete Algorithms 27, 1–20 (2014).
+6. Applegate, D. L., Bixby, R. E., Chvátal, V. & Cook, W. J. On the solution of traveling 
+salesman problems. Doc. Math. 3, 645–656 (1998).
+7. Applegate, D. L., Bixby, R. E., Chvátal, V. & Cook, W. J. Finding Tours in the TSP. Report  
+No. 99885 (Univ. Bonn, 1999).
+8. Cook, W. J., Cunningham, W. H., Pulleyblank, W. R. & Schrijver, A. in Combinatorial 
+Optimization (eds Cook, W. J. et al.) 356 (John Wiley & Sons, 1997).
+9. Cook, W. J., Applegate, D. L., Bixby, R. E. & Chvatal, V. The Traveling Salesman Problem:  
+A Computational Study (Princeton Univ. Press, 2011).
+10. Cook, W. J. In Pursuit of the Traveling Salesman: Mathematics at the Limits of Computation 
+(Princeton Univ. Press, 2012).
+11. Cook, W., Held, S. & Helsgaun, K. Constrained local search for last-mile routing. Transp. Sci. 
+https://doi.org/10.1287/trsc.2022.1185 (2022).
+12. Puchinger, J., Raidl, G. R. & Pferschy, U. The multidimensional knapsack problem: 
+structure and algorithms. INFORMS J. Comput. 22, 250–265 (2010).
+13. Packebusch, T. & Mertens, S. Low autocorrelation binary sequences. J. Phys. A Math. Theor. 
+49, 165001 (2016).
+14. Spielman, D. A. & Teng, S.-H. Smoothed analysis: an attempt to explain the behavior of 
+algorithms in practice. Commun. ACM 52, 76–84 (2009).
+15. Gonzalez, T. F. (ed.) Handbook of Approximation Algorithms and Metaheuristics: 
+Methologies and Traditional Applications Vol. 1 (CRC Press, 2018).
+16. Ausiello, G. et al. Complexity and Approximation: Combinatorial Optimization Problems 
+and Their Approximability Properties (Springer, 1999).
+17. Gamarnik, D. The overlap gap property: a topological barrier to optimizing over random 
+structures. Proc. Natl Acad. Sci. USA 118, e2108492118 (2021).
+18. Gamarnik, D., Jagannath, A. & Wein, A. S. Hardness of random optimization problems 
+for Boolean circuits, low-degree polynomials, and Langevin dynamics. SIAM J. Comput. 
+https://doi.org/10.1137/22M150263X (2024).
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 731
+Review article
+19. Chou, C.-N., Love, P. J., Sandhu, J. S. & Shi, J. Limitations of local quantum algorithms on 
+random MAX-k-XOR and beyond. Preprint at https://arxiv.org/abs/2108.06049 (2021).
+20. Huang, B. & Sellke, M. Tight Lipschitz hardness for optimizing mean field spin glasses. In 
+2022 IEEE 63rd Annual Symposium on Foundations of Computer Science (FOCS) 312–322 
+(IEEE, 2022).
+21. Basso, J., Gamarnik, D., Mei, S. & Zhou, L. Performance and limitations of the QAOA at 
+constant levels on large sparse hypergraphs and spin glass models. In 2022 IEEE 63rd 
+Annual Symposium on Foundations of Computer Science (FOCS) 335–343 (IEEE, 2022).
+22. Chen, A., Huang, N. & Marwaha, K. Local algorithms and the failure of log-depth quantum 
+advantage on sparse random CSPs. Preprint at https://arxiv.org/abs/2310.01563 (2023).
+23. Johnson, D. S. Approximation algorithms for combinatorial problems. J. Comput. Syst. Sci. 
+9, 256–278 (1974).
+24. Håstad, J. Some optimal inapproximability results. J. ACM 48, 798–859 (2001).
+25. Karpinski, M., Lampis, M. & Schmied, R. New inapproximability bounds for TSP. J. Comput. 
+Syst. Sci. 81, 1665–1677 (2015).
+26. Karlin, A. R., Klein, N. & Gharan, S. O. A (slightly) improved approximation algorithm for 
+metric TSP. In Proc. 53rd Annual ACM SIGACT Symposium on Theory of Computing 32–45 
+(Association for Computing Machinery, 2021).
+27. Lee, A. & Xu, B. Classifying approximation algorithms: understanding the APX complexity 
+class. Preprint at https://arxiv.org/abs/2111.01551 (2021).
+28. Arora, S. & Barak, B. Computational Complexity: A Modern Approach (Cambridge Univ. 
+Press, 2009).
+29. Watrous, J. in Encyclopedia of Complexity and Systems Science (ed. Meyers, R. A.) 
+7174–7201 (Springer, 2009).
+30. Vidick, T. et al. Quantum proofs. Found. Trends Theor. Comput. Sci. 11, 1–215 (2016).
+31. Arora, S. Polynomial time approximation schemes for Euclidean traveling salesman and 
+other geometric problems. J. ACM 45, 753–782 (1998).
+32. Crama, Y., Elloumi, S., Lambert, A. & Rodriguez-Heck, E. Quadratization and 
+convexification in polynomial binary optimization. Preprint at https://hal.science/ 
+hal-03795395 (2022).
+33. Zoufal, C. et al. Variational quantum algorithm for unconstrained black box binary 
+optimization: application to feature selection. Quantum 7, 909 (2023).
+34. Lucas, A. Ising formulations of many NP problems. Front. Phys. https://doi.org/10.3389/
+fphy.2014.00005 (2014).
+35. Hadfield, S. On the representation of Boolean and real functions as Hamiltonians for 
+quantum computing. ACM Trans. Quantum Comput. 2, 1–21 (2021).
+36. Glover, F., Kochenberger, G., Hennig, R. & Du, Y. Quantum bridge analytics I: a tutorial on 
+formulating and using QUBO models. Ann. Oper. Res. 314, 141–183 (2022).
+37. Xavier, P. M. et al. QUBO.jl: a Julia ecosystem for quadratic unconstrained binary 
+optimization. Preprint at https://arxiv.org/abs/2307.02577 (2023).
+38. Karimi, S. & Ronagh, P. Practical integer-to-binary mapping for quantum annealers. 
+Quantum Inf. Process. 18, 94 (2019).
+39. Sawaya, N. P., Schmitz, A. T. & Hadfield, S. Encoding trade-offs and design toolkits in 
+quantum algorithms for discrete optimization: coloring, routing, scheduling, and other 
+problems. Quantum 7, 1111 (2023).
+40. Biamonte, J. Nonperturbative k-body to two-body commuting conversion hamiltonians 
+and embedding problem instances into Ising spins. Phys. Rev. A 77, 052331 (2008).
+41. Babbush, R., O’Gorman, B. & Aspuru-Guzik, A. Resource efficient gadgets for compiling 
+adiabatic quantum optimization problems. Ann. Phys. 525, 877–888 (2013).
+42. Barahona, F. On the computational complexity of Ising spin glass models. J. Phys. A Math. 
+Gen. 15, 3241 (1982).
+43. Punnen, A. P. (ed.) The Quadratic Unconstrained Binary Optimization Problem: Theory, 
+Algorithms, and Applications (Springer, 2022).
+44. Finnila, A., Gomez, M., Sebenik, C., Stenson, C. & Doll, J. Quantum annealing: a new 
+method for minimizing multidimensional functions. Chem. Phys. Lett. 219, 343–348 (1994).
+45. Kato, T. On the adiabatic theorem of quantum mechanics. J. Phys. Soc. Jpn 5, 435–439 
+(1950).
+46. van Dam, W., Mosca, M. & Vazirani, U. How powerful is adiabatic quantum computation? 
+In Proc. 42nd IEEE Symposium on Foundations of Computer Science 279–287 (IEEE, 2001).
+47. Matsuda, Y., Nishimori, H. & Katzgraber, H. G. Ground-state statistics from annealing 
+algorithms: quantum versus classical approaches. New J. Phys. 11, 073021 (2009).
+48. Boixo, S., Albash, T., Spedalieri, F. M., Chancellor, N. & Lidar, D. A. Experimental signature 
+of programmable quantum annealing. Nat. Commun. 4, 2067 (2013).
+49. Albash, T. & Lidar, D. A. Demonstration of a scaling advantage for a quantum annealer 
+over simulated annealing. Phys. Rev. X 8, 031016 (2018).
+50. Wurtz, J. & Love, P. Maxcut quantum approximate optimization algorithm performance 
+guarantees for p  > 1. Phys. Rev. A 103, 042612 (2021).
+51. Ozaeta, A., van Dam, W. & McMahon, P. L. Expectation values from the single-layer 
+quantum approximate optimization algorithm on Ising problems. Quantum Sci. Technol. 
+7, 045036 (2022).
+52. Farhi, E., Goldstone, J., Gutmann, S. & Zhou, L. The quantum approximate optimization 
+algorithm and the Sherrington–Kirkpatrick model at infinite size. Quantum 6, 759 (2022).
+53. Basso, J., Farhi, E., Marwaha, K., Villalonga, B. & Zhou, L. The quantum approximate 
+optimization algorithm at high depth for MaxCut on large-girth regular graphs and the 
+Sherrington–Kirkpatrick model. In Proc. 17th Conference on the Theory of Quantum 
+Computation, Communication and Cryptography (eds Le Gall, F. & Morimae, T.) 7:1–7:21 
+(Leibniz International Proceedings in Informatics, 2022).
+54. Egger, D. J., Mareček, J. & Woerner, S. Warm-starting quantum optimization. Quantum 5, 
+479 (2021).
+55. Tate, R., Farhadi, M., Herold, C., Mohler, G. & Gupta, S. Bridging classical and quantum 
+with SDP initialized warm-starts for QAOA. ACM Trans. Quantum Comput. 4, 1–39 (2023).
+56. Mastropietro, D., Korpas, G., Kungurtsev, V. & Marecek, J. Fleming-Viot helps speed up 
+variational quantum algorithms in the presence of barren plateaus. Preprint at https://
+arxiv.org/abs/2311.18090 (2023).
+57. Bravyi, S., Kliesch, A., Koenig, R. & Tang, E. Obstacles to variational quantum optimization 
+from symmetry protection. Phys. Rev. Lett. 125, 260505 (2020).
+58. Bravyi, S., Kliesch, A., Koenig, R. & Tang, E. Hybrid quantum-classical algorithms for 
+approximate graph coloring. Quantum 6, 678 (2022).
+59. Dupont, M. et al. Quantum-enhanced greedy combinatorial optimization solver. Sci. Adv. 
+https://doi.org/10.1126/sciadv.adi0487 (2023).
+60. Brady, L. T. & Hadfield, S. Iterative quantum algorithms for maximum independent set:  
+a tale of low-depth quantum algorithms. Preprint at https://arxiv.org/abs/2309.13110 (2023).
+61. Finžgar, J. R., Kerschbaumer, A., Schuetz, M. J. A., Mendl, C. B. & Katzgraber, H. G. 
+Quantum-informed recursive optimization algorithms. PRX Quantum 5, 020327  
+(2024).
+62. Fuller, B. et al. Approximate solutions of combinatorial problems via quantum 
+relaxations. IEEE Trans. Quantum Eng. 5, 1–15 (2024).
+63. Teramoto, K., Raymond, R., Wakakuwa, E. & Imai, H. Quantum-relaxation based optimization 
+algorithms: theoretical extensions. Preprint at https://arxiv.org/abs/2302.09481 (2023).
+64. Goemans, M. X. & Williamson, D. P. Improved approximation algorithms for maximum cut 
+and satisfiability problems using semidefinite programming. J. ACM 42, 1115–1145 (1995).
+65. Farhi, E., Gamarnik, D. & Gutmann, S. The quantum approximate optimization algorithm  
+needs to see the whole graph: a typical case. Preprint at https://arxiv.org/abs/2004.09002 
+(2020).
+66. Marwaha, K. & Hadfield, S. Bounds on approximating max k XOR with quantum and 
+classical local algorithms. Quantum 6, 757 (2022).
+67. Chou, C.-N., Love, P. J., Sandhu, J. S. & Shi, J. Limitations of local quantum algorithms on 
+random MAX-k-XOR and beyond. In Proc. 49th International Colloquium on Automata, 
+Languages, and Programming (eds Bojańczyk, M. et al.) 41:1–41:20 (Leibniz International 
+Proceedings in Informatics, 2022).
+68. McArdle, S. et al. Variational ansatz-based quantum simulation of imaginary time 
+evolution. npj Quantum Inf. 5, 75 (2019).
+69. Motta, M. et al. Determining eigenstates and thermal states on a quantum computer 
+using quantum imaginary time evolution. Nat. Phys. 16, 205–210 (2020).
+70. Lin, S.-H., Dilip, R., Green, A. G., Smith, A. & Pollmann, F. Real- and imaginary-time 
+evolution with compressed quantum circuits. PRX Quantum 2, 010342 (2021).
+71. Yuan, X., Endo, S., Zhao, Q., Li, Y. & Benjamin, S. C. Theory of variational quantum 
+simulation. Quantum 3, 191 (2019).
+72. Gacon, J., Zoufal, C., Carleo, G. & Woerner, S. Stochastic approximation of variational 
+quantum imaginary time evolution. In Proc. 2023 IEEE International Conference on 
+Quantum Computing and Engineering 129–139 (IEEE, 2023).
+73. Aharonov, D. & Naveh, T. Quantum np — a survey. Preprint at https://arxiv.org/abs/ 
+quant-ph/0210077 (2002).
+74. Barkoutsos, P. K., Nannicini, G., Robert, A., Tavernelli, I. & Woerner, S. Improving 
+variational quantum optimization using CVaR. Quantum 4, 256 (2020).
+75. Barron, S. V. et al. Provable bounds for noise-free expectation values computed from 
+noisy samples. Nat. Comput. Sci. https://doi.org/10.1038/s43588-024-00709-1 (2023).
+76. Li, L., Fan, M., Coram, M., Riley, P. & Leichenauer, S. Quantum optimization with a novel 
+Gibbs objective function and ansatz architecture search. Phys. Rev. Res. 2, 023074 (2020).
+77. Gilliam, A., Woerner, S. & Gonciulea, C. Grover adaptive search for constrained 
+polynomial binary optimization. Quantum 5, 428 (2021).
+78. Montanaro, A. Quantum speedup of branch-and-bound algorithms. Phys. Rev. Res. 2, 
+013056 (2020).
+79. Hadfield, S. et al. Quantum approximate optimization with hard and soft constraints. 
+In Proc. Second International Workshop on Post Moores Era Supercomputing 15–21 
+(Association for Computing Machinery, 2017).
+80. Hadfield, S. et al. From the quantum approximate optimization algorithm to a quantum 
+alternating operator ansatz. Algorithms 12, 34 (2019).
+81. Wang, Z., Rubin, N. C., Dominy, J. M. & Rieffel, E. G. xy mixers: analytical and numerical 
+results for the quantum alternating operator ansatz. Phys. Rev. A 101, 012320 (2020).
+82. Cook, J., Eidenbenz, S. & Bärtschi, A. The quantum alternating operator ansatz on 
+maximum k-vertex cover. In Proc. 2020 IEEE International Conference on Quantum 
+Computing and Engineering 83–92 (IEEE, 2020).
+83. Bärtschi, A. & Eidenbenz, S. Grover mixers for QAOA: shifting complexity from mixer 
+design to state preparation. In Proc. 2020 IEEE International Conference on Quantum 
+Computing and Engineering 72–82 (IEEE, 2020).
+84. Golden, J., Bärtschi, A., Eidenbenz, S. & O’Malley, D. Numerical evidence for exponential 
+speed-up of QAOA over unstructured search for approximate constrained optimization. 
+In Proc. 2023 IEEE International Conference on Quantum Computing and Engineering 
+496–505 (IEEE, 2023).
+85. Herman, D. et al. Constrained optimization via quantum zeno dynamics. Commun. Phys. 
+6, 219 (2023).
+86. Garg, A., Kothari, R., Netrapalli, P. & Sherif, S. No quantum speedup over gradient descent 
+for non-smooth convex optimization. In Proc. 12th Innovations in Theoretical Computer 
+Science Conference (Leibniz International Proceedings in Informatics, 2021).
+87. Garg, A., Kothari, R., Netrapalli, P. & Sherif, S. Near-optimal lower bounds for convex 
+optimization for all orders of smoothness. In Proc. Advances in Neural Information 
+Processing Systems 34 (eds Ranzato, M. et al.) 29874–29884 (NeurIPS, 2021).
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 732
+Review article
+88. Grötschel, M., Lovász, L. & Schrijver, A. Geometric Algorithms and Combinatorial 
+Optimization Vol. 2 (Springer, 2012).
+89. van Apeldoorn, J., Gilyén, A., Gribling, S. & de Wolf, R. Convex optimization using 
+quantum oracles. Quantum 4, 220 (2020).
+90. Chakrabarti, S., Childs, A. M., Li, T. & Wu, X. Quantum algorithms and lower bounds for 
+convex optimization. Quantum 4, 221 (2020).
+91. Arora, S., Hazan, E. & Kale, S. Fast algorithms for approximate semidefinite programming 
+using the multiplicative weights update method. In Proc. 46th Annual IEEE Symposium 
+on Foundations of Computer Science 339–348 (IEEE, 2005).
+92. Brandao, F. G. S. L. & Svore, K. M. Quantum speed-ups for solving semidefinite programs. 
+In Proc. 2017 IEEE 58th Annual Symposium on Foundations of Computer Science 415–426 
+(IEEE, 2017).
+93. Van Apeldoorn, J., Gilyén, A., Gribling, S. & de Wolf, R. Quantum SDP-solvers: better 
+upper and lower bounds. Quantum 4, 230 (2020).
+94. Brandão, F. G. S. L. et al. Quantum SDP solvers: large speed-ups, optimality, and 
+applications to quantum learning. In Proc. 46th International Colloquium on Automata, 
+Languages, and Programming (eds Baier, C. et al.) 27 (Leibniz International Proceedings 
+in Informatics, 2019).
+95. van Apeldoorn, J. & Gilyén, A. Improvements in quantum SDP-solving with applications. 
+In Proc. 46th International Colloquium on Automata, Languages, and Programming 
+(Leibniz International Proceedings in Informatics, 2019).
+96. van Apeldoorn, J. A Quantum View on Convex Optimization. PhD thesis, Univ. Amsterdam 
+(2020).
+97. Lee, Y. T., Sidford, A. & Wong, S. C.-W. A faster cutting plane method and its implications 
+for combinatorial and convex optimization. In Proc. 2015 IEEE 56th Annual Symposium 
+on Foundations of Computer Science 1049–1065 (IEEE, 2015).
+98. Marecek, J. & Akhriev, A. A cutting-plane method for semidefinite programming with potential  
+applications on noisy quantum devices. Preprint at https://arxiv.org/abs/2110.03400 2021).
+99. Kerenidis, I. & Prakash, A. A quantum interior point method for LPs and SDPs. ACM Trans. 
+Quantum Comput. 1, 1–32 (2020).
+100. Childs, A. M., Kothari, R. & Somma, R. D. Quantum algorithm for systems of linear equations 
+with exponentially improved dependence on precision. SIAM J. Comput. 46, 1920–1950 (2017).
+101. Chakraborty, S., Gilyén, A. & Jeffery, S. The power of block-encoded matrix powers: 
+improved regression techniques via faster Hamiltonian simulation. In Proc. 46th 
+International Colloquium on Automata, Languages, and Programming 33:1–33:14 (Leibniz 
+International Proceedings in Informatics, 2019).
+102. van Apeldoorn, J., Cornelissen, A., Gilyén, A. & Nannicini, G. Quantum tomography using 
+state-preparation unitaries. In Proc. 2023 Annual ACM–SIAM Symposium on Discrete 
+Algorithms (eds Bansal, N. & Nagarajan, V.) 1265–1318 (SIAM, 2023).
+103. Augustino, B., Nannicini, G., Terlaky, T. & Zuluaga, L. F. Quantum interior point methods 
+for semidefinite optimization. Quantum 7, 1110 (2023).
+104. Mohammadisiahroudi, M., Fakhimi, R. & Terlaky, T. Efficient use of quantum linear system 
+algorithms in inexact infeasible IPMs for linear optimization. J. Optim. Theory Appl. 202, 
+146–183 (2024).
+105. Wu, Z., Mohammadisiahroudi, M., Augustino, B., Yang, X. & Terlaky, T. An inexact feasible 
+quantum interior point method for linearly constrained quadratic optimization. Entropy 
+25, 330 (2023).
+106. Giovannetti, V., Lloyd, S. & Maccone, L. Quantum random access memory. Phys. Rev. 
+Lett. 100, 160501 (2008).
+107. Giovannetti, V., Lloyd, S. & Maccone, L. Architectures for a quantum random access 
+memory. Phys. Rev. A 78, 052310 (2008).
+108. Aaronson, S. Read the fine print. Nat. Phys. 11, 291–293 (2015).
+109. Di Matteo, O., Gheorghiu, V. & Mosca, M. Fault tolerant resource estimation of quantum 
+random-access memories. IEEE Trans. Quantum Eng. 1, 1–13 (2020).
+110. Jaques, S. & Rattew, A. G. QRAM: a survey and critique. Preprint at https://arxiv.org/ 
+abs/2305.10310 (2023).
+111. Apers, S. & Gribling, S. Quantum speedups for linear programming via interior point 
+methods. Preprint at https://arxiv.org/abs/2311.03215 (2023).
+112. Van Den Brand, J. et al. Minimum cost flows, MDPs, and l1-regression in nearly linear 
+time for dense instances. In Proc. 53rd Annual ACM SIGACT Symposium on Theory of 
+Computing 859–869 (Association for Computing Machinery, 2021).
+113. Leng, J., Hickman, E., Li, J. & Wu, X. Quantum hamiltonian descent. Preprint at https://arxiv.org/ 
+abs/2303.01471 (2023).
+114. Augustino, B., Leng, J., Nannicini, G., Terlaky, T. & Wu, X. A quantum central path 
+algorithm for linear optimization. Preprint at https://arxiv.org/abs/2311.03977 (2023).
+115. Liberti, L. Undecidability and hardness in mixed-integer nonlinear programming. RAIRO Oper. 
+Res. 53, 81–109 (2019).
+116. Zhang, C. & Li, T. Quantum lower bounds for finding stationary points of nonconvex 
+functions. In International Conference on Machine Learning 41268–41299 (PMLR, 2023).
+117. Sidford, A. & Zhang, C. Quantum speedups for stochastic optimization. In Proc. 37th 
+International Conference on Neural Information Processing Systems 35300–35330 
+(NeurIPS, 2024).
+118. Rebentrost, P., Schuld, M., Wossnig, L., Petruccione, F. & Lloyd, S. Quantum gradient 
+descent and Newton’s method for constrained polynomial optimization. New J. Phys. 21, 
+073023 (2019).
+119. Kerenidis, I. & Prakash, A. Quantum gradient descent for linear systems and least 
+squares. Phys. Rev. A 101, 022316 (2020).
+120. Li, K. et al. Optimizing a polynomial function on a quantum processor. npj Quantum Inf. 7, 
+16 (2021).
+121. Montanaro, A. Quantum walk speedup of backtracking algorithms. Theory Comput. 14, 
+1–24 (2018).
+122. Ambainis, A. & Kokainis, M. Quantum algorithm for tree size estimation, with applications 
+to backtracking and 2-player games. In Proc. 49th Annual ACM SIGACT Symposium on 
+Theory of Computing 989–1002 (Association for Computing Machinery, 2017).
+123. Chakrabarti, S., Minssen, P., Yalovetzky, R. & Pistoia, M. Universal quantum speedup for 
+branch-and-bound, branch-and-cut, and tree-search algorithms. Preprint at https://arxiv.
+org/abs/2210.03210 (2022).
+124. Dalzell, A. M., Pancotti, N., Campbell, E. T. & Brandão, F. G. Mind the gap: achieving a 
+super-Grover quantum speedup by jumping to the end. In Proc. 55th Annual ACM Symposium 
+on Theory of Computing, 1131–1144 (Association for Computing Machinery, 2023).
+125. Gambella, C., Simonetto, A., Mevissen, M. & Marecek, J. Mixed-binary constrained 
+optimization on quantum computers. US patent 16/395,560 (2020).
+126. Gambella, C. & Simonetto, A. Multiblock ADMM heuristics for mixed-binary optimization 
+on classical and quantum computers. IEEE Trans. Quantum Eng. 1, 1–22 (2020).
+127. Chang, C.-Y., Jones, E., Yao, Y., Graf, P. & Jain, R. On hybrid quantum and classical 
+computing algorithms for mixed-integer programming. Preprint at https://arxiv.org/ 
+abs/2010.07852 (2020).
+128. Braine, L., Egger, D. J., Glick, J. & Woerner, S. Quantum algorithms for mixed binary 
+optimization applied to transaction settlement. IEEE Trans. Quantum Eng. 2, 1–8  
+(2021).
+129. Le, T. V. & Kekatos, V. Variational quantum eigensolver with constraints (VQEC): solving 
+constrained optimization problems via VQE. Preprint at https://arxiv.org/abs/2311.08502 
+(2023).
+130. Bertsekas, D. P. Constrained Optimization and Lagrange Multiplier Methods (Academic 
+Press, 2014).
+131. Birgin, E. G. & Martínez, J. M. Practical Augmented Lagrangian Methods for Constrained 
+Optimization (SIAM, 2014).
+132. Aspman, J., Bareilles, G., Kungurtsev, V., Marecek, J. & Takáč, M. Hybrid methods in 
+polynomial optimisation. Preprint at https://arxiv.org/abs/2305.16122 (2023).
+133. Dantzig, G. B. & Wolfe, P. Decomposition principle for linear programs. Oper. Res. 8, 
+101–111 (1960).
+134. Parrilo, P. A. Structured Semidefinite Programs and Semialgebraic Geometry Methods in 
+Robustness and Optimization (California Institute of Technology, 2000).
+135. Lasserre, J. B. Global optimization with polynomials and the problem of moments. SIAM 
+J. Optim. 11, 796–817 (2001).
+136. Schoenebeck, G. Linear level Lasserre lower bounds for certain k-CSPs. In 2008 49th 
+Annual IEEE Symposium on Foundations of Computer Science 593–602 (IEEE, 2008).
+137. Burer, S. On the copositive representation of binary and continuous nonconvex quadratic 
+programs. Math. Program. 120, 479–495 (2009).
+138. Dickinson, P. J. Geometry of the copositive and completely positive cones. J. Math. Anal. 
+Appl. 380, 377–395 (2011).
+139. Dickinson, P. J. & Gijben, L. On the computational complexity of membership problems 
+for the completely positive cone and its dual. Comput. Optim. Appl. 57, 403–415 (2014).
+140. Brown, R., Neira, D. E. B., Venturelli, D. & Pavone, M. A copositive framework for analysis 
+of hybrid ising-classical algorithms. Preprint at https://arxiv.org/abs/2207.13630 (2023).
+141. Ambainis, A. et al. Quantum speedups for exponential-time dynamic programming 
+algorithms. In Proc. Thirtieth Annual ACM–SIAM Symposium on Discrete Algorithms  
+(ed. Chan, T. M.) 1783–1793 (SIAM, 2019).
+142. Gaspers, S. & Li, J. Z. Quantum algorithms for graph coloring and other partitioning, covering, 
+and packing problems. In Proc. 51st International Colloquium on Automata, Languages, and 
+Programming 69:1–69:20 (Leibniz International Proceedings in Informatics, 2024).
+143. Shimizu, K. & Mori, R. Exponential-time quantum algorithms for graph coloring problems. 
+In Proc. 14th Latin American Symposium (eds Kohayakawa, Y. & Miyazawa, F. K.) 387–398 
+(Springer, 2020).
+144. Miyamoto, M., Iwamura, M., Kise, K. & Gall, F. L. Quantum speedup for the minimum 
+Steiner tree problem. In Proc. 26th International Conference, COCOON 2020 (eds Kim, D. 
+et al.) 234–245 (Springer, 2020).
+145. Kļevickis, V., Prūsis, K. & Vihrovs, J. Quantum speedups for treewidth. In Proc. 17th Conference 
+on the Theory of Quantum Computation, Communication and Cryptography (eds Gall, F. L.  
+& Morimae, T.) 11:1–11:18 (Leibniz International Proceedings in Informatics, 2022).
+146. Grange, C., Bourreau, E., Poss, M. & T’Kindt, V. Quantum speed-ups for single-machine 
+scheduling problems. In Proc. Companion Conference on Genetic and Evolutionary 
+Computation 2224–2231 (Association for Computing Machinery, 2023).
+147. Bardi, M. et al. Optimal Control and Viscosity Solutions of Hamilton–Jacobi–Bellman 
+Equations Vol. 12 (Springer, 1997).
+148. Baras, J. S. & Kurzhanski, A. Nonlinear filtering: the set-membership (bounding) and the 
+h∞ techniques. In Proc. NOLCOS’95 IFAC Workshop 409–415 (IFAC, 1995).
+149. Cornelissen, A. J. Quantum gradient estimation and its application to quantum 
+reinforcement learning. Master thesis, TU Delft (2018).
+150. Dunjko, V., Taylor, J. M. & Briegel, H. J. Quantum-enhanced machine learning. Phys. Rev. Lett. 
+117, 130501 (2016).
+151. Jerbi, S., Cornelissen, A., Ozols, M. & Dunjko, V. Quantum policy gradient algorithms. 
+In Proc. 18th Conference on the Theory of Quantum Computation, Communication and 
+Cryptography (eds Fawzi, O. & Walter, M.) 13:1–13:24 (Leibniz International Proceedings  
+in Informatics, 2023).
+152. Cornelissen, A., Hamoudi, Y. & Jerbi, S. Near-optimal quantum algorithms for multivariate 
+mean estimation. In Proc. 54th Annual ACM SIGACT Symposium on Theory of Computing 
+33–43 (Association for Computing Machinery, 2022).
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 733
+Review article
+153. Dunjko, V., Liu, Y.-K., Wu, X. & Taylor, J. M. Exponential improvements for quantum-accessible 
+reinforcement learning. Preprint at https://arxiv.org/abs/1710.11160 (2017).
+154. Jerbi, S., Gyurik, C., Marshall, S., Briegel, H. & Dunjko, V. Parametrized quantum policies 
+for reinforcement learning. In Proc. Advances in Neural Information Processing Systems 
+(eds Ranzato, M. et al.) 28362–28375 (NeurIPS, 2021).
+155. Skolik, A., Jerbi, S. & Dunjko, V. Quantum agents in the gym: a variational quantum 
+algorithm for deep Q-learning. Quantum 6, 720 (2022).
+156. Dunning, I., Gupta, S. & Silberholz, J. What works best when? A systematic evaluation of 
+heuristics for Max-Cut and QUBO. INFORMS J. Comput. 30, 608–624 (2018).
+157. Jain, R. The Art of Computer Systems Performance Analysis: Techniques for Experimental 
+Design, Measurement, Simulation, and Modeling (Wiley, 1991).
+158. Koch, T., Berthold, T., Pedersen, J. & Vanaret, C. Progress in mathematical programming 
+solvers from 2001 to 2020. EURO J. Comput. Optim. 10, 100031 (2022).
+159. Bartz-Beielstein, T. et al. Benchmarking in optimization: best practice and open issues. 
+Preprint at https://arxiv.org/abs/2007.03488 (2020).
+160. Müller, M., Whitney, B., Henschel, R. & Kumaran, K. in Encyclopedia of Parallel Computing 
+(ed. Padua, D.) 1886–1893 (Springer, 2011).
+161. Dongarra, J. J., Moler, C. B., Bunch, J. R. & Stewart, G. W. LINPACK Users’ Guide (SIAM, 1979).
+162. Froleyks, N., Heule, M., Iser, M., Järvisalo, M. & Suda, M. Sat competition 2020. Artif. Intell. 
+301, 103572 (2021).
+163. Lubinski, T. et al. Application-oriented performance benchmarks for quantum 
+computing. IEEE Trans. Quantum Eng. 4, 1–32 (2023).
+164. Tomesh, T. et al. SupermarQ: a scalable quantum benchmark suite. In Proc. 2022 IEEE 
+International Symposium on High-Performance Computer Architecture (HPCA) 587–603 
+(IEEE Computer Society, 2022).
+165. Martiel, S., Ayral, T. & Allouche, C. Benchmarking quantum coprocessors in an 
+application-centric, hardware-agnostic, and scalable way. IEEE Trans. Quantum Eng. 2, 
+1–11 (2021).
+166. Lubinski, T. et al. Optimization applications as quantum performance benchmarks.  
+ACM Trans. Quantum Comput. 5, 1–44 (2024).
+167. Rønnow, T. F. et al. Defining and detecting quantum speedup. Science 345, 420–424 (2014).
+168. King, J., Yarkoni, S., Nevisi, M. M., Hilton, J. P. & McGeoch, C. C. Benchmarking a 
+quantum annealing processor with the time-to-target metric. Preprint at https://arxiv.
+org/abs/1508.05087 (2015).
+169. Albash, T., Martin-Mayor, V. & Hen, I. Temperature scaling law for quantum annealing 
+optimizers. Phys. Rev. Lett. 119, 110502 (2017).
+170. Juenger, M. et al. Performance of a quantum annealer for Ising ground state 
+computations on chimera graphs. Preprint at https://arxiv.org/abs/1904.11965 (2019).
+171. Jünger, M. et al. Quantum annealing versus digital computing: an experimental 
+comparison. ACM J. Exp. Algorithmics 26,1–30 (2021).
+172. Perdomo-Ortiz, A. et al. Readiness of quantum optimization machines for industrial 
+applications. Phys. Rev. Appl. 12, 014004 (2019).
+173. Grant, E., Humble, T. S. & Stump, B. Benchmarking quantum annealing controls with 
+portfolio optimization. Phys. Rev. Appl. 15, 014012 (2021).
+174. Tasseff, B. et al. On the emerging potential of quantum annealing hardware for 
+combinatorial optimization. J. Heuristics 30, 325–358, (2024).
+175. Willsch, M., Willsch, D., Jin, F., De Raedt, H. & Michielsen, K. Benchmarking the quantum 
+approximate optimization algorithm. Quantum Inf. Process. 19, 197 (2020).
+176. Mohseni, N., McMahon, P. L. & Byrnes, T. Ising machines as hardware solvers of 
+combinatorial optimization problems. Nat. Rev. Phys. 4, 363–379 (2022).
+177. Finžgar, J. R., Ross, P., Hölscher, L., Klepsch, J. & Luckow, A. Quark: a framework for 
+quantum computing application benchmarking. In Proc. 2022 IEEE International 
+Conference on Quantum Computing and Engineering 226–237 (IEEE, 2022).
+178. Bäumer, E. et al. Efficient long-range entanglement using dynamic circuits. PRX Quantum 
+5, 030339 (2024).
+179. Applegate, D. L., Bixby, R. E., Chvatál, V. & Cook, W. J. The Traveling Salesman Problem:  
+A Computational Study (Princeton Univ. Press, 2006).
+180. Rehfeldt, D., Koch, T. & Shinano, Y. Faster exact solution of sparse MaxCut and QUBO 
+problems. Math. Program. Comput. 15, 445–470 (2023).
+181. Glover, F., Lewis, M. & Kochenberger, G. Logical and inequality implications for reducing 
+the size and difficulty of quadratic unconstrained binary optimization problems. Eur. J. 
+Oper. Res. 265, 829–842 (2018).
+182. Tsukamoto, S., Takatsu, M., Matsubara, S. & Tamura, H. An accelerator architecture for 
+combinatorial optimization problems. Fujitsu Sci. Tech. J. 53, 8–13 (2017).
+183. Matsubara, S. et al. Digital annealer for high-speed solving of combinatorial optimization 
+problems and its applications. In Proc. 2020 25th Asia and South Pacific Design 
+Automation Conference 667–672 (IEEE, 2020).
+184. Yoshimura, C., Hayashi, M., Takemoto, T. & Yamaoka, M. CMOS annealing machine:  
+a domain-specific architecture for combinatorial optimization problem. In Proc. 2020 
+25th Asia and South Pacific Design Automation Conference 673–678 (IEEE, 2020).
+185. Goto, H. Bifurcation-based adiabatic quantum computation with a nonlinear oscillator 
+network. Sci. Rep. 6, 21686 (2016).
+186. Wang, J., Ebler, D., Wong, K. Y. M., Hui, D. S. W. & Sun, J. Bifurcation behaviors shape how 
+continuous physical dynamics solves discrete Ising optimization. Nat. Commun. 14, 2510 
+(2023).
+187. Krantz, P. et al. A quantum engineer’s guide to superconducting qubits. Appl. Phys. Rev. 
+6, 021318 (2019).
+188. Hangleiter, D., Carolan, J. & Thébault, K. Analogue Quantum Simulation: A New Instrument 
+for Scientific Understanding (Springer, 2022).
+189. Bloch, I., Dalibard, J. & Nascimbène, S. Quantum simulations with ultracold quantum 
+gases. Nat. Phys. 8, 267–276 (2012).
+190. Trotzky, S. et al. Probing the relaxation towards equilibrium in an isolated strongly 
+correlated one-dimensional Bose gas. Nat. Phys. 8, 325–330 (2012).
+191. Choi, J.-Y. et al. Exploring the many-body localization transition in two dimensions. 
+Science 352, 1547–1552 (2016).
+192. Parsons, M. F. et al. Site-resolved measurement of the spin-correlation function in the 
+Fermi–Hubbard model. Science 353, 1253–1256 (2016).
+193. Bernien, H. et al. Probing many-body dynamics on a 51-atom quantum simulator. Nature 
+551, 579–584 (2017).
+194. Blatt, R. & Roos, C. F. Quantum simulations with trapped ions. Nat. Phys. 8, 277–284  
+(2012).
+195. Zhang, J. et al. Observation of a many-body dynamical phase transition with a 53-qubit 
+quantum simulator. Nature 551, 601–604 (2017).
+196. Arrazola, I., Pedernales, J. S., Lamata, L. & Solano, E. Digital–analog quantum simulation 
+of spin models in trapped ions. Sci. Rep. 6, 30534 (2016).
+197. Albash, T. & Lidar, D. A. Adiabatic quantum computation. Rev. Mod. Phys. 90, 015002 
+(2018).
+198. McGeoch, C. C. in Adiabatic Quantum Computation and Quantum Annealing 9–27 
+(Springer, 2014).
+199. Johnson, M. W. et al. Quantum annealing with manufactured spins. Nature 473, 194–198 
+(2011).
+200. Ebadi, S. et al. Quantum optimization of maximum independent set using Rydberg atom 
+arrays. Science 376, 1209–1215 (2022).
+201. Nocedal, J. & Wright, S. J. Numerical Optimization 2nd edn (Springer, 2006).
+202. Bonnans, J., Gilbert, J., Lemarechal, C. & Sagastizábal, C. Numerical Optimization: 
+Theoretical and Practical Aspects (Springer, 2006).
+203. Clark, B. N., Colbourn, C. J. & Johnson, D. S. Unit disk graphs. Discrete Math. 86, 165–177 
+(1990).
+204. Pichler, H., Wang, S.-T., Zhou, L., Choi, S. & Lukin, M. D. Quantum optimization for 
+maximum independent set using Rydberg atom arrays. Preprint at https://arxiv.org/abs/ 
+1808.10816 (2018).
+205. Wu, X. et al. A concise review of Rydberg atom based quantum computation and 
+quantum simulation. Chin. Phys. B 30, 020305 (2021).
+206. Andrist, R. S. et al. Hardness of the maximum-independent-set problem on unit-disk 
+graphs and prospects for quantum speedups. Phys. Rev. Res. 5, 043277 (2023).
+207. Pisinger, D. The quadratic knapsack problem — a survey. Discrete Appl. Math. 155, 
+623–648 (2007).
+208. Cornuéjols, G. & Dawande, M. A class of hard small 01 programs. INFORMS J. Comput. 11, 
+205–210 (1999).
+209. Shaydulin, R. et al. Evidence of scaling advantage for the quantum approximate 
+optimization algorithm on a classically intractable problem. Sci. Adv. 10, eadm6761 
+(2024).
+210. Burkard, R. E., Karisch, S. E. & Rendl, F. QAPLIB — a quadratic assignment problem library. 
+J. Glob. Optim. 10, 391–403 (1997).
+211. de Werra, D. in Annals of Discrete Mathematics (11): Studies on Graphs and Discrete 
+Programming (ed. Hansen, P.) 381–395 (Elsevier, 1981).
+212. Van Bulck, D. & Goossens, D. The international timetabling competition on sports 
+timetabling (ITC2021). Eur. J. Oper. Res. 308, 1249–1267 (2023).
+213. Bulck, D. V. et al. Which algorithm to select in sports timetabling? Preprint at https://arxiv.
+org/abs/2309.03229 (2023).
+214. Slongo, F., Hauke, P., Faccioli, P. & Micheletti, C. Quantum-inspired encoding enhances 
+stochastic sampling of soft matter systems. Sci. Adv. 9, eadi0204 (2023).
+215. Wolsey, L. Integer Programming 2nd edn (John Wiley & Sons, 2020).
+216. Devriendt, J., Gocht, S., Demirović, E., Nordström, J. & Stuckey, P. J. Cutting to the core 
+of pseudo-Boolean optimization: combining core-guided search with cutting planes 
+reasoning. In Proc. Thirty-Fifth AAAI Conference on Artificial Intelligence 3750–3758 
+(Association for the Advancement of Artificial Intelligence, 2021).
+217. Prasad, M. R., Biere, A. & Gupta, A. A survey of recent advances in SAT-based formal 
+verification. Int. J. Softw. Tools Technol. Transf. 7, 156–173 (2005).
+218. Nethercote, N. et al. MiniZinc: towards a standard CP modelling language. In Proc. 13th 
+International Conference on Principles and Practice of Constraint Programming  
+(ed. Bessière, C.) 529–543 (Springer, 2007).
+219. Kuroiwa, R. & Beck, J. C. Solving domain-independent dynamic programming problems 
+with anytime heuristic search. In Proc. Thirty-Third International Conference on 
+Automated Planning and Scheduling 245–253 (Association for the Advancement of 
+Artificial Intelligence, 2023).
+220. Kim, Y. et al. Evidence for the utility of quantum computing before fault tolerance. Nature 
+618, 500–505 (2023).
+221. Anand, S., Temme, K., Kandala, A. & Zaletel, M. Classical benchmarking of zero noise 
+extrapolation beyond the exactly-verifiable regime. Preprint at https://arxiv.org/abs/ 
+2306.17839 (2023).
+222. Pirnay, N., Ulitzsch, V., Wilde, F., Eisert, J. & Seifert, J.-P. An in-principle super-polynomial 
+quantum advantage for approximating combinatorial optimization problems. Sci. Adv. 10, 
+eadj5170 (2024).
+223. Szegedy, M. Quantum advantage for combinatorial optimization problems, simplified. 
+Preprint at https://arxiv.org/abs/2212.12572 (2022).
+224. Aaronson, S. How much structure is needed for huge quantum speedups? Talk Delivered 
+at the 28th Solvay Physics Conference. Preprint at https://arxiv.org/abs/2209.06930 (2022).
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735 734
+Review article
+225. Durr, C. & Hoyer, P. A quantum algorithm for finding the minimum. Preprint at  
+https://arxiv.org/abs/quant-ph/9607014 (1999).
+226. Bulger, D., Baritompa, W. P. & Wood, G. R. Implementing pure adaptive search with 
+Grover’s quantum algorithm. J. Optim. Theory Appl. 116, 517–529 (2003).
+227. Baritompa, W. P., Bulger, D. W. & Wood, G. R. Grover’s quantum algorithm applied to 
+global optimization. SIAM J. Optim. 15, 1170–1184 (2005).
+228. Bennett, C. H., Bernstein, E., Brassard, G. & Vazirani, U. Strengths and weaknesses  
+of quantum computing. SIAM J. Comput. 26, 1510–1523 (1997).
+229. Sommese, A. J. et al. The Numerical Solution of Systems of Polynomials Arising in 
+Engineering and Science (World Scientific, 2005).
+230. Bapst, V., Foini, L., Krzakala, F., Semerjian, G. & Zamponi, F. The quantum adiabatic 
+algorithm applied to random optimization problems: the quantum spin glass 
+perspective. Phys. Rep. 523, 127–205 (2013).
+231. Knysh, S. Zero-temperature quantum annealing bottlenecks in the spin-glass phase.  
+Nat. Commun. 7, 12370 (2016).
+232. Isakov, S. V. et al. Understanding quantum tunneling through quantum Monte Carlo 
+simulations. Phys. Rev. Lett. 117, 180402 (2016).
+233. Mohseni, N., Navarrete-Benlloch, C., Byrnes, T. & Marquardt, F. Deep recurrent networks 
+predicting the gap evolution in adiabatic quantum computing. Quantum 7, 1039  
+(2023).
+234. Kitaev, A. Y. Quantum measurements and the Abelian stabilizer problem. Preprint at 
+https://arxiv.org/abs/quant-ph/9511026 (1995).
+235. Nielsen, M. A. & Chuang, I. L. Quantum Computation and Quantum Information 
+(Cambridge Univ. Press, 2000).
+236. Abrams, D. S. & Lloyd, S. Quantum algorithm providing exponential speed increase for 
+finding eigenvalues and eigenvectors. Phys. Rev. Lett. 83, 5162–5165 (1999).
+237. Aspuru-Guzik, A., Dutoi, A. D., Love, P. J. & Head-Gordon, M. Simulated quantum 
+computation of molecular energies. Science 309, 1704–1707 (2005).
+238. Lee, S. et al. Evaluating the evidence for exponential quantum advantage in ground-state 
+quantum chemistry. Nat. Commun. 14, 1952 (2023).
+239. Shor, P. Algorithms for quantum computation: discrete logarithms and factoring. In Proc. 
+35th Annual Symposium on Foundations of Computer Science 124–134 (IEEE, 1994).
+240. Suchsland, P. et al. Algorithmic error mitigation scheme for current quantum processors. 
+Quantum 5, 492 (2021).
+241. Kirby, W., Motta, M. & Mezzacapo, A. Exact and efficient Lanczos method on a quantum 
+computer. Quantum 7, 1018 (2023).
+242. Geman, S. & Geman, D. Stochastic relaxation, Gibbs distributions, and the Bayesian 
+restoration of images. IEEE Trans. Pattern Anal. Mach. Intell. PAMI-6, 721–741 (1984).
+243. Krzakała, F., Montanari, A., Ricci-Tersenghi, F., Semerjian, G. & Zdeborová, L. Gibbs states 
+and the set of solutions of random constraint satisfaction problems. Proc. Natl Acad. Sci. 
+USA 104, 10318–10323 (2007).
+244. Aharonov, D., Arad, I. & Vidick, T. The quantum PCP conjecture. ACM SIGACT News 44, 
+47–79 (2013).
+245. Bravyi, S., Chowdhury, A., Gosset, D. & Wocjan, P. Quantum Hamiltonian complexity in 
+thermal equilibrium. Nat. Phys. 18, 1367–1370 (2022).
+246. Poulin, D. & Wocjan, P. Sampling from the thermal quantum Gibbs state and evaluating 
+partition functions with a quantum computer. Phys. Rev. Lett. 103, 220502 (2009).
+247. Temme, K., Osborne, T. J., Vollbrecht, K. G., Poulin, D. & Verstraete, F. Quantum 
+metropolis sampling. Nature 471, 87–90 (2011).
+248. Wu, J. & Hsieh, T. H. Variational thermal quantum simulation via thermofield double 
+states. Phys. Rev. Lett. 123, 220502 (2019).
+249. Wang, Y., Li, G. & Wang, X. Variational quantum Gibbs state preparation with a truncated 
+Taylor series. Phys. Rev. Appl. 16, 054035 (2021).
+250. Warren, A., Zhu, L., Mayhall, N. J., Barnes, E. & Economou, S. E. Adaptive variational 
+algorithms for quantum Gibbs state preparation. Preprint at https://arxiv.org/abs/ 
+2203.12757 (2022).
+251. Wild, D. S., Sels, D., Pichler, H., Zanoci, C. & Lukin, M. D. Quantum sampling algorithms for 
+near-term devices. Phys. Rev. Lett. 127, 100504 (2021).
+252. Zhang, D., Bosse, J. L. & Cubitt, T. Dissipative quantum Gibbs sampling. Preprint at  
+https://arxiv.org/abs/2304.04526 (2023).
+253. Patti, T. L., Kossaifi, J., Anandkumar, A. & Yelin, S. F. Quantum Goemans–Williamson 
+algorithm with the Hadamard test and approximate amplitude constraints. Quantum 7, 
+1057 (2023).
+254. Brandão, F. G. L., Kueng, R. & França, D. S. Faster quantum and classical SDP 
+approximations for quadratic binary optimization. Quantum 6, 625 (2022).
+255. Peruzzo, A. et al. A variational eigenvalue solver on a photonic quantum processor.  
+Nat. Commun. 5, 4213 (2014).
+256. McClean, J. R., Romero, J., Babbush, R. & Aspuru-Guzik, A. The theory of variational 
+hybrid quantum-classical algorithms. New J. Phys. 18, 023023 (2016).
+257. Cerezo, M. et al. Variational quantum algorithms. Nat. Rev. Phys. 3, 625–644 (2021).
+258. Bharti, K. et al. Noisy intermediate-scale quantum algorithms. Rev. Mod. Phys. 94, 
+015004 (2022).
+259. Bittel, L. & Kliesch, M. Training variational quantum algorithms is NP-hard. Phys. Rev. Lett. 
+127, 120502 (2021).
+260. Clader, B. D. et al. Quantum resources required to block-encode a matrix of classical 
+data. IEEE Trans. Quantum Eng. 3, 1–23 (2022).
+Acknowledgements
+The authors thank J. Eisert and M. Wilde for their valuable feedback and suggestions to further 
+improve this paper. A. Ambainis acknowledges the support of the Latvian Quantum Initiative 
+under European Union Recovery and Resilience Facility Project No. 2.3.1.1.i.0/1/22/I/CFLA/001 
+and the QuantERA II ERA-NET Cofund projects QOPT and HQCC. B.A. and S. Gupta acknowledge 
+support from the US Defense Advanced Research Projects Agency (DARPA) Contract No. 
+HR001120C0046. V.D. acknowledges the support of the Dutch Research Council (NWO/OCW), 
+as part of the Quantum Software Consortium programme (Project No. 024.003.037) and of 
+the Dutch National Growth Fund (NGF), as part of the Quantum Delta NL programme. S.H. was 
+supported by NASA Academic Mission Services Contract No. NNA16BD14C and by DARPA 
+under interagency agreement IAA 8839, Annex 114. T. Koch acknowledges support by the BMBF 
+Research Campus MODAL (05M14ZAM and 05M20ZBM). S.L. was funded by Free State of 
+Thuringia (Thüringer Aufbaubank) through project Quantum Hub Thüringen (2021 FGI 0047), 
+by Bundesministerium für Wirtschaft und Energie, Germany through the project ‘EnerQuant’ 
+(Project No. 03EI1025C) and by the European Union under Horizon Europe Programme. Views 
+and opinions expressed are however those of the author(s) only and do not necessarily reflect 
+those of the European Union or European Climate, Infrastructure and Environment Executive 
+Agency (CINEA). Neither the European Union nor the granting authority can be held responsible 
+for them, Grant Agreement 101080086 — NeQST. J.M. acknowledges the support of the Czech  
+Science Foundation (23-07947S). S.M., E.S. and B.C.B.S. were supported by the Hartree National  
+Centre for Digital Innovation, a UK Government-funded collaboration between STFC and IBM.  
+(IBM, the IBM logo and ibm.com are trademarks of International Business Machines Corp., 
+registered in many jurisdictions worldwide. Other product and service names might be 
+trademarks of IBM or other companies. The current list of IBM trademarks is available at  
+https://www.ibm.com/legal/copytrade.) G.N. acknowledges support by ONR (N000142312585). 
+P.R. acknowledges support by the National Research Foundation, Singapore. J.Y. was supported 
+in part by the NSERC Discovery under Grant No. RGPIN-2018-04742, the NSERC project FoQaCiA 
+under Grant No. ALLRP-569582-21 and the Perimeter Institute for Theoretical Physics. Research 
+at Perimeter Institute is supported by the Government of Canada through Innovation, Science 
+and Economic Development Canada and by the Province of Ontario through the Ministry of 
+Research, Innovation and Science (Los Alamos unlimited release LA-UR-24-22124).
+Author contributions
+This review was written as part of the Quantum Optimization Working Group initiated in  
+July 2023 by IBM Quantum and its partners. The authors are listed alphabetically. All 
+authors contributed to the discussions as part of the working group meetings and to 
+writing the manuscript and Supplementary information. The discussions on and writing 
+of the different sections were led by the following co-authors: A.A. and J.M. coordinated 
+the writing of the section ‘Quantum advantage and complexity theory’ (in main text and 
+Supplementary information). J.M. and S.W. oversaw Box 1 (and the corresponding section 
+in Supplementary information) and the section ‘Problem classes and algorithms’ (in main 
+text and Supplementary information). T. Koch and C.Z. coordinated sections ‘Benchmarks’ 
+(in main text and Supplementary information), ‘Benchmarking problems’ (in Supplementary 
+information) and ‘Demonstrations’ (in Supplementary information). S.W. led the writing of the 
+section ‘The path towards quantum advantage’. D.J.E. and S.M. were in charge of the section 
+‘Execution on noisy hardware at scale’ (in Supplementary information). C.O’M., M.P., V.V. and 
+C.Z. oversaw the section ‘Illustrative industry problems’. S.W. coordinated the overall project.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information The online version contains supplementary material available at  
+https://doi.org/10.1038/s42254-024-00770-9.
+Peer review information Nature Review Physics thanks James Ostrowski, Leo Zhou and the 
+other, anonymous, reviewer(s) for their contribution to the peer review of this work.
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in 
+published maps and institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds exclusive rights to this 
+article under a publishing agreement with the author(s) or other rightsholder(s); author 
+self-archiving of the accepted manuscript version of this article is solely governed by the 
+terms of such publishing agreement and applicable law.
+© IBM, under exclusive licence to Springer Nature Limited 2024
+1Institute of Physics, University of Amsterdam, Amsterdam, The Netherlands. 2QuSoft, Amsterdam, The Netherlands. 3Faculty of Computing, University 
+of Latvia, Riga, Latvia. 4Sloan School of Management, Massachussets Institute of Technology, Cambridge, MA, USA. 5CCS-3 Information Sciences, Los 
+Alamos National Laboratory, Los Alamos, NM, USA. 6Centrum Wiskunde & Informatica (CWI), University of Amsterdam, Amsterdam, The Netherlands. 
+
+=== PAGE BREAK ===
+
+Nature Reviews Physics | Volume 6 | December 2024 | 718–735
+ 735
+Review article
+7Advanced Network Science Initiative, Los Alamos National Laboratory, Los Alamos, NM, USA. 8E.ON Digital Technology GmbH, Hannover, Germany. 
+9Applied Quantum Algorithms Initiative, Leiden University, Leiden, The Netherlands. 10IBM Quantum, IBM Research Europe — Zurich, Rueschlikon, 
+Switzerland. 11IBM Research, IBM T.J. Watson Research Center, Yorktown Heights, NY, USA. 12Quantum-Enhanced AI Department, Fraunhofer Institute for 
+Cognitive Systems IKS, Munich, Germany. 13Erste Digital GmbH, Erste Group Bank AG, Vienna, Austria. 14IBM Quantum, IBM T.J. Watson Research Center, 
+Yorktown Heights, NY, USA. 15Institute of Physics, École Polytechnique Fédérale de Lausanne (EPFL), Lausanne, Switzerland. 16Advanced Technology, 
+Wells Fargo, New York City, NY, USA. 17Department of Econometrics and Operations Research, Tilburg University, Tilburg, The Netherlands. 18Quantum 
+Artificial Intelligence Laboratory (QuAIL), NASA Ames Research Center, Moffett Field, CA, USA. 19USRA Research Institute for Advanced Computer 
+Science (RIACS), Universities Space Research Association, Mountain View, CA, USA. 20Optimization Department, Fraunhofer ITWM, Kaiserslautern, 
+Germany. 21Quantagonia GmbH, Bad Homburg, Germany. 22Applied Algorithmic Intelligence Methods, Zuse Institute Berlin, Berlin, Germany. 23Software 
+and Algorithms for Discrete Optimization, Technische Universität Berlin, Berlin, Germany. 24Quantum Technologies Group, Emerging Technologies, 
+Innovation and Ventures, HSBC, Singapore, Singapore. 25Department of Computer Science, Czech Technical University in Prague, Prague, Czech 
+Republic. 26Archimedes Research Unit on AI, Data Science and Algorithms, Athena Research Center, Marousi, Greece. 27Cognitive Energy Systems 
+Department, Applied Systems Technology Division (AST), Fraunhofer Institute of Optronics, System Technologies and Image Exploitation IOSB, Ilmenau, 
+Germany. 28Institute of Quantum Technologies, German Aerospace Centre (DLR), Ulm, Germany. 29Institute for Computational Science, University 
+of Zurich, Zurich, Switzerland. 30The Hartree Centre, STFC, Sci-Tech Daresbury, Daresbury, UK. 31Department of Industrial and Systems Engineering, 
+University of Southern California, Los Angeles, CA, USA. 32Zuse Institute Berlin, Berlin, Germany. 33Institute for Mathematics, Technische Universität Berlin, 
+Berlin, Germany. 34Centre for Quantum Technologies, National University of Singapore, Singapore, Singapore. 35Research Institute CODE, University 
+of the Bundeswehr Munich, Munich, Germany. 36IBM Quantum, IBM Research Europe — Dublin, Dublin, Ireland. 37Institute for Quantum Computing, 
+University of Waterloo, Waterloo, Canada. 38Volkswagen Data:Lab, Volkswagen AG, Munich, Germany.

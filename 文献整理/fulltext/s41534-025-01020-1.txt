@@ -1,0 +1,750 @@
+npj | quantum information Article
+Published in partnership with The University of New South Wales
+https://doi.org/10.1038/s41534-025-01020-1
+Quantum annealing for combinatorial
+optimization: a benchmarking study
+Check for updates
+Seongmin Kim 1,4,S a n g - W o oA h n2,I n - S a e n gS u h4, Alexander W. Dowling 3 ,
+Eungkyu Lee 2 & Tengfei Luo1
+Quantum annealing (QA) has the potential to signi ﬁcantly improve solution quality and reduce time
+complexity in solving combinatorial optimization problems compared to classical optimization
+methods. However, due to the limited number of qubits and their connectivity, the QA hardware did not
+show such an advantage over classical methods in past benchmarking studies. Recent
+advancements in QA with more than 5000 qubits, enhanced qubit connectivity, and the hybrid
+architecture promise to realize the quantum advantage. Here, we use a quantum annealer with state-
+of-the-art techniques and benchmark its performance against classical solvers. To compare their
+performance, we solve over 50 optimization problem instances represented by large and dense
+Hamiltonian matrices using quantum and classical solvers. The results demonstrate that a state-of-
+the-art quantum solver has higher accuracy (~0.013%) and a signiﬁcantly faster problem-solving time
+(~6561×) than the best classical solver. Our results highlight the advantages of leveraging QA over
+classical counterparts, particularly in hybrid con ﬁgurations, for achieving high accuracy and
+substantially reduced problem solving time in large-scale real-world optimization problems.
+Quantum computers mark a paradigm shift to tackle challenging tasks that
+classical computers cannot solve in a practical timescale1,2.T h eq u a n t u m
+annealer is a special quantum computer designed to solve combinatorial
+optimization problems with problem-size-independent time complexity3– 5.
+This unique quantum annealing (QA) capability is based on the so-called
+adiabatic process6,7. During this process, entangled qubits naturally evolve
+into the ground state of a given Hamiltonian to ﬁnd the optimal vector of
+binary decisions for the correspondi ng quadratic unconstrained binary
+optimization (QUBO) problem8– 10. The adiabatic theorem of quantum
+mechanics ensures that QA identiﬁes the optimal solution regardless of the
+size and landscape of the combinatorial parametric space, highlighting QA
+as a powerful and practical solver11– 14. The ability to efﬁciently explore high-
+dimensional combinational spaces makes QA capable of handling a wide
+range of optimization tasks4,5,10,15,16.
+The potential merit of QA motivatesthe systematic comparison with
+classical counterparts (e.g., simulat ed annealing, integer programming,
+steepest descent method, tabu search, and parallel tempering with iso-
+energetic cluster moves), focusing on the solution quality and the time
+complexity. While previous benchmarking studies showed some advantages
+of QA, most used low-dimensional or the sparse conﬁgurations of QUBO
+matrices due to the lack of available qubits in the QA hardware and poor
+topology to connect qubits17– 19. For example, O’Malley et al.17 compared the
+performance of QA with classical methods (mathematical programming),
+but they limited the number of binary variables to 35 due to the QA
+hardware limitation. Sim ilarly, Tasseff et al. 18 highlighted the potential
+advantages of QA compared to classical methods (such as simulated
+annealing, integer programming, a nd Markov chain Monte Carlo) for
+sparse optimization problems containing up to 5000 decision variables and
+40,000 quadratic terms. Haba et al. 19 demonstrated that a classical solver
+(integer programming) could be faster than QA for small problems, e.g.,
+~100 decision variables. Consequently, these benchmarking studies show
+that QA methods and their classical counterparts can exhibit similar solu-
+tion quality and time complexity. However, such low-dimensional or sparse
+QUBOs considered in the previous benchmarking studies are challenging to
+map to a wide range of practical prob lems, which usually require high-
+dimensional and dense conﬁguration of QUBO matrices4,5,10,20. For example,
+in our previous QA optimization of one-dimensional and two-dimensional
+optical metamaterials, the QUBO matrices exhibit these properties
+(Fig. S1)4,5,16,20.
+The state-of-the-art QA hardware (D-Wave Advantage System) fea-
+tures more than 5000 qubits, advan ced topology to connect qubits, and
+efﬁcient hybrid algorithms (e.g., LeapH y b r i ds a m p l e r ) .F o re x a m p l e ,t h e
+recent development (e.g., Pegasus t opology) has increased qubit con-
+nectivity from 6 to 1521– 23. Improved qubit connectivity reduces the need for
+1Department of Aerospace and Mechanical Engineering, University of Notre Dame, Notre Dame, IN, USA. 2Department of Electronic Engineering, Kyung Hee
+University, Yongin-Si, Gyeonggi-do, Republic of Korea. 3Department of Chemical and Biomolecular Engineering, University of Notre Dame, Notre Dame, IN, USA.
+4National Center for Computational Sciences, Oak Ridge National Laboratory, Oak Ridge, TN, USA. e-mail: adowling@nd.edu; eleest@khu.ac.kr; tluo@nd.edu
+npj Quantum Information |           (2025) 11:77 1
+1234567890():,;
+1234567890():,;
+
+=== PAGE BREAK ===
+
+complex embedding processes, which map problem variables to physical
+qubits on the hardware. With better connectivity, such as in D-Wave ’s
+Pegasus topology, the embedding process becomes more efﬁcient and can
+better preserve the structure of de nse optimization problems. This
+enhancement allows the quantum annealer to increase the potential for
+ﬁnding high-quality solutions24,25.I na d d i t i o n ,aQ U B Od e c o m p o s i t i o n
+algorithm (i.e., QBSolv) splits a large QUBO matrix into small pieces of sub-
+QUBO matrices, allowing us to handle a QUBO matrix with dimensions
+higher than the maximum number of qubits in the QA hardware26,27.G i v e n
+these advancements, it is imperativeto study the performance of the state-
+of-the-art QA system for high-dimensional and dense con ﬁguration of
+QUBO matrices, and systemically compare solution quality and the time
+complexity with the classical counterparts.
+In this work, we benchmark the performance of quantum solvers
+against classical algorithms in solving QUBO problems with large and dense
+conﬁgurations to represent real-world optimization problems. We analyze
+the solution quality and the required time to solve these benchmark pro-
+blems using several quantum and classical solvers. This benchmarking study
+provides important insights into employing QA in practical problem-
+solving scenarios.
+Results
+We present a benchmarking study on combinatorial optimization problems
+representing real-world scenarios, e.g., materials design, characterized by
+dense and large QUBO matrices (Fig. S1). These problems are non-convex
+and exhibit a highly complex energy landscape, making it challenging and
+time-consuming to identify accurate solutions. Classical solvers, such as
+integer programming (IP), simulated annealing (SA), steepest descent (SD),
+tabu search (TS), parallel tempering with isoenergetic cluster moves (PT-
+ICM), perform well for small-scale problems. However, they are often
+relatively inaccurate for larger problems (problem size≥ 1000; Fig. 1a). In
+particular, SD and TS show low relative accuracy compared to other solvers.
+The combination of PT and ICM leverages the strengths of both techniques:
+PT facilitates crossing energy barriers,while ICM ensures exploration of the
+solution space, effectively covering broad and diverse regions. This makes
+PT-ICM particularly effective for exploring complex optimization spaces
+and enhancing convergence toward the global optimum28,29. However, the
+performance of PT-ICM can be problem-dependent30.W h i l ei tc a nw o r k
+well for sparse problems, its effectiveness decreases for denser problems28.
+Consequently, although SA and PT-ICM perform better than SD and TS,
+they also fail to ﬁnd high-quality solutions for large-scale problems.
+To address these limitations, QUBOdecomposition strategies can be
+employed to improve the relative accuracy. For example, integrating QUBO
+decomposition with classical solvers (e.g., SA – QBSolv and
+PT– ICM– QBSolv) improves their performance. Nonetheless, these
+approaches often remain insuf ﬁcient for handling massive problems
+effectively, particularly considering problem-solving time (Fig.1b), which
+will be further discussed in the follo w i n g .O nt h eo t h e rh a n d ,q u a n t u m
+solvers provide excellent performance for solving these dense and large-
+scale problems representing real-world optimization scenarios. Although
+QA can perform excellently for small problems, it has difﬁculty solving large
+and dense QUBOs due to the limited number of qubits (5000+) and con-
+nectivity (15). Several prior studies reported that QA may not be efﬁcient
+since it cannot effectively handle dense and large QUBOs due to hardware
+limitations23,31,32. However, when it runs with the QUBO decomposition
+strategy (i.e., QA– QBSolv), large-scale problems (n ≥ 100) can be effectively
+handled. Furthermore, hybrid QA (HQA), which integrates quantum and
+classical approaches, can also solve large-scale problems ef ﬁciently. As a
+result, the quantum solvers consisten tly identify high-quality solutions
+across all problem sizes (Fig.1a).
+Computational time is also a critical metric for evaluating solver per-
+formance. Classical solvers exhibit r apidly increasing solving times as
+Fig. 1 | Performance analysis of classical (IP, SA,
+SD, TS, PT-ICM, SA –QBSolv, and PT-
+ICM–QBSolv) and quantum (QA –QBSolv, and
+HQA) solvers on QUBO problems representing
+real-world optimization tasks in material science.
+a Relative accuracy and b solving time of the solvers.
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 2
+
+=== PAGE BREAK ===
+
+problem sizes grow, making them impractical for large-scale combinatorial
+optimization problems (Fig. 1b). While SD and TS are faster than other
+classical solvers, their relative accuracies are low, as can be seen in Fig.1a. It is
+worth noting that the SA, and PT-ICM solvers struggle to handle problems
+with more than 3000 variables due to excessively long solving time or
+computational constraints (e.g., memory limits). Although the IP solver is
+faster than SA and PT-ICM, its solving time increases greatly with problem
+size. The QUBO decomposition strategy signi ﬁcantly reduces computa-
+tional time, yet quantum solvers rema in faster than thei r classical coun-
+terparts across all problem sizes. For instance, for a problem size of 5000, the
+solving time for HQA is 0.0854 s and for QA– QBSolv is 74.59 s, compared
+to 167.4 s and 195.1 s for SA– QBSolv and PT– ICM– QBSolv, respectively,
+highlighting superior efﬁciency of the quantum solvers.
+To further evaluate scalability, we conduct a systematic bench-
+marking study on QUBO problems (size: up to 10,000 variables), designed
+to mimic real-world scenarios through randomly generated elements. PT-
+ICM is excluded from this analysis due to excessive solving times com-
+pared to other solvers (Fig.1b). As shown in Fig.2, classical solvers (IP, SA,
+SD, and TS) are accurate for smaller problems but become inaccurate as
+the problem size increases. Consistent with the results in Fig.1, the SD and
+TS solvers exhibit low relative accuracy even for a relatively small problem
+(e.g., 2000). IP and SA are more accurate than SD and TS but fail to
+identify the optimal state for large problems. It is known that IP can
+provide global optimality guarantees 33, but our study highlights that
+proving a solution is globally optimal is challenging for large and dense
+problems. For example, in one case (n = 7000), the optimality gap remains
+as large as ~17.73%, where the best bound is −19,660 while the solution
+obtained from the IP solver is −16,700, with the optimality gap not
+narrowing even after 2 h of runtime. The relative accuracy can be
+improved by employing the QUBO decomposition strategy (e.g.,
+SA– QBSolv), yet it still fails to identify high-quality solutions for problem
+sizes exceeding 4000. In contrast, quantum solvers demonstrate superior
+accuracy for large-scale problems. Notably, the HQA solver consistently
+outperforms all other methods, reliably identifying the best solution
+regardless of problem size (Fig. 2).
+Figure 3a shows that the solving time rapidly increases as the problem
+size increases for the classical solvers,indicating that solving combinatorial
+optimization problems with classical solvers can become intractable for
+large-size problems (Fig. 3b). The solving time trends with increasing
+problem size agree well with the theoretical time complexities of the classical
+solvers (Figs.3b and S3, see 2-4-2. Computational Time section). While the
+IP solver can be faster than other classical solvers, it also requires signiﬁcant
+t i m ef o rl a r g ep r o b l e m s( e . g . ,n > 5000). The use of the QUBO decom-
+position strategy dramatically reduces the solving time, but the quantum
+solvers consistently outpace classical counterparts (Fig.3a). For example, the
+solving time (n = 10,000) is 0.0855 s for HQA, 101 s for QA– QBSolv, and
+561 s for SA– QBSolv.
+Decomposing a large QUBO into s maller pieces leads to a higher
+relative accuracy, as a solver canﬁnd better solutions for each decomposed
+QUBOs, mitigating the current hardware limitations. Note that the accuracy
+of QA for QUBOs with problem sizes of 30 and 100 is, respectively, 1.0 and
+0.9956 (without leveraging the QUBO decomposition method). Hence, the
+accuracy of QA– Q B S o l vw i t has u b - Q U B Os i z eo f3 0i sh i g h e rt h a nt h a tw i t h
+a sub-QUBO size of 100, as decomposed QUBOs with a smaller sizeﬁtt h e
+QA hardware better (Fig.4a). However, a smaller sub-QUBO size results in
+a greater number of sub-QUBOs after decomposition, leading to increased
+time required to solve all decomposed problems (Fig.4b). It is noted that the
+QA– QBSolv solver does not guarantee ﬁnding the best solution for large
+problems (size > 4000), resulting in lower accuracies regardless of sub-
+QUBO sizes, as can be seen in Fig. 2 and Fig. 4a.
+Our results show that HQA, which incorporates QA with classical
+algorithms to overcome the current quantum hardware limitations, is
+currently the most ef ﬁcient solver for complex real-world problems that
+require the formulation of dense and large QUBOs. This quantum-
+enhanced solver (i.e., HQA) achieves high accuracy and signiﬁcantly faster
+problem-solving time compared to th e classical solvers for large-scale
+Fig. 2 | The relative accuracy of the classical (IP,
+SA, SD, TS, and SA –QBSolv) and quantum
+(QA–QBSolv, and HQA) solvers for given QUBO
+problems. HQA is the best solver for ﬁnding the
+highest-quality solution for all problem sizes.
+Fig. 3 | Solving time of the solvers for given QUBO
+problems. The solving time of ( a) the classical and
+quantum solvers and ( b) the classical solvers (SA,
+SD, and TS) for small QUBO problems. Quantum
+solvers do not scale in solving time as the problem
+size increases, which is a great advantage over clas-
+sical counterparts.
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 3
+
+=== PAGE BREAK ===
+
+optimization problems. Our ﬁndings suggest that leveraging quantum
+resources, particularly in hybrid conﬁgurations, can provide a computa-
+tional advantage over classical approaches. Besides, as the current state of
+HQA demonstrates, we expect QA will have much higher accuracy
+and require much shorter time to solve QUBO problems with the devel-
+opment of the quantum hardware wi th more qubits and better qubit
+connectivity.
+Discussion
+This work comprehensively compares state-of-the-art QA hardware and
+software against several classical optimization solvers for large and dense
+QUBO problems (up to 10,000 variables, fully connected interactions). The
+classical solvers struggled to solve large-scale problems, but their perfor-
+mance can be improved when combined with the QUBO decomposition
+method (i.e., QBSolv). Nevertheless, they become inaccurate and inefﬁcient
+with increasing problem size, indica ting that classical methods can face
+challenges for complex real-world problems represented by large and dense
+QUBO matrices. On the contrary, HQA performs signiﬁcantly better than
+its classical counterparts, exhibi ting the highest accuracy (~0.013%
+improvement) and shortest time to obtain solutions (~6561× acceleration)
+for 10,000 dimensional QUBO problems. Pure QA and QA with the QUBO
+decomposition method still exhibit limitations in solving large problems due
+to the current QA hardware limitations( e . g . ,n u m b e ro fq u b i t sa n dq u b i t
+connectivity). However, we anticipate that QA will eventually reach the
+efﬁciency of HQA with the ongoing development of the quantum hardware.
+Thus, we expect QA to demonstrate true “Quantum Advantage” in the
+future.
+Methods
+Deﬁnition of a QUBO
+QA hardware is designed to ef ﬁciently solve combinatorial optimization
+problems that are formulated with a QUBO matrix, which can be given by
+refs. 34,35:
+y ¼
+Xn
+i¼1
+Xn
+j¼i
+Qi;jxixj ð1Þ
+where Qi;j is the i-th row and j-th column real-number element of the
+QUBO matrix (Q), which is an n × n Hermitian, i.e.,Q 2 Rn × n,a n dxi is
+the i-th element of a binary vectorx with a length ofn; i.e., x 2 0; 1n.Q i;j is
+often referred to as a linear coefﬁcient for i = j and a quadratic interaction
+coefﬁcient for i ≠ j. The objective of QA is to identify the optimal binary
+vector of a given QUBO, which minimizes the scalar outputy as35:
+x/C3 ¼ argmin
+x
+y ð2Þ
+In optimization problems, the linear coefﬁcients correspond to cost or
+beneﬁt terms associated with individual variables, while the quadratic
+coefﬁcients represent interaction terms or dependencies between pairs of
+variables. These coefﬁcients can be learned using machine learning models,
+such as the factorization machine (FM), trained on datasets containing
+input structures and their corresponding performance metrics. By mapping
+these learned coefﬁcients into a QUBO formulation, we effectively represent
+an energy function of a material system or other real-world optimization
+problem. This QUBO then describes the optimization space, enabling the
+identiﬁcation of the optimal state with the best performance36,37.
+Methods to solve a QUBO
+Various methods have been proposed to solve QUBO problems. For our
+benchmarking study, we consider seven representative methods: QA,
+hybrid QA (HQA), integer programming (IP), simulated annealing (SA),
+steepest descent (SD), tabu search (TS), parallel tempering with isoenergetic
+cluster moves (PT-ICM). Below, we provide a brief introduction to each of
+the solvers used in solving combinatorial optimization problems:
+Quantum annealing and hybrid quantum annealing . QA starts with a
+superposition state for all qubits, which has the lowest energy state of the
+initial Hamiltonian ( H0). In the annealing process, the system evolves
+toward the lowest energy state of the ﬁnal Hamiltonian (also called a
+problem Hamiltonian, Hp) by minimizing the in ﬂuence of the initial
+Hamiltonian. The measured state at the end of the annealing is supposed
+to be the ground state of Hp, which can be expressed as the following
+Eqs.38,39:
+Hðt=taÞ¼ At =ta
+/C0/C1
+H0 þ Bt =ta
+/C0/C1
+Hp ð3Þ
+Here, t is the elapsed annealing time, andta is the total annealing time.
+Equation (3)e v o l v e sf r o mAt =ta
+/C0/C1
+¼ 1, Bt =ta
+/C0/C1
+/C25 0 at the beginning of
+the annealing ðt=ta ¼ 0Þ to At =ta
+/C0/C1
+/C25 0, Bt =ta
+/C0/C1
+¼ 1a tt h ee n do ft h e
+annealingðt=ta ¼ 1Þ.S u fﬁciently slow evolution fromH0 to Hp enables the
+quantum system to stay at the ground state, which leads to the identiﬁcation
+of the optimal solution of a given combinatorial optimization problem3,40.
+We use D-Wave Systems’quantum annealer (Advantage 4.1) to solve the
+problems using QA, and we set the number of reads for QA to 1000 with a
+total annealing time of 20μs. We select the best solution corresponding to
+the lowest energy state found among 1000 reads.
+The D-Wave Ocean software development kit (SDK, ver. 3.3.0) pro-
+vides many useful libraries, which include quantum or classical samplers
+such as the QA, HQA, SA, SD, and TS. They allow us to solve QUBO
+problems22,41,42. We employ these samplers, which are implemented in the
+D-wave Ocean SDK, for the benchmarking study. Classical or QA solvers
+often beneﬁt from decomposition algorithms to identify a high-quality
+solution (i.e., an optimal solution or a good solution close to the global
+optimum) for large QUBO problems. Hence, the decomposition of a QUBO
+m a t r i xi n t os u b - Q U B O si sv e r yu s e f u lw h e nt h es i z eo fQ U B Om a t r i xi s
+larger than the physical volume of a sampler (i.e., QUBO size > physical
+number of qubits in QA or memory capacity of a classical computer). We
+employ the QBSolv package implemented in D-wave Ocean SDK for
+QUBO decomposition. The QBSolv splits a QUBO matrix into smaller
+QUBO matrices, and each of them is sequentially solved by classical or QA
+solvers. This algorithm enables us to handle a wide range of complex real-
+world problems21,22,43. The size of the decomposed QUBOs is set to 30 unless
+otherwise speciﬁed. HQA (Leap Hybrid solver), developed by D-Wave
+Fig. 4 | Performance of the QA –QBSolv solver
+with different decomposition sizes. a Relative
+accuracy and b Solving time of the QA – QBSolv
+solver for given QUBO problems with different sub-
+QUBO sizes.
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 4
+
+=== PAGE BREAK ===
+
+systems, also decomposes large QUBO into smaller subproblems well-
+suited for QA ’s QPU, and then aggregates the results 27,44. The detailed
+algorithm of HQA, however, is not publicly released. We utilize a D-Wave
+sampler (dwave-system 1.4.0) for SA, SD, and TS with a speciﬁed number of
+reads (1000) and default settings for other parameters. Furthermore, we
+employ D-Wave hybrid framework for PT-ICM.
+Integer programming . IP uses branch-and-bound, cutting planes, and
+other methods to search the solution space for optimal integer decisions
+and prove global optimality within a tolerance (gap). We use Gurobi
+(version 10.0.2)45 for benchmarking with the default settings (0.1% global
+optimality gap) plus a two-hour time limit and 240 GB software memory
+limit per optimization problem. The benchmark QUBO problem is
+implemented in the Pyomo modeling environment (version 6.6.2) 33.W e
+also experimented with a large gap and observed the ﬁrst identi ﬁed
+integer solution often had a poor objective function value. These results
+are not further reported for brevity.
+Simulated annealing. SA, which is inspired by the annealing process in
+metallurgy, is a probabilistic optimization algorithm designed to
+approximate a global optimum of a given objective function. It is con-
+sidered a metaheuristic method, which can be applied to a wide range of
+optimization problems46,47. In SA, temperature and cooling schedule are
+major factors that determine how extensively the algorithm explores the
+solution space 48. This algorithm often identi ﬁes near-optimal solutions
+but cannot guarantee that local or global optimality conditions are
+satisﬁed. For SA, the hyperparameters are con ﬁgured as follows: 1000
+reads, 1000 sweeps, a“random” initial state generation, and a“geometric”
+temperature schedule.
+Steepest descent. SD operates by employing variableﬂips to reduce the
+energy of a given QUBO through local minimization computations
+rather than relying on a calculated gradient in a traditional gradient
+descent algorithm49. This algorithm is computationally inexpensive and
+beneﬁcial for local re ﬁnement; thus, it can be used to search for local
+optima. In our benchmarking study, SD utilizes hyperparameters set to
+1000 reads and a “random” strategy for initial state generation.
+Tabu search . TS is designed to solve combinatorial and discrete opti-
+mization problems by using memory to guide the search for better
+solutions, as introduced by Glover 50. This algorithm can escape already
+visited local minima by remembering those points called “Tabu List” to
+keep track of moves during the search, aiming to identify high-quality
+solutions in a large solution space. This algorithm works well for com-
+binatorial optimization problems with small search spaces. However, it
+can be hard to evaluate neighboring solutions and to maintain and update
+the Tabu List with increasing problem sizes. The hyperparameter settings
+for TS are as follows: 1000 reads, a timeout of 100 ms, and “random”
+initial state generation.
+Parallel tempering with isoenergetic cluster moves (PT-ICM) . PT-
+ICM is an advanced Monte Carlo method designed to navigate optimi-
+zation space, such as QUBO problems 28– 30. PT operates by maintaining
+multiple replicas of the system at different temperatures and allowing
+exchanges between replicas based on a Metropolis criterion. This
+approach helps lower-temperature replicas escape local minima with the
+aid of higher-temperature replicas. ICM identi ﬁes clusters of variables
+that can ﬂip without changing the system ’s energy 28. In this study, the
+hyperparameters for PT-ICM are set as follows: the number of sweeps is
+1000, the number of replicas is 10, and the number of iterations is 10.
+Benchmarking problems
+Real-world problems . Material optimization is selected to represent
+real-world problems, with the design of planar multilayers (PMLs)
+optical ﬁlm as a testbed for benchmarking. PMLs can be seen in many
+applications. For example, they have been explored for transparent
+radiative cooling windows to address global warming by emitting thermal
+radiation through the atmospheric window (8 μm< λ <1 3 μm)4, while
+transmitting visible photons. PMLs consist of layers with one of four
+dielectric materials: silicon dioxide, silicon nitride, aluminum oxide, and
+titanium dioxide. The conﬁguration of these layers can be expressed as a
+binary vector, where each layer is assigned a two-digit binary label.
+Optical characteristics and corresponding ﬁgure-of-merit (FOM) of the
+PML can be calculated by solving Maxwell’s equations using the transfer
+matrix method (TMM). To formulate QUBOs, layer con ﬁgurations
+(input binary vectors) and their FOMs (outputs) are used to train the FM
+model. FM learns the linear and quadratic coef ﬁcients, effectively mod-
+eling the optimization landscape of the material system. QUBO matrices
+are then generated using these coef ﬁcients36,37. PML con ﬁgurations are
+randomly generated for training datasets, and their FOMs are calculated
+using TMM. The resulting QUBO matrices represent real-world mate-
+rials optimization problems, characterized by highly dense (fully con-
+nected) con ﬁgurations (Fig. S1), which are used for the benchmarking
+study in Fig. 1.
+Benchmarking problems. We formulate QUBO matrices with random
+elements to further systematically explore scalability (Figs. 2 and 3),
+following the characteristics of QUBOs from real-world problems, for the
+benchmarking study as the following:
+ Problem size: The problem size, corresponding to the length of a
+binary vector (n), varies from 120 to 10,000 (120, 200, 500, 1000, 1500, 2000,
+2500, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10,000).
+ Distribution of elements: For eachproblem size, four QUBO matrices
+with different distributions of elements are studied. These elements are
+random numbers with a mean value of 0and standard deviations of 0.001,
+0.01, 0.1, or 1. These distributions reﬂect the variability observed in QUBO
+coefﬁcients derived from real-world problems (Table S1). A QUBO con-
+ﬁgured with elements having a large deviation yields a signiﬁcant variation
+in the energy landscape, potentially resulting in high energy barriers that
+must be overcome to ﬁnd the ground state.
+ Density of matrices: The density of QUBO matrices re ﬂects the
+proportion of pairwise interactions among variables relative to the max-
+imum possible interactions. Fully connected QUBOs, such as those derived
+from real-world problems, represent cases where all variables interact with
+each other. For example, in layered photonic structures, each layer interacts
+with every other layer, inﬂuencing optical responses, which leads to a fully
+connected QUBO. In contrast, Max-Cut problems typically result in sparse
+QUBOs, where only a subset of variable s (nodes) interact through edges.
+The maximum number of interaction coefﬁcients (i.e., the number of edges
+in Max-Cut problems) isnC2,w h e r en denotes the problem size. The density
+of a QUBO can be calculated as:
+density ¼ number of interaction coefficients
+maximum number of interaction coefficients ð4Þ
+For example, a benchmark problem instance (G10) with 800 nodes and
+19,176 edges has a density of 6%, calculated as: density = 19,176/
+319,600 = 0.06. The density of Max- Cut problems can be adjusted by
+changing the number of edges, with typical instances having densities
+ranging from 0.02% to 6% (Fig. S1 and Table S2). In contrast, real-world
+problems feature fully connected conﬁgurations, corresponding to a density
+of 100%. QUBOs for this benchmarking study have dense matrices fully
+ﬁl l e dw i t hr e a l - n u m b e re l e m e n t si nt h eu p p e rt r i a n g u l a rp a r t( i . e . ,f u l l y
+connected graph nodes, Fig. S2). This conﬁguration aims to approximate
+real-world optimization problems, which usually require a dense QUBO
+matrix4,34.
+Performance metrics: relative accuracy and computational time
+Relative accuracy. For small-scale problems, brute-force search guar-
+antees the identiﬁcation of the global optimum by evaluating all possible
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 5
+
+=== PAGE BREAK ===
+
+solutions. However, this approach becomes infeasible for large-scale
+problems due to the exponential growth of the search space. The IP
+solver, such as Gurobi, utilizes the branch-and-bound method to ef ﬁ-
+ciently explore the solution space and prove global optimality within an
+optimality gap. However, due to computational limitations or time
+constraints, IP may struggle to ﬁnd the global optimum for large-scale
+problems. To address this challenge in our benchmarking study, we
+employ a “Relative Accuracy ” metric to compare the relative perfor-
+mance of different solvers. Relative accuracy is de ﬁned as the ratio of a
+solver’s objective value to the best objective found across all solvers:
+Relative Accuracy ¼ Solutionsolver=Solutionbest ð5Þ
+This metric provides a way to evaluate the solution quality when the
+global optimum cannot be de ﬁnitively found or proven for large-scale
+problem instances. Note that the best solution is the lowest value among the
+solutions obtained from all solvers since the solvers are designed toﬁnd the
+lowest energy state (generally negative values for the QUBOs used in this
+study). The relative accuracies of th e solvers are plotted as a function of
+problem sizes. In Fig. 1, the relative accuracy represents the average value
+calculated from three different QUBOs that represent material optimiza-
+tion, and in Fig.2, it represents the average from four different QUBOs with
+varying standard deviations for each problem size (ranging from 120 to
+10,000). Error bars on the plot represent the standard deviation of accuracies
+calculated from the four different QUBOs for each problem size, relative to
+the average values. By deﬁnition, the relative accuracy is 1.0 when the solver
+ﬁnds a solution with the best-known objective function value (Eq.5).
+Computational time. Computational time is another important factor in
+determining the solvers ’ performance. Combinatorial optimization
+problems are considered NP-hard, so increasing problem sizes can lead to
+an explosion of search space, posing challenges in optimization processes.
+We measure the computational time dedicated solely to solving given
+problems, excluding problem reading time, queue time, or commu-
+nication time between the local computer and quantum annealer. This is
+consistent with other benchmarking studies 17,18. For problems solved on
+D-Wave systems ’ QPU for QA, the execution time includes program-
+ming and sampling times (anneal, readout, and delay time). QPU access
+time is calculated for all of them after programmed anneal-read cycles,
+corresponding to the time charged to users in their allocations, which is
+used as the computational time for QA and HQA. Classical solvers (SA,
+SD, TS, and PT-ICM) run on a workstation (AMD Ryzen Threadripper
+PRO 3975WX @ 3.5 GHz processor with 32 cores and 32GB of RAM),
+and IP (Gurobi) run on a cluster node (an Intel(R) Xeon(R) CPU E5-2680
+v3 @ 2.50 GHz processor with 24 cores and 256 GB of RAM). Problem
+reading time can be signi ﬁcant when the problem size is large, but it is
+excluded from the computational time consideration. We measure the
+time solely taken to solve given problems with classical solvers. In
+Figs. 1b and 3, the solution time for classical and quantum solvers is
+presented as a function of problem sizes. Note that a QUBO problem is
+NP-hard51. Evaluating the energy of a given solution has a computational
+cost of Oðn2Þ, where n (=problem size) is the number of variables. The
+number of reads or sweeps does not scale with n, but the cost for each
+sweep scales as OðnÞ for SA. Consequently, the theoretical time com-
+plexities of the classical solvers are known as On 3/C0/C1
+for SA52, Oðn2Þ for
+SD53, and Oðn2Þ for TS 54. On the other hand, the theoretical time
+complexity of the quantum solvers can be considered constant.
+Data availability
+All data generated and analyzed during the study are available from the
+corresponding author upon reasonable request.
+Code availability
+The codes used for generating and analyzing data are available from the
+corresponding author upon reasonable request.
+Received: 27 May 2024; Accepted: 1 April 2025;
+References
+1. Arute, F. et al. Quantum supremacy using a programmable
+superconducting processor. Nature 574, 505– 510 (2019).
+2. Daley, A. J. et al. Practical quantum advantage in quantum simulation.
+Nature 607, 667– 676 (2022).
+3. Johnson, M. W. et al. Quantum annealing with manufactured spins.
+Nature 473, 194– 198 (2011).
+4. Kim, S. et al. High-performance transparent radiative cooler
+designed by quantum computing. ACS Energy Lett. 7,4 1 3 4– 4141
+(2022).
+5. Kim, S., Jung, S., Bobbitt, A., Lee, E. & Luo, T. Wide-angle spectral
+ﬁlter for energy-saving windows designed by quantum annealing-
+enhanced active learning. Cell Rep. Phys. Sci. 5, 101847 (2024).
+6. Li, R. Y., Di Felice, R., Rohs, R. & Lidar, D. A. Quantum annealing
+versus classical machine learning applied to a simpli ﬁed
+computational biology problem. NPJ Quantum Inf. 4, 14 (2018).
+7. Vinci, W., Albash, T. & Lidar, D. A. Nested quantum annealing
+correction. NPJ Quantum Inf. 2, 16017 (2016).
+8. Santoro, G. E. & Tosatti, E. Optimization using quantum mechanics:
+quantum annealing through adiabatic evolution.J. Phys. A Math. Gen.
+39, R393– R431 (2006).
+9. Mandra, S., Zhu, Z. & Katzgraber, H. G. Exponentially biased ground-
+state sampling of quantum annealing machines with transverse- ﬁeld
+driving hamiltonians. Phys. Rev. Lett. 118, 070502 (2017).
+10. Kitai, K. et al. Designing metamaterials with quantum annealing and
+factorization machines. Phys. Rev. Res. 2, 013319 (2020).
+11. Santoro, G. E., Martonák, R., Tosatti, E. & Car, R. Theory of quantum
+annealing of an Ising spin glass. Science 295, 2427– 2430 (2002).
+12. Hen, I. & Spedalieri, F. M. Quantum annealing for constrained
+optimization. Phys. Rev. Appl. 5, 034007 (2016).
+13. Kadowaki, T. & Nishimori, H. Quantum annealing in the transverse
+Ising model. Phys. Rev. E 58, 5355– 5363 (1998).
+14. Morita, S. & Nishimori, H. Mathematical foundation of quantum
+annealing. J. Math. Phys. 49, 125210 (2008).
+15. Hobbs, J., Khachatryan, V., Anandan, B. S., Hovhannisyan, H. &
+Wilson, D. Machine learning framework for quantum sampling of
+highly constrained, continuous optimization problems. Appl Phys.
+Rev. 8, 627009 (2021).
+16. Kim, S., Wu, S., Jian, R., Xiong, G. & Luo, T. Design of a high-
+performance titanium nitride metastructure-based solar absorber
+using quantum computing-assisted optimization. ACS Appl. Mater.
+Interfaces 15, 40606– 40613 (2023).
+17. O ’Malley, D., Vesselinov, V. V., Alexandrov, B. S. & Alexandrov, L. B.
+Nonnegative/Binary matrix factorization with a D-Wave quantum
+annealer. PLoS ONE 13, e0206653 (2018).
+18. Tasseff, B. et al. On the emerging potential of quantum annealing
+hardware for combinatorial optimization. J. Heuristics. 30, 325– 358
+(2024).
+19. Haba, R., Ohzeki, M. & Tanaka, K. Travel time optimization on multi-
+AGV routing by reverse annealing. Sci. Rep. 12, 17753 (2022).
+20. Kim, S. et al. Quantum annealing-aided design of an ultrathin-
+metamaterial optical diode. Nano Converg. 11, 16 (2024).
+21. Pelofske, E., Hahn, G. & Djidjev, H. N. Noise dynamics of quantum
+annealers: estimating the effective noise using idle qubits. Quantum
+Sci. Technol. 8, 035005 (2023).
+22. Yoneda, Y., Shimada, M., Yoshida, A. & Shirakashi, J. -i Searching
+for optimal experimental parameters with D-Wave quantum
+annealer for fabrication of Au atomic junctions. Appl. Phys. Exp.
+16, 057001 (2023).
+23. Willsch, D. et al. Benchmarking Advantage and D-Wave 2000Q
+quantum annealers with exact cover problems. Quantum Inf. Process
+21, 141 (2022).
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 6
+
+=== PAGE BREAK ===
+
+24. Yarkoni, S., Raponi, E., Back, T. & Schmitt, S. Quantum annealing for
+industry applications: introduction and review. Rep. Prog. Phys. 85,
+104001 (2022).
+25. Kasi, S., Warburton, P., Kaewell, J. & Jamieson, K. A cost and power
+feasibility analysis of quantum annealing for nextg cellular wireless
+networks. IEEE Trans. Quantum Eng. 4,1 – 17 (2023).
+26. Teplukhin, A., Kendrick, B. K. & Babikov, D. Solving complex
+eigenvalue problems on a quantum annealer with applications to
+quantum scattering resonances. Phys. Chem. Chem. Phys. 22,
+26136– 26144 (2020).
+27. Atobe, Y., Tawada, M. & Togawa, N. Hybrid annealing method based
+on subQUBO model extraction with multiple solution instances. IEEE
+Trans. Comput 71, 2606– 2619 (2022).
+28. Aramon, M. et al. Physics-inspired optimization for quadratic
+unconstrained problems using a digital annealer. Front. Phys. 7,
+444894(2019).
+29. Zhu, Z., Ochoa, A. J. & Katzgraber, H. G. Fair sampling of ground-state
+conﬁgurations of binary optimization problems. Phys. Rev. E. 99,
+063314 (2019).
+30. Mandrà, S. & Katzgraber, H. G. A deceptive step towards quantum
+speedup detection. Quantum Sci. Technol. 3, 04LT01 (2018).
+31. Delgado, A. & Thaler, J. Quantum annealing for jet clustering with
+thrust. Phys. Rev. D. 106, 094016 (2022).
+32. Mao, Z., Matsuda, Y., Tamura, R. & Tsuda, K. Chemical design with
+GPU-based Ising machines. Digit Discov. 2, 1098– 1103 (2023).
+33. Bynum, M. L. et al. Pyomo—optimization modeling in python, 3rd edn.
+(Springer International Publishing, 2021).
+34. Zaman, M., Tanahashi, K. & Tanaka, S. PyQUBO: python library for
+mapping combinatorial optimization problems to QUBO form. IEEE
+Trans. Comput. 71, 838– 850 (2022).
+35. Tao, M. et al. Towards Stability in the Chapel Language. In Proc. IEEE
+International Parallel and Distributed Processing Symposium
+Workshops (IPDPSW) 557– 566 (IEEE, 2020).
+36. Kim, S. et al. A review on machine learning-guided design of energy
+materials. Prog. Energy 6, 042005 (2024).
+37. Kim, S., Luo, T., Lee, E. & Suh, I.-S. Quantum annealing-aided design
+of an ultrathin-metamaterial optical diode, distributed quantum
+approximate optimization algorithm on integrated high-performance
+computing and quantum computing systems for large-scale
+optimization. arXiv:2407.20212 11, 16 (2024).
+38. Gemeinhardt, F., Garmendia, A., Wimmer, M., Weder, B. & Leymann,
+F. Quantum combinatorial optimization in the NISQ era: a systematic
+mapping study. ACM Comput. Surv. 56,1 – 36 (2023).
+39. Willsch, M., Willsch, D., Jin, F., De Raedt, H. & Michielsen, K.
+Benchmarking the quantum approximate optimization algorithm.
+Quantum Inf. Process 19, 197 (2020).
+40. Hauke, P., Katzgraber, H. G., Lechner, W., Nishimori, H. & Oliver, W. D.
+Perspectives of quantum annealing: methods and implementations.
+Rep. Prog. Phys. 83, 054401 (2020).
+41. Carugno, C., Ferrari Dacrema, M. & Cremonesi, P. Evaluating the job
+shop scheduling problem on a D-wave quantum annealer. Sci. Rep.
+12, 6539 (2022).
+42. Irie, H., Liang, H., Doi, T., Gongyo, S. & Hatsuda, T. Hybrid quantum
+annealing via molecular dynamics. Sci. Rep. 11, 8426 (2021).
+43. Raymond, J. et al. Hybrid quantum annealing for larger-than-QPU
+lattice-structured problems. ACM Trans. Quantum Comput. 4,1 – 30
+(2023).
+44. Ceselli, A. & Premoli, M. On good encodings for quantum annealer and
+digital optimization solvers. Sci. Rep. 13, 5628 (2023).
+45. Song, J., Lanka, R., Yue, Y. & Dilkina, B. A general large neighborhood
+search framework for solving integer linear programs. In Proc. 34th
+Conference on Neural Information Processing Systems (NeurIPS,
+2020).
+46. Alnowibet, K. A., Mahdi, S., El-Alem, M., Abdelawwad, M. &
+Mohamed, A. W. Guided hybrid modi ﬁed simulated annealing
+algorithm for solving constrained global optimization problems.
+Mathematics 10, 1312 (2022).
+47. Rere, L. M. R., Fanany, M. I. & Arymurthy, A. M. Simulated annealing
+algorithm for deep learning. Procedia Comput. Sci. 72, 137– 144
+(2015).
+48. Gonzales, G. V. et al. A comparison of simulated annealing schedules
+for constructal design of complex cavities intruded into conductive
+walls with internal heat generation. Energy 93, 372– 382 (2015).
+49. Wadayama, T. et al. Gradient descent bit ﬂipping algorithms for
+decoding LDPC codes. IEEE Trans. Commun. 58, 1610– 1614 (2010).
+50. Glover, F., Laguna, M. & Mart ı´, R. Principles of tabu search. Comput.
+Oper. Res. 13, 533, 1986.
+51. Yasuoka, H. Computational complexity of quadratic unconstrained
+binary optimization. arXiv:2109.10048 (2022).
+52. Hansen, P. B. Simulated annealing. Electrical Eng. Comput. Sci. Tech.
+Rep. 170,1 – 12 (1992).
+53. Dupin, N., Nielsen, F. & Talbi, E. Dynamic Programming heuristic for
+k-means Clustering among a 2-dimensional Pareto Frontier. In Proc.
+7th International Conference on Metaheuristics and Nature Inspired
+Computing, Springer (2018).
+54. Sakabe, M. & Yagiura, M. An ef ﬁcient tabu search algorithm for the
+linear ordering problem. J. Adv. Mech. Des. Syst. Manuf. 16,
+JAMDSM0041– JAMDSM0041 (2022).
+Acknowledgements
+This research used resources of the Oak Ridge Leadership Computing
+Facility at the Oak Ridge National Laboratory, which is supported by the
+Ofﬁce of Science of the US Department of Energy under Contract No. DE-
+AC05-00OR22725. This research was supported by the Quantum Com-
+puting Based on Quantum Advantage Challenge Research (RS-2023-
+00255442) through the National Research Foundation of Korea (NRF) fun-
+ded by the Korean Government (Ministry of Science and ICT(MSIT)). Notice:
+This manuscript has in part been authored by UT-Battelle, LLC under
+Contract No. DE-AC05-00OR22725 with the U.S. Department of Energy.
+The United States Government retains and the publisher, by accepting the
+article for publication, acknowledges that the US Government retains a non-
+exclusive, paid-up, irrevocable, worldwide license to publish or reproduce
+the published form of the manuscript, or allow others to do so, for US
+Government purposes. The Department of Energy will provide public access
+to these results of federally sponsored research in accordance with the DOE
+Public Access Plan (http://energy.gov/downloads/doe-publicaccess-plan).
+Author contributions
+S.K., A.D., E.L., and T.L. conceived the idea. S.K. and S.A. performed
+benchmarking studies to generate data. A.D. and S.K. implemented the IP
+benchmark. S.K. analyzed the data with advice from I.S., A.D., E.L., and T.L.
+All authors discussed the results and contributed to the writing of the
+manuscript.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary informationThe online version contains
+supplementary material available at
+https://doi.org/10.1038/s41534-025-01020-1.
+Correspondenceand requests for materials should be addressed to
+Alexander W. Dowling, Eungkyu Lee or Tengfei Luo.
+Reprints and permissions informationis available at
+http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to
+jurisdictional claims in published maps and institutional afﬁliations.
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 7
+
+=== PAGE BREAK ===
+
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution and
+reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the Creative
+Commons licence, and indicate if you modi ﬁed the licensed material. You
+do not have permission under this licence to share adapted material
+derived from this article or parts of it. The images or other third party
+material in this article are included in the article ’s Creative Commons
+licence, unless indicated otherwise in a credit line to the material. If material
+is not included in the article’s Creative Commons licence and your intended
+use is not permitted by statutory regulation or exceeds the permitted use,
+you will need to obtain permission directly from the copyright holder. To
+view a copy of this licence, visit http://creativecommons.org/licenses/by-
+nc-nd/4.0/.
+© The Author(s) 2025
+https://doi.org/10.1038/s41534-025-01020-1 Article
+npj Quantum Information |           (2025) 11:77 8

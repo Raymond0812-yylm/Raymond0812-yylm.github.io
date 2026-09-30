@@ -1,0 +1,653 @@
+A Hybrid Classical Quantum Computing Approach
+to the Satellite Mission Planning Problem
+Nils Quetschlich∗ Vincent Koch† Lukas Burgholzer∗ Robert Wille∗‡
+∗Chair for Design Automation, Technical University of Munich, Germany
+†Technical University of Munich, Germany
+‡Software Competence Center Hagenberg GmbH (SCCH), Austria
+nils.quetschlich@tum.de v.koch@tum.de lukas.burgholzer@tum.de robert.wille@tum.de
+https://www.cda.cit.tum.de/research/quantum
+Abstract—Hundreds of satellites equipped with cameras orbit
+the Earth to capture images from locations for various purposes.
+Since the field of view of the cameras is usually very narrow,
+the optics have to be adjusted and rotated between single shots
+of different locations. This is even further complicated by the
+fixed speed—determined by the satellite’s altitude—such that
+the decision what locations to select for imaging becomes even
+more complex. Therefore, classical algorithms for this Satellite
+Mission Planning Problem (SMPP) have already been proposed
+decades ago. However, corresponding classical solutions have only
+seen evolutionary enhancements since then. Quantum computing
+and its promises, on the other hand, provide the potential for
+revolutionary improvement. Therefore, in this work, we propose
+a hybrid classical quantum computing approach to solve the
+SMPP combining the advantages of quantum hardware with
+decades of classical optimizer development. Using the V ariational
+Quantum Eigensolver (VQE), Quantum Approximate Optimization
+Algorithm (QAOA), and its warm-start variant (W-QAOA), we
+demonstrate the applicability of solving the SMPP for up to 21
+locations to choose from. This proof-of-concept—which is avail-
+able on GitHub (https://github.com/cda-tum/mqt-problemsolver)
+as part of the Munich Quantum T oolkit (MQT)—showcases the
+potential of quantum computing in this application domain and
+represents a first step toward competing with classical algorithms
+in the future.
+I. I NTRODUCTION
+Satellites orbiting the Earth have become a critical tool for a
+wide range of applications, including environmental monitor-
+ing, navigation, as well as communication. These satellites are
+usually equipped with cameras to capture images of the Earth’s
+surface. However, this comes with a significant challenge:
+Satellites have limited time and resources to capture images,
+and decisions must be made what areas of the Earth to cover—
+requiring sophisticated algorithms to efficiently and effectively
+allocate resources and plan the routing of the satellite.
+This Satellite Mission Planning Problem (SMPP) is a com-
+putationally challenging combinatorial optimization problem
+that involves scheduling satellite resources to obtain images
+of the Earth’s surface. So far, the SMPP has been ap-
+proached by utilizing classical algorithms—both using heuris-
+tics (e.g., simulated annealing and tabu search [1]) and
+exact approaches (e.g., linear integer programming [2] or
+branch-and-bound [3]). While these works have already been
+proposed decades ago, more recent papers propose extensions
+of the SMPP focusing on additionally objectives, e.g., consid-
+ering also transmission tasks [4] or multiple satellites [5], [6].
+Although a wide range of classical approaches for the SMPP
+and related problems have been developed, their potential for
+further improvements is rather small—especially, because the
+classical computing hardware development has shifted from
+revolutionary enhancements decades ago toward rather small,
+incremental enhancements.
+Quantum computing, on the contrary, has provided tremen-
+dous improvements especially in recent years—both in soft-
+ware and hardware. Meanwhile, dedicated workflows such as
+those proposed in [7], [8] are available that allow solving prob-
+lems that are computationally hard for classical algorithms.
+Especially, hybrid classical quantum algorithms which com-
+bine classical and quantum computing have shown promising
+results in solving various problems, such as in finance [9],
+optimization [10], chemistry [11], and physics [12]. Even a
+quantum annealing approach to solve the SMPP has already
+been proposed in [13].
+In this paper, we propose a hybrid classical quantum ap-
+proach for the SMPP. Therefore, the problem is formulated
+as a Quadratic Unconstraint Binary Optimization (QUBO)
+problem and encoded into a quantum circuit based on the
+Variational Quantum Eigensolver (VQE, [14]), the Quantum
+Approximate Optimization Algorithm (QAOA, [15]), and its
+warm-start variant (W-QAOA, [16]). The resulting circuits
+are then executed on a noise-free and a noise-aware quantum
+simulator. Evaluations show that the proposed approach can
+solve the SMPP for up to 21 possible images in reasonable
+time with often (close-to) optimal results—demonstrating the
+potential quantum computing offers in this application domain.
+All implementations are available on GitHub (https://github.
+com/cda-tum/mqt-problemsolver) as part of the Munich Quan-
+tum Toolkit (MQT). Combined with the anticipated trend of
+improvements for both quantum hardware and software, this
+approach may become a serious competitor for the currently
+used classical solvers in the future.
+The remainder of this work is structured as follows. Sec-
+tion II reviews the SMPP in more detail and describes the
+hybrid classical quantum approach proposed in this work.
+The applicability of the resulting solution has been confirmed
+by experimental evaluations whose results are summarized in
+Section III. Finally, Section IV discusses the lessons learned
+before the paper is concluded in Section V.
+
+=== PAGE BREAK ===
+
+Earth
+×
+A/2
+×
+B/7
+×
+C/3
+×
+D/2
+×
+E/6
+Fig. 1: Satellite Mission Planning Problem.
+II. S ATELLITE MISSION PLANNING PROBLEM :
+HYBRID CLASSICAL QUANTUM APPROACH
+In this section, the SMPP is described and formulated
+based on a more comprehensive problem description proposed
+in [13]. Thereafter, all the steps required to derive a quantum
+computing-based solution are described.
+A. Problem Description
+The Satellite Mission Planning Problem (SMPP) refers to
+the complex task of selecting a subset of feasible locations
+from a pre-determined list of locations to-be-captured by a
+satellite. Each captured location is associated with a value.
+As a result of the narrow field of view of the satellite, its
+optics have to be adjusted and rotated between single shots
+of different locations—resulting in a time-consuming process
+referred to as “rotation time”. This is even further complicated
+by the fixed speed of the satellite (determined by the satellite’s
+altitude) which leads to a fixed “transition time” between the
+capture positions of locations (for the sake of simplification,
+it is assumed that each location can only be captured when
+the satellite is at its closest distance).
+Example 1. Assume that an imaging satellite orbits the Earth
+at a given altitude with constant speed as depicted in Fig. 1 in
+black. In this setup, five to-be-captured locations are given—
+denoted by A to E with their respective associated value
+if captured. The goal is to determine a feasible subset of
+locations that maximizes the sum of their associated values.
+In this example, there are two infeasible pairs of locations
+(A/B and B/C) for which the rotation time is larger than
+the transition time. Consequently, A and C or only B can be
+selected in addition to D and E, which are feasible in both
+cases. Since the associated value of B is higher than both A’s
+andC’s values combined, the optimal selection is {B,D,E}.
+More formally, the SMPP can be described as a binary
+constrained optimization problem:
+max
+x∈{0,1}n
+nX
+i=1
+xivi with (1)
+R(i,j )≤T (i,j ) if xi =xj = 1
+with
+• x being the vector of binary variables xi representing
+whether a location i has been selected for imaging at its
+respective capture position si on the satellite orbit,
+• vi being the associated value of a captured location i,
+• R(i,j ) being the required rotation time between two
+locations defined by the necessary satellite optics rotation
+time between angle ai at satellite position si and angle
+aj at position sj divided by the constant optics rotation
+speed vr: |ai−aj|
+vr
+, and
+• T (i,j ) being the transition time between two capture
+positionssi andsj divided by satellite speed vs: |si−sj|
+vs
+.
+To derive a quantum computing-based solution to this prob-
+lem, the general workflow proposed in [7] is followed: First, a
+suitable quantum algorithm is selected based on the problem
+to be solved. Subsequently, the problem must be encoded
+into a quantum circuit based on that selected algorithm. This
+quantum circuit is then executed and the resulting histogram
+is decoded to extract the actual problem solution.
+B. Quantum Algorithm Selection
+The currently available quantum algorithms can be classified
+into two categories. The first class, referred to as pure quantum
+algorithms, has been proven to outperform its classical counter
+parts, such as Shor’s [17] for factorization, Grover’s [18] for
+unsorted database search, as well as the Harrow-Hassadim-
+Lloyd (HHL, [19]) algorithm for solving linear systems
+of equations. However, these algorithms generally assume
+close-to perfect quantum hardware which is not yet available
+to the necessary extent.
+Hybrid classical quantum algorithms or the so-called Vari-
+ational Quantum Algorithms (VQAs) are the second class
+of quantum algorithms. Prominent representatives are the
+Variational Quantum Eigensolver (VQE, [14]) to determine
+the ground state of a given physical system and the Quantum
+Approximation Optimization Algorithm (QAOA, [15]) used for
+various optimization problems. In contrast to pure quantum
+algorithms, the requirements regarding the quality of quantum
+hardware are less strict and, hence, these algorithms are
+frequently applied in the current Noisy-Intermediate-Scale-
+Quantum (NISQ, [20]) era. The general idea behind VQAs
+is to encode a given problem into a parameterized quantum
+circuit and utilize a classical optimizer to determine the most
+suitable parameter values so that the resulting quantum circuit
+allows one to determine the solution to the given problem.
+To also apply VQAs to the SMPP, the constrained binary
+problem must be re-formulated to be of the form of a
+Quadratic Unconstrained Binary Optimization (QUBO) prob-
+lem since that is the common input format for VQAs. There-
+fore, a penalty term is introduced to substitute the condition
+to be satisfied in the binary constrained optimization problem
+formulation in Equation 1. This leads to
+max
+x∈{0,1}n
+nX
+i=1
+xivi−p·
+n−1X
+i=1
+nX
+j=i
+xixj·c(i,j ) (2)
+with
+• p being the penalty value that enforces the constraints to
+be satisfied and
+• c(i,j ) being a pre-calculated Boolean variable which is
+1 if R(i,j )>T (i,j ) and 0 otherwise.
+
+=== PAGE BREAK ===
+
+A
+B
+C
+D
+E
+Init
+RY (θ0)
+RY (θ1)
+RY (θ2)
+RY (θ3)
+RY (θ4)
+×r Repetitions
+Entanglement Layer Rotation Layer
+RY (θ5+i·5)
+RY (θ6+i·5)
+RY (θ7+i·5)
+RY (θ8+i·5)
+RY (θ9+i·5)
+Fig. 2: SMPP encoded using VQE.
+Using this QUBO formulation, VQAs can be utilized to
+solve the SMPP.
+C. Encoding as a Quantum Circuit
+How a QUBO is translated into a quantum circuit depends
+on the selected quantum algorithm and the respective encoding
+of the problem formulation—stating a whole research area on
+its own with overviews given in [21]–[23]. For the SMPP,
+we used VQE, QAOA, and its warm-start variant W-QAOA
+to determine a feasible subset of locations from all possible
+ones with each location encoded by one respective qubit. The
+underlying circuit structures of those algorithms are described
+in the following.
+The general quantum circuit structure of VQE is
+problem-independent and various ansatz functions are avail-
+able. Here, a RealAmplitudes1 ansatz with reverse linear entan-
+glement has been chosen and is depicted in Fig. 2. It consists
+of the following building blocks:
+• Init: A layer of parameterized single-qubit rotations.
+• Entanglement Layer: The reverse linear entanglement
+ansatz is implemented based on a sequence of CNOT
+gates.
+• Rotation Layer: Every repetition ends with another layer
+of single-qubit rotations implemented using RY gates.
+Each gate comes with its own rotation angle parameter.
+Both the entanglement and rotation layers are repeated for r
+repetitions while the index i denotes the ith repetition.
+The quantum circuit structure of QAOA comes with a
+significant difference: it is problem-dependent and consists of
+three building blocks as depicted in Fig. 3:
+• State Preparation: Creates a superposition state of all
+qubits by applying Hadamard gates denoted by H.
+• Cost Layer: Defines the SMPP instance by encoding
+weight factors into RZ gates and infeasible location
+pairs as RZZ gates as depicted for the problem instance
+described in Example 1. Thoseθ andγ factors are defined
+by the SMPP model describing its locations values and
+feasibility constraints among each other 2.
+1For details, see the Qiskit documentation at https://qiskit.org/
+documentation/stubs/qiskit.circuit.library.RealAmplitudes.html.
+2Note, that the θ and γ are pre-determined before αi and βi are optimized
+by transforming the QUBO problem into an Ising Hamiltonian—e.g., by using
+respective SDKs, such as Qiskit [24].
+A
+B
+C
+D
+E
+State Prep.
+H
+H
+H
+H
+H
+×r Repetitions
+Cost Layer
+Weight Factor
+RZ(θA· 2αi)
+RZ(θB· 2αi)
+RZ(θC· 2αi)
+RZ(θD· 2αi)
+RZ(θE· 2αi)
+γ· 2αi
+γ· 2αi
+Mixer Layer
+RX (2βi)
+RX (2βi)
+RX (2βi)
+RX (2βi)
+RX (2βi)
+Fig. 3: SMPP encoded using QAOA.
+• Mixer Layer: Enables the algorithm to theoretically be
+able to find the optimal parameter values and, therewith,
+a solution to the SMPP.
+Again, both the cost and the mixer layers are repeated for
+arbitrarily many repetitionsr withi denoting theith repetition.
+The resulting quantum circuits are both now capable of
+determining the SMPP solution in combination with a classical
+optimizer which is used for tuning the parameter toward an
+optimal solution. For that, their values can either be randomly
+initialized or, at least for QAOA, be pre-determined using its
+warm-start variant (W-QAOA, [16]).
+D. Execution
+While the generated quantum circuit could immediately be
+executed on a quantum simulator, the execution on the quan-
+tum device requires the quantum circuit to be compiled accord-
+ingly. Each quantum device induces constraints on the to-be-
+executed quantum circuit such as on the supported elementary
+quantum gates and, often, additionally on the connectivity of
+qubits. Various software tools have been proposed to automate
+the compilation in, e.g., [25], [26]. Thereafter, the quantum
+circuit is ready to be executed—resulting in a distribution
+of outcomes, also called a histogram, which comprises the
+determined solution. To extract it, the histogram must be
+decoded so that the actual solution is extracted. Although
+this step marks the end of the workflow for pure quantum
+algorithms, this differs for VQAs.
+Here, as sketched in Fig. 4, the decoded solution is used
+to determine a Cost value which depends on the chosen
+parameter values of the parameterized quantum circuit and
+the problem itself.
+A
+B
+C
+D
+E
+Parameterized Quantum Circuit
+with Parameters ω
+Classical
+Optimizer
+ω′
+Cost(ω)
+Fig. 4: VQA execution scheme.
+This is also what enables VQE to determine solutions while
+the problem is not represented in the quantum circuit itself.
+The classical optimizer then adjusts the parameter values to
+evaluate their influence in the next iteration. With many of
+such iterations, the parameter values ideally converge to their
+optimal value. When this is the case, the algorithm terminates
+and the decoded solution of the quantum circuit executed with
+the optimal parameters is returned.
+
+=== PAGE BREAK ===
+
+3 5 7 9 11 13 15 17 19 21
+Number of Locations
+100
+101
+102
+103
+104
+Calculation Time [s]
+VQE
+QAOA
+W-QAOA
+(a) Calculation time for SMPP instances.
+3 5 7 9 11 13 15 17 19 21
+Number of Locations
+0.800
+0.825
+0.850
+0.875
+0.900
+0.925
+0.950
+0.975
+1.000Result Quality
+VQE
+QAOA
+W-QAOA (b) Result quality for SMPP instances.
+Fig. 5: Experimental evaluation for the satellite use-case using a noise-free simulation.
+III. E XPERIMENTAL EVALUATION
+In the following, the applicability of quantum computing
+to the SMPP is demonstrated. To this end, we first describe
+the evaluation setup and the problem instances considered.
+Subsequently, the results based on noise-free and noise-aware
+simulations are presented and discussed.
+A. Setup
+All implementations have been carried out using Qiskit [24]
+(v0.41.1) in Python and are available on GitHub (https://
+github.com/cda-tum/mqt-problemsolver) as part of the Munich
+Quantum Toolkit (MQT). To evaluate the proposed approach,
+SMPP instances from 3 up to 21 to-be-captured locations have
+been solved using VQE, QAOA, and W-QAOA in a noise-free
+simulation and up to 14 locatins in a noise-aware one. The
+problem instances themselves are generated as follows: Each
+image location is randomly placed with an arbitrary longitude
+while the latitude is restricted to be between −15 and 15
+degrees (since the satellite is assumed to orbit around the
+equator and this condition ensures that each location is visible
+to the satellite) and is assigned a value of either 1 or 2.
+For both, the noise-free and the noise-aware simulation,
+Cobyla is used as the classical optimizer. The maximal it-
+erations are set to 100 for both optimizers in all evaluations.
+All VQAs are evaluated using 3 repetitions each. For VQE,
+a RealAmplitudes ansatz with reverse linear entanglement has
+been chosen.
+To evaluate both the noise-free and the noise-aware simu-
+lations, the calculation time and result quality are evaluated.
+B. Noise-free Simulation
+Each problem instance is executed three times per algorithm
+and both the calculation time and the result quality are aver-
+aged to be more representative. All simulations are conducted
+using Qiskit’s matrix-vector-based Sampler simulator. The re-
+sulting computation times for all three algorithms are provided
+in Fig. 5a. As expected, the computation time quickly increases
+with the number of locations and shows an exponential trend
+(represented by the linear slope on a logarithmic scale) while
+VQE was significantly faster for smaller problem instances.
+The respective result quality is shown in Fig. 5b. To this
+end, a classical computation of the optimal solution and the
+corresponding value is performed, which is then used as a
+baseline to measure the relative deviation of the VQAs—e.g.,
+a result quality of 0.95 corresponds to a location selection
+which leads to an assigned accumulated value of 95% of the
+optimal one.
+In general, there is a clear trend of degrading result quality
+with an increasing number of locations. Until around 12
+locations, all algorithms have been able to determine the
+(close-to) optimal results with a result quality of > 90%. From
+there on, a notable decrease in result quality is occurring with
+VQE degrading the most—down to a result quality of 0.80 for
+the largest problem instance size of 21 locations.
+C. Noise-aware Simulation
+The noise-aware simulation is based on Qiskit’s
+BackendSampler simulator using the FakeBackend for
+ibmq_montreal with 27 qubits. The respective computation
+times for all algorithms are provided in Fig. 6a and follow a
+similar exponential trend for an increasing number of locations
+with W-QAOA being the fastest algorithm for smaller problem
+instances and VQE for larger ones. Compared to the noise-free
+simulation, the computation times are significantly higher for
+similar problem sizes. This is caused by a combination of
+three factors: the classical optimizer requires more iterations
+to converge at each execution, the additional compilation
+time to compile the underlying quantum circuit such that
+it is executable on the selected (but simulated) quantum
+device, and the increased simulation time for a noise-aware
+simulation. Due to this increase in computation time, the
+maximal number of locations evaluated is smaller compared
+to the noise-free simulation.
+
+=== PAGE BREAK ===
+
+4 6 8 10 12 14
+Number of Locations
+102
+103
+104
+Calculation Time [s]
+VQE
+QAOA
+W-QAOA
+(a) Calculation time for SMPP instances.
+4 6 8 10 12 14
+Number of Locations
+0.70
+0.75
+0.80
+0.85
+0.90
+0.95
+1.00Result Quality
+VQE
+QAOA
+W-QAOA (b) Result quality for SMPP instances.
+Fig. 6: Experimental evaluation for the satellite use-case using a noise-aware simulation.
+The result quality is shown in Fig. 6b with a qualitatively
+similar trend of decreasing result quality for an increasing
+number of locations. However, the quality drop is greater
+with the lowest quality around 70%—already for a number
+of locations where the result quality was close-to optimal in
+the noise-free simulation.
+Although the literature suggests that one uses the SPSA opti-
+mizer for noise-aware simulations (e.g., in [27]), that optimizer
+led to worse results while taking more computation time. The
+reason could be that the loss landscapes and the respective
+solutions of the considered SMPPs have been sufficiently
+distinct for the faster Cobyla optimizer not to degrade too
+much due to the induced noise.
+Through the studies summarized above, the potential for
+solving the SMPP using VQAs has been evaluated for the
+first time. Based on that, the “lessons learned” are discussed
+in the following.
+IV. D ISCUSSION
+VQAs have demonstrated promising results in solving com-
+binatorial optimization problems, including those in the satel-
+lite domain. However, they face several challenges that need
+to be addressed. One significant limitation is the requirement
+for a large number of qubits to solve larger problems (since
+each to-be-captured location is encoded as one qubit)—easily
+outgrowing what current simulators can reasonably simulate
+and the capabilities of available quantum devices. Further-
+more, VQAs are known to suffer from the issue of barren
+plateaus, which can make finding the optimal solution difficult,
+particularly in complex optimization problems. Determining
+the optimal set of parameters for the classical optimizer is
+another challenge, particularly for large problems, and can
+increase the computational cost and time required for solving
+optimization problems.
+Although classical solvers currently outperform VQAs,
+these hybrid classical quantum algorithms, in general, still
+present a promising approach since the ongoing development
+of quantum hardware and software is expected to improve
+the performance of VQAs—making it an increasingly viable
+option for solving optimization problems in the future.
+V. C ONCLUSIONS
+Due to the increasing number of satellites and their limited
+resources, the Satellite Mission Planning Problem (SMPP)
+becomes more relevant. Classical solutions have already been
+proposed decades ago but have only seen evolutionary en-
+hancements since then. Quantum computing, on the other
+hand, has the potential for a revolutionary improvement. To
+this end, a hybrid classical quantum computing approach to
+the SMPP is proposed in this work using three different Vari-
+ational Quantum Algorithms : VQE, QAOA, and W-QAOA.
+To demonstrate their potential, SMPP instances have been
+experimentally evaluated in both a noise-free with up to
+21 to-be-captured locations and a noise-aware simulation
+with up to 14 to-be-captured locations—often leading to
+(close-to) optimal results. This proof-of-concept showcases
+the general applicability of quantum computing to solve the
+SMPP and is available on GitHub (https://github.com/cda-tum/
+mqt-problemsolver) as part of the Munich Quantum Toolkit
+(MQT). Although the proposed quantum approach cannot
+compete with the classical solutions yet, promising develop-
+ments in both quantum hardware and software—especially in
+recent years—might change that in the future.
+ACKNOWLEDGMENTS
+This work received funding from the European Re-
+search Council (ERC) under the European Union’s Horizon
+2020 research and innovation program (grant agreement No.
+101001318), was part of the Munich Quantum Valley, which is
+supported by the Bavarian state government with funds from
+the Hightech Agenda Bayern Plus, and has been supported
+by the BMWK on the basis of a decision by the German
+Bundestag through project QuaST, as well as by the BMK,
+BMDW, and the State of Upper Austria in the frame of the
+COMET program (managed by the FFG). Finally, we thank
+the organizers of the Quantum Entrepreneurship Lab which
+sparked the idea for this work.
+
+=== PAGE BREAK ===
+
+REFERENCES
+[1] E. Bensanna, G. Verfaillie, J. Agnèse, N. Bataille, and
+D. Blumstein, “Exact and approximate methods for the
+daily management of an earth observation satellite,”
+in Int’l Symposium on Space Mission Operations and
+Ground Data Systems, Munich, Germany , 1996.
+[2] M. Lemaitre and G. Verfaillie, “Daily management
+of an earth observation satellite: Comparison of ilog
+solver with dedicated algorithms for valued constraint
+satisfaction problems,” in ILOG Int’l Users Meeting ,
+1997.
+[3] G. Verfaillie, M. Lemaitre, and T. Schiex, “Russian doll
+search for solving constraint optimization problems,” in
+AAAI/IAAI, Vol. 1, Citeseer, 1996.
+[4] S. Peng, H. Chen, J. Li, and N. Jing, “A heuristic
+method for single satellite observation and transmission
+tasks planning,” in Int’l Conference on Natural Compu-
+tation, Fuzzy Systems and Knowledge Discovery (ICNC-
+FSKD), IEEE, 2017.
+[5] W. Chong, L. Jun, J. Ning, W. Jun, and C. Hao, “A
+distributed cooperative dynamic task planning algorithm
+for multiple satellites based on multi-agent hybrid learn-
+ing,” Chinese Journal of Aeronautics , 2011.
+[6] H. Hao, W. Jiang, and Y . Li, “Improved algorithms
+to plan missions for agile earth observation satellites,”
+Journal of Systems Engineering and Electronics , 2014.
+[7] N. Quetschlich, L. Burgholzer, and R. Wille, “Towards
+an Automated Framework for Realizing Quantum Com-
+puting Solutions,” in Int’l Symp. on Multi-Valued Logic,
+2023.
+[8] B. Poggel, N. Quetschlich, L. Burgholzer, R. Wille, and
+J. M. Lorenz, “Recommending Solution Paths for Solv-
+ing Optimization Problems with Quantum Computing,”
+in Int’l Conf. on Quantum Software , 2023.
+[9] N. Stamatopoulos et al., “Option pricing using quantum
+computers,” Quantum, 2020.
+[10] C. Zoufal, A. Lucchi, and S. Woerner, “Quantum Gen-
+erative Adversarial Networks for learning and loading
+random distributions,” npj Quantum Information , 2019.
+[11] A. Kandala et al., “Hardware-efficient variational quan-
+tum eigensolver for small molecules and quantum mag-
+nets,” Nature, 2017.
+[12] A. Roggero, A. C. Y . Li, J. Carlson, R. Gupta, and G. N.
+Perdue, “Quantum computing for neutrino-nucleus scat-
+tering,” Physical Review D , 2020.
+[13] T. Stollenwerk, V . Michaud, E. Lobe, M. Picard, A.
+Basermann, and T. Botter, “Image acquisition plan-
+ning for earth observation satellites with a quantum
+annealer,” 2020. arXiv: 2006.09724.
+[14] A. Peruzzo et al., “A variational eigenvalue solver on a
+photonic quantum processor,” Nature Communications,
+2014.
+[15] E. Farhi, J. Goldstone, and S. Gutmann, “A quantum ap-
+proximate optimization algorithm,” 2014. arXiv: 1411.
+4028.
+[16] D. J. Egger, J. Mare ˇcek, and S. Woerner, “Warm-starting
+quantum optimization,” Quantum, 2021.
+[17] P. W. Shor, “Polynomial-time algorithms for prime
+factorization and discrete logarithms on a quantum
+computer,” SIAM Journal on Computing , 1997.
+[18] L. K. Grover, “A fast quantum mechanical algorithm
+for database search,” Proc. of the ACM , 1996.
+[19] A. W. Harrow, A. Hassidim, and S. Lloyd, “Quantum
+algorithm for linear systems of equations,” Physical
+Review Letters, 2009.
+[20] J. Preskill, “Quantum Computing in the NISQ era and
+beyond,” Quantum, 2018.
+[21] F. Dominguez, J. Unger, M. Traube, B. Mant, C. Ertler,
+and W. Lechner, “Encoding-independent optimization
+problem formulation for quantum computing,” 2023.
+arXiv: 2302.03711.
+[22] M. Schuld and F. Petruccione, “Machine learning with
+quantum computers.” Springer, 2021.
+[23] M. Weigold, J. Barzen, F. Leymann, and M. Salm, “En-
+coding patterns for quantum algorithms,” IET Quantum
+Communication, 2021.
+[24] Qiskit contributors, “Qiskit: An open-source framework
+for quantum computing,” 2023.
+[25] N. Quetschlich, L. Burgholzer, and R. Wille, “Predict-
+ing Good Quantum Circuit Compilation Options,” in
+Int’l Conference on Quantum Software , 2023.
+[26] N. Quetschlich, L. Burgholzer, and R. Wille, “Compiler
+Optimization for Quantum Computing Using Reinforce-
+ment Learning,” in Design Automation Conf. , 2023.
+[27] R. Cumming and T. Thomas, “Using a quantum com-
+puter to solve a real-world problem – what can be
+achieved today?” 2022. arXiv: 2211.13080.

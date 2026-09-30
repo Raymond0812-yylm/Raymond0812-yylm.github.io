@@ -1,0 +1,872 @@
+2  
+Hybrid Quantum-Classical Optimization of the Resource Scheduling Problem 
+ 
+Tyler Christesona, Md Habib Ullahb, Ali Arabnyac, Amin Khodaeia, Rui Fana,1, 
+aDepartment of Electrical and Computer Engineering, University of Denver, Denver, 80210, CO, USA 
+bDepartment of Electrical Engineering and Electrical Engineering Technology, Penn State Harrisburg, Middletown, 17057, PA, USA 
+cQuanta Technology, Raleigh, 27607, NC, USA 
+ 
+ 
+ 
+Abstract 
+Resource scheduling is critical in many industries, especially in power systems where the Unit Commitment (UC) 
+problem determines the on/off status and output levels of generators under physical and economic constraints. 
+Traditional exact methods, such as Branch -and-Bound, Branch-and-Cut, dynamic programming and mixed -integer 
+linear programming (MILP), remain the backbone of UC solution techniques, but they often rely on linear 
+approximations or exhaustive search, leading to hi gh computational burdens as system size grows.  Metaheuristic 
+approaches, such as genetic algorithms, particle swarm optimization, and other evolutionary methods, have been 
+explored to mitigate this complexity; however, they typically lack optimality guarantees, exhibit sensitivity to initial 
+conditions, and can become  prohibitively time-consuming for large-scale systems. In  this paper, we introduce a 
+quantum-classical hybrid algorithm for UC—and, by extension, other resource scheduling problems —that leverages 
+Benders decomposition to decouple binary commitment decisions from continuous economic dispatch.  The binary 
+“master” problem is for mulated as a quadratic unconstrained binary optimization (QUBO) model and solved on a 
+quantum annealer. The continuous “subproblem,” which minimizes generation costs, with Lagrangian cuts feeding 
+back to the master until convergence.  We evaluate our hybrid framework on systems scaled from 10 to 1,000 
+generation units. Compared against a classical mixed -integer nonlinear programming (MINLP) baseline, the hybrid 
+algorithm achieves a consistently lower computation-time growth rate and maintains an absolute optimality gap below 
+1.63%. These results demonstrate that integrating quantum annealing within a hybrid quantum -classical Benders 
+decomposition loop can significantly  accelerate large-scale resource scheduling without sacrificing solution quality, 
+pointing toward a viable path for addressing the escalating complexity of modern power grids. 
+Keywords: Resource Scheduling, Unit Commitment, Quantum Computing, Optimization, Grid Control, Smart Grids 
+ 
+ 
+1. Introduction 
+Resource scheduling refers to a broad class of problems that involves the strategic allocation of limited resources—
+whether they be time, materials, personnel,  or energy—to meet a set of forecasted activities or de mands [1]. This 
+problem class is present in diverse fields  including industrial manufacturing [2], construction planning [3], cloud 
+computing management [4], and,  notably, power systems operations [5]. In the realm of power systems, the ongoing 
+transformation driven by the increasing proliferation of distributed energy re- sources (DERs) such as smart grids [6] 
+and electric vehicles [7, 8], the shift toward cleaner technologies [9], and the need for enhanced resilience against 
+extreme weather events [10] has underscored the need for updated management and decision-making practices. 
+ 
+Email address: rui.fan@du.edu (Rui Fan) 
+
+=== PAGE BREAK ===
+
+3  
+Among the various resource scheduling challenges within power systems, unit commitment (UC) stands out as a 
+critical decision-making process. UC involves the optimal scheduling of generating units over different time intervals 
+in order to meet forecasted loads while adhering to physical, environmental, and economic constraints. The UC problem 
+embodies the complexity in herent in resource scheduling; it is proven to be NP-hard [11],  and its combinatorial 
+structure leads to significant computational challenges, especially as systems scale and incorporate higher levels of 
+renewable integration. 
+This computational complexity has profound economic implications. Even modest improvements in the accuracy 
+and efficiency of UC solutions can yield substantial cost savings for system operators and, consequently, end 
+consumers. Mixed -integer linear program ming (MILP) remains one of the most commonly used techniques for 
+solving the UC [12, 13]. However, most MILP models for UC problems are developed by approximating a unit's 
+nonlinear production cost as a piece -wise linear function; the optimal solutions of these approximated MILPs are 
+never the optimal solutions to the original UC problem, even for small systems [14]. Although the Branch-and-Bound 
+[15] and Branch-and-Cut [16] methods can be adopted to find optimal UC solutions, these techniques are often time-
+consuming for large-scale systems and may encounter computational efficiency barriers [17, 18]. The UC problems 
+have also been solved using dynamic programming that necessitates continuously computing the value of the same 
+subproblems in order to reach the optimum solution [19]. However, the “curse of dimensionality ” increasingly 
+becomes a challenge as the size of the system and the number of decision variables increases  [20]. The evolution -
+inspired search methods such as Genetic Algorithm [21], and Particle Swarm Optimization [22], among others [23], 
+were adopted to improve the UC solution as well. These methods can find a satisfactory solution, but are time -
+consuming, do not guarantee optimality, and are sensitive to initial value selections  [24]. 
+While the existing UC solutions have increased their accuracy and computational efficiency, it is worth noting that 
+they have not kept pace with the increasing complexity of this problem due to the ongoing transition of the modern 
+power grids. That lag can be primarily attributed to the limitations of classical computing technologies. On the other 
+hand, given the recent breakthroughs in quantum computing (QC) technology and their capabilities in solving 
+combinatorial optimization problems, they can be consi dered as a viable alternative to address this issue [25, 26]. In 
+particular, quantum annealing (QA) has shown potential in efficiently solving combinatorial optimization problems 
+[27], such as UC, by exploring vast solution spaces through quantum mechanical phenomena. However, a QA solution 
+has previously been tested for UC and found to be inaccurate and inefficient in computation time [28] due to having 
+to discretize continuous variables when formulating problems as quadratic unconstrained binary optimization 
+(QUBO) models for compatibility with current quantum hardware. Although QA alone may not fully capture the 
+intricate constraints of U C, integrating it with classical computing approaches into a hybrid model can leverage the 
+strengths of both paradigms. To accomplish this, the Benders decomposition method is used to decouple binary 
+commitment decisions from continuous economic dispatch. Benders decomposition is a mathematical technique that 
+partitions a complex mixed -integer problem into two interconnected subproblems: a “master” problem handling the 
+complicating integer variables and a “subproblem” addressing the continuous variables  [29]. The iterative nature of 
+the method allows for efficient convergence by successively refining the feasible region of the master problem using 
+optimality and feasibility cuts derived from the subproblem. This approach is particularly effective for unit 
+commitment problems, where binary commitment decisions can be naturally separated from continuous power 
+dispatch variables, and has been investigated as a method for hybrid quantum-classical algorithms, even for UC.  
+In [30], the authors demonstrate a hybrid quantum -classical algorithm with Benders’ decomposition to solve a 
+MILP problem, but do not apply it to a specific domain. Our work applies a similar framework to the UC problem, 
+targeting large -scale optimization efficie ncy. Unlike [30], which discretizes continuous variables in the master 
+problem, our approach separates binary and continuous variables into the master and subproblems, respectively. This 
+reduces qubit requirements and improves scalability on current QPUs. In [31], the authors also apply a hybrid 
+quantum-classical Benders decomposition to UC but encode continuous variables as binaries in the master problem. 
+Our approach instead optimizes binary variables on the quantum master and continuous variables on the classical 
+subproblem, enabling more efficient qubit usage and avoiding loss of precision from discretization. Furthermore, [31] 
+tests only on a small system (two units, five time steps), whereas we evaluate up to 1,000 units over 24 hours, 
+demonstrating scalability and potential real-world application. In [32], the authors propose hybrid algorithms for UC 
+in distributed microgrids, incorporating coupling/decoupling with the utility grid. Our work instead develops a single 
+hybrid algorithm for UC in a centralized transmission network, focusing on large-scale generation scheduling. While 
+[32] successfully models the IEEE -RTS-24 system with 99 distributed resources, our framework scales to 1,000 
+generation units, moving closer to real-world system operations and highlighting the potential of quantum computing 
+in large-scale power system optimization. 
+Importantly, our use of QA is motivated not solely by performance comparison with mature classical 
+
+=== PAGE BREAK ===
+
+4  
+metaheuristics but by the opportunity to evaluate QA’s role within a hybrid optimization workflow and explore its 
+potential as quantum hardware continues to advance. QA is well-suited to the combinatorial structure of the UC master 
+problem and, when combined with Benders decomposition, allows the continuous economic dispatch subproblem to 
+remain on a classical solver without discretization. Additionally, this work leverages D-Wave’s Constrained Quadratic 
+Model (CQM) framework, which automates constraint weighting and mitigates the need for manual penalty tuning—
+an important practical consideration when scaling to large problem sizes. Although QA may not yet consistently 
+outperform state-of-the-art classical approaches, this study positions QA as a forward-looking technology and assesses 
+its ability to handle large-scale UC formulations as hardware capability improves. 
+ We propose a quantum-classical hybrid method in which a Benders decomposition technique is used to separate 
+the binary variables and continuous variables so that the problems associated with respective variables can be solved 
+in a quantum annealer and in a classical computer, accordingly. To address the gap in existing quantum annealing UC 
+solutions, this paper develops a novel framework for quantum-compatible UC solutions and investigates a set of case 
+studies to further investigate this issue. The major contributions of this paper can be summarized as follows: 
+• We propose a new quantum -compatible hybrid framework for solving the UC problem, which utilizes both 
+quantum and classical computing approaches to achieve a faster computation time than classical -only 
+solutions and greater accuracy than quantum-only solutions at larger system sizes.  
+• With the new hybrid framework, we successfully simulated system sizes up to 1,000 generation units, 
+marking an improvement over previous QCUC methods and a step closer to real -world implementation for 
+QCUC. 
+• We established and streamlined a systematic and efficient process of transforming linear/nonlinear 
+programming models for large-scale resource scheduling problems, like UC, into QUBO and hybrid models 
+that can be used for quantum applications.  
+The remainder of this paper is organized as follows. Section II focuses on unit commitment as a representative case 
+of resource scheduling, discussing its formulation and computational challenges. Section III introduces the basics of 
+quantum computing and quantum annealing, their application to combinatorial optimization within power systems, 
+and discussions of methods for converting classical formulations into quantum -compatible forms. Section IV then 
+presents the Benders decomposition method for our propo sed quantum -compatible hybrid framework for UC, 
+detailing the transformation of classical models into a hybrid form amenable to quantum processing. Section V 
+analyzes the performance of the proposed model against traditional methods, and finally, Section V I concludes with 
+insights on future research directions aimed at further advancing computational approaches in resource scheduling.  
+ 
+2. Unit Commitment Formulation 
+The UC problem is a form of resource scheduling problem, with the objective of minimizing the total cost of 
+operating a set of power generation units over a given timeframe while subject to a variety of constraints. These 
+constraints consist of economic, environmental, operational, and physical constraints. The mathematical formulation 
+of UC problems as given by [33, 34, 35, 36] can be seen represented here: 
+𝑚𝑖𝑛 
+𝑝𝑖𝑡,𝑣𝑖𝑡
+∑ ∑[𝐶𝑖(𝑝𝑖𝑡) + 𝑈𝑖(𝑝𝑖𝑡) + 𝐷𝑖(𝑝𝑖𝑡)]
+𝑡∈𝒯𝑖∈𝒩
+  (1a) 
+          s.t.:  
+∑ 𝑝𝑖𝑡
+𝑖∈𝒩
+= 𝐿𝑡, ∀𝑡 (1b) 
+𝑃𝑖
+𝑚𝑖𝑛𝑣𝑖𝑡 ≤ 𝑝𝑖𝑡 ≤ 𝑃𝑖
+𝑚𝑎𝑥𝑣𝑖𝑡, ∀𝑖, ∀𝑡 (1c) 
+∑ 𝑃𝑖
+𝑚𝑎𝑥𝑣𝑖𝑡
+𝑖∈𝑁
+≥ 𝐿𝑡 + 𝑆𝑡, ∀𝑡 (1d) 
+−𝑅𝑖
+𝑑𝑛 ≤ 𝑝𝑖𝑡 − 𝑝𝑖𝑡−1 ≤ 𝑅𝑖
+𝑢𝑝, ∀𝑖 (1e) 
+𝑈𝑖
+τ ≤ τ𝑖
+𝑢𝑝, ∀𝑖 (1f) 
+𝐷𝑖
+τ ≤ τ𝑖
+𝑑𝑛, ∀𝑖 (1g) 
+𝐹𝑖
+𝑚𝑖𝑛 ≤ ∑ Ξ𝑖(𝑝𝑖𝑡)
+𝑡∈𝒯
++ Λ𝑖𝑡 ≤ 𝐹𝑖
+𝑚𝑎𝑥, ∀𝑖 (1h) 
+
+=== PAGE BREAK ===
+
+5  
+. 
+Π𝑖
+𝑚𝑖𝑛 ≤ ∑ ∑ Ξ𝑖(𝑝𝑖𝑡)
+𝑡∈𝒯𝑖∈𝒩
++ Λ𝑖𝑡 ≤ Π𝑖
+𝑚𝑎𝑥 (1i) 
+∑ ∑ Λ𝑖(𝑝𝑖𝑡)
+𝑡∈𝒯𝑖∈𝒩
++ Ψ𝑖𝑡 ≤ 𝐸𝑚𝑎𝑥 (1j) 
+where (1a) gives the objective function representing the overall costs of the system consisting of the power generation, 
+start-up, and shut -down costs denoted as Ci(pit), Ui(pit), and Di(pit), respectively, for the generating unit i ∈ 𝑁. The 
+power generation cost Ci(pit) is given by a quadratic function as: Ci(pit) = aivit + bi pit + ci pit2. The start-up and shut-
+down costs (Ui(pit) and Di(pit)) can be designed as described in [34]. 
+Eq. (1b) gives the power balance constraints of the system, and ( 1c) is the minimum and maximum power limits 
+of the generating units. Eqs. ( 1d) and (1e) represent the spinning reserve of the system and generators' ramping rate 
+constraints, respectively. The generators are constrained by minimum uptime and downtime constraints, which are 
+expressed by ( 1f) and ( 1g), respectively. The fuel limit constraints of the entire system, as well as each generating 
+unit, are given by (1h) and (1i), respectively. The constraint (1j) expresses the total emission limit of the given system. 
+Further details of these constraints can be found in [34]. There can be a set of other constraints incorporated in the UC 
+problem, including but not limited to transmission line capacity for real and reactive power flows, bus voltage 
+amplitude and phase limits, transmission network maintenance constraints, and l oad shedding [33, 34, 35, 36, 37]. 
+ 
+3. Quantum Annealing (QA) and QA-Compatibility 
+ 
+3.1 Quantum Annealing 
+Quantum annealing (QA) is a heuristic approach to solving optimization problems based on adiabatic quantum 
+computing. It takes advantage of quantum physics phenomena such as quantum tunneling, entanglement, and 
+superposition. The QA finds the global minimum of a given objective function over a range of solutions, and is mostly 
+utilized for problems with a discrete search space (combinatorial optimization problems) and a large number of local 
+minima [38]. The QA can be designed for binary quadratic model (BQM) (to minimize QUBO or Ising functions), 
+and for discrete quadratic model (DQM) as [39, 40]:   
+BQM (QUBO): 𝑚𝑖𝑛 ∑ 𝑄𝑖𝑗 𝑥𝑖 𝑥𝑗
+𝑖𝑗
++ ∑ 𝑚𝑖𝑥𝑖
+𝑖
+, (2a) 
+BQM (Ising):  𝑚𝑖𝑛 ∑ 𝐽𝑖𝑗𝑦𝑖𝑦𝑗
+𝑖𝑗
++ ∑ ℎ𝑖
+𝑖
+𝑦𝑖 ,  (2b) 
+DQM:  𝑚𝑖𝑛 ∑ 𝐺𝑖𝑗(𝑑𝑖𝑑𝑗)
+𝑖𝑗
++ ∑ 𝑛𝑖(𝑑𝑖),
+𝑖
+  (2c) 
+where xi ∈ {0,1} and yi ∈ {-1,1} are the decision variables, mi and hi are the linear weight, and Jij and Qij for i, j 
+∈ {1, 2, ..., n} is the quadratic coupler specified by the users to define the considered problem. The QUBO and Ising 
+formulations are equivalent by xi = (1 + yi)/2 [41]. In (2c), di is the discrete variable, ni(.) and Gi j(.) are real-valued 
+functions. The DQM can be transformed to equivalent binary model by replacing the discrete variable di with binary 
+variable using one-hot encoding constraint ∑ 𝑥𝑖(𝑛)𝑛 =  1, ∀ 𝑖 which can further be formulated introducing penalty 
+parameter [40, 42, 43]. 
+𝑚𝑖𝑛 ∑ φ𝑖𝑗ρ𝑖ρ𝑗
+𝑖𝑗
++ ∑ ψ𝑖ρ𝑖
+𝑖
+     (3a) 
+  ∑ αi(ε)ρiI + ∑ βij(ε)ρiρjij = 0,  ε = 1, … , Φeq     (3b) 
+∑ ϕi(ϵ)ρi
+i
++ ∑ ςij(ϵ)ρiρj
+ij
+≤ 0,  ϵ = 1, … , Φinq     (3c) 
+where decision variable 𝜌𝑖 can be binary or real-valued integer variable, 𝜑𝑖𝑗, 𝜓𝑖, 𝛼𝑖, 𝛽𝑖𝑗, 𝜙𝑖(𝜖), 𝜍𝑖𝑗(𝜖) are real-valued 
+coefficients, and Φeq and Φinq are the number of equality and inequality constraints, respectively. The QA 
+algorithm can be implemented as a time-varying Hamiltonian ℋ with a 𝑡𝑎 time interval as [45]: 
+ 
+ℋ(s)  =  A(s) HI  +  B(s) HP (4) 
+where ta is the annealing time during which ℋ transitions from 𝐻𝐼 to  𝐻𝑃, annealing path functions 𝐴(𝑠) and 
+𝐵(𝑠) are defined in terms of normalized time s =t/𝑡𝑎, which satisfy the conditions 𝐴(0) = 1, 𝐴(𝑡𝑎) = 0 and 𝐵(0)  = 
+0, 𝐵(𝑡𝑎)  = 1. The initial Hamiltonian 𝐻𝐼 describes initial conditions, which can be given by 
+
+=== PAGE BREAK ===
+
+6  
+ 
+HI = ∑ σx
+(i)
+i
+ (5) 
+where 𝜎𝑥
+(𝑖) is the Pauli-x operator applied to qubit i. The problem Hamiltonian 𝐻𝑃 describes the ground state for the 
+qubits, which can be given as: 
+HP = ∑ hiσz
+(i)
+i
++ ∑ Jijσz
+(i)σz
+(j)
+ij
+ (6) 
+where 𝜎𝑧
+(𝑖) denotes the Pauli-z operator applied to qubit i. The vectors and eigenvalues of 𝐻𝑃 correspond to the 
+solutions and costs defined by (2). 
+The QA process works as follows. The qubits are placed  in a superposition state at s = 0 according to 𝐻𝐼. When s 
+increases, ℋ(𝑠) develops by increasing 𝐵(𝑠) and diminishing  𝐴(𝑠), which allows the problem Hamiltonian to 
+eventually evolve. When s = 1 at the end, the qubit states give classical spin values yI = {±1} and a minimum -
+eigenvalue (ground) state for ℋ(𝑠 = 1) = 𝐻𝑃 corresponds to an ideal solution for  the energy function of the Ising 
+model (2b) [46]. As quantum annealers are open systems, there is a chance that the qubits would not end in the ground 
+state; hence in the common application, multiple anneals are used to improve the solution quality. To solve a problem 
+using a QA approach on D -Wave’s quantum annealers, the objective function should first be formulated as BQM, 
+DQM, or CQM. Then the objective function’s variables such as xi or yi or ρi are mapped to qubits on the QPU, and 
+the quadratic coefficients such as Qi j or Ji j or Gi j or φi j are mapped to couplers, which is called minor embedding. 
+Finally, the QPU utilizes QA to find the solution to the problem. 
+3.2 QA-Compatible Unit Commitment 
+ 
+In BQM, any optimization problem must be reformulated as a quadratic unconstrained binary optimization. 
+Therefore, the UC problem in (6) is required to be transformed into a QUBO problem to solve it in a quantum annealer 
+with BQM solvers. This paper presen ts two methods to design a quantum -compatible UC (QCUC) problem in the 
+form of QUBO, described in the following sub -sections. The QUBO for the UC problem through the discretization 
+process can be achieved using two different approaches, as follows. The QC formulation can be given as:  
+𝑚𝑖𝑛 ∑(𝑎𝑖(1 − 𝑣𝑖) + 𝑏𝑖𝑝𝑖 + 𝑐𝑖𝑝𝑖
+2)
+𝑖
+ (7) 
+s.t.:  
+𝑝𝑖 = ∑ (𝑝𝑖
+𝑚𝑖𝑛 + ℎ𝑖(𝑘 − 1)) 𝑧𝑖𝑘
+𝑁+1
+𝑘=1
+     ∀𝑖 (8a) 
+ℎ𝑖 = 𝑝𝑖
+𝑚𝑎𝑥 − 𝑝𝑖
+𝑚𝑖𝑛
+𝑁   ∀𝑖 (8b) 
+∑ 𝑝𝑖
+𝑖
+= 𝐿 (8c) 
+𝑣𝑖 + ∑ 𝑧𝑖𝑘
+𝑁+1
+𝑘=1
+= 1  ∀𝑖 (8d) 
+∑ (1 − 𝑣𝑖,𝑡)
+𝑡+𝑈𝑇𝑖−1
+𝑡
+≥ 𝑈𝑇𝑖(𝑣𝑖,𝑡−1 − 𝑣𝑖,𝑡), ∀𝑖, ∀𝑡 ∈ [1, 𝒯 − 𝑈𝑇𝑖 + 1] 
+ 
+(8e) 
+∑ (𝑣𝑖,𝑡)
+𝑡+𝐷𝑇𝑖−1
+𝑡
+≥ 𝐷𝑇𝑖(𝑣𝑖,𝑡 − 𝑣𝑖,𝑡−1), ∀𝑖, ∀𝑡 ∈ [1, 𝒯 − 𝐷𝑇𝑖 + 1] (8f) 
+𝑝𝑖,𝑡 − 𝑝𝑖,𝑡−1 ≤ 𝑅𝑈𝑖(1 − 𝑣𝑖,𝑡), ∀𝑖, ∀𝑡 ∈ [2, 𝒯] 
+(8g) 
+
+=== PAGE BREAK ===
+
+7  
+𝑝𝑖,𝑡−1 − 𝑝𝑖,𝑡 ≤ 𝑅𝐷𝑖(1 − 𝑣𝑖,𝑡−1), ∀𝑖, ∀𝑡 ∈ [2, 𝒯] 
+(8h) 
+where ai, bi, and ci are the binary, linear, and quadratic cost coefficients, respectively, and vi,t and pi,t are the binary and 
+continuous decision variables representing the online status and power generation of unit i at hour t. Eqs. (8a) and 
+(8b) detail how the continuous variable pi,t is discretized, by splitting it into N segments that range from Pmin to Pmax 
+in increments of hi. This introduces a new binary variable, zi,t,k, for the online status of  the N discretized segments of 
+the power generation of unit i at hour t. Eq. (8c) represents the load constraint, analogous to (1b). Eq. (8d) constrains 
+the binary variables vi,t and zi,t,k for each unit at each hour, ensuring that only one bin is selected.  Eqs. (8e) and (8f) 
+represent the minimum up-time and down-time constraints, analogous to (1f) and (1g).  Eqs. (8g) and (8h) represent 
+the ramping rate constraints, similar to (1e), al though separated into two constraints to be reformulated into a QUBO 
+model. Once the constraints are rewritten, they can be summed with the objective to form a single QUBO to be sent 
+to the quantum annealer: 
+𝑚𝑖𝑛 
+𝑝𝑖𝑡,𝑣𝑖𝑡
+∑ ∑ (𝑎𝑖𝑣𝑖 + 𝑏𝑖 ∑ (𝑃𝑖
+𝑚𝑖𝑛 + ℎ𝑖(𝑘 − 1)) 𝑧𝑖,𝑡,𝑘
+𝑁+1
+𝑘=1
++ 𝑐𝑖 (∑ (𝑃𝑖
+𝑚𝑖𝑛 + ℎ𝑖(𝑘 − 1)) 𝑧𝑖,𝑡,𝑘
+𝑁+1
+𝑘=1
+)
+2
+𝑖∈𝒩𝑡∈𝑇
++ 𝐴 (∑ ∑ (𝑃𝑖
+𝑚𝑖𝑛 + ℎ𝑖(𝑘 − 1)) 𝑧𝑖𝑘
+𝑁+1
+𝑘=1𝑖
+− 𝐿)
+2
++ 𝐵 ((1 − 𝑣𝑖) + ∑ 𝑧𝑖𝑘
+𝑁+1
+𝑘=1
+− 1)
+2
++ 𝐶 ∑ (𝑈𝑇𝑖(𝑣𝑖,𝑡−1 − 𝑣𝑖,𝑡) − ∑ (1 − 𝑣𝑖,𝑡)
+𝑡+𝑈𝑇𝑖−1
+𝑡
+)
+2
+𝑖∈𝒩
++ 𝐷 ∑ (𝐷𝑇𝑖(𝑣𝑖,𝑡 − 𝑣𝑖,𝑡−1) − ∑ (𝑣𝑖,𝑡)
+𝑡+𝐷𝑇𝑖−1
+𝑡
+)
+2
+𝑖∈𝒩
++ 𝐸 ∑ (∑(ℎ𝑖(𝑘 − 1))𝑧𝑖,𝑡,𝑘
+𝑁+1
+𝑘=1
+− ∑(ℎ𝑖(𝑘 − 1))𝑧𝑖,𝑡−1,𝑘
+𝑁+1
+𝑘=1
+−  𝑅𝑈𝑖)
+2
+𝑖∈𝒩
++ 𝐹 ∑ (∑(ℎ𝑖(𝑘 − 1))𝑧𝑖,𝑡−1,𝑘
+𝑁+1
+𝑘=1
+− ∑(ℎ𝑖(𝑘 − 1))𝑧𝑖,𝑡,𝑘
+𝑁+1
+𝑘=1
+−  𝑅𝐷𝑖)
+2
+)
+𝑖∈𝒩
+ 
+(9) 
+ 
+where A-F are the penalty coefficients associated with (8c)-(8h). These penalty coefficients ensure that their respective 
+constraints are satisfied, and need to be weighted such that no individual penalty outweighs the others or the objective, 
+leading to nonoptimal or infeasible solutions as shown in [47]. Eq. (9) is the QUBO formulation of the UC problem, 
+with (8a), (8b) detailing the discretization used in this traditional QA-only QUBO approach. 
+ 
+3. Benders Decomposition 
+ 
+The proposed hybrid quantum -classical algorithm utilizes Benders decomposition, which is an iterative approach  
+for solving large-scale optimization problems by dividing the overall optimization problem into several sub-problems, 
+and introducing Lagrangian variables by simultaneously considering all decision variables and constraints [29]. One 
+of the subproblems is called  the master problem, and the solution to the master problem is sent to the subproblems to 
+influence their solutions. Further subproblems send their solutions back to the master problem in the form of a cut, and 
+information continues to be sent back and forth between master and subproblems in an iterative manner until the 
+optimal unit commitment solution is converged upon.  The formulation of the master problem for the UC problem 
+presented in (7)-(8h) can be given as follows: 
+ 
+ 
+ 
+ 
+
+=== PAGE BREAK ===
+
+8  
+ 
+ 
+Figure 1: Process Flow for Quantum Decomposed Hybrid and MINLP solutions 
+𝑚𝑖𝑛 
+𝑣𝑖,𝑡
+𝑤 = ∑ ∑(𝑎𝑖𝑣𝑖,𝑡)
+𝑖∈𝒩𝑡∈𝒯
++ λ, (10a) 
+∑ 𝑃𝑖
+𝑚𝑎𝑥
+𝑖∈𝒩
+𝑣𝑖,𝑡 ≥ 𝐿𝑡,  ∀𝑡 (10b) 
+∑ (vi,t)
+t+UTi−1
+t
+≥ UTi(vi,t − vi,t−1), ∀i, ∀t ∈ [1, 𝒯 − UTi + 1] (10c) 
+∑ (1 − vi,t)
+t+DTi−1
+t
+≥ DTi(vi,t−1 − vi,t), ∀i, ∀t ∈ [1, 𝒯 − DTi + 1] (10d) 
+where λ ≥ 0 is a Lagrangian variable representing the solutions to the subproblem. The master subproblem determines 
+the value of the binary variable vi,t based on minimizing the binary cost coefficient ai, while ensuring that the units 
+selected are able to satisfy each hour’s load constraint with eq. (10b) and the minimum-required uptime and downtime 
+of each unit with (10c) and (10d). Based  on the values of vi,t, indicating the selected units, the subproblem computes 
+the value of pi,t. The formulation for the subproblem can be given, as follows: 
+𝑚𝑖𝑛 
+𝑝𝑖,𝑡
+∑ ∑(𝑏𝑖𝑝𝑖,𝑡 + 𝑐𝑖𝑝𝑖,𝑡
+2 )
+𝑖∈𝒩𝑡∈𝒯
+ (11a) 
+𝑢𝑖,𝑡 = 𝑣𝑖,𝑡̂   ∀𝑖, ∀𝑡 
+(11b) 
+∑ 𝑝𝑖,𝑡
+∀𝑖∈𝒩
+= 𝐿𝑡  ∀𝑡 (11c) 
+𝑝𝑖,𝑡 − 𝑝𝑖,𝑡−1 ≤ 𝑅𝑈𝑖𝑢𝑖,𝑡, ∀𝑖, ∀𝑡 ∈ [2, 𝒯] (11d) 
+𝑝𝑖,𝑡−1 − 𝑝𝑖,𝑡 ≤ 𝑅𝐷𝑖𝑢𝑖,𝑡−1, ∀𝑖, ∀𝑡 ∈ [2, 𝒯] (11e) 
+where uit are the binary variables, now fixed as constants by taking their values from the initial master problem 𝑣̂𝑖𝑡. 
+Using the fixed selected units, the subproblem minimizes the economic dispatch of those units, while ensuring that 
+the constraints around power generation, such as the power bound constraints, load satisfaction constraint, and 
+ramping rate constraints, a re satisfied. The solution from the subproblem is sent back to the master problem in the 
+form of a cut. The cut is defined as: 
+ 
+
+
+=== PAGE BREAK ===
+
+9  
+ λ ≥ 𝑤̂ + ∑ ∑ 𝜇𝑖𝑡(𝑣𝑖𝑡 − 𝑣𝑖𝑡̂)𝑖𝑡  
+(12) 
+where 𝑤̂ is the minimized objective value from the subproblem (11), µi,t is the dual variable value from each of  the 
+constraints for each unit i at hour t, and vˆi,t is the binary online status of unit i according to the solution from the 
+previous master problem. The cut is returned to a new iteration of the master problem, where units are newly selected 
+using the information from the cut regarding dual variables from the constraints of previously chosen and optimized 
+units. This iterative information exchange between the master and subproblem continue until the units selected in the 
+master problem and the objective value from the economic dispatch in the subproblem remain constant throughout 
+iterations. To utilize Benders decomposition in a hybrid quantum-classical model, the master problem of unit selection 
+is chosen as the quantum component and must be converted into QUBO format. The final QUBO for the quantum 
+master problem, is defined as: 
+ 
+min
+𝑣𝑖,𝑡
+ ∑(∑(𝑎𝑖𝑣𝑖,𝑡) + 𝐴(∑ 𝑃𝑖
+𝑚𝑎𝑥𝑣𝑖 − 𝐿)
+𝑖∈𝑁
++ 𝐵 ∑ (𝑈𝑇𝑖(𝑣𝑖,𝑡 − 𝑣𝑖,𝑡−1) − ∑ 𝑣𝑖,𝑡
+𝑡+𝑈𝑇𝑖−1
+𝜏=1
+)
+2
+ 
+𝑖∈𝑁𝑖∈𝑁𝑡∈𝑇
++ 𝐶 ∑ (𝐷𝑇𝑖(𝑣𝑖,𝑡−1 − 𝑣𝑖,𝑡) − ∑ (1 − 𝑣𝑖,𝑡)
+𝑡+𝐷𝑇𝑖−1
+𝜏=1
+)
+2
+ 
+𝑖∈𝑁
++ 𝜆  
+(13) 
+ 
+where λ is defined in the cut according to (12). The resulting QUBO for the master problem of the proposed method 
+utilizes three penalty coe fficients, unlike the QUBO  for the QA-only method in (9) which utilizes six penalties. This 
+will allow for easier balancing of penalty and objective terms in the decomposition hybrid model than in the previous 
+discretization model. This would increase the likelihood of finding feasible solutions in methods like D-Wave’s BQM 
+that only utilize QUBO formulations.  However, for this hybrid model, we uti lize the CQM, which provides direct 
+support for mod eling mathematic constraints [44] and only returns so lutions that are feasible according to those 
+constraints. Because of this, it is not necessary to tune penalty coefficients like in previous work [47]. This capability to 
+directly model constraints reduces the need for extensive manual tuning and improves workflow efficiency, while still 
+maintaining feasible and high-quality solutions. 
+Additionally, since the continuous power generation variables are handled using classical linear pro gramming 
+solvers in the subproblem of this proposed method, the resulting power generation can be rep resented as precise 
+solutions, rather than as approxi mations achieved by the discretized QA -only QUBO model.  The result here is a 
+quantum-classical hybrid method in which a Benders decomposition technique is used to separate the binary variables 
+and continuous variables so that the problems associated with respective variables can be solved in a quantum annealer 
+and in a classical computer, respectively. The iterative process flow for the hybrid model is visualized in Figure 1. 
+ 
+4. Numerical Results 
+ 
+The simulations in this paper are all based on a 10 -unit system, and the parameters for this system can be 
+seen in Table 1. The quantum annealing aspects were programmed using D -Wave's Ocean SDK and executed on the 
+Advantage 4.1 QPU and its Pegasus topology [48]. The hybrid algorithm was formulated within D -Wave’s CQM 
+framework, and once variables were encoded in QUBO form, the model was solved using the LeapHybridCQMSolver 
+with default parameters [49]. The Advantage 4.1 QPU has 5,640 qubits, which allowed us to model up to 1,000 units 
+in a single system. This work intentionally benchmarks a 1,000-unit UC system as a practical upper bound for current 
+quantum annealing hardware. Within the proposed Bender s decomposition framework, each generating unit 
+contributes three binary decision variables (online status, startup, and shutdown), yielding 3,000 binary variables for 
+the largest test case —well within the 5,000 -variable capacity supported by D -Wave’s CQM [44]. While this fits 
+comfortably within current hardware limits, we note that minor-embedding requires mapping each logical variable to 
+multiple physical qubits, introducing connectivity overhead and potentially increasing embedding time. The Pegasus 
+topology supports 16 couplers per qubit [48], meaning dense, highly connected problems require careful embedding 
+to avoid qubit fragmentation. 
+Table 1: 10-Unit System Parameters 
+a [$] b [$/MWh] c [$/MW2h] Pmax [MW] Pmin [MW] Uτ [hr] i Dτ [hr] i Ri [MW] 
+1000 16.19 0.00048 455 150 8 8 150 
+
+=== PAGE BREAK ===
+
+10  
+970 17.26 0.00031 455 150 8 8 150 
+700 16.69 0.002 130 20 5 5 40 
+680 16.5 0.00211 130 20 5 5 40 
+450 19.7 0.00398 162 25 6 6 45 
+370 22.26 0.00712 80 20 3 3 20 
+480 27.74 0.0079 85 25 3 3 25 
+660 25.92 0.00413 55 10 1 1 15 
+665 27.27 0.00222 55 10 1 1 15 
+670 27.79 0.00173 55 10 1 1 15 
+ 
+The MINLP simulations utilized IBM's DOcplex. A genetic algorithm (GA) solution [50] and a simulated 
+annealing (SA) algorithm [51] solution were simulated in order to provide comparisons to classical metaheuristic 
+methods relevant to UC. All simulations were done using Python v3.10. The smallest simulation size analyzed is the 
+10-unit system presented in Table 1, and the largest simulation size analyzed is a 1,000 -unit system. The simulations 
+are scaled up in 10 -unit increments by duplicating the original 10 -unit system to reach the desired system size. This 
+duplication process means that many units in scaled-up systems will be exactly the same and that larger systems will 
+likely have more than one unit commitment schedule that achieves the minimum cost. Because of this, to compare the 
+accuracy of the hybrid method, absolute relative cost error is used in terms of percentages, with the MINLP classical-
+only solution taken as the baseline. This allows multiple unit commitment schedules to be compared on accuracy to 
+the optimal schedule using a single metric. For the MINLP and heuristic algorithm solutions, 10 runs were conducted 
+at each system size and the solution time and final objective value were taken for each run. For the hybrid quantum -
+classical solution, 10 runs were conducted in the range of 10 -unit to 100 -unit systems, to characterize the variance 
+and consistency of the hybrid algorithm. Due to limited access time on the CQM, we were unable to perform the 10 
+runs for larger systems, and systems larger than 100 units were restricted to a single run. For each run of the hybrid 
+quantum-classical solution, comput ation time and objective value were taken for each iteration of the hybrid 
+algorithm. Since the proposed hybrid quantum-classical algorithm is an iterative algorithm, it is necessary to show the 
+progress of solution quality over several iterations and char acterize the convergence behavior of the algorithm. The 
+iterative process of the proposed hybrid model requires two consecutive iterations to be within 0.5 % of the objective 
+value of previous iteration’s objective value in order to converge. Figure 2 shows the objective value per iteration 
+count for system sizes ranging from 10 to 100 units, for 10 runs each. The difference in objective value is represented 
+as the absolute value of the difference in an iteration's objective value from the previous iteration. For smaller system 
+sizes (10-50 units), 3 iterations are often all that is needed to converge, and as the system size increases, more iterations 
+are needed, up to 8 iterations in the maximum case. Generally, solutions converge upon an area within t he iterative 
+process, which is seen as the optimality gap tends to decrease with iterations.  
+ 
+Figure 2: Per-Iteration Absolute Optimality Gap 
+A 24-hour cycle for load demand is considered, which can be seen in Figure 3. The load demand is also linearly scaled 
+for any simulations of systems beyond 10 units. 
+ 
+
+
+=== PAGE BREAK ===
+
+11  
+ 
+Figure 3: 24-Hour Load Demand Cycle for 10-Unit System 
+Figure 4 presents the computation times for the MINLP, GA, and SA classical methods and the proposed quantum –
+classical hybrid approach across a range of system sizes. 
+ Figure 4: Computation Time of UC Solutions 
+For small - to medium -scale systems, ranging from 10 to 100 generation units, the MINLP and hybrid methods 
+demonstrate comparable performance, with computation times remaining nearly identical, while the metaheuristic 
+methods experience a higher rate of com putation time growth. This suggests that, at smaller scales, the overhead 
+introduced by hybridization does not yield significant gains over the classical baseline. However, as the problem size 
+increases—particularly at 400 units and beyond—a clear divergence in performance emerges. The quantum–classical 
+hybrid model consistently outperforms the classical MINLP, GA, and SA approaches, exhibiting noticeably lower 
+computation times. The GA method had a mean computation time of 9,921 seconds at 200 units and th e SA method 
+had a mean computation time of 4573 seconds at 400 units, and both metaheuristic simulations were stopped there as 
+they exceeded one hour of computation. This performance gap becomes increasingly pronounced with larger systems, 
+underscoring the  scalability advantage of the hybrid algorithm. For this study, computation time of each solver is 
+compared, however the hybrid quantum -classical algorithm also has additional overhead time costs in the form of 
+finding an embedding for the problem onto the  QPU and latency in cloud communication [52]. However, the 
+LeapHybridCQMSolver used for the CQM only reports time spent accessing the QPU, therefore the overhead time 
+costs are not considered in this study. These overhead time costs can limit the utility of the hybrid model, particularly 
+at smaller system sizes where the difference in computation time between MINLP and the hybrid algorithm can be 
+relatively smaller. However, at larger scales, it is expected that the decrease in computation time from the hybrid 
+model should eclipse the overhead costs, making them less relevant at larger, more realistic problem scales. 
+In its present state, QA provides similar solution times to MINLP, GA, and SA for small systems, but its 
+performance curve scales more favorably with problem size, offering potential benefits as qubit counts and coherence 
+times improve in future hardware g enerations. The advantage of leveraging D -Wave’s CQM is that it reduces the 
+
+
+=== PAGE BREAK ===
+
+12  
+burden of penalty coefficient tuning—traditionally a major challenge in QUBO modeling—and guarantees constraint 
+satisfaction, thereby improving solution stability as system complexity grows.  
+ Notably, at the 1,000-unit scale, the hybrid solution maintains computational feasibility where the classical method 
+heuristic methods have already exceeded one hour of mean computation time. These results highlight the hybrid 
+model’s potential to efficie ntly handle large -scale resource scheduling problems, where classical methods often 
+encounter computational bottlenecks.  Figure 5 illustrates the mean computation time of the four methods using a 
+logarithmic scale. From this, it can be seen that the computation time of the classical solutions increase at a much 
+higher rate than the hybrid solution, highlighting the divergence in com putation time between the UC solutions and 
+the potential for the hybrid model to solve larger UC or resource scheduling problems more efficiently than current 
+mixed-integer linear programming or classical metaheuristic methods. Results from a simplified di scretized method 
+have previously shown that the discretized QUBO model experiences approximately 59% growth in computation time 
+from 10- to 200-unit systems [47], and results here for the classical model demonstrate a computation time growth of 
+over 3,600 % for the same range, while the decomposed hybrid model has experienced approximately a 61 % 
+computation time growth. Both the discretized and decomposed models exhibit a computation time growth far less 
+than the classical-only model, and while the discretized model technically experienced less growth, it is representing 
+a 1-hour system and its computation time can only be expected to grow further if expanded to a 24 -hour system like 
+the one presented here. 
+ 
+Figure 5: Computation Time Growth of UC Solutions 
+Due to the unit duplication method to create systems larger than 10 units, there exist multiple optimal solutions to 
+larger systems, creating redundancies and symmetries in the solution space. Rather than compare multiple 
+commitment schedules that have ide ntical objective values but differing schedules, schedules are directly compared 
+in terms of their objective values, by calculating the absolute cost error or the optimality gap between solutions as 
+follows: 
+𝑂𝐺 =  |𝑓𝑐 − 𝑓ℎ|
+𝑓𝑐
+ (14) 
+where OG is the overall optimality gap, fc is the objective value of the classical solution, and fh is the objective value 
+of the hybrid quantum -classical solution. Figure 6 illustrates the optimality gap of the hybrid so lution, or how far its 
+objective is from the MINLP baseline solution. 
+
+
+=== PAGE BREAK ===
+
+13  
+ 
+Figure 6: Optimality Gap Between UC Solutions 
+The optimality gap for the hybrid solution is highest at the lower system sizes where quantum discretization introduces 
+the most approximation error, with an optimality gap of 2.19 % at 40 units, and lowest at the 1000 -unit system, with 
+an optimality gap of 0.0133%. This indicates that the hybrid solution is never more than 2.19% less optimal than the 
+classical solution, and that as the systems become larger and more complex, the hybrid solution is not experiencing a 
+monotonically increasing optimality gap but rather that solution quality is increasing.  The GA so lution started at 
+7.75% optimality gap at 10 units and decreased to 5.76% at 200 units, while the SA solution started at 4.30% optimality 
+gap at 10 units and increased to 29.42% at 400 units. The solutions for the metaheuristic methods are sensitive to their 
+hyperparameters and would likely improve with more iterations, however their computation times quickly became too 
+prohibitive to continue their simulations. 
+ 
+Figure 7: Coefficient of Variance of UC Solutions 
+To determine the variability of the proposed hybrid method compared to the classical methods, the coe fficient of 
+variation (CV) was calculated for each system size where multiple simulations were run.  The CV is the ratio of the 
+standard deviation of the objective val ues to the mean objective value for each system size. Figure 7 demonstrates 
+the CV of each method across their simulation ranges. MINLP had a CV of 0 across all simulations, as it achieved the 
+same result each time. SA consistently had the highest variation in results, followed by GA, then the hybrid algorithm. 
+The variation of the hybrid algorithm’s results increases as the sys tem size increases, but it remains lower than the 
+metaheuristic methods’ variations.  Alongside the compu tation time growth, these results indicate that the hy brid 
+solution is well-suited for large-scale combinatorial optimization problems, like large -scale UC. In the range  of 10- 
+to 200-unit systems, the discretized  model [47] experienced a monotonically increasing optimal ity gap, increasing 
+from 3% to just over 20%.  The decomposed hybrid model here experienced optimality gaps of 1.63% and 1.02% 
+across the same range, indicating that the UC schedules it produces are consistently more optimal than those from the 
+decomposed QUBO model. The lower optimality gap experienced by the proposed decomposition hybrid model could 
+
+
+=== PAGE BREAK ===
+
+14  
+be due to the automatic handling of constraints by the CQM, rather than utilizing penalty coefficients in the QA-only 
+QUBO model. The  modeling of continuous power generation using a classical solver also likely improves the 
+optimality gap of the proposed decomposed model, as more precise values can be optimized for, rather than 
+approximations achieved by discretization. 
+Further investigations into the limits of hybrid modeling using decomposition methods for resource scheduling 
+need to be investigated, as the results here demonstrate that a hybrid quantum-classical model can achieve near-
+optimal solutions, at most 1.63% from optimal, and demonstrate a computation time growth much lower than a 
+classical-only model. However, the hybrid 24- hour UC model presented here is a simplified version to show the 
+utility and feasibility of the hybrid quantum- classical algorithm, while UC used by grid operators involve aspects 
+like security constraints, power flow constraints, and spinning reserves. These and other similar constraints will 
+require additional qubits to be utilized to model them using existing QA architecture, and qubits are often a limiting 
+factor in the scope of problems that can be embedded to the QPU and mod eled successfully. As QPU architecture 
+and embedding algorithms continue to develop and expand, it is expected that more complex, realistic UC and 
+resource scheduling problems can be modeled. This work serves as an initial investigation into the utilization of QC 
+and hybrid quantum-classical models for UC and resource scheduling. This study also assumes certain knowledge of 
+demand profiles and generator parameters, while real-world power system operation often involves uncertainty in 
+these inputs. Perturbations in demand or cost parameters would change the coefficients of the QUBO formulation, 
+potentially affecting the balance of objective and constraint terms and, in turn, the resulting unit commitment 
+schedule. Such sensitivity may require re-solving to maintain feasibility and near- optimality. Future work could 
+address this challenge through scenario-based analysis, in which multiple QUBOs are generated and solved for 
+perturbed demand scenarios to assess solution stability and performance variation.  Using iterative penalty-tuning 
+frameworks or the CQM framework, which automatically handles mathematical  constraints, may improve solution 
+robustness under input uncertainty. Incorporating these techniques would bring the proposed methodology closer to 
+deployment in realistic, uncertain operating environments. 
+Additionally, as problem size and connectivity increase, quantum noise and decoherence are more likely to perturb 
+the annealing process away from the ground state  [53, 54]. These  observations reinforce the need for advanced  
+decomposition strategies, embedding heuristics, and error-mitigation techniques to scale hybrid quantum-classical UC 
+to even larger, more realistic systems in future work. 
+ 
+5. Conclusions and Future Work 
+A quantum-classical hybrid optimization strategy utilizing Benders decomposition was proposed to improve the 
+accuracy and computational efficiency of the unit commitment solution, with broader applicability to resource 
+scheduling algorithms. The quantum component was implemented using D-Wave's Ocean software development kit, 
+while the classical aspects were implemented using IBM's DOcplex. The hybrid model was compared to a classical 
+MINLP model and metaheuristic GA and SA models across a range of 10 - to 1,000-unit systems, and the results 
+demonstrate that the hybrid model has a consistently lower computation time, lower rate of growth, and optimality 
+gap within 2.19%.  
+The results illustrate the potential for hybrid computing to tackle the challenges introduced by the ever -increasing 
+complexity of modern power grids. Quantum technology and solutions are developing rapidly, however pure quantum 
+solutions are currently fou nd to produce inaccurate results or be insufficient at decreasing computation time when it 
+comes to the optimization of resource scheduling problems. Hybrid models may represent a method to bridge the gap 
+between classical and quantum computers, utilizing the strength of both computational paradigms to provide adaptable 
+solutions. This study provides an exploration and guide of hybrid computing, with initial results demonstrating a 
+feasible, competitive solution to its classical counterparts. 
+This study intentionally utilized replicated 10 -unit blocks to construct larger test systems, representing an initial 
+step to developing and validating hybrid quantum -classical for the 24 -hour UC problem and  providing a controlled 
+and scalable environment to evaluate algorithmic performance independently of system heterogeneity. This approach 
+allows for isolating the effects of problem size on computational behavior and benchmarking the proposed hybrid 
+quantum-classical framework at the upper bounds of current QPU capacity. 
+Future work will introduce random perturbations to reduce solution symmetry and incorporate operationally 
+critical constraints—including transmission and security limits, spinning reserves, emissions limits, and power flow 
+modeling—to bring the UC formulat ion closer to real -world practice. These extensions, along with continued 
+advances in quantum hardware capacity and connectivity, will enable even more realistic and practically relevant 
+hybrid UC solutions. We intend to investigate the application of hybr id quantum -classical modeling and Benders 
+decomposition for other resource scheduling problems within the power systems domain as well. Further 
+
+=== PAGE BREAK ===
+
+15  
+investigations into more complex, realistic modeling environments will require further advancements in quantum 
+hardware and hybrid modeling methods. 
+Data and code for the simulations and analyses produced here are available upon request to the corresponding 
+author. 
+ 
+References 
+[1] K. H. Ecker, “Scheduling of resource tasks,” European Journal of Operational Research , vol. 115, no. 2, pp. 
+314–327, 1999. 
+[2] Y. Nie, L. T. Biegler, C. M. Villa, and J. M. Wassick, “Discrete time formulation for the integration of scheduling 
+and dynamic optimization,” Industrial & Engineering Chemistry Research, vol. 54, no. 16, pp. 4303–4315, 2015, 
+publisher: American Chemical Society. 
+[3] D. M. Franco-Duran and J. M. d. l. Garza, “Review of resource- constrained scheduling algorithms,” Journal of 
+Construction Engineering and Management, vol. 145, no. 11, p. 03119006, 2019. 
+[4] Q. Luo, S. Hu, C. Li, G. Li, and W. Shi, “Resource scheduling  in edge computing: A  survey,” IEEE 
+Communications Surveys & Tutorials, vol. 23, no. 4, pp. 2131–2165, 2021. 
+[5] K. Abdul-Rahman, S. Shahidehpour, M. Aganagic, and S. Mokhtari, “A practical resource scheduling with OPF 
+constraints,” IEEE Transactions on Power Systems, vol. 11, no. 1, pp. 254–259, 1996. 
+[6] S. S. Ullah, S. Yankson, S. Ebrahimi, F. Ferdowsi, and T. Chambers, “Smart investment framework for energy 
+resilience: A case study of a campus microgrid research facility,” Next Energy, vol. 4, p. 100131, 2024. 
+[7] Y. Li, K. Wang, C. Xu, Y. Wu, L. Li, Y. Zheng, S. Yang, 
+H. Wang, and M. Ouyang, “The potentials of vehicle-grid integration on peak shaving of a community 
+considering random behavior of aggregated vehicles,” Next Energy, vol. 7, p. 100233, 2025. 
+[8] J. Liu, J. Xiao, J. Yang, W. Wang, Y. Shao, P. Liu, and M. S. Whittingham, “The twh challenge: Next generation 
+batteries for energy storage and electric vehicles,” Next Energy, vol. 1, no. 1, p. 100015, 2023. 
+[9] A. Ray, A. K. Bhonsle, J. Singh, J. Trivedi, and N. Atray, “Examining alternative carbon resources for sustainable 
+energy generation: A comprehensive review,” Next Energy, vol. 6, p. 100194, 2025. 
+[10] A. P. Zhao, S. Li, D. Xie, P. J.-H. Hu, C. Wu, F. X. Fei, T. T. Li, Y. Xiang, C. Gu, and Z. Cao, “Extreme events 
+threat water- energy-carbon nexus through cascading effects,” Next Energy, vol. 5, p. 100151, 2024. 
+[11] P. Bendotti, P. Fouilhoux, and C. Rottner, “On the complexity of the unit commitment problem,” Annals of 
+Operations Research, vol. 274, no. 1, pp. 119–130. 
+[12] Z. Li, L. Li, Y. Wang, G. Bao, H. Liu, D. Liao, and R. Guo,  “Mixed-integer linear programming model and 
+constraints reduction methods for security-constrained unit commitment,” in 2020 IEEE Sustainable Power and 
+Energy Conference (iSPEC). IEEE, 2020, pp. 1437–1443. 
+[13] A. Savasci, A. Inaolaji, and S. Paudyal, “Performance analysis  of mixed-integer conic and mixed -integer linear 
+unit commitment models,” in 2020 IEEE Power & Energy Society General Meeting (PESGM). IEEE, 2020, pp. 
+1–5. 
+[14] L. Yang, J. Jian, Z. Dong, and C. Tang, “Multi -cuts outer ap proximation method for unit commitment,” IEEE 
+Transactions on Power Systems, vol. 32, no. 2, pp. 1587–1588, 2016. 
+[15] D. Palis and S. Palis, “Efficient unit commitment-a modified branch-and-bound approach,” in 2016 IEEE Region 
+10 Conference (TENCON). IEEE, 2016, pp. 267–271. 
+[16] P. Wang, Y. Wang, and Q. Xia, “Fast bounding technique for  branch-and-cut algorithm based monthly scuc,” in 
+2012 IEEE Power and Energy Society General Meeting. IEEE, 2012, pp. 1–8. 
+[17] X. Sun, P. B. Luh, M. A. Bragin, Y. Chen, J. Wan, and F. Wang, “A novel decomposition and coordination 
+approach for large  day-ahead unit commitment with combined cycle units,” IEEE Transactions on Power 
+Systems, vol. 33, no. 5, pp. 5297–5308, 2018. 
+[18] S. Hanafi and R. Todosijevic´, “Mathematical programming  based heuristics for the 0–1 mip: a survey,” Journal 
+of Heuristics, vol. 23, no. 4, pp. 165–206, 2017. 
+[19] S. V. Tade, V. N. Ghate, S. Q. Mulla, and M. Kalgunde, “Application of dynamic programming algorithm for 
+thermal unit commitment with wind power,” in  2018 IEEE Global Conference on Wireless Computing and 
+Networking (GCWCN).  IEEE, 2018, pp. 182–186. 
+[20] P. S. Georgilakis and N. D. Hatziargyriou, “Optimal distributed generation placement in power distribution 
+networks: models, methods, and future research,” IEEE Transactions on power systems, vol. 28, no. 3, pp. 3420–
+3428, 2013. 
+[21] R. Ponciroli, N. E. Stauff, J. Ramsey, F. Ganda, and R. B. Vilim, “An improved genetic algorithm approach to 
+the unit commit ment/economic dispatch problem,” IEEE Transactions on Power Systems, vol. 35, no. 5, pp. 
+
+=== PAGE BREAK ===
+
+16  
+4005–4013, 2020. 
+[22] B. Yang, X. Cao, Z. Cai, T. Yang, D. Chen, X. Gao, and J. Zhang, “Unit commitment comprehensive optimal 
+model considering the cost of wind power curtailment and deep peak regulation of thermal unit,” IEEE Access, 
+vol. 8, pp. 71 318–71 325, 2020. 
+[23] N. Muralikrishnan, L. Jebaraj, and C. C. A. Rajan, “A comprehensive review on evolutionary optimization 
+techniques applied for unit commitment problem,” IEEE Access, vol. 8, pp. 132 980–133 014, 2020. 
+[24] Z. Ma, H. Zhong, Q. Xia, C. Kang, Q. Wang, and X. Cao, “A  unit commitment algorithm with relaxation -based 
+neighborhood search and improved relaxation inducement,” IEEE Transactions on Power Systems , vol. 35, no. 
+5, pp. 3800–3809, 2020. 
+[25] M. H. Ullah, R. Eskandarpour, H. Zheng, and A. Khodaei,  “Quantum computing for smart grid applications,” 
+IET Generation, Transmission & Distribution, vol. 16, no. 21, pp. 4239– 4257, 2022. 
+[26] R. Eskandarpour, K. J. B. Ghosh, A. Khodaei, A. Paaso, and L. Zhang, “Quantum-enhanced grid of the future: A 
+primer,” IEEE Access, vol. 8, pp. 188 993–189 002, 2020. 
+[27] C. McGeoch and C. Wang, “Experimental evaluation of an adiabiatic quantum system for combinatorial 
+optimization,” in  CF ’13: Proceedings of the ACM International Conference on Computing Frontiers . ACM, 
+2013, pp. 1–11. 
+[28] A. Ajagekar and F. You, “Quantum computing for energy sys tems optimization: Challenges and opportunities,” 
+Energy, vol. 179, pp. 76–89, 2019. 
+[29] R. Rahmaniani, T. G. Crainic, M. Gendreau, and W. Rei, “The  benders decomposition algorithm:  A literature 
+review,” European Journal of Operational Research, vol. 259, no. 3, pp. 801– 817, 2017. 
+[30] Z. Zhao, L. Fan, and Z. Han, “Hybrid quantum benders’ de composition for mixed-integer linear programming,” 
+in 2022 IEEE Wireless Communications and Networking Conference (WCNC). IEEE, 2022, pp. 2536–2540. 
+[31] P. Halffmann, P. Holzer, K. Plociennik, and M. Trebing, “A quantum computing approach for the unit 
+commitment problem,” in International conference on operations research. Springer, 2022, pp. 113–120. 
+[32] F. Gao, D. Huang, Z. Zhao, W. Dai, M. Yang, and F. Shuang,  “Hybrid quantum -classical general benders 
+decomposition al gorithm for unit commitment with multiple networked micro grids,” arXiv preprint 
+arXiv:2210.06678, 2022. 
+[33] B. Lu and M. Shahidehpour, “Unit commitment with flexible  generating units,” IEEE Transactions on Power 
+Systems, vol. 20, no. 2, pp. 1022–1034, 2005. 
+[34] T. Niknam, A.  Khodaei, and  F. Fallahi, “A  new decomposition approach for the thermal unit commitment 
+problem,” Applied Energy, vol. 86, no. 9, pp. 1667–1674, 2009. 
+[35] T. Li and M. Shahidehpour, “Dynamic ramping in unit commitment,” IEEE Transactions on Power Systems, vol. 
+22, no. 3, pp. 1379–1381, 2007. 
+[36] W.-S. Tan and M. Shaaban, “A hybrid stochastic/deterministic unit commitment based on projected disjunctive 
+milp reformulation,” IEEE Transactions on Power Systems, vol. 31, no. 6, pp. 5200–5201, 2016. 
+[37] T. Ding, M. Qu, Z. Wang, B. Chen, C. Chen, and M. Shahidehpour, “Power system resilience enhancement in 
+typhoons using a three-stage day-ahead unit commitment,” IEEE Transactions on Smart Grid, vol. 12, no. 3, pp. 
+2153–2164, 2020. 
+[38] S. E. Venegas-Andraca, W. Cruz-Santos, C. McGeoch, and M. Lanzagorta, “A cross-disciplinary introduction to 
+quantum annealing-based algorithms,” Contemporary Physics, vol. 59, no. 2, pp. 174–197, 2018. 
+[39] D-Wave Ocean, “Binary quadratic models,”  https://docs.ocean.dwavesys.com/en/stable/concepts/bqm.html, 
+[Online; Last accessed: 15 July 2022]. 
+[40] D-Wave Systems, “D-Wave Documentation,” 2025, [Online; Last accessed: 21 May 2025]. [Online]. Available: 
+https://docs.dwavequantum.com/en/latest/index.html 
+[41] C. C. McGeoch, “Adiabatic quantum computation and quantum annealing: Theory and practice,” Synthesis 
+Lectures on Quantum Computing, vol. 5, no. 2, pp. 1–93, 2014. 
+[42] S. Okada, M. Ohzeki, and S. Taguchi, “Efficient partition of integer optimization problems with one-hot 
+encoding,” Scientific reports, vol. 9, no. 1, pp. 1–12, 2019. 
+[43] J. Berwald, N. Chancellor, and R. Dridi, “Understanding  domain-wall encoding theoretically and 
+experimentally,” Philosophical Transactions of the Royal Society A, vol. 381, no. 2241, p. 20210410, 2023. 
+[44] D-Wave Ocean, “Hybrid solver for constrained quadratic models,” 
+https://www.dwavequantum.com/media/rldh2ghw/14- 1055a-a hybrid solver for constrained quadratic 
+models.pdf, [Online; Last accessed: 20 January 2025]. 
+[45] H. N. Djidjev, G. Chapuis, G. Hahn, and G. Rizk, “E fficient combinatorial optimization using quantum 
+annealing,” arXiv preprint arXiv:1801.08653, 2018. 
+
+=== PAGE BREAK ===
+
+17  
+[46] C. C. McGeoch, “Theory versus practice in annealing-based quantum computing,” Theoretical Computer Science, 
+vol. 816, pp. 169–183, 2020. 
+[47] T. Christeson, A. Khodaei, and R. Eskandarpour, “Quantum - compatible unit commitment modeling through 
+logarithmic discretization,” in 2024 IEEE PES Innovative Smart Grid Tech nologies Europe (ISGT EUROPE) , 
+2024, pp. 1–5. 
+[48] K. Boothby, P. Bunyk, J. Raymond, and A. Roy, “Next - generation topology of d -wave quantum processors,” 
+arXiv preprint arXiv:2003.00133, 2020. 
+[49] D-Wave Ocean, “Cqm solver properties,” https://docs.dwavequantum.com/en/latest/industrial 
+optimization/solver cqm properties.htmlopt-solver-cqm- properties, [Online; Last accessed: 16 September 2025]. 
+[50] S. A. Kazarlis, A. Bakirtzis, and V. Petridis, “A genetic algo rithm solution to the unit commitment problem,” 
+IEEE transactions on power systems, vol. 11, no. 1, pp. 83–92, 1996. 
+[51] F. Zhuang and F. Galiana, “Unit commitment by simulated an nealing,” IEEE Transactions on Power Systems, 
+vol. 5, no. 1, pp. 311–318, 2002. 
+[52] D-Wave Ocean, “Operations and timing,” https://docs.dwavequantum.com/en/latest/quantum 
+research/ operation timing.html, [Online; Last accessed: 13 September 2025]. 
+[53] T. Zaborniak and R. de Sousa, “Benchmarking hamiltonian  noise in the d -wave quantum annealer,” IEEE 
+Transactions on Quantum Engineering, vol. 2, pp. 1–6, 2021. 
+[54] S. Ashhab, J. Johansson, and F. Nori, “Decoherence in a scalable adiabatic quantum computer,” Physical Review 
+A—Atomic, Molecular, and Optical Physics, vol. 74, no. 5, p. 052330, 2006. 

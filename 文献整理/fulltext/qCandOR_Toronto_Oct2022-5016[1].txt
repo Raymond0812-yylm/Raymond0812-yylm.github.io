@@ -1,0 +1,467 @@
+Distributed Quantum Computing for Network 
+Problems, and other selected topics
+NASA QuAILteam: SohaibAlam, David Bernal Neira, Lucas Brady, Stephen 
+Cotton, Shon Grabbe, Zoe Gonzalez Izquierdo, Stuart Hadfield, Aaron Lott, 
+Salvatore Mandrà, Jeffrey Marshall, Gianni Mossi, Jason Saied, Norm Tubman, 
+Davide Venturelli, ZhihuiWang, Filip Wudarski
+Eleanor Rieffel
+Senior Research Scientist,
+Lead, Quantum Artificial Intelligence Lab (QuAIL) 
+NASA Ames Research Center, Moffett Field, CA
+Joint work with Phillip Kerger, David Bernal Neira, 
+and Zoe Gonzales Izquierdo 
+
+=== PAGE BREAK ===
+
+NASA constantly confronting 
+massively challenging 
+computational problems
+•Computational capacity limits mission 
+scope and aims
+NASA’s leading 
+supercomputing efforts
+NASA QuAIL mandate: 
+Determine the potential for 
+quantum computation to enable 
+more ambitious and safer NASA 
+missions in the future
+Why Quantum Computing at NASA?
+Space Exploration: 
+Resource 
+Allocation and 
+Scheduling
+Aeronautics: 
+Air Traffic 
+Management and 
+Robust Airspace 
+Communication
+Earth Science: 
+Data Analysis 
+and Image 
+Processing 
+Low energy and water 
+use supercomputing
+
+=== PAGE BREAK ===
+
+Quantum Computing at NASA
+Communication & Networks
+Quantum networkingDistributed QC
+Application Focus Areas
+Planning and scheduling  Material science
+Fault diagnosis Machine Learning
+High-energy physics
+Software Tools & Algorithms
+Quantum algorithm design
+Mapping, parameter setting, error mitigation
+Hybrid quantum-classical approaches
+Compiling quantum algorithms to hardware
+Solvers & Simulators
+Physics-inspired classical solvers
+HPC quantum circuit simulators
+Physics Insights
+Co-design quantum hardware
+Quantum-Enhanced
+NASA Applications
+Quantum Tools
+& Programming
+Novel Classical Solvers
+& Simulators
+Quantum Comm
+& Networks
+Quantum
+Algorithms
+Fundamental Physics
+Insights
+E.G. Rieffel, et al. (2019) From Ansätze to Z-gates: a NASA View of Quantum 
+Computing, Advances in Parallel Computing34, 133-160
+R. Biswas et al. (2017) A NASA Perspective on Quantum Computing: 
+Opportunities and Challenges, Parallel Computing, Volume 64, p. 81-98
+
+=== PAGE BREAK ===
+
+… what about usefulquantum supremacy?
+• Quantum processors currently too small and non-
+robust to be useful for solving practical problems
+Uses of these still limited, quantum devices? 
+(1)Unprecedented opportunity to explore and 
+evaluate algorithms, both quantum and hybrid 
+quantum-classical heuristic algorithms
+(2)Investigate quantum mechanisms that may be 
+harnessed for computational purposes
+Insights gained feed into next generation
+• quantum algorithms
+• quantum hardware
+Early target: Optimization; Sampling & Machine 
+Learning; Simulation of quantum systems
+Quantum computing has entered the NISQ Era
+Quantum supremacy achieved!
+• Perform computations not possible 
+on even the largest supercomputers 
+Cover article, Nature, 24 
+Oct 2019
+Google, NASA, ORNL collaboration
+If someone handed you a large, fault tolerant quantum computer, what would you run?
+
+=== PAGE BREAK ===
+
+Quantum 
+computing can do 
+everything a 
+classical 
+computer can do
+and
+Provable 
+quantum 
+advantage known
+for a few dozen 
+quantum 
+algorithms
+Unknown quantum advantage 
+for everything else
+Status of classical algorithms
+•Provable bounds hard to obtain
+–Analysis is just too difficult
+•Best classical algorithm not known for 
+most problems
+•Empirical evaluation required
+•Ongoing development of classical 
+heuristic approaches 
+–Analyzed empirically: ran and see what 
+happens
+–E.g. SAT, planning, machine learning, etc. 
+competitions
+A handful of 
+proven 
+limitations 
+on quantum 
+computing
+Current status of quantum algorithms
+Conjecture: Quantum Heuristics will significantly broaden 
+applications of quantum computing
+
+=== PAGE BREAK ===
+
+Quantum Speedups for Distributed Graph Algorithms 
+in the CONGEST-CLIQUE Model
+•Introduction
+•Distributed Computation Models
+•Classical vs Quantum Versions
+•Background: Prior Results 
+•Negative Results in CONGEST 
+•Positive Results and Contributions in CONGEST-
+CLIQUE 
+•From Shortest Paths to Triangle Finding
+•Distributed Grover Search
+•Our algorithmic Results
+
+=== PAGE BREAK ===
+
+Distributed Graph Algorithms: Setup
+• Distributed Computation: Network of Processors that 
+communicate
+• Model as a graph where the processors are the nodes
+• Each node its own starting information, such as list of neighbors
+•E.g.: Network of spacecraft, satellites, or control stations 
+that each have computing power and can communicate
+•Distributed Graph Problems: Nodes jointly answer a 
+question by computing and communicating
+
+=== PAGE BREAK ===
+
+CONGEST Model of Distributed Computing
+Graph G = (V,E,W) with n = |V| number of nodes, m = |E| number of edges, and W 
+the weights on the edges
+CONGEST Model: Aim is to minimize the number of rounds
+1.Computation happens in rounds (compute, communicate, compute, 
+communicate, …)
+2.Congested:Communication limited by message size: each node can send to 
+each of its neighbors O(log(n)) bits each round
+—log(n) is length of a node id
+3.Unlimited local computation at each node
+4.Nodes can communicate only with their neighbors
+CONGEST-CLIQUE Model: 
+1., 2., 3.  above are the same
+4.   All nodes can communicate with each other 
+
+=== PAGE BREAK ===
+
+Quantum CONGEST and CONGEST-CLIQUE Models
+•Initially: Each node knows 
+•its own ID 
+•the ID’s of its neighbors 
+•assuming ID’s are 1 to n àlog(n) bits 
+to encode 
+•Answer a question about that graph in as few 
+rounds as possible
+oEx: Spanning trees, subgraph detection, shortest 
+paths...
+•Quantum versions: Take CONGEST or 
+CONGEST-CLIQUE, but allow messages to 
+consist of O(log(n)) qubits
+A minimum spanning tree (black) 
+for the given graph (grey) source: https://en.wikipedia.org/wiki/Minimum_spanning_tree
+
+=== PAGE BREAK ===
+
+CONGEST: Negative Results 
+Main reference: Elkin et al 2012, 
+“Can Quantum Communication Speed Up Distributed Computation?”
+•Proved limitations for quantum CONGEST model
+•No speedups possible for many fundamental problems: 
+Shortest paths, Minimum Spanning Tree, Steiner Tree, Min Cut, 
+Hamiltonian Cycle…
+•Intuition: In CONGEST, a significant bottleneck can be communicating 
+between “distant” parts of the network –qubits don’t help with that 
+
+=== PAGE BREAK ===
+
+What about quantum CONGEST CLIQUE? 
+•Elkin et al’s results and analysis do not carry over to the 
+CONGEST CLIQUE 
+•Can quantum communication help in this model?
+Positive results in Quantum CONGEST CLIQUE (qCC): 
+•Faster Triangle Detection, Izumi & Le Gall 2019
+•Faster All-Pairs Shortest-Paths (APSP), Izumi & Le Gall 2020
+•This was in Elkin’s list of problems not admitting speedups 
+in the CONGEST model
+•Makes use of a distributed Grover search subroutine
+
+=== PAGE BREAK ===
+
+Our recent results: 
+•Algorithms in Quantum CONGEST-CLIQUE for 
+•(approximately optimal) Steiner Trees and 
+•Directed Minimum Spanning Trees 
+•Computation that succeeds with high probability using fewer rounds than any 
+known classical algorithm 
+→𝑂
+~
+𝑛⁄#$versus 𝑂
+~
+𝑛⁄#$
+•Steiner Tree Problem (informal):
+Given a set of terminal nodes, find a 
+minimum weight tree in the graph 
+that contains them
+•Red are terminals, green is 
+Steiner Tree
+
+=== PAGE BREAK ===
+
+Directed Minimum Spanning Tree:
+• Given a root node r in a directed, weighted graph G, find a 
+directed spanning tree for G rooted at r of minimum weight
+• Techniques: Made use of fast all-pairs shortest-path via 
+triangle finding with distributed Grover Search 
+subroutines to obtain the faster algorithms 
+A Directed Minimum Spanning Tree (green) rooted at the red 
+node 
+
+
+=== PAGE BREAK ===
+
+Algorithmic Recipe: 
+Make use of previous techniques such as
+1.Distributed Grover Search 
+2.Triangle Finding 
+3.Distance Products 
+4.Shortest Paths and Routing Tables
+For Steiner Trees and Directed Minimum Spanning Trees! 
+
+=== PAGE BREAK ===
+
+Distributed Grover Search
+Distributed Implementation of Grover’s Algorithm: 
+•Suppose a set X of inputs, and a node 𝑢, which we call the leader, can evaluate a 
+function 𝑔:𝑋→{0,1}in 𝑟rounds. Then there exists a quantum distributed 
+algorithm such that 𝑢outputs an element 𝑥∈𝑋with 𝑔𝑥=1using 𝑂𝑟𝑋
+rounds.
+•Uses the same ideas as centralized Grover search: search done by leader querying 
+other nodes
+•Classical algorithm would use 𝑂𝑟𝑋rounds in absence of additional structure
+•Intuition: A node wants to inquire something related to some subset of other nodes –
+instead of inquiring about one node at a time, use superposition
+
+=== PAGE BREAK ===
+
+Triangle Finding
+Make use of Distributed Grover Search for finding Triangles! 
+Idea: 
+•Triangles live in 𝑉×𝑉×𝑉, so partition that space into n subsets 
+•Each node searches for triangles in its assigned partition 
+•Do this via sets of subsets 𝑉#×𝑉%×𝑉$,where 𝑉!=𝑉"=𝑛⁄!$,𝑉%=
+n⁄!",
+and each subset 𝑤∈𝑉#or 𝑉%contains 𝑛⁄"#nodes, and each 𝑤∈𝑉"contains 
+𝑛⁄$%nodes.
+•So 𝑉$×𝑉%×𝑉"has 𝑛elements, that are each a partition of nodes in 𝑉×𝑉×𝑉,
+each node gets one partition
+•Making use of fast routing, the bottleneck becomes searching through the elements 
+of 𝑉%;Grover search can do it in 𝑛⁄$#instead of 𝑛⁄$%
+
+=== PAGE BREAK ===
+
+Distance Products
+•If 𝑊is the adjacency matrix of a graph, then the 𝑖𝑗entry of 𝑊⋆
+𝑊gives the shortest 2-hop path from node 𝑖to node 𝑗
+•𝑊’contains shortest n-hop distances , so contains all shortest path 
+distances (exponent w.r.t. ⋆) 
+
+
+=== PAGE BREAK ===
+
+Distance Products via Triangles
+FindTriangleEdges—determines which edges are involved in at least one 
+negative triangle
+
+
+=== PAGE BREAK ===
+
+Distributed Quantum Steiner Tree Approximation 
+Algorithm in qCC Model
+
+
+=== PAGE BREAK ===
+
+Distributed Quantum Minimum Spanning Tree 
+Algorithm in qCC Model
+
+
+=== PAGE BREAK ===
+
+Main References
+Image Credits (processors, rockets, satellites) to Pixabay (copyright-free images!), https://pixabay.com/
+Please see our poster and talk with Phillip Kerger and David Bernal Neira as 
+well!
+
+=== PAGE BREAK ===
+
+Brief Glimpse of Other QC & OR work: CP
+Quantum-accelerated Constraint Programming
+Booth, Kyle EC, Bryan O’Gorman, Jeffrey Marshall, Stuart Hadfield, and Eleanor Rieffel. Quantum-accelerated global 
+constraint filtering.In International Conference on Principles and Practice of Constraint Programming, pp. 72-89. 2020
+Booth, Kyle EC, Bryan O'Gorman, Jeffrey Marshall, Stuart Hadfield, and Eleanor Rieffel. Quantum-accelerated 
+constraint programming. Quantum5 (2021): 550.
+•In constraint programming (CP), problems are 
+solved with backtracking tree search augmented 
+by logical inference 
+•Quantum algorithms can accelerate the 
+inference processbeing performed at each 
+node in the tree
+•These quantum inference algorithms can then be 
+integrated within classical, fully-quantum, or 
+partially-quantum backtracking tree search 
+schemes
+•Partially quantum backtracking schemes yield 
+speedups for smaller sections of the tree, 
+intended for early, more resource-constrained 
+quantum devices
+
+=== PAGE BREAK ===
+
+Brief Glimpse of Other QC & OR work: Qubit 
+Routing
+D Venturelli, M Do, E. Rieffel, J Frank, Compiling quantum circuits to realistic hardware architectures using temporal planners.
+Quantum Science and Technology 3 (2), 2018
+Venturelli, Davide, Minh Do, Bryan O'Gorman, Jeremy Frank, Eleanor Rieffel, Kyle EC Booth, Thanh Nguyen, Parvathi Narayan, 
+and Sasha Nanda. "Quantum circuit compilation: An emerging application for automated reasoning." (2019).
+Booth, Kyle EC, Minh Do, J. Christopher Beck, Eleanor Rieffel, Davide Venturelli, and Jeremy Frank. "Comparing and integrating 
+constraint programming and temporal planning for quantum circuit compilation." In Twenty-Eighth international conference on 
+automated planning and scheduling. 2018
+Can be viewed as a temporal planning problem
+•Applied state of the art temporal planners
+•There is now a quantum circuit compilation 
+domain in the International Planning 
+Competitions temporal planning track
+•Combining CP with temporal planning is 
+advantageous
+Quantum algorithms must be compiled before they can be run on quantum hardware
+•Gate synthesis: rewrite only in terms of native gates
+•Qubit routing: move information around to where two-qubit gates can act, given 
+connectivity constraints
+Advantages of this approach
+•Takes advantage of gates commuting with each other, e.g. QAOA
+•Minimizes “makespan,” the time it takes to carry out the computation 
+
+=== PAGE BREAK ===
+
+The Power of Pausing in Q. Annealing
+J. Marshall et al. (2019), Power of pausing: Advancing understanding of 
+thermalization in experimental quantum annealers, Phys. Rev. Applied11, 
+044083
+Z. Izquierdo et al.(2021), Ferromagnetically shifting the power of pausing, 
+Phys. Rev. Applied15, 044013
+Heat map of 
+probability of 
+solution, 
+depending on 
+pause location 
+and pause length
+Anneal time 
+regions. Purple 
+region is where 
+pause is expected to 
+be effective.
+An appropriately placed pause 
+can improve TTS as well as the 
+probability of success 
+-on embedded instances of 
+application interest
+-consistent region in which 
+pausing helps
+
+=== PAGE BREAK ===
+
+HybridQ: A Hybrid Classical Simulator 
+for Quantum Circuit SimulationsHardware agnostic quantum simulator, designed to simulate large scale 
+quantum circuits.
+Can run tensor contraction simulations, direct evolution simulation and 
+Clifford+T simulations using the same syntax
+Features:
+Fully compatible with Python (3.8+)
+Low-level optimization achieved by using C++ and Just-In-Time (JIT) compilation with JAX 
+and Numba,
+It can run seamlessly on CPU/GPU and TPU, either on single or multiple nodes (MPI) for 
+large scale simulations, using the exact same syntax
+User-friendly interface with an advanced language to describe circuits and gates, including 
+tools to manipulate/simplify circuits.
+Recent Improvements:
+Commutations rules are used to simplify circuits (useful for QAOA)
+Expansion of density matrices as superpositions of Pauli strings accepts arbitrary non-
+Clifford gates,
+Open-source (soon!) project with continuous-integration, multiple tests and easy installation 
+using either pipor conda
+Open source code available at https://github.com/nasa/HybridQ
+S. Mandrà, J. Marshall, E. G. Rieffel, R. Biswas, HybridQ: A Hybrid Simulator for Quantum Circuits, arXiv:2111.06868
+
+=== PAGE BREAK ===
+
+Brief call out to two other posters
+Copositive Optimization for mixed-binary 
+quadratic optimization via Ising solvers
+Robin Brown
+Proposed a hybrid classical-Ising method 
+mixed-binary quadratic programming via 
+convex copositive optimization and Ising 
+solvers
+• All the classical parts scale polynomially 
+while the Ising part can be solved 
+approximately
+• Proved strong duality coming from Burer’s 
+reformulation under mild assumptions
+• Our approach is beating state-of-the-art 
+without fine tuning
+Benchmarking the Operation of Quantum 
+Heuristics and Ising Machines
+David Bernal Neira
+•Guidelines for performance evaluation of solvers, 
+particularly unconventional ones such as Quantum 
+Annealers and Coherent Ising Machines. 
+•Benchmarking accounting for all resources related 
+to real-world deployment
+•Pre-processing, e.g. embedding 
+•Parameter setting
+•Post-processing
+•illustrative baseline family of parameter setting 
+strategies that feature an exploration-exploitation 
+tradeoff

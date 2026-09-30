@@ -1,0 +1,1536 @@
+1
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports
+Solving the resource constrained 
+project scheduling problem 
+with quantum annealing
+Luis Fernando Pérez Armas 1,5*, Stefan Creemers 1,3,4,5 & Samuel Deleplanque 2,5
+Quantum annealing emerges as a promising approach for tackling complex scheduling problems 
+such as the resource-constrained project scheduling problem (RCPSP). This study represents the 
+first application of quantum annealing to solve the RCPSP , analyzing 12 well-known mixed integer 
+linear programming (MILP) formulations and converting the most qubit-efficient one into a quadratic 
+unconstrained binary optimization (QUBO) model. We then solve this model using the D-wave 
+advantage 6.3 quantum annealer, comparing its performance against classical computer solvers. Our 
+results indicate significant potential, particularly for small to medium-sized instances. Further, we 
+introduce time-to-target and Atos Q-score metrics to evaluate the effectiveness of quantum annealing 
+and reverse quantum annealing. The paper also explores advanced quantum optimization techniques, 
+such as customized anneal schedules, enhancing our understanding and application of quantum 
+computing in operations research.
+Keywords Resource constrained project scheduling problem, Quantum optimization, Quantum annealing
+In the realm of computational methodologies, quantum computing has emerged as a groundbreaking approach, 
+promising revolutionary solutions to intricate optimization problems. At the forefront of this quantum revolu-
+tion is the paradigm of quantum computing, a computational architecture harnessing the principles of quantum 
+mechanics. At its core lies the quantum bit, or qubit, which exhibits unique properties such as superposition and 
+entanglement, that pave the way for unprecedented computational capabilities. Currently residing in the Noisy 
+Intermediate-Scale Quantum (NISQ) 1 era, quantum computing is marked by limited-size and noise-sensitive 
+quantum machines. This era acknowledges the ongoing challenges in quantum hardware while emphasizing the 
+potential for valuable research and exploration of quantum advantages, even within the constraints of current 
+technology.
+In the landscape of optimization, two prominent approaches dominate the quantum-computing arena. Uni-
+versal quantum computers that operate using the circuit gate model and showcase proven advantages in algo -
+rithms such as Shor’s2 and Grover’s3, but with limited size (as of 2023, the biggest universal quantum computer 
+has 433 physical qubits but only 414 are  available4–6). On the other hand, adiabatic quantum computers, grounded 
+in the principle of adiabatic quantum computation, exhibit promising experimental results, particularly in terms 
+of optimization problems by leveraging the ability to map them as energy minimization problems that allow the 
+explotation of the natural tendency of the universe to seek states of minimum energy.
+Diverging from gate-based quantum computers, quantum annealers carve a niche with a more focused 
+application scope. These systems boast a higher qubit count (+5000) and enhanced noise resilience, fueling 
+extensive research from both industry and academia. The versatility of quantum annealers is illustrated in their 
+application to complex problems like graph  partitioning 7,8,  transportation9,10, Job-Shop Scheduling Problem 
+(JSSP)11,12,  etc13–16.
+This paper delves into the realm of adiabatic quantum algorithms, with a specific focus on quantum annealing, 
+to tackle one of the most challenging NP-Hard scheduling problems: the Resource Constrained Project Sched -
+uling Problem (RCPSP). The significance of this choice arises from the inherent complexity of the problem, its 
+broad applicability in projects’ makespan minimization, and the non-trivial nature of its formulation as input 
+OPEN
+1Operations Management, IESEG School of Management, CNRS, UMR 9221 - LEM - Lille Economie Management, 
+Univ. Lille, 3 rue de la digue, 59800 Lille, Nord, France. 2CNRS, Centrale Lille, Junia, Univ. Polytechnique 
+Hauts-de-France, UMR 8520 - IEMN, Univ. Lille, 41 Bd Vauban, 59000 Lille, France. 3ORSTAT KU Leuven, 
+Naamsestraat 69, 3000 Leuven, Belgium. 4Center for Operations Research and Econometrics (CORE), Université 
+catholique de Louvain, Voie du Roman Pays 34, 1348 Louvain-la-Neuve, Belgium.  5 These authors contributed 
+equally: Luis Fernando Pérez Armas, Stefan Creemers and Samuel Deleplanque. *email: l.perezarmas@ieseg.fr
+
+=== PAGE BREAK ===
+
+2
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+of the quantum machine. Notably, this work represents the first exploration of applying quantum annealing 
+techniques to the RCPSP .
+The primary objective of this research is to present a comprehensive analysis of the potential applications 
+and limitations of the current quantum annealing technology. Our study meticulously outlines a step-by-step 
+approach to solving the RCPSP on the cutting-edge D-Wave Advantage quantum annealer featuring 5640 qubits. 
+Through this exploration, we aim to contribute not only to the theoretical understanding of quantum annealing 
+but also to the practical application of this technology in addressing real-world optimization challenges. Figure 1 
+provides a comprehensive visual representation of the methodology and key processes employed in this study.
+To the best of our knowledge, this is the first study to apply quantum annealing to the RCPSP , marking a 
+significant advancement in the application of quantum computing to operations research. The three main con-
+tributions of this paper are:
+• Evaluation of Mixed Integer Linear Programming (MILP) formulations for the RCPSP: we analyze 12 well-
+known MILP formulations for the RCPSP , we select the most suitable for QA, and we provide the first cor-
+responding Quadratic Unconstrained Binary Optimization (QUBO) reformulation for this problem.
+• Utilization of Time-to-Target (TTT) and Atos Q-score metrics: we introduce these metrics to compare the 
+effectiveness of quantum annealing and reverse quantum annealing against classical optimization techniques. 
+Additionally, we evaluate the largest problem size that can be effectively handled by a modern quantum 
+annealer.
+• We adopt advanced quantum optimization techniques: our work discusses advanced methods such as reverse 
+quantum annealing and customized annealing schedules, which are particularly useful for addressing com-
+plex combinatorial challenges.
+This paper provides an in-depth exploration of quantum annealing’s theoretical and practical aspects, specifi-
+cally in relation to the RCPSP . Initially, we examine the fundamentals of quantum annealing, focusing on the 
+problem-embedding process into the annealer’s qubit graph. We then explain the RCPSP and detail the methods 
+used in this study, including the selection of instance generators from existing literature, evaluation metrics for 
+quantum heuristics and strategies for utilizing a quantum annealer for RCPSP (annealing time, shots, reverse 
+schedule). The results section presents the QUBO model for solving the RCPSP . Finally, we present an extensive 
+computational experiment to assess the efficacy of quantum annealing when solving the RCPSP and discuss 
+key factors such as solution sampling, annealing duration, chain strength, and the use of advanced controls like 
+reverse annealing. In addition to our conclusions, we also present several promising open research questions.
+Figure 1.  Schematic overview of the methodology employed in this study. The study starts, by searching the 
+most qubit efficient formulation for QA, then moves towards the search of adequate parameters and embedding, 
+to then finally proceed to solve different instances of the RCPSP via QA.
+
+=== PAGE BREAK ===
+
+3
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+Quantum annealing and D-wave machines
+Quantum Annealing stands as a quantum metaheuristic designed to tackle combinatorial optimization prob-
+lems by leveraging the principles of quantum  mechanics17,18. This approach draws inspiration from simulated 
+ annealing19, a classical metaheuristic where a system systematically cools to reach a state of minimum energy. 
+In quantum annealing, quantum phenomena such as superposition and quantum  tunneling20 are harnessed to 
+navigate through local minima efficiently, aiming to pinpoint the global minimum of a cost function. The efficacy 
+of quantum annealing, as compared to its classical counterpart, can vary depending on the specific problem 
+and hardware employed. The literature offers both theoretical  proofs17, highlighting the advantages of quantum 
+annealing, as well as contrasting perspectives surrounding it in particular simulated  annealing21–23.
+At the core of quantum annealing lies the profound concept of the natural tendency of the universe to seek 
+for states of minimum energy. This method is grounded in the “adiabatic theorem” of quantum  mechanics24,25 
+along with the time-dependent Schrödinger  equation26. It describes the evolution of any quantum system, thereby 
+encapsulating the dynamics of its quantum states. The Hamiltonian, typically represented as a matrix, contains 
+all the pertinent information regarding the quantized energy states available to a quantum system. The adiabatic 
+theorem of quantum mechanics asserts that if a quantum system undergoes a slow and continuous change in its 
+Hamiltonian, it will persist in its instantaneous eigenstate throughout the transformation. In simpler terms, if 
+the system initiates in its ground state and the Hamiltonian changes sufficiently slowly, the system will maintain 
+its ground state.
+Applying the adiabatic evolution theorem to optimization problems involves initiating the process with a 
+“simple” initial system represented by the Hamiltonian H0 , for which the ground state can be easily determined. 
+The notations and symbols used throughout this work are reported in Table B1 of Appendix B. The system is then 
+gradually transformed into the problem Hamiltonian H1 , an energetic mapping of an optimization problem P . 
+As the adiabatic evolution concludes, the system originally described by H0 should have transitioned into the 
+ground state of the problem Hamiltonian, representing the minimum value solution to the optimization problem 
+P . The QA algorithm is physically implemented using analog control devices to manipulate a collection of qubit 
+states following a time-dependent Hamiltonian represented as:
+This algorithm orchestrates a gradual transition from an initial ground state in H0 to a state described by the 
+problem Hamiltonian H1 . The H1 Hamiltonian mirrors the energy function of the optimization problem, ensur-
+ing that the ground state for H1 corresponds to a minimum-cost solution to the optimization problem P . Intro-
+duced by Farhi et al.27, QA and in more general the adiabatic quantum model of computation demonstrates that 
+if the transition is executed slowly enough, the algorithm will, with high probability, converge to a ground state, 
+i.e., an optimal solution.
+D-W ave quantum annealing processors are purposefully engineered for the specific task of identifying mini-
+mum-cost solutions to the Ising Minimization problem or, indirectly, to the QUBO–an isomorphic problem. The 
+Ising problem, defined on a graph G = (V , E) , entails the assignment of values from {−1, +1} to spin variables 
+si with the objective of minimizing the following energy function H1:
+Where h = hi : i∈ V  represent weights, and J = Jij : (i, j) ∈ E  is a set of coupling constants. In the physical 
+context, spin variables si can be seen as magnetic poles, with negative Jij indicating ferromagnetic interactions, 
+and positive values suggesting antiferromagnetic interactions. The optimal configuration of spin variables si 
+that minimizes the energy function is denoted as a ground state, while alternative configurations are classified 
+as excited states that do not have minimum energy. Upon broadening the computational scope, Ising problems 
+are effortlessly transformed into QUBO problems via si = 2x i − 1 . This modification involves associating binary 
+decision variables xi ∈{ 0, 1} with spin variables si ∈ {−1, +1}.
+A D-W ave Quantum Processor Unit (QPU) maintained at a few millikelvin exhibits quantum properties such 
+as superposition and quantum tunneling. Despite the presence of a Faraday shield, the QPU remains susceptible 
+to interference, which generally reduces the likelihood of attaining a ground state. Consequently, we categorize 
+any D-W ave processor as a heuristic solver, that requires empirical methods for performance analysis. The cur-
+rent most advanced D-W ave processor (Advantage 6.3) has more than 5000 active qubits, a connectivity of 15 
+qubits (qubits are not fully connected), and 35000 active couplers, made of microscopic loops of niobium. These 
+couplers are connected to a sophisticated analog control system through a network of Josephson  junctions28–30. 
+Table 1 lists the properties of the different topologies made available by D-W ave: Chimera, Pegasus, and Zephyr.
+Besides noise and interference, another major challenge is qubit connectivity. In order to solve any problem 
+on a quantum annealer, the problem graph (QUBO/Ising) must be mapped into the physical hardware, which 
+H(t) = A(t)H0 + B(t)H1
+H1 =
+∑
+i
+h isi +
+∑
+i,j
+Jijsisj
+Table 1.  Characteristics of available D-wave quantum devices.
+Top ol o g y Chimera Pegasus Zephyr
+Device designation 2000Q Advantage 6.3 Advantage 2 (Prototype)
+Active qubit count 2041 5616 563
+Connectivity measure 6 15 20
+
+=== PAGE BREAK ===
+
+4
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+has a limited number of qubits and interconnections. Consequently, it may be necessary to alter the structure of 
+the QUBO/Ising problem to fit the constrained topology of the quantum  annealer31. This involves mapping the 
+model onto a larger qubit graph, a critical step that stresses the importance of the machine’s inherent topology. 
+This non-trivial process is known as “minor embedding” .
+When the QUBO/Ising problem’s graph requires couplings among qubits not directly connected in a QPU 
+topology, additional qubits are utilized to form connected sub-graphs representing the target graph. These addi-
+tional qubits are referred to as “logical qubits” . For example, consider the QUBO/Ising graph K3 shown in Fig. 2a, 
+where qubits x1 and x2 need to be coupled with x3 but lack direct physical connections in the QPU’ s topology, 
+as despicted by the dotted edges between these nodes. Figure  2b illustrates the minor embedding of K3 using a 
+new logical qubit. T o establish this logical link, the adjusted QUBO/Ising problem includes an additional penalty 
+term, either ρ( z4 − z3)2 or ρ( z4z3) , where ρ denotes the “chain strength parameter” which helps maintain the 
+integrity of logical qubits during computation.
+The new logical links established by the minor embedding process are termed “chains” . For the solution to be 
+consistent, it is critical that all physical qubits within a chain attain the same value upon measurement; failure 
+to do so indicates a broken chain. The “chain strength parameter” ρ manages a crucial trade-off: setting it too 
+low risks frequent chain breaks, whereas a value that is set too high may restrict the qubits capacity to transition 
+between states.
+Sub-optimal embeddings can lead to unnecessarily long chains, as depicted in Fig.  2c. This embedding 
+requires the use of two additional logical qubits, along with the inclusion of extra penalty terms ρ( y4y3) and 
+ρ( y4y5) , thereby increasing the likelihood of chain breaks. The presence of multiple broken chains often indicates 
+that the solutions yielded by the annealing process may not accurately represent the original problem. As dem-
+onstrated by Marshal et al.32, poor embeddings, particularly those characterized by long chains, can complicate 
+the solution sampling process. Although various post-processing techniques exist to mend broken chains, such 
+as majority voting or Monte Carlo resampling, this work exclusively considers unbroken chains. Samples with 
+broken chains were discarded, impacting only runtime performance and not the number of valid solutions, 
+regardless of whether discarded samples were feasible or not.
+A wide range of heuristics for finding embeddings are available in the literature. Moreover, the quest for better 
+embedding algorithms remains an active area of  research33–35. Notably, Bernal et al. 36 have demonstrated that 
+more effective embeddings can be achieved through integer programming and decomposition methods. In this 
+study, minor embeddings were identified using D-W ave’ s available  heuristic37. Figure 3 illustrates an example of 
+the embedding process using the “minor-miner” heuristic on the “Pegasus” topology.
+Once the minor embedding process is successfully completed, the annealing process is initiated. While the 
+adiabatic theorem suggests a potentially lengthy annealing duration to ensure the system stays in the ground 
+state, practical constraints arise due to noise, which can elevate the system to (unwanted) higher energy states. 
+Consequently, a brief annealing is conducted and repeated multiple times in a stochastic process that samples 
+from the energy distribution of the problem. Determining the optimal annealing time and the number of samples 
+depends on the specific problem and its energy distribution. Typical values fall within the range of 10 to 100 
+microseconds for annealing times and 1 to 10000 for the number of samples.
+While the traditional QA starts from the ground state of the “Ising Transverse field” Hamiltonian H0 , and 
+therefore from an initial uniform superposition and evolves towards the target problem Hamiltonian H1 , a more 
+sophisticated evolution approach can be applied. In Reverse Annealing (RA), the process departs from an already 
+available solution. RA reintroduces partial segments of H0 by operating in reverse, thereby reinstating a partial 
+quantum superposition. This unique reverse progression is employed to iteratively refine the initial  solution38–41.
+x1 x2
+x3
+J1,3 J2,3
+J1,2
+(a) Complete graph K3
+z1 z2
+z3 z4
+J1,3 J2,4
+J1,2
+J3,4
+(b)C hain length= 1
+y1 y2
+y3 y4
+y5
+J1,3 J2,4
+J1,2
+J3,5 J4,5
+(c)C hain length= 2
+Figure 2.  Three graphs representing the same logical QUBO/Ising, but using different embeddings. (a) 
+represents the K3 original QUBO/Ising problem. The dashed of the edges (x1–x3 ) and (x2–x3 ) indicate that the 
+corresponding qubits are not physically connected in the QPU. (b) shows a minor embedding of (a) with the use 
+of two logical qubits z3 and z4, that can be recognized by their dotted border. (c) is a sub-optimal embedding of 
+(a) that uses three logical qubits instead of two.
+
+=== PAGE BREAK ===
+
+5
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+Resource-constrained project scheduling problem
+The RCPSP is one of the most extensively studied scheduling problems and perhaps one of the easiest to describe; 
+however despite this apparent simplicity, the RCPSP conceals its true complexity, as demonstrated by Blazewicz 
+et al.42, who show that the RCPSP is NP-hard. This inherent complexity renders the RCPSP as one of the most 
+intractable combinatorial optimization problems. Similar to the  JSSP43,44 the RCPSP falls into the category of 
+problems classified as NP-hard “in the strong sense”45.
+In essence, the RCPSP considers the scheduling of a single project comprising n non-dummy activities, 
+subject to precedence and resource constraints, with the overarching objective of minimizing the project makes-
+pan–the total time required for the completion of all activities. The RCPSP is typically represented by a graph 
+G(A , E) with each node in A ={ 0, 1, ...,n + 1} that corresponds to the different project activities and each edge 
+in (i, j) ∈ E equivalent to a straightforward finish-to-start precedence relationship, meaning that the beginning 
+of a successor activity j must await the completion of its predecessor activity i . Nodes 0 and n + 1 serve as sym-
+bolic milestones, representing the “project start” and “project finish” , respectively. These milestone activities are 
+often referred to “dummy activities” . Each activity j ∈ A has a duration p j and resource consumption bjk , where 
+k belongs to a set of renewable resources R . Each resource k has a maximum capacity Bk . A feasible solution to 
+the RCPSP corresponds to a project schedule S ={ S0 ,S1 ,..., Sn+1 } comprised of start times S j (for each activ-
+ity j ∈ A ) that respect both precedence and resources constraints. An inherent characteristic of the RCPSP is 
+the non-preemptive nature of activities, indicating that once an activity commences, it cannot be interrupted.
+Figure 4a depicts the graphical representation of a small instance of RCPSP (known as a network diagram) 
+composed of three activities (plus two “dummy” activities) and two renewable resources. The activity dura -
+tion, denoted as p j , and resource consumption bjk are presented above and below each node j , respectively. 
+Both renewable resources have a maximum capacity of three units. Figure  4b shows the optimal schedule 
+S ={ S0 = 0,S1 = 0,S2 = 1,S3 = 1,S4 = 3} for this instance.
+Mixed integer linear programming formulations
+Given the intrinsic significance of the RCPSP , it is unsurprising that the literature dedicated to Mixed Integer 
+Linear Programing (MILP) formulations for the RCPSP is both prolific and dynamic, offering a myriad of 
+approaches. For a given optimization problem, multiple formulations can be devised. These can be distinguished 
+in three ways: first by the formulation size, notably concerning the number of variables; secondly, by the number 
+of constraints they involve; and thirdly, by the strength of their Linear Programming (LP) relaxation. Typically, 
+for a given problem, a discernible correlation exists between the problem size and the quality of the LP relaxation. 
+Traditionally, enhancing the quality of the LP relaxation requires a new and extended formulation that introduces 
+additional variables and constraints, thus increasing the problem size. With remarkable advancements in LP 
+algorithms, which can now efficiently solve instances involving millions of  variables46–48, it comes as no surprise 
+that, in the context of MILP formulations for the RCPSP , a significant emphasis has been placed on advancing 
+and refining the quality of the LP  relaxations49,50.
+Broadly classified, formulations for the RCPSP fall into three distinct families, as illustrated in Fig. 5. The first 
+category encompasses time-index  formulations51–57, including works by Pritsker et al. 1969 (PRI69), Christofides 
+et al. 1987 (CHR87), de Sousa and Wolsey 1997 (SOU97), Mingozzi et al. 1998 (MIN98), Klein and Kaplan 1998 
+(KLE98), Klein 2000 (KLE00_1 and KLE00_2), Demeulemeester and Herroelen 2002 (DEM02), and Bianco 
+and Caramia 2013 (BIA13). This is followed by sequence-based  formulations58,59, exemplified by Tamarit and 
+Valdés 1993 (TAM93) and Artigues et al. 2003 ( ART03).The third and final category comprises event-based 
+ formulations60,61, including works by Koné et al. 2011 (KON11) and Artigues et al. 2013 ( ART13). An analysis 
+(a) Pegasus topology of the QPU.
+(b)R CPSPp roblem mapped into theQ PU
+Pegasust opology.
+Figure 3.  Minor embedding process with the Pegasus topology.
+
+=== PAGE BREAK ===
+
+6
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+by Koné and  Artigues61,62 reveals that sequence-based and event-based formulations tend to be more compact, 
+requiring fewer variables, while time-index formulations, although larger in scale, offer superior Linear Pro-
+gramming (LP) relaxations. It is noteworthy that the majority of time-index formulations tend to be binary and 
+utilize exclusively binary variables, while event-based and sequence-based formulations employ a mix between 
+integer and binary variables. For more general information regarding the different MILP formulations of the 
+RCPSP , please refer to Artigues et al  201363.
+In the context of employing a quantum annealer for solving the RCPSP , a pertinent question emerges: Which 
+formulation should one choose among the available options? Specifically, which formulation aligns most effec-
+tively with the capabilities of current commercially accessible quantum annealers? Addressing these inquiries 
+necessitates an investigation into the transformation of these formulations into their corresponding QUBO 
+form. This evaluation involves assessing each formulation based on factors such as the resulting QUBO size, 
+the need for additional slack-supplementary variables, and the sparsity of the associated QUBO graph. These 
+characteristics play a pivotal role in determining the suitability of each formulation for solving the RCPSP , par-
+ticularly within the confines of NISQ-era quantum annealers. This study aims to provide comprehensive insights 
+to answer these critical questions.
+Methods
+In the following section, we explain different aspects of the experimental methodology followed in this study.
+RCPSP instance selection protocol
+A classical study for assessing the performance of solving the RCPSP would normally involve instances from 
+the well-known PSPLIB dataset of Kolisch et al. 64,65 or alternatively, the more recent CV dataset of Coelho and 
+(a) Network diagram.
+Start 1
+2
+3
+End
+0
+0,0
+1
+2,1
+1
+0,2
+2
+1,1
+0
+0,0
+(b)R CPSPs olution schedule S.
+x
+y
+1
+3
+0 1 2 3
+0
+1
+2
+3
+k=1
+(c) Resource proﬁle forr esource 1.
+x
+y
+1 3
+2
+0 1 2 3
+0
+1
+2
+3
+k=2
+(d)R esource proﬁle for resource 2.
+Figure 4.  RCPSP instance example: (a) RCPSP instance graph G(A , E) with three non-dummy activities and 
+two resources; (b) solution schedule for the instance; (c) resource profile for resource 1, and (d) resource profile 
+for resource 2.
+
+=== PAGE BREAK ===
+
+7
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+ Vanhoucke66. Both datasets offer a large number of hard instances of varying sizes (where size is defined by the 
+number of project activities, ranging from 20 to 120 activities). However, considering the limitations on the 
+number of available qubits in the D-wave Advantage 6.3 Quantum Annealer, we decided to utilize the RanGen 
+instance generator proposed by Demeulemeester, Vanhoucke, and  Herroelen67,68. This generator allows the crea-
+tion of random instances with varying levels of difficulty.
+The instances used on this work were generated following the well-established protocol proposed by Baptiste 
+and Le  Pape69, which involves constructing both disjunctive and cumulative instances. Disjunctive instances 
+are characterized by a large number of precedence constraints, resulting in a highly sequential schedule with 
+limited opportunities for parallel execution. On the other hand, cumulative instances exhibit fewer precedence 
+constraints and provide ample opportunities for parallelism and posing a greater challenge for solving.
+The RanGen generator facilitates the generation of both disjunctive and cumulative instances using the “Order 
+Strength” (OS) parameter, ranging from 0 to 1. A value of 0 indicates a fully cumulative instance, illustrated in 
+Fig. 6a, while 1 represents a fully disjunctive instance, illustrated in Fig. 6b. The generator also allows tuning the 
+resource constraints by specifying the number of resources, in addition to the level of constraint for renewable 
+resources. This is done via a parameter called “Resource Constrainedness” (RC) that again ranges from 0 to 1, 
+where 1 means that all activities consume the maximum resource capacity Bk , while 0 means that there is no 
+resource consumption by the project activities.
+In our study, we utilized RanGen to produce instances of the RCPSP across various dimensions determined 
+by the number of non-dummy activities (i.e., n ∈ {3, 4, 5, 6, 7, 8} ). Within each size category, we generated three 
+distinct instance types characterized by OS values of 0.1, 0.5, and 0.9. W e refer to these instance types as “Cumula-
+tive” , “Medium OS” , and “Disjunctive” , respectively. Each instance features two renewable resources (k = 2) with 
+RCPSP
+Time Index
+PRI69
+CHR87
+SOU97
+KLE98
+MIN98
+KLE00 1
+KLE00 2
+DEM02
+BIA13
+Sequence
+TAM93 ART03
+Events
+KON11 ART13
+Figure 5.  RCPSP MILP formulations reported in the literature categorized by their family type.
+Start
+1
+2
+3
+4
+End
+(a) Cumulative.
+Start 1 2 3 4 End
+(b) Disjunctive.
+Figure 6.  Baptiste and Le Pape instance types: (a) the left graph corresponds to a cumulative RCPSP instance; 
+(b) right graph corresponds to a disjunctive RCPSP instance.
+
+=== PAGE BREAK ===
+
+8
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+a RC set to 0.5. The activity duration p j and resource consumption values bjk were constrained within the range 
+of 1 to 2 units to further limit the number of qubits required by the quantum annealer. Furthermore, for every 
+instance, the maximum resource capacity Bk was established at 3 units.
+Benchmarking metrics for quantum optimization
+Benchmarking metrics play a pivotal role in the evaluation of adiabatic evolution computing algorithms, par -
+ticularly for quantum annealing. In the context of benchmarking, there are inherent challenges that arise from 
+the unique nature of quantum annealers. First, QA blends quantum and analog elements that are devoid of dis-
+crete instructions or basic operations that lend themselves to conventional counting methods used by classical 
+computers. Consequently, given the transient and unstable nature of QA, relying on runtime as an evaluation 
+metric becomes a pragmatic approach. Specially when considering that runtime is widely recognized as one of 
+the most critical metrics for assessing algorithm performance.
+A further complication arises from the juxtaposition of hardware-implemented quantum annealing algo-
+rithms against their software-implemented counterparts (simulated quantum annealing). Traditional bench-
+marks for computer platforms, software, and algorithms often fail to account for this mixed scenario, leading to 
+a deficiency in standard guidelines for robust benchmarking.
+Unlike classical benchmarks that often distill performance into a single metric, the evaluation of adiabatic 
+evolution algorithms, particularly in the quantum realm, necessitates a more nuanced approach. The performance 
+of a heuristic on a given input is aptly described by a curve delineating the trade-off between computation time 
+and solution quality. This nuanced perspective requires a repertoire of metrics for comprehensive evaluation.
+In the empirical evaluation of quantum annealing and adiabatic evolution algorithms, several performance 
+metrics have surfaced in the literature. Notable among these is “Time-to-Solution”70 (TTS), which centers on the 
+total time required for a solver to identify a ground state (optimal solution) with a sufficiently high probability. 
+One of the biggest disadvantages of TTS, is that it relies on a priori knowledge of the optimal solution, potentially 
+overlooking benefits derived from near-ground state solutions.
+Alternatively, “Time-to-Target” (TTT)71 is a relevant metric that focuses on the overall time required by solv-
+ers to attain a target solution energy, which is determined by the energy distribution of the quantum annealing 
+processor. This metric provides a more versatile evaluation and acknowledges solutions that may not align with 
+a predetermined optimal outcome.
+Another recent interesting metric is the “Q-score”72 conceived by the technology consulting company Atos. 
+The Q-score measures the maximum number of qubits effectively employed to solve combinatorial optimiza-
+tion problem. Originally, the Q-score was developed to evaluate the solution of the Max-Cut problem using 
+the Quantum Approximate Optimization  Algorithm73 (QAOA); however, this metric can be readily adapted to 
+assess the performance of quantum annealing, demonstrated by Van der Schoot et al.67. The Q-score of a given 
+problem can be then calculated using:
+With β∗ = 0.2 (obtained empirically by studying the behavior of QAOA). and β( n) determined by the following 
+ratio:
+Where ˜C(n) is the average energy output obtained from QA, C r(n) is the average output value obtained from 
+solving the QUBO/Ising problem with a random sampling method, and Cmax (n) equal to the energy of the 
+ground state.
+For achieving specific goals of this paper, metrics of interest include TTT and the Q-score. By concentrating 
+on these, we aim to ascertain the potential for speed-ups and determine the largest instance of the RCPSP , meas-
+ured in terms of the number of project activities, that can be effectively addressed using the current Advantage 
+6.3 Quantum Annealing system from D-W ave.
+QUBO penalty selection strategy
+Adjusting the values of the multipliers by weighing the penalties due to relaxed constraints is an important but 
+difficult step. Given a QUBO problem where E(x) = xT Qx , with a number of n binary variables xi, ∀i ∈ X  , we 
+can further divide it into two portions: E (x) = v(x) + /afii9838c(x) , where v(x) corresponds to the energy contribution 
+to the objective function, c (x) corresponds to the energy contribution due to the problem constraints, and /afii9838 
+represents the penalty weight. The main goal this becomes finding the value of /afii9838 such that the optimal solution 
+to the penalised objective function is the optimal solution of the original constrained problem. Multiple strate-
+gies have been proposed in the literature, each offering a unique approach to determining the most effective 
+penalty coefficients.
+One of the earliest and simplest strategies, proposed by Lucas in  201474, involves utilizing the upper bound 
+of the pure objective function. This is mathematically represented as /afii9838= xT Qx , where xi = 1, ∀i ∈ X (i.e., the 
+solution where all binary decision values are set to 1 is used as an upper bound of the energy minimization 
+problem). This approach provides a straightforward and easily computable penalty.
+Lucas also introduced another possibility for penalty selection which involves using the maximum QUBO 
+value; this is denoted as:
+(1)n∗ ≡ max {n ∈ N,β(n)>β ∗}.
+(2)β( n) =
+˜C (n) − C r(n)
+C max (n) − C r(n).
+
+=== PAGE BREAK ===
+
+9
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+This method takes into account the highest interaction value between the variables, ensuring that the penalty is 
+significant enough to enforce the constraints effectively.
+More recently, Verma and  Lewis75 proposed a more sophisticated method in 2020. Their approach estimates 
+the potential gain or loss in the objective function value that could result from switching a particular bit on or 
+off. This method provides a more nuanced and dynamic way of calculating penalties, potentially leading to more 
+accurate and efficient solutions, especially in complex scenarios where the impact of each binary variable on the 
+objective function is not uniform.
+Therefore the array of strategies discussed underscores the dynamic and continuously evolving landscape of 
+penalty selection in QUBO problems. Each approach, distinct in its methodology, has its own set of strengths and 
+is tailored to suit different problem types. As penalty selection stands as a vibrant and ongoing field of research, 
+our study opts for a more foundational approach. We employ a simple penalty selection method where the penal-
+ties are just a multiple of the sum of activity duration’s p i , /afii9838= ∑n
+j=1 pi , leveraging the upper bound strategy, to 
+ensure clarity and ease of implementation during our analysis.
+Experimental setup
+The experimental results presented in this study were derived from the utilization of the D-Wave Advantage 6.3 
+Quantum Annealer, featuring 5640 qubits and a connectivity of 15 connections per qubit. The minor embeddings 
+were established employing D-Wave’s “minor-miner” heuristic. Each instance generated using the approach 
+explained in “Experimental results” section was solved on the QPU with a specific annealing time of 20µs (the 
+decision to use 20µs is based on the analysis conducted in “Anneal time and pausing effects” section and is also 
+shown in Fig. 18). Furthermore, for every instance, 10000 samples were recorded. It is important to note that the 
+mentioned annealing time exclusively pertains to quantum annealing and does not extend to Reverse Quantum 
+Annealing (RQA), since the latter uses an specific annealing schedule described next.
+Figure  7 illustrates the implementation of RQA using a 4-point schedule: [[0.0, 1.0], [2.75, 0.45], [82.75, 
+0.45], [83.025, 1.0]]. The schedule involves a reverse evolution from s = 1 to s = 0.45 within the initial 2.75 µ s, 
+followed by an 80 µ s pause. Subsequently, a forward evolution of 1 µ s occurs, transitioning from s = 0.45 to 
+s = 1 . Here, the variable s represents the percentage of implementation of the problem Hamiltonian H1 during 
+the annealing evolution.
+The impact of including pauses in the annealing schedule on the performance of QA was assessed in “Anneal time 
+and pausing effects” section. An annealing time of 20µ s was employed, incorporating pauses of 2, 4, 6, 8, 12, 16, and 
+18µ s, respectively. The resulting annealing schedules are visualized in Fig. 8. This analysis was comprehensive, and 
+covered all instance types and sizes. The evaluation involved recording the relative difference between the energy of 
+the ground state E0 and the minimum energy value achieved by QA, denoted as Emin . This difference is calculated as (
+Emin −E0
+E0
+)
+ . For each instance, 1000 samples were recorded. A similar analysis was conducted to evaluate the effect of 
+different annealing times 1, 5, 10, 20, 50, and 100µs in the performance of QA.
+(3)max (Q ij) ∀ (i,j) ∈ X 2 .
+(4)W c =
+{
+−Q ii− ∑ n
+j= 1
+j�= i
+min {Q ij,0},Q ii+ ∑ n
+j= 1
+j�= i
+max {Q ij,0}∀ i∈ X
+}
+,
+(5)/afii9838=
+n
+max
+i=1
+W ci.
+02 04 06 08 00
+0.2
+0.4
+0.6
+0.8
+1
+Time( µs)
+s
+Figure 7.  Reverse quantum annealing schedule used for the RQA numerical results of this work.
+
+=== PAGE BREAK ===
+
+10
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+To create a comprehensive benchmark for assessing the performance of QA and RQA in this study, we have 
+selected the following classical optimization techniques: Random Sampling (RS) and Simulated  Annealing19 
+(SA), along with classical solvers including GUROBI, COIN-CBC, and GLPK.
+Results
+In this section, we provide a detailed examination of several MILP formulations and discuss their applicability in 
+quantum annealing. Initially, in “QUBO analysis of MILP formulations for the RCPSP” section, we explore twelve 
+MILP formulations for the RCPSP to identify the most qubit-efficient model suitable for quantum annealing. 
+This analysis leads us into “RCPSP QUBO” section, where the chosen MILP formulation is transformed into a 
+QUBO form. “Experimental results” section then presents the experimental results obtained from evaluating the 
+performance of QA and RQA across various RCPSP instances, based on the QUBO developed in the preceding 
+section. Finally, “Anneal time and pausing effects” section showcases additional experimental tests that investigate 
+the impact of pausing and annealing times on the effectiveness of the quantum annealing.
+QUBO analysis of MILP formulations for the RCPSP
+In this section, we identify the optimal QUBO formulation for the RCPSP , focusing on the formulation that 
+requires the fewest qubits. The minimal number of qubits is directly related to the number of slack variables, the 
+type of variables, and the sparsity of the QUBO graph. Initially, we examine these crucial elements across three 
+types of RCPSP formulations. Subsequently, from the eight formulations studied within the selected type, we 
+determine the most effective one.
+Analysis of formulation types
+Once transformed into QUBO formulations, time-index, sequence, and event formulations (see Fig.  5) are 
+compared with the data presented in Table C2. The number of qubits required for each formulation is reported 
+in Fig. 9, which shows that the time-index formulation PRI69 requires significantly fewer qubits compared to 
+the sequence- and event-based formulations. Moreover, the gap between these formulations increases with the 
+the instance size. These results may appear counter-intuitive when considering the original number of variables 
+required by each formulation, as detailed in Table C2. Notably, sequence- and event-based formulations exhibit a 
+lower number of original variables than time-index formulations; the compactness characteristic of event-based 
+formulations has been documented well by Koné62.
+The apparent discrepancy in the number of QUBO variables can be elucidated by closely inspecting the nature 
+of the different formulations. The TAM93 formulation requires a priori knowledge of “forbidden sets” F  . These 
+are sets of activities that share no precedence constraints and, when scheduled parallely, violate resource con-
+straints. Demeulemeester and Herroelen  200676 demonstrated that generating the minimum forbidden sets entails 
+01 02 0
+0.0
+0.5
+1.0
+p= 2 µ s
+01 02 0
+p= 4 µ s
+01 02 0
+p= 8 µ s
+01 02 0
+0.0
+0.5
+1.0
+p= 12 µ s
+01 02 0
+p= 16 µ s
+01 02 0
+p= 18 µ s
+Time (µs)
+s
+Figure 8.  Annealing schedules with pauses of different lengths (2,4,8,12,16, and 18µs ) for a fixed annealing 
+time of 20µs . These pauses correspond then to a 10%, 20%, 40%, 60%, 80%, and 90% pause of the annealing 
+time.
+
+=== PAGE BREAK ===
+
+11
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+a worst-case complexity of O (2n) . Consequently, it logically demands more qubits compared to PRI69. This is 
+particularly the case when instance size increases, since the size of the forbidden sets F  increases accordingly.
+In the ART03 resource flow formulation, instead of using forbidden sets F  , integer variables φk
+ij (where 
+i,j ∈ A2 and k ∈ R ) are employed, each requiring ⌊log2 φk
+ij⌋+ 1 binary qubits for transformation. These variables 
+take part of multiple inequalities for maintaining resource constraints, leading to the need for additional slack 
+integer variables, which also require binary transformation. Similarly, event-based formulations KON11 and 
+ART13 utilize integer variables te to represent event start times, with KON11 also incorporating extra integers 
+bek for resource consumption. These variables, also used in several constraints, require further slack variables 
+for binary conversion.
+Analysis of time‑index formulations
+Taking the same RCPSP instances as before, Table C3 presents the outcome resulting from the conversion of 
+eight distinct RCPSP time-index MILP formulations into QUBO.
+The number of qubits per formulation is represented by Fig.  10, which shows the efficiency of the PRI69  
+formulation in comparison to other time-index formulations. This outcome is unsurprising given the inherent 
+simplicity of PRI69 that is characterized by fewer variables, a diminished count of inequalities, and consequently, 
+a reduced number of slack variables. The next favorable option is the MIN98 formulation; however, this choice 
+entails the prerequisite knowledge of feasible sets I . Similar to TAM93, the determination of these sets I entails 
+a worst-case complexity of O (2n).
+For the other formulations, the various strategies aimed at optimizing solutions for a classical computer 
+prove to be costly in terms of the number of qubits required. W e can highlight a few of them here: the CHR87  
+10 H 10 L 15 H 15 L 20 H 20 L
+0
+5000
+10000
+15000
+20000
+25000
+30000
+35000
+40000 PRI69
+KON11
+TAM93
+ART13
+ART03
+Figure 9.  Maximum number of qubits required by the different families of the RCPSP MILP formulations. H 
+refers to disjunctive instances that have high OS (i.e., OS = 0.9), while L refers to cumulative instances that have 
+low OS (i.e., OS = 0.1).
+10 H 10 L 15 H 15 L 20 H 20 L
+0
+5000
+10000
+15000
+20000
+25000 PRI69
+BIA13
+SOU97
+KLEI00 1
+CHR87
+KLEI00 2
+MIN98
+KLE98
+Figure 10.  Maximum number of qubits required by different time-index MILP formulations for the RCPSP . H 
+refers to disjunctive instances that have high OS (i.e., OS = 0.9) and L refers to cumulative instances that have 
+low OS (i.e., OS = 0.1).
+
+=== PAGE BREAK ===
+
+12
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+formulation modifies the PRI69 formulation by replacing its precedence constraint with additional inequalities; 
+SOU97 introduces “step” variables to signal the start of an activity, while KLE98 considers a “step” formulation 
+based on the MILP of a preemptive  RCPSP56; The KLE00_1 and KLE00_2 formulations incorporate “on/off ” 
+variables; Lastly, BIA13 integrates continuous binary variables indicating the percentage of activity completion, 
+while MIN98, bearing similarities to TAM93, requires prior knowledge of “feasible sets” I.
+RCPSP QUBO
+Pritsker et al. 51 proposed PRI69 one of the first formulations for the RCPSP . Although it may initially seem 
+counterintuitive, we have chosen this formulation as the basis for constructing our QUBO based on the analysis 
+in the previous section. We use the notations given in Table 2 to introduce the parameters.
+A single type of binary decision variable is considered, denoted as x it , with i ∈ A ∪{ 0,n + 1} and t ∈ H . 
+This variable is indexed by both the activities and the associated time. Each element x it , ∀i ∈ A ∪{ 0,n + 1} and 
+∀t ∈ H , takes a {0; 1} value such that:
+The initial objective function  of51 minimizes the starting time of the dummy-end activity. This function is noted 
+f(x) and its expression is given by (6). This is the basis of our QUBO, which will then be completed with penalties 
+corresponding to the relaxations of the constraints.
+Moreover, we also consider the work  of11,12 on the JSSP , especially for the precedence constraints and the one-
+start constraint reformulation. For the latter, we force each activity to start exactly once with the following set 
+of constraints (7).
+We relax these constraints for all activities and turn them into one penalty P 1 denoted by the expression (8 ). 
+To ensure that the search for an optimal solution penalizes any infeasible solution, the expression is squared so 
+that satisfying the constraint gives no penalty to the QUBO (i.e., remains 0), and that violating the constraint 
+increases the objective value (which we try to minimize).
+We can model the precedence constraints of two consecutive activities using their inequalities (9).
+The reformulation of all precedence constraints into a single penalty, denoted as P2 , results in (10). Here, the 
+need to square the decision variables does not arise since any quadratic expression involving two binary vari-
+ables never yields a negative value. It is easy to understand that the only scenario where such a constraint is not 
+satisfied occurs when two consecutive activities erroneously start at the same time.
+x it =
+{
+1 if activity i starts at period t,
+0 otherwise.
+(6)f(x ) =
+∑
+t
+tx(n+1)t .
+(7)
+∑
+t
+x it = 1, ∀ i ∈ A.
+(8)P 1(x ) =
+n+1∑
+i=0
+(∑
+t
+xit − 1
+)2
+.
+(9)
+∑
+t∈H
+txjt ≤
+∑
+t∈H
+txit + p i ∀ (i, j) ∈ E.
+Table 2.  RCPSP parameters used in the PRI69 time-index formulation.
+Notation Definition
+n Number of activities (excluding the two dummy activities indexed by 0 and n + 1).
+T Maximum number of time periods.
+A Set of activities.
+H H = 0, 1, ...,T is the scheduling horizon.
+E Set of edges representing a precedence relationship between two activities. For instance, if i and j are two activities of A , and if 
+activity i must be finished to start activity j, (i, j) ∈ E.
+R Set of resources.
+p i Processing time of the activity i ∈ A.
+Bk Capacity of the resource k, k ∈ R.
+bik Activity i consumption of the resource k ∈ R and its capacity Bk.
+
+=== PAGE BREAK ===
+
+13
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+The JSSP has machine-sharing constraints which can also be modeled by simple quadratic expressions, thus giv-
+ing a penalty similar to P 2. The RCPSP has another difficulty: resource constraints. The inequalities presented 
+in (11) express these constraints, as modeled  in51.
+Since we need a penalty for relaxing the resource constraints, we add slack variables in order to reach an equality 
+for each inequality of (11). Slack variables are noted ztk, t ∈ H, k ∈ R  , as a non-negative integer for reformulating 
+resource constraints (11) with the quadratic penalties (12).
+Since this reformulation aims to create a QUBO, the slack variables stk must correspond to binary variables. Here, 
+we can consider the minimum value of ztk as zero and the maximum value as Bk . The related binary expression 
+is given by equation (13), where y is a binary vector (each y i takes value in {0,1}) and where the integer function 
+f (α) gives the required maximum power of 2 with α as the target integer.
+W e note that /afii98381 , /afii98382 , and /afii98383 multipliers balance the penalties P 1, P2, P3, respectively. The QUBO of the RCPSP 
+can be formulated using the objective function fQUBO(x ) with the quadratic constraints (8), (10), and (12), such 
+that fQUBO (x) = f(x) + /afii98381P 1(x) + /afii98382P 2(x) + /afii98383P 3(x) , as presented in equation (14).
+Experimental results
+Figure 11 illustrates the TTT evolution for a range of optimization methods applied to a specific cumulative 
+instance involving six non-dummy activities and two resources. Accompanying this, Fig. 12 presents the network 
+diagram relevant to this instance. The figures are organized into a tripartite panel, demonstrating the progres-
+sion of the optimization process across different energy quantiles. This progression is depicted from left to right, 
+indicating a transition from higher to lower energy levels.
+It is noteworthy that QA and RQA exhibit discernible patterns, contrasting with the Random Sampling 
+(RS) behavior observed in the evolution curve of RS. This observation suggests that QA and RQA are not mere 
+random samplers.
+For the specific instance presented in Fig. 11, RQA demonstrates exceptional performance and outperforms 
+all other optimization methods, including the widely used commercial solver GUROBI. This superior perfor -
+mance of RQA is particularly noticeable in the third panel of Fig. 11, where, the distinctive red line marked with 
+“ △ ” symbols, representing RQA, reaches the ground state energy faster than any other method. Furthermore, 
+Fig. 13 illustrates the optimal schedule derived using RQA. This schedule results in an optimal project make 
+span of three days.
+Despite the impressive performance of QA and RQA for the instance depicted in Fig.  11, it is crucial to 
+remember that both QA and RQA are heuristic methods and consequently do not guarantee the finding of ground 
+states or global optimal solutions. This limitation is evident in Fig.  14, which showcases the relative deviation (
+Emin −E0
+E0
+)
+ between the minimum energy solution obtained by QA and RQA (i.e., Emin ) and the ground state 
+energy (i.e., E0 ) obtained by Gurobi. A value of 
+(
+Emin −E0
+E0
+)
+= 0 in this metric indicates a successful sampling of 
+the ground state. However, as illustrated in Fig. 7, both QA and RQA struggled to find the ground state energy 
+solutions. Additional data in Figures H11 and H12 in Appendix H demonstrate the time-to-solution (TTS) in 
+seconds for QA and RQA respectively.
+(10)
+P 2(x ) =
+∑
+(i,j)∈E
+∑
+t∈H
+∑
+t′ ∈ H
+t′\t + pi > t′
+xitxjt′ .
+(11)
+n∑
+i=1
+bik
+t∑
+τ =t−pi+1
+xiτ ≤ B k ∀t ∈ H,∀k ∈ R .
+(12)P 3(x) =
+�
+t
+�
+k
+
+
+n�
+i=1
+bik
+t�
+τ =t−pi+1
+xiτ − B k + ztk
+
+
+2
+.
+(13)ztk =
+f(B k )∑
+i=0
+2 iyi ∀t ∈ H,∀k ∈ R.
+(14)
+fQUBO (x) =
+∑
+t
+tx(n+1)t
++ /afii98381
+n+1∑
+i=0
+(1−
+∑
+t
+xit)2
++ /afii98382
+∑
+(i,j)∈E
+∑
+t
+∑
+t′\t+pi>t ′
+xitxjt′
++ /afii98383
+∑
+t
+∑
+k
+(
+n∑
+i=1
+bik
+t∑
+τ=t−pi+1
+xiτ − B k + ztk)2.
+
+=== PAGE BREAK ===
+
+14
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+Table 3 presents succinct results featuring the mean TTT values for solutions at different energy quantiles 
+(0.9, 0.99, and 0.999). To provide further insight, Fig.  15 visually captures the distinctive mean TTT patterns 
+and highlights the performance variations among the evaluated optimization methods for all instance types. 
+Figure D2, D3, and D4 from Appendix D offer further insight by illustrating the individual TTT performance 
+for the different instance types evaluated in this work (cumulative, medium OS, and disjunctive).
+The results presented in Table 3 and Fig. D4, D2, and D3 reveal interesting dynamics. It is evident that QA and 
+RQA face challenges in maintaining superiority, especially when tasked with finding ground states in instances of 
+larger sizes. Despite this, in mere fractions of a second, both QA and, notably, RQA demonstrate their capability 
+to provide high-quality solutions approaching the proximity of ground states.
+Overall, for the high-energy quantiles, GUROBI exhibits consistent superiority over SA, QA, RQA, and other 
+free solvers. However, this trend does not extend to certain freely available solvers, such as GLPK and CBC. 
+Notably, in scenarios involving lower energy quantiles, both QA and RQA demonstrate significant advantages 
+over these free solvers. This is particularly evident in the left (  q = 0.9 ) and middle ( q = 0.99 ) panels of Fig. 15, 
+where QA and RQA outperform their counterparts in reaching lower energy states more efficiently.
+Contrary to the findings reported by Carugno et al. 12 in the context of the JSSP , our results indicate that 
+SA surpasses both QA and RQA in terms of performance across most instance sizes and energy quantiles. In 
+agreement with their observations, however, RQA does tend to show superior performance compared to QA, 
+particularly in lower energy quantiles.
+Adapting the Q-score methodology for QA, as proposed by V an der Schoot et al. 67, we computed the β( n) 
+values for various instance sizes and types examined in our study. Analysis of Fig. 16 reveals that the β( n) values 
+for both QA and RQA consistently exceed the critical threshold of 0.2. However, is important to remind the 
+reader that this threshold was empirically established based on the solution to instances of the the Max-Cut 
+problem using QAOA. Therefore, its validity is based solely on these empirical findings and is without additional 
+theoretical support.
+200000400000
+10−6
+10−4
+10−2
+100
+Energy q =1to 0.4
+20000400006000080000
+10−6
+10−4
+10−2
+100
+Energy q =0 .4 to 0.05
+400060008000
+10−2
+10−1
+100
+101
+Energy q =0 .05t o0 .01
+1900200021002200
+10−1
+100
+101
+Energy q =0 .01t o0 .0
+Energy
+TTT( s)
+RS
+SA
+QA
+RQA
+CBC
+GLPK
+GUROBI
+Figure 11.  Evolution of TTT in seconds for a cumulative instance (OS = 0.1) of six non-dummy activities and 
+two resources. The three panels show the evolution for different energy ranges, where energy decreases from left 
+to right. The right-most panel shows the energy range for the ground state of this instance. From the same panel, 
+it can be seen that RQA is able to find the ground state energy equivalent to 1925 with a TTT of 0.2 seconds.
+
+=== PAGE BREAK ===
+
+15
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+We, therefore, conclude that the estimated maximum instance size of the RCPSP that can be solved using a 
+D-Wave quantum annealer peaks at seven non-dummy activities. Although the β( n) values substantially exceed 
+the critical threshold, we observe a rapid decline in solution quality beyond this activity count. This deterioration 
+is evident when examining the mean “chain-break” percentage reported by the D-W ave system. For instances 
+with eight activities or more, the average chain-break percentage escalates to approximately 74%, indicating a 
+significant breakdown among the logical qubits that were utilized to map the original QUBO graph onto the 
+QPU topology. With such a high percentage of chain breaks, the reliability of the annealer in solving the intended 
+optimization problem becomes questionable, despite the higher β( n) values observed.
+Anneal time and pausing effects
+In the preceding section, our experimental approach was predicated on determining an optimal annealing 
+time for QA. This determination was made empirically, analyzing the performance of QA across a spectrum of 
+annealing times: 1, 5, 10, 20, 50, and 100µs.
+Start
+1 2
+3
+4
+5
+6
+End
+0
+0,0
+2
+0,1
+1
+1,0
+1
+0,2
+1
+0,2
+1
+0,2
+2
+2,0
+0
+0,0
+Figure 12.  Network diagram cumulative instance (OS = 0.1) with six non-dummy activities and two resources. 
+The duration of each activity is displayed above each node, while the resource consumption is displayed below.
+x
+y
+6
+2
+0 1 2 3
+0
+1
+2
+3
+B1 =3
+(a) Resource proﬁle for resource 1.
+x
+y
+1
+3 4
+5
+0 1 2 3
+0
+1
+2
+3
+B2 =3
+(b)R esource proﬁle for resource 2.
+Figure 13.  Optimal schedule obtained from RQA for the cumulative instance (OS = 0.1) with six non-dummy 
+activities and two resources, described in Fig. 11. This optimal solution was obtained in a TTT of 0.2 seconds. 
+The optimal schedule corresponds to a ground state energy of 1925. Please see table I4 in the appendix I for 
+detailed values of the ground state energies for each instance.
+
+=== PAGE BREAK ===
+
+16
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+The performance evaluation of QA for each annealing time was determined based on a relative energy dif -
+ference metric. This metric juxtaposes the minimum energy achieved through QA against the ground state energy 
+for the given instances as 
+(
+Emin −E0
+E0
+)
+ . Our analysis spanned instance with 3, 4, 5, 6, 7, and 8 non-dummy activities 
+and all instance types (Cumulative, Medium OS, and Disjunctive). We collected 1000 samples for each 
+configuration.
+Insights into the mean behavior of QA across these different annealing times are presented in Fig. 17. This line 
+graph illustrates the relationship between the instance size (x-axis) and the relative energy differences (y-axis), 
+offering a visual representation of the performance variations across instance sizes.
+Complementing this analysis, Fig. 18 presents a holistic view of the mean behavior across all instance sizes and 
+types. Here, the annealing times are mapped along the x-axis, and the corresponding relative energy differences 
+are charted on the y-axis. In accordance  with71, this graph reveals that an annealing time of approximately 20µs 
+emerges as optimal. Beyond this threshold, there is a discernible decline in QA performance.
+Given these findings, we chose to conduct our experiments with an annealing time fixed at 20µs . This deci-
+sion was guided by empirical evidence, suggesting that this duration strikes an effective balance in optimizing 
+QA performance. Figures E5, E6, and E7 illustrate the effect of annealing times for Cumulative, Medium OS, 
+and Disjunctive instance types.
+In continuation of our exploration into the multiple parameters involved in QA, we extended the investiga-
+tion to assess the impact of annealing pauses on QA performance. This analysis aligns with the relative energy 
+difference framework established earlier, comparing the minimum energy achieved via QA to the ground state 
+energy for a particular instance.
+Our focus centered on a fixed annealing time of 20 µs to examine the effects of pauses at intervals of 2, 4, 8, 
+12, 16, and 18µs (refer to Fig. 8 for a visual representation of the annealing schedules after incorporating these 
+pauses).
+This investigation was inspired by the findings of Marshal et al. 77, who report performance enhancements 
+in QA with the inclusion of annealing pauses. Our results, illustrated in Fig.  19, confirm this observation. Fig -
+ure 19 presents a heat map that encapsulates the QA performance across various instance sizes (3, 4, 5, 6, 7, and 
+8 non-dummy activities) and pause durations (shown on the y-axis as the percentage of pause relative to the 
+total annealing time). Each cell in this heat map represents the average relative energy value derived from 1000 
+samples across all instance types (Cumulative, Medium OS, and Disjunctive), providing a comprehensive view 
+of the performance landscape.
+3 4 56 7 8
+0.00
+0.25
+0.50
+0.75
+1.00
+1.25
+1.50
+1.75
+OS =0 .1
+3 4 56 7 8
+OS =0 .5
+3 4 56 7 8
+OS =0 .9
+Instance Size
+( Emin −E0
+E0
+)
+QA RQA
+Figure 14.  Relative energy deviation from the ground state measured as 
+(
+Emin −E0
+E0
+)
+ for all instance types 
+(Cumulative, Medium OS, and Disjunctive) for both QA and RQA. A value of 
+(
+Emin −E0
+E0
+)
+= 0 indicates that the 
+ground state energy was achieved. Ground state energy values of the different instance types and sizes can be 
+seen in table I4 from the Appendix I.
+
+=== PAGE BREAK ===
+
+17
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+Intriguingly, Fig. 20 highlights that annealing pauses constituting 20% to 40% of the overall schedule (equating 
+to 4 µs and 8 µs in this context) yield the most favorable performance. Figure F8, F9, and F10 show the effect of 
+annealing pauses for Cumulative, Medium OS, and Disjunctive instance types, respectively.
+It is important to note, however, that the inherent nature of RQA always incorporates a pause in the anneal-
+ing schedule. Consequently, the insights obtained from this analysis predominantly apply to conventional QA 
+rather than RQA.
+Discussion
+In this work, we have conducted a comprehensive exploration into the practical implementation of the RCPSP 
+using quantum annealing, specifically by leveraging D-Wave’s quantum-computing technology. Our investiga-
+tion encompasses a range of aspects, from the basics of quantum annealing to advanced techniques like reverse 
+quantum annealing.
+To the best of our knowledge, we are the first to address the RCPSP using a quantum annealer, marking a 
+significant contribution to the integration of quantum computing in the field of operations research. Our work 
+underscores the importance of QUBO modeling for solving RCPSP instances on quantum annealing machines. 
+We have conducted a thorough analysis of 12 well-known MILP formulations for RCPSP and converted them 
+to a QUBO format. This includes identifying the most suitable formulation for quantum annealing, specifically 
+the PRI69 formulation, and providing the corresponding QUBO model.
+It is worth noting that the QUBO model (14) derived in “ RCPSP QUBO” section can easily be adapted to 
+other variants of the RCPSP , as in the case of the 1-preemptive resource-constrained project scheduling problem 
+(1_PRCPSP). By adapting the formulation proposed by Ballestín et al. 78, we obtain the QUBO f(x )1_PRCPSP
+QUBO  
+(presented in Appendix G1). The problem does not suffer from the addition of new slack variables. The new 
+constraints can be modeled as a quadratic product that must remain zero in order to be satisfied.
+Other versions of the RCPSP can be based on the QUBO introduced in this study without the need to add 
+many constraints. For example, if resources have periods of unavailability, or if their capacity is reduced ( Bk 
+becomes B kt ), it is sufficient to treat these periods as distinct activities with fixed variable values, as shown by 
+ Hartmann79. This approach can also be applied when the use of resources needs to be stopped without a pre-
+determined period (e.g., for maintenance operations). In such cases, these periods of unavailability should be 
+considered as activities without setting fixed variables. In these scenarios, it is important to establish a prec-
+edence constraint for each virtual activity to ensure that the identification of the unavailability period is properly 
+included in the optimization process. However, this modification will require the inclusion of additional slack 
+variables associated with the resource constraint.
+3 4 56 7 8
+10−2
+10−1
+100
+101
+102
+103
+104
+105
+q= 0.9
+3 4 56 7 8
+q= 0.99
+3 4 56 7 8
+q= 0.999
+TTT(s)
+Instance Size
+CBC
+GLPK
+GUROBI
+QA
+RQA
+RS
+SA
+Figure 15.  Mean TTT, reported in seconds for all instance types; OS = 0.1, OS = 0.5, and OS = 0.9.
+
+=== PAGE BREAK ===
+
+18
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+In this work, we solve three distinct categories of problem instances, as defined by the protocol of Baptiste and 
+Le Pape, using RCPSP QUBO formulation (14) on a quantum annealer. Strategies such as developing a reverse 
+quantum annealing schedule are employed. The results are then compared with those obtained from a classical 
+solver. For this comparison, we conduct a detailed exploration of multiple metrics available for evaluating the 
+performance of quantum annealing. Ultimately, we adopt the TTT and the Q-score for our evaluation. Addition-
+ally, we determine the maximum instance size that can still be solved with a machine equipped with 5000 qubits. 
+Another key discovery from our research underscores the potential benefits of quantum annealing, especially 
+in scenarios with constrained time limits, such as those encountered in online operations research problems. 
+In addition to our primary research focus, we conduct an extensive and meticulous analysis to understand the 
+impact of annealing times and the role of pauses within annealing schedules on the performance of QA.
+While our research offers valuable insights, it’s important to recognize its limitations. These include using 
+problem instances of limited size, while excluding other promising quantum-computing techniques like  QAOA73 
+Table 3.  TTT (s) mean results for disjunctive, cumulative, and medium OS instances.
+Size Method q = 0.9 q = 0.95 q = 0.99 q = 0.999 q = 0.9999
+3 CBC 0.25 0.25 1.67 2 2
+3 GLPK 1 1 1 1 1
+3 GUROBI 0.07 0.07 0.27 0.3 0.3
+3 QA 0.04 0.09 0.19 0.2 0.2
+3 RQA 0.04 0.08 0.19 0.2 0.2
+3 RS 0.02 57600 86400 86400 86400
+3 SA 0.01 0.01 0.34 48.60 59.66
+4 CBC 0.25 0.25 3.5 4.67 4.67
+4 GLPK 1 1 1 4 28801.33
+4 GUROBI 0.07 0.07 0.12 0.27 0.5
+4 QA 0.05 0.12 0.19 0.20 28800.13
+4 RQA 0.04 0.11 0.20 57600.07 86400
+4 RS 57600.01 86400 86400 86400 86400
+4 SA 0.02 0.02 0.06 64.20 93.92
+5 CBC 0.42 0.67 40 40 45
+5 GLPK 1 1 1.33 28802 57601
+5 GUROBI 0.1 0.1 0.1 0.47 0.75
+5 QA 0.08 0.16 0.20 28800.13 86400
+5 RQA 0.08 0.16 0.20 57600.07 86400
+5 RS 86400 86400 86400 86400 86400
+5 SA 0.02 0.02 2.39 44.41 136.76
+6 CBC 5.5 28803.17 57603 57603 57615
+6 GLPK 1 1 1 57601 57610
+6 GUROBI 0.12 0.12 0.12 0.38 2.17
+6 QA 0.13 0.17 0.20 86400 86400
+6 RQA 0.09 0.15 0.20 57600.07 86400
+6 RS 86400 86400 86400 86400 86400
+6 SA 0.04 0.04 0.64 71.46 159.07
+7 CBC 10.75 15.08 15.08 28810.08 28810.08
+7 GLPK 2 2 2.33 28820 86400
+7 GUROBI 0.17 0.17 0.17 2.5 16.17
+7 QA 0.13 0.18 0.20 57600.07 86400
+7 RQA 0.12 0.17 0.20 57600.07 57600.07
+7 RS 86400 86400 86400 86400 86400
+7 SA 0.05 0.05 0.05 32.65 108.17
+8 CBC 0.42 0.42 5.17 10.17 28800.17
+8 GLPK 2.67 2.67 6 86400 86400
+8 GUROBI 0.22 0.22 0.47 3.08 5
+8 QA 0.14 0.18 0.20 86400 86400
+8 RQA 0.15 0.18 0.20 86400 86400
+8 RS 86400 86400 86400 86400 86400
+8 SA 0.07 0.07 0.07 121.81 441.25
+
+=== PAGE BREAK ===
+
+19
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+due to hardware constraints, as well as the dependence on the “minor-miner” heuristic for the embedding 
+procedure.
+In alignment with the work of Venturelli et al.11 and Carugno et al12 on the JSSP , we recognize the potential 
+for significant reduction in time horizons for the RCPSP . This reduction can be achieved by pre-establishing 
+upper bounds, derived from heuristics that can be calculated in polynomial  time80. Such bounds can consider-
+ably reduce the number of variables required by time-index formulations like “PRI69” . However, in this study, 
+our focus was centered on examining the intrinsic performance of QA and RQA without incorporating these 
+heuristic techniques. We also did not explore the use of broken-chain correction techniques like the ones sug -
+gested by Marshal et al.32.
+3 4 56 7 8
+0.91
+0.92
+0.93
+0.94
+0.95
+0.96
+OS =0 .1
+QA
+RQA
+3 4 56 7 8
+OS =0 .5
+QA
+RQA
+3 4 56 7 8
+OS =0 .9
+QA
+RQA
+Instance Size
+β(n)
+Figure 16.  β( n) for all instances with 3, 4, 5, 6, 7, and 8 non-dummy activities for all instance types 
+(Cumulative, Medium OS, and Disjunctive).
+3 4 56 7 8
+Instance Size
+0
+1
+2
+3
+4
+5
+( Emin −E0
+E0
+)
+t= 1 µ s
+t= 5 µ s
+t= 10 µ s
+t= 20 µ s
+t= 50 µ s
+t= 100 µ s
+Figure 17.  Mean effect of annealing time on QA performance, measured as the mean relative deviation from 
+the ground state 
+(
+Emin −E0
+E0
+)
+ for all instance types (Cumulative, Medium OS, and Disjunctive). A value of 0 on the 
+y-axis indicates an energy equal to the ground state energy. Please see table I4 in the appendix I for detailed 
+values of the ground state energies for each instance. 
+
+=== PAGE BREAK ===
+
+20
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+0 20 40 60 80 100
+Annealingt ime µs
+0.6
+0.8
+1.0
+1.2
+1.4
+1.6
+1.8
+( Emin −E0
+E0
+)
+1.231.22
+1.01
+0.96
+1.31
+1.01
+Figure 18.  The figure illustrates the impact of annealing times on QA performance, depicted across various 
+instance sizes and types as a function of the mean relative deviation from the ground state 
+(
+Emin −E0
+E0
+)
+ on the 
+y-axis. This relationship is represented by a green line, accompanied by its standard deviation delineated as a 
+light green contour. The x-axis quantifies the annealing time. A value of 0 on the y-axis indicates an energy equal 
+to the ground state energy. Please see table I4 in the appendix I for detailed values of the ground state energies 
+for each instance.
+3 4 5 6 7 8
+Instance Size
+0 10 20 40 60 80 90
+Pause
+0.066 0.61 0.78 1.61 .7 3.6
+0.20 .720 .79 2.21 .7 1.6
+0.066 0.26 1.31 .1 1.52 .5
+00 .550 .6 1.4 1.9 2.4
+0.33 0.51 1.3 22 .1 2.2
+0.20 .331 0.9 2.12 .3
+0.066 0.11 0.89 1.41 .2 3.8
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+Figure 19.  Heatmap of the effect of pauses included in the annealing schedule vs the relative mean deviation 
+from the ground state energy 
+(
+Emin −E0
+E0
+)
+ for all instance types. The y-axis shows the percentage of pause in the 
+annealing schedule, as shown in Fig. 8. A value of 0, represented by dark blue in the heatmap, indicates an 
+energy equal to the ground state. Please see table I4 in the appendix I for detailed values of the ground state 
+energies for each instance.
+
+=== PAGE BREAK ===
+
+21
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+These aspects warrant consideration in future research. Additionally, investigating alternative quantum-
+computing technologies, such as the neutral atoms technology proposed by  Pasqal81, is promising and deserves 
+further exploration.
+Despite the acknowledged limitations, this work serves as a pioneering effort in applying quantum annealing 
+to the RCPSP . We hope that our findings and methodologies will act as a catalyst for future benchmarks, fostering 
+advancements towards practical applications of quantum computers in operations research.
+Data availability
+The input data and instances to replicate our results are made available in the following online directory: https:// 
+github. com/ ceche 1212/ QA_ RCPSP.
+Code availability
+The code to replicate our results are made available in the following online directory: https:// github. com/ ceche 
+1212/ QA_ RCPSP.
+Received: 23 February 2024; Accepted: 9 July 2024
+References
+ 1. Preskill, J. Quantum computing in the NISQ era and beyond. Quantum 2, 79 (2018).
+ 2. Shor, P . W . Algorithms for quantum computation: Discrete logarithms and factoring. In Proceedings 35th Annual Symposium on 
+Foundations of Computer Science 124–134 (IEEE, 1994).
+ 3. Grover, L. K. A fast quantum mechanical algorithm for database search. In Proceedings of the Twenty‑eighth Annual ACM Sympo‑
+sium on Theory of Computing 212–219 (1996).
+ 4. MIT Technology Review, M. I. O. T. IBM wants to build a 100,000-qubit quantum computer. https:// www. techn ology review. com/ 
+2023/ 05/ 25/ 10736 06/ ibm- wants- to- build-a- 100000- qubit- quant um- compu ter/#: ~: text= Late 11-2023 (2023).
+ 5. Pelofske, E., Bärtschi, A., Cincio, L., Golden, J. & Eidenbenz, S. Scaling whole-chip qaoa for higher-order ising spin glass models 
+on heavy-hex graphs (2023). arXiv preprint arXiv: 2312. 00997
+ 6. Kam, J. F ., Kang, H., Hill, C. D., Mooney, G. J. & Hollenberg, L. C. Generation and preservation of large entangled states on physical 
+quantum devices (2023). arXiv preprint arXiv: 2312. 15170
+ 7. Ushijima-Mwesigwa, H., Negre, C. F . & Mniszewski, S. M. Graph partitioning using quantum annealing on the d-wave system. In 
+Proceedings of the Second International Workshop on Post Moores Era Supercomputing 22–29 (2017)
+ 8. Bauckhage, C., Piatkowski, N., Sifa, R., Hecker, D. & Wrobel, S. A qubo formulation of the k-medoids problem. In LWDA 54–63 
+(2019).
+ 9. Neukart, F . et al. Traffic flow optimization using a quantum annealer. Front. ICT 4, 29 (2017).
+ 10. Stollenwerk, T. et al. Quantum annealing applied to de-conflicting optimal trajectories for air traffic management. IEEE Trans. 
+Intell. Transp. Syst. 21(1), 285–297 (2019).
+ 11. Venturelli, D., Marchand, D. J. & Rojo, G. Quantum annealing implementation of job-shop scheduling (2015). arXiv preprint 
+arXiv: 1506. 08479
+ 12. Carugno, C., Ferrari Dacrema, M. & Cremonesi, P . Evaluating the job shop scheduling problem on a d-wave quantum annealer. 
+Sci. Rep. 12(1), 6539 (2022).
+ 13. Venturelli, D. et al. Quantum optimization of fully connected spin glasses. Phys. Rev. X 5(3), 031040 (2015).
+ 14. Bian, Z. et al. Solving sat (and maxsat) with a quantum annealer: Foundations, encodings, and preliminary results. Inf. Comput.  
+275, 104609 (2020).
+ 15. Rosenberg, G., Haghnegahdar, P ., Goddard, P ., Carr, P ., Wu, K. & De Prado, M. L. D. Solving the optimal trading trajectory problem 
+using a quantum annealer. In Proceedings of the 8th Workshop on High Performance Computational Finance 1–7 (2015)
+0 10 20 40 60 80 90
+Pause
+0.6
+0.8
+1.0
+1.2
+1.4
+1.6
+1.8
+2.0
+2.2
+( Emin −E0
+E0
+)
+1.39
+1.19
+1.12 1.15
+1.42
+1.14
+1.25
+Figure 20.  General effect of pauses included in the annealing schedule vs the relative deviation from the 
+ground state energy 
+(
+Emin −E0
+E0
+)
+ for all instances. The y-axis shows the percentage of pause in the annealing 
+schedule, as shown in Fig. 8.
+
+=== PAGE BREAK ===
+
+22
+Vol:.(1234567890)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+ 16. King, A. D. et al.  Observation of topological phenomena in a programmable lattice of 1800 qubits. Nature  560(7719), 456–460 
+(2018).
+ 17. Kadowaki, T. & Nishimori, H. Quantum annealing in the transverse ising model. Phys. Rev. E 58(5), 5355 (1998).
+ 18. Albash, T. & Lidar, D. A. Adiabatic quantum computation. Rev. Mod. Phys. 90(1), 015002 (2018).
+ 19. Kirkpatrick, S., Gelatt, C. D. Jr. & Vecchi, M. P . Optimization by simulated annealing. Science 220(4598), 671–680 (1983).
+ 20. Harris, R. et al. Experimental demonstration of a robust and scalable flux qubit. Phys. Rev. B 81(13), 134510 (2010).
+ 21. Santoro, G. E., Martonák, R., Tosatti, E. & Car, R. Theory of quantum annealing of an ising spin glass. Science 295(5564), 2427–2430 
+(2002).
+ 22. Johnson, M. W . et al. Quantum annealing with manufactured spins. Nature 473(7346), 194–198 (2011).
+ 23. Vert, D., Sirdey, R. & Louise, S. Benchmarking quantum annealing against “hard’’ instances of the bipartite matching problem. SN 
+Comput. Sci. 2, 1–12 (2021).
+ 24. Born, M. & Fock, V . Beweis des adiabatensatzes. Z. Phys. 51, 165–180. https:// doi. org/ 10. 1007/ BF013 43193 (1928).
+ 25. Kato, T. On the adiabatic theorem of quantum mechanics. J. Phys. Soc. Jpn. 5(6), 435–439 (1950).
+ 26. Schrödinger, E. An undulatory theory of the mechanics of atoms and molecules. Phys. Rev. 28(6), 1049 (1926).
+ 27. Farhi, E. et al. A quantum adiabatic evolution algorithm applied to random instances of an np-complete problem. Science 292(5516), 
+472–475 (2001).
+ 28. Josephson, B. D. Possible new effects in superconductive tunnelling. Phys. Lett. 1(7), 251–253 (1962).
+ 29. Kwon, S., Tomonaga, A., Lakshmi Bhai, G., Devitt, S. J. & Tsai, J.-S. Gate-based superconducting quantum computing. J. Appl. 
+Phys. 129(4), 041102 (2021).
+ 30. Krantz, P . et al. A quantum engineer’s guide to superconducting qubits. Appl. Phys. Rev. 6(2), 021318 (2019).
+ 31. Lucas, A. Hard combinatorial problems and minor embeddings on lattice graphs. Quantum Inf. Process. 18(7), 203 (2019).
+ 32. Marshall, J., Di Gioacchino, A. & Rieffel, E. G. Perils of embedding for sampling problems. Phys. Rev. Res. 2(2), 023020 (2020).
+ 33. Okada, S., Ohzeki, M., Terabe, M. & Taguchi, S. Improving solutions by embedding larger subproblems in a d-wave quantum 
+annealer. Sci. Rep. 9(1), 2098 (2019).
+ 34. Abbott, A. A., Calude, C. S., Dinneen, M. J. & Hua, R. A hybrid quantum-classical paradigm to mitigate embedding costs in 
+quantum annealing. Int. J. Quant. Inf. 17(05), 1950042 (2019).
+ 35. Serra, T., Huang, T., Raghunathan, A. U. & Bergman, D. Template-based minor embedding for adiabatic quantum optimization. 
+INFORMS J. Comput. 34(1), 427–439 (2022).
+ 36. Bernal, D. E., Booth, K. E., Dridi, R., Alghassi, H., Tayur, S. & Venturelli, D. Integer programming techniques for minor-embedding 
+in quantum annealers. In Integration of Constraint Programming, Artificial Intelligence, and Operations Research: 17th International 
+Conference, CPAIOR 2020, Vienna, Austria, September 21–24, 2020, Proceedings 17 112–129 (Springer, 2020).
+ 37. Cai, J., Macready, W .G. & Roy, A. A practical heuristic for finding graph minors (2014). arXiv preprint arXiv: 1406. 2741
+ 38. Venturelli, D. & Kondratyev, A. Reverse quantum annealing approach to portfolio optimization problems. Quant. Mach. Intell.  
+1(1–2), 17–30 (2019).
+ 39. Ikeda, K., Nakamura, Y . & Humble, T. S. Application of quantum annealing to nurse scheduling problem. Sci. Rep. 9(1), 12837 
+(2019).
+ 40. Rocutto, L., Destri, C. & Prati, E. Quantum semantic learning by reverse annealing of an adiabatic quantum computer. Adv. Quant. 
+Technol. 4(2), 2000133 (2021).
+ 41. Golden, J. & O’Malley, D. Reverse annealing for nonnegative/binary matrix factorization. PLoS ONE 16(1), 0244026 (2021).
+ 42. Blazewicz, J., Lenstra, J. K. & Kan, A. R. Scheduling subject to resource constraints: Classification and complexity. Discrete Appl. 
+Math. 5(1), 11–24 (1983).
+ 43. Sahni, S. & Cho, Y . Complexity of scheduling shops with no wait in process. Math. Oper. Res. 4(4), 448–457 (1979).
+ 44. Gromicho, J. A., Van Hoorn, J. J., Saldanha-da-Gama, F . & Timmer, G. T. Solving the job-shop scheduling problem optimally by 
+dynamic programming. Comput. Oper. Res. 39(12), 2968–2977 (2012).
+ 45. Garey, M. R. Computers and intractability: A guide to the theory of np-completeness, Freeman. Fundamental (1997)
+ 46. Boland, N., Christiansen, J., Dandurand, B., Eberhard, A. & Oliveira, F . A parallelizable augmented Lagrangian method applied 
+to large-scale non-convex-constrained optimization problems. Math. Program. 175, 503–536 (2019).
+ 47. Castro, J., Nasini, S. & Saldanha-da-Gama, F . A cutting-plane approach for large-scale capacitated multi-period facility location 
+using a specialized interior-point method. Math. Program. 163(1–2), 411–444 (2017).
+ 48. Castro, J. & Nasini, S. A specialized interior-point algorithm for huge minimum convex cost flows in bipartite networks. Eur. J. 
+Oper. Res. 290(3), 857–869 (2021).
+ 49. Damay, J., Quilliot, A. & Sanlaville, E. Linear programming based algorithms for preemptive and non-preemptive RCPSP . Eur. J. 
+Oper. Res. 182(3), 1012–1022 (2007).
+ 50. Brucker, P . & Knust, S. A linear programming and constraint propagation-based lower bound for the RCPSP . Eur. J. Oper. Res. 
+127(2), 355–362 (2000).
+ 51. Pritsker, A. A. B., Waiters, L. J. & Wolfe, P . M. Multiproject scheduling with limited resources: A zero-one programming approach. 
+Manag. Sci. 16(1), 93–108 (1969).
+ 52. Christofides, N., Alvarez-Valdés, R. & Tamarit, J. M. Project scheduling with resource constraints: A branch and bound approach. 
+Eur. J. Oper. Res. 29(3), 262–273 (1987).
+ 53. De Souza, C. & Wolsey, L. Scheduling projects with labour constraints. Relatório Técnico IC‑P7‑22 (Instituto de Computação, Uni-
+versidade Estadual de Campinas, 1997).
+ 54. Mingozzi, A., Maniezzo, V ., Ricciardelli, S. & Bianco, L. An exact algorithm for the resource-constrained project scheduling problem 
+based on a new mathematical formulation. Manag. Sci. 44(5), 714–729 (1998).
+ 55. Klein, R. Scheduling of Resource‑Constrained Projects Vol. 10 (Springer, 2000).
+ 56. Kaplan, L. A. Resource‑Constrained Project Scheduling with Preemption of Jobs (University of Michigan, 1988).
+ 57. Bianco, L. & Caramia, M. A new formulation for the project scheduling problem under limited resources. Flex. Serv. Manuf. J. 25, 
+6–24 (2013).
+ 58. Olaguibel, R.A.-V . & Goerlich, J. T. The project scheduling polyhedron: Dimension, facets and lifting theorems. Eur. J. Oper. Res. 
+67(2), 204–220 (1993).
+ 59. Artigues, C., Michelon, P . & Reusser, S. Insertion techniques for static and dynamic resource-constrained project scheduling. Eur. 
+J. Oper. Res. 149(2), 249–267 (2003).
+ 60. Koné, O., Artigues, C., Lopez, P . & Mongeau, M. Event-based milp models for resource-constrained project scheduling problems. 
+Comput. Oper. Res. 38(1), 3–13 (2011).
+ 61. Artigues, C. et al. A note on “event-based milp models for resource-constrained project scheduling problems’’ . Comput. Oper. Res. 
+40(4), 1060–1063 (2013).
+ 62. Koné, O., Artigues, C., Lopez, P . & Mongeau, M. Comparison of mixed integer linear programming models for the resource-
+constrained project scheduling problem with consumption and production of resources. Flex. Serv. Manuf. J. 25, 25–47 (2013).
+ 63. Artigues, C., Demassey, S. & Neron, E. Resource‑Constrained Project Scheduling: Models, Algorithms Extensions and Applications 
+(Wiley, 2013).
+ 64. Kolisch, R. & Sprecher, A. Psplib-a project scheduling problem library: Or software-orsep operations research software exchange 
+program. Eur. J. Oper. Res. 96(1), 205–216 (1997).
+
+=== PAGE BREAK ===
+
+23
+Vol.:(0123456789)Scientific Reports |        (2024) 14:16784  | https://doi.org/10.1038/s41598-024-67168-6
+www.nature.com/scientificreports/
+ 65. Kolisch, R. & Sprecher, A. PSPLIB. https:// www. om- db. wi. tum. de/ psplib/ data. html. 11-2023 (1996).
+ 66. Coelho, J. & Vanhoucke, M. Going to the core of hard resource-constrained project scheduling instances. Comput. Oper. Res. 121, 
+104976 (2020).
+ 67. Schoot, W ., Leermakers, D., Wezeman, R., Neumann, N. & Phillipson, F . Evaluating the q-score of quantum annealers. In 2022 
+IEEE International Conference on Quantum Software (QSW) 9–16. (IEEE, 2022).
+ 68. Demeulemeester, E., Vanhoucke, M. & Erroelen, W . R. https:// www. proje ctman ageme nt. ugent. be/ resea rch/ data/ RanGen. 08-2023 
+(2003).
+ 69. Baptiste, P . & Pape, C. L. Constraint propagation and decomposition techniques for highly disjunctive and highly cumulative 
+project scheduling problems. Constraints 5, 119–139 (2000).
+ 70. Lidar, D. A. et al. Defining and detecting quantum speedup. Science 345, 420–424 (2014).
+ 71. King, J., Y arkoni, S., Nevisi, M. M., Hilton, J. P . & McGeoch, C. C. Benchmarking a quantum annealing processor with the time-
+to-target metric (2015). arXiv preprint arXiv: 1508. 05087
+ 72. Martiel, S., Ayral, T. & Allouche, C. Benchmarking quantum coprocessors in an application-centric, hardware-agnostic, and scal-
+able way. IEEE Trans. Quant. Eng. 2, 1–11 (2021).
+ 73. Farhi, E., Goldstone, J. & Gutmann, S. A quantum approximate optimization algorithm (2014). arXiv preprint arXiv: 1411. 4028
+ 74. Lucas, A. Ising formulations of many np problems. Front. Phys. 2, 5 (2014).
+ 75. Verma, A. & Lewis, M. Penalty and partitioning techniques to improve performance of qubo solvers. Discret. Optim. 44, 100594 
+(2022).
+ 76. Demeulemeester, E. L. & Herroelen, W . S. Project Scheduling: A Research Handbook Vol. 49 (Springer, 2006).
+ 77. Marshall, J., Venturelli, D., Hen, I. & Rieffel, E. G. Power of pausing: Advancing understanding of thermalization in experimental 
+quantum annealers. Phys. Rev. Appl. 11(4), 044083 (2019).
+ 78. Ballestín, F ., Valls, V . & Quintanilla, S. Pre-emption in resource-constrained project scheduling. Eur. J. Oper. Res. 189(3), 1136–1152 
+(2008).
+ 79. Hartmann, S. Project Scheduling with Resource Capacities and Requests Varying with Time: A Case Study (Springer, 2013).
+ 80. Kolisch, R. & Hartmann, S. Experimental evaluation of heuristics for the resource-constrained project scheduling problem: An 
+update. Eur. J. Oper. Res. (2005).
+ 81. Sadeghi, H. Quantum computing with neutral atoms with applications in energy. In EAGE Seventh High Performance Computing 
+Workshop, vol. 2023, 1–3 (2023). European Association of Geoscientists & Engineers.
+Author contributions
+L.F .P .A. and S.D. conceived and conducted the experiments. S.C. was in charge of managing the project and of 
+the generation of problem instances. All authors wrote and revised the manuscript.
+Competing interests 
+The authors declare no competing interests.
+Additional information
+Supplementary Information The online version contains supplementary material available at https:// doi. org/ 
+10. 1038/ s41598- 024- 67168-6.
+Correspondence and requests for materials should be addressed to L.F .P .A.
+Reprints and permissions information is available at www.nature.com/reprints.
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in published maps and 
+institutional affiliations.
+Open Access  This article is licensed under a Creative Commons Attribution 4.0 International 
+License, which permits use, sharing, adaptation, distribution and reproduction in any medium or 
+format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the 
+Creative Commons licence, and indicate if changes were made. The images or other third party material in this 
+article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the 
+material. If material is not included in the article’s Creative Commons licence and your intended use is not 
+permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from 
+the copyright holder. To view a copy of this licence, visit http:// creat iveco mmons. org/ licen ses/ by/4. 0/.
+© The Author(s) 2024
