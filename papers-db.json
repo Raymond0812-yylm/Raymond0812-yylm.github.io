@@ -23349,6 +23349,36 @@
    ]
   },
   {
+   "id": "deep-space-network-scheduling-quantum-annealing-7386d",
+   "title": "Deep Space Network Scheduling Using Quantum Annealing",
+   "titleZh": "用量子退火求解深空网络调度",
+   "authors": [
+    "Alexandre Guillaume",
+    "Edwin Y. Goh",
+    "Mark D. Johnston",
+    "Brian D. Wilson",
+    "Anita Ramanan",
+    "Frances Tibble",
+    "Brad Lackey"
+   ],
+   "venue": "IEEE Transactions on Quantum Engineering",
+   "date": "2022-01-01",
+   "year": 2022,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/tqe.2022.3199267",
+   "url": "https://doi.org/10.1109/tqe.2022.3199267",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "NASA JPL 与微软(2022, IEEE TQE, 16 引):深空网络(DSN)三地天线对数十个任务的时间窗分配是深空任务通信规划的核心瓶颈,且约束极多;将其形式化为 QUBO 在量子退火硬件求解并与经典基线对比。JPL 调度研究老将 Mark Johnston 参与,是地面段任务调度量子化的最强工作之一。",
+   "abstract": "",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "variational-quantum-algorithms-4dea1",
    "title": "Variational quantum algorithms",
    "titleZh": "变分量子算法",
@@ -23721,6 +23751,40 @@
    "domains": []
   },
   {
+   "id": "explorations-quantum-classical-approaches-scheduling-mars-lander-cab9d",
+   "title": "Explorations of Quantum-Classical Approaches to Scheduling a Mars Lander Activity Problem",
+   "titleZh": "火星着陆器活动计划调度的量子-经典混合方法探索",
+   "authors": [
+    "Tony T. Tran",
+    "Zhihui Wang",
+    "Minh N. Do",
+    "Eleanor Gilbert Rieffel",
+    "Jeremy Frank",
+    "Bryan O’Gorman",
+    "Davide Venturelli",
+    "J. Christopher Beck"
+   ],
+   "venue": "National Conference on Artificial Intelligence",
+   "date": "2016-02-12",
+   "year": 2016,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "",
+   "url": "https://scholar.google.com/scholar?q=Explorations+of+Quantum-Classical+Approaches+to+Scheduling+a+Mars+Lander+Activity+Problem",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "NASA Ames 与多伦多大学(2016):火星着陆器活动计划是混合离散-连续变量与复杂约束的调度问题;提出树搜索框架——量子退火采样松弛子问题的候选解、经典侧维护全局搜索树并强制约束。是该混合分解范式在航天任务调度上的最早尝试,后续 DSN 调度等工作的方法源头。",
+   "abstract": "An effective approach to solving problems involving mixed (continuous and discrete) variables and constraints, such as hybrid systems, is to decompose them into subproblems and integrate dedicated solvers geared toward those subproblems. Here, we introduce a new framework based on a tree search algorithm to solve hybrid discrete-continuous problems that incorporates: (1) a quantum annealer that samples from the configuration space for the discrete portion and provides information about the quality of the samples, and (2) a classical computer that makes use of information from the quantum annealer to prune and focus the search as well as check a continuous constraint. We consider four variants of our algorithm, each with progressively more guidance from the results provided by the quantum annealer. We empirically test our algorithm and compare the variants on a simplified Mars Lander task scheduling problem. Variants with more guidance from the quantum annealer have better performance.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "theory-variational-hybrid-quantum-classical-algorithms-750d6",
    "title": "The theory of variational hybrid quantum-classical algorithms",
    "titleZh": "变分混合量子-经典算法的理论",
@@ -23749,6 +23813,33 @@
    "abstract": "Many quantum algorithms have daunting resource requirements when compared to what is available today. To address this discrepancy, a quantum-classical hybrid optimization scheme known as 'the quantum variational eigensolver' was developed (Peruzzo et al 2014 Nat. Commun. 5 4213 ) with the philosophy that even minimal quantum resources could be made useful when used in conjunction with classical routines. In this work we extend the general theory of this algorithm and suggest algorithmic improvements for practical implementations. Specifically, we develop a variational adiabatic ansatz and explore unitary coupled cluster where we establish a connection from second order unitary coupled cluster to universal gate sets through a relaxation of exponential operator splitting. We introduce the concept of quantum variational error suppression that allows some errors to be suppressed naturally in this algorithm on a pre-threshold quantum device. Additionally, we analyze truncation and correlated sampling in Hamiltonian averaging as ways to reduce the cost of this procedure. Finally, we show how the use of modern derivative free optimization techniques can offer dramatic computational savings of up to three orders of magnitude over previously used optimization techniques.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "experiences-scheduling-problems-adiabatic-quantum-computers-5d492",
+   "title": "Experiences with Scheduling Problems on Adiabatic Quantum Computers",
+   "titleZh": "绝热量子计算机上调度问题的经验研究",
+   "authors": [
+    "Tobias Stollenwerk",
+    "Achim Basermann"
+   ],
+   "venue": "elib (German Aerospace Center)",
+   "date": "2016-01-01",
+   "year": 2016,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "",
+   "url": "https://scholar.google.com/scholar?q=Experiences+with+Scheduling+Problems+on+Adiabatic+Quantum+Computers",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "DLR 的 Stollenwerk 与 Basermann(2016):把调度问题形式化为量子退火可解形式并报告 D-Wave 硬件上的初步实验与经验教训——本方向已知最早的公开文献,比 2020 年成像规划论文早四年,EO 卫星调度退火求解的研发线由此起步。",
+   "abstract": "",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "quantum-approximate-optimization-algorithm-eb7f9",

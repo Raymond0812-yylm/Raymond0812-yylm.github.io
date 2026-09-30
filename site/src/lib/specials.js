@@ -5,12 +5,16 @@
 // 即使与卫星相关也不进本专题(部分保留在文献库)。
 // 新论文入库后需人工审核并加入下方收录表才会出现在专题页。
 const SAT_CURATED = new Set([
+  // 早期源头(2016 双雄:DLR 退火调度经验 + NASA Ames 混合分解范式)
+  'experiences-scheduling-problems-adiabatic-quantum-computers-5d492', // 绝热量子机上调度问题经验(2016 DLR,方向最早文献)
+  'explorations-quantum-classical-approaches-scheduling-mars-lander-cab9d', // 火星着陆器活动计划调度(2016,混合分解范式源头)
   // 奠基与基准
   'quantum-optimization-methods-satellite-mission-planning-05875', // 卫星任务规划的量子优化方法(2024 IEEE Access,系统性QUBO建模,被引最高)
   'quantum-algorithms-applied-satellite-mission-planning-earth-c15e1', // 应用于对地观测卫星任务规划的量子算法(2023 IEEE JSTARS,60引用,被引最高)
   // 退火硬件实验
   'agile-earth-observation-satellite-scheduling-quantum-annealer-226ee', // 量子退火机求解敏捷EO卫星调度(2021 IEEE TAES,D-Wave 2000Q对比研究)
-  'image-acquisition-planning-earth-observation-satellites-quantum-e9da5', // 量子退火成像获取规划(2020 arXiv,DLR/ONERA,已知最早)
+  'image-acquisition-planning-earth-observation-satellites-quantum-e9da5', // 量子退火成像获取规划(2020 arXiv,DLR/ONERA)
+  'deep-space-network-scheduling-quantum-annealing-7386d', // 深空网络调度量子退火(2022 IEEE TQE,JPL,16引用)
   // 混合求解与最新迭代
   'hybrid-classical-quantum-computing-approach-satellite-mission-13c31', // SMPP经典-量子混合求解(2023 IEEE QCE)
   'reverse-quantum-annealing-hybrid-quantum-classical-satellite-cd464', // 反向量子退火RQA(2024 IGARSS)
