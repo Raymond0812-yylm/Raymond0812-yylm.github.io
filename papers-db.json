@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-01",
+ "updated": "2026-10-02",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -196,6 +196,36 @@
    "abstract": "Neutral-atom arrays are a leading qubit technology for large-scale, fault-tolerant quantum computing (FTQC). A dominant error source on this platform is qubit loss, which accrues with every operation and movement. The presence of loss undermines the promises of existing architectural work. Standard error correction targets stochastic Pauli errors and cannot correct loss, so most FTQC performance analyses are not directly compatible with it. Moreover, compilation and routing decisions, which strongly affect overall loss, are typically optimized against Pauli-error cost models and often remain loss-agnostic, potentially increasing exposure to the loss channel. In this work, we comprehensively model the effect of qubit loss on neutral-atom FTQC and develop a loss-tolerant transversal-gate architecture. We treat loss not as a predetermined error parameter but as a dynamic budget spent across a whole program, allowing us to control it by co-designing layout, compilation, and decoding. We target a physical implementation with no separate storage and entangling zones, eliminating the repeated SLM-AOD handoffs and long-distance shuttling that dominate loss in other layouts. We develop compiler optimizations that maximize gate parallelism while respecting the RF tone budget and AOD bandwidth constraints. Our work couples these with a loss-aware, delayed-erasure decoder and an end-to-end loss-aware magic state cultivation protocol. Overall, we improve accumulated loss per syndrome-extr",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-approximate-optimisation-algorithm-shariah-constrained-portfolio-39f92",
+   "title": "Quantum Approximate Optimisation Algorithm for Shariah-Constrained Portfolio Selection: A QUBO Formulation with Islamic Finance Penalty Terms",
+   "titleZh": "QAOA 用于伊斯兰教法约束下的投资组合选择:QUBO 形式化",
+   "authors": [
+    "Monsur Bolaji Olowoyo",
+    "Wahab Abiona"
+   ],
+   "venue": "International Journal of Quantum Technologies",
+   "date": "2026-09-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.66311/3068-9090.02.03.04",
+   "url": "https://doi.org/10.66311/3068-9090.02.03.04",
+   "topics": [
+    "qaoa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把伊斯兰金融的教法约束(AAOIFI 标准 21、IFSB 资本充足指引)作为显式罚项写进 QUBO,用 QAOA 求解合规约束下的资产组合优化——展示\"领域特殊约束→罚项设计\"的完整流程,约束建模思路可迁移到卫星任务规划。",
+   "abstract": "This paper presents an application of the Quantum Approximate Optimisation Algorithm (QAOA) to Islamic portfolio optimisation, formulating the Shariah-constrained asset allocation problem as a Quadratic Unconstrained Binary Optimisation (QUBO) with explicit Islamic finance penalty terms. When augmented with AAOIFI Standard 21 constraints and IFSB capital adequacy guidelines, the portfolio allocation problem becomes NP-hard for large portfolios. Encoding these constraints as penalty terms in the QUBO Hamiltonian, the rare formulation in any domain incorporating religious law constraints, with penalty weights λShariah = 5.0 and λbudget = 2.0. Simulated on IBM Qiskit with a p=2 variational circuit using a high-fidelity synthetic dataset, the model demonstrates a simulated 55× speedup over classical enumeration on a 20-asset Shariah-constrained allocation problem. Quantum amplitude estimation further provides O(1/ε) speedup over classical Monte Carlo O(1/ε2 ) for Islamic portfolio risk estimation. The Shariah-adjusted sukuk-equity correlation (ρ = 0.18) is embedded in the quantum objective function.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "finance"
+   ]
   },
   {
    "id": "quantum-enhanced-hybrid-model-compression-knowledge-distillation-14972",
@@ -822,6 +852,33 @@
    ],
    "summaryZh": "反绝热驱动可抑制绝热基态制备中的非绝热损耗,但精确的绝热规范势需要谱隙信息且涉及非局域控制。论文以横场Ising模型为例深入研究局域反绝热协议,给出基态保真度的闭式分析,并提出两阶段局部控制方案,对量子退火与绝热优化算法设计具有直接指导意义。",
    "abstract": "Abstract Counterdiabatic driving can suppress diabatic losses during adiabatic ground state preparation. As its implementation necessitates the generation of an adiabatic gauge potential, which requires knowledge of the spectral gap of instantaneous Hamiltonians and involves highly non-local controls in many-body systems, local counterdiabatic driving with approximate adiabatic gauge potential has been widely adopted. In this work, using transverse-field Ising model as an example, we present an in-depth study of the performance of local counterdiabatic protocols and provide a closed-form analysis of ground-state-fidelity optimization. We then propose a two-stage protocol based on local counterdiabatic and simple local single-body control to further improve the performance. The practical implementation of these protocols does not require diagonalization of instantaneous Hamiltonians or spectral gaps, and only additional local single-body driving is involved. To benchmark their performance, we experimentally implement digitized adiabatic quantum evolution in a trapped-ion system. We characterize the quality of the prepared states and explore the scaling behavior with system size up to 14 qubits. Our demonstration of quantum shortcut to adiabaticity opens a path towards preparing ground states of complex systems with accessible local controls.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "what-quantum-computer-buy-9821f",
+   "title": "What quantum computer to buy?",
+   "titleZh": "该买什么样的量子计算机?",
+   "authors": [
+    "Alex Krasnok"
+   ],
+   "venue": "AVS Quantum Science",
+   "date": "2026-08-27",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1116/5.0337237",
+   "url": "https://doi.org/10.1116/5.0337237",
+   "topics": [
+    "annealing",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "AVS Quantum Science 2026:\"购买量子计算机\"背后是完全不同的采购目标(教学云访问/研究机时/本地硬件培训/特定问题求解/重塑设施)——给出按目标分类的选型与成本框架,是机构级量子投入决策的实用指南。",
+   "abstract": "The phrase “buy a quantum computer” covers several completely different purchasing goals. An organization may be seeking cloud access for teaching, dedicated time for research, a local machine for hardware training, a tool to solve specific problems, or a major setup that reshapes facilities, staffing, and budgets. Because these choices differ in purpose, daily running costs, and overall lifespan, the decision should be framed as gaining quantum capability rather than predicting which hardware will prevail. This paper offers a practical buying guide that breaks this down into five capability layers. It carefully separates proven scientific results from questionable sales claims, pricing models, and company roadmaps. It also compares the main types of quantum computers—superconducting circuits, trapped ions, neutral atoms, quantum annealing, and photonics—to see how well they fit an organization, how to access them, and how quickly they will become outdated. Our main conclusion is that most institutions should begin with the simplest option that delivers reliable, immediate results, builds internal expertise, and keeps their options open for the future. Large systems kept on-site are justified only when your core goals, site readiness, staffing, management, and future upgrade paths are already clear.",
    "source": "backfill",
    "domains": []
   },
@@ -3680,6 +3737,42 @@
    "domains": []
   },
   {
+   "id": "mixture-experts-framework-practical-hybrid-quantum-models-0f9f0",
+   "title": "A Mixture-of-Experts Framework for Practical Hybrid-Quantum Models in Credit Card Fraud Detection",
+   "titleZh": "面向金融欺诈检测的实用混合量子模型专家混合框架",
+   "authors": [
+    "Rodrigo Chaves",
+    "Kunal Kumar",
+    "Bruno Chagas",
+    "Rory Linerud",
+    "Brannen Sorem",
+    "Javier Mancilla",
+    "Bryn A. Bell"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-06",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.06473",
+   "doi": "10.48550/arxiv.2603.06473",
+   "url": "https://arxiv.org/abs/2603.06473",
+   "topics": [
+    "vqa",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:在 Guided Quantum Compressor 架构(自编码器+变分量子线路+经典网络头)基础上引入专家混合(MoE)机制,系统检验混合量子模型能否给支付欺诈检测带来实用改进,直指\"混合量子模型实用性\"这一核心疑问。",
+   "abstract": "This paper investigates whether hybrid quantum-classical machine learning can deliver practical improvements in financial fraud detection performance for card-based and other payment transactions. Building on a Guided Quantum Compressor architecture, the approach integrates an autoencoder, a variational quantum circuit, and a classical neural head, and then embeds this hybrid model into a mixture-of-experts framework including a state-of-the-art gradient-boosted tree classifier. Using a European credit card dataset with severe class imbalance, the routed hybrid architecture with 0.6 threshold achieves average precision scores of $0.793\\pm0.085$ compared to $0.770\\pm0.096$ of XGBoost on 3 repeated 5-fold cross-validation benchmarks. Precision and recall comparisons reveals a possible trade-off of fraud and nominal detections with a reduction in false positives at the cost of a small reduction in fraud detections. The improvements are achieved while adding only 7 to 21 minutes of extra inference time depending on the choice of hyperparameters. These results indicate that selectively routing transactions to quantum-classical models can enhance fraud detection while remaining compatible with the latency and operational constraints of modern financial institutions.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "evaluating-limits-quantum-approximate-optimization-algorithm-parameter-28194",
    "title": "Evaluating the limits of Quantum Approximate Optimization Algorithm parameter transfer at high rounds on sparse Ising models with geometrically local cubic terms",
    "titleZh": "评估QAOA高层数参数迁移在含几何局域三次项稀疏Ising模型上的极限",
@@ -5540,6 +5633,40 @@
    ]
   },
   {
+   "id": "hybrid-quantum-classical-algorithm-integrated-feature-selection-fc235",
+   "title": "Hybrid Quantum-Classical Algorithm for an Integrated Feature Selection and Logistic Regression Model",
+   "titleZh": "面向特征选择与逻辑回归一体化的混合量子-经典算法",
+   "authors": [
+    "Linlin Ye",
+    "Muyang Wen",
+    "Fenglin Zhang",
+    "Yingzhe Xu",
+    "Yuli Zhang",
+    "Yin Ma",
+    "Kai Wen"
+   ],
+   "venue": "IEEE Transactions on Engineering Management",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1109/tem.2026.3657976",
+   "url": "https://doi.org/10.1109/tem.2026.3657976",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE TEM 2026:传统特征选择是 NP 难问题且忽视所选特征对下游任务的影响;该文把特征选择与逻辑回归训练集成优化,构建混合量子-经典算法同时完成两者,并在金融场景验证——特征选择正是量子优化在金融 ML 中的天然切入点。",
+   "abstract": "Feature selection is a pivotal step in machine learning, aimed at reducing feature dimensionality and improving model performance. Conventional feature selection methods, typically framed as NP-hard problems, focus primarily on selecting non-redundant and discriminative features but neglect how these selected features influence downstream machine learning tasks. To bridge this gap, we propose a mixed-integer non-linear programming-based integrated feature selection and logistic regression (IFSLR) model that jointly optimizes feature selection and classifier parameters. To solve the proposed IFSLR model efficiently, we reformulate it into two quantum-computing-compatible quadratic unconstrained binary optimization (QUBO) models via discretization of continuous variables and Taylor expansions, and provide a theoretical approximation guarantee for the proposed QUBO models. To adaptively optimize both the discretization step length optimization sub-problems and the parameterized QUBO sub-problems, we develop a dual-level Q-learning-guided hybrid quantum-classical algorithm that dynamically selects which sub-problem to solve. At the upper level, an adaptive Q learning agent is employed to select appropriate sub-problems during the search process. At the lower level, each iteration addresses either discretization step length optimization sub-problems or parameterized QUBO sub-problems. Experiments on the German credit dataset demonstrate that our method achieves a 10.83% improvemen",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -5779,6 +5906,33 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "characterizing-quantum-speedup-through-average-case-framework-22a86",
+   "title": "Characterizing Quantum Speedup through an Average Case Framework beyond Asymptotic Analysis",
+   "titleZh": "超越渐近分析的平均情形框架刻画量子加速",
+   "authors": [
+    "Yalla Jnan Devi Satya Prasad"
+   ],
+   "venue": "预印本",
+   "date": "2025-12-17",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.22541/au.176599407.75069236/v1",
+   "url": "https://doi.org/10.22541/au.176599407.75069236/v1",
+   "topics": [
+    "qaoa",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025:指出现有量子加速分析多为渐近+最坏情形,与真实世界影响脱节;提出把加速分解为 oracle/算法/实现三个成分、以平均情形框架刻画的系统方法——与用户\"量子优势在效率还是效果\"的追问完全同频,提供了量化评估的工具。",
+   "abstract": "Quantum algorithms with super-polynomial or polynomial speedups have been central to the promise of quantum computing, yet their real-world impact remains unclear because most analyses are asymptotic and worst-case. This work develops a systematic framework for characterizing practical quantum advantage that explicitly separates three components of speedup: (i) oracle/algorithmic advantage (Salg), (ii) data/instance structure advantage (Sdata), and (iii) implementability advantage under realistic noise and resource constraints (S impl). We first formalize quantum speedup as a triple (Salg, Sdata, S impl) that jointly captures theoretical complexity, distribution of input instances, and hardware feasibility. We then analyze seven canonical algorithms-Grover search, amplitude estimation, phase estimation, HHL, VQE, QAOA, and Hamiltonian simulationand extract common structural patterns that lead to genuine advantage over classical algorithms for specific problem families. Building on these patterns, we derive sufficient and necessary conditions for average-case quantum advantage in terms of problem symmetries, spectral properties, and data-access models. For NISQ-era devices, we incorporate realistic noise models and compilation overheads to define a practical advantage region in the space of problem size, error rates, and algorithm depth. The framework yields decision procedures and flowcharts that, given a candidate problem and hardware profile, can certify whether a proposed ",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "optimizing-quantum-sensing-networks-genetic-algorithms-deep-85cc3",
@@ -7127,6 +7281,35 @@
    "domains": []
   },
   {
+   "id": "quantum-subgradient-estimation-conditional-value-risk-optimization-bdbde",
+   "title": "Quantum Subgradient Estimation for Conditional Value-at-Risk Optimization",
+   "titleZh": "面向条件风险价值(CVaR)优化的量子次梯度估计",
+   "authors": [
+    "Vasilis Skarlatos",
+    "Nikos Konofaos"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-06",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2510.04736",
+   "doi": "10.48550/arxiv.2510.04736",
+   "url": "https://arxiv.org/abs/2510.04736",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:CVaR 是金融尾部风险的核心度量,经典估计依赖蒙特卡洛、样本复杂度 O(1/ε²);该文设计基于量子幅度估计的 CVaR 次梯度预言机,有望实现量子加速的尾部风险优化,与用户关注的\"效率维度量子优势\"直接对应。",
+   "abstract": "Conditional Value-at-Risk (CVaR) is a leading tail-risk measure in finance, central to both regulatory and portfolio optimization frameworks. Classical estimation of CVaR and its gradients relies on Monte Carlo simulation, incurring $O(1/ε^2)$ sample complexity to achieve $ε$-accuracy. In this work, we design and analyze a quantum subgradient oracle for CVaR minimization based on amplitude estimation. Via a tripartite proposition, we show that CVaR subgradients can be estimated with $O(1/ε)$ quantum queries, even when the Value-at-Risk (VaR) threshold itself must be estimated. We further quantify the propagation of estimation error from the VaR stage to CVaR gradients and derive convergence rates of stochastic projected subgradient descent using this oracle. Our analysis establishes a near-quadratic improvement in query complexity over classical Monte Carlo. Numerical experiments with simulated quantum circuits confirm the theoretical rates and illustrate robustness to threshold estimation noise. This constitutes the first rigorous complexity analysis of quantum subgradient methods for tail-risk minimization.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "qhrmof-quantum-inspired-hybrid-multi-objective-framework-c9803",
    "title": "QHRMOF: A Quantum-Inspired hybrid Multi-Objective framework for Energy-Efficient task scheduling and load balancing in cloud computing",
    "titleZh": "QHRMOF:面向云计算节能任务调度的量子启发混合多目标框架",
@@ -7569,6 +7752,36 @@
    ]
   },
   {
+   "id": "collaborative-framework-quantum-optimisation-quantum-neural-networks-8f0a8",
+   "title": "A Collaborative Framework for Quantum Optimisation and Quantum Neural Networks: Credit Feature Selection and Image Classification",
+   "titleZh": "量子优化与量子神经网络的协同框架:信用特征选择与图像分类",
+   "authors": [
+    "Long, JiaNing",
+    "Xuechen Liang"
+   ],
+   "venue": "arXiv",
+   "date": "2025-09-14",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2509.11110",
+   "doi": "10.48550/arxiv.2509.11110",
+   "url": "https://arxiv.org/abs/2509.11110",
+   "topics": [
+    "quantum-ai",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把德国信贷数据集的特征选择构造为 QUBO 交量子优化求解,同时以量子神经网络做手写数字分类,双任务验证量子计算在机器学习流程(特征工程+模型)两个环节的适用性。",
+   "abstract": "This paper investigates the efficacy of quantum computing in two distinct machine learning tasks: feature selection for credit risk assessment and image classification for handwritten digit recognition. For the first task, we address the feature selection challenge of the German Credit Dataset by formulating it as a Quadratic Unconstrained Binary Optimization (QUBO) problem, which is solved using quantum annealing to identify the optimal feature subset. Experimental results show that the resulting credit scoring model maintains high classification precision despite using a minimal number of features. For the second task, we focus on classifying handwritten digits 3 and 6 in the MNIST dataset using Quantum Neural Networks (QNNs). Through meticulous data preprocessing (downsampling, binarization), quantum encoding (FRQI and compressed FRQI), and the design of QNN architectures (CRADL and CRAML), we demonstrate that QNNs can effectively handle high-dimensional image data. Our findings highlight the potential of quantum computing in solving practical machine learning problems while emphasizing the need to balance resource expenditure and model efficacy.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "symmetry-based-quantum-algorithms-open-shop-scheduling-41459",
    "title": "Symmetry-based quantum algorithms for open-shop scheduling with hard constraints",
    "titleZh": "基于对称性的硬约束开放车间调度量子算法",
@@ -7738,6 +7951,37 @@
    "source": "backfill",
    "domains": [
     "materials"
+   ]
+  },
+  {
+   "id": "circuithunt-automated-quantum-circuit-screening-superior-credit-89567",
+   "title": "CircuitHunt: Automated Quantum Circuit Screening for Superior Credit-Card Fraud Detection",
+   "titleZh": "CircuitHunt:面向信用卡欺诈检测的自动量子线路筛选",
+   "authors": [
+    "Nouhaila Innan",
+    "Singh, Akshat",
+    "Muhammad Shafique"
+   ],
+   "venue": "arXiv",
+   "date": "2025-08-29",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2508.21366",
+   "doi": "10.48550/arxiv.2508.21366",
+   "url": "https://arxiv.org/abs/2508.21366",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对 QML 中人工设计或随机初始化线路表现不稳的问题,提出自动化的量子线路搜索框架 CircuitHunt,在极端类不平衡的信用卡欺诈检测任务上自动筛选高性能线路;\"量子线路自动设计\"是 QML 工程化的新兴方向。",
+   "abstract": "Designing effective quantum models for real-world tasks remains a key challenge within Quantum Machine Learning (QML), particularly in applications such as credit card fraud detection, where extreme class imbalance and evolving attack patterns demand both accuracy and adaptability. Most existing approaches rely on either manually designed or randomly initialized circuits, leading to high failure rates and limited scalability. In this work, we introduce CircuitHunt, a fully automated quantum circuit screening framework that streamlines the discovery of high-performing models. CircuitHunt filters circuits from the KetGPT dataset using qubit and parameter constraints, embeds each candidate into a standardized hybrid QNN, and performs rapid training with checkpointing based on macro-F1 scores to discard weak performers early. The top-ranked circuit is then fully trained, achieving 97% test accuracy and a high macro-F1 score on a challenging fraud detection benchmark. By combining budget-aware pruning, empirical evaluation, and end-to-end automation, CircuitHunt reduces architecture search time from days to hours while maintaining performance. It thus provides a scalable and task-driven tool for QML deployment in critical financial applications.",
+   "source": "backfill",
+   "domains": [
+    "finance"
    ]
   },
   {
@@ -10418,6 +10662,36 @@
    "abstract": "Hilbert space dimension is a key resource for quantum information processing1,2. Not only is a large overall Hilbert space an essential requirement for quantum error correction, but a large local Hilbert space can also be advantageous for realizing gates and algorithms more efficiently3–7. As a result, there has been considerable experimental effort in recent years to develop quantum computing platforms using qudits (d-dimensional quantum systems with d > 2) as the fundamental unit of quantum information8–19. Just as with qubits, quantum error correction of these qudits will be necessary in the long run, but so far, error correction of logical qudits has not been demonstrated experimentally. Here we report the experimental realization of an error-corrected logical qutrit (d = 3) and ququart (d = 4), which was achieved with the Gottesman–Kitaev–Preskill bosonic code20. Using a reinforcement learning agent21,22, we optimized the Gottesman–Kitaev–Preskill qutrit (ququart) as a ternary (quaternary) quantum memory and achieved beyond break-even error correction with a gain of 1.82 ± 0.03 (1.87 ± 0.03). This work represents a novel way of leveraging the large Hilbert space of a harmonic oscillator to realize hardware-efficient quantum error correction. Quantum error correction of a logical qutrit and ququart were experimentally realized beyond the break-even point with the Gottesman–Kitaev–Preskill bosonic code.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "monte-carlo-option-pricing-quantum-parallel-00c91",
+   "title": "Monte-Carlo Option Pricing in Quantum Parallel",
+   "titleZh": "量子并行中的蒙特卡洛期权定价",
+   "authors": [
+    "Robert Scriba",
+    "Yuying Li",
+    "Jingbo B. Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-14",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.09459",
+   "doi": "10.48550/arxiv.2505.09459",
+   "url": "https://arxiv.org/abs/2505.09459",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:针对复杂衍生品定价中经典蒙特卡洛与数值方法面临的可扩展性限制,研究量子并行方案,是量子金融定价主线(量子幅度编码+QAE 二次加速路线)的最新推进。",
+   "abstract": "Financial derivative pricing is a significant challenge in finance, involving the valuation of instruments like options based on underlying assets. While some cases have simple solutions, many require complex classical computational methods like Monte Carlo simulations and numerical techniques. However, as derivative complexities increase, these methods face limitations in computational power. Cases involving Non-Vanilla Basket pricing, American Options, and derivative portfolio risk analysis need extensive computations in higher-dimensional spaces, posing challenges for classical computers. Quantum computing presents a promising avenue by harnessing quantum superposition and entanglement, allowing the handling of high-dimensional spaces effectively. In this paper, we introduce a self-contained and all-encompassing quantum algorithm that operates without reliance on oracles or presumptions. More specifically, we develop an effective stochastic method for simulating exponentially many potential asset paths in quantum parallel, leading to a highly accurate final distribution of stock prices. Furthermore, we demonstrate how this algorithm can be extended to price more complex options and analyze risk within derivative portfolios.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "quantum-approximate-optimization-algorithm-applied-multi-objective-7be47",
@@ -16855,6 +17129,41 @@
    "domains": []
   },
   {
+   "id": "quantum-monte-carlo-integration-simulation-based-optimisation-96e81",
+   "title": "Quantum Monte Carlo Integration for Simulation-Based Optimisation",
+   "titleZh": "量子蒙特卡洛积分用于基于仿真的优化",
+   "authors": [
+    "Jingjing Cui",
+    "de Brouwer, Philippe J. S.",
+    "Steven Herbert",
+    "Philip Intallura",
+    "Cahit Kargı",
+    "Georgios Korpas",
+    "Alexandre Krajenbrink",
+    "William Shoosmith",
+    "Ifan Williams",
+    "Ban Zheng"
+   ],
+   "venue": "arXiv",
+   "date": "2024-10-04",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2410.03926",
+   "doi": "10.48550/arxiv.2410.03926",
+   "url": "https://arxiv.org/abs/2410.03926",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "把量子蒙特卡洛积分(QMCI)作为仿真优化问题的子程序系统集成,并系统分析其中的全部系统性误差以量化所需量子资源;数学金融导向的 QMC 量子加速工作,误差-资源分析范式值得借鉴。",
+   "abstract": "We investigate the feasibility of integrating quantum algorithms as subroutines of simulation-based optimisation problems with relevance to and potential applications in mathematical finance. To this end, we conduct a thorough analysis of all systematic errors arising in the formulation of quantum Monte Carlo integration in order to better understand the resources required to encode various distributions such as a Gaussian, and to evaluate statistical quantities such as the Value-at-Risk (VaR) and Conditional-Value-at-Risk (CVaR) of an asset. Finally, we study the applicability of quantum Monte Carlo integration for fundamental financial use cases in terms of simulation-based optimisations, notably Mean-Conditional-Value-at-Risk (Mean-CVaR) and (risky) Mean-Variance (Mean-Var) optimisation problems. In particular, we study the Mean-Var optimisation problem in the presence of noise on a quantum device, and benchmark a quantum error mitigation method that applies to quantum amplitude estimation -- a key subroutine of quantum Monte Carlo integration -- showcasing the utility of such an approach.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "efficient-photon-pair-generation-layer-poled-lithium-fb204",
    "title": "Efficient photon-pair generation in layer-poled lithium niobate nanophotonic waveguides",
    "titleZh": "层极化铌酸锂纳米光子波导中的高效光子对生成",
@@ -17324,6 +17633,34 @@
    "abstract": "We present the first implementation of text-level quantum natural language processing, a field where quantum computing and AI have found a fruitful intersection. We focus on the QDisCoCirc model, which is underpinned by a compositional approach to rendering AI interpretable: the behaviour of the whole can be understood in terms of the behaviour of parts, and the way they are put together. Interpretability is crucial for understanding the unwanted behaviours of AI. By leveraging the compositional structure in the model's architecture, we introduce a novel setup which enables 'compositional generalisation': we classically train components which are then composed to generate larger test instances, the evaluation of which asymptotically requires a quantum computer. Another key advantage of our approach is that it bypasses the trainability challenges arising in quantum machine learning. The main task that we consider is the model-native task of question-answering, and we handcraft toy scale data that serves as a proving ground. We demonstrate an experiment on Quantinuum's H1-1 trapped-ion quantum processor, which constitutes the first proof of concept implementation of scalable compositional QNLP. We also provide resource estimates for classically simulating the model. The compositional structure allows us to inspect and interpret the word embeddings the model learns for each word, as well as the way in which they interact. This improves our understanding of how it tackles the que",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "efficient-state-preparation-multivariate-monte-carlo-simulation-da9f4",
+   "title": "Efficient state preparation for multivariate Monte Carlo simulation",
+   "titleZh": "面向多元蒙特卡洛模拟的高效量子态制备",
+   "authors": [
+    "Hitomi Mori",
+    "Kosuke Mitarai",
+    "Keisuke Fujii"
+   ],
+   "venue": "arXiv",
+   "date": "2024-09-11",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2409.07336",
+   "doi": "10.48550/arxiv.2409.07336",
+   "url": "https://arxiv.org/abs/2409.07336",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "量子态制备是众多量子算法的关键子程序;该文聚焦金融多元蒙特卡洛所需的多元态制备问题,给出高效制备方案——直击 QMC 金融应用中\"数据加载\"这一最大工程瓶颈。",
+   "abstract": "Quantum state preparation is a task to prepare a state with a specific function encoded in the amplitude, which is an essential subroutine in many quantum algorithms. In this paper, we focus on multivariate state preparation, as it is an important extension for many application areas. Specifically in finance, multivariate state preparation is required for multivariate Monte Carlo simulation, which is used for important numerical tasks such as risk aggregation and multi-asset derivative pricing. Using existing methods, multivariate quantum state preparation requires the number of gates exponential in the number of variables $D$. For this task, we propose a quantum algorithm that only requires the number of gates linear in $D$. Our algorithm utilizes multivariable quantum signal processing (M-QSP), a technique to perform the multivariate polynomial transformation of matrix elements. Using easily prepared block-encodings corresponding to each variable, we apply the M-QSP to construct the target function. In this way, our algorithm prepares the target state efficiently for functions achievable with M-QSP.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "solving-boolean-satisfiability-problems-quantum-approximate-optimization-915b1",
@@ -20319,6 +20656,38 @@
    "abstract": "Abstract Combinatorial optimization (CO) has a broad range of applications in various fields, including operations research, computer science, and artificial intelligence. However, many of these problems are classified as nondeterministic polynomial‐time (NP)‐complete or NP‐hard problems, which are known for their computational complexity and cannot be solved in polynomial time on traditional digital computers. To address this challenge, continuous‐time Ising machine solvers have been developed, utilizing different physical principles to map CO problems to ground state finding. However, most Ising machine prototypes operate at speeds comparable to digital hardware and rely on binarizing node states, resulting in increased system complexity and further limiting operating speed. To tackle these issues, a novel device‐algorithm co‐design method is proposed for fast sub‐optimal solution finding with low hardware complexity. On the device side, a piezoelectric lithium niobate (LiNbO3) microelectromechanical system (MEMS) oscillator network‐based Ising machine without second‐harmonic injection locking (SHIL) is devised to solve Max‐cut and graph coloring problems. The LiNbO3 oscillator operates at speeds greater than 9 GHz, making it one of the fastest oscillatory Ising machines. System‐wise, an innovative grouping method is used that achieves a performance guarantee of 0.878 for Max‐cut and 0.658 for graph coloring problems, which is comparable to Ising machines that utilize binar",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-machine-learning-credit-scoring-46290",
+   "title": "Quantum Machine Learning for Credit Scoring",
+   "titleZh": "量子机器学习用于中小企业信用评分",
+   "authors": [
+    "Nikolaos A. Schetakis",
+    "Davit Aghamalyan",
+    "Michael Boguslavsky",
+    "Agnieszka Rees",
+    "Marc Rakotomalala",
+    "Paul Griffin"
+   ],
+   "venue": "Mathematics",
+   "date": "2024-05-02",
+   "year": 2024,
+   "citations": 23,
+   "arxivId": "",
+   "doi": "10.3390/math12091391",
+   "url": "https://doi.org/10.3390/math12091391",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "面向中小企业信用评分,提出量子线路与经典神经网络协同的混合量子-经典模型;重点不在\"量子 vs 经典\"对决而在两者协同增效,是该方向被引最高的工作(23 引),为金融风控的 QML 落地提供了范式。",
+   "abstract": "This study investigates the integration of quantum circuits with classical neural networks for enhancing credit scoring for small- and medium-sized enterprises (SMEs). We introduce a hybrid quantum–classical model, focusing on the synergy between quantum and classical rather than comparing the performance of separate quantum and classical models. Our model incorporates a quantum layer into a traditional neural network, achieving notable reductions in training time. We apply this innovative framework to a binary classification task with a proprietary real-world classical credit default dataset for SMEs in Singapore. The results indicate that our hybrid model achieves efficient training, requiring significantly fewer epochs (350) compared to its classical counterpart (3500) for a similar predictive accuracy. However, we observed a decrease in performance when expanding the model beyond 12 qubits or when adding additional quantum classifier blocks. This paper also considers practical challenges faced when deploying such models on quantum simulators and actual quantum computers. Overall, our quantum–classical hybrid model for credit scoring reveals its potential in industry, despite encountering certain scalability limitations and practical challenges.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "barren-plateaus-variational-quantum-computing-21131",
@@ -23623,6 +23992,34 @@
    "abstract": "In this article, we present a hybrid quantum-classical generative adversarial network (GAN) for near-term quantum processors. The hybrid GAN comprises a variational generator and a discriminator quantum neural network, which are trained using a classic computer. The generator network is realized using angle-encoding and variational quantum circuits. The discriminator network is realized using multi-stage trainable encoding quantum circuits. A modular design approach is proposed for quantum neural networks which allows control on their depth to compromise accuracy and circuit complexity. Moreover, this modular approach makes the quantum neural networks amenable to scaling up the dimension of dataset and the number of qubits. Gradients of the loss functions are derived using the same quantum circuits used for the implementation of quantum neural networks to prevent the need for extra quantum circuits or auxiliary qubits. The quantum simulations are performed using the IBM Qiskit open-source software development kit (SDK), while the training of the hybrid quantum-classical GAN is conducted using the mini-batch stochastic gradient descent (SGD) optimization on a classic computer. The hybrid quantum-classical GAN is realized using a two-qubit system with different discriminator network structures. The best performance is achieved using a five-stage discriminator network comprising 63 quantum gates and 31 trainable parameters, with the Kullback-Leibler (KL) and Jensen-Shannon (JS) ",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "application-quantum-monte-carlo-integration-markovian-backward-f849e",
+   "title": "Application of quantum Monte Carlo integration to Markovian backward stochastic differential equations",
+   "titleZh": "量子最小二乘蒙特卡洛(QLSM)求解倒向随机微分方程",
+   "authors": [
+    "Masato Fujita",
+    "Koichi Miyamoto",
+    "Jun Sekine"
+   ],
+   "venue": "JSIAM Letters",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.14495/jsiaml.16.105",
+   "url": "https://doi.org/10.14495/jsiaml.16.105",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "JSIAM Letters:提出量子最小二乘蒙特卡洛算法 QLSM 求解 BSDE(倒向随机微分方程),给出完整流程与精度、计算成本评估;BSDE 是金融风险对冲定价的核心数学工具,QLSM 是其量子化的代表性工作。",
+   "abstract": "In this paper, we introduce a novel Quantum Least-Squares Monte Carlo (QLSM) algorithm for solving backward stochastic differential equations (BSDEs). The QLSM algorithm leverages quantum computing to enhance the efficiency of traditional least-squares Monte Carlo methods. We present the detailed procedure of the QLSM method and an evaluation of its accuracy and computational cost. This approach has significant potential for applications in mathematical finance, particularly in pricing complex financial derivatives and risk management.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "hybrid-classical-quantum-computing-approach-satellite-mission-13c31",
