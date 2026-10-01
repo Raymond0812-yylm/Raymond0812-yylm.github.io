@@ -1,0 +1,207 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>日报 · 2026-10-02 · 量子优化日报</title><meta name="description" content="&#34;QAOA 到底能否严格超越好的经典算法&#34;是量子优化领域最核心的悬案。最干净的比较平台是高围长（girth，最短环长）正则图上的局部算法：深度 p 的 QAOA"><meta property="og:title" content="日报 · 2026-10-02 · 量子优化日报"><meta property="og:description" content="&#34;QAOA 到底能否严格超越好的经典算法&#34;是量子优化领域最核心的悬案。最干净的比较平台是高围长（girth，最短环长）正则图上的局部算法：深度 p 的 QAOA"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 精选 RSS" href="/feed.xml"><link rel="alternate" type="application/rss+xml" title="量子优化日报 日报 RSS" href="/feed/daily.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#13191c" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        // 默认浅色(AIHOT 式暖白纸面);尊重用户显式选择。
+        try {
+          var p = localStorage.getItem('qo-theme');
+          document.documentElement.dataset.theme = p === 'dark' || p === 'light' ? p : 'light';
+        } catch (e) { document.documentElement.dataset.theme = 'light'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/index.FjVo3B36.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="mx-auto flex max-w-[var(--page-max-wide)]"> <!-- 桌面侧栏 --> <aside class="sticky top-0 hidden h-dvh w-[180px] shrink-0 flex-col border-r border-line bg-sidebar px-3 pb-3.5 pt-6 lg:flex"> <a href="/" class="mb-4 flex h-[50px] items-center gap-2 px-1 text-ink" aria-label="量子优化日报 首页"> <span class="flex size-8 items-center justify-center rounded-[10px] bg-accent font-black text-[17px] text-accent-contrast">Q</span> <span class="min-w-0"> <span class="block truncate text-[15px] font-bold leading-tight">QuantOpt</span> <span class="block text-[10px] tracking-[0.18em] text-ink-4">DAILY</span> </span> </a> <nav class="-mx-1 flex-1 overflow-y-auto px-1 scrollbar-thin" aria-label="主导航"> <div key="内容"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">内容</div> <div class="flex flex-col gap-1"> <a href="/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> <span class="min-w-0 truncate">精选</span>  </a><a href="/all/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span> <span class="min-w-0 truncate">全部动态</span>  </a><a href="/hot/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span> <span class="min-w-0 truncate">热点榜</span>  </a><a href="/daily/" aria-current="page" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 bg-accent/10 font-semibold text-ink dark:bg-accent-soft"> <span class="flex w-[22px] shrink-0 justify-center text-accent"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span> <span class="min-w-0 truncate">日报</span>  </a><a href="/topics/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span> <span class="min-w-0 truncate">主题</span>  </a> </div> </div><div key="文献与专题"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">文献与专题</div> <div class="flex flex-col gap-1"> <a href="/papers/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span> <span class="min-w-0 truncate">文献库</span>  </a><a href="/specials/satellite/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> <span class="min-w-0 truncate">卫星任务规划</span>  </a><a href="/specials/llm/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span> <span class="min-w-0 truncate">量子 × 大模型</span>  </a> </div> </div><div key="更多"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">更多</div> <div class="flex flex-col gap-1"> <a href="/agent/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M12 22v-5"/><path d="M9 8V2M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span> <span class="min-w-0 truncate">Agent 接入</span>  </a><a href="/about/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> <span class="min-w-0 truncate">关于本站</span>  </a><a href="/app/QuantOptDaily-v1.0.0.apk" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span> <span class="min-w-0 truncate">安卓 App</span> <span class="ml-auto text-ink-4"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></span> </a><a href="/feed.xml" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></span> <span class="min-w-0 truncate">RSS 订阅</span>  </a> </div> </div> </nav> <div class="mt-2 space-y-2.5 px-1 pt-1"> <!-- 三态主题切换(深色/系统/浅色) --> <div id="themeSwitch" role="radiogroup" aria-label="外观" class="relative grid h-[34px] grid-cols-3 rounded-full border border-line bg-bg-sunk p-[3px] mx-1"> <span id="themeThumb" aria-hidden="true" class="absolute inset-y-[3px] left-[3px] w-[calc((100%-6px)/3)] rounded-full border border-line bg-surface shadow-[var(--shadow-card)] transition-transform duration-200 ease-[var(--ease-out-quart)]"></span> <button type="button" role="radio" data-choice="dark" title="深色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span class="sr-only">深色</span></button> <button type="button" role="radio" data-choice="system" title="跟随系统" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="sr-only">跟随系统</span></button> <button type="button" role="radio" data-choice="light" title="浅色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span class="sr-only">浅色</span></button> </div> <p class="px-2 text-[10px] leading-relaxed text-ink-4">数据更新至 <span class="mono">2026-10-02</span> · 872 篇论文</p> </div> </aside> <!-- 主内容列 --> <div class="min-w-0 flex-1"> <!-- 移动端品牌栏 --> <div class="flex h-14 items-center justify-between px-4 lg:hidden"> <a href="/" class="flex items-center gap-2" aria-label="量子优化日报 首页"> <span class="flex size-7 items-center justify-center rounded-[9px] bg-accent font-black text-[15px] text-accent-contrast">Q</span> <span class="text-[16px] font-bold">QuantOpt <span class="text-ink-3">Daily</span></span> </a> <a href="/search/?q=" class="flex size-9 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-bg-sunk hover:text-ink" aria-label="搜索"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a> </div> <main class="px-4 pb-[calc(76px+env(safe-area-inset-bottom))] pt-2 lg:px-8 lg:pb-12 lg:pt-6">  <article class="report-shell mx-auto max-w-[880px] pb-10 pt-4 lg:pt-6"> <!-- 报眉 --> <header> <div class="flex items-center justify-between gap-4 border-b border-line pb-2.5 text-[12px] text-ink-4"> <span class="num">2026-10-02 · 星期五</span> <span class="hidden tracking-[0.3em] sm:inline">追踪量子求解最前沿</span> <span>晨报</span> </div> <div class="flex items-stretch justify-between gap-5 py-6 sm:gap-10 sm:py-8"> <div class="flex min-w-0 flex-col justify-center"> <h1 class="font-black leading-none tracking-[0.06em] text-ink"> <span class="block text-[40px] sm:text-[56px] lg:text-[72px]">量子优化日报</span> </h1> <p class="mt-3 text-[11.5px] tracking-[0.36em] text-ink-4">QUANTOPT DAILY</p> </div> <!-- 报眼:期号与大字日期 --> <div class="flex shrink-0 items-stretch well rounded-panel"> <div class="flex w-[118px] flex-col items-center justify-center px-2 py-3 text-center sm:w-[150px] sm:py-4"> <span class="text-[11px] tracking-[0.2em] text-ink-4">第 27 期</span> <span class="num mt-2 whitespace-nowrap text-[44px] font-black leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">10.2</span> <span class="mt-2 text-[11.5px] text-ink-2">2026 年</span> <span class="text-[11.5px] text-ink-4">第 27 期</span> <span class="mt-3 flex flex-wrap justify-center gap-1" aria-hidden="true"> <span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-line"></span><span class="size-[5px] rounded-full bg-line"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-line"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-line"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span> </span> </div> </div> </div> <!-- 数据带 --> <div class="flex flex-wrap items-baseline gap-x-8 gap-y-1.5 border-y border-line-strong py-3"> <span class="inline-flex items-baseline gap-1.5 whitespace-nowrap"> <span class="num text-[22px] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[24px]">3</span> <span class="text-[12px] text-ink-4">篇论文</span> </span><span class="inline-flex items-baseline gap-1.5 whitespace-nowrap"> <span class="num text-[22px] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[24px]">—</span> <span class="text-[12px] text-ink-4">累计被引</span> </span> <span class="ml-auto whitespace-nowrap text-[12px] text-ink-4">约 6 分钟读完</span> </div> </header> <!-- 头版:今日看点 --> <section class="mt-6" aria-label="本期看点"> <div class="flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.3em] text-accent"> <span class="h-[2px] w-6 rounded-full bg-accent" aria-hidden="true"></span> 本期看点 </div> <ol class="mt-3.5 space-y-2.5"> <li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">01</span> <a href="/papers/provable-classical-quantum-local-algorithms-max-k-8fab5/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">Max-k-Cut 的可证局部经典与量子算法及中等围长下的量子优势</a>  </li><li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">02</span> <a href="/papers/decoupling-qaoa-into-independent-spin-boson-systems-8fb56/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">QAOA 向独立自旋-玻色子系统解耦及纯/混合自旋玻璃上的高深度性能</a>  </li><li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">03</span> <a href="/papers/two-stage-quantum-classical-distribution-network-reconfiguration-8fb56/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">基于环-边编码的两阶段量子-经典配电网重构</a>  </li> </ol> <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line-soft pt-3 text-[12.5px] text-ink-4"> <span class="font-semibold text-ink-3">版面</span> <a href="#s-1" class="transition-colors hover:text-accent">第一版 · Max-k-Cut 的可证局…<span class="ml-0.5 num">1</span></a><a href="#s-2" class="transition-colors hover:text-accent">第二版 · QAOA 向独立自旋-玻色子…<span class="ml-0.5 num">1</span></a><a href="#s-3" class="transition-colors hover:text-accent">第三版 · 基于环-边编码的两阶段量子-…<span class="ml-0.5 num">1</span></a> </div> </section> <!-- 分版故事:双栏报纸行,发丝线分隔 --> <section id="s-1" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第一版 · Max-k-Cut 的可证局…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 100)">A</span> <span class="truncate">arXiv 预印本</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/provable-classical-quantum-local-algorithms-max-k-8fab5/" class="transition-colors hover:text-accent">Max-k-Cut 的可证局部经典与量子算法及中等围长下的量子优势</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">&quot;QAOA 到底能否严格超越好的经典算法&quot;是量子优化领域最核心的悬案。最干净的比较平台是高围长（girth，最短环长）正则图上的局部算法：深度 p 的 QAOA 与 p 轮的局部经典算法都只能&quot;看见&quot;每个顶点半径约 p 的邻域，当围长足够大（g ≥ 2p+2）时邻域是树，两种算法的性能都能在无限规模极限下被精确计算——不靠仿真、可给证明。此前在 Max-Cut（二字母表）上，最优局部经典算法与 QAOA 长期互有胜负、僵持不下；作者们注意到一条新的可能通路：把字母表从二元扩到 k 元（Max-k-Cut），经典…</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2609.39042" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/provable-classical-quantum-local-algorithms-max-k-8fab5/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section><section id="s-2" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第二版 · QAOA 向独立自旋-玻色子…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 100)">A</span> <span class="truncate">arXiv 预印本</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/decoupling-qaoa-into-independent-spin-boson-systems-8fb56/" class="transition-colors hover:text-accent">QAOA 向独立自旋-玻色子系统解耦及纯/混合自旋玻璃上的高深度性能</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">评估深深度 QAOA 一直是硬骨头：稠密混合自旋玻璃上的精确递推公式虽存在，但计算代价随 QAOA 层数指数增长，几十层便不可算，导致&quot;高深度 QAOA 到底值不值&quot;长期停留在猜测层面。本文作者集群（与论文一交叉，另含 Dylan Herman、Benjamin Villalonga 等大规模 benchmark 老将）提出问题：稠密自旋玻璃中层间关联是否有可利用的近似解耦结构，能把指数账单砍下来？</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2609.40309" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/decoupling-qaoa-into-independent-spin-boson-systems-8fb56/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section><section id="s-3" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第三版 · 基于环-边编码的两阶段量子-…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 100)">A</span> <span class="truncate">arXiv 预印本</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/two-stage-quantum-classical-distribution-network-reconfiguration-8fb56/" class="transition-colors hover:text-accent">基于环-边编码的两阶段量子-经典配电网重构</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">配电网重构（DNR）要求在拓扑与电气运行约束下寻找低损网络结构，本质是带强结构约束的混合整数非凸问题，是量子优化最现实的产业靶点之一。典型痛点：直接 QUBO 化需以罚函数强制辐射状（生成树）拓扑，罚系数调参凶险且大量采样浪费在不可行解上。本文的出发点是把可行性内建进编码本身，再让量子与经典各司其职。</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2609.40264" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/two-stage-quantum-classical-distribution-network-reconfiguration-8fb56/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section> <!-- 完整解读(日报的 markdown 正文) --> <section class="mt-10 border-t border-line-strong pt-6"> <div class="flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.3em] text-accent"> <span class="h-[2px] w-6 rounded-full bg-accent" aria-hidden="true"></span> 完整解读 </div> <div class="prose mt-4"><h1>每日论文报告（2026-10-02）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 10 月 2 日（周五，北京时间上午）</strong>。检索渠道：paper-distill 跨库检索（OpenAlex / Semantic Scholar / Crossref 等，量子近似优化、量子硬件平台、量子行业应用三主题并行，用于查重与背景补充）+ arXiv API 按提交时间倒序逐条核验（quant-ph / cs.AI / cs.CL）。</p>
+<ul>
+<li><strong>公告批次如实说明</strong>：今日报告覆盖北京时间 10-02 08:00 上线批次（arXiv 列表页标注 Thursday, October 1 公告批次）。三篇入选论文提交时间均为 <strong>UTC 2026-09-30</strong>，属本批次最新之作；10-01 之后新提交的论文按 arXiv 惯例要到北京时间后续批次才编目公开，时间戳如实标注。</li>
+<li><strong>今日主题</strong>：量子优化的&quot;可证分界日&quot;——Farhi（QAOA 提出者之一）领衔的同批两篇重磅：论文一证明 <strong>QAOA 在 Max-k-Cut 上于深度 p≥9（围长 ≥20）超越已知最优可证局部经典算法</strong>，拿到目前最干净的&quot;QAOA vs 局部经典&quot;分离证据；论文二给出<strong>自旋-玻色子解耦</strong>，让张量网络能算高深度 QAOA 能量，正是论文一背后的&quot;计算显微镜&quot;。论文三回到产业面：微软 Roetteler 团队用<strong>环-边编码 QAOA + MISOCP 两阶段方案</strong>在 33—417 母线配电网重构上完成离子阱硬件验证。</li>
+<li><strong>大模型求解组合优化方向</strong>：本批次 LLM4CO 方向无合格新作（最新仍为昨日已推之 VLM 微调端到端求解，arXiv:2609.37175；SimpleEvol 出现 v2 更新，arXiv:2609.37172），故今日三篇全部为量子方向。</li>
+<li><strong>未入选但值得留意</strong>：倾斜行走（tilted walks）对&quot;条件化-搜索&quot;经典框架的超二次量子加速（arXiv:2609.40088）；近对称问题上浅层 QAOA 的容错成本分析 Õ(n²) 非门徒手成本（arXiv:2609.39922，ParityQC 系）；结构感知编码在计入态制备成本后恢复端到端超多项式优势（arXiv:2609.40105，肖円 Yuan 等浙大团队）；缓存回收方差缩减梯度突破射击噪声壁垒（arXiv:2609.38800，IBM Research）；论文三的姊妹篇——暖启动迭代 QITE 配电网重构（arXiv:2609.39602）；Motzkin-Straus 最大团在熵计算平台上的求解（arXiv:2609.38779）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：把量子优势钉在中等围长上——Farhi 团队证明 QAOA 在 Max-k-Cut 上超越最优可证局部经典算法（深度 p≥9 / 围长 ≥20）</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Provable Classical and Quantum Local Algorithms for Max-k-Cut and Quantum Advantage at Moderate Girth</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>Max-k-Cut 的可证局部经典与量子算法及中等围长下的量子优势</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Anuj Apte、Abid Khan、Edward Farhi（MIT，QAOA 提出者之一）、Kunal Marwaha、Sami Boulebnane、Ruslan Shaydulin（IBM Research）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.39042（v1，2026-09-30 提交，属北京时间 10-02 08:00 上线批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.39042">https://arxiv.org/abs/2609.39042</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>&quot;QAOA 到底能否严格超越好的经典算法&quot;是量子优化领域最核心的悬案。最干净的比较平台是<strong>高围长（girth，最短环长）正则图上的局部算法</strong>：深度 p 的 QAOA 与 p 轮的局部经典算法都只能&quot;看见&quot;每个顶点半径约 p 的邻域，当围长足够大（g ≥ 2p+2）时邻域是树，两种算法的性能都能在无限规模极限下被<strong>精确</strong>计算——不靠仿真、可给证明。此前在 Max-Cut（二字母表）上，最优局部经典算法与 QAOA 长期互有胜负、僵持不下；作者们注意到一条新的可能通路：<strong>把字母表从二元扩到 k 元（Max-k-Cut）</strong>，经典局部算法的表达瓶颈可能比量子态的相干动力学先到来。</p>
+<p>本文要同时回答两面：把经典一侧推到最强（构造新的可证最优局部向量算法），再看 QAOA 需要多深的局部性才能越线。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>经典侧筑底</strong>：基于 Thompson–Parekh–Marwaha（TPM）显式向量构造，为 Max-k-Cut 设计局部向量算法——每个顶点赋一个 k 维向量、每轮沿邻域聚合更新，最终按向量夹角切分。作者证明该算法在正则图上 <strong>k≥3 时取得已知高效经典算法中最好的可证切分比例保证</strong>，即&quot;最强可证对手&quot;。</li>
+<li><strong>量子侧造尺</strong>：发展一般度数 d、k≥2 的<strong>张量网络方法</strong>，在高围长正则图上精确评估任意深度 QAOA 的期望切分值；再借助与<strong>耦合 qudit-玻色子系统等价</strong>的映射，把无限度数极限（自旋玻璃式稠密极限）下的 QAOA 性能也化为可计算的玻色子演化问题。</li>
+<li><strong>对撞出分界</strong>：在有限度数与无限度数两种情形下，逐深度比较 QAOA 与 TPM 向量算法的可证保证，定位量子反超所需的深度-围长阈值。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<p>尽管经典一侧已被强化到&quot;已知最强可证&quot;，<strong>QAOA 仍在深度 p≥9（对应围长 g≥20）时取得严格更好的切分比例保证</strong>，且该结论在有限度数与无限度数两种机制下同时成立——这是迄今在自然优化问题族上&quot;QAOA vs 局部经典算法&quot;最干净的可证分离。换言之：当局部结构半径允许量子线路积累九层相干动力学后，其超越的不只是某个具体启发式，而是<strong>整个带可证保证的经典局部算法类的已知上界</strong>。作者以&quot;apparent quantum advantage&quot;的措辞如实标注了这一优势的适用域。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>其一，这是 QAOA 理论正当性的一条硬证据：优势不来自刷基准，而是&quot;最强可证经典局部算法 vs QAOA&quot;在同一可精确计算平台上的严格对撞，延续了 Farhi 一系把 SK 模型、高围长图当作&quot;可证明运动场&quot;的风格。其二，<strong>p≥9 ↔ g≥20 的换算表</strong>第一次量化了&quot;量子需要多大的局部性半径才反超&quot;，为后续固定角/参数迁移研究给出了明确标尺；k≥3 字母表才是分离的沃土，这一观察会引导社区把理论战场从 Max-Cut 挪向更高阶问题。其三，需保持清醒的是：优势的适用域是围长 ≥20 的局部树状图（随机高围长正则图），并非任意实例上的实用优势；但它恰好与论文二的&quot;计算显微镜&quot;同批出现——高深度 QAOA 从此既能算（论文二）、又能证（论文一），理论与工具闭环成形。</p>
+<hr>
+<h2>论文二：高深度 QAOA 的&quot;计算显微镜&quot;——稠密自旋玻璃中自旋近似解耦为独立自旋-玻色子系统，张量网络直算此前不可及的深度</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Decoupling of the QAOA into independent spin-boson systems and high-depth performance on pure and mixed spin glasses</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>QAOA 向独立自旋-玻色子系统解耦及纯/混合自旋玻璃上的高深度性能</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Sami Boulebnane、Abid Khan、Pragna Subrahmanya、Dylan Herman、Edward Farhi、Benjamin Villalonga、Ruslan Shaydulin</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph，108 页 8 图 2 表）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.40309（v1，2026-09-30 提交，属北京时间 10-02 08:00 上线批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.40309">https://arxiv.org/abs/2609.40309</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>评估深深度 QAOA 一直是硬骨头：稠密混合自旋玻璃上的精确递推公式虽存在，但计算代价随 QAOA 层数指数增长，几十层便不可算，导致&quot;高深度 QAOA 到底值不值&quot;长期停留在猜测层面。本文作者集群（与论文一交叉，另含 Dylan Herman、Benjamin Villalonga 等大规模 benchmark 老将）提出问题：稠密自旋玻璃中层间关联是否有可利用的<strong>近似解耦结构</strong>，能把指数账单砍下来？</p>
+<h3>三、核心方法与技术路线</h3>
+<p>证明在任意混合稠密自旋玻璃上，<strong>各比特近似解耦为独立的自旋-玻色子系统</strong>，且该解耦在无限规模极限下精确成立——每枚自旋携带的玻色子自由度足以吸收层间关联，使张量网络计算代价只随层数温和增长。据此在既往不可及的规模与深度上直接评估并优化 QAOA 参数，覆盖纯自旋玻璃与混合自旋玻璃两大类。</p>
+<h3>四、主要实验/理论结果</h3>
+<p>数值上得到两条规律：问题阶数越高（相互作用越高阶），达到同等近似比所需 QAOA 层数越多；角度优化随深度显著变难——为&quot;深度换质量&quot;的成本账本补上第一批系统性数据。作者如实划界：解耦能<strong>预测能量</strong>，但从最优构型采样比特串仍需真量子计算机——它是经典可算的&quot;性能预言器&quot;，不是量子硬件的替身。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>与论文一同批出现颇具象征意义：论文一证明高深度 QAOA 的价值（p≥9 反超最强可证经典局部算法），本文交付计算高深度 QAOA 的工具，二者合成&quot;高深度 QAOA 既可证又可算&quot;的完整拼图。对参数研究线（固定角、参数迁移、角度集中性），108 页的系统数值是难得的基准库；对硬件路线图规划者，&quot;多高阶数的问题需要多少层&quot;这类资源估算从此有表可查。</p>
+<hr>
+<h2>论文三：配电网重构的量子-经典两级流水线——环-边编码 QAOA 保证辐射状拓扑可行，采样引导 MISOCP 求解器，离子阱硬件完成验证</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Two-Stage Quantum-Classical Distribution Network Reconfiguration via Cycle-Edge Encoding</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于环-边编码的两阶段量子-经典配电网重构</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Nowar Alashkar、Cade Kennedy、Phillip C. Lotshaw（橡树岭国家实验室）、Shaked Regev、Miguel Angel Lopez-Ruiz、Ananth Kaushik、Paul Smith、Claudio Girotto、Martin Roetteler（微软研究院）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph，10 页 8 图）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2609.40264（v1，2026-09-30 提交，属北京时间 10-02 08:00 上线批次）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2609.40264">https://arxiv.org/abs/2609.40264</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>配电网重构（DNR）要求在拓扑与电气运行约束下寻找低损网络结构，本质是带强结构约束的混合整数非凸问题，是量子优化最现实的产业靶点之一。典型痛点：直接 QUBO 化需以罚函数强制辐射状（生成树）拓扑，罚系数调参凶险且大量采样浪费在不可行解上。本文的出发点是<strong>把可行性内建进编码本身</strong>，再让量子与经典各司其职。</p>
+<h3>三、核心方法与技术路线</h3>
+<p>第一阶段：<strong>环-边编码</strong>（cycle-edge encoding）天然保证每个候选解都是生成树——辐射拓扑可行性内建于比特串，且可行子空间大小可裁剪到量子比特预算之内；在其上运行迭代线性斜坡 QAOA（LR-QAOA）采样。第二阶段：把样本分布作为暖启动信息喂给混合整数二阶锥规划（MISOCP）求解器，由经典端负责收敛与最优性证书。</p>
+<h3>四、主要实验/理论结果</h3>
+<p>在 33—417 母线的六个标准网络上完成仿真与离子阱真机双重验证：被引导的 MISOCP <strong>以更短的中位求解时间达到距已知最优解 1% 以内的 incumbent</strong>，优于无引导基线。同批姊妹篇（arXiv:2609.39602）用暖启动迭代量子虚时演化（QITE）完成同任务，十个案例中六个达到最小损构型、其余四个距参考损耗 0.2%—2.18%。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>这是&quot;约束感知编码 + 量子采样暖启动经典精确求解器&quot;范式在能源系统的完整落地样本：不苛求量子端独立求解全局问题，而是让量子端做它擅长的（可行空间内高质量多样性采样），把收敛与最优性交给经典求解器——这种分工式混合架构比&quot;纯量子替代论&quot;更接近产业可采纳形态。对电力系统研究者，环-边编码可直接移植到其他生成树约束问题（输电网规划、水网设计）；两篇姊妹作对照亦显示 QAOA 与虚时演化两条变分路线在真实工程约束下殊途同归。</p>
+<hr>
+<h2>附：检索与方法备注</h2>
+<ul>
+<li>三篇论文均经 arXiv API 逐条核验（编号、提交时间、作者、摘要与篇幅），属北京时间 2026-10-02 08:00 上线的最新公告批次（列表页标注 2026-10-01 公告），提交时间均为 UTC 2026-09-30；论文一与论文二为同作者集群（Khan/Farhi/Boulebnane/Shaydulin 交叉）同批双作，主题互为&quot;证明 + 工具&quot;，故合并入选。</li>
+<li>今日量子硬件方向（超导/离子阱/中性原子/光量子处理器平台进展）无独立重大新论文入选：本批次硬件相关论文（固态离子阱低温非平衡动力学、早期容错 QPE 资源标度等）与&quot;面向优化的硬件平台&quot;主题相关度不足；硬件侧动态改由今日行业动态覆盖（D-Wave 门模型模拟器 Beta、IBM Nighthawk r2 随机线路采样 19 秒百万样本、QCI Dirac-3S 熵优化机等，见 news-2026-10-02.md）。</li>
+<li>LLM4CO 方向今日批次无新作，最新成果仍为 2026-10-01 日报已收录之 VLM Fine-Tuning for End-to-End Combinatorial Optimization（arXiv:2609.37175）；SimpleEvol（arXiv:2609.37172）本批出现 v2 修订版，感兴趣的读者可回看昨日报告之&quot;未入选但值得留意&quot;。</li>
+<li>量子优化理论侧本批尚有多篇强作未入选，见篇首&quot;未入选但值得留意&quot;清单；其中 arXiv:2609.40088（tilted walks）与 arXiv:2609.39922（浅层 QAOA 容错成本）分别代表&quot;量子行走精确求解&quot;与&quot;容错资源估算&quot;两条与 QAOA 主线互补的路线，建议对照阅读。</li>
+</ul>
+</div> </section> <!-- 邻期导航 + 版权行 --> <nav class="mt-10 flex items-center justify-between gap-4 border-t border-line-strong pt-4 text-[13px]"> <a href="/daily/2026-10-01/" class="group inline-flex min-w-0 items-center gap-1.5 font-medium text-ink-3 transition-colors hover:text-accent"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="rotate-180"><path d="m9 18 6-6-6-6"/></svg><span class="truncate">上一期 · 2026-10-01</span> </a> <span></span> </nav> <p class="mt-6 text-center text-[11.5px] tracking-[0.2em] text-ink-4">QUANTOPT DAILY · 量子优化日报 · 每日自动汇编</p> </article>  <footer class="mt-10 border-t border-line-soft pt-4 text-[12px] leading-relaxed text-ink-4"> <p>量子优化日报 · QuantOpt Daily — 由每日自动检索流水线生成 · 数据来源 arXiv / OpenAlex / 产业媒体</p> <p class="mt-1"> <a class="transition-colors hover:text-accent" href="/agent/">Agent 接入</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/feed.xml">RSS</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/about/">关于</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/llms.txt">llms.txt</a> </p> </footer> </main> </div> </div> <!-- 移动端底部 TabBar --> <nav aria-label="底部导航" class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"> <div class="mx-auto grid h-[54px] max-w-[640px] grid-cols-4"> <a key="/" href="/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> <span>精选</span> </a><a key="/all/" href="/all/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> <span>全部</span> </a><a key="/daily/" href="/daily/" aria-current="page" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors font-semibold text-accent"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg> <span>日报</span> </a><a key="/more/" href="/more/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg> <span>更多</span> </a> </div> </nav> <!-- 回到顶部 --> <button id="backToTop" type="button" aria-label="回到顶部" class="fixed bottom-[calc(70px+env(safe-area-inset-bottom))] right-4 z-30 flex size-11 translate-y-2 items-center justify-center rounded-full border border-line bg-surface text-ink-2 opacity-0 shadow-[var(--shadow-soft)] transition-all duration-200 hover:text-ink lg:bottom-6 lg:right-6"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M12 19V5M5 12l7-7 7 7"/></svg> </button> <script>
+      (function () {
+        // 三态主题切换
+        var root = document.documentElement;
+        var thumb = document.getElementById('themeThumb');
+        var btns = document.querySelectorAll('#themeSwitch [data-choice]');
+        function pref() { try { return localStorage.getItem('qo-theme'); } catch (e) { return null; } }
+        function sync() {
+          var p = pref();
+          var idx = p === 'dark' ? 0 : p === 'light' ? 2 : 1;
+          if (thumb) thumb.style.transform = 'translateX(' + idx * 100 + '%)';
+          btns.forEach(function (b) {
+            var on = (p === 'dark' && b.dataset.choice === 'dark') || (p === 'light' && b.dataset.choice === 'light') || (!p && b.dataset.choice === 'system');
+            b.classList.toggle('text-ink', on);
+            b.classList.toggle('text-ink-4', !on);
+          });
+        }
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var c = b.dataset.choice;
+            try { if (c === 'system') localStorage.removeItem('qo-theme'); else localStorage.setItem('qo-theme', c); } catch (e) {}
+            var p = pref();
+            root.dataset.theme = p === 'dark' || p === 'light' ? p : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            sync();
+          });
+        });
+        sync();
+        // 回到顶部
+        var top = document.getElementById('backToTop');
+        if (top) {
+          var onScroll = function () {
+            var show = window.scrollY > window.innerHeight * 1.2;
+            top.classList.toggle('opacity-0', !show);
+            top.classList.toggle('translate-y-2', !show);
+            top.classList.toggle('pointer-events-none', !show);
+          };
+          onScroll();
+          window.addEventListener('scroll', onScroll, { passive: true });
+          top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+      })();
+    </script> </body> </html>
