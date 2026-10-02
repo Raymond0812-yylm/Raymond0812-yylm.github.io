@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-02",
+ "updated": "2026-10-03",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -1352,6 +1352,36 @@
    "abstract": "Distributing entanglement between distant qubits is a crucial element of scalable quantum computing. Here, we describe a scalable quantum interconnect that generates remote entanglement at rates approaching those compatible with two-qubit gates of current neutral-atom quantum processors. The proposed approach exploits the strong dipole-dipole interactions between atomic Rydberg states to generate entanglement between stationary qubits and propagating photons, without the need for an optical cavity. We provide a thorough description of the optimal conditions for the developed entanglement-generation protocol for realistic experimental parameters and demonstrate that entanglement-generation rates $\\gtrsim 3\\times 10^5$ s$^{-1}$ can be achieved using Rydberg states of ytterbium atoms. Given the inherent scalability and design flexibility of the proposed interconnect, our results suggest a promising approach towards distributed networks based on neutral-atom quantum architectures.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "data-driven-energy-mix-optimization-forecasting-risk-234d8",
+   "title": "Data-driven energy mix optimization: forecasting, risk-aware planning and quantum-enhanced methods",
+   "titleZh": "数据驱动的能源结构优化:预测、风险感知规划与量子增强方法",
+   "authors": [
+    "Kumar Ghosh",
+    "Biswajit Basu"
+   ],
+   "venue": "npj Clean Energy",
+   "date": "2026-08-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1038/s44406-026-00039-3",
+   "url": "https://doi.org/10.1038/s44406-026-00039-3",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "npj Clean Energy 2026:提出统一的风险感知可再生能源结构规划框架——NASA POWER 再分析数据+高斯过程回归(带预测协方差)+优化层,并纳入量子增强方法;把不确定量化与量子优化接入能源规划全流程。",
+   "abstract": "We propose a unified, risk-aware framework for renewable energy mix planning integrating meteorological parameterization, probabilistic machine learning forecasts and optimization. Using NASA POWER reanalysis, wind- and solar-relevant features are derived. Gaussian Process Regression provides point predictions with predictive covariances, capturing both variability and interdependence of renewable resources. These forecasts feed into a portfolio-theoretic optimization model: short-term scheduling is solved as mixed-integer quadratic programs with Alternating Direction Method of Multipliers (ADMM)-based decomposition, while long-term planning is formulated as binary quadratic programs with variance and lagged-covariance penalties. The exponential scaling of classical solvers motivates hybrid quantum–classical approaches such as quantum annealing for multi-period, high-resolution planning. The framework reduces exposure to scarcity events, enhances security of supply and directly supports decarbonization targets, while also offering a transferable methodology for risk-informed planning in other sectors facing stochastic variability. The results obtained from the implementation of the proposed framework for Germany indicate that endowed with quantum computing techniques the short-term optimization can facilitate robust integration of the renewables in the grid without compromising grid reliability and the long-term optimized planning (not feasible with classical computing resour",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "distributed-quantum-approximate-optimization-algorithm-unit-commitment-d829a",
@@ -5667,6 +5697,42 @@
    ]
   },
   {
+   "id": "quantum-hardware-loop-optimal-power-flow-renewable-242d9",
+   "title": "Quantum Hardware-in-The-Loop for Optimal Power Flow in Renewable-Integrated Power Systems",
+   "titleZh": "面向可再生能源接入电力系统最优潮流的量子硬件在环框架",
+   "authors": [
+    "Zeynab Kaseb",
+    "Rahul Rane",
+    "Aleksandra Lekić",
+    "Matthias Möller",
+    "Amin Khodaei",
+    "Peter Pálenský",
+    "Pedro P. Vergara"
+   ],
+   "venue": "IEEE Transactions on Power Systems",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/tpwrs.2026.3696764",
+   "url": "https://doi.org/10.1109/tpwrs.2026.3696764",
+   "topics": [
+    "annealing",
+    "hardware",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Trans. Power Systems 2026:弥补既有研究停留在离线模拟的缺口,提出量子硬件在环(Quantum-HIL)框架——实时数字仿真与量子求解器闭环集成,在可再生能源接入的最优潮流(OPF)问题上验证实时运行环境的可行性,是量子算法电力系统验证方法论的重要推进。",
+   "abstract": "Quantum computing has emerged as a promising computational paradigm to address unresolved challenges in the modeling and control of modern power systems. However, most existing studies focus on offline simulations, and a practical framework for validating quantum algorithms in real-time operational environments remains lacking. This study proposes a quantum hardware-in-the-loop framework that integrates a real-time digital simulator with quantum and quantum-inspired hardware to solve combinatorial power flow and optimal power flow formulations under dynamic operating conditions. The proposed framework is validated using the IEEE 9- bus test system and a modified version with integrated solar and wind farms. The results confirm successful integration and convergence within a predefined tolerance. The study also identifies key limitations and challenges, such as limited access to quantum and digital annealers and current scalability limitations, that must be considered in future developments. Nevertheless, the results highlight the potential of quantum computing to significantly enhance the modeling and control of future power systems with high penetration of renewable energy sources.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -7480,6 +7546,38 @@
    ]
   },
   {
+   "id": "leveraging-quantum-annealing-layout-optimization-bfe72",
+   "title": "Leveraging Quantum Annealing for Layout Optimization",
+   "titleZh": "利用量子退火进行布局优化",
+   "authors": [
+    "Luca Nigro",
+    "Simone Sala",
+    "Alfonso Amendola",
+    "Enrico Prati"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2025-09-29",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1002/qute.202500358",
+   "url": "https://doi.org/10.1002/qute.202500358",
+   "topics": [
+    "qaoa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Advanced Quantum Technologies:以风电场布局优化(WFLO,最大化发电量最小化尾流损失)为代表,系统研究布局优化类非线性组合问题的量子退火求解方案,给出与传统方法对比的实现路径;布局问题与卫星任务规划的\"载荷-位置指派\"结构同构。",
+   "abstract": "Abstract Layout optimization problems involve finding the optimal arrangement of elements in order to maximize efficiency. For instance, the wind farm layout optimization (WFLO) problem consists of the best turbine placement to maximize energy production while minimizing wake losses. As its nonlinear and combinatorial nature makes it challenging for traditional optimization methods, alternative approaches such as quantum annealing and quantum‐classical hybrid methods offer a promising alternative for tackling such complex problems. Here, WFLO is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) problem using the Jensen wake model. A quantum annealer is compared, the Gurobi solver, and the Quantum Approximate Optimization Algorithm (QAOA). The quantum annealer provides solutions one order of magnitude faster than Gurobi with at most 3% lower power output, making it suitable for rapid suboptimal approximations. These findings highlight the trade‐off between the quality of the solution and the computational time and demonstrate how quantum methods, especially when combined with classical solvers, can contribute to efficient renewable energy optimization.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "error-mitigation-stabilized-noise-superconducting-quantum-processors-536b3",
    "title": "Error mitigation with stabilized noise in superconducting quantum processors",
    "titleZh": "超导量子处理器中噪声稳定化的误差缓解",
@@ -8042,6 +8140,34 @@
    ],
    "summaryZh": "Nature Communications 工作:综述并实验对比电流式图计算与量子启发图计算在大规模图数据处理上的前景,两类方案均与组合优化求解直接相关。",
    "abstract": "Graph data is crucial for modeling complex relationships in various fields, but conventional graph computing methods struggle to handle increasingly intricate and large-scale graph data. Electric current-based graph computing and Quantum-inspired graph computing offer innovative hardware-based solutions to these challenges. Electric current-based graph computing has progressed from Euclidean graph data to non-Euclidean ones using the memristive crossbar arrays. This Perspective introduces various crossbar array-based electric current-based graph computings, which offer flexibility in representing complex graphs, enabling a wide range of graphical applications in materials, biology, and social science. It also discusses quantum-inspired graph computing, employing probabilistic bits, oscillatory neural networks, and related architectures to solve complex optimization problems. Electric current-based and quantum-inspired graph computing remain in their early stages of evolution, requiring further work to advance materials, devices, and architectures to fully realize their potential. These advancements will open opportunities for more diverse and complex real-world applications. Graphs are widely adopted in optimization, physical modeling, and network analysis. In this Perspective, the authors discuss various physical systems for graph representation and computation, highlighting each system’s strengths, technical challenges, and future developments.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "qubit-health-analytics-clustering-hpc-integrated-quantum-81366",
+   "title": "Qubit Health Analytics and Clustering for HPC-Integrated Quantum Processors",
+   "titleZh": "HPC 集成量子处理器的比特健康分析与聚类",
+   "authors": [
+    "Xiaolong Deng",
+    "Laura Brandon Schulz",
+    "Martin Schulz"
+   ],
+   "venue": "arXiv",
+   "date": "2025-08-28",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2508.21231",
+   "doi": "10.48550/arxiv.2508.21231",
+   "url": "https://arxiv.org/abs/2508.21231",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "基于自研 20 比特 NISQ 设备 250 天以上的校准质量指标数据,建立数据驱动框架分析校准数据集、预测硬件性能并优化运行工作流;量子硬件的\"运维科学\"是量子计算进入超算中心的基础设施需求(硬件方向)。",
+   "abstract": "Quantum computing in supercomputing centers requires robust tools to analyze calibration datasets, predict hardware performance, and optimize operational workflows. This paper presents a data-driven framework for processing calibration metrics. Our model is based on a real calibration quality metrics dataset from our in-house 20-qubit NISQ device and for more than 250 days. We apply detailed data analysis to uncover temporal patterns and cross-metric correlations. Using unsupervised clustering, we identify stable and noisy qubits. We also validate our model using GHZ state experiments. Our study provides health indicators as well as hardware-driven maintenance and recalibration recommendations, thus motivating the integration of relevant schedulers with HPCQC workflows.",
    "source": "backfill",
    "domains": []
   },
@@ -15881,6 +16007,31 @@
    "domains": []
   },
   {
+   "id": "quantum-powered-optimization-electric-vehicle-charging-infrastructure-b1a85",
+   "title": "Quantum-Powered Optimization for Electric Vehicle Charging Infrastructure Deployment",
+   "titleZh": "量子赋能的电动汽车充电基础设施部署优化",
+   "authors": [
+    "Nazmush Sakib",
+    "Xin Chen"
+   ],
+   "venue": "arXiv",
+   "date": "2024-11-11",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2411.06684",
+   "doi": "10.48550/arxiv.2411.06684",
+   "url": "https://arxiv.org/abs/2411.06684",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "面向充电站(EVCS)选址这一投资大、影响长期的基础设施决策,建立数学模型并用量子退火算法求解最优布局,为 EV 大规模接入提供基础设施规划方案(arXiv 2024)。",
+   "abstract": "The infrastructure development of electric vehicle charging stations (EVCS) is critical to the integration of electrical vehicles (EVs) into transportation systems, which requires significant investment and has long-term impact on the adoption of EVs. In this paper, a mathematical model is developed to identify the optimal placement of EVCS by utilizing a novel quantum annealing (QA) algorithm and quantum computation (QC). The objective of the optimization model is to determine the locations of EVCS that maximize their service quality for EV users. The model is validated using a real-world case study and solved using commercially available quantum computers from D-Wave. The case study shows that the QA algorithm can find the optimal placement of EVCS within seconds. The quality of the solutions obtained using QC is not sensitive to the shape or size of the area where EVCS are to be deployed.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "benchmarking-trapped-ion-quantum-computer-30-qubits-07e5c",
    "title": "Benchmarking a trapped-ion quantum computer with 30 qubits",
    "titleZh": "30比特离子阱量子计算机基准测试",
@@ -17830,6 +17981,30 @@
    "domains": [
     "transport"
    ]
+  },
+  {
+   "id": "possible-application-quantum-computing-field-ocean-engineering-95850",
+   "title": "Possible application of quantum computing in the field of ocean engineering: optimization of an offshore wind farm layout with the Ising model",
+   "titleZh": "量子计算在海洋工程中的可能应用:海上风电场布局优化",
+   "authors": [
+    "Hiroshi Kagemoto"
+   ],
+   "venue": "Journal of Ocean Engineering and Marine Energy",
+   "date": "2024-08-31",
+   "year": 2024,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1007/s40722-024-00345-x",
+   "url": "https://doi.org/10.1007/s40722-024-00345-x",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "以海上风电场微观选址为对象,在符合 Jensen–Katic 尾流模型的假设下把布局问题写成 Ising 形式,用准量子退火求解并与经典结果对比布局方案;海洋工程×量子优化的早期探索(3 引)。",
+   "abstract": "Abstract As a possible application of quantum computing in the field of ocean engineering, an attempt is made to identify the optimum layout of an offshore wind farm with the quasi-quantum annealing method while assuming a wake model that conforms to the standard Jensen–Katic wake model but can be implemented in the Ising model. The optimum layouts obtained in the present study are compared with those identified with other conventional methods such as the genetic algorithm. It is confirmed that the quasi-quantum annealing method works as well as other methods in identifying the optimum layouts, while the optimum layout of an offshore wind farm composed of even more than 100 wind turbines can be identified with reasonable CPU time.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-approximate-optimization-algorithm-random-subgraph-phase-a1ed3",
