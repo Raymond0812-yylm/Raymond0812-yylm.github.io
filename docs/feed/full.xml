@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 03 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/full.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 倾斜行走实现的组合优化超二次量子加速</title>
+      <link>https://raymond0812-yylm.github.io/papers/super-quadratic-quantum-speedups-combinatorial-optimization-tilted-8fb55/</link>
+      <guid isPermaLink="false">p:super-quadratic-quantum-speedups-combinatorial-optimization-tilted-8fb55</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子行走/短路径（short-path）算法长期是精确组合优化（加权 MAX-E$k$-LIN2、MAX-$k$-CSP 等）上对穷举搜索取得超二次加速的代表。但 2026 年 Le Gall–Tamaki（arXiv:2604.12131）提出经典 conditioning-and-search 算法，在同样假设下仅比量子短路径慢一个次二次因子——意味着相对这一更强经典基线，现有短路径算法不再构成超二次分离。本文正是对这场&quot;基线升级&quot;的量子侧回应。</description>
+    </item>
+    <item>
+      <title>[论文] 熵计算平台上的 Motzkin-Straus 优化</title>
+      <link>https://raymond0812-yylm.github.io/papers/motzkin-straus-optimization-entropy-computing-platform-8fab0/</link>
+      <guid isPermaLink="false">p:motzkin-straus-optimization-entropy-computing-platform-8fab0</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>专用量子/类量子优化硬件（Ising 机、相干光量子机、熵计算机）近年密集涌现，但多数平台被锁死在 Ising/QUBO 一种问题形态上。QCI 的 Dirac-3S 光子熵计算机走不同路线：原生求解和约束连续二次规划（在概率单纯形上优化）。本文的关键桥梁是 Motzkin-Straus 定理——它把最大团这类离散团结构问题严格等价为概率单纯形上的连续二次优化，从而让&quot;非 Ising 原生&quot;的熵计算平台直接接入经典难解的组合优化，并给出严肃的经典基线对照。</description>
+    </item>
+    <item>
+      <title>[论文] 利用问题结构实现端到端量子加速</title>
+      <link>https://raymond0812-yylm.github.io/papers/harnessing-problem-structure-end-end-quantum-speed-8fb56/</link>
+      <guid isPermaLink="false">p:harnessing-problem-structure-end-end-quantum-speed-8fb56</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子算法的渐近加速神话近年来屡屡撞上&quot;端到端核算&quot;这堵墙：许多宣称的多项式乃至指数加速，前提是输入数据已经装进量子态（QRAM/振幅编码），而结构无关（structure-agnostic）的经典数据编码本身就要付出与&quot;量子省下来的&quot;同量级甚至更高的代价。去量子化（dequantization）一系工作更釜底抽薪地证明：对一批依赖低秩结构的量子算法，存在采样访问下的经典算法抹平其加速——无容量设施选址（UFL）问题正是被经典去量子化消掉二次加速的代表案例之一。这就提出一个尖锐而根本的问题：现实问题实例往往具有丰…</description>
+    </item>
+    <item>
+      <title>[动态] 离子阱公司华翊博奥拟投 3000 万元建西南量子智造中心,落子四川天府新区</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-04/#n4</link>
+      <guid isPermaLink="false">n:2026-10-04:4</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>专注离子阱路线的华翊博奥(北京)量子科技有限公司 8 月 28 日签约落地四川天府新区,拟投资 3000 万元建设西南量子智造中心。该公司已推出量子比特数破百的 HYQ-B100 离子阱系统,本次西南布局将延伸其整机研发-制造-交付的区域网络。这是国庆假期前国内量子硬件扩张的最新可核实动作,也与 9 月以来国产离子阱阵营(如本源超导、国盾超导之外的离子阱新势力)多点落子的格局一致。</description>
+    </item>
+    <item>
+      <title>[动态] 费米宇宙发布全链路量子增强大模型 FermiQLM 1.0:基于 Qwen 基座&quot;量子改造&quot;,不依赖容错量子机、可在现有 GPU 设施训练部署</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-04/#n3</link>
+      <guid isPermaLink="false">n:2026-10-04:3</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>据北京商报报道,量子 AI 公司费米宇宙正式推出全链路量子增强大模型 FermiQLM 1.0:基于 Qwen 开源基座模型进行量子改造而来,其卖点是不依赖尚未成熟的容错量子计算机,即可在现有 GPU 等经典计算基础设施上完成训练与部署。&quot;量子增强大模型&quot;是近期国内量子公司切入 AI 叙事的代表性路线(与图灵量子探索光量子与世界模型结合的方向呼应),其实际增益的量化验证有待后续独立评测,读者宜审慎看待营销与实测的差距。</description>
+    </item>
+    <item>
+      <title>[动态] QCR 人事动态:Pasqal 迎新任首席法务官,RBC 组建量子战略团队并携手滑铁卢 IQC/多伦多大学</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-04/#n2</link>
+      <guid isPermaLink="false">n:2026-10-04:2</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Quantum Computing Report 盘点四起量子相关人事任命:中性原子上市公司 Pasqal(NASDAQ: PSQL)任命 Deezer 前总法律顾问 Florence Lao 为首席法务官(10 月 1 日生效),支撑其国际化扩张;加拿大皇家银行(RBC) 任命 Elizabeth Iwasawa 为量子总监,牵头新组建的量子战略团队,制定覆盖应用开发与网络安全的路线图,并宣布与滑铁卢大学量子计算研究所(IQC)、多伦多大学的多年度人才合作;量子安全公司 Quantum eMotion 迎前 Certicom 掌门人 Bernard Crotty 任独立董事;后量子密码公司 01 Quantum 任命 Jeffrey Kilborn 为 CFO。金融机构自建量子战略团队的趋势值得持续跟踪。</description>
+    </item>
+    <item>
+      <title>[动态] 55North 合伙人 Katzgraber:近期量子的首战场是材料模拟而非优化——&quot;经典技术在可预见的未来仍将跑赢优化问题上的任何量子器件&quot;</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-04/#n1</link>
+      <guid isPermaLink="false">n:2026-10-04:1</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>丹麦量子风投 55North(首关 1.34 亿欧元)普通合伙人、前 AWS 量子应用负责人 Helmut Katzgraber 发表行业观点:量子计算的第一波真实影响将来自材料/化学/医药的量子模拟(电池材料、OLED、金属有机药物复合物等强关联体系),而在优化方向他&quot;相对确信经典技术在可预见的未来将跑赢任何量子器件&quot;,量子机器学习也&quot;仍处早期&quot;。他还预判全栈整机公司仅少数(IonQ、QuEra、IQM)有机会,多数将转向部件与使能技术(低温、纠错软件)。该判断与今日日报论文一&quot;端到端核算&quot;的主题形成直接对话——优势声明正同时受到理论与资本两侧的更严苛审视。</description>
+    </item>
+    <item>
+      <title>[动态] IBM 扩大与印度 IIT Bombay/IISc 研究合作:量子-超算融合编排与主权 AI 并进</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-04/#n0</link>
+      <guid isPermaLink="false">n:2026-10-04:0</guid>
+      <pubDate>Sun, 04 Oct 2026 00:00:00 GMT</pubDate>
+      <description>IBM 宣布扩展与印度理工学院孟买分校(IIT Bombay,合作始于 2018)与印度科学研究所(IISc,始于 2021)的两项研究合作并进入下一阶段。其中与 IISc 的合作首次将量子计算列为重点:围绕量子-HPC 编排与算法研究,采用&quot;容许近似的经典对角化算法&quot;改进量子子空间迭代方法,推进量子为中心的超级计算(quantum-centric supercomputing);另含基于 Granite 家族的轻量时序基础模型用于能源分析等 sovereign AI 课题。IBM Research India 主任 Amith Singhee 将其定位为智能体 AI、主权 AI 与量子计算共同塑造&quot;下一波计算&quot;的支点。</description>
+    </item>
     <item>
       <title>[论文] 基于解码量子干涉术的近似优化可证量子优势</title>
       <link>https://raymond0812-yylm.github.io/papers/provable-quantum-advantage-approximate-optimization-decoded-quantum-1b470/</link>
@@ -370,62 +426,6 @@
       <guid isPermaLink="false">n:2026-09-27:2</guid>
       <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
       <description>中性原子上市公司 Pasqal 公布 2026 上半年业绩：总营收 490 万欧元（+14%），其中 QPU 相关服务 390 万欧元（+34%）成为增长引擎；经营亏损 5920 万欧元中有 3750 万来自股权激励与上市一次性成本等非核心项目。技术侧实现 1024 原子无缺陷寄存器（较此前 506 原子纪录翻倍）、低温平台改造使原子寿命延长约 40 倍，并在逻辑比特上跑通完整机器学习应用且优于物理比特版本；系统已部署于法国、意大利、沙特（当地首个商业量子云平台）与加拿大。</description>
-    </item>
-    <item>
-      <title>[动态] IonQ 携手韩国 SDT：Superion 256 与 SiV 量子存储落地亚太，建本地制造基地</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n1</link>
-      <guid isPermaLink="false">n:2026-09-27:1</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>IonQ 与韩国 SDT 达成合作，将在韩国部署 256 比特囚禁离子系统 Superion 256（采用取代激光控制的电子比特控制技术）与金刚石硅空位（SiV）量子存储模块，两者均为亚太首次。合作不止于转售：SDT 计划在龟尾市建设专用量子制造设施，量产 SiV 存储模块并进行系统集成，共建混合量子-经典数据中心（首期聚焦生物医疗应用），目标成为 IonQ 全球供应链的区域枢纽。</description>
-    </item>
-    <item>
-      <title>[动态] Infleqtion 在中性原子平台纠缠 30 个逻辑量子比特，创商用系统纪录</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n0</link>
-      <guid isPermaLink="false">n:2026-09-27:0</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Infleqtion 在其铯原子 Sqale 量子计算机（总规模 1600 物理比特）上实现 30 个逻辑量子比特的纠缠，宣称是中性原子商用平台的首次。演示仅用 80 个物理比特、约 1000 次物理操作（&quot;1 KiloQuOp&quot;），信号强度超背景噪声 1000 倍以上；关键门操作的门数在 AI 辅助（GPT 5.6 Sol）下减半。公司路线图为 2028 年 100 个逻辑比特、2030 年 1000 个，客户侧已有 Wellcome Leap Q4Bio、美国国防部、NASA 与英国政府部署。</description>
-    </item>
-    <item>
-      <title>[论文] 对 QAOA 固定角度猜想的反驳</title>
-      <link>https://raymond0812-yylm.github.io/papers/refuting-qaoa-fixed-angle-conjecture-8f9c7/</link>
-      <guid isPermaLink="false">p:refuting-qaoa-fixed-angle-conjecture-8f9c7</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>QAOA 的实用化有一个广受依赖的&quot;免训练&quot;捷径：固定角度猜想。该猜想由 Wurtz–Lykov 于 2021 年提出（arXiv:2107.00677）：对每个深度 p，存在一组普适角度 (β, γ)，使 MaxCut QAOA 在所有 d-正则图上的期望割值都不低于&quot;局部树近似&quot;水平。此前 Wurtz–Love 已证明 p≤2、d=3 的情形；Wurtz–Lykov 将数值验证推到 p≤11，并给出一个诱人的外推——p=11 时固定角 QAOA 在 3-正则图上的近似比（约 0.8796）将首次超过经典最优…</description>
-    </item>
-    <item>
-      <title>[论文] 薛定谔桥的量子增强采样</title>
-      <link>https://raymond0812-yylm.github.io/papers/quantum-enhanced-sampling-schr-dinger-bridges-8f9c5/</link>
-      <guid isPermaLink="false">p:quantum-enhanced-sampling-schr-dinger-bridges-8f9c5</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>### 一、论文基本信息</description>
-    </item>
-    <item>
-      <title>[论文] 基于流量子比特的玻色量子纠错</title>
-      <link>https://raymond0812-yylm.github.io/papers/bosonic-error-correction-fluxonium-8f9c0/</link>
-      <guid isPermaLink="false">p:bosonic-error-correction-fluxonium-8f9c0</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>### 一、论文基本信息</description>
-    </item>
-    <item>
-      <title>[动态] PT 展今日闭幕，量子展区成焦点：坤煜量子&quot;煜见&quot;一号实现浑浊水体量子成像，量坤科技展示&quot;量子+AI+超算&quot;融合平台</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-25/#n4</link>
-      <guid isPermaLink="false">n:2026-09-25:4</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>2026 年中国国际信息通信展览会（PT 展，9 月 22—24 日，北京国家会议中心）将量子信息列入前沿技术重点板块。量子精密测量赛道上，坤煜量子的量子成像雷达&quot;煜见&quot;一号演示了浑浊水体环境下的量子成像，瞄准低空安全与水下探测应用；量子计算赛道上，量坤科技展出&quot;量子+AI+超算&quot;融合计算平台，尝试以自然语言驱动量子计算，探索量子算力的统一计算入口。</description>
-    </item>
-    <item>
-      <title>[动态] MemQ 开源分布式量子编译器发布，降低量子算力网络化调用门槛</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-25/#n3</link>
-      <guid isPermaLink="false">n:2026-09-25:3</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>开源项目 MemQ 发布分布式量子编译器，面向跨地域、多后端的分布式量子基础设施，致力于让量子程序在异构量子算力网络之间高效编译与调度。该工具与业界&quot;量子-HPC-AI 三网融合&quot;的趋势相呼应，为量子云与量子数据中心的作业编排提供了开源基础设施选项。</description>
-    </item>
-    <item>
-      <title>[动态] Classiq 携手以色列天然气管网公司与 IonQ：燃气管网组合优化试点登上 Forte-1</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-25/#n2</link>
-      <guid isPermaLink="false">n:2026-09-25:2</guid>
-      <pubDate>Fri, 25 Sep 2026 00:00:00 GMT</pubDate>
-      <description>量子软件公司 Classiq 与以色列国家天然气管线公司（INGL）、IonQ 合作，将天然气管网输配规划的简化版组合优化问题在 IonQ Forte-1 量子处理器上求解，探索能提升客户输送量的输配方案。该试点表明量子优化正从电力调度延伸到燃气等公用事业网络，是&quot;真实基础设施问题 + 近期量子硬件&quot;的又一落地样本。</description>
     </item>
   </channel>
 </rss>
