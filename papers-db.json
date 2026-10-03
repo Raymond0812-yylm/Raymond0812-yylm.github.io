@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-03",
+ "updated": "2026-10-04",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -3067,6 +3067,35 @@
    ]
   },
   {
+   "id": "detailed-algorithmic-study-reuse-aware-near-memory-441db",
+   "title": "A detailed algorithmic study on a reuse-aware, near memory, all-digital Ising machine",
+   "titleZh": "复用感知的近存内全数字 Ising 机的详细算法研究",
+   "authors": [
+    "Siddhartha Raman Sundara Raman",
+    "Lizy K. John",
+    "Jaydeep P. Kulkarni"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-13",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.12959",
+   "doi": "10.48550/arxiv.2605.12959",
+   "url": "https://arxiv.org/abs/2605.12959",
+   "topics": [
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:针对既有 Ising 加速器局限于特定问题类、依赖 ADC/DAC 或独立存储的缺陷,提出近存内、全数字、复用感知的 Ising 机设计并给出详细算法研究,是 Ising 机硬件数字 CMOS 路线的最新进展(量子硬件平台方向)。",
+   "abstract": "Recently, nature-inspired computing approaches have gained significant attention for solving difficult optimization problems, particularly through Ising machines for NP-complete applications. Existing Ising accelerators range from quantum and optical annealers to CMOS-based von-Neumann and in-memory architectures. However, many prior designs are specialized accelerators limited to specific problem classes, rely on ADC/DAC circuits, and suffer from reliability challenges due to process-variation-sensitive embedded memory technologies. This paper presents SACHI, an all-digital Ising architecture implemented by repurposing the L1 cache of a CPU using SRAM-based processing-in-memory techniques. SACHI eliminates the need for ADCs/DACs, improves reliability compared to prior approaches such as BRIM, and enables Ising acceleration with minimal hardware overhead integrated into the CPU pipeline. The paper also provides detailed architectural analysis and pseudo-code for the proposed algorithms. The key contributions of SACHI are: (i) tight integration of the accelerator with the CPU pipeline, (ii) reuse of existing cache hardware for acceleration, (iii) higher parallelism enabled through reuse-aware computation, and (iv) improved performance and energy efficiency for large-scale, high-precision optimization problems using novel compute and mapping strategies. Compared to BRIM, SACHI achieves 300x performance improvement and 80x energy reduction across applications including asset all",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "rethink-role-neural-decoders-quantum-error-correction-82182",
    "title": "Rethink the Role of Neural Decoders in Quantum Error Correction",
    "titleZh": "重新审视神经解码器在量子纠错中的角色",
@@ -3432,6 +3461,39 @@
    "abstract": "Combinatorial optimization problems have wide-ranging applications in industry and academia. Quantum computers may help solve them by sampling from appropriately prepared Ansatz quantum circuits. However, current quantum computers are limited by their qubit count, connectivity, and noise. This is particularly restrictive when considering optimization problems beyond the quadratic order. Here, we introduce Ansätze based on an approximate quadratization of high-order Hamiltonians that do not incur a qubit overhead. The price paid is a loss in the quality of the noiseless solution. Crucially, these approximations yield shallower Ansätze that are more robust to noise than the standard Quantum Approximate Optimization Algorithm one. We show this through simulations with variable noise strengths. Furthermore, we also propose a noise-aware Ansatz design method for quadratic optimization problems. This method implements only a portion of the target Hamiltonian by limiting the number of layers of gates in the Ansatz. We find that for both problem types, under noise, our approximate implementation of the full problem structure can significantly enhance the solution quality. Our work opens a path to enhance the solution quality that approximate quantum optimization achieves on noisy hardware.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "maritime-route-optimization-q-learning-based-quantum-16848",
+   "title": "Maritime route optimization using Q-learning–based quantum-behaved particle swarm optimization",
+   "titleZh": "基于 Q 学习量子行为粒子群优化的海上航线优化",
+   "authors": [
+    "Zhang Liankang",
+    "Yu Cai",
+    "JunRu Guo",
+    "Fu Yanzhao",
+    "Jun Yeob Song"
+   ],
+   "venue": "Applied Ocean Research",
+   "date": "2026-04-02",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1016/j.apor.2026.105029",
+   "url": "https://doi.org/10.1016/j.apor.2026.105029",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Applied Ocean Research 2026:针对 PSO 及其量子变体 QPSO 在复杂航行约束下早熟收敛、易产生不可行解的问题,提出 Q 学习引导的 QPSO 混合算法,自适应调节算法行为以在真实航行约束下优化海上航线——是\"强化学习×量子启发算法\"混合在航运物流领域的应用实例。",
+   "abstract": "The rapid growth of global maritime transportation has intensified demands for safe and efficient shipping routes optimization. Conventional particle swarm optimization (Particle Swarm Optimization PSO) and its quantum variant (Quantum-behaved Particle Swarm Optimization QPSO) frequently encounter challenges such as premature convergence and generate infeasible solutions under complex navigational constraints. To overcome these limitations, we propose a novel Q-learning–based quantum-behaved Particle Swarm Optimization (QLQPSO) algorithm. This approach incorporates a multi-dimensional state space and a Q-learning controller to adaptively regulate the contraction–expansion balance, attraction-center switching, simulated annealing, and path smoothing. Furthermore, a customized “projection + smoothing” operator is introduced to ensure navigational feasibility of the generated routes. Experimental evaluations conducted on the China-Australia shipping corridor demonstrate that the QLQPSO algorithm achieves superior performance, including the shortest voyage distance (3772 nm), reduced curvature, and near-perfect feasibility, consistently outperforming PSO, QPSO, Reinforcement Learning Particle Swarm Optimization(RLPSO), and Reinforcement Learning Quantum-behaved Particle Swarm Optimization(RLQPSO). Ablation studies further verify the critical roles of the Q-learning-driven scheduling mechanism and the constraint-repair operat or in enhancing algorithm effectiveness. In summary, th",
+   "source": "backfill",
+   "domains": [
+    "logistics",
+    "materials"
+   ]
   },
   {
    "id": "infeasibility-aware-large-language-models-combinatorial-optimization-fabcb",
@@ -4233,6 +4295,35 @@
    "abstract": "Quantum convolutional neural networks (QCNNs) are widely regarded as a promising model for quantum machine learning (QML). In this work, we analyze the most widely used variants of these models (i.e., tracing out- and measurement-based QCNNs), and we relate their heuristic success to two facts. First, that when randomly initialized, they can only operate on the information encoded in low-bodyness measurements of their input states. And second, that they are commonly benchmarked on “locally easy” datasets whose states are precisely classifiable by the information encoded in these low-bodyness observables subspace. From these insights, we argue that the QCNN’s action on this subspace should be efficiently classically simulable. Indeed, we construct and train a purely classical QCNN surrogate—based on low-bodyness Pauli propagation, tensor networks, and classical shadows—that matches or outperforms standard QCNNs on all benchmark datasets and on up-to 1024 qubits, thereby empirically realizing our simulability claims. Our results can then be understood as highlighting a deeper symptom of QML: Models could only be showing heuristic success because they are benchmarked on simple problems, for which their action can be classically simulated. This insight points to the fact that nontrivial datasets are a truly necessary ingredient for moving forward with QML. To finish, we discuss how our results can be extrapolated to classically simulate other architectures.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "leveraging-quantum-technologies-transport-strategic-literature-review-2043f",
+   "title": "Leveraging Quantum Technologies in Transport - A Strategic Literature Review",
+   "titleZh": "运输领域量子技术的战略性文献综述",
+   "authors": [
+    "Cristina Dragomir"
+   ],
+   "venue": "International Journal of Instruction, Technology & Social Sciences.",
+   "date": "2026-02-19",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.47577/ijitss.v5i.164",
+   "url": "https://doi.org/10.47577/ijitss.v5i.164",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "2026 年战略综述:在供应链日益复杂、物流数据驱动化的背景下,系统梳理量子计算(优化)与量子通信对下一代运输系统的使能作用,给出战略级研究议程;可作为交通×量子方向的领域地图。",
+   "abstract": "The rapid evolution of quantum technologies presents transformative opportunities for various industries, including the transport sector. As global supply chains grow increasingly complex and data-driven logistics become central to operational efficiency, quantum computing and quantum communication are emerging as potential enablers of next-generation transport systems. This research explores the intersection of quantum innovation and transportation, with a focus on enhancing efficiency, security, and decision-making processes in logistics and mobility. The study adopts a qualitative methodology grounded in an extensive literature review of scholarly publications, industry reports, and policy papers from the past decade. Sources were selected based on their relevance to quantum applications in transportation, including routing optimization, traffic flow prediction, secure communications, and fleet management. The review framework categorizes insights according to technological readiness, practical implementation, and strategic value in the transport sector. Findings from the literature suggest that quantum computing holds significant promise for solving large-scale optimization problems, such as dynamic route planning and freight allocation, which are currently limited by classical computational methods. Additionally, quantum key distribution (QKD) is highlighted as a secure communication solution for protecting sensitive data in autonomous and connected transport systems. Al",
+   "source": "backfill",
+   "domains": [
+    "logistics",
+    "transport"
+   ]
   },
   {
    "id": "iterative-quantum-assisted-least-squares-optimization-convergence-6cab3",
@@ -5760,6 +5851,36 @@
    "source": "backfill",
    "domains": [
     "materials"
+   ]
+  },
+  {
+   "id": "quantum-enhanced-travel-procurement-hybrid-quantum-classical-0d780",
+   "title": "Quantum-Enhanced Travel Procurement: Hybrid Quantum–Classical Optimization for Enterprise Travel Management",
+   "titleZh": "量子增强差旅采购:企业差旅的混合量子-经典优化",
+   "authors": [
+    "Prajkta Waditwar"
+   ],
+   "venue": "World Journal of Advanced Engineering Technology and Sciences",
+   "date": "2025-12-27",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.30574/wjaets.2025.17.3.1572",
+   "url": "https://doi.org/10.30574/wjaets.2025.17.3.1572",
+   "topics": [
+    "qaoa",
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "企业差旅采购是多目标、强约束决策域(供应商组合选择、差旅政策设计、运营中断响应);该文用混合量子-经典方法求解,并讨论经典方法(MIP/CP/元启发)随目标扩展面临的规模化与响应性挑战。",
+   "abstract": "Corporate travel procurement is a multi-objective, constraint-dense decision domain spanning strategic supplier portfolio selection, travel policy design, and operational disruption response. Classical methods—mixed-integer programming (MIP), constraint programming, metaheuristics, and machine learning—deliver strong results but face scaling and responsiveness challenges as procurement objectives broaden to include compliance, traveler experience, sustainability, and resilience. Quantum optimization methods, particularly quantum annealing and gate-based variational algorithms (e.g., QAOA), have been proposed for combinatorial problems with binary decisions and complex interaction terms. Yet empirical evidence across optimization domains often shows classical solvers match or exceed quantum approaches on meaningful instance sets, motivating a hybrid quantum–classical posture rather than replacement. This paper formalizes quantum-enhanced travel procurement as a hypothesis-driven, hybrid decision-support approach in which quantum routines contribute to solution search, diversification, or time-to-decision for selected combinatorial cores. We present canonical procurement formulations, show explicit mappings to QUBO/Ising models, and propose hybrid architectures for supplier portfolio design, airline share allocation under commitments, policy parameter tuning, and disruption re-accommodation. To strengthen accessibility and rigor, we provide (i) a worked QUBO example with explic",
+   "source": "backfill",
+   "domains": [
+    "finance"
    ]
   },
   {
@@ -9403,6 +9524,37 @@
    "abstract": "Multiple object tracking (MOT), a key task in image recognition, poses a persistent challenge in balancing processing speed and tracking accuracy. This study presents a novel approach that leverages quantum annealing (QA) to expedite computation speed, while improving tracking accuracy through the ensemble processing of object tracking methods. A method to improve the matching integration process is also proposed. By utilizing the sequential nature of MOT, this study further augments the tracking method via reverse annealing. Experimental validation confirms the maintenance of high accuracy with an annealing time of a mere 3 μs per tracking process. Notably, the time-to-solution achieved reductions of over 99% compared to conventional QA implementations. The proposed method holds significant potential for real-time MOT applications, including traffic flow measurement for urban traffic light control, collision prediction for autonomous robots and vehicles, and management of products mass-produced in factories.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "reimagining-erp-optimization-quantum-ai-feasibility-study-dd19b",
+   "title": "Reimagining ERP Optimization with Quantum AI: A Feasibility Study Using Oracle Cloud Simulations",
+   "titleZh": "用量子 AI 重构 ERP 优化:Oracle 云仿真可行性研究",
+   "authors": [
+    "Vinay Singh",
+    "Prashant Gupta",
+    "DhirajKumar Pathak"
+   ],
+   "venue": "Journal of Computer Science and Technology Studies",
+   "date": "2025-07-05",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.32996/jcsts.2025.7.7.31",
+   "url": "https://doi.org/10.32996/jcsts.2025.7.7.31",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对传统 ERP 优化难以处理大规模组合问题(供应链路由、库存平衡、资源分配、财务优化)的现状,以 Oracle 云仿真的形式检验量子 AI 的可行性,是企业级系统量子化的少少见实证尝试。",
+   "abstract": "As corporate operations get increasingly complex, traditional ERP optimization techniques struggle to handle large-scale combinatorial problems (Pinedo, 2016; Johnson & McGeoch, 2002). By allowing things like supply chain routing, inventory balancing, resource allocation, and financial optimization more faster, new applications of quantum computers could result in significant benefits (Farhi et al., 2014; McClean et al., 2016). In this paper, we investigate the usage of Quantum Artificial Intelligence (QAI) in Enterprise Resource Planning (ERP) contexts. For instance, we consider Oracle Fusion Cloud ERP (Keller et al., 2020; Li et al., 2021). Using simulated annealing, variational quantum eigensolvers (VQE), and quantum-enhanced reinforcement learning (QRL) approaches, it tests Oracle's recent advancements in AI and machine learning (Oracle, 2024) against Farhi et al., 2014; McClean et al., 2016; Jerbi et al., 2021). Benchmark scenarios might be keeping real-time inventory tracking, arranging output across several factories, and maximizing the best utilization of capital investments. Particularly in cases of complex data and limited resources, our simulation results suggest that QAI has great potential to speed and improve ERP procedures. We also discuss the technological, financial, and organizational issues that make adoption difficult and compile a strategy for more research and development to make Oracle Fusion ERP environments better with QAI (European Union, 2016; U.S. ",
+   "source": "backfill",
+   "domains": [
+    "logistics"
+   ]
   },
   {
    "id": "mini-scale-traffic-flow-optimization-iterative-qubos-a3cf4",

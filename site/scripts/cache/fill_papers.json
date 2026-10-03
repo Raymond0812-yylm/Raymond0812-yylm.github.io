@@ -46609,5 +46609,288 @@
   "doi": "10.5281/zenodo.18496499",
   "citations": 0,
   "theme": "predictive maintenance scheduling quantu"
+ },
+ {
+  "fid": "9e5d9266fa76",
+  "title": "Maritime route optimization using Q-learning–based quantum-behaved particle swarm optimization",
+  "authors": [
+   "Zhang Liankang",
+   "Yu Cai",
+   "JunRu Guo",
+   "Fu Yanzhao",
+   "Jun Yeob Song"
+  ],
+  "abstract": "The rapid growth of global maritime transportation has intensified demands for safe and efficient shipping routes optimization. Conventional particle swarm optimization (Particle Swarm Optimization PSO) and its quantum variant (Quantum-behaved Particle Swarm Optimization QPSO) frequently encounter challenges such as premature convergence and generate infeasible solutions under complex navigational constraints. To overcome these limitations, we propose a novel Q-learning–based quantum-behaved Particle Swarm Optimization (QLQPSO) algorithm. This approach incorporates a multi-dimensional state space and a Q-learning controller to adaptively regulate the contraction–expansion balance, attraction-center switching, simulated annealing, and path smoothing. Furthermore, a customized “projection + smoothing” operator is introduced to ensure navigational feasibility of the generated routes. Experimental evaluations conducted on the China-Australia shipping corridor demonstrate that the QLQPSO algorithm achieves superior performance, including the shortest voyage distance (3772 nm), reduced curvature, and near-perfect feasibility, consistently outperforming PSO, QPSO, Reinforcement Learning Particle Swarm Optimization(RLPSO), and Reinforcement Learning Quantum-behaved Particle Swarm Optimization(RLQPSO). Ablation studies further verify the critical roles of the Q-learning-driven scheduling mechanism and the constraint-repair operat or in enhancing algorithm effectiveness. In summary, the QLQPSO algorithm presents a robust and efficient solution for maritime route optimization in complex nautical environments, offering significant potential for practical applications in the maritime industry.",
+  "date": "2026-04-02",
+  "venue": "Applied Ocean Research",
+  "arxiv_id": "",
+  "doi": "10.1016/j.apor.2026.105029",
+  "citations": 1,
+  "theme": "maritime shipping quantum annealing"
+ },
+ {
+  "fid": "9ba9b1dc5d06",
+  "title": "Leveraging Quantum Technologies in Transport - A Strategic Literature Review",
+  "authors": [
+   "Cristina Dragomir"
+  ],
+  "abstract": "The rapid evolution of quantum technologies presents transformative opportunities for various industries, including the transport sector. As global supply chains grow increasingly complex and data-driven logistics become central to operational efficiency, quantum computing and quantum communication are emerging as potential enablers of next-generation transport systems. This research explores the intersection of quantum innovation and transportation, with a focus on enhancing efficiency, security, and decision-making processes in logistics and mobility. The study adopts a qualitative methodology grounded in an extensive literature review of scholarly publications, industry reports, and policy papers from the past decade. Sources were selected based on their relevance to quantum applications in transportation, including routing optimization, traffic flow prediction, secure communications, and fleet management. The review framework categorizes insights according to technological readiness, practical implementation, and strategic value in the transport sector. Findings from the literature suggest that quantum computing holds significant promise for solving large-scale optimization problems, such as dynamic route planning and freight allocation, which are currently limited by classical computational methods. Additionally, quantum key distribution (QKD) is highlighted as a secure communication solution for protecting sensitive data in autonomous and connected transport systems. Although real-world applications remain limited, pilot studies and simulations indicate measurable improvements in processing speed and security protocols. This research underscores the potential of quantum technologies to redefine competitive advantage in the transport sector. By integrating quantum solutions into existing digital infrastructure, companies may achieve faster, more secure, and more sustainable transport operations. The findings also call for interdisciplinary collaboration and proactive policy support to bridge the gap between theoretical potential and practical deployment.",
+  "date": "2026-02-19",
+  "venue": "International Journal of Instruction, Technology & Social Sciences.",
+  "arxiv_id": "",
+  "doi": "10.47577/ijitss.v5i.164",
+  "citations": 0,
+  "theme": "freight transport quantum optimization"
+ },
+ {
+  "fid": "e960f8a54b91",
+  "title": "Quantum Secure Energy-Efficient Authentication Protocol for Digital Twins-Enabled Transportation Cyber-Physical Systems",
+  "authors": [
+   "Sunil Prajapat",
+   "Dheeraj Kumar",
+   "Pankaj Kumar",
+   "Mohammad Wazid",
+   "Ashok Kumar Das",
+   "M. Shamim Hossain"
+  ],
+  "abstract": "Digital twins-enabled transportation cyber-physical systems are employed in the transportation sector to enhance environmental quality, mobility, and safety. They are digital representations of transportation networks, enable the simulation of these networks’ behavior under various conditions. They can be employed in various transportation sectors, including forecasting traffic congestion, facilitate the optimization of flow and safety, enhance the efficiency of public transportation, improve the efficiency of freight transportation by offering support in this process, facilitates the consideration of future multimodal infrastructure development requirements, furnish drivers with up-to-date information about weather alerts, road closures, and traffic situations in real time, assess numerous aspects like, impacts of various mobility operators, transport users, and environmental conditions. However, the real-time data synchronization in digital twins-enabled transportation cyber-physical systems is accomplished using an open communication channel. Regrettably, the utilization of virtual-reality synthesizing security threats in the network necessitates the implementation of stringent privacy and security procedures, including authentication, encryption, and signature approaches. This study proposes a quantum-key-distribution (QKD)-based authentication protocol for secure communication of digital twins-enabled transportation cyber-physical systems. The integrated quantum in the system ensures the compactness and verifiability of data. The protocol’s security is examined using the Scyhter tool and is verified to be secure by informal security analysis. The proposed scheme achieves its efficiency over current solutions. Moreover, the latest technology and techniques are used to examine the operational capabilities and security features.",
+  "date": "2025-03-11",
+  "venue": "IEEE Transactions on Intelligent Transportation Systems",
+  "arxiv_id": "",
+  "doi": "10.1109/tits.2025.3546432",
+  "citations": 11,
+  "theme": "freight transport quantum optimization"
+ },
+ {
+  "fid": "f5101052e757",
+  "title": "An Agent for Collaborative Optimization of Route Planning and Three-Dimensional Loading in Land Logistics",
+  "authors": [
+   "Jingxiang Wang",
+   "Xinyue Cai",
+   "Yufeng Xin",
+   "Bujia Ye",
+   "Yingqi Li"
+  ],
+  "abstract": "Cross-border trade is growing fast. The same is true for urban distribution, e-commerce fulfillment, port transfer, and cold-chain transportation. Because of that, land-logistics decisions need to be workable in practice and flexible enough to adjust, especially in heavy-traffic places like Singapore. This study sets out to build an intelligent agent that plans vehicle routes and handles three-dimensional cargo loading at the same time. The agent treats routing as a capacitated vehicle routing problem with time windows. For small and medium cases, it turns the subproblems into quadratic unconstrained binary optimization so simulated-annealing or a quantum-inspired solver can be used. Bigger cases rely on heuristics and metaheuristics instead. The approach uses Solomon I1 insertion and 2-opt. Relocate is applied too. On top of that, it runs adaptive large neighborhood search and genetic algorithms. For cargo loading, the setup follows a three-dimensional bin-packing problem. An extreme-point heuristic checks cargo dimensions and weight. It considers orientation as well. The method accounts for stacking rules, non-overlap, load balance, and unloading-order constraints. It uses a feedback loop too. That loop sends the reasons for loading infeasibility back to the routing module, which then regroups customers or assigns a different vehicle. In a 50-customer routing case, Solomon I1 with local search found a feasible plan with nine vehicles and a total travel time of 129.0. Adaptive large neighborhood search kept the fleet at nine vehicles but cut total travel time to 92.0. This is about a 28.7% improvement. The results suggest that tying routing and loading together in a closed-loop setup makes plans easier to carry out. It improves vehicle utilization and delivery punctuality, and it makes the decisions easier to explain. This proposed agent offers a practical way to manage land-logistics optimization in one integrated system that can be adjusted on the fly.",
+  "date": "2026-09-16",
+  "venue": "Computers and artificial intelligence.",
+  "arxiv_id": "",
+  "doi": "10.70267/cai.v3n4.105126",
+  "citations": 0,
+  "theme": "cargo loading quantum annealing"
+ },
+ {
+  "fid": "3f428eb7dc72",
+  "title": "Metasurface polarization optics: From classical to quantum",
+  "authors": [
+   "Feng-Jun Li",
+   "Shuai Wang",
+   "Rui Zhong",
+   "Meng-Xia Hu",
+   "Y.S. Jiang",
+   "Meijiu Zheng",
+   "Mu Wang",
+   "Xiangping Li",
+   "Ru‐Wen Peng",
+   "Zi‐Lan Deng"
+  ],
+  "abstract": "Metasurface polarization optics, manipulating polarization using metasurfaces composed of subwavelength anisotropic nanostructure array, has enabled a lot of innovative integrated strategies for versatile and on-demand polarization generation, modulation, and detection. Compared with conventional bulky optical elements for polarization control, metasurface polarization optics provides a feasible platform in a subwavelength scale to build ultra-compact and multifunctional polarization devices, greatly shrinking the size of the whole polarized optical system and network. Here, we review the recent progresses of metasurface polarization optics in both classical and quantum regimes, including uniform and spatially varying polarization-manipulating devices. Basic polarization optical elements such as meta-waveplate, meta-polarizer, and resonant meta-devices with polarization singularities provide compact means to generate and modulate uniform polarization beams. Spatial-varying polarization manipulation by employing the pixelation feature of metasurfaces, leading to advanced diffraction and imaging functionalities, such as vectorial holography, classic and quantum polarization imaging, quantum polarization entanglement, quantum interference, and modulation. Substituting conventional polarization optics, metasurface approaches pave the way for on-chip classic or quantum information processing, flourishing advanced applications in displaying, communication, imaging, and computing.",
+  "date": "2024-12-01",
+  "venue": "Applied Physics Reviews",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0226286",
+  "citations": 69,
+  "theme": "lot sizing quantum computing"
+ },
+ {
+  "fid": "1daffa4f3161",
+  "title": "Post-Quantum Digital Signature: Verkle-Based HORST",
+  "authors": [
+   "Maksim Iavich",
+   "Tamari Kuchukhidze",
+   "Răzvan Bocu"
+  ],
+  "abstract": "The security of commonly used cryptographic systems like RSA and ECC might be threatened by the future development of quantum computing. Verkle-based HORST decreases the size of signatures by 75% (from 12.8 KB to 3.2 KB) and enables O(1)-sized proofs by replacing Merkle trees with Verkle trees. Because verification shifts from O(log t) to constant time, it is ideal for blockchain and IoT applications that require short signatures and fast validation. In order to increase efficiency, this study introduces Verkle-based HORST, a hash-based signature method that uses Verkle trees. Our primary contributions are the following: a formal security analysis proving maintained protection levels under standard assumptions; a thorough performance evaluation demonstrating significant improvements in signature size and verification complexity in comparison to conventional Merkle tree approaches; and a novel signature construction employing polynomial commitments to achieve compact proofs. The proposed approach has a lot of benefits for real-world implementation, especially when dealing with situations that call for a large number of signatures or settings with limited resources. We offer comprehensive implementation instructions and parameter choices to promote uptake while preserving hash-based cryptography’s quantum-resistant security features. Our findings suggest that this method is a good fit for post-quantum cryptography systems’ standardization.",
+  "date": "2025-05-22",
+  "venue": "Journal of Cybersecurity and Privacy",
+  "arxiv_id": "",
+  "doi": "10.3390/jcp5020028",
+  "citations": 3,
+  "theme": "lot sizing quantum computing"
+ },
+ {
+  "fid": "9f87a451cd90",
+  "title": "Equivariant Machine Learning Decoder for 3D Toric Codes",
+  "authors": [
+   "Oliver Weißl",
+   "Evgenii Egorov"
+  ],
+  "abstract": "Mitigating errors in computing and communication systems has seen a great deal of research since the beginning of the widespread use of these technologies. However, as we develop new methods to do computation or communication, we also need to reiterate the method used to deal with errors. Within the field of quantum computing, error correction is getting a lot of attention since errors can propagate fast and invalidate results, which makes the theoretical exponential speed increase in computation time, compared to traditional systems, obsolete. To correct errors in quantum systems, error-correcting codes are used. A subgroup of codes, topological codes, is currently the focus of many research papers. Topological codes represent parity check matrices corresponding to graphs embedded on a $d$-dimensional surface. For our research, the focus lies on the toric code with a 3D square lattice. The goal of any decoder is robustness to noise, which can increase with code size. However, a reasonable decoder performance scales polynomially with lattice size. As error correction is a time-sensitive operation, we propose a neural network using an inductive bias: equivariance. This allows the network to learn from a rather small subset of the exponentially growing training space of possible inputs. In addition, we investigate how transformer networks can help in correction. These methods will be compared with various configurations and previously published methods of decoding errors in the 3D toric code.",
+  "date": "2024-09-06",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2409.04300",
+  "doi": "10.48550/arxiv.2409.04300",
+  "citations": 0,
+  "theme": "lot sizing quantum computing"
+ },
+ {
+  "fid": "7813e78c41d7",
+  "title": "Efficient Photocatalytic Degradation of Crystal Violet Dye Using a Synthesized CdO:V2O5 Nanocomposite in the Presence of Sunlight",
+  "authors": [
+   "Sajid M. Mansoori"
+  ],
+  "abstract": "Materials containing two or more separate phases, at least one of which has nanoscale dimensions, are called nano composites. Coupled semiconductor metal oxides have drawn a lot of interest among these because of their special and improved physicochemical characteristics. These characteristics frequently result from changes in the density of states, electron tunneling, surface plasmon resonance, and quantum confinement effects. In this work, a straightforward and economical co-precipitation technique was used to create CdO:V2O5 binary metal oxide nanocomposites. The presence of crystalline phases corresponding to both CdO and V2O5 was confirmed by X-ray diffraction (XRD), which was used to evaluate the structural properties of the resultant nanocomposites. The Debye-Scherrer formula was used to compute the crystallite sizes, which showed that the particles were in the nanoscale range and had high crystallinity. The degradation of crystal violet dye under visible light was used to assess the produced nanocomposites’ photocatalytic activity. To investigate the impact of composition on photocatalytic efficiency, nanocomposites with CdO:V2O5 molar ratios of 1:1, 1:2, and 2:1 were investigated. First-order kinetics was confirmed by the regression coefficients for the degradation process, which were 0.9919, 0.9903, and 0.9800, respectively. The two semiconductors’ synergistic interactions, which improve charge separation and light absorption, are responsible for the difference in photocatalytic performance. These findings imply that CdO:V2O5 nanocomposites are potential options for effective photocatalytic applications, particularly in environmental remediation and wastewater treatment, especially when used at optimal ratios.",
+  "date": "2025-06-27",
+  "venue": "New Environmentally-Friendly Materials",
+  "arxiv_id": "",
+  "doi": "10.55121/nefm.v4i1.413",
+  "citations": 1,
+  "theme": "lot sizing quantum computing"
+ },
+ {
+  "fid": "d55f38078348",
+  "title": "NetNotes",
+  "authors": [
+   "Bob Price",
+   "Bev Maleeff"
+  ],
+  "abstract": "Hi All, I would like to use a 2-photon laser at 750nm to excite a fluor that normally excites at 750nm with a 1-photon laser. My head thinks this should work (overly optimistic), but my science head thinks there will be a problem with this; power density at low range of the tunable laser, spectral characteristics using non-descanned detectors (NDD) detectors (but they shouldn’t care what's hitting them?), lifetime/gating effects of arrival of single photon emission versus 2-photon excitation? Am I overthinking this? Or should it work? Gary Laevsky [email protected] A few users have asked me about this possibility, and the main obstacle in all 2P systems I’ve used is the short-pass primary dichroic and the infrared (IR) blocking filters built into the detection path. We would have had to replace several components to even attempt the experiment, so we never got to the point of considering excitation efficiency and detector sensitivity. Theresa Swayne [email protected] Hi Theresa, Thanks, but I don't understand that. In a normal 2P configuration (say GFP), 960nm gets to the sample and vis (∼520) is directed to the detectors. Here, 750 would get to the sample, oh, and 800nm would come out, which would pass through the dichroic and not get to the detector. I got it! Thanks! Gary Laevsky [email protected] Hi Gary, if I remember correctly, when asked, “why isn’t this working,” I found in the Pawley book that the excitation in 2P is about 100,000 times greater because of the 2-photon effect in the tiny excitation volume during 2-photon imaging. There are additional reasons why you cannot use a Ti-Sapphire laser as a “1P” laser for excitation. I have tried unsuccessfully. I predict that you will not have success doing this, but please try it and let us know what you find. I am happy to be wrong! Brian Armstrong [email protected] The white light laser on our Stellaris is 80MHz pulsed and works fine from 440 to 790nm for 1p excitation. Why wouldn't a Ti Saph behave the same for 1p? Michael Cammer [email protected] What Pawley meant was: by squeezing the light into 100fs pulses with 100MHz repetition rate (10ns pulse interval), the average rate of two-photon absorption is increased by a factor of 100,000 (yes, 10ns/100fs = 100,000). Still, the 2P absorption is way weaker than typical 1P absorption. I remember using 10–100mW of average excitation power for 2P experiments, and 0.1–1mW for 1P (confocal). In a commercial microscope the main issues are the built-in filter",
+  "date": "2026-03-01",
+  "venue": "Microscopy Today",
+  "arxiv_id": "",
+  "doi": "10.1093/mictod/qaag015",
+  "citations": 0,
+  "theme": "lot sizing quantum computing"
+ },
+ {
+  "fid": "5070feab29c4",
+  "title": "Dynamic Spectrum Allocation Using Quantum Annealing Considering Burstiness of Traffic",
+  "authors": [
+   "Yuhi Kurebayashi",
+   "Shuta Inoue",
+   "Yui Yamashita",
+   "Yuusuke Kawakita",
+   "Yoshito Tobe"
+  ],
+  "abstract": "As the demand for wireless communications continues to grow, securing limited spectrum resources has become an issue. Under such circumstances, Dynamic Spectrum Allocation (DSA), in which existing frequency bands are jointly used and allocated to carriers, has been attracting attention. However, the problem is that a large number of base stations and interferers cause a combinatorial explosion, which requires an enormous amount of computation time. Saito et al. proposed a method to solve this combinatorial optimization problem using quantum annealing, and succeeded in significantly reducing the computation time (1). However, they focused only on the frequency requirements divided by each time axis and did not consider the requirements regarding the length of the time axis. Furthermore, considering bursty streams is important in DSA since internet traffic includes bursty streams. In this paper, we focus on the DSA problem of maximizing the satisfaction of time-based requests from each base station including bursty traffic and prioritized sessions, and describe the formulation for solving the problem using quantum annealing. Experimental validation using capable annealing machines confirms the efficacy of the proposed formulation in optimizing base station traffic demands within DSA. These results validate the feasibility of quantum annealing for DSA and provide valuable insights for further advancements in spectrum management.",
+  "date": "2025-11-30",
+  "venue": "IEEJ Transactions on Electronics Information and Systems",
+  "arxiv_id": "",
+  "doi": "10.1541/ieejeiss.145.1069",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "1a89f4be0a74",
+  "title": "Quantum Machine Learning for Robotics: A Comprehensive Review of Algorithms, Applications, and Future Directions",
+  "authors": [
+   "Hassen Nigatu",
+   "Gaokun Shi",
+   "Jituo Li",
+   "Guodong Lu",
+   "Howard Li"
+  ],
+  "abstract": "The convergence of quantum computing and robotics represents a paradigm shift in autonomous systems design, promising to overcome fundamental computational limitations that have constrained classical robotic capabilities. This comprehensive review surveys the rapidly evolving field of quantum machine learning (QML) for robotics, systematically analyzing 107 peer-reviewed contributions spanning quantum algorithms, machine learning techniques, and their robotic applications. We provide a detailed historical perspective on the field's development, from the early theoretical foundations established by Grover's search algorithm and quantum reinforcement learning proposals to current experimental implementations on noisy intermediate-scale quantum (NISQ) devices. The review systematically examines five major application domains: (1) quantum reinforcement learning for navigation and control, (2) quantum search and path planning algorithms, (3) quantum-enhanced localization and mapping, (4) quantum optimization for inverse kinematics and task allocation, and (5) multi-robot coordination and swarm intelligence. For each domain, we present detailed algorithmic formulations, computational complexity analyses, and critical assessments of experimental results. Our analysis reveals that while provable quantum advantage in robotics remains largely prospective, recent demonstrations show promising results: quantum deep reinforcement learning achieving 40\\% parameter reduction in navigation tasks, Grover-based kinematic optimization demonstrating up to 93x speedups, and quantum annealing providing practical solutions for multi-robot routing. We identify key technical challenges, including barren plateaus in variational circuits, noise-induced performance degradation, and the quantum-classical integration bottleneck. Finally, we outline a strategic roadmap for quantum robotics research, distinguishing near-term opportunities in hybrid algorithms from long-term goals requiring fault-tolerant quantum computation. This paper serves as both an authoritative technical reference and a comprehensive guide for researchers working at the intersection of quantum computing and autonomous systems.",
+  "date": "2026-06-30",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.65218/jius.2026.13",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "e42a080288ef",
+  "title": "Open RAN Slicing with Quantum Optimization",
+  "authors": [
+   "Patatchona Keyela",
+   "Soumaya Cherkaoui"
+  ],
+  "abstract": "RAN slicing technology is a key aspect of the Open RAN paradigm, allowing simultaneous and independent provision of various services such as ultra-reliable low-latency communications (URLLC), enhanced mobile broadband (eMBB), and massive machine-type communications (mMTC) through virtual networks that share a single radio access infrastructure. Efficient resource allocation is crucial for RAN slicing, as each service has specific quality of service (QoS) requirements, and a balance between different services must be maintained. Although heuristic and reinforcement learning (RL) techniques have been explored to achieve efficient resource allocation, these approaches face notable limitations: heuristic algorithms face complexity issues that limit their effectiveness in large networks, RL solutions are constrained by their dependency on training data and struggle to adapt to new scenarios and environments. This paper proposes a framework that leverages quantum optimization techniques to optimize radio resource blocks allocation in Open RAN slicing for URLLC and eMBB services. We provide a classical problem formulation and the quantum implementation using the constrained quadratic model on Dwave quantum annealing platform, showcasing the potential of quantum optimization techniques to deliver in real-time optimal solutions for optimization problems in 5G and beyond networks.",
+  "date": "2025-01-31",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2502.00142",
+  "doi": "10.48550/arxiv.2502.00142",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "63fb02f3787d",
+  "title": "Quantum-Enhanced Travel Procurement: Hybrid Quantum–Classical Optimization for Enterprise Travel Management",
+  "authors": [
+   "Prajkta Waditwar"
+  ],
+  "abstract": "Corporate travel procurement is a multi-objective, constraint-dense decision domain spanning strategic supplier portfolio selection, travel policy design, and operational disruption response. Classical methods—mixed-integer programming (MIP), constraint programming, metaheuristics, and machine learning—deliver strong results but face scaling and responsiveness challenges as procurement objectives broaden to include compliance, traveler experience, sustainability, and resilience. Quantum optimization methods, particularly quantum annealing and gate-based variational algorithms (e.g., QAOA), have been proposed for combinatorial problems with binary decisions and complex interaction terms. Yet empirical evidence across optimization domains often shows classical solvers match or exceed quantum approaches on meaningful instance sets, motivating a hybrid quantum–classical posture rather than replacement. This paper formalizes quantum-enhanced travel procurement as a hypothesis-driven, hybrid decision-support approach in which quantum routines contribute to solution search, diversification, or time-to-decision for selected combinatorial cores. We present canonical procurement formulations, show explicit mappings to QUBO/Ising models, and propose hybrid architectures for supplier portfolio design, airline share allocation under commitments, policy parameter tuning, and disruption re-accommodation. To strengthen accessibility and rigor, we provide (i) a worked QUBO example with explicit coefficients and variable counts; (ii) an operational benchmark protocol with representative instance sizes, solver baselines, runtime assumptions, and statistical reporting; and (iii) an enterprise governance view including post-quantum cryptography readiness across vendor integrations.",
+  "date": "2025-12-27",
+  "venue": "World Journal of Advanced Engineering Technology and Sciences",
+  "arxiv_id": "",
+  "doi": "10.30574/wjaets.2025.17.3.1572",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "6540d8d34841",
+  "title": "Quantum-Enhanced Artificial Intelligence: Framework for Hybrid Computing and Natural Language Processing",
+  "authors": [
+   "Ravi Kumar Ireddy"
+  ],
+  "abstract": "The convergence of quantum computing and artificial intelligence represents a paradigm shift in computational capability, enabling solutions to previously intractable optimization problems, accelerated machine learning training, and enhanced natural language understanding through quantum state exploitation. This paper presents a comprehensive framework encompassing five distinct quantum artificial intelligence architectures: Quantum Machine Learning utilizing quantum circuit-based training and inference, Quantum-Inspired AI implementing quantum algorithmic principles on classical hardware, Hybrid Quantum-Classical AI leveraging collaborative processing between central processing units and quantum processing units, Quantum Optimization AI for solving complex combinatorial problems, and Quantum Natural Language Processing exploiting quantum superposition for semantic reasoning. The quantum machine learning architecture implements variational quantum eigensolvers and quantum kernel methods for feature space transformation, achieving exponential speedup in specific classification tasks. The quantum-inspired approach applies tensor network decomposition and quantum annealing simulation on classical systems, demonstrating polynomial speedup for optimization problems. The hybrid quantum-classical framework orchestrates workload partitioning between conventional processors and quantum accelerators through dynamic task allocation algorithms, optimizing for quantum circuit depth and classical preprocessing overhead. Quantum optimization leverages quantum annealing and quantum approximate optimization algorithms for solving large-scale combinatorial problems in logistics, finance, and molecular simulation. Quantum natural language processing implements quantum word embeddings in Hilbert space, enabling superposition-based semantic analysis with logarithmic dimensional complexity compared to classical word vector representations. This research establishes theoretical foundations and architectural blueprints for quantum-enhanced artificial intelligence systems, positioning quantum computing as a transformative technology for next-generation machine learning, optimization, and cognitive computing applications.",
+  "date": "2025-09-12",
+  "venue": "International Journal For Multidisciplinary Research",
+  "arxiv_id": "",
+  "doi": "10.36948/ijfmr.2025.v07i05.69408",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "b939a6b6965c",
+  "title": "Quantum-Assisted Resource Management for Data Access in Space-Air-Ground Integrated Networks",
+  "authors": [
+   "Xinliang Wei",
+   "Jiyao Liu",
+   "Lei Fan",
+   "Yuanxiong Guo",
+   "Yanmin Gong",
+   "Zhu Han",
+   "Yu Wang"
+  ],
+  "abstract": "Space-air-ground integrated networks can provide better connectivity and improved performance to ground users and thus have been well-recognized as the innovative trend for future 6G and beyond wireless systems. However, such heterogeneous and complex integrated communication systems also pose many new challenges for joint performance optimization. In this paper, we study the data delivery optimization problem in a space-air-ground network, where joint resource management decisions on user association, bandwidth allocation, cache placement, and high-altitude platform (HAP) location selection have to be optimized. To tackle this complex and challenging mixed integer programming optimization problem, we introduce a quantum-assisted method, named the Hybrid quantum-classical Benders’ Decomposition (HyBD) algorithm, which leverages the strengths of both quantum and classical computing. Experiments on the commercial quantum annealing machine demonstrate the effectiveness and robustness of the proposed HyBD method, with up to 64.3% improvement of iteration number and 82.8% improvement of average computation time over the classical Benders’ Decomposition algorithm on classical CPUs even at small scales, which demonstrates the quantum advantage.",
+  "date": "2025-10-07",
+  "venue": "IEEE Transactions on Wireless Communications",
+  "arxiv_id": "",
+  "doi": "10.1109/twc.2025.3616188",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "cef8359135e2",
+  "title": "Reimagining ERP Optimization with Quantum AI: A Feasibility Study Using Oracle Cloud Simulations",
+  "authors": [
+   "Vinay Singh",
+   "Prashant Gupta",
+   "DhirajKumar Pathak"
+  ],
+  "abstract": "As corporate operations get increasingly complex, traditional ERP optimization techniques struggle to handle large-scale combinatorial problems (Pinedo, 2016; Johnson & McGeoch, 2002). By allowing things like supply chain routing, inventory balancing, resource allocation, and financial optimization more faster, new applications of quantum computers could result in significant benefits (Farhi et al., 2014; McClean et al., 2016). In this paper, we investigate the usage of Quantum Artificial Intelligence (QAI) in Enterprise Resource Planning (ERP) contexts. For instance, we consider Oracle Fusion Cloud ERP (Keller et al., 2020; Li et al., 2021). Using simulated annealing, variational quantum eigensolvers (VQE), and quantum-enhanced reinforcement learning (QRL) approaches, it tests Oracle's recent advancements in AI and machine learning (Oracle, 2024) against Farhi et al., 2014; McClean et al., 2016; Jerbi et al., 2021). Benchmark scenarios might be keeping real-time inventory tracking, arranging output across several factories, and maximizing the best utilization of capital investments. Particularly in cases of complex data and limited resources, our simulation results suggest that QAI has great potential to speed and improve ERP procedures. We also discuss the technological, financial, and organizational issues that make adoption difficult and compile a strategy for more research and development to make Oracle Fusion ERP environments better with QAI (European Union, 2016; U.S. Congress, 2002; European Union, 2016).",
+  "date": "2025-07-05",
+  "venue": "Journal of Computer Science and Technology Studies",
+  "arxiv_id": "",
+  "doi": "10.32996/jcsts.2025.7.7.31",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
+ },
+ {
+  "fid": "5b5f4e26906f",
+  "title": "A detailed algorithmic study on a reuse-aware, near memory, all-digital Ising machine",
+  "authors": [
+   "Siddhartha Raman Sundara Raman",
+   "Lizy K. John",
+   "Jaydeep P. Kulkarni"
+  ],
+  "abstract": "Recently, nature-inspired computing approaches have gained significant attention for solving difficult optimization problems, particularly through Ising machines for NP-complete applications. Existing Ising accelerators range from quantum and optical annealers to CMOS-based von-Neumann and in-memory architectures. However, many prior designs are specialized accelerators limited to specific problem classes, rely on ADC/DAC circuits, and suffer from reliability challenges due to process-variation-sensitive embedded memory technologies. This paper presents SACHI, an all-digital Ising architecture implemented by repurposing the L1 cache of a CPU using SRAM-based processing-in-memory techniques. SACHI eliminates the need for ADCs/DACs, improves reliability compared to prior approaches such as BRIM, and enables Ising acceleration with minimal hardware overhead integrated into the CPU pipeline. The paper also provides detailed architectural analysis and pseudo-code for the proposed algorithms. The key contributions of SACHI are: (i) tight integration of the accelerator with the CPU pipeline, (ii) reuse of existing cache hardware for acceleration, (iii) higher parallelism enabled through reuse-aware computation, and (iv) improved performance and energy efficiency for large-scale, high-precision optimization problems using novel compute and mapping strategies. Compared to BRIM, SACHI achieves 300x performance improvement and 80x energy reduction across applications including asset allocation, molecular dynamics, image segmentation, and traveling salesman problems. Additionally, reuse factors up to 4000x are observed for several workloads. This work demonstrates that reliable and efficient all-digital Ising acceleration can be achieved using commodity SRAM structures tightly integrated with general-purpose processors.",
+  "date": "2026-05-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.12959",
+  "doi": "10.48550/arxiv.2605.12959",
+  "citations": 0,
+  "theme": "machine allocation quantum annealing"
  }
 ]
