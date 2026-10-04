@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 04 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/full.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 基于分支交换编码的暖启动迭代量子虚时演化求解配电网重构</title>
+      <link>https://raymond0812-yylm.github.io/papers/warm-start-iterative-qite-distribution-network-reconfiguration-8fab7/</link>
+      <guid isPermaLink="false">p:warm-start-iterative-qite-distribution-network-reconfiguration-8fab7</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>配电网重构（Distribution Network Reconfiguration, DNR）是电力系统运行中的经典 NP-hard 组合优化问题：通过改变分段开关与联络开关的开合状态调整网络拓扑，在维持辐射状（radiality）与连通性约束的前提下最小化有功线损。开关组合随规模指数增长，工业界长期依赖启发式规则、混合整数规划与专家经验交替求解。量子优化近年多次尝试进入这一领域（含本报 10-04 提及的同联盟 LR-QAOA + MISOCP 两阶段工作），但暴露出三个共性痛点：其一，约束处理——把辐射性…</description>
+    </item>
+    <item>
+      <title>[论文] 恒定穿梭深度的 qLDPC 并行代数手术</title>
+      <link>https://raymond0812-yylm.github.io/papers/parallel-algebraic-surgery-qldpc-codes-constant-shuttling-8fab7/</link>
+      <guid isPermaLink="false">p:parallel-algebraic-surgery-qldpc-codes-constant-shuttling-8fab7</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>qLDPC 码以更优的编码率成为容错量子计算的热门候选，但其中子码（如提升积码 lifted product codes）的逻辑测量调度在真实硬件上代价高昂。本文面向可重构中性原子阵列（原子穿梭是其独门操控能力）提出&quot;代数手术&quot;：将逻辑测量、辅助码与原子穿梭版图协同设计，实现硬件高效的 Pauli 乘积测量；协议支持一大类并行逻辑测量——包括相互重叠的正则算符、乃至不同提升尺寸码块之间的联合测量——并在明确的版图假设下达到恒定穿梭深度。基准测试中，一个含 33 个并行正则逻辑测量的纠错周期比逐个可观测量调度（图…</description>
+    </item>
+    <item>
+      <title>[论文] MiLoop：面向神经组合优化的选择性记忆传播</title>
+      <link>https://raymond0812-yylm.github.io/papers/miloop-selective-memory-propagation-neural-combinatorial-optimization-1b46a/</link>
+      <guid isPermaLink="false">p:miloop-selective-memory-propagation-neural-combinatorial-optimization-1b46a</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>动态嵌入类神经求解器的主流做法是每步从头重建子问题表征，计算昂贵；另一路则依赖解标签/伪标签监督或对搜索空间重度剪枝，泛化与通用性受限。MiLoop 提出第三条路：复用多步 rollout 已有计算做&quot;选择性记忆传播&quot;——在注意力层之前把当前嵌入与历史记忆融合、之后用门控自适应更新，使一个浅层策略网络即可学会动态嵌入，无需标签、无需剪枝。在四个组合优化问题上的实验显示，模型在 100 节点小实例上训练，即可强泛化到 1000 万（10⁷）节点的实例。对量子-经典对照研究而言，这是最新的经典侧标尺：神经组合优化在…</description>
+    </item>
+    <item>
+      <title>[动态] 北京市政府印发&quot;十五五&quot;数智北京发展规划：前瞻布局量子计算、光计算、太空算力新赛道，&quot;量智融合&quot;入列多元技术路线</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-05/#n4</link>
+      <guid isPermaLink="false">n:2026-10-05:4</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>北京市政府印发《&quot;十五五&quot;时期数智北京发展规划》，在算力与计算基础设施布局中明确提出&quot;前瞻布局光计算、量子计算、太空算力等新赛道&quot;，并把&quot;量智融合&quot;（量子计算与人工智能协同演进）列为重点发展的多元技术路线之一，同时部署深化众智 FlagOS 开源生态、构建开发者社区体系。这是&quot;十五五&quot;开局之际又一份将量子计算写入地方顶层规划的正式文件，与本报此前收录的经济日报&quot;三业并举&quot;、合肥国家实验室重点专项等相衔接——地方层面的&quot;量子+AI&quot;双赛道政策框架正在成形。（国庆假期国内产业发布节奏停滞，本条为 9 月 30 日印发、本期首录的最新可核实文件；配套的 2026 人工智能开放计算大会暨众智 FlagOS 技术大会&quot;量智融合&quot;分论坛议程亦于国庆前夕公开，将集中发布量子计算与 AI 协同演进的最新研究进展与平台。）</description>
+    </item>
+    <item>
+      <title>[动态] Crypta Labs 量子光学熵源模块进驻 HSM 设计：SPI/USB/UART 即插式 QRNG 与既有熵链路&quot;复合&quot;共混</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-05/#n3</link>
+      <guid isPermaLink="false">n:2026-10-05:3</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子安全公司 Crypta Labs 公布其低功耗量子随机数发生器（QRNG）&quot;量子光学模块&quot;与硬件安全模块（HSM）的集成方案：模块经 SPI/USB/UART 接口接入，置于既有熵调理与 DRBG 链路的上游，以&quot;复合熵&quot;方式与模拟噪声、振荡器抖动、OS 时序等传统熵源混合而非整体替换，无需整机主板重新设计即可引入独立物理熵源；已完成延迟、上下电、温度、故障注入与老化全套测试。方案同时强调原始 QRNG 输出不得直接用于密钥生成——条件化、健康检测与最小熵验证仍是必需环节，瞄准后量子迁移期市场对可审计、保证级熵文档的合规需求。</description>
+    </item>
+    <item>
+      <title>[动态] 橡树岭国家实验室 LuGo 算法：Frontier 超算承担&quot;重预处理&quot;，把 CFD 量子线路门数削减 95%（约 200 万门降至 9.1 万门）</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-05/#n2</link>
+      <guid isPermaLink="false">n:2026-10-05:2</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>橡树岭国家实验室（ORNL）在 Frontier 超算上开发出 LuGo 算法，面向计算流体力学（CFD）的量子线路把所需门操作从约 200 万降至 9.1 万（削减逾 95%）：由经典超算完成繁重的初始化工作后再移交量子处理器，并已在多个量子硬件平台上完成测试验证。这是&quot;经典做外围、量子做核心&quot;混合范式在科学计算负载上的最新工程化样本，与 DOE 新路线图&quot;量子协处理器嵌入领导级超算&quot;的设想直接呼应——门数削减一个量级意味着此类工作负载离 NISQ/早期容错设备的实际容量显著靠近。</description>
+    </item>
+    <item>
+      <title>[动态] 美国能源部发布国家量子路线图：立下 2028 年容错量子计算&quot;科学效用&quot;里程碑，考核指标从物理比特数转向科学 utility</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-05/#n1</link>
+      <guid isPermaLink="false">n:2026-10-05:1</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>由 Fermilab 的 Grassellino 任主席、Argonne/芝加哥大学的 Guha 任副主席的 DOE SCAC 量子分委会发布《通往一体化量子未来之路》路线图，提出三阶段框架：①2026—2028&quot;量子大挑战&quot;——国家实验室、高校与产业协同设计冲刺，2028 年达成纠错后&quot;科学相关效用&quot;；②建设 DOE 量子计算用户设施（QCUF）——开放控制栈、低温与架构、QPU 共置，取代&quot;黑盒&quot;云 API；③2030+ 把量子协处理器、模拟器与传感器嵌入 Frontier/Aurora 等领导级超算及量子-HPC-AI 混合网络。路线图明确宣告联邦项目不再以物理比特数论英雄，改以量子化学、药物发现、催化材料、聚变等离子体与高能物理中的不可解计算论成败；投资坚持模态中立（超导/中性原子/离子阱/光子/硅自旋），并配套 6—18 个月嵌入式协同设计奖学金、实验室-产业联合任命与开放互联标准等新型伙伴关系。这份&quot;科学效用优先&quot;的国家级时间表与本报连续追踪的端到端核算思潮方向一致。</description>
+    </item>
+    <item>
+      <title>[动态] 微软公布 Quantum Pioneers 计划软件赛道五强：MIT 的 Chuang、耶鲁的 Kubica 等入选，量子纠错编译与量子算术编码成主线</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-05/#n0</link>
+      <guid isPermaLink="false">n:2026-10-05:0</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>微软公布 6 月启动的 Quantum Pioneers 计划软件赛道五位优胜者：Virginia Tech 的 Valeev（面向容错量子计算机的实用活性空间哈密顿量）、芝加哥大学/哥伦比亚大学的 Verresen 与 Yuen（基于测量的拓扑硬件自适应计算）、耶鲁大学 Kubica 与希伯来大学 Retzker（QEC 新构造适配真实硬件）、MIT 的 Isaac Chuang（量子冗余余数算术编码——非 CSS qudit 码让算术运算 Clifford 化）、UIUC 的 Jong Yeon Lee（从逻辑谱学到硬件感知的 qLDPC 编译），另有六组决赛入围团队。软件赛道提案密集指向量子纠错与容错编译，与同期公布的硬件赛道（马约拉纳拓扑比特、高速高保真读出）互为表里；微软将与入选团队合作验证想法并公开成果，后续轮次已在计划中。</description>
+    </item>
     <item>
       <title>[论文] 倾斜行走实现的组合优化超二次量子加速</title>
       <link>https://raymond0812-yylm.github.io/papers/super-quadratic-quantum-speedups-combinatorial-optimization-tilted-8fb55/</link>
@@ -370,62 +426,6 @@
       <guid isPermaLink="false">n:2026-09-29:1</guid>
       <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
       <description>FSU 获 210 万美元联邦 Community Project Funding（经 NIST 拨付，联邦众议员 Daniel Webster 争取），将把校内 IRCB 中心量子枢纽与 FAMU-FSU 工程学院、国家强磁场实验室（MagLab）通过校园光纤互联，建成美国东南部首个量子通信测试床：分发纠缠光子、跟踪链路可靠性，并利用可重构光链路在气流扰动、强磁场、低温热循环等真实应力下压测器件。院方称下一前沿不是在理想实验室里演示量子通信，而是让其在真实运行环境中变得可靠；该平台同时为学生提供覆盖量子网络全栈的实训环境。背景：FSU 量子倡议于 2023 年启动，2026 年 7 月刚牵头 DOE 四项&quot;Genesis Mission&quot;项目。</description>
-    </item>
-    <item>
-      <title>[动态] Quandela 首尔发布会：两年内在韩构建光量子战略合作，剑指容错量产与亚洲枢纽</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n0</link>
-      <guid isPermaLink="false">n:2026-09-29:0</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>法国光量子计算公司 Quandela CEO Niccolo Somaschi 09-28 在首尔钟路区 Centropolis 记者会上宣布，未来两年将在韩国构建战略伙伴关系，方向覆盖三块：光子模块量产制造（先进封装、晶圆级检测、光学对准）、系统集成（低温环境与高速控制结合以降延迟）、运营协同（联合开发纠错、QPU 与 GPU/HPC/云互联，并在韩国落地 QPU-HPC 概念验证）。公司正考虑组建韩国量子制造联盟——各方保留既有知识产权、新增知识产权按贡献共享，被点名的潜在伙伴包括三星、SK 海力士与 LG Innotek；区域分工设想为首尔主攻量子计算、全南-光州量子通信、釜山/蔚山/庆南量子传感，长期目标是将韩国打造为该公司辐射亚洲的合作枢纽。</description>
-    </item>
-    <item>
-      <title>[论文] 面向模块化超导量子处理器的可重构总线式量子路由器</title>
-      <link>https://raymond0812-yylm.github.io/papers/reconfigurable-bus-based-quantum-router-modular-superconducting-8f9ce/</link>
-      <guid isPermaLink="false">p:reconfigurable-bus-based-quantum-router-modular-superconducting-8f9ce</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>超导量子处理器扩展的瓶颈之一是连接拓扑：近邻耦合要把远距离相互作用交给 SWAP 网络路由，原生双比特门数量与线路关键路径随之膨胀——对 QAOA 这类问题图远非近邻的优化线路尤其致命。模块化架构需要既能提供非局域连接、又支持并行纠缠操作的互连方案。</description>
-    </item>
-    <item>
-      <title>[论文] 基于变分量子算法的贷款组合优化</title>
-      <link>https://raymond0812-yylm.github.io/papers/loan-portfolio-optimization-variational-quantum-algorithms-8fa74/</link>
-      <guid isPermaLink="false">p:loan-portfolio-optimization-variational-quantum-algorithms-8fa74</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>与多数&quot;高校+云接入&quot;的金融量子优化论文不同，这是金融机构自己下场的作品：作者全部来自印度 L&amp;T 集团旗下 L&amp;T Finance（LTF Lab）与 LTM Research，Debarag Banerjee 即 L&amp;T Finance 首席 AI 与数据官。贷款组合优化（LPO）要在信用风险最小化的同时满足实用选择约束，需同时建模预期损失、损失波动性与借款人违约相关性，是复杂度随组合规模快速膨胀的组合优化问题，与商业银行普惠/微金融业务直接相关。</description>
-    </item>
-    <item>
-      <title>[论文] 面向分层优化的学习投影混算子 QAOA</title>
-      <link>https://raymond0812-yylm.github.io/papers/learned-projector-qaoa-hierarchical-optimization-8f9ce/</link>
-      <guid isPermaLink="false">p:learned-projector-qaoa-hierarchical-optimization-8f9ce</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>QAOA 的两个老毛病众所周知：可训练性差（横场混子下损失函数的梯度方差随规模指数衰减，训练地形平坦如高原）与可达性受限（局域混子要翻越高阶势垒，隧穿速率被超指数抑制，Altshuler 式局域化使低深度 QAOA 难以抵达解空间中的目标子空间）。Hadfield 等的量子交替算子框架（QAOA 的推广）早已指出&quot;混子应当与问题相关&quot;，但其后大多数工作仍停留在人工设计的守恒子空间混子（热初态、XY 块混子、Grover 混子等）。</description>
-    </item>
-    <item>
-      <title>[动态] 李强在上海调研强调加快培育未来产业，察看脑机接口与量子计算技术产品</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n5</link>
-      <guid isPermaLink="false">n:2026-09-27:5</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>国务院总理李强 9 月 22 日在上海调研先进制造业发展情况，实地了解社区创新生态建设与上海未来产业基金运行，察看脑机接口、量子计算等领域技术产品，与科创人员交流。李强强调，未来产业是壮大新兴产业、塑造竞争新优势的关键，要加快培育壮大新兴产业和未来产业，持续做大做强先进制造业；人才是第一资源，要营造良好创新生态。量子计算作为未来产业代表方向再次进入高层调研视野，上海未来产业基金等耐心资本被寄望提供长周期支持。</description>
-    </item>
-    <item>
-      <title>[动态] 2026 世界制造业大会：合肥量子产业集中亮相，&quot;本源悟空-180&quot;领衔</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n4</link>
-      <guid isPermaLink="false">n:2026-09-27:4</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>2026 世界制造业大会（合肥）上，量子科技成为安徽展团亮点：本源量子自主研制的 180 比特超导量子处理器（第四代自主超导量子计算机&quot;本源悟空-180&quot;，今年 5 月上线，单比特门保真度 99.9%、双比特 99%）参展；科创板上市的国仪量子展出高通量磁性异物检测仪，将锂电池负极材料检测从 5 小时缩短至几分钟。合肥高新区已集聚本源量子、国盾量子等量子产业链企业超 90 家，产业集聚度居全国首位，量子科技与空天信息并列该区两大重点培育未来产业。</description>
-    </item>
-    <item>
-      <title>[动态] 美国能源部顾问委员会发布容错量子计算路线图，以&quot;科学效用&quot;取代&quot;更大机器&quot;</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n3</link>
-      <guid isPermaLink="false">n:2026-09-27:3</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>美国能源部科学顾问委员会（SCAC）发布《Path to an Integrated Quantum Future》报告（Fermilab CTO Anna Grassellino 牵头），主张把成功标准从硬件规模转向&quot;解决 otherwise completely intractable 的科学问题&quot;，要求把量子处理器、模拟器与传感器融入 DOE 现有 HPC 与 AI 基础设施。阶段一（2026–2028）以国家实验室-高校-产业联合的&quot;大挑战&quot;推动协同设计，2028 年给出对齐&quot;Quantum Genesis 倡议&quot;的容错计算机路径；阶段二将设立独立于商业云的 DOE 量子计算用户装置；2030 年后实现量子计算与科研基础设施的全面交织。</description>
-    </item>
-    <item>
-      <title>[动态] Pasqal 半年报：营收 €490 万同比增 14%，QPU 相关服务大涨 34%</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-27/#n2</link>
-      <guid isPermaLink="false">n:2026-09-27:2</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>中性原子上市公司 Pasqal 公布 2026 上半年业绩：总营收 490 万欧元（+14%），其中 QPU 相关服务 390 万欧元（+34%）成为增长引擎；经营亏损 5920 万欧元中有 3750 万来自股权激励与上市一次性成本等非核心项目。技术侧实现 1024 原子无缺陷寄存器（较此前 506 原子纪录翻倍）、低温平台改造使原子寿命延长约 40 倍，并在逻辑比特上跑通完整机器学习应用且优于物理比特版本；系统已部署于法国、意大利、沙特（当地首个商业量子云平台）与加拿大。</description>
     </item>
   </channel>
 </rss>
