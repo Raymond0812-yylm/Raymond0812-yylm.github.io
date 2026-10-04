@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-04",
+ "updated": "2026-10-05",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -4569,6 +4569,36 @@
    ]
   },
   {
+   "id": "hybrid-reward-driven-reinforcement-learning-efficient-quantum-86be3",
+   "title": "Hybrid reward-driven reinforcement learning for efficient quantum circuit synthesis",
+   "titleZh": "混合奖励驱动的强化学习高效综合量子线路",
+   "authors": [
+    "Sara Giordano",
+    "Kornikar Sen",
+    "Miguel Angel Martin-Delgado"
+   ],
+   "venue": "Quantum Machine Intelligence",
+   "date": "2026-02-03",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1007/s42484-026-00359-8",
+   "url": "https://doi.org/10.1007/s42484-026-00359-8",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Quantum Machine Intelligence 2026:用表格 Q-learning 在离散量子态空间中搜索能从固定初态生成目标量子态的线路,面向 NISQ 与容错两个时代的核心挑战(线路综合);RL×量子线路综合是 ML4CO 思想在量子基础设施上的应用。",
+   "abstract": "A reinforcement learning (RL) framework is introduced for the efficient synthesis of quantum circuits that generate specified target quantum states from a fixed initial state, addressing a central challenge in both the Noisy Intermediate-Scale Quantum (NISQ) era and future fault-tolerant quantum computing. The approach utilizes tabular Q-learning, based on action sequences, within a discretized quantum state space, to effectively manage the exponential growth of the space dimension. The framework introduces a hybrid reward mechanism, combining a static, domain-informed reward that guides the agent toward the target state with customizable dynamic penalties that discourage inefficient circuit structures such as gate congestion and redundant state revisits. This is a circuit-aware reward, in contrast to the current trend of works on this topic, which are primarily fidelity-based. By leveraging sparse matrix representations and state-space discretization, the method enables practical navigation of high-dimensional environments while minimizing computational overhead. Benchmarking on graph-state preparation tasks for up to seven qubits, we demonstrate that the algorithm consistently discovers minimal-depth circuits with optimized gate counts. Moreover, extending the framework to a universal gate set still yields low depth circuits, highlighting the algorithm’s robustness and adaptability. The results confirm that this RL-driven approach, with our completely circuit-aware method, ",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "diffusion-enhanced-optimization-variational-quantum-eigensolver-general-b9be8",
    "title": "Diffusion‐Enhanced Optimization of Variational Quantum Eigensolver for General Hamiltonians",
    "titleZh": "面向一般哈密顿量的扩散增强VQE优化",
@@ -6726,6 +6756,32 @@
    "domains": []
   },
   {
+   "id": "constraint-aware-quantum-optimization-theoretical-foundations-preserving-4ddc8",
+   "title": "Constraint-Aware Quantum Optimization: Theoretical Foundations for Preserving Problem Structure in QUBO Formulations",
+   "titleZh": "约束感知量子优化:保持问题结构的理论基础",
+   "authors": [
+    "Jeffrey Quinn Cordova"
+   ],
+   "venue": "预印本",
+   "date": "2025-11-10",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.22541/au.176281775.54421198/v1",
+   "url": "https://doi.org/10.22541/au.176281775.54421198/v1",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025:针对真实优化问题映射到量子硬件时约束被罚项破坏结构的核心难题,建立约束保持量子优化的理论框架——把硬约束直接嵌入量子线路设计而非依赖罚项,并给出证明;与 QTIS 的辅助比特拟设、XY mixer 路线同属\"约束内嵌\"流派,是该方向的系统化理论工作。",
+   "abstract": "This paper establishes a theoretical framework for constraint-preserving quantum optimization that maintains problem structure throughout quantum algorithm execution, addressing a fundamental challenge in translating real-world optimization problems to quantum hardware. We develop mathematical formulations that embed hard constraints directly into quantum circuit design rather than relying solely on penalty methods, proving that certain constraint classes can be exactly enforced through quantum state space restriction. Our theory characterizes the complexity of constraint preservation across different problem classes including facility location, network optimization, and resource allocation, deriving conditions under which quantum algorithms can explore only feasible solution spaces. We introduce automated repair mechanisms with theoretical guarantees on convergence to valid solutions and establish bounds on the additional quantum resources required for constraint maintenance. The framework provides rigorous analysis of trade-offs between constraint flexibility, quantum circuit depth, and solution quality, identifying problem structures amenable to efficient constraint-preserving quantum formulations. We extend the theory to socioeconomic weighting and multi-objective scenarios, proving that preference structures can be incorporated without compromising feasibility guarantees. This theoretical foundation advances practical quantum optimization by ensuring quantum algorithms p",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-convolutional-neural-network-phase-recognition-two-3fae9",
    "title": "Quantum convolutional neural network for phase recognition in two dimensions",
    "titleZh": "面向二维量子相识别的量子卷积神经网络",
@@ -7632,6 +7688,64 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "provably-optimal-quantum-circuits-mixed-integer-programming-c1451",
+   "title": "Provably Optimal Quantum Circuits with Mixed-Integer Programming",
+   "titleZh": "混合整数规划求可证最优的量子线路",
+   "authors": [
+    "Harsha Nagarajan",
+    "Zsolt Szabó"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-01",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "2510.00649",
+   "doi": "10.48550/arxiv.2510.00649",
+   "url": "https://arxiv.org/abs/2510.00649",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:为量子线路编译提出深度感知优化框架——把目标幺正算子的精确综合写成 MILP,线性化处理全局相位等价并用并行调度变量证明深度最优性,辅以领域专属有效约束实现可扩展启发式;\"MIP 求可证最优量子线路\"与 ML4CO/量子编译交叉。",
+   "abstract": "We present a depth-aware optimization framework for quantum circuit compilation that unifies provable optimality with scalable heuristics. For exact synthesis of a target unitary, we formulate a mixed-integer linear program (MILP) that linearly handles global-phase equivalence and uses explicit parallel scheduling variables to certify depth-optimal solutions for small-to-medium circuits. Domain-specific valid constraints, including identity ordering, commuting-gate pruning, short-sequence redundancy cuts, and Hermitian-conjugate linkages, significantly accelerate branch-and-bound, yielding speedups up to 43x on standard benchmarks. The framework supports hardware-aware objectives, enabling fault-tolerant (e.g. T-count) and NISQ-era (e.g. entangling gates) devices. For approximate synthesis, we propose 3 objectives: (i) exact, but non-convex, phase-invariant fidelity maximization; (ii) a linear surrogate that maximizes the real trace overlap, yielding a tight lower bound to fidelity; and (iii) a convex quadratic function that minimizes the circuit's Frobenius error. To scale beyond exact MILP, we propose a novel rolling-horizon optimization (RHO) that rolls primarily in time, caps the active-qubits, and enforces per-qubit closure while globally optimizing windowed segments. This preserves local context, reduces the Hilbert-space dimension, and enables iterative improvements without ancillas. On a 142-gate seed circuit, RHO yields 116 gates, an 18.3% reduction from the seed, wh",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "domain-aware-probability-sampling-hybrid-quantum-systems-954f8",
+   "title": "Domain-Aware Probability Sampling for Hybrid Quantum Systems using Bayesian Optimization",
+   "titleZh": "基于贝叶斯优化的混合量子系统域感知概率采样",
+   "authors": [
+    "Nicholas S. DiBrita",
+    "Jason J. Han",
+    "Bhatia, Krishna",
+    "Cho, Younghyun",
+    "Hengrui Luo",
+    "Tirthak Patel"
+   ],
+   "venue": "arXiv",
+   "date": "2025-09-30",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2510.00145",
+   "doi": "10.48550/arxiv.2510.00145",
+   "url": "https://arxiv.org/abs/2510.00145",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:研究近期量子设备上的概率分布匹配与采样——构建参数化线路使其采样逼近目标分布并最小化资源开销;测量驱动目标替代全态重构,服务生成建模与变分工作流,是\"量子即采样器\"路线的系统化方法工作。",
+   "abstract": "We study the problem of probability distribution matching and sampling on near-term quantum computers, aiming to construct parameterized circuits that generate samples from a target distribution while minimizing resource overhead. This task arises naturally in hybrid quantum-classical workflows, where measurement-driven objectives replace full state reconstruction, and is central to applications in generative modeling and variational inference. However, it remains challenging due to hardware noise, limited circuit depth, and a high-dimensional, non-convex parameter space. We propose CircuitTree, a surrogate-guided optimization framework based on Bayesian Optimization with tree-based models for scalable, domain-aware distribution matching. Our approach introduces a structured, layerwise decomposition aligned with the variational circuit architecture, enabling distributed and sample-efficient optimization within hybrid loops with theoretical convergence guarantees. Across representative distribution-matching tasks, CircuitTree achieves up to 2-3x lower total variation distance while using 40-60% fewer gates than prior approaches. These results demonstrate its effectiveness as a practical building block for end-to-end hybrid quantum sampling.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-optimization-multi-target-active-debris-removal-10288",
@@ -19326,6 +19440,32 @@
    ]
   },
   {
+   "id": "adaptive-quantum-accelerated-imaging-space-domain-awareness-1727d",
+   "title": "Adaptive quantum accelerated imaging for space domain awareness",
+   "titleZh": "面向空间态势感知的自适应量子加速成像",
+   "authors": [
+    "Hyunsoo Choi",
+    "Fanglin Bao",
+    "Zubin Jacob"
+   ],
+   "venue": "New Journal of Physics",
+   "date": "2024-07-01",
+   "year": 2024,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1088/1367-2630/ad668c",
+   "url": "https://doi.org/10.1088/1367-2630/ad668c",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "New Journal of Physics:空间活动增长使空间态势感知(SDA)成为保障太空安全运行的关键;空间目标暗弱、角尺度小、分布密集,地基成像处于亚瑞利区。该文提出自适应量子加速成像方法突破该限制,把量子增强感知带入太空目标监测(量子传感/成像×空间应用交叉)。",
+   "abstract": "Abstract The growth in space activity has increased the need for Space Domain Awareness (SDA) to ensure safe space operations. Imaging and detecting space targets is, however, challenging due to their dim appearance, small angular size/separation, dense distribution, and atmospheric turbulence. These challenges render space targets in ground-based imaging observations as point-like objects in the sub-Rayleigh regime, with extreme brightness contrast but a low photon budget. Here, we propose to use the recently developed quantum-accelerated imaging (QAI) for the SDA challenge. We mainly focus on three SDA challenges (1) minimal a priori assumptions (2) many-object problem (3) extreme brightness ratio. We also present results on source estimation and localization in the presence of atmospheric turbulence. QAI shows significantly improved estimation in position, brightness, and number of targets for all SDA challenges. In particular, we demonstrate up to 2.5 times better performance in source detection than highly optimized direct imaging in extreme scenarios like stars with a 1000 times brightness ratio. With over 10 000 simulations, we verify the increased resolution of our approach compared to conventional state-of-the-art direct imaging paving the way towards quantum optics approaches for SDA.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-face-recognition-multigate-quantum-convolutional-neural-fd17d",
    "title": "Quantum Face Recognition With Multigate Quantum Convolutional Neural Network",
    "titleZh": "基于多门量子卷积神经网络的量子人脸识别",
@@ -24347,6 +24487,33 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "parallelizing-quantum-simulation-decision-diagrams-6a896",
+   "title": "Parallelizing Quantum Simulation With Decision Diagrams",
+   "titleZh": "用决策图并行化量子电路模拟",
+   "authors": [
+    "Shaowen Li",
+    "Yusuke Kimura",
+    "Hiroyuki Satō",
+    "Masahiro Fujita"
+   ],
+   "venue": "IEEE Transactions on Quantum Engineering",
+   "date": "2024-01-01",
+   "year": 2024,
+   "citations": 7,
+   "arxivId": "",
+   "doi": "10.1109/tqe.2024.3364546",
+   "url": "https://doi.org/10.1109/tqe.2024.3364546",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "IEEE TQ(7 引):用决策图(DD)数据结构并行化量子电路模拟,降低经典模拟量子线路的内存与时间成本;经典模拟量子系统(张量网络/决策图)工具链的最新进展,与库内张量网络模拟线互补。",
+   "abstract": "Since people became aware of the power of quantum phenomena in the domain of traditional computation, a great number of complex problems that were once considered intractable in the classical world have been tackled. The downsides of quantum supremacy are its high cost and unpredictability. In order to obtain a stronger control over quantum interactions(by reducing its noise) and reduce its cost, numerous researchers are relying on quantum simulators running on classical computers. The critical obstacle facing classical computers in the task of quantum simulation is its limited memory space. Quantum simulation intrinsically models the state evolution of quantum subsystems, i.e., qubits. Qubits are mathematically constructed in Hilbert space whose size grows exponentially with its number. Consequently, the scalability of the straightforward statevector approach is limited. It has been proven effective to adopt decision diagrams to mitigate the memory cost issue in various fields. In recent years, researchers have adapted decision diagrams into different forms for representing quantum states and performing quantum calculations efficiently. This leads to the study of decision diagram based quantum simulation. However, their advantage of memory efficiency does not let it replace the mainstream statevector and tensor network based approaches. We argue the reason is the lack of effective parallelization strategies in performing calculations on decision diagrams. In this work, we ex",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "hybrid-classical-quantum-computing-approach-satellite-mission-13c31",
