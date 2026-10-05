@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/full.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 光量子求解器在金融风险检测 QUBO 特征选择中的性能版图</title>
+      <link>https://raymond0812-yylm.github.io/papers/landscape-dependent-performance-photonic-quantum-solvers-qubo-1b477/</link>
+      <guid isPermaLink="false">p:landscape-dependent-performance-photonic-quantum-solvers-qubo-1b477</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>不平衡分类（信用卡欺诈、消费违约）中的特征选择天然是 QUBO：相关性收益与冗余惩罚的权衡。本文把三种范式——经典分支定界（Gurobi）、光子熵计算机（QCI Dirac-3）与模拟光子玻色采样（Piquasso）——在 13 种特征选择方法 × 两个数据集（ULB 欺诈 30 特征 / AmEx 违约 159 特征）上逐一对照，每种方法按其数学结构路由到匹配的求解器。结果呈现鲜明的&quot;版图依赖&quot;：ULB 上 Dirac-3 的 MI-Spearman 方法用 13/30 个特征即匹配全特征模型（均值 F1 0…</description>
+    </item>
+    <item>
+      <title>[论文] 集体对角酉的精确 LCU 采样开销：共振与连分数二分法</title>
+      <link>https://raymond0812-yylm.github.io/papers/exact-lcu-sampling-overhead-collective-diagonal-unitaries-1b478/</link>
+      <guid isPermaLink="false">p:exact-lcu-sampling-overhead-collective-diagonal-unitaries-1b478</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>集体对角相位门 $e^{-i\gamma K^2}$（$K$ 为等间距谱的集体可观测量，如置换对称的 Hamming 权重算符）是三个领域的交汇点：约束量子优化中的基数罚层（cardinality penalty，实现&quot;恰好选 k 个变量&quot;类约束的核心构件）、自旋压缩中的单轴扭转门、以及玻色模式的 Kerr 相位。实现它通常要两比特门，但也可以采样为单比特旋转层的线性组合（LCU），代价是采样开销 $\Gamma$。本文把这一开销精确到最小值：无辅助比特的层采样以因子 $\Gamma$ 复现目标的输出概率分布，…</description>
+    </item>
+    <item>
+      <title>[论文] 度数条件化退火偏移重塑最小顶点覆盖的认证最优采样</title>
+      <link>https://raymond0812-yylm.github.io/papers/degree-conditioned-anneal-offsets-reshape-certified-optimum-1b477/</link>
+      <guid isPermaLink="false">p:degree-conditioned-anneal-offsets-reshape-certified-optimum-1b477</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子退火机（如 D-Wave）求解组合优化的常见评测是&quot;能否命中最优解&quot;，但许多真实问题的最优解是大量简并的——最小顶点覆盖（MVC）正是典型：一张图往往有数十上百个基数相同的最优覆盖，而下游应用（电路优化、网络监测点部署、多方案筛选）恰恰需要把这一族最优解多样地枚举出来。麻烦在于，量子退火器对简并最优的采样天然不均匀：势阱深度、链解码、嵌入噪声都会让输出集中在少数几个解上，有限的读取预算（read budget）大量浪费在重复采样上。退火偏移（anneal offsets）是 D-Wave 提供的节点级控制旋…</description>
+    </item>
+    <item>
+      <title>[动态] 诺贝尔物理学奖今晚揭晓：薛其坤院士因量子反常霍尔效应实验观测位列引文桂冠奖，夺奖呼声居前</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-06/#n4</link>
+      <guid isPermaLink="false">n:2026-10-06:4</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>2026 年诺贝尔物理学奖将于北京时间 10 月 6 日晚揭晓，诺奖&quot;开奖周&quot;进入高潮。今年科睿唯安引文桂冠奖物理学三席全部归属凝聚态物理，中国科学院院士、南方科技大学校长薛其坤因&quot;对量子反常霍尔效应的实验观测&quot;入选，被中外媒体视为本届呼声最高的中国候选人——若获奖将是继 2015 年屠呦呦之后在中国本土完成的第二座自然科学诺贝尔奖。量子（反常）霍尔效应主题此前已三获诺贝尔物理学奖，本次揭晓无论花落谁家，都将再次推高量子科技的社会关注度。</description>
+    </item>
+    <item>
+      <title>[动态] 英国国家网络安全中心敦促企业建设量子安全韧性：先做密码资产&quot;摸家底&quot;，2035 年完成 PQC 迁移</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-06/#n3</link>
+      <guid isPermaLink="false">n:2026-10-06:3</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>英国 NCSC 面向大型组织与关键国家基础设施运营方更新迁移指引：迁移前先完成密码依赖的发现与评估，按业务敏感度排定优先级并嵌入例行系统更换周期；规划传统算法与 PQC 的长期共存（如 PKI 根交叉签名）、切勿自研密码实现、发布迁移意向声明以拉动供应商市场、为可观成本做预算，总体目标为 2035 年完成后量子迁移。NCSC 同步启动咨询机构 PQC 发现/规划能力认证试点，弥合人才缺口——量子安全从&quot;算法标准化&quot;进入&quot;组织化执行&quot;阶段。</description>
+    </item>
+    <item>
+      <title>[动态] D-Wave 联手阿肯色大学 Walton 商学院启动&quot;量子供应链计划&quot;：路由、网络设计与中断应对的量子优化进课堂与产业</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-06/#n2</link>
+      <guid isPermaLink="false">n:2026-10-06:2</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>D-Wave（NASDAQ: QBTS）与阿肯色大学 Walton 商学院供应链管理研究中心在 CSCMP EDGE 大会上宣布启动 Quantum Supply Chain Initiative：将量子优化（量子退火为其主力机型）应用于零售、交通与国防物流中的路由、网络设计、库存管理及中断期资源调配问题，并依托该中心 25+ 家企业伙伴网络开设课程与案例，培养&quot;量子就绪&quot;供应链人才。供应链恰是量子优化最被看好的近期落地赛道之一，与本报今日论文一（D-Wave Advantage2 真机研究）形成&quot;学术—产业&quot;同日呼应。</description>
+    </item>
+    <item>
+      <title>[动态] IBM 量子计算服务推出&quot;定向执行&quot;：100+ 比特系统上显式控制与黑盒性能兼得，采样开销降 3.4 倍</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-06/#n1</link>
+      <guid isPermaLink="false">n:2026-10-06:1</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>IBM 为 Quantum Compute Service 引入新执行模型 Directed Execution，让用户在不牺牲性能的前提下显式控制并看见线路在 100+ 比特系统上的执行方式：自动生成 twirling/噪声学习变体族、Samplomatic 装箱优化、逐层噪声学习以及 TREX+后选择的缓解期望值——阴影光锥方法配合 PEC 将采样开销降低 3.4 倍。该能力随最新 qiskit-ibm-runtime 上线，Executor 原语为首期实现；同期 Nighthawk 处理器上距离-5 表面码每轮逻辑错误率改善达 2.8 倍。</description>
+    </item>
+    <item>
+      <title>[动态] Quantinuum 与西澳大学签署谅解备忘录：共建澳大利亚混合量子-AI-HPC 生态，聚焦矿产、能源、农业与医疗应用</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-06/#n0</link>
+      <guid isPermaLink="false">n:2026-10-06:0</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Quantinuum（NASDAQ: QNT）与西澳大学（UWA）签署 MOU，面向澳大利亚&quot;混合量子-AI-HPC&quot;未来培养人才与创新生态：既提供先进量子技术的动手实践机会，也围绕关键矿产、能源、农业与医疗四大行业开发量子应用。继 IBM 与印度 IIT 合作（本报 10-03 收录）之后，又一头部量子公司把&quot;高校联盟+行业落地&quot;作为区域扩张抓手。</description>
+    </item>
     <item>
       <title>[论文] 基于分支交换编码的暖启动迭代量子虚时演化求解配电网重构</title>
       <link>https://raymond0812-yylm.github.io/papers/warm-start-iterative-qite-distribution-network-reconfiguration-8fab7/</link>
@@ -370,62 +426,6 @@
       <guid isPermaLink="false">n:2026-09-30:0</guid>
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
       <description>加拿大光量子计算公司 Xanadu 与芬兰低温系统巨头 Bluefors 于 09-29 宣布一项数百万美元级合作，为 Xanadu 的光量子架构开发紧凑、模块化的冷却系统原型，目标直指实用规模量子计算（utility-scale quantum computing）。Bluefors CEO Kim Povlsen 表示双方共享&quot;让实用规模量子计算成为现实&quot;的愿景。低温基础设施正被业内视为光量子与超导路线扩展的关键瓶颈，此次合作也叠加在 Xanadu 获 1.95 亿加元联邦资助建设 Inception 先进光子设施、并推进上市进程的背景之上。</description>
-    </item>
-    <item>
-      <title>[论文] 基于量子近似优化算法的蛋白质侧链堆积</title>
-      <link>https://raymond0812-yylm.github.io/papers/quantum-approximate-optimisation-algorithm-protein-sidechain-packing-8fa7b/</link>
-      <guid isPermaLink="false">p:quantum-approximate-optimisation-algorithm-protein-sidechain-packing-8fa7b</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>蛋白质侧链堆积（sidechain packing）是折叠过程中的关键阶段，直接关系基于结构的药物发现。AlphaFold2 对主链预测可靠，但侧链定位精度不足；在固定主链上恢复最低能量的旋转异构体（rotamer）指派是 NP 难问题。作者提出混合量子-经典管线：在 AlphaFold 骨架上用 QAOA 重排侧链，将一/二体能量编码为 QUBO。</description>
-    </item>
-    <item>
-      <title>[论文] 量子近似优化中态制备的复杂性壁垒（副标题：No pain, no gain）</title>
-      <link>https://raymond0812-yylm.github.io/papers/complexity-barriers-state-preparation-quantum-approximate-optimization-8fa7c/</link>
-      <guid isPermaLink="false">p:complexity-barriers-state-preparation-quantum-approximate-optimization-8fa7c</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>量子优化文献几乎无一例外地用&quot;普通近似比&quot;（所得目标值/最优目标值）报告性能。但这一度量对 MaxCut 这类问题有系统性盲区：随机割平均就能拿到约一半边，普通近似比 0.99 完全可能与&quot;对随机猜测的改进（增益）接近零&quot;并存——一个看似漂亮的比例数字可能不包含任何计算内容。经典近似复杂性文献早已为此发展出&quot;增益&quot;等替代度量（相对随机基线 E₀ 的改进量），而量子优化文献至今基本没有系统采用。作者提出的核心问题是：如果改用增益作为操作性能标准，高效量子算法能做什么、被证明不能做什么？</description>
-    </item>
-    <item>
-      <title>[论文] 基于曲线的最优函数求交：解码量子干涉的代数几何码扩展</title>
-      <link>https://raymond0812-yylm.github.io/papers/cofi-dqi-curve-based-optimal-function-intersection-8fa7c/</link>
-      <guid isPermaLink="false">p:cofi-dqi-curve-based-optimal-function-intersection-8fa7c</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>年 Jordan 等提出的解码量子干涉（DQI）是近年量子优化最受关注的全新框架之一：把组合优化问题映射为译码问题，利用量子干涉在码字空间中搜索最满足约束的解——对 Reed-Solomon 译码对应&quot;最优多项式求交（OPI）&quot;（可视为有限域上的多项式回归），并在若干实例上有可证明的加速。这暗示&quot;译码→优化&quot;是一般性设计原则，而非单码巧合。</description>
-    </item>
-    <item>
-      <title>[动态] 中国移动研究院在硅光芯片上创高维多体纠缠制备规模纪录（09-14 报道，补充收录）</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n5</link>
-      <guid isPermaLink="false">n:2026-09-29:5</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>中国移动研究院在长 16 毫米、宽 1.5 毫米的可编程硅光量子芯片上，将三枚&quot;四面骰子&quot;（三体四维系统）纠缠，制备出三体四维 GHZ 纠缠态与 W 纠缠态，保真度分别达 93.2% 与 90.1%，创下高维多体纠缠态制备规模新纪录。团队同时提出高维 W 态的普适定义，实现纠缠资源的线性增长与可扩展制备，被国际同行评价为&quot;解决了长期悬而未决的难题&quot;。该成果面向高维量子计算与量子网络的应用底座，也是国内运营商体系在量子硬件方向最具分量的进展之一。</description>
-    </item>
-    <item>
-      <title>[动态] 合肥国家实验室&quot;国家量子科技关键材料器件设备研发&quot;重点专项 2026 年度（第一批）进入申报期</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n4</link>
-      <guid isPermaLink="false">n:2026-09-29:4</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>合肥国家实验室发布国家重点研发计划&quot;国家量子科技关键材料器件设备研发&quot;重点专项 2026 年度（第一批）项目申报指南，聚焦量子科技关键材料、核心器件、重要设备三大方向。项目须按指南方向整体申报，可下设课题不超过 4 个、参与单位总数不超过 6 家，经省级科技主管部门推荐（如河南省科技厅将于 11 月 10 日 16:00 前完成审核确认推荐），通过国家科技管理信息系统（service.most.gov.cn）统一报送。该专项直指量子产业的供应链自主环节——材料、器件与设备，是国内量子政策从&quot;整机攻关&quot;向&quot;上游卡脖子环节&quot;深化的标志动作。</description>
-    </item>
-    <item>
-      <title>[动态] 印度财长西塔拉曼：量子与 AI、半导体并列下一轮基础设施投资重点</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n3</link>
-      <guid isPermaLink="false">n:2026-09-29:3</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>印度财政部长 Nirmala Sitharaman 09-26 表态（TQI 09-28 报道）：&quot;下一轮大规模基础设施投资将是 AI、半导体芯片，并在其上发展量子技术&quot;，强调三者叠加将吸引更多投资进入印度。这是量子首次被印度财长明确纳入基础设施投资叙事，与 800 亿卢比（约 10 亿美元级）规模的国家量子任务（NMQTA）形成政策衔接，显示印度量子战略从科技部层面上升到财政与产业资本配置层面。</description>
-    </item>
-    <item>
-      <title>[动态] 奥斯汀市长与 UT Austin 公开支持 16.5 英亩量子园区 Occam Foundry</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n2</link>
-      <guid isPermaLink="false">n:2026-09-29:2</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>奥斯汀市长 Kirk Watson（9 月 10 日公开信）与得克萨斯大学奥斯汀分校表态支持 Texas Quantum Partners 与 Samara 规划的量子技术园区 Occam Foundry——位于 Travis 县东南部、占地 16.5 英亩，旨在集聚量子企业、实验室与配套基础设施。市政与旗舰大学的背书使该项目从地产开发升级为政产学协同的产业培育计划，也呼应得州近年加码量子科技的整体布局；园区若落地，将成为美国南部规模最大的量子专用集聚区之一。</description>
-    </item>
-    <item>
-      <title>[动态] 佛罗里达州立大学获 210 万美元建美国东南部首个量子通信测试床</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-09-29/#n1</link>
-      <guid isPermaLink="false">n:2026-09-29:1</guid>
-      <pubDate>Tue, 29 Sep 2026 00:00:00 GMT</pubDate>
-      <description>FSU 获 210 万美元联邦 Community Project Funding（经 NIST 拨付，联邦众议员 Daniel Webster 争取），将把校内 IRCB 中心量子枢纽与 FAMU-FSU 工程学院、国家强磁场实验室（MagLab）通过校园光纤互联，建成美国东南部首个量子通信测试床：分发纠缠光子、跟踪链路可靠性，并利用可重构光链路在气流扰动、强磁场、低温热循环等真实应力下压测器件。院方称下一前沿不是在理想实验室里演示量子通信，而是让其在真实运行环境中变得可靠；该平台同时为学生提供覆盖量子网络全栈的实训环境。背景：FSU 量子倡议于 2023 年启动，2026 年 7 月刚牵头 DOE 四项&quot;Genesis Mission&quot;项目。</description>
     </item>
   </channel>
 </rss>

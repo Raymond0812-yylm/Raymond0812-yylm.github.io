@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-06] 度数条件化退火偏移重塑最小顶点覆盖的认证最优采样</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-06/</link>
+      <guid isPermaLink="false">daily:2026-10-06</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子退火机（如 D-Wave）求解组合优化的常见评测是&quot;能否命中最优解&quot;，但许多真实问题的最优解是大量简并的——最小顶点覆盖（MVC）正是典型：一张图往往有数十上百个基数相同的最优覆盖，而下游应用（电路优化、网络监测点部署、多方案筛选）恰恰需要把这一族最优解多样地枚举出来。麻烦在于，量子退火器对简并最优的采样天然不均匀：势阱深度、链解码、嵌入噪声都会让输出集中在少数几个解上，有限的读取预算（read budget）大量浪费在重复采样上。退火偏移（anneal offsets）是 D-Wave 提供的节点级控制旋…</description>
+    </item>
     <item>
       <title>[日报 2026-10-05] 基于分支交换编码的暖启动迭代量子虚时演化求解配电网重构</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-05/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-01</guid>
       <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
       <description>量子近似优化算法（QAOA） 是 NISQ（含噪中等规模量子）时代求解组合优化问题的旗舰候选算法：将 QUBO / Ising 形式的组合优化问题映射为代价哈密顿量，通过交替施加代价层与混合层并测量比特串来搜索高质量近似解。然而，QAOA 走向实用化面临两个相互纠缠的开销瓶颈：</description>
-    </item>
-    <item>
-      <title>[日报 2026-08-31] 基于量子优化算法的能源互联网路由</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-08-31/</link>
-      <guid isPermaLink="false">daily:2026-08-31</guid>
-      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-      <description>能源互联网（Energy Internet, EI） 是为实现可再生能源与电网深度融合而提出的新一代能源系统架构。在 EI 中，能量以&quot;数据包&quot;式的形式在网络节点间路由传输，其核心运筹问题之一是能效最优路径选择（energy-efficient path selection）——在满足需求的前提下，选择传输损耗最小、能效最高的能量路由方案。该问题被证明是 NP-hard 的：随着网络规模增长，经典精确算法的计算代价急剧上升。</description>
     </item>
   </channel>
 </rss>
