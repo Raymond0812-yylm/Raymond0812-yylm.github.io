@@ -207,7 +207,7 @@ function parseNews(file) {
       region: f('地区') || '国际',
       category: f('类别') || '行业动态',
       source: f('来源'),
-      url: (f('链接') || '').replace(/^https?\/\//, 'https://'),
+      url: (f('链接') || '').replace(/^https?\/\//, 'https://').replace(/：/g, ':'),
       summary,
     });
   }
