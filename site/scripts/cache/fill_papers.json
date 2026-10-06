@@ -47435,5 +47435,1140 @@
   "doi": "10.46690/compes.2024.01.04",
   "citations": 4,
   "theme": "shared mobility quantum optimization"
+ },
+ {
+  "fid": "b964c1d6bef3",
+  "title": "Molecular Quantum Particle Algorithm (MQPA): Hybrid Quantum-Classical Learning for Molecular Property Prediction",
+  "authors": [
+   "Mcphaul, Jessica",
+   "Sadler, Bivin, Ph.D."
+  ],
+  "abstract": "Classical machine learning models and quantum kernel methods often struggle to capture quantum-coherent molecular features under the constraints of noisy intermediate-scale quantum (NISQ) hardware, limiting both predictive accuracy and scalability. This paper introduces the Molecular Quantum Particle Algorithm (MQPA), a hybrid quantum–classical framework designed to achieve chemically accurate property prediction by integrating handcrafted molecular descriptors with parameterized quantum circuits. Molecular inputs, expressed as SMILES strings, are processed via RDKit and encoded through angle-based quantum gates with entangling layers in Qiskit [1]. Quantum parameters are optimized using simultaneous perturbation stochastic approximation (SPSA) [2], while classical regression layers leverage Adam [3] with Low-Rank Adaptation (LoRA) fine-tuning [4]. Across 38 systematically varied subsets of the QM9 benchmark [5,6], MQPA achieves a mean absolute error (MAE) of 0.03 kcal/mol, outperforming both deep learning and quantum kernel baselines by 41% and surpassing the chemical accuracy threshold of 0.1 kcal/mol [7–9]. Extensive cross-platform benchmarking—including IBM Quantum, Qiskit Aer, and NVIDIA H100 clusters—demonstrates strong reproducibility, with inter-backend MAE variance below 3%. Positioned as a scalable and hardware-aware solution, MQPA offers practical advantages for quantum-enhanced molecular property prediction across applications in quantum chemistry, drug discovery, materials design, and environmental modeling.",
+  "date": "2025-06-20",
+  "venue": "SMU Scholar (Southern Methodist University)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "6dba4cc616bc",
+  "title": "Machine learning prediction of electronic molecular excited state properties",
+  "authors": [
+   "Rubens C. Souza",
+   "Júlio César Duarte",
+   "Ronaldo Ribeiro Goldschmidt",
+   "Itamar Borges"
+  ],
+  "abstract": "Accurate knowledge of electronic molecular properties of excited states is fundamental for understanding the behavior of functional materials for organic electronics and sensors. In this work, we focus on determining the properties of the most intense peak in the electronic absorption spectra of organic molecules. For this purpose, we employed the quantum chemistry QM-symex dataset, which has approximately 173,000 organic molecules and time-dependent DFT (TD-DFT) data of the first ten electronic absorption transitions. Each one is identified by its Cartesian coordinates. From the original QM-symex, we built a new dataset named QM-symex-modif by converting the molecular Cartesian coordinates into the Simplified Molecular Input Line Entry System (SMILES) format, selecting the main transition orbitals of the singlet most intense absorption peak, their corresponding oscillator strengths and transition energies. We employed twenty machine learning (ML) algorithms to investigate these target properties plus the highest occupied molecular orbitals (HOMOs). As inputs for the ML algorithms, we employed several chemical descriptors generated in the RDKit tool for each molecule using the corresponding SMILES format. The QM-symex-modif dataset significantly improved the accuracy of ML predictions of these key photophysical properties. Very good mean absolute errors were obtained for the test set composed of 45,056 molecules. Additionally, a Shapley additive explanations (SHAP) analysis was carried out to evaluate the importance of the input parameters for the investigated ML models. We found several interesting relationships involving the input parameters. In particular, the molecular weight has enormous importance among several different descriptors in determining HOMO values and the transition orbitals.",
+  "date": "2024-10-18",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2024-xkt1j",
+  "citations": 1,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "8e016121e6b9",
+  "title": "Interpretable Machine Learning for Quantum-Informed Property Predictions in Artificial Sensing Materials",
+  "authors": [
+   "Li Chen",
+   "Leonardo Rafael Medrano Sandonas",
+   "Shirong Huang",
+   "Alexander Croy",
+   "Gianaurelio Cuniberti"
+  ],
+  "abstract": "Digital sensing faces challenges in developing sustainable methods to extend the applicability of customized e-noses to complex body odor volatilome (BOV). To address this challenge, we developed MORE-ML, a computational framework that integrates quantum-mechanical (QM) property data of e-nose molecular building blocks with machine learning (ML) methods to predict sensing-relevant properties. Within this framework, we expanded our previous dataset, MORE-Q, to MORE-QX by sampling a larger conformational space of interactions between BOV molecules and mucin-derived receptors. This dataset provides extensive electronic binding features (BFs) computed upon BOV adsorption. Analysis of MORE-QX property space revealed weak correlations between QM properties of building blocks and resulting BFs. Leveraging this observation, we defined electronic descriptors of building blocks as inputs for tree-based ML models to predict BFs. Benchmarking showed CatBoost models outperform alternatives, especially in transferability to unseen compounds. Explainable AI methods further highlighted which QM properties most influence BF predictions. Collectively, MORE-ML combines QM insights with ML to provide mechanistic understanding and rational design principles for molecular receptors in BOV sensing. This approach establishes a foundation for advancing artificial sensing materials capable of analyzing complex odor mixtures, bridging the gap between molecular-level computations and practical e-nose applications.",
+  "date": "2026-01-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2601.00503",
+  "doi": "10.48550/arxiv.2601.00503",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "ca76b5671358",
+  "title": "Enhancing Molecular Dipole Moment Prediction with Multitask Machine Learning",
+  "authors": [
+   "William Colglazier",
+   "Nicholas Lubbers",
+   "Sergei Tretiak",
+   "Anders M. N. Niklasson",
+   "Maksim Kulichenko"
+  ],
+  "abstract": "We present a multitask machine-learning strategy for improving the prediction of molecular dipole moments by simultaneously training on quantum dipole magnitudes and inexpensive Mulliken atomic charges. With dipole magnitudes as the primary target and assuming only scalar dipole values are available without vector components, we examine whether incorporating lower-quality labels that do not quantitatively reproduce the target property can still enhance model accuracy. Mulliken charges were chosen intentionally as an auxiliary task since they lack quantitative accuracy yet encode qualitative physical information about charge distribution. Our results show that including Mulliken charges with a small weight in the loss function yields up to a 30% improvement in the dipole prediction accuracy. This multitask approach enables the model to learn a more physically grounded representation of charge distributions, thereby improving both the accuracy and the consistency of dipole magnitude predictions. These findings highlight that even auxiliary data of limited quantitative reliability can provide valuable qualitative physical insights, ultimately strengthening the predictive power of machine-learning models for molecular properties.",
+  "date": "2026-05-27",
+  "venue": "The Journal of Physical Chemistry Letters",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpclett.6c00398",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "29f825723686",
+  "title": "Equivariant learning leveraging geometric invariances in 3D molecular conformers for accurate prediction of quantum chemical properties",
+  "authors": [
+   "Jianhua Sun",
+   "Ye Cao",
+   "Huijing Hu",
+   "Baoqiao Qi"
+  ],
+  "abstract": "Deciphering the intricate interplay between the three-dimensional geometrical conformation of molecules and their thermodynamic properties is a central quest in molecular chemistry, with far-reaching implications spanning diverse domains from molecular biology to medicine. In this study, we present a computational framework termed 3D molecular structure enhanced (3DMSE) that seamlessly integrates the rich structural information inherent in 3D molecular geometries with state-of-the-art machine learning algorithms to enable highly precise and computationally efficient prediction of crucial quantum chemical properties. The foundation of the 3DMSE approach lies in an equivariant learning module that adeptly captures the subtle geometric intricacies of molecular conformers while ensuring invariance to rotations and permutations. By leveraging these structurally-informed 3D embeddings, 3DMSE constructs a robust and interpretable model capable of unraveling the delicate patterns that bridge molecular geometry and thermodynamic behavior. Rigorous experimental evaluations on the widely-adopted QM9 benchmark dataset highlight the exceptional performance of our 3DMSE methodology in predicting pivotal properties such as HOMO-LUMO energy gap, dipole moment, and polarizability, markedly surpassing methods that rely solely on 2D topological features or raw 3D atomic coordinates. Through the lens of the 3DMSE paradigm, we illuminate the profound impact of molecular structure on thermodynamic properties, providing fresh insights into the underlying principles that dictate the behavior of molecular systems.",
+  "date": "2025-07-24",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-025-09842-x",
+  "citations": 3,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "388ec345259d",
+  "title": "Enhancing Molecular Machine Learning with Quantum-Chemical Descriptors and Hybrid Modeling",
+  "authors": [
+   "Belay Sitotaw Goshu"
+  ],
+  "abstract": "The integration of quantum chemistry with Machine Learning (ML) offers transformative potential for molecular property prediction, critical for drug design and catalyst development. However, challenges like high computational costs and unreliable predictions in safety-critical applications necessitate robust frameworks. This study aims to develop and evaluate a quantum-enhanced ML framework using a Graph Neural Network (GNN) to predict properties like HOMO-LUMO gaps, binding affinities and reaction energies, focusing on Uncertainty Quantification (UQ), active learning and transfer learning to optimize efficiency and reliability. A GNN model, enhanced with quantum descriptors (MO energy, total electron density) from PySCF, was trained on simulated QM9 subsets and real-world proxies. Techniques included monte carlo dropout and ensemble methods for UQ, active learning to reduce quantum calculations and transfer learning for improved convergence. Performance was evaluated using Mean Absolute Error (MAE) across datasets, with visualization of loss, uncertainty and computational cost. The framework achieved a QM9 MAE of 3.406, outperforming baselines (MAE ~3.5-4.0), but showed higher errors (4.2-4.3) for drug and catalyst proxies due to limited quantum data. UQ provided reliable confidence intervals (e.g., [4.2, 5.4]) and active learning reduced costs by 50%. The framework demonstrates efficacy for QM9-like tasks but requires optimization for real-world applications. Future work should scale to larger datasets, integrate quantum computing and validate with experimental data.",
+  "date": "2025-12-31",
+  "venue": "International Journal of Advanced Nano Computing and Analytics",
+  "arxiv_id": "",
+  "doi": "10.61797/ijanca.v4i2.641",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "109c6cbce678",
+  "title": "Entanglement-Based Contrastive Learning Algorithms for Molecular Property Prediction",
+  "authors": [
+   "Arasuraja Ganesan",
+   "Sridevi Sangeetha K S",
+   "Indu Purushothaman"
+  ],
+  "abstract": "The reliable prediction of molecular properties is one of the most basic problems in computational chemistry, drug discovery and materials design. Despite their impressive performance in learning molecular representations, graph neural networks (GNNs) have been generic enough by leveraging their ability to handle only partial and scarce labeled data and weak modeling of the quantum-mechanical correlations native to molecular systems. While learning the semantics of these molecular graphs is an effective method for addressing many chemistry challenges, there remains a lack of semantically rich augmentation and contrastive learning strategies. In this paper, the Entanglement-Based Contrastive Learning framework for Molecules (EBCL-Mol), a novel approach that takes inspiration from the theory of quantum entanglement to design semantically rich augmentation and contrastive learning strategies for molecular graphs is proposed. EBCL-Mol consists of two key innovations: (i) Quantum-Entanglement-Inspired Graph Augmentation (QEIGA), which facilitates preserving subgraph structures with entangled atomic signs from chemically equivalent pairs during generation of the contrastive pairs, and (ii) Dual-Encoder Entanglement Contrastive Loss (DEECL), which imposes the invariance on chemically equivalent molecular views during training while discouraging spurious deco-correlations. To show the effectiveness of EBCL-Mol, extensive experiments are done on 12 benchmark datasets, which include toxicity, solubility, bioactivity, and quantum chemical properties, showing that EBCL-Mol achieves state-of-the-art performance, better than existing contrastive and non-contrastive molecular representation learning baselines by 3.2–8.7% on various evaluation metrics. All proposed components make complementary contributions, which validate in ablation studies. This work develops a novel interface between quantum-inspired learning principles and molecular machine learning, which is scalable and works label-efficiently for property prediction.",
+  "date": "2026-05-24",
+  "venue": "International Journal of Artificial Intelligence and Machine Learning",
+  "arxiv_id": "",
+  "doi": "10.51483/ijaiml.6.2s.2026.216-224",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "951df82b3d59",
+  "title": "Quantum-Chemically Informed Representation Learning for Molecular Crystals Property Prediction via Multimodal Graph Neural Networks",
+  "authors": [
+   "Ferdawss Ihiri",
+   "Miguel A. Garcı́a-Garibay",
+   "Anastassia N. Alexandrova"
+  ],
+  "abstract": "Machine-learning based modeling of molecular crystals is limited by representations that encode geometric structure while overlooking the electronic features that often govern solid-state behavior. We introduce a multimodal learning framework that integrates crystal graphs with solid-state Quantum Theory of Atoms in Molecules (QTAIM) informed molecular graphs for enhanced predictions of solid-state properties. Our architecture employs modality-specific graph neural network encoders and a bi-directional gated fusion mechanism to capture complementary information between the two representations. When applied to band-gap prediction in organic molecular crystals, the fused model outperforms geometry-only and molecular-only baselines. Analysis of the learned representations reveals that QTAIM descriptors contribute interpretable signals associated with intermolecular interactions and density redistribution within the crystal, highlighting the value of quantum-informed learning for advancing data-driven solidstate modeling.",
+  "date": "2026-07-21",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15006367/v1",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "f6a3cba79840",
+  "title": "Quantum-Chemically Informed Representation Learning for Molecular Crystal Property Prediction via Multimodal Graph Neural Networks",
+  "authors": [
+   "Ferdawss Ihiri",
+   "Miguel A. Garcı́a-Garibay",
+   "Anastassia N. Alexandrova"
+  ],
+  "abstract": "Abstract Machine-learning-based modeling of molecular crystals is limited by representations that encode geometric structure while overlooking the electronic features that often govern solid-state behavior. We introduce a multimodal learning framework that integrates crystal graphs with solid-state Quantum Theory of Atoms in Molecules (QTAIM)-informed molecular graphs for enhanced predictions of solid-state properties. Our architecture employs modality-specific graph neural network encoders and a bidirectional gated fusion mechanism to capture complementary information between the two representations. When applied to band gap prediction in organic molecular crystals, the fused model outperforms geometry-only and molecular-only baselines. Analysis of the learned representations reveals that QTAIM descriptors contribute interpretable signals associated with intermolecular interactions and density redistribution within the crystal, highlighting the value of quantum-informed learning for advancing data-driven solid-state modeling.",
+  "date": "2026-09-04",
+  "venue": "Journal of Chemical Information and Modeling",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jcim.6c01012",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "86f277c54a05",
+  "title": "Unlocking the Potential of Machine Learning in Enhancing Quantum Chemical Calculations for Infrared Spectral Prediction",
+  "authors": [
+   "Adithya Ranjith Kartha",
+   "Dhanush P. Ajayakumar",
+   "Muhammad Idris",
+   "Gopi Ragupathy"
+  ],
+  "abstract": "Infrared (IR) spectroscopy is a fundamental tool for analyzing molecular structures and chemical interactions by identifying the vibrational modes of molecules. Traditional quantum mechanical methods, such as density functional theory, are highly accurate but computationally expensive and impractical for large-scale molecular systems. This project investigates the integration of machine learning (ML) techniques to predict IR spectra, offering a promising alternative that significantly reduces computational costs while maintaining high accuracy. Additionally, the project explores the utilization of IR spectra for molecular identification and classification into molecular families, enhancing the practical utility of spectral data in various scientific applications. Using TensorFlow-based ML frameworks, models were developed and trained on a data set derived from high-quality computational chemistry analyzers. These data sets, sourced from computationally optimized geometry and IR spectrum from the Gaussian 16 Program Suite, include extensive molecular geometry data, bond lengths, vibrational modes, and other quantum mechanical properties. The models aim to predict key IR spectral features, such as vibrational frequencies and intensities, while maintaining interpretability by linking chemical and quantum mechanical principles to predictions. The integration of ML with IR spectroscopy provides a scalable as well as accelerated solution for analyzing complex molecular systems. This approach holds potential in fields such as drug discovery, materials science, and chemical engineering, where rapid and accurate spectral predictions are critical. This perspective highlights the advancements achieved, the current challenges, and the future potential of ML in the context of IR spectroscopy, providing a solid foundation for further exploration at the intersection of chemistry and data science.",
+  "date": "2025-04-28",
+  "venue": "ACS Omega",
+  "arxiv_id": "",
+  "doi": "10.1021/acsomega.5c02405",
+  "citations": 2,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "1a17ad4c2fce",
+  "title": "Manifold Kernelization of Molecular Surface to Encode Quantum Information of Electronic Attributes for Machine Learning",
+  "authors": [
+   "Tonglei Li",
+   "Venkata S. Chelagamsetty",
+   "Nicolas J. Huls",
+   "Ryan T. Jordan"
+  ],
+  "abstract": "A novel concept of encoding electronic quantities on a molecular surface is developed by unsupervised kernel learning. Through optimization of the hyperparameters of Spectral Mixture (SM) kernel functions in conducting Sparse Gaussian Process (SGP) regression of electronic attributes on a surface manifold, the resultant covariance matrix, or kernel, captures the mutual relationships among the electronic quantities as well as the topology of the molecular surface. As such, a kernel, coined MKMS (Manifold Kernelization of Molecular Surface), can be treated as a symmetric positive definite (SPD) matrix to represent a molecule for machine learning. A proper neural network model was implemented to utilize SPD matrices and preserve their collected Riemannian topology for predicting the molecular properties. The prediction results of two solubility data sets support promising potentials of using MKMS to encode quantum information on a molecule and enable machine learning applications.",
+  "date": "2025-10-18",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.5c01117",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "c8e27a7bce49",
+  "title": "Machine Learning-Based Structure Prediction for QM9 Quantum Datasets",
+  "authors": [
+   "Nahla k",
+   "M. Hidayath Ansari",
+   "Salah Eldeen F. Hegazi",
+   "Anjali Appukuttan",
+   "Bincy Vincent",
+   "Huda Fatima"
+  ],
+  "abstract": "The inner arrangement of the quantum mechanics dataset QM9 is investigated in this study. The dataset contains 1000 organic molecules as well as being defined in terms of electronic properties. To estimate the atomic composition using inverse molecular design attributes, one must understand the structure and properties of such data. The study used methods for detecting outliers, clustering, and intrinsic dimension analysis. The dataset was found to have descriptive dimensions far higher than their intrinsic dimensionality. Inliner items make up the majority of the inner core area of the QM9 data, whereas outliers dominate the outside region. The atom count in a molecule is strongly related to its outlier or inner character. Despite structural differences, important variables for inverse molecular design are very predictable. The molecular representation was estimated using Graph Neural Network (GNN), a modern Machine Learning (ML) algorithm. This study also did feature extraction and preprocessing before this algorithm. This proposed technique works for the outcomes.",
+  "date": "2024-04-30",
+  "venue": "International Journal of Electrical and Electronics Engineering",
+  "arxiv_id": "",
+  "doi": "10.14445/23488379/ijeee-v11i4p124",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "9bbb016fb5c0",
+  "title": "Quantum Machine Learning for Accelerated Drug Discovery",
+  "authors": [
+   "Mr. B. Srinivasa Rao",
+   "G. Bhuvaneswari",
+   "Ch. Sneha",
+   "K. Ganesh",
+   "S. Neeraj"
+  ],
+  "abstract": "Drug discovery is a notoriously protracted and resource-intensive endeavor, with the average timeline exceeding a decade and costs surpassing $2 billion per approved therapeutic agent. The advent of quantum machine learning (QML) offers a transformative opportunity to address the fundamental computational bottlenecks of molecular property prediction, chemical space exploration, and de novo drug design. This paper presents an integrated QML framework that combines quantum neural networks (QNNs) with variational quantum circuits (VQCs) to accelerate critical stages of the drug discovery pipeline. Leveraging the principles of quantum superposition and entanglement, the proposed system encodes molecular representations into high-dimensional quantum states, enabling parallel exploration of chemical space that is classically intractable. A hybrid quantum-classical architecture is introduced, wherein quantum circuits process encoded molecular fingerprints while classical optimizers refine circuit parameters via the parameter shift rule. Experimental evaluations on a benchmark dataset of 10,000 molecular structures from PubChem demonstrate that the hybrid system achieves R² = 0.87 on solubility prediction, AUC = 0.84 on toxicity classification, and RMSE improvement of 8% on binding affinity prediction compared to classical deep learning baselines. Quantum generative models produce novel molecules with 85% novelty and 94% chemical validity, outperforming classical variational autoencoders. The Variational Quantum Eigensolver (VQE) achieves chemical accuracy (<1 kcal/mol error) for ground-state energy calculations of small molecules. All modules achieved 100% pass rate across 34 test cases. These results substantiate the potential of QML for pharmaceutical applications and provide a reproducible, modular pipeline for future quantum drug discovery research.",
+  "date": "2026-04-02",
+  "venue": "International Journal of Engineering Research and Science & Technology",
+  "arxiv_id": "",
+  "doi": "10.62643/ijerst.2026.v22.n2.pp200-207",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "ec9a2baf1b1d",
+  "title": "Integrated Machine Learning and Molecular Dynamics for Functional Nanoparticle Design: Synthesis, Characterization, Force-Field Development, and Property Prediction",
+  "authors": [
+   "Miteshkumar Moirangthem",
+   "Vrindha P",
+   "Irfan Ahmed Fani",
+   "Chandrakala Meena",
+   "Santosh Kumar Meena"
+  ],
+  "abstract": "The integration of machine learning (ML) with molecular dynamics (MD) significantly enhances the design of nanoparticles (NPs) across four key areas: synthesis optimization, advanced characterization, ML-based force fields (MLFFs), and property prediction using surrogate models. This review focuses on discrete NPs, excluding extended NPs. Traditional MD FFs often overlook essential polarization and many-body effects, while quantum methods are impractical for larger systems. In contrast, MLFFs bridge the gap between accuracy and scalability, achieving near-DFT precision for trained NP systems at computational costs approaching those of classical MD. Recent studies indicate that ML characterization can provide high morphological accuracy based on experimental imaging, and MLFFs demonstrate a close alignment with quantum reference data. However, challenges like data scarcity, model transferability, and interpretability call for collaborative efforts within the community, including the establishment of standardized benchmarks and open model repositories. This cohesive ML-MD approach enables computationally guided NP discovery for a range of applications in catalysis, energy storage, and biomedicine.",
+  "date": "2026-05-15",
+  "venue": "Langmuir",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.langmuir.5c05632",
+  "citations": 2,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "0f3c769b715b",
+  "title": "Machine learning prediction of electron Iso-density surface areas from molecular descriptors",
+  "authors": [
+   "Thi Huynh Ho",
+   "Hien Duy Tong",
+   "Thuat Thanh Trinh"
+  ],
+  "abstract": "Electron iso-density surfaces (EIS) provide quantum mechanically rigorous descriptions of molecular size governing intermolecular interactions and binding affinity. We developed machine learning models predicting EIS surface area from molecular descriptors using 288 diverse organic molecules. Eight algorithms were evaluated including Ridge regression, Gaussian Process Regression, Random Forest, and XGBoost using 5-fold cross-validation. Gaussian Process Regression achieved best test set performance ( R 2 = 0 . 9896 ), with mean absolute errors below 4.0 Å 2 (3% uncertainty). SHAP analysis revealed atomic count, molecular weight, and connectivity dominate predictions, enabling computationally efficient property estimation with chemical interpretability.",
+  "date": "2026-05-05",
+  "venue": "Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1016/j.chemphys.2026.113258",
+  "citations": 1,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "15e9a4388c0a",
+  "title": "Leveraging Machine Learning to Overcome Limitations in Quantum Algorithms",
+  "authors": [
+   "Sala, Laia Coronas",
+   "Parfait Atchade-Adelemou"
+  ],
+  "abstract": "Quantum Computing (QC) offers outstanding potential for molecular characterization and drug discovery, particularly in solving complex properties like the Ground State Energy (GSE) of biomolecules. However, QC faces challenges due to computational noise, scalability, and system complexity. This work presents a hybrid framework combining Machine Learning (ML) techniques with quantum algorithms$-$Variational Quantum Eigensolver (VQE), Hartree-Fock (HF), and Quantum Phase Estimation (QPE)$-$to improve GSE predictions for large molecules. Three datasets (chemical descriptors, Coulomb matrices, and a hybrid combination) were prepared using molecular features from PubChem. These datasets trained XGBoost (XGB), Random Forest (RF), and LightGBM (LGBM) models. XGB achieved the lowest Relative Error (RE) of $4.41 \\pm 11.18\\%$ on chemical descriptors, outperforming RF ($5.56 \\pm 11.66\\%$) and LGBM ($5.32 \\pm 12.87\\%$). HF delivered exceptional precision for small molecules ($0.44 \\pm 0.66\\% RE$), while a near-linear correlation between GSE and molecular electron count provided predictive shortcuts. This study demonstrates that integrating QC and ML enhances scalability for molecular energy predictions and lays the foundation for scaling QC molecular simulations to larger systems.",
+  "date": "2024-12-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2412.11405",
+  "doi": "10.48550/arxiv.2412.11405",
+  "citations": 1,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "9207b6859329",
+  "title": "Testing Small Parameterized Quantum Circuits for Molecular Property Prediction",
+  "authors": [
+   "Bhagya Sri Uddandam",
+   "Chirag Girish Mokashi",
+   "Jose Rodrigo Arizpe Figueroa",
+   "Krishnakumar Vijayasankar",
+   "Sharan Sandhu",
+   "Sneha Paul",
+   "Yun-Tang Lin",
+   "Zixuan Jin",
+   "Roberto dos Reis",
+   "Anton V. Sinitskiy"
+  ],
+  "abstract": "Parameterized quantum circuits (PQCs) are widely proposed as feature transformations in quantum machine learning (QML) pipelines. However, few molecular-QML studies combine strong classical baselines, repeated training runs, and controls that separate a quantum branch from its trainable anglegenerating encoder. We benchmark three-qubit PQCs combined with two pretrained molecular embeddings, MiniMol and CheMeleon, for lipophilicity and solubility prediction. Five model variants, including a classical baseline, two hybrid quantum-classical architectures, a quantum-only model, and a frozen-branch control, were evaluated on two datasets, two embeddings, and five random seeds, giving 100 runs. No tested quantum variant showed a statistically detectable improvement over the classical baseline after falsediscovery-rate correction across all 16 paired comparisons. The frozen-branch control also showed no detectable advantage over the classical baseline. This control freezes the full angle-generating quantum branch, not an independent set of variational circuit weights. A separate one-qubit depolarizing-noise sweep showed no detectable change in accuracy over the tested error range. Quantum variants required 18–37 times longer training time than the classical baseline on the same platform. These results set a benchmark for small parameterized QML layers applied to the pretrained molecular representations and ADME tasks examined here.",
+  "date": "2026-08-31",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15008061/v1",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "0a47e7c15de6",
+  "title": "Adapting Quantum Machine Learning for Energy Dissociation of Bonds",
+  "authors": [
+   "Chandrasekhar, Swathi",
+   "Shiva Raj Pokhrel",
+   "Navneet Singh"
+  ],
+  "abstract": "Accurate prediction of bond dissociation energies (BDEs) underpins mechanistic insight and the rational design of molecules and materials. We present a systematic, reproducible benchmark comparing quantum and classical machine learning models for BDE prediction using a chemically curated feature set encompassing atomic properties (atomic numbers, hybridization), bond characteristics (bond order, type), and local environmental descriptors. Our quantum framework, implemented in Qiskit Aer on six qubits, employs ZZFeatureMap encodings with variational ansatz (RealAmplitudes) across multiple architectures Variational Quantum Regressors (VQR), Quantum Support Vector Regressors (QSVR), Quantum Neural Networks (QNN), Quantum Convolutional Neural Networks (QCNN), and Quantum Random Forests (QRF). These are rigorously benchmarked against strong classical baselines, including Support Vector Regression (SVR), Random Forests (RF), and Multi-Layer Perceptrons (MLP). Comprehensive evaluation spanning absolute and relative error metrics, threshold accuracies, and error distributions shows that top-performing quantum models (QCNN, QRF) match the predictive accuracy and robustness of classical ensembles and deep networks, particularly within the chemically prevalent mid-range BDE regime. These findings establish a transparent baseline for quantum-enhanced molecular property prediction and outline a practical foundation for advancing quantum computational chemistry toward near chemical accuracy.",
+  "date": "2025-10-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.06563",
+  "doi": "10.48550/arxiv.2510.06563",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "9cee071d67f0",
+  "title": "Quantum Machine Learning in Drug Discovery: Applications in Academia and Pharmaceutical Industries",
+  "authors": [
+   "Anthony M. Smaldone",
+   "Yu Shee",
+   "Gregory W. Kyro",
+   "Xu, Chuzhi",
+   "Nam P. Vu",
+   "Rishab Dutta",
+   "Farag, Marwa H.",
+   "Alexey Galda",
+   "Sandeep Kumar",
+   "Elica S. Kyoseva",
+   "Víctor S. Batista"
+  ],
+  "abstract": "The nexus of quantum computing and machine learning - quantum machine learning - offers the potential for significant advancements in chemistry. This review specifically explores the potential of quantum neural networks on gate-based quantum computers within the context of drug discovery. We discuss the theoretical foundations of quantum machine learning, including data encoding, variational quantum circuits, and hybrid quantum-classical approaches. Applications to drug discovery are highlighted, including molecular property prediction and molecular generation. We provide a balanced perspective, emphasizing both the potential benefits and the challenges that must be addressed.",
+  "date": "2024-09-24",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2409.15645",
+  "doi": "10.48550/arxiv.2409.15645",
+  "citations": 2,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "8dc921cf39f9",
+  "title": "Connecting the concepts of quantum state tomography and molecular representations for machine learning",
+  "authors": [
+   "Raul Ortega Ochoa",
+   "Luis Mantilla Calderón",
+   "Juan Bernardo Perez Sanchez",
+   "Mohsen Bagherimehrab",
+   "Abdulrahman Aldossary",
+   "Tejs Vegge",
+   "Tonio Buonassisi",
+   "Alán Aspuru‐Guzik"
+  ],
+  "abstract": "Quantum state tomography has been widely used to reconstruct the quantum state of a system from a set of informationally-complete measurements. Obtaining enough information about, e.g., the wavefunction of a molecule allows its complete characterization. On the other hand, deep learning models for molecular property prediction have demonstrated the capability to predict properties of unseen molecules, thereby internally characterizing them in a latent space spanning potential virtual molecules. In this work, we argue that deep learning can achieve its characterization power by learning an internal representation that is informationally-equivalent to the molecule's density matrix. We call such a representation a deep tomography, akin to quantum state tomography. We discuss how it is possible for property prediction foundation models, trained on data of informationally-complete observables, to have representations that contain the same information as that of a molecule's reduced quantum density matrix. Thus, such learned representation should be sufficient to predict arbitrary properties of arbitrary unseen molecules.",
+  "date": "2025-09-17",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2025-653md",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "7a433b2854f2",
+  "title": "High-throughput Quantum Theory of Atoms in Molecules (QTAIM) for Geometric Deep Learning of Molecular and Reaction Properties",
+  "authors": [
+   "Santiago Vargas",
+   "Winston Gee",
+   "Anastassia N. Alexandrova"
+  ],
+  "abstract": "We present a package, Generator, for geometric molecular property prediction based on topological features of quantum mechanical electron density. Generator computes Quantum Theory of Atoms in Molecules (QTAIM) features, at density functional theory (DFT) level, for sets of molecules or reac- tions in a high-throughput manner, and compiles features into a single data structure for processing, analysis, and geometric machine learning. An accompanying graph neural network package can be used for property prediction and allows users to readily use computed features for learning tasks. To test the efficacy of electron density-based data for machine learning, we benchmark several datasets including QM8, QM9, LIBE, Tox21, and a Green 2022 Reaction dataset. This wide dataset diversity underscores the flexibility of QTAIM descriptors and our package. In addition, we made our code high-throughput methods compatible with new versions of BondNet and Chemprop architectures to allow for both reaction and molecular property prediction out-of-the-box. To motivate the use of QTAIM features for varied prediction tasks we also perform extensive benchmarking of our new mod- els to existing benchmark models as well as to our own models without QTAIM features. We show that almost universally, QTAIM features improve model performance on our algorithms, ChemProp, and BondNet. We also determine that QTAIM can aid in generalizing model performance to out-of- domain (OOD) datasets and improve learning at smaller data regimes. Combined, we hope that this framework could enable QTAIM-enhanced structure-to-property predictions - especially in domains with less data, including experimental or reaction-level datasets with complex underlying chemistries",
+  "date": "2024-02-27",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2024-wlx21",
+  "citations": 2,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "0590c9d592b4",
+  "title": "Implementations of Quantum and Classical Topology-Aligned Architectures for Molecular Property Prediction",
+  "authors": [
+   "James T. Pegg",
+   "Hubert Valencia",
+   "R. Wu"
+  ],
+  "abstract": "For low-data and resource-constrained regimes typical of quantum chemistry, parameter-efficient learning is a key objective. Here, we propose a topology-aligned inductive bias in which the model architecture mirrors the molecular bond graph: atoms map to a fixed register of computational units, and bonds determine which pairs interact through shared learnable parameters. This principle is instantiated in two architectures: a variational quantum circuit (Iso-QGNN) and a parameter-matched classical message-passing network (Iso-CGNN). The models are benchmarked on HOMO-LUMO and dipole moment binary classification tasks over the QM9 benchmark. With 64 trainable parameters, the implementations achieve test AUCs of approximately 0.89 (quantum) and 0.92 (classical) on the gap task, and close to 0.78 (both) on the dipole task. The models reach 90% of asymptotic performance within about 300 training molecules and gradient norms remain stable throughout training. These results indicate that the topology-aligned inductive bias is the active ingredient driving parameter efficiency at QM9 scale, with implications for matched-baseline benchmarking in quantum machine learning.",
+  "date": "2026-07-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.13737",
+  "doi": "10.48550/arxiv.2607.13737",
+  "citations": 0,
+  "theme": "quantum machine learning molecular prope"
+ },
+ {
+  "fid": "a6949a91d73b",
+  "title": "In Situ Closing the van der Waals Gap of Two-Dimensional Materials",
+  "authors": [
+   "Shengqiang Wu",
+   "Siheng Li",
+   "Yuan Meng",
+   "Zanlin Qiu",
+   "Wei Fu",
+   "Ji Chen",
+   "Jin Zhang",
+   "Xiaoxu Zhao"
+  ],
+  "abstract": "Self-intercalation in two-dimensional (2D) materials, converting 2D materials into ultrathin covalently bonded materials, presents great possibilities for studying a new family of quantum-confined materials with the potential to realize multifunctional behavior. However, understanding the mechanisms and associated in situ kinetics of synthesizing self-intercalated 2D (ic-2D) materials, particularly at the atomic scale, remains elusive, greatly hindering the practical applications of ic-2D crystals. Here, we successfully in situ synthesized ic-2D thin films via thermal annealing of their parental TMDCs inside an electron microscope. We atomically visualized the evolution from TaS 2 and NbS 2 into the corresponding ic-2D Ta 1+ x S 2 and ic-2D Nb 1+x S 2, respectively, by in situ scanning transmission electron microscopy (STEM). The self-intercalation process in TaS 2 is atomically realized by metal adatom edge adsorption and subsequent diffusion in an atom-by-atom manner. On the other hand, MoS 2 and MoSe 2 tend to coalesce into metal crystals under the same annealing conditions, suggesting that the self-intercalation process is predominantly controlled by thermodynamic factors as further verified by density functional theory (DFT). By varying the ramping rate and annealing temperature, the coverage and spatial arrangement of the filling sites can be precisely tuned, ranging from 2 a × 3 a, 3 a × 3 a, or Ta trimers, as predominantly gauged by kinetic factors. Our work sheds light on the thermodynamics and growth kinetics involved in ic-2D formation and paves the way for growing highly crystalline ic-2D materials with intercalation concentration and topology-dependent properties.",
+  "date": "2024-10-01",
+  "venue": "Journal of the American Chemical Society",
+  "arxiv_id": "",
+  "doi": "10.1021/jacs.4c09842",
+  "citations": 2,
+  "theme": "quantum annealing adsorption material"
+ },
+ {
+  "fid": "b1791c18901d",
+  "title": "Defect engineering in multilayer-graphene and graphite films: Generation, control, and applications",
+  "authors": [
+   "Qicheng Hu",
+   "Cheng Deng",
+   "Xuan Zuo",
+   "Fuwei Liao",
+   "Sili Chen",
+   "Shuhong Yun",
+   "Qiankun Hun",
+   "Xuanan Lu",
+   "Siying Li"
+  ],
+  "abstract": "Abstract Compared to single-layer graphene (SLG), multilayer graphene (MLG) and graphite films (GF) offer superior mechanical stability, tunable electrical conductivity, and lower manufacturing costs. However, during their preparation and transfer processes, defects such as vacancies, grain boundaries, wrinkles, and stacking disorder are inevitably introduced, and these defects have a critical impact on material performance. The defects such as vacancies, dopant atoms, and edges can enhance gas adsorption, catalytic activity, and ion storage capacity, while the defects such as grain boundaries and dislocations reduce electrical conductivity, strength, and thermal transport properties. Therefore, defect engineering mainly focuses on precisely controlling the type, density, and distribution of defects through methods such as ion implantation, plasma treatment, laser irradiation, and strain engineering, and on repairing them via high-temperature annealing or chemical methods. For applications requiring extremely high carrier mobility or thermal conductivity, nearly defect-free single-crystal MLG/GF can also be prepared, and applications of defect-engineered MLG or GF in corrosion protection, thermal management, energy storage, sensors, electronics, and quantum physics are discussed.",
+  "date": "2026-07-14",
+  "venue": "Nano Research",
+  "arxiv_id": "",
+  "doi": "10.26599/nr.2026.94909000",
+  "citations": 0,
+  "theme": "quantum annealing adsorption material"
+ },
+ {
+  "fid": "c56e3127c9ce",
+  "title": "Imaging Photoexcited Carrier Dynamics in Strontium Titanate Photocatalysts using Photomodulated Electron Energy-Loss Spectroscopy",
+  "authors": [
+   "Levi D. Palmer",
+   "Wonseok Lee",
+   "Thomas E. Gage",
+   "Scott K. Cushing"
+  ],
+  "abstract": "Water-splitting nanoparticle bed reactors offer a promising pathway to renewably generate hydrogen. However, SrTiO3 nanoparticles have not yet reached external quantum efficiencies needed for commercial viability – even optimized catalysts produce an order of magnitude less hydrogen than predicted by thermodynamic efficiency estimates [1,2]. In this work, we study 2 at% Rh, La-codoped SrTiO3 nanoparticles using scanning TEM electron energy-loss spectroscopy (STEM-EELS) with photomodulation to relate the nanoparticle’s photoexcited electron and hole dynamics to their photoactivity. With this new photomodulated STEM-EELS approach, we differentiate the effects of photoexcited holes and heat at the nanometer scale by utilizing the low-loss spectrum’s sensitivity to valence band electrons. The wide, UV bandgap of SrTiO3 impedes absorption of the solar spectrum (Figure 1A). To improve solar absorption, SrTiO3 is often doped with metal ions such as Rh and Ir (Figure 1B). However, studies have shown that Rh dopants and oxygen vacancies introduce mid-gap trap states that inhibit carrier separation and promote carrier recombination [3-5]. Incorporating additional dopants such as La for trap mitigation and charge compensation is ultimately necessary, and recent works circumvent deep Rh-induced traps by utilizing Al dopants that have shallower traps closer to the conduction band minimum that result in a higher quantum efficiency [6,7]. Cocatalysts and surface passivation layers are also often used to enhance catalyst performance by promoting electron–hole separation and or stabilize photoelectrodes [7-10]. For example, a TiO2 overlayer on Si-Ni photoanodes reduces surface corrosion while still allowing charge transport for photochemistry at the device’s surface [9], and cocatalysts like Pt, CoOOH, Cr2O3, and IrOx are often used to separate carriers in SrTiO3 [7,8]. Using atomic-level imaging and STEM-EELS, we discovered an amorphous Ti oxide surface layer on SrTiO3 of variable 2 – 5 nm thickness (Figure 2), likely a result of the nanoparticle synthesis temperatures exceeding 1000 ˚C used to burn off organics and anneal the SrTiO3 crystalline structure. Because water adsorption, and hole transfer kinetics during water oxidation, are highly dependent on the facet and surface termination of SrTiO3 [11], this defect-rich surface layer likely has a large influence on the water splitting performance. To investigate the surface layer’s effects on the SrTiO3 photoexcited carr",
+  "date": "2025-07-01",
+  "venue": "Microscopy and Microanalysis",
+  "arxiv_id": "",
+  "doi": "10.1093/mam/ozaf048.883",
+  "citations": 0,
+  "theme": "quantum annealing adsorption material"
+ },
+ {
+  "fid": "596a025e766c",
+  "title": "Digital Quantum Simulation for Spectroscopy of Schwinger Model",
+  "authors": [
+   "Dongwook Ghim",
+   "Masazumi Honda"
+  ],
+  "abstract": "This note discusses a method for computing the energy spectra of quantum field theory utilizing digital quantum simulation. A quantum algorithm, called coherent imaging spectroscopy, quenches the vacuum with a time-oscillating perturbation and then reads off the excited energy levels from the loss in the vacuum-to-vacuum probability following the quench. As a practical demonstration, we apply this algorithm to the (1+1)-dimensional quantum electrodynamics with a topological term known as the Schwinger model, where the conventional Monte Carlo approach is practically inaccessible. In particular, on a classical simulator, we prepare the vacuum of the Schwinger model on a lattice by adiabatic state preparation and then apply various types of quenches to the approximate vacuum through Suzuki-Trotter time evolution. We discuss the dependence of the simulation results on the specific types of quenches and introduce various consistency checks, including the exact diagonalization and the continuum limit extrapolation. The estimation of the computational complexity required to obtain physically reasonable results implies that the method is likely efficient in the coming era of early fault-tolerant quantum computers.",
+  "date": "2024-04-23",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2404.14788",
+  "doi": "10.48550/arxiv.2404.14788",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "16774ce08815",
+  "title": "A Quantum Algorithm from Response Theory: Digital Quantum Simulation of Two-Dimensional Electronic Spectroscopy",
+  "authors": [
+   "Matteo Bruschi",
+   "Federico Gallina",
+   "Barbara Fresch"
+  ],
+  "abstract": "Multidimensional optical spectroscopies are powerful techniques to investigate energy transfer pathways in natural and artificial systems. Because of the high information content of the spectra, numerical simulations of the optical response are of primary importance to assist the interpretation of spectral features. However, the increasing complexity of the investigated systems and their quantum dynamics call for the development of novel simulation strategies. In this work, we consider using digital quantum computers. By combining quantum dynamical simulation and nonlinear response theory, we present a quantum algorithm for computing the optical response of molecular systems. The quantum advantage stems from the efficient quantum simulation of the dynamics governed by the molecular Hamiltonian, and it is demonstrated by explicitly considering exciton-vibrational coupling. The protocol is tested on a near-term quantum device, providing the digital quantum simulation of the linear and nonlinear response of simple molecular models.",
+  "date": "2024-01-31",
+  "venue": "The Journal of Physical Chemistry Letters",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpclett.3c03499",
+  "citations": 13,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "13047b770944",
+  "title": "A unified framework for efficient quantum simulation of nonlinear spectroscopy",
+  "authors": [
+   "Long Xiong",
+   "Xiaoyang Wang",
+   "Xiaoxia Cai",
+   "Xiao Yuan"
+  ],
+  "abstract": "Nonlinear spectroscopy is a cornerstone of quantum science, providing unique access to multi-point correlations, quantum coherence, and couplings that are invisible to linear methods. However, classical simulation of these phenomena is fundamentally limited by the exponential growth of the Hilbert space, and practical quantum algorithms for the nonlinear regime have remained largely unexplored. Here, we present a unified quantum algorithmic framework for computing $n$-th order nonlinear spectroscopies. By reformulating multi-time responses as a weighted sum of expectation values at finite pump amplitudes via a generalized parameter shift rule, our approach bypasses the costly evaluation of high-order commutators and time-dependent operator expansions. This reformulation enables efficient execution via real-time evolution on current quantum hardware, ensuring inherent noise resilience. We validate the framework on IBM's superconducting quantum processors, successfully obtain higher-order response functions of a 12-qubit XXZ spin-chain. Furthermore, the versatility of our method is demonstrated by resolving quasi-particle excitation spectra in spin-liquids and identifying interaction-induced cross-peaks in atomic systems. Our results establish a practical and scalable pathway for probing complex quantum dynamics on near-term quantum devices, extending the reach of quantum simulation into the nonlinear domain.",
+  "date": "2026-04-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.16164",
+  "doi": "10.48550/arxiv.2604.16164",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "b56aeef07d3d",
+  "title": "Quantum simulation of electron energy loss spectroscopy for battery materials",
+  "authors": [
+   "Alexander A. Kunitsa",
+   "Diksha Dhawan",
+   "Stepan Fomichev",
+   "Juan Miguel Arrazola",
+   "Minghao Zhang",
+   "Torin F. Stetina"
+  ],
+  "abstract": "The dynamic structure factor (DSF) is a central quantity for interpreting a vast array of inelastic scattering experiments in chemistry and materials science, but its accurate simulation poses a considerable challenge for classical computational methods. In this work, we present a quantum algorithm and an end-to-end simulation framework to compute the DSF, providing a general approach for simulating momentum-resolved spectroscopies. We apply this approach to the simulation of electron energy loss spectroscopy (EELS) in the core-level electronic excitation regime, a spectroscopic technique offering sub-nanometer spatial resolution and capable of resolving element-specific information, crucial for analyzing battery materials. We derive a quantum algorithm for computing the DSF for EELS by evaluating the off-diagonal terms of the time-domain Green's function, enabling the simulation of momentum-resolved spectroscopies. To showcase the algorithm, we study the oxygen K-edge EELS spectrum of lithium manganese oxide (Li2MnO3), a prototypical cathode material for investigating the mechanisms of oxygen redox in battery materials. For a representative model of an oxygen-centered cluster of Li2MnO3 with an active space of 18 active orbitals, the algorithm requires a circuit depth of 3.25 × 108 T gates, 100 logical qubits, and roughly 104 shots.",
+  "date": "2025-12-28",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0300557",
+  "citations": 2,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "4265c7e60846",
+  "title": "Large circuit execution for NMR spectroscopy simulation on NISQ quantum hardware",
+  "authors": [
+   "Artemiy Burov",
+   "Julien Baglio",
+   "Clément Javerzac‐Galy"
+  ],
+  "abstract": "With the latest advances in quantum computing technology, we are gradually moving from the noisy intermediate-scale quantum (NISQ) era characterized by hardware limited in the number of qubits and plagued with quantum noise, to the age of quantum utility where both the newest hardware and software methods allow for tackling problems which have been deemed difficult or intractable with conventional classical methods. One of these difficult problems is the simulation of one-dimensional (1D) nuclear magnetic resonance (NMR) spectra, a major tool to learn about the structure of molecules, helping the design of new materials or drugs. Using advanced error mitigation and error suppression techniques from Q-CTRL together with the latest commercially available superconducting-qubit quantum computer from IBM and trapped-ion quantum computer from IonQ, we present the quantum Hamiltonian simulation of liquid-state 1D NMR spectra in the high-field regime for spin systems up to 34 spins. Our pipeline has a major impact on the ability to execute deep quantum circuits with the reduction of quantum noise, improving mean square error by a factor of 22. It allows for the execution of deep quantum circuits and obtaining salient features of the 1D NMR spectra for both 16-spin and 22-spin systems, as well as a 34-spin system, which lies beyond the regime where unrestricted full Liouvillespace simulations are practical (32 spins, the Liouville limit). Our work is a step toward near-term quantum utility in NMR spectroscopy.",
+  "date": "2025-12-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.14513",
+  "doi": "10.48550/arxiv.2512.14513",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "839af63a527e",
+  "title": "Quantum noise spectroscopy by qudit spectators",
+  "authors": [
+   "C. Javaherian",
+   "Christopher Ferrie"
+  ],
+  "abstract": "Quantum noise spectroscopy is a well-known method for detecting environmental noise spectrum and has various applications in quantum sensing, quantum network design, and quantum computing. In this work, a protocol for quantum noise spectroscopy by qudit spectators (arbitrary d-level quantum systems) is presented for noises with stochastic and stationary Gaussian distributions. The protocol uses Weyl basis decomposition, consisting of generalized Pauli matrices, as the theoretical tool, and the Alvarez-Suter noise spectroscopy method, by which the qudit is being exposed to a series of pulse sequences, and the noise polyspectra is extracted by multiple measurements of an observable of the qudit. The formalism is further developed and simulated for three theoretical frameworks: The first two frameworks utilize a simplified Weyl basis and are capable of detecting Z-type dephasing noise. One is specifically modeled for a qutrit (d=3), and the second framework is designed for all qudits and has been tested through simulations of a ququad (d=4) and a quoct (d=8). The third framework employs the full Weyl basis, enabling it to identify all types of XYZ-dephasing noise. The simulations for this framework have been conducted for a quoct (d=8) implemented by the Antimony atom. The analytical protocol for noise spectroscopy that has been introduced transforms qudit systems into quantum spectators, and the presented simulations demonstrate the accuracy and reliability of this noise spectroscopy protocol.",
+  "date": "2025-02-18",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2502.13380",
+  "doi": "10.48550/arxiv.2502.13380",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "92db48ee6086",
+  "title": "The impact of noise on the simulation of NMR spectroscopy on NISQ devices",
+  "authors": [
+   "Andisheh Khedri",
+   "Pascal Stadler",
+   "Kirsten Bark",
+   "Matteo Lodi",
+   "Rolando Reiner",
+   "Nicolas Vogt",
+   "Michael Marthaler",
+   "Juha Leppäkangas"
+  ],
+  "abstract": "With the surge of quantum computing platforms that continue to push the boundaries of capabilities of noisy intermediate-scale quantum computers, there is a growing interest in finding relevant applications and quantifying the corresponding error budgets. We present a simulation of nuclear magnetic resonance (NMR) spectroscopy of small organic molecules on publicly available cloud quantum computers. We are using two quantum computing platforms, namely IBM's quantum processors based on superconducting qubits and IonQ's Aria trapped ion quantum computer addressed via Amazon Braket. We analyze the impact of noise on the obtained NMR spectra, and we formulate an effective decoherence rate that quantifies the threshold noise that our proposed algorithm can tolerate. We show that the effective decoherence rate can be calculated using simple fidelity metrics that are available by cloud quantum computing providers. Our investigation paves the way to better employ such application-driven quantum tasks on current noisy quantum devices.",
+  "date": "2024-04-29",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2404.18903",
+  "doi": "10.48550/arxiv.2404.18903",
+  "citations": 2,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "35259c072cd3",
+  "title": "Quench Spectroscopy of Magnetic Excitations on a Superconducting Quantum Processor",
+  "authors": [
+   "D. A. Millar",
+   "G.W. Pennington",
+   "N. T. M. Siow",
+   "S. Brandhofer",
+   "J. Crain",
+   "F. H. L. Essler",
+   "A. G. Green",
+   "S. J. Thomson"
+  ],
+  "abstract": "The elementary excitation spectrum of a many-body quantum system encodes many key properties, including phenomena as diverse as transport, thermalisation and ground state structure. Excitation spectra of strongly correlated systems are typically encoded in dynamical structure factors, which are demanding to measure experimentally and challenging to compute classically. Here we use quench spectroscopy on a superconducting quantum processor to extract excitation spectra of spin chains of $L=101$ spins. By tailoring the combination of quench protocol and observable, we selectively access distinct excitation sectors across several phases of the spin-$1/2$ XXZ chain, resolving free magnons, multi-magnon bound states, and two-spinon continua. Notably, we demonstrate that the protocol does not rely on ground state preparation: in the classically challenging gapless regime, we extract spectra directly from the quench dynamics of easily prepared product states, a procedure that is natural and straightforward on quantum hardware. Our work establishes quench spectroscopy as a fast and flexible probe of many-body excitation spectra on digital quantum hardware, introduces a novel quench protocol that does not require costly state preparation routines, and provides a scalable route towards regimes where classical simulation may become intractable.",
+  "date": "2026-07-02",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.02673",
+  "doi": "10.48550/arxiv.2607.02673",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "c70b36e9c60d",
+  "title": "Any type of spectroscopy can be efficiently simulated on a quantum computer",
+  "authors": [
+   "Liam P. Flew",
+   "Ivan Kassal"
+  ],
+  "abstract": "Spectroscopy is the most important method for probing the structure of molecules. However, predicting molecular spectra on classical computers is computationally expensive, with the most accurate methods having a cost that grows exponentially with molecule size. Quantum computers have been shown to simulate simple types of optical spectroscopy efficiently -- with a cost polynomial in molecule size -- using methods such as time-dependent simulations of photoinduced wavepackets. Here, we show that any type of spectroscopy can be efficiently simulated on a quantum computer using a time-domain approach, including spectroscopies of any order, any frequency range, and involving both electric and magnetic transitions. Our method works by computing any spectroscopic correlation function based on the corresponding double-sided Feynman diagram, the canonical description of spectroscopic interactions. The approach can be used to simulate spectroscopy of both closed and open molecular systems using both digital and analog quantum computers.",
+  "date": "2025-10-03",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.02784",
+  "doi": "10.48550/arxiv.2510.02784",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "9178fb1e7a56",
+  "title": "Simulating X-ray absorption spectroscopy of battery materials on a quantum computer",
+  "authors": [
+   "Stepan Fomichev",
+   "Kasra Hejazi",
+   "Ignacio Loaiza",
+   "Modjtaba Shokrian Zini",
+   "Alain Delgado",
+   "Arne-Christian Voigt",
+   "Jonathan Edward Mueller",
+   "Juan Miguel Arrazola"
+  ],
+  "abstract": "X-ray absorption spectroscopy is a crucial experimental technique for elucidating the mechanisms of structural degradation in battery materials. However, extracting information from the measured spectrum is challenging without high-quality simulations. In this work, we propose simulating near-edge X-ray absorption spectra as a promising application for quantum computing. It is attractive due to the ultralocal nature of X-ray absorption that significantly reduces the sizes of problems to be simulated, and because of the classical hardness of simulating spectra. We describe three quantum algorithms to compute the X-ray absorption spectrum and provide their asymptotic cost. One of these is a Monte-Carlo based time-domain algorithm, which is cost-friendly to early fault-tolerant quantum computers. We then apply the framework to an industrially relevant example, a CAS(22e,18o) active space for an O-Mn cluster in a Li-excess battery cathode, showing that practically useful simulations could be obtained with much fewer qubits and gates than ground-state energy estimation of the same material.",
+  "date": "2024-05-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2405.11015",
+  "doi": "10.48550/arxiv.2405.11015",
+  "citations": 1,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "ef827218dd73",
+  "title": "Control-centric quantum noise spectroscopy of time-ordered polyspectra",
+  "authors": [
+   "Anonymous",
+   "Elliot Coupe",
+   "Qi Yu",
+   "Gerardo A. Paz-Silva"
+  ],
+  "abstract": "Precise environmental-noise characterisation in open quantum systems is a key step toward high-fidelity quantum control and targeted decoherence suppression in computing and sensing applications. Non-parametric quantum noise spectroscopy (QNS) provides a general-purpose, model-agnostic framework for estimating the spectral properties of an environment. The ability to perform such protocols under realistic constraints is key to their practical applicability. Notably, it is important to account for control constraints and understand how they limit the ability to learn about noise correlations as experiment-agnostic objects. We show how adopting a control-centric point of view allows one to recast the noise spectroscopy problem in such a way that (i) the central objects are now the time-ordered polyspectra, (ii) control filter functions are no longer encumbered by time-ordering. In particular, we show that this approach enables the seamless generalisation of frequency-comb QNS protocols to arbitrary control scenarios without introducing additional control symmetries that effectively remove time-ordering from filter functions, improving estimation in typically pathological scenarios. We demonstrate the targeted reconstruction of the time-ordered polyspectra across classical Gaussian and quantum non-Gaussian environments via simulations.",
+  "date": "2026-08-19",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/121q-3ddh",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "323d4a800a13",
+  "title": "Ising meson spectroscopy on a noisy digital quantum simulator",
+  "authors": [
+   "Christopher Lamb",
+   "Yicheng Tang",
+   "Robert H. Davis",
+   "Ananda Roy"
+  ],
+  "abstract": "Quantum simulation has the potential to be an indispensable technique for the investigation of non-perturbative phenomena in strongly-interacting quantum field theories (QFTs). In the modern quantum era, with Noisy Intermediate Scale Quantum (NISQ) simulators widely available and larger-scale quantum machines on the horizon, it is natural to ask: what non-perturbative QFT problems can be solved with the existing quantum hardware? We show that existing noisy quantum machines can be used to analyze the energy spectrum of several strongly-interacting 1+1D QFTs, which exhibit non-perturbative effects like 'quark confinement' and 'false vacuum decay'. We perform quench experiments on IBM's quantum simulators to compute the energy spectrum of 1+1D quantum Ising model with a longitudinal field. Our results demonstrate that digital quantum simulation in the NISQ era has the potential to be a viable alternative to numerical techniques such as density matrix renormalization group or the truncated conformal space methods for analyzing QFTs.",
+  "date": "2024-07-13",
+  "venue": "Nature Communications",
+  "arxiv_id": "",
+  "doi": "10.1038/s41467-024-50206-2",
+  "citations": 8,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "6569549c732d",
+  "title": "Preserving Coulomb blockade in transport spectroscopy of quantum dots by dynamical tunnel barrier compensation",
+  "authors": [
+   "Varsha Jangir",
+   "Deepak Shah",
+   "S. Samanta",
+   "S. Rastogi",
+   "Harvey E. Beere",
+   "D. A. Ritchie",
+   "K. Das Gupta",
+   "Suddhasatta Mahapatra"
+  ],
+  "abstract": "Surface-gated quantum dots (QDs) in semiconductor heterostructures represent a highly attractive platform for quantum computation and simulation. However, in this implementation, the barriers through which the QD is tunnel-coupled to source and drain reservoirs (or neighboring QDs) are usually non-rigid and capacitively influenced by the plunger-gate voltage (VP). In transport spectroscopy measurements, this leads to suppression of current and lifting of the Coulomb blockade for increasing negative and positive values of VP, respectively. Consequently, the charge-occupancy of the QD can be tuned over a rather small range of VP. By dynamically tuning the tunnel barriers to compensate for the capacitive effect of VP, here we demonstrate a protocol that allows Coulomb blockade to be preserved over a remarkably large span of charge-occupancies, as demonstrated by clean Coulomb diamonds and well-resolved excited state features. The protocol will be highly beneficial for automated tuning and identification of the gate voltage space for optimal operation of QDs in large arrays required for a scalable spin quantum computing architecture.",
+  "date": "2024-12-23",
+  "venue": "Applied Physics Letters",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0241328",
+  "citations": 4,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "3bd1e11699a0",
+  "title": "Real-time estimators for scattering observables: A full account of finite-volume errors for quantum simulation",
+  "authors": [
+   "Ivan M. Burbano",
+   "Marco A. Carrillo",
+   "Rana Urek",
+   "Anthony N. Ciavarella",
+   "Raúl A. Briceño"
+  ],
+  "abstract": "The real-time correlators of quantum field theories can be directly probed through new approaches to simulation, such as quantum computing and tensor networks. This provides a new framework for computing scattering observables in lattice formulations of strongly interacting theories, such as lattice quantum chromodynamics. In this paper, we prove that the proposal of real-time estimators of scattering observables is universally applicable to all scattering observables of gapped quantum field theories. All finite-volume errors are exponentially suppressed, and the rate of this suppression is controlled by the regulator considered, namely, a displacement of the spectrum of the theory into the complex plane. A partial restoration of Lorentz symmetry by averaging over different boosts gives an additional suppression of finite volume errors. Our results also apply to the simulation of wave packet scattering, where a similar averaging is performed to construct the wave packets that regulate the finite volume effects. This result represents a necessary key step toward determining a broad class of scattering observables via quantum computing that are currently inaccessible via classical computing. Such observables are relevant for various applications, including hadron spectroscopy, hadron structure, and precision tests of the Standard Model. We also comment on potential applications of our results to traditional computational schemes.",
+  "date": "2026-03-13",
+  "venue": "Physical review. D/Physical review. D.",
+  "arxiv_id": "",
+  "doi": "10.1103/dc17-4zjy",
+  "citations": 2,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "6cfa08f773b7",
+  "title": "Nonlinear spectroscopy as a magnon breakdown diagnosis and its efficient simulation",
+  "authors": [
+   "David A. S. Kaib",
+   "Marius Möller",
+   "Roser Valentí"
+  ],
+  "abstract": "Identifying quantum spin liquids, magnon breakdown, or fractionalized excitations in quantum magnets is an ongoing challenge due to the ambiguity in interpreting excitation continua occurring in linear-response probes. Recently, it was proposed that techniques measuring higher-order response, such as two-dimensional coherent spectroscopy (2DCS), could resolve such ambiguities. Numerically simulating nonlinear response functions can, however, be computationally very demanding. We present an efficient Lanczos-based method to compute second-order susceptibilities χ 2 ( ω t , ω τ ) directly in the frequency domain. Applying this to extended Kitaev models describing α − RuCl 3 , we find qualitatively different nonlinear responses between intermediate magnetic field strengths and the high-field regime. To put these results into context, we derive the general 2DCS response of partially polarized magnets within the linear spin-wave approximation, establishing that χ 2 ( ω t , ω τ ) is restricted to a distinct universal form if the excitations are conventional magnons. Deviations from this form, as predicted in our Lanczos-based simulations for α − RuCl 3 , can hence serve in 2DCS experiments as direct criteria to determine whether an observed excitation continuum is of conventional two-magnon type or of different nature.",
+  "date": "2025-12-23",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/h5sd-flyf",
+  "citations": 3,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "bb4ee9785fd4",
+  "title": "High-Harmonic Spectroscopy as a Probe of Fractional Quantum Dynamics",
+  "authors": [
+   "Marcelo F. Ciappina"
+  ],
+  "abstract": "We investigate high-order harmonic generation (HHG) driven by strong laser fields in a reduced-dimensionality time-dependent Schrödinger equation (TDSE) model generalized through a fractional kinetic-energy operator. By fixing the ionization potential, we isolate the effect of the fractional continuum dispersion from trivial changes in the binding energy. A classical three-step analysis is first extended to the fractional case, showing that the maximum return energy remains proportional to a fractional ponderomotive scale, but with a cutoff coefficient that decreases systematically as the fractional exponent is reduced. We then benchmark these predictions with TDSE simulations for different values of the fractional exponent α. The computed HHG spectra exhibit a progressive reduction in the accessible cutoff region and pronounced modifications of the plateau interference structure. Time-frequency Gabor analysis of the dipole acceleration further reveals that the fractional kinetic operator reshapes the recollision dynamics, modifying the emission branches and enhancing interference features associated with multiple quantum pathways and returns. Finally, we analyze cutoff scaling laws with respect to laser intensity and wavelength. At fixed wavelength, the shifted cutoff harmonic follows an effective fractional intensity scaling, while at fixed intensity the cutoff energy shift follows a fractional wavelength scaling. Although the cutoff extracted from finite-pulse TDSE spectra should be regarded as an empirical measure, the combined spectral, scaling, and time-frequency analyses demonstrate, within the present model, that non-quadratic continuum dispersion can produce distinctive signatures in strong-field dynamics.",
+  "date": "2026-07-09",
+  "venue": "Fractal and Fractional",
+  "arxiv_id": "",
+  "doi": "10.3390/fractalfract10070462",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "0af65c95466f",
+  "title": "Tensor-Network-Based Distributed Quantum Dynamics on Independent Quantum Computers",
+  "authors": [
+   "Anurag Dwivedi",
+   "Melissa C Revelle",
+   "Daniel Lobser",
+   "Brian McFarland",
+   "Edward Tortorici",
+   "Christopher G. Yale",
+   "Susan Clark",
+   "Philip Richerme",
+   "Srinivasan S. Iyengar"
+  ],
+  "abstract": "We present an approach based on tensor networks for distributed quantum computing simulation of chemical wavepacket dynamics in a continuous variable representation. The central idea is that the tensor-network representation of the multidimensional time-evolution operator naturally induces an elevated Hilbert space where the dynamics decomposes into a set of independent lower-dimensional propagations. This transformation converts an entangled quantum evolution into a set of parallel computational tasks that can be executed asynchronously across heterogeneous quantum and classical computing architectures. The resulting formalism establishes a direct connection between tensor-network decompositions, uniformly controlled quantum circuits, and asynchronous distributed quantum computing. The approach is developed with a goal towards hybrid quantum/classical implementation, and is appropriate for a general heterogeneous mixture of quantum hardware systems. The experimental realization of the asynchronously distributed quantum processes that arise from the tensor-network decomposition are carried out on the Sandia National Laboratories' trapped-ion quantum computer, where the circuits are compiled using native partial-entangling $XX(θ)$ gates, reducing the expected two-qubit gate infidelity by more than 30\\% relative to conventional fully entangling decompositions. We demonstrate the methodology by quantum computing the vibrational spectra of a small protonated water cluster that shows critical quantum nuclear behavior. Such water cluster systems have been found to be challenging for experimental action spectroscopy and for theory, and here, for the first time, we provide results for vibrational spectroscopy that are in agreement with the respective classical results to within 4cm$^{-1}$, thus allowing for the potential for spectroscopic accuracy from quantum computations.",
+  "date": "2026-06-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.11579",
+  "doi": "10.48550/arxiv.2606.11579",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "2a58f4cbc92a",
+  "title": "Fault‐Tolerant Quantum Simulation of the Pauli‐Breit Hamiltonian for Ab Initio Hybrid Quantum‐Classical Molecular Design With Applications to Photodynamic Therapy",
+  "authors": [
+   "E. J. Zak"
+  ],
+  "abstract": "ABSTRACT Relativistic spin effects are driving subtle molecular processes ranging from intersystem crossing in photodynamic therapy to spin‐mediated catalysis and high‐resolution spectroscopy. These effects can be described by the Pauli‐Breit Hamiltonian, which extends the nonrelativistic electronic Hamiltonian by including explicit one‐ and two‐electron spin‐orbit and spin‐spin interactions. However, first‐principles simulations of the full Pauli‐Breit Hamiltonian quickly become intractable on classical computers due to the rapid growth of Hilbert space dimension and the complexity of two‐body spin‐dependent terms. In this work, we propose a fault‐tolerant quantum algorithm for computing molecular energy levels and properties governed by the Pauli‐Breit Hamiltonian. The central result of the paper is an explicit block‐encoding construction for the relativistic Hamiltonian in a second‐quantized, doubly factorized representation. By reformulating the Pauli‐Breit Hamiltonian in a symmetry‐adapted Majorana basis, we construct efficient linear‐combination‐of‐unitaries circuits that encode both one‐ and two‐electron spin‐orbit coupling without resorting to effective or mean‐field approximations. We introduce spin‐controlled Pauli‐SWAP networks that decouple spin and orbital control logic, enabling a unified treatment of relativistic spin mixing with only a modest overhead relative to spin‐free electronic structure simulations. We analyze the resulting quantum resources in terms of logical qubit counts and T‐gate complexity, and show that the inclusion of spin degrees of freedom does not fundamentally worsen the asymptotic scaling. The prefactor in our approach is 2–4 lower than if the linear‐combination of unitaries technique was applied directly. The present manuscript focuses on explicit circuit constructions and scaling analysis, rather than molecule‐specific numerical resource estimates. To illustrate one prospective application, we outline a first‐principles hybrid quantum‐classical workflow for the rational design of photodynamic therapy photosensitizers, artificial photosynthesis catalysts, and other molecular systems where accurate treatment of relativistic spin effects is essential.",
+  "date": "2026-08-28",
+  "venue": "International Journal of Quantum Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1002/qua.70269",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "9a485fc4b946",
+  "title": "Sustainable high-performance open-source quantum dynamics and spectroscopy software",
+  "authors": [
+   "Tianyuan Zhang (21756974)",
+   "Xiasong Li (9906889)",
+   "Sharon Hammes-Schiffer (1274832)",
+   "Edward Valeev (3741013)",
+   "Eugene DePrince (19434835)"
+  ],
+  "abstract": "Recent developments in the ChronusQuantum (ChronusQ) software package highlight its advanced capabilities in simulating quantum dynamics of both electrons and nuclei, accurately accounting for relativistic and correlation effects, and leveraging high-performance implementations tailored for modern heterogeneous, massively parallel computing architectures. ChronusQ is an open-source tool released under the GNU General Public License v2, designed to solve complex problems in ab initio electronic structure theory. It is developed by a collaborative team across leading research universities and is renowned for its integrated time-dependent quantum mechanical theories, spectral analysis tools, and variational relativistic frameworks. With support from the Office of Advanced Cyberinfrastructure and the Division of Chemistry at the National Science Foundation, the team has expanded ChronusQ's capabilities in several significant directions. We have developed the nuclear-electronic orbital time- dependent configuration interaction (NEO-TDCI) method, which enables accurate treatment of hydrogen tunneling and double excitations—cases where multiconfigurational approaches are essential. Additionally, we introduced the polarizable continuum model and gauge-invariant atomic orbitals, both compatible with NEO, to simulate solvent effects and magnetic properties. ChronusQ has also significantly advanced its relativistic simulation toolkit with the implementation of a four-component relativistic framework, offering a robust foundation for simulating the quantum behavior of heavy atoms, where relativistic effects are particularly pronounced. Building on this, ChronusQ now integrates relativistic coupled cluster (CC) framework and the distributed active space (DAS) framework, providing highly accurate treatments of electron correlation. Key modules in the NEO, CC, and DAS frameworks are implemented with MPI and GPU-parallelized computation. Notably, our DAS framework has set a new benchmark by surpassing the quadrillion-determinant barrier in a numerically exact configuration interaction method. This year, we also enhanced the user and developer experience by redesigning ChronusQ's module structure to support flexible extension and integration of existing features, reliable restart of interrupted calculations, and seamless interfacing with other computational chemistry software. The physical insights enabled by ChronusQ continue to drive innovations in sustainable energy, ca",
+  "date": "2025-07-22",
+  "venue": "Figshare",
+  "arxiv_id": "",
+  "doi": "10.6084/m9.figshare.29614493.v1",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "8f6e31e86624",
+  "title": "Quantum medicine: A quantum–mechanical framework for redox biology, disease and precision medicine",
+  "authors": [
+   "Ji‐Yong Sung",
+   "Jae‐Ho Cheong"
+  ],
+  "abstract": "BACKGROUND: Key biological processes underlying health and disease-including electron transfer, redox regulation, and radical-mediated signaling-are fundamentally governed by quantum-mechanical principles. These processes are central to mitochondrial function, metabolism, and cellular signaling, yet their biomedical implications have remained difficult to address using classical computational approaches. RATIONALE: Recent advances in quantum computing, quantum sensing, and quantum machine learning enable direct simulation and measurement of quantum phenomena in biologically relevant systems. Hybrid quantum-classical algorithms, such as the Variational Quantum Eigensolver and Quantum Phase Estimation, now provide first-principles access to redox potentials, electronic couplings, and spin-dependent reactions that are directly linked to disease mechanisms. These developments establish the foundation for quantum biomedicine as a translational framework bridging molecular physics and clinical medicine. CONTENT: This review synthesizes current progress in the application of quantum technologies to biomedicine, emphasizing translational relevance. We discuss quantum-informed modeling of cancer metabolism and redox rewiring, protein misfolding in neurodegenerative diseases, immune and inflammatory signaling, infectious disease mechanisms, and drug discovery. We further propose a Quantum-Experimental-Clinical (QEC) pipeline that integrates quantum simulations with experimental validation and multi-omics clinical data, enabling mechanistic interpretation of disease phenotypes and identification of redox- and spin-sensitive therapeutic targets. CONCLUSION: Quantum biomedicine introduces a new mechanistic layer that links electronic-scale processes to clinical phenotypes. While current implementations are constrained by NISQ-era hardware, rapid advances in quantum algorithms and sensing technologies position quantum approaches as emerging tools in precision and translational medicine. Strategic integration of quantum methods with experimental and clinical workflows may accelerate biomarker discovery and therapeutic development. KEY POINTS: Quantum biomedicine redefines life as a dynamic equilibrium sustained by quantum coherence, tunnelling and redox resonance. Hybrid quantum-classical algorithms, such as VQE and QPE, enable first-principles modelling of redox and spin-dependent reactions with near-experimental accuracy. NISQ-era hardware supports proof-of-concept sim",
+  "date": "2026-01-01",
+  "venue": "Clinical and Translational Medicine",
+  "arxiv_id": "",
+  "doi": "10.1002/ctm2.70598",
+  "citations": 4,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "48e72148b734",
+  "title": "Relativistic Quantum Chemical Investigation of Actinide Covalency Measured by Electron Paramagnetic Resonance Spectroscopy",
+  "authors": [
+   "Letitia Birnoschi",
+   "Meagan S. Oakley",
+   "Eric J. L. McInnes",
+   "Nicholas F. Chilton"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide We investigate actinide covalency effects in two [AnCp tt 3 ] (An = Th, U) complexes recently studied with pulsed electron paramagnetic resonance spectroscopy, using the Hyperion package to obtain relativistic hyperfine coupling constants from relativistic multiconfigurational wave functions. 1 H and 13 C HYSCORE simulations using the computed parameters show excellent agreement with the experimental data, highlighting the accuracy of modern relativistic ab initio methods. The extent of covalency indicated from the calculations on [ThCp tt 3 ] is in agreement with the original report based on traditional spectral fitting methods, while the covalency in [UCp tt 3 ] is found to be previously overestimated. The latter is due to the paramagnetic spin–orbit effect that arises naturally in a relativistic theory of hyperfine coupling and yet was not accounted for in the original study, thus highlighting the necessity of relativistic approaches for the interpretation of magnetic resonance data pertaining to actinides.",
+  "date": "2024-05-16",
+  "venue": "Journal of the American Chemical Society",
+  "arxiv_id": "",
+  "doi": "10.1021/jacs.4c01930",
+  "citations": 8,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "6dd035d9ab6e",
+  "title": "Hyperpolarized NMR Combined with Quantum Mechanical Simulations Reveal Atomistic Structures of Calcium Phosphate Prenucleation Clusters",
+  "authors": [
+   "Christopher Pötzl",
+   "Ertan Turhan",
+   "Christel Gervais",
+   "Thierry Azaı̈s",
+   "Dennis Kurzbach"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide The discovery of solute precursors of crystalline materials, such as biominerals, recently challenged the classical nucleation theory (CNT). One emerging method for investigating these early-stage intermediates in solution is dissolution dynamic nuclear polarization (dDNP)-enhanced nuclear magnetic resonance (NMR) spectroscopy. Recent applications of dDNP to calcium carbonate (CaC) and calcium phosphate (CaP) mineralization have demonstrated the feasibility of identifying and tracing very early-stage prenucleation clusters (PNCs). However, the structural details remain difficult to resolve as dDNP is mainly limited to simple one-dimensional NMR detection. To overcome this bottleneck, we herein integrate hyperpolarized NMR of PNC with molecular dynamics simulations and quantum mechanical calculations to gain atomistic structural insights into CaP PNCs. By simulating the PNC structures, computing chemical shift parameters, and comparing these to hyperpolarized NMR “fingerprint” spectra, we demonstrate how to derive models of solution-state structural ensembles of PNC, even when very short-lived. With this approach, we find that the Ca/P i ratio inside PNC tends to stay close to 1 independent of pH, while their sizes vary, leading to larger precursors under more basic conditions. At the same time, phosphate speciation within PNC was found to be independent of pH, as only monohydrogen phosphates participated in PNC formation. This latter feature also entailed a pH-independent local atomistic arrangement of phosphates coordinating a Ca(II) center, leading to constant Ca 2+ –P i distances of ∼3 and ∼3.6 Å. These ion-to-ion distances agree with those found inside solid CaP phases such as brushite, octacalcium phosphate, or hydroxyapatite─a feature hinting toward the templating function of PNCs. Thus, our method (i) extends the methodological scope of hyperpolarized NMR by complementing one-dimensional fingerprint spectra with full structural models and (ii) sheds light on key intermediates that have been experimentally underexplored.",
+  "date": "2025-09-11",
+  "venue": "Analytical Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.analchem.5c02945",
+  "citations": 4,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "e443c5976600",
+  "title": "WFOT: A Wave Function Overlap Tool between Single- and Multi-Reference Electronic Structure Methods for Spectroscopy Simulation",
+  "authors": [
+   "Alessandro Loreti",
+   "Victor M. Freixas",
+   "Davide Avagliano",
+   "Francesco Segatta",
+   "Huajing Song",
+   "Sergei Tretiak",
+   "Shaul Mukamel",
+   "Marco Garavelli",
+   "Niranjan Govind",
+   "Artur Nenov"
+  ],
+  "abstract": "We report the development of a novel diagnostic tool, named wave function overlap tool (WFOT), designed to evaluate the overlap between wave functions computed at single-reference [i.e., time-dependent density functional theory or configuration interaction singles (CIS)] and multireference (i.e., CASSCF/CASPT2) electronic structure levels of theory. It relies on truncating the single- and multireference WFs to CIS-like expansions spanning the same configurational space and maximizing the molecular orbital overlap by means of a unitary transformation. To demonstrate the functionality of the tool, we calculate the transient spectrum of acetylacetone by evaluating excited state absorption signals with multireference quality on top of single-reference on-the-fly dynamics simulations. Semiautomatic spectra generation is facilitated by interfacing the tool with the COBRAMM package, which also allows one to use WFOT with several quantum chemistry codes such as Gaussian, NWChem, and OpenMolcas. Other exciting possibilities for the utilization of the code beyond the simulation of transient absorption spectroscopy are eventually discussed.",
+  "date": "2024-06-03",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.4c00310",
+  "citations": 5,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "32a89ac6bb08",
+  "title": "One-Shot Simulation of Static Disorder in Quantum Dynamics with Equilibrium Initial State via Matrix Product State Sampling",
+  "authors": [
+   "Z. Zhang",
+   "Jiajun Ren",
+   "Wei‐Hai Fang"
+  ],
+  "abstract": "Static disorder plays a crucial role in the electronic dynamics and spectroscopy of complex molecular systems. Traditionally, obtaining observables averaged over static disorder requires thousands of realizations via direct sampling of the disorder distribution, leading to high computational costs. In this work, we extend the auxiliary degree-of-freedom based matrix product state (MPS) method to handle system-bath correlated thermal equilibrium initial states. We validate the effectiveness of the extended method by computing the dipole-dipole time correlation function of the Holstein model relevant to the emission spectrum of molecular aggregates. Our results show that the method accurately captures static disorder effects using a one-shot quantum dynamical simulation, with only a moderate increase in MPS bond dimension, thereby significantly reducing computational cost. Moreover, it enables the generation of a much larger number of samples than the conventional direct sampling method at negligible additional cost, thus reducing statistical errors. This method provides a broadly useful tool for calculating equilibrium time correlation functions in system-bath coupled models with static disorder.",
+  "date": "2025-06-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.07120",
+  "doi": "10.48550/arxiv.2506.07120",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "d3107e36a89c",
+  "title": "Quantum biology: From mechanisms to medicine",
+  "authors": [
+   "Ji‐Yong Sung",
+   "Jae‐Ho Cheong"
+  ],
+  "abstract": "BACKGROUND: Quantum biology explores how quantum mechanical phenomena-including coherence, tunneling, superposition, and spin dynamics-contribute to biological function. Although once considered negligible in warm and noisy biological environments, increasing evidence suggests that quantum effects play important roles in diverse living systems. OBJECTIVE: This review aims to summarize the current understanding of quantum biological mechanisms, highlight their relevance to physiology and disease, and discuss emerging biomedical and technological applications. METHODS: We reviewed recent experimental, computational, and theoretical advances in quantum biology, including studies employing ultrafast spectroscopy, quantum sensing, cryo-electron microscopy, and quantum simulation approaches. Key biological systems examined include photosynthetic complexes, enzymatic reactions, DNA base pairing, sensory systems, and mitochondrial electron transport. RESULTS: Accumulating evidence indicates that quantum coherence, tunneling, and spin-dependent processes contribute to photosynthetic energy transfer, enzymatic catalysis, proton transfer in DNA, magnetoreception, olfaction, and mitochondrial bioenergetics. Advances in quantum sensing and computational modeling have further enabled direct investigation of coherence dynamics and electron transfer mechanisms in biological systems. These findings suggest that quantum effects may influence aging, cancer, neurodegeneration, and metabolic dysfunction through mechanisms involving reactive oxygen species production, mutagenesis, and altered redox signaling. CONCLUSION: Quantum biology is evolving from a speculative concept into an experimentally accessible and translationally relevant discipline. Integrating quantum principles with systems biology, multi-omics, and precision medicine may provide new opportunities for diagnostics, biomarker discovery, and therapeutic development. Continued advances in spectroscopy, quantum sensing, and quantum computing are expected to further establish the role of quantum phenomena in health and disease.",
+  "date": "2026-05-01",
+  "venue": "Clinical and Translational Medicine",
+  "arxiv_id": "",
+  "doi": "10.1002/ctm2.70694",
+  "citations": 3,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "b00d9e826577",
+  "title": "U 4+ Speciation in Acidic Aqueous Solution: Insights from UV–Vis, EXAFS, XANES, and Quantum-Statistical Simulations",
+  "authors": [
+   "Gema Raposo-Hernández",
+   "Rafael R. Pappalardo",
+   "Florent Réal",
+   "Valérie Vallet",
+   "Enrique Sánchez Marcos"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide This theoretical study investigates the UV–vis absorption properties of U 4+ -containing aqueous solutions and their relationship with the nature of aqua-complexes present at varying acidic levels. High-level quantum-mechanical calculations─accounting for relativistic effects, spin–orbit coupling, and both dynamic and nondynamic correlation─were combined with classical Molecular Dynamics simulations. EXAFS, XANES, and UV–vis spectra of U 4+ -containing aqueous solutions were used as experimental reference data and compared with the corresponding theoretical predictions. UV–vis spectra were available at various pH values. Theoretical spectra were generated as averages of individual spectra computed from the structures statistically generated. Coordination numbers ranging from 8 to 10 for the aqua ion were explored. Although the theoretical-experimental comparison of the EXAFS and XANES spectra allows us to reject ten-coordination, assigning the octa- or nine- (ennea-)coordination to the U 4+ aqua ion is difficult. However, UV–vis spectroscopy provided some evidence supporting a preference for the ennea-coordination. Spectra for aqueous solutions up to pH 2.22 were compared with simulated spectra of hydrolyzed forms of the aqua ion, in which up to two water molecules were replaced by hydroxyl anions. Spectra obtained as simulated mixtures of the aqua ion and hydrolyzed species in varying ratios produced a spectral evolution with pH that closely resembles experimental observations.",
+  "date": "2025-06-16",
+  "venue": "Inorganic Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.inorgchem.5c01854",
+  "citations": 5,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "dd9b4a227c24",
+  "title": "Process tensor approaches to modeling two-dimensional spectroscopy",
+  "authors": [
+   "Roosmarijn de Wit",
+   "Jonathan Keeling",
+   "Brendon W. Lovett",
+   "Alex W. Chin"
+  ],
+  "abstract": "Problems in the field of open quantum systems often involve an environment that strongly influences the dynamics of excited states. Here we present a numerical method to model optical spectra of non-Markovian open quantum systems. The method employs a process tensor framework to efficiently compute multitime correlations in a numerically exact way. To demonstrate the efficacy of our method, we compare 2D electronic spectroscopy simulations produced through our method to Markovian master equation simulations in three different system-bath coupling regimes.",
+  "date": "2025-02-26",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.7.013209",
+  "citations": 10,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "2d6df1b8c9e4",
+  "title": "Unraveling the Interface Chemistry between HCN and Cosmic Silicates by the Interplay of Infrared Spectroscopy and Quantum Chemical Modeling",
+  "authors": [
+   "Niccolò Bancone",
+   "Rosangela Santalucia",
+   "Stefano Pantaleone",
+   "Piero Ugliengo",
+   "Lorenzo Mino",
+   "Albert Rimola",
+   "Marta Corno"
+  ],
+  "abstract": "Understanding the interaction between hydrogen cyanide (HCN) and silicate surfaces is crucial for elucidating the prebiotic processes occurring on interstellar grain cores as well as in cometary and meteoritic matrices. In this study, we characterized the adsorption features of HCN on crystalline forsterite (Mg 2 SiO 4 ) surfaces, one of the most abundant cosmic silicates, by combining experimental infrared spectra at low temperatures (100–150 K) with periodic DFT simulations. Results showed the coexistence of both molecular and dissociative HCN adsorption complexes as a function of the considered forsterite crystalline face. Molecular adsorptions dominate on the most stable surfaces, while dissociative adsorptions occur predominantly on surfaces of lower stability, catalyzed by the enhanced Lewis acid–base behavior of surface-exposed Mg 2+ –O 2– ion pairs. On the whole set of adsorption cases, harmonic frequency calculations were carried out and compared with the experimental infrared bands. To disentangle each vibrational mode contributing to the experimental broad bands, we run the best nonlinear fit between the predicted set of frequencies and the experimental bands. The outcome of this procedure allowed us to (i) deconvolute the experimental IR spectrum by assigning computed normal modes of vibrations to the main features of each band and (ii) reveal which crystal faces are responsible for the largest contribution to the adsorbate vibrational bands, giving information about the morphology of the samples. The present straightforward procedure is quite general and of broad interest in the fine characterization of the infrared spectra of adsorbates on complex inorganic material surfaces.",
+  "date": "2024-08-20",
+  "venue": "The Journal of Physical Chemistry C",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpcc.4c03454",
+  "citations": 5,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "8e4431cae566",
+  "title": "An Agentic Artificial-Intelligence Framework for Automated First-Principles X-ray Photoelectron Spectroscopy Calculations on High-Performance Computing",
+  "authors": [
+   "Hengyuan Shen",
+   "Jin Qian"
+  ],
+  "abstract": "First-principles X-ray photoelectron spectroscopy (XPS) is an indispensable complement to experiment for assigning core-level binding energies and chemical shifts, but a single core-level binding energy requires a multi-step, human-supervised computational campaign: structure construction, geometry relaxation, convergence testing, final-state core-hole simulation, and output interpretation—each step gated on inspecting the previous one and each executed against the idiosyncrasies of a batch-scheduled supercomputer. We present an open, modular framework that delegates the orchestration of this campaign to a large-language-model (LLM) agent while keeping every scientifically consequential decision under human control. The framework is organized as three composable, software-agnostic libraries—structure building, quantum-chemistry input generation, and a uniform high-performance-computing (HPC) gateway—beneath an LLM supervisor built on a durable, checkpointed state graph. The agent exposes 51 typed tools, pauses for human approval through a graph-level interrupt mechanism, and survives the hours-to-days latency of HPC queues by persisting its entire state and resuming on job completion. For the XPS physics we implement two complementary final-state ∆SCF backends: the modern VASP periodic recipe (ICORELEVEL=2 with per-atom species promotion and an explicitly set valenceelectron count, exposing the full-, half-, and excited-core-hole variants) for solids and surfaces, and a molecular Q-Chem core-ionization recipe (a ground-state probe to locate the core orbital, then a two-block neutral/cation job that holds the hole with the maximum-overlap method) for gas-phase species, including open-shell radicals via restricted open-shell Kohn–Sham and heavy elements via effective core potentials. We describe the architecture, the design rationale for placing the LLM at the orchestration layer rather than hard-coding workflows, the core-hole bookkeeping for both backends, and the human-in-the-loop control model. As an end-to-end demonstration the agent computes C 1s and O 1s binding energies for a set of eleven gas-phase reaction intermediates (closed-and open-shell, including an iodine-bearing species), autonomously recovering from several structure-and input-level faults under human supervision; the resulting chemical-shift trends are internally consistent and reproduce known qualitative orderings.",
+  "date": "2026-07-28",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15006672/v1",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "ebbb61b8fb71",
+  "title": "Toward Ab initio Simulation of Operando Raman Spectroscopy: Application to Sulfur/Carbon Copolymer Cathodes in Li-S Batteries",
+  "authors": [
+   "Rana Kiani",
+   "Huiying Sheng",
+   "Timo Held",
+   "Oliver Löhmann",
+   "Sebastian Risse",
+   "Daniel Sebastiani",
+   "Pouya Partovi‐Azar"
+  ],
+  "abstract": "Sulfur/carbon copolymers have emerged as a promising alternative for conventional crystalline sulfur cathodes for lithium-sulfur batteries. Among these, sulfur–n–1,3– diisopropenylbenzene (S/DIB) copolymers, which present a network of DIB molecules interconnected via sulfur chains, have particularly shown a good performance and, there- fore, have been under intensive experimental and theoretical investigations. However, their structural complexity and flexibility have hindered a clear understanding of their structural evolution during redox reactions at an atomistic level. Here, by performing state-of-the-art finite-temperature ab initio Raman spectroscopy simulations, we inves- tigate the spectral fingerprints of S/DIB copolymers during consecutive reactions with lithium. We discuss in detail Raman spectral changes in particular frequency ranges which are common in S/DIB copolymers having short sulfur chains and those consisting of longer ones. We also highlight those distinctive spectroscopic fingerprints specific to local S/DIB structures containing only short or long sulfur chains. This distinction could serve to help distinguish between them experimentally. Our theoretically predicted results are in a good agreement with experimental Raman measurements on coin cells at different discharge stages. This work represents, for the first time, an attempt to compute operando Raman spectra using quantum-chemical calculations and provides a guideline for Raman spectral changes of arbitrary electrodes during the discharge.",
+  "date": "2024-09-19",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2024-q6ssd",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "c14aadfc850a",
+  "title": "Sum-frequency vibrational spectroscopy of water at interfaces",
+  "authors": [
+   "Ren‐Hui Zheng",
+   "Yinjia Chen",
+   "Zhiyan Liu",
+   "Hengyue Zhang",
+   "Wen‐Mei Wei"
+  ],
+  "abstract": "Combining neural network-based molecular dynamics simulations and quantum chemistry computations, we study sum-frequency vibrational spectroscopy (SFVS) of interfacial water. Using a genetic algorithm, we establish the relationships between the OH stretching frequency, the derivatives of the electric quadrupole and magnetic dipole polarizabilities, and the three components of the electric field (computed at grid points around the target water molecule) generated by surrounding water molecules. In this approach, we abandon the approximate formulas previously employed in studies to calculate the derivatives of the electric quadrupole polarizabilities. These newly derived relationships, along with those obtained from the mixed quantum/classical method, allow for the computation of interfacial water SFVS, showing agreement with experimental results. We propose two strategies to distinguish between electric dipole and quadrupole contributions in the SFVS of water.",
+  "date": "2026-01-01",
+  "venue": "Physical Chemistry Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1039/d5cp04891e",
+  "citations": 3,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "0a2a17e965b1",
+  "title": "Tracking spin flip-flop dynamics of surface molecules with quantum dissipation theory",
+  "authors": [
+   "Xu Ding",
+   "Jiaan Cao",
+   "Xiao Hong Zheng",
+   "Lyuzhou Ye"
+  ],
+  "abstract": "The integration of scanning tunneling microscopy (STM) and electron spin resonance spectroscopy with voltage pulses is an emerging technique to probe the local spin dynamics of surface-adsorbed molecules. However, in experiments, the detection of real-time spin dynamics is severely hampered by the limited temporal resolution of STM electronics, and the associated theoretical investigations are still in their early stages due to various challenges in numerical simulations. In this work, we employ the highly accurate hierarchical equations of motion method to characterize the spin states and track the real-time coherent flip-flop spin dynamics in a surface-adsorbed hydrogenated Ti dimer. Our simulations accurately reproduce the experimental observations and reveal the influences of substrate and pulse duration on the spin decoherence process of the dimer. These achievements provide valuable insights into the coherent spin dynamics of surface-adsorbed molecules and set the stage for the application of surface-adsorbed molecular spins to quantum sensing, quantum information processing, and quantum computing.",
+  "date": "2025-02-28",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0248065",
+  "citations": 6,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "9d76858dc3a6",
+  "title": "HEOM-based numerical framework for quantum simulation of two-dimensional vibrational spectra in molecular liquids (HEOM-2DVS)",
+  "authors": [
+   "Ryotaro Hoshino",
+   "Yoshitaka Tanimura"
+  ],
+  "abstract": "The multi-mode anharmonic Brownian motion model provides a universal framework for simulating molecular vibrations in condensed phases. When vibrational energy surpasses thermal excitation, quantum effects become significant, necessitating a rigorous treatment of system-bath entanglement. The hierarchical equations of motion provide a powerful methodology for simulating such open quantum systems. In this context, two-dimensional vibrational spectroscopy (2DVS) constitutes a powerful probe for elucidating the complex dynamics of molecular processes, both experimentally and theoretically. This work introduces a computational implementation, HEOM-2DVS, for treating non-Markovian open quantum dynamics that encompass energy relaxation, dephasing, thermal excitation, and related processes arising from non-perturbative and nonlinear interactions between selected vibrational modes and their thermal environments. To validate the theoretical framework, we computed 2D correlation infrared spectra for three coupled intramolecular vibrational modes of water. The HEOM-2DVS program, developed for both the CPU and graphics processing unit, is provided as the supplementary material.",
+  "date": "2026-04-09",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0320606",
+  "citations": 1,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "6ea038e2171e",
+  "title": "Precise quantum control of unidirectional field-free molecular orientation",
+  "authors": [
+   "Qian-Qian Hong",
+   "Zhe-Jun Zhang",
+   "Chuan‐Cun Shu",
+   "Jun He",
+   "Daoyi Dong",
+   "Dajun Ding"
+  ],
+  "abstract": "The capability to control molecular rotation for field-free orientation, which arranges molecules in specific spatial directions without external fields, is crucial in physics, chemistry, and quantum information science. However, conventional methods typically lead to transient orientations characterized by periodic directional reversals and necessitate the generation of coherent superpositions across a broad spectrum of rotational states of ultracold molecules. In this work, we develop a theoretical framework for achieving unidirectional field-free orientation by selectively manipulating two specific rotational states of symmetric top molecules. By leveraging the interplay between coherent superpositions and the precise selection of initial states, we demonstrate that both the maximum achievable orientation and its direction can be effectively controlled. To attain the desired two-state orientation, we present a quantum control strategy that utilizes a single control pulse, significantly simplifying the complexities of conventional multistate or multipulse schemes. Numerical simulations validate the effectiveness and feasibility of this approach for methyl iodide (CH$_3$I) molecules, even when accounting for molecular centrifugal distortion.The results highlight the critical roles of initial-state selection and quantum coherence in achieving long-lasting, high unidirectional molecular orientation, opening new directions in stereochemistry, precision spectroscopy, and quantum computing.",
+  "date": "2025-12-24",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.21012",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum computing spectroscopy simulatio"
+ },
+ {
+  "fid": "582914d1fdfa",
+  "title": "Harnessing The Power Of Green Chemistry, Nanotechnology, And Artificial Intelligence: A Review",
+  "authors": [
+   "Nekuri Bujjibabu, Sreenivasa Rao Aangothu, Eranki.S.R.S.Sarma, Venkateswara Rao Vydani, D.S.V.N.M.Ramamurty, Somarouthu .V. G .V. A .Prasad"
+  ],
+  "abstract": "The integration of green chemistry, nanotechnology, and artificial intelligence (AI) offers a transformative approach to addressing global challenges in sustainability, energy, environment, and agriculture. This review explores the synergistic potential of these fields, focusing on how their convergence can lead to innovative solutions and sustainable practices. Green chemistry provides environmentally friendly frameworks for chemical processes, nanotechnology introduces unique properties at the nanoscale to enhance efficiency, and AI accelerates discovery and optimization through advanced data analysis. Key applications include renewable energy innovations, environmental remediation, and sustainable agriculture. Despite significant progress, challenges such as data quality, scalability, and interdisciplinary collaboration remain. Future research should focus on developing sophisticated AI models, leveraging quantum computing, and fostering bio-inspired nanotechnology to fully realize the potential of this synergy.",
+  "date": "2024-12-11",
+  "venue": "Nanotechnology Perceptions",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum computing green chemistry proces"
+ },
+ {
+  "fid": "d04cf5c10bd3",
+  "title": "Quantum Cryptography Taxonomy and Future Directions Survey",
+  "authors": [
+   "Omar Helmy Khafagy"
+  ],
+  "abstract": "presently, confidential information is transmitted through insecure channels, underscoring the critical need for absolute security in protecting sensitive data due to the rapid progress in quantum computing. The security of distributing the quantum key protocols hinges on the flawless operation of all involved devices. Quantum cryptography emerges as a solution for unconditionally securing data communications, utilizing the principles of quantum physics to overcome traditional classical cryptography's limitations. Mathematical techniques are essential to classical cryptography to counter potential attacks like eavesdropping. Quantum cryptography is anticipated to be the future counterpart to classical cryptography. The computing landscape is transforming with the rise of quantum computing, using quantum-mechanical concepts to provide significant processing benefits over traditional classical computing like entanglement and superposition. This computational advantage is expected to tackle complex and computationally challenging problems in various fields, including data science, green energy, finance, industrial chemical development, secure communications, and quantum chemistry. Quantum computing is a dynamic and swiftly advancing research area, showcasing significant progress across all dimensions. This survey offers a comprehensive overview of the literature on quantum computing and a taxonomy of quantum computing..",
+  "date": "2026-01-31",
+  "venue": "Journal of Electrical Systems",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum computing green chemistry proces"
+ },
+ {
+  "fid": "917252e2b243",
+  "title": "AI-Driven Integration of Nanotechnology and Green Nanotechnology for Sustainable Energy and Environmental Remediation",
+  "authors": [
+   "F. A. Samiul Islam",
+   "Muhymin Islam"
+  ],
+  "abstract": "This research critically examines the synergistic integration of nanotechnology and green nanotechnology as a disruptive framework for addressing dual imperatives of sustainable environmental remediation and next-generation clean energy systems. By exploiting the physicochemical uniqueness of nanomaterials- such as quantum confinement, surface plasmon resonance, enhanced electron mobility, and high surface-to-volume ratios- this study elucidates the multifaceted mechanisms by which engineered nanomaterials (ENMs) facilitate the adsorption, catalysis, degradation, and real-time sensing of diverse pollutants across air, water, and soil matrices. Importantly, these processes are governed by the foundational principles of green chemistry and sustainable engineering, prioritizing biogenic synthesis, non-toxic precursors, low-energy fabrication, and end-of-life biodegradability to mitigate ecological and health risks. The study further explores how nanostructured components- including perovskite nanocrystals, quantum dots, plasmonic nanoparticles, and nanocomposites- redefine the performance boundaries of photovoltaic cells, fuel cells, thermoelectric generators, and electrochemical storage devices. The convergence of nanogenerators (TENGs, PENGs), nano-enabled supercapacitors, and AI-optimized hybrid energy modules is shown to enable continuous, resilient, and decentralized electricity generation, particularly in climate-vulnerable and off-grid regions. A novel AI-augmented architecture incorporating nano-sensors, edge computing, and digital twins is proposed to facilitate predictive diagnostics, adaptive control, and lifecycle optimization of these intelligent energy ecosystems. Moreover, a comprehensive cradle-to-grave life cycle sustainability assessment (LCSA) evaluates carbon intensity, energy return on investment (EROI), nanotoxicological profiles, recyclability, and circularity potential. This ensures that technological advancement aligns with planetary boundaries and long-term ecological integrity. The research underscores the ethical imperative of responsible innovation, advocating for regulatory convergence, precautionary design, and stakeholder-inclusive deployment strategies. By fusing material science, environmental engineering, artificial intelligence, and sustainability science, this study presents a cutting-edge, multidisciplinary roadmap for leveraging nanotechnology and green nanotechnology as accelerators of global ecological restoration and ",
+  "date": "2025-07-11",
+  "venue": "Journal of Engineering Research and Reports",
+  "arxiv_id": "",
+  "doi": "10.9734/jerr/2025/v27i71574",
+  "citations": 24,
+  "theme": "quantum computing green chemistry proces"
+ },
+ {
+  "fid": "ec9399136096",
+  "title": "COMPUTATIONAL DESIGN OF GREEN ORGANIC SYNTHESIS ROUTES USING MACHINE LEARNING AND GFN-XTB TECHNIQUES",
+  "authors": [
+   "Ayesha Hina",
+   "Umm e Habiba"
+  ],
+  "abstract": "Traditional organic synthesis often relies on hazardous reagents and energy-intensive processes, posing significant environmental and health risks. While green chemistry principles advocate for sustainable alternatives, the systematic design of eco-friendly synthetic routes remains challenging due to the vast chemical space and the lack of computational tools integrating both predictive and mechanistic insights. This study addressed this gap by developing a hybrid machine learning (ML) and quantum mechanical (GFN-xTB) framework to identify optimal green synthesis pathways. The primary objective was to predict reaction efficiency while quantifying sustainability metrics, including atom economy and E-factor. A curated dataset of 1,500 reactions (substitution, addition, elimination, redox) was analyzed using XGBoost, Random Forest, and Support Vector Regression, with input features derived from structural fingerprints, reaction conditions, and GFN-xTB-computed properties (ΔG, HOMO-LUMO gap). Statistical analyses included multiple linear regression (MLR), ANOVA, and SHAP interpretability. Key findings revealed that addition reactions exhibited the highest yields (6.7–12.8% greater than other classes, *p* < 0.001) and alignment with green criteria. The best-performing model (XGBoost, R² = 0.92, MAE = 3.5%) identified ΔG and HOMO-LUMO gap as dominant predictors, with green reactions demonstrating superior yields (83.1% vs. 72.9%, *p* < 0.001) and lower E-factors (2.2 vs. 5.8). These results establish a robust computational strategy for sustainable reaction design, bridging data-driven prediction with quantum-chemical validation. The study provides a scalable tool for reducing experimental trial-and-error, with implications for pharmaceutical and industrial chemistry. By prioritizing both efficiency and environmental impact, this work advances the integration of AI and quantum methods in green chemistry.",
+  "date": "2025-07-12",
+  "venue": "Policy Research Journal",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum computing green chemistry proces"
+ },
+ {
+  "fid": "3701b353d1f5",
+  "title": "Adsorption of Some Pteridine-Based Compounds on Fe (110) Surface and Potential for Corrosion Inhibition: Quantum Computations Molecular Dynamics Simulations",
+  "authors": [
+   "Ekemini B. Ituen",
+   "Godstime Chuwkudike",
+   "Ubong Akpan Essien",
+   "Bright Daniel",
+   "Prince Uche Micheal",
+   "Adebola Oyeniran",
+   "Muhammad Oshafu",
+   "Aduanya David",
+   "Udoinyang G. Inyang"
+  ],
+  "abstract": "The adsorption of organic molecules onto steel surfaces has been a key strategy in the selection of materials for mitigation of corrosion in various aggressive media. Computational chemistry offers valuable insight into the electronic interactions that govern this process. In this study, five pteridine-based compounds, namely, isoxanthopterin, leucopterin, lumazine, pterin and xanthopterin, were assessed for their adsorption behaviour and corrosion inhibition potential on Fe(110) surface using density functional theory (DFT) and molecular dynamics (MD) simulations. Geometry optimization, frontier molecular orbital analysis, and quantum reactivity descriptors were computed using the B3LYP/DNP level of theory via the Dmol$^{3}$ module in BIOVIA Material Studio. Fukui indices and Mulliken charge distributions were analyzed to predict adsorption sites. Additionally, adsorption energies and molecular configurations on the Fe(110) surface were examined using the Forcite and Adsorption Locator tools. Results showed that all the studied compounds exhibit planar geometries favorable for surface interaction, with isoxanthopterin and xanthopterin demonstrating the strongest adsorption energies. Key adsorption sites were localized around nitrogen and oxygen heteroatoms. The compounds are predicted to form stable interactions with the iron surface through both physisorption and chemisorption, indicating excellent potential for use as green corrosion inhibitors.",
+  "date": "2025-12-08",
+  "venue": "Communications in Computational Chemistry",
+  "arxiv_id": "",
+  "doi": "10.4208/cicc.2025.192.01",
+  "citations": 0,
+  "theme": "quantum computing green chemistry proces"
+ },
+ {
+  "fid": "7b206571e379",
+  "title": "OBIWAN: An Element-Wise Scalable Feed-Forward Neural Network Potential",
+  "authors": [
+   "Stefano Martire",
+   "Sergio Decherchi",
+   "Andrea Cavalli"
+  ],
+  "abstract": "Estimating the potential energy of a molecular system at a quantum level of theory is a task of paramount importance in computational chemistry. The often employed density functional theory approach allows one to accomplish this task, yet most often at significant computational costs. This prompted the community to develop so-called machine learning potentials to achieve near-quantum accuracy at molecular mechanics computational cost. In this paper, we introduce OBIWAN, a feed-forward neural network that bears some relevant structural properties that also led to the definition of a new kind of general-purpose neural network layer. Its featurization process scales efficiently with newly added atomic species. This allows one to seamlessly add new atom types without requiring to change the topology of the network. Also, this allows one to train on new data sets leveraging a previously trained OBIWAN, hence converging very quickly. This avoids training from scratch and renders the approach more compliant with a green computing perspective.",
+  "date": "2024-07-08",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.4c00342",
+  "citations": 6,
+  "theme": "quantum computing green chemistry proces"
  }
 ]

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-06",
+ "updated": "2026-10-07",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -339,6 +339,36 @@
    "source": "backfill",
    "domains": [
     "logistics"
+   ]
+  },
+  {
+   "id": "quantum-chemically-informed-representation-learning-molecular-crystal-f8a20",
+   "title": "Quantum-Chemically Informed Representation Learning for Molecular Crystal Property Prediction via Multimodal Graph Neural Networks",
+   "titleZh": "量子化学信息引导的分子晶体性质预测表征学习",
+   "authors": [
+    "Ferdawss Ihiri",
+    "Miguel A. Garcı́a-Garibay",
+    "Anastassia N. Alexandrova"
+   ],
+   "venue": "Journal of Chemical Information and Modeling",
+   "date": "2026-09-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1021/acs.jcim.6c01012",
+   "url": "https://doi.org/10.1021/acs.jcim.6c01012",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Chemical Information and Modeling 2026:分子晶体 ML 建模受限于只编码几何结构而忽略电子特征的表征;该文提出多模态框架,把晶体图与固态量子化学信息融合表征,提升分子晶体性质预测。",
+   "abstract": "Abstract Machine-learning-based modeling of molecular crystals is limited by representations that encode geometric structure while overlooking the electronic features that often govern solid-state behavior. We introduce a multimodal learning framework that integrates crystal graphs with solid-state Quantum Theory of Atoms in Molecules (QTAIM)-informed molecular graphs for enhanced predictions of solid-state properties. Our architecture employs modality-specific graph neural network encoders and a bidirectional gated fusion mechanism to capture complementary information between the two representations. When applied to band gap prediction in organic molecular crystals, the fused model outperforms geometry-only and molecular-only baselines. Analysis of the learned representations reveals that QTAIM descriptors contribute interpretable signals associated with intermolecular interactions and density redistribution within the crystal, highlighting the value of quantum-informed learning for advancing data-driven solid-state modeling.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -731,6 +761,43 @@
    "domains": []
   },
   {
+   "id": "testing-small-parameterized-quantum-circuits-molecular-property-2c2f4",
+   "title": "Testing Small Parameterized Quantum Circuits for Molecular Property Prediction",
+   "titleZh": "小型参数化量子线路用于分子性质预测的严格检验",
+   "authors": [
+    "Bhagya Sri Uddandam",
+    "Chirag Girish Mokashi",
+    "Jose Rodrigo Arizpe Figueroa",
+    "Krishnakumar Vijayasankar",
+    "Sharan Sandhu",
+    "Sneha Paul",
+    "Yun-Tang Lin",
+    "Zixuan Jin",
+    "Roberto dos Reis",
+    "Anton V. Sinitskiy"
+   ],
+   "venue": "ChemRxiv",
+   "date": "2026-08-31",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.26434/chemrxiv.15008061/v1",
+   "url": "https://doi.org/10.26434/chemrxiv.15008061/v1",
+   "topics": [
+    "quantum-ai",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "ChemRxiv 2026:罕见的评测规范研究——在强经典基线、重复训练、可训练角度生成对照等严格控制下,检验小型参数化量子线路(PQC)作为分子 QML 特征变换的真实增益,为分子 QML 论文树立评测标准。",
+   "abstract": "Parameterized quantum circuits (PQCs) are widely proposed as feature transformations in quantum machine learning (QML) pipelines. However, few molecular-QML studies combine strong classical baselines, repeated training runs, and controls that separate a quantum branch from its trainable anglegenerating encoder. We benchmark three-qubit PQCs combined with two pretrained molecular embeddings, MiniMol and CheMeleon, for lipophilicity and solubility prediction. Five model variants, including a classical baseline, two hybrid quantum-classical architectures, a quantum-only model, and a frozen-branch control, were evaluated on two datasets, two embeddings, and five random seeds, giving 100 runs. No tested quantum variant showed a statistically detectable improvement over the classical baseline after falsediscovery-rate correction across all 16 paired comparisons. The frozen-branch control also showed no detectable advantage over the classical baseline. This control freezes the full angle-generating quantum branch, not an independent set of variational circuit weights. A separate one-qubit depolarizing-noise sweep showed no detectable change in accuracy over the tested error range. Quantum variants required 18–37 times longer training time than the classical baseline on the same platform. These results set a benchmark for small parameterized QML layers applied to the pretrained molecular representations and ADME tasks examined here.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "cross-platform-study-near-term-quantum-optimisation-750ff",
    "title": "A Cross-Platform Study of Near-Term Quantum Optimisation Algorithms on the Graphene Defect Problem",
    "titleZh": "近期量子优化算法在石墨烯缺陷问题上的跨平台研究",
@@ -854,6 +921,34 @@
    "source": "backfill",
    "domains": [
     "transport"
+   ]
+  },
+  {
+   "id": "fault-tolerant-quantum-simulation-pauli-breit-hamiltonian-c7593",
+   "title": "Fault‐Tolerant Quantum Simulation of the Pauli‐Breit Hamiltonian for Ab Initio Hybrid Quantum‐Classical Molecular Design With Applications to Photodynamic Therapy",
+   "titleZh": "Pauli-Breit 哈密顿量的容错量子模拟与从头算混合量子-经典方法",
+   "authors": [
+    "E. J. Zak"
+   ],
+   "venue": "International Journal of Quantum Chemistry",
+   "date": "2026-08-28",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1002/qua.70269",
+   "url": "https://doi.org/10.1002/qua.70269",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "相对论自旋效应驱动系间窜越(光动力疗法)、自旋介导催化与高分辨光谱等分子过程;该文给出 Pauli-Breit 哈密顿量的容错量子模拟方案并接入从头算混合量子-经典流程,把分子模拟推向相对论精度层级。",
+   "abstract": "ABSTRACT Relativistic spin effects are driving subtle molecular processes ranging from intersystem crossing in photodynamic therapy to spin‐mediated catalysis and high‐resolution spectroscopy. These effects can be described by the Pauli‐Breit Hamiltonian, which extends the nonrelativistic electronic Hamiltonian by including explicit one‐ and two‐electron spin‐orbit and spin‐spin interactions. However, first‐principles simulations of the full Pauli‐Breit Hamiltonian quickly become intractable on classical computers due to the rapid growth of Hilbert space dimension and the complexity of two‐body spin‐dependent terms. In this work, we propose a fault‐tolerant quantum algorithm for computing molecular energy levels and properties governed by the Pauli‐Breit Hamiltonian. The central result of the paper is an explicit block‐encoding construction for the relativistic Hamiltonian in a second‐quantized, doubly factorized representation. By reformulating the Pauli‐Breit Hamiltonian in a symmetry‐adapted Majorana basis, we construct efficient linear‐combination‐of‐unitaries circuits that encode both one‐ and two‐electron spin‐orbit coupling without resorting to effective or mean‐field approximations. We introduce spin‐controlled Pauli‐SWAP networks that decouple spin and orbital control logic, enabling a unified treatment of relativistic spin mixing with only a modest overhead relative to spin‐free electronic structure simulations. We analyze the resulting quantum resources in terms of",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -2437,6 +2532,43 @@
    ]
   },
   {
+   "id": "tensor-network-based-distributed-quantum-dynamics-independent-75179",
+   "title": "Tensor-Network-Based Distributed Quantum Dynamics on Independent Quantum Computers",
+   "titleZh": "基于张量网络的分布式量子计算模拟化学波包动力学",
+   "authors": [
+    "Anurag Dwivedi",
+    "Melissa C Revelle",
+    "Daniel Lobser",
+    "Brian McFarland",
+    "Edward Tortorici",
+    "Christopher G. Yale",
+    "Susan Clark",
+    "Philip Richerme",
+    "Srinivasan S. Iyengar"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-10",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.11579",
+   "doi": "10.48550/arxiv.2606.11579",
+   "url": "https://arxiv.org/abs/2606.11579",
+   "topics": [
+    "hardware",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:把张量网络表示的多维时间演化算子自然切分为分布式量子计算任务,在多台量子设备上模拟连续变量表示的化学波包动力学——张量网络×分布式量子计算的化学应用。",
+   "abstract": "We present an approach based on tensor networks for distributed quantum computing simulation of chemical wavepacket dynamics in a continuous variable representation. The central idea is that the tensor-network representation of the multidimensional time-evolution operator naturally induces an elevated Hilbert space where the dynamics decomposes into a set of independent lower-dimensional propagations. This transformation converts an entangled quantum evolution into a set of parallel computational tasks that can be executed asynchronously across heterogeneous quantum and classical computing architectures. The resulting formalism establishes a direct connection between tensor-network decompositions, uniformly controlled quantum circuits, and asynchronous distributed quantum computing. The approach is developed with a goal towards hybrid quantum/classical implementation, and is appropriate for a general heterogeneous mixture of quantum hardware systems. The experimental realization of the asynchronously distributed quantum processes that arise from the tensor-network decomposition are carried out on the Sandia National Laboratories' trapped-ion quantum computer, where the circuits are compiled using native partial-entangling $XX(θ)$ gates, reducing the expected two-qubit gate infidelity by more than 30\\% relative to conventional fully entangling decompositions. We demonstrate the methodology by quantum computing the vibrational spectra of a small protonated water cluster that sh",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "hybrid-quantum-inspired-intelligent-computing-model-real-ed75e",
    "title": "Hybrid Quantum-Inspired Intelligent Computing Model for Real-Time Optimization of Massive Heterogeneous Climate Datasets",
    "titleZh": "面向海量异构气候数据实时优化的混合量子启发智能计算模型",
@@ -3462,6 +3594,35 @@
    ]
   },
   {
+   "id": "unified-framework-efficient-quantum-simulation-nonlinear-spectroscopy-091b1",
+   "title": "A unified framework for efficient quantum simulation of nonlinear spectroscopy",
+   "titleZh": "非线性光谱高效量子模拟的统一框架",
+   "authors": [
+    "Long Xiong",
+    "Xiaoyang Wang",
+    "Xiaoxia Cai",
+    "Xiao Yuan"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-17",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.16164",
+   "doi": "10.48550/arxiv.2604.16164",
+   "url": "https://arxiv.org/abs/2604.16164",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:非线性光谱可探测多点关联、量子相干与线性方法不可见的耦合,经典模拟受希尔伯特空间指数增长限制;该文提出覆盖各类非线性光谱实验的统一量子模拟框架。",
+   "abstract": "Nonlinear spectroscopy is a cornerstone of quantum science, providing unique access to multi-point correlations, quantum coherence, and couplings that are invisible to linear methods. However, classical simulation of these phenomena is fundamentally limited by the exponential growth of the Hilbert space, and practical quantum algorithms for the nonlinear regime have remained largely unexplored. Here, we present a unified quantum algorithmic framework for computing $n$-th order nonlinear spectroscopies. By reformulating multi-time responses as a weighted sum of expectation values at finite pump amplitudes via a generalized parameter shift rule, our approach bypasses the costly evaluation of high-order commutators and time-dependent operator expansions. This reformulation enables efficient execution via real-time evolution on current quantum hardware, ensuring inherent noise resilience. We validate the framework on IBM's superconducting quantum processors, successfully obtain higher-order response functions of a 12-qubit XXZ spin-chain. Furthermore, the versatility of our method is demonstrated by resolving quasi-particle excitation spectra in spin-liquids and identifying interaction-induced cross-peaks in atomic systems. Our results establish a practical and scalable pathway for probing complex quantum dynamics on near-term quantum devices, extending the reach of quantum simulation into the nonlinear domain.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "black-box-optimization-factorization-ising-machines-71028",
    "title": "Black-box optimization using factorization and Ising machines",
    "titleZh": "基于因子分解机与Ising机的黑盒优化",
@@ -3496,6 +3657,33 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "heom-based-numerical-framework-quantum-simulation-two-f3648",
+   "title": "HEOM-based numerical framework for quantum simulation of two-dimensional vibrational spectra in molecular liquids (HEOM-2DVS)",
+   "titleZh": "基于 HEOM 的二维振动光谱量子模拟数值框架",
+   "authors": [
+    "Ryotaro Hoshino",
+    "Yoshitaka Tanimura"
+   ],
+   "venue": "The Journal of Chemical Physics",
+   "date": "2026-04-09",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1063/5.0320606",
+   "url": "https://doi.org/10.1063/5.0320606",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Chemical Physics 2026:多模非谐布朗运动模型是凝聚相分子振动的通用框架,振动能超过热激发时量子效应显著;该文提出基于 HEOM(层级方程)的数值框架,严格处理系统-环境纠缠下的二维振动光谱模拟。",
+   "abstract": "The multi-mode anharmonic Brownian motion model provides a universal framework for simulating molecular vibrations in condensed phases. When vibrational energy surpasses thermal excitation, quantum effects become significant, necessitating a rigorous treatment of system-bath entanglement. The hierarchical equations of motion provide a powerful methodology for simulating such open quantum systems. In this context, two-dimensional vibrational spectroscopy (2DVS) constitutes a powerful probe for elucidating the complex dynamics of molecular processes, both experimentally and theoretically. This work introduces a computational implementation, HEOM-2DVS, for treating non-Markovian open quantum dynamics that encompass energy relaxation, dephasing, thermal excitation, and related processes arising from non-perturbative and nonlinear interactions between selected vibrational modes and their thermal environments. To validate the theoretical framework, we computed 2D correlation infrared spectra for three coupled intramolecular vibrational modes of water. The HEOM-2DVS program, developed for both the CPU and graphics processing unit, is provided as the supplementary material.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "approximate-quadratization-high-order-hamiltonians-combinatorial-quantum-0731f",
@@ -5975,6 +6163,39 @@
    ]
   },
   {
+   "id": "quantum-simulation-electron-energy-loss-spectroscopy-battery-fc681",
+   "title": "Quantum simulation of electron energy loss spectroscopy for battery materials",
+   "titleZh": "电池材料电子能量损失谱的量子模拟",
+   "authors": [
+    "Alexander A. Kunitsa",
+    "Diksha Dhawan",
+    "Stepan Fomichev",
+    "Juan Miguel Arrazola",
+    "Minghao Zhang",
+    "Torin F. Stetina"
+   ],
+   "venue": "The Journal of Chemical Physics",
+   "date": "2025-12-28",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1063/5.0300557",
+   "url": "https://doi.org/10.1063/5.0300557",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Chemical Physics 2025:动态结构因子(DSF)是解释化学与材料科学非弹性散射实验的核心量,经典方法精确模拟困难;该文提出电池材料 EELS 谱的量子算法,把量子模拟直接对准电池退化表征这一工业相关痛点。",
+   "abstract": "The dynamic structure factor (DSF) is a central quantity for interpreting a vast array of inelastic scattering experiments in chemistry and materials science, but its accurate simulation poses a considerable challenge for classical computational methods. In this work, we present a quantum algorithm and an end-to-end simulation framework to compute the DSF, providing a general approach for simulating momentum-resolved spectroscopies. We apply this approach to the simulation of electron energy loss spectroscopy (EELS) in the core-level electronic excitation regime, a spectroscopic technique offering sub-nanometer spatial resolution and capable of resolving element-specific information, crucial for analyzing battery materials. We derive a quantum algorithm for computing the DSF for EELS by evaluating the off-diagonal terms of the time-domain Green's function, enabling the simulation of momentum-resolved spectroscopies. To showcase the algorithm, we study the oxygen K-edge EELS spectrum of lithium manganese oxide (Li2MnO3), a prototypical cathode material for investigating the mechanisms of oxygen redox in battery materials. For a representative model of an oxygen-centered cluster of Li2MnO3 with an active space of 18 active orbitals, the algorithm requires a circuit depth of 3.25 × 108 T gates, 100 logical qubits, and roughly 104 shots.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-enhanced-travel-procurement-hybrid-quantum-classical-0d780",
    "title": "Quantum-Enhanced Travel Procurement: Hybrid Quantum–Classical Optimization for Enterprise Travel Management",
    "titleZh": "量子增强差旅采购:企业差旅的混合量子-经典优化",
@@ -6298,6 +6519,36 @@
    ],
    "summaryZh": "融合 VQE 与绝热量子计算(AQC)两大路线的优点:以绝热演化思想指导变分线路的初始化与参数调度,缓解 VQE 的优化困难与贫瘠高原问题,攻关高关联体系的电子结构基态求解。",
    "abstract": "Quantum computing promises to efficiently and accurately solve many important problems in quantum chemistry which elude classical solvers, such as the electronic structure problem of highly correlated materials. Two leading methods in solving the ground state problem are the Variational Quantum Eigensolver (VQE) and Adiabatic Quantum Computing (AQC) algorithms. VQE often struggles with convergence due to the energy landscape being highly non-convex and the existence of barren plateaux, and implementing AQC is beyond the capabilities of current quantum devices as it requires deep circuits. Adiabatically-inspired algorithms aim to fill this gap. In this paper, we first present a unifying framework for these algorithms and then benchmark the following methods: the Adiabatically Assisted VQE (AAVQE) (Garcia-Saez and Latorre (2018)), the Variational Adiabatic Quantum Computing (VAQC) (Harwood et al (2022)), and the Adiabatic Quantum Computing with Parametrized Quantum Circuits (AQC-PQC) (Kolotouros et al (2025)) algorithms. Second, we introduce a novel hybrid approach termed G-AQC-PQC, which generalizes the AQC-PQC method, and combines adiabatic-inspired initialization with the low-memory BFGS optimizer, reducing the quantum computational cost of the method. Third, we compare the accuracy of the methods for chemistry applications using the beryllium hydride molecule (BeH$_2$). We compare the approaches across a number of different choices (ansätze types, depth, discretization step",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
+   "id": "large-circuit-execution-nmr-spectroscopy-simulation-nisq-9c1a6",
+   "title": "Large circuit execution for NMR spectroscopy simulation on NISQ quantum hardware",
+   "titleZh": "NISQ 硬件上执行大规模 NMR 光谱模拟线路",
+   "authors": [
+    "Artemiy Burov",
+    "Julien Baglio",
+    "Clément Javerzac‐Galy"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-16",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2512.14513",
+   "doi": "10.48550/arxiv.2512.14513",
+   "url": "https://arxiv.org/abs/2512.14513",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-12:伴随量子硬件与软件从 NISQ 向量子实用性(quantum utility)时代演进,该文在真实量子硬件上执行大规模线路模拟 NMR 光谱,验证化学谱学模拟的可行性。",
+   "abstract": "With the latest advances in quantum computing technology, we are gradually moving from the noisy intermediate-scale quantum (NISQ) era characterized by hardware limited in the number of qubits and plagued with quantum noise, to the age of quantum utility where both the newest hardware and software methods allow for tackling problems which have been deemed difficult or intractable with conventional classical methods. One of these difficult problems is the simulation of one-dimensional (1D) nuclear magnetic resonance (NMR) spectra, a major tool to learn about the structure of molecules, helping the design of new materials or drugs. Using advanced error mitigation and error suppression techniques from Q-CTRL together with the latest commercially available superconducting-qubit quantum computer from IBM and trapped-ion quantum computer from IonQ, we present the quantum Hamiltonian simulation of liquid-state 1D NMR spectra in the high-field regime for spin systems up to 34 spins. Our pipeline has a major impact on the ability to execute deep quantum circuits with the reduction of quantum noise, improving mean square error by a factor of 22. It allows for the execution of deep quantum circuits and obtaining salient features of the 1D NMR spectra for both 16-spin and 22-spin systems, as well as a 34-spin system, which lies beyond the regime where unrestricted full Liouvillespace simulations are practical (32 spins, the Liouville limit). Our work is a step toward near-term quantum ut",
    "source": "backfill",
    "domains": [
     "materials"
@@ -7433,6 +7684,35 @@
    "domains": []
   },
   {
+   "id": "manifold-kernelization-molecular-surface-encode-quantum-information-d16cb",
+   "title": "Manifold Kernelization of Molecular Surface to Encode Quantum Information of Electronic Attributes for Machine Learning",
+   "titleZh": "分子表面的流形核化:电子属性的量子信息编码",
+   "authors": [
+    "Tonglei Li",
+    "Venkata S. Chelagamsetty",
+    "Nicolas J. Huls",
+    "Ryan T. Jordan"
+   ],
+   "venue": "Journal of Chemical Theory and Computation",
+   "date": "2025-10-18",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1021/acs.jctc.5c01117",
+   "url": "https://doi.org/10.1021/acs.jctc.5c01117",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Chemical Theory and Computation:提出在分子表面编码电子属性的新概念——以谱混合(SM)核的无监督核学习优化超参数,结合稀疏高斯过程回归,把表面电子量编码为可学习流形表征。",
+   "abstract": "A novel concept of encoding electronic quantities on a molecular surface is developed by unsupervised kernel learning. Through optimization of the hyperparameters of Spectral Mixture (SM) kernel functions in conducting Sparse Gaussian Process (SGP) regression of electronic attributes on a surface manifold, the resultant covariance matrix, or kernel, captures the mutual relationships among the electronic quantities as well as the topology of the molecular surface. As such, a kernel, coined MKMS (Manifold Kernelization of Molecular Surface), can be treated as a symmetric positive definite (SPD) matrix to represent a molecule for machine learning. A proper neural network model was implemented to utilize SPD matrices and preserve their collected Riemannian topology for predicting the molecular properties. The prediction results of two solubility data sets support promising potentials of using MKMS to encode quantum information on a molecule and enable machine learning applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-driven-chaos-informed-deep-learning-framework-37342",
    "title": "Quantum-Driven Chaos-Informed Deep Learning Framework for Efficient Feature Selection and Intrusion Detection in IoT Networks",
    "titleZh": "量子驱动的混沌信息深度学习框架用于物联网特征选择与入侵检测",
@@ -7587,6 +7867,38 @@
    ]
   },
   {
+   "id": "adapting-quantum-machine-learning-energy-dissociation-bonds-cd737",
+   "title": "Adapting Quantum Machine Learning for Energy Dissociation of Bonds",
+   "titleZh": "键解离能预测的量子与经典机器学习系统基准",
+   "authors": [
+    "Chandrasekhar, Swathi",
+    "Shiva Raj Pokhrel",
+    "Navneet Singh"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-08",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2510.06563",
+   "doi": "10.48550/arxiv.2510.06563",
+   "url": "https://arxiv.org/abs/2510.06563",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:键解离能(BDE)预测支撑分子与材料的机理解读和理性设计;该文用化学 curated 特征集对量子与经典 ML 模型做可复现系统基准,给出两类模型在 BDE 任务上的边界结论。",
+   "abstract": "Accurate prediction of bond dissociation energies (BDEs) underpins mechanistic insight and the rational design of molecules and materials. We present a systematic, reproducible benchmark comparing quantum and classical machine learning models for BDE prediction using a chemically curated feature set encompassing atomic properties (atomic numbers, hybridization), bond characteristics (bond order, type), and local environmental descriptors. Our quantum framework, implemented in Qiskit Aer on six qubits, employs ZZFeatureMap encodings with variational ansatz (RealAmplitudes) across multiple architectures Variational Quantum Regressors (VQR), Quantum Support Vector Regressors (QSVR), Quantum Neural Networks (QNN), Quantum Convolutional Neural Networks (QCNN), and Quantum Random Forests (QRF). These are rigorously benchmarked against strong classical baselines, including Support Vector Regression (SVR), Random Forests (RF), and Multi-Layer Perceptrons (MLP). Comprehensive evaluation spanning absolute and relative error metrics, threshold accuracies, and error distributions shows that top-performing quantum models (QCNN, QRF) match the predictive accuracy and robustness of classical ensembles and deep networks, particularly within the chemically prevalent mid-range BDE regime. These findings establish a transparent baseline for quantum-enhanced molecular property prediction and outline a practical foundation for advancing quantum computational chemistry toward near chemical accurac",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-scheduling-optimization-airline-space-missions-hybrid-3a0d5",
    "title": "Quantum Scheduling Optimization for Airline and Space Missions: A Hybrid Quantum-Classical Approach",
    "titleZh": "量子调度综述",
@@ -7642,6 +7954,33 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "any-type-spectroscopy-can-be-efficiently-simulated-6e1f4",
+   "title": "Any type of spectroscopy can be efficiently simulated on a quantum computer",
+   "titleZh": "任意类型光谱都可以在量子计算机上高效模拟",
+   "authors": [
+    "Liam P. Flew",
+    "Ivan Kassal"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-03",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2510.02784",
+   "doi": "10.48550/arxiv.2510.02784",
+   "url": "https://arxiv.org/abs/2510.02784",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:分子光谱预测的最精确经典方法成本随分子尺寸指数增长;该文给出在量子计算机上高效模拟各类分子光谱的通用算法框架,是\"光谱×量子模拟\"方向的纲领性强命题工作。",
+   "abstract": "Spectroscopy is the most important method for probing the structure of molecules. However, predicting molecular spectra on classical computers is computationally expensive, with the most accurate methods having a cost that grows exponentially with molecule size. Quantum computers have been shown to simulate simple types of optical spectroscopy efficiently -- with a cost polynomial in molecule size -- using methods such as time-dependent simulations of photoinduced wavepackets. Here, we show that any type of spectroscopy can be efficiently simulated on a quantum computer using a time-domain approach, including spectroscopies of any order, any frequency range, and involving both electric and magnetic transitions. Our method works by computing any spectroscopic correlation function based on the corresponding double-sided Feynman diagram, the canonical description of spectroscopic interactions. The approach can be used to simulate spectroscopy of both closed and open molecular systems using both digital and analog quantum computers.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "qhrmof-quantum-inspired-hybrid-multi-objective-framework-c9803",
@@ -8139,6 +8478,39 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "connecting-concepts-quantum-state-tomography-molecular-representations-12b2e",
+   "title": "Connecting the concepts of quantum state tomography and molecular representations for machine learning",
+   "titleZh": "连接量子态层析与分子表征的机器学习",
+   "authors": [
+    "Raul Ortega Ochoa",
+    "Luis Mantilla Calderón",
+    "Juan Bernardo Perez Sanchez",
+    "Mohsen Bagherimehrab",
+    "Abdulrahman Aldossary",
+    "Tejs Vegge",
+    "Tonio Buonassisi",
+    "Alán Aspuru‐Guzik"
+   ],
+   "venue": "ChemRxiv",
+   "date": "2025-09-17",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.26434/chemrxiv-2025-653md",
+   "url": "https://doi.org/10.26434/chemrxiv-2025-653md",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "ChemRxiv 2025:把量子态层析(QST)的信息完备测量思想迁移到分子表征学习——以层析式测量重构分子的\"波函数式\"表征,在量子测量理论与分子机器学习之间架桥。",
+   "abstract": "Quantum state tomography has been widely used to reconstruct the quantum state of a system from a set of informationally-complete measurements. Obtaining enough information about, e.g., the wavefunction of a molecule allows its complete characterization. On the other hand, deep learning models for molecular property prediction have demonstrated the capability to predict properties of unseen molecules, thereby internally characterizing them in a latent space spanning potential virtual molecules. In this work, we argue that deep learning can achieve its characterization power by learning an internal representation that is informationally-equivalent to the molecule's density matrix. We call such a representation a deep tomography, akin to quantum state tomography. We discuss how it is possible for property prediction foundation models, trained on data of informationally-complete observables, to have representations that contain the same information as that of a molecule's reduced quantum density matrix. Thus, such learned representation should be sufficient to predict arbitrary properties of arbitrary unseen molecules.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-machine-learning-6g-space-air-ground-841b3",
@@ -10039,6 +10411,34 @@
    "domains": []
   },
   {
+   "id": "molecular-quantum-particle-algorithm-mqpa-hybrid-quantum-5c4cd",
+   "title": "Molecular Quantum Particle Algorithm (MQPA): Hybrid Quantum-Classical Learning for Molecular Property Prediction",
+   "titleZh": "分子量子粒子算法(MQPA):分子性质预测的量子-经典混合学习",
+   "authors": [
+    "Mcphaul, Jessica",
+    "Sadler, Bivin, Ph.D."
+   ],
+   "venue": "SMU Scholar (Southern Methodist University)",
+   "date": "2025-06-20",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "",
+   "url": "https://scholar.google.com/scholar?q=Molecular+Quantum+Particle+Algorithm+(MQPA):+Hybrid+Quantum-Classical+Learning+for+Molecular+Property+Prediction",
+   "topics": [
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "针对经典 ML 与量子核方法难以在 NISQ 约束下捕捉分子量子相干特征的问题,提出分子量子粒子算法(MQPA)混合学习框架,提升分子性质预测的精度与可扩展性。",
+   "abstract": "Classical machine learning models and quantum kernel methods often struggle to capture quantum-coherent molecular features under the constraints of noisy intermediate-scale quantum (NISQ) hardware, limiting both predictive accuracy and scalability. This paper introduces the Molecular Quantum Particle Algorithm (MQPA), a hybrid quantum–classical framework designed to achieve chemically accurate property prediction by integrating handcrafted molecular descriptors with parameterized quantum circuits. Molecular inputs, expressed as SMILES strings, are processed via RDKit and encoded through angle-based quantum gates with entangling layers in Qiskit [1]. Quantum parameters are optimized using simultaneous perturbation stochastic approximation (SPSA) [2], while classical regression layers leverage Adam [3] with Low-Rank Adaptation (LoRA) fine-tuning [4]. Across 38 systematically varied subsets of the QM9 benchmark [5,6], MQPA achieves a mean absolute error (MAE) of 0.03 kcal/mol, outperforming both deep learning and quantum kernel baselines by 41% and surpassing the chemical accuracy threshold of 0.1 kcal/mol [7–9]. Extensive cross-platform benchmarking—including IBM Quantum, Qiskit Aer, and NVIDIA H100 clusters—demonstrates strong reproducibility, with inter-backend MAE variance below 3%. Positioned as a scalable and hardware-aware solution, MQPA offers practical advantages for quantum-enhanced molecular property prediction across applications in quantum chemistry, drug discovery,",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "exploring-chemical-space-chemistry-inspired-dynamic-quantum-e7a18",
    "title": "Exploring Chemical Space with Chemistry-Inspired Dynamic Quantum Circuits in the NISQ Era",
    "titleZh": "用化学启发的动态量子线路探索化学空间",
@@ -10300,6 +10700,34 @@
    ],
    "summaryZh": "实现分布式 QAOA(DQAOA)的 GPU 加速方案,利用大规模高性能计算生态处理高维稠密问题,是\"经典超算 + 量子算法协同\"的工程化标杆。",
    "abstract": "Quantum computing holds great potential to accelerate the process of solving complex combinatorial optimization problems. The Distributed Quantum Approximate Optimization Algorithm (DQAOA) addresses high-dimensional, dense problems using current quantum computing techniques and high-performance computing (HPC) systems. In this work, we improve the scalability and efficiency of DQAOA through advanced problem decomposition and parallel execution using message passing on the Frontier CPU/GPU supercomputer. Our approach ensures efficient quantum-classical workload management by distributing large problem instances across classical and quantum resources. Experimental results demonstrate that enhanced decomposition strategies and GPU-accelerated quantum simulations significantly improve DQAOA's performance, achieving up to 10x speedup over CPU-based simulations. This advancement enables better scalability for large problem instances, supporting the practical deployment of GPU systems for hybrid quantum-classical applications. We also highlight ongoing integration efforts using the Quantum Framework (QFw) to support future HPC-quantum computing systems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "one-shot-simulation-static-disorder-quantum-dynamics-f5a41",
+   "title": "One-Shot Simulation of Static Disorder in Quantum Dynamics with Equilibrium Initial State via Matrix Product State Sampling",
+   "titleZh": "基于马尔可夫方法的一次性模拟分子系统静态无序",
+   "authors": [
+    "Z. Zhang",
+    "Jiajun Ren",
+    "Wei‐Hai Fang"
+   ],
+   "venue": "arXiv",
+   "date": "2025-06-08",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2506.07120",
+   "doi": "10.48550/arxiv.2506.07120",
+   "url": "https://arxiv.org/abs/2506.07120",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:复杂分子系统电子动力学与光谱中的静态无序平均传统需数千次直接采样,成本高昂;该文提出基于马尔可夫方法的一次性模拟方案,大幅压缩静态无序平均的计算成本。",
+   "abstract": "Static disorder plays a crucial role in the electronic dynamics and spectroscopy of complex molecular systems. Traditionally, obtaining observables averaged over static disorder requires thousands of realizations via direct sampling of the disorder distribution, leading to high computational costs. In this work, we extend the auxiliary degree-of-freedom based matrix product state (MPS) method to handle system-bath correlated thermal equilibrium initial states. We validate the effectiveness of the extended method by computing the dipole-dipole time correlation function of the Holstein model relevant to the emission spectrum of molecular aggregates. Our results show that the method accurately captures static disorder effects using a one-shot quantum dynamical simulation, with only a moderate increase in MPS bond dimension, thereby significantly reducing computational cost. Moreover, it enables the generation of a much larger number of samples than the conventional direct sampling method at negligible additional cost, thus reducing statistical errors. This method provides a broadly useful tool for calculating equilibrium time correlation functions in system-bath coupled models with static disorder.",
    "source": "backfill",
    "domains": []
   },
@@ -20756,6 +21184,39 @@
    "domains": [
     "energy",
     "it-cloud"
+   ]
+  },
+  {
+   "id": "simulating-x-ray-absorption-spectroscopy-battery-materials-b0ba9",
+   "title": "Simulating X-ray absorption spectroscopy of battery materials on a quantum computer",
+   "titleZh": "在量子计算机上模拟电池材料的 X 射线吸收谱",
+   "authors": [
+    "Stepan Fomichev",
+    "Kasra Hejazi",
+    "Ignacio Loaiza",
+    "Modjtaba Shokrian Zini",
+    "Alain Delgado",
+    "Arne-Christian Voigt",
+    "Jonathan Edward Mueller",
+    "Juan Miguel Arrazola"
+   ],
+   "venue": "arXiv",
+   "date": "2024-05-17",
+   "year": 2024,
+   "citations": 1,
+   "arxivId": "2405.11015",
+   "doi": "10.48550/arxiv.2405.11015",
+   "url": "https://arxiv.org/abs/2405.11015",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "X 射线吸收谱是揭示电池材料结构退化机理的关键表征手段,但谱图解读依赖高质量模拟;该文提出在量子计算机上模拟电池材料的近边 X 射线吸收谱(XANES),与 EELS 量子模拟构成电池表征量子化的姊妹工作。",
+   "abstract": "X-ray absorption spectroscopy is a crucial experimental technique for elucidating the mechanisms of structural degradation in battery materials. However, extracting information from the measured spectrum is challenging without high-quality simulations. In this work, we propose simulating near-edge X-ray absorption spectra as a promising application for quantum computing. It is attractive due to the ultralocal nature of X-ray absorption that significantly reduces the sizes of problems to be simulated, and because of the classical hardness of simulating spectra. We describe three quantum algorithms to compute the X-ray absorption spectrum and provide their asymptotic cost. One of these is a Monte-Carlo based time-domain algorithm, which is cost-friendly to early fault-tolerant quantum computers. We then apply the framework to an industrially relevant example, a CAS(22e,18o) active space for an O-Mn cluster in a Li-excess battery cathode, showing that practically useful simulations could be obtained with much fewer qubits and gates than ground-state energy estimation of the same material.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
