@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 训练变分量子算法即使局部也是 NP-难</title>
+      <link>https://raymond0812-yylm.github.io/papers/training-variational-quantum-algorithms-is-np-hard-1b485/</link>
+      <guid isPermaLink="false">p:training-variational-quantum-algorithms-is-np-hard-1b485</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>变分量子算法（VQA）——VQE、QAOA 及其众多变体——是 NISQ 时代量子优化的绝对主线：量子线路只负责带参数地制备试探态，剩下的训练问题被抛给经典优化器。但这个&quot;抛给经典&quot;的动作藏着一个从未被彻底回答的问题：经典优化器到底能不能训得动？ 训练目标（期望值关于线路参数的函数）是高度非凸的，学界早已积累了两大类坏消息：一是贫瘠高原（barren plateau）类结果——梯度随规模指数消失；二是复杂性理论类结果——Binkowski 等（PRL 127, 120502, 2021；arXiv:2101.0…</description>
+    </item>
+    <item>
+      <title>[论文] 抑制量子处理器中的频率碰撞</title>
+      <link>https://raymond0812-yylm.github.io/papers/suppressing-frequency-collisions-quantum-processor-1b48d/</link>
+      <guid isPermaLink="false">p:suppressing-frequency-collisions-quantum-processor-1b48d</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>超导量子处理器的规模化有一道不太出名的瓶颈：频率拥挤。每个 transmon 比特需要独占一段频谱以规避串扰、泄漏与旁观者误差，而可用带宽有限，比特数上千时频率分配本身就成了组合难题。本文的框架把二体与三体碰撞机制写成哈密顿量罚项，将频率分配映射为图上的 Max-k-Cut 问题（频率档位为&quot;颜色&quot;）；为使大晶格可解，提出簇拼接协议——把大图分解为重叠子图分别求解，再把局部频率指称调和为全局一致配置，并揭示硬件残余串扰以压制主导碰撞罚。求解器对照实验是本文最有信息量的部分：数字化反绝热 QAOA（DC-QAOA…</description>
+    </item>
+    <item>
+      <title>[论文] CV-QAOA：连续变量的高效低深度量子优化</title>
+      <link>https://raymond0812-yylm.github.io/papers/cv-qaoa-efficient-low-depth-quantum-optimization-1b48e/</link>
+      <guid isPermaLink="false">p:cv-qaoa-efficient-low-depth-quantum-optimization-1b48e</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>QAOA 的原始形态服务于二元变量的组合优化，而工程中大量问题（翼型设计、调度连续参数、机器学习超参）定义在连续高维空间上——把连续问题粗暴离散化会爆炸比特数。本文系统研究连续变量版 QAOA（CV-QAOA）：在早期提案基础上引入变分优化的初态，并在高深度极限下恢复量子哈密顿退火（QHD，arXiv:2311.00811）的收敛保证——相当于把&quot;QAOA 的低深度实用性&quot;与&quot;QHD 的可证收敛性&quot;焊在一起。方法上的支柱是把相位分离子与动量 kicking 子直接定义在连续坐标算符上，从而使查询复杂度可以逐定理…</description>
+    </item>
+    <item>
+      <title>[动态] 诺奖结果追踪：物理学奖由 IceCube 中微子先驱 Halzen 独揽，薛其坤呼声未兑现</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-07/#n4</link>
+      <guid isPermaLink="false">n:2026-10-07:4</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>北京时间 10 月 6 日晚，2026 年诺贝尔物理学奖揭晓：82 岁的威斯康星大学麦迪逊分校教授 Francis Halzen 因&quot;对南极 IceCube 中微子天文台的决定性贡献及天体物理高能中微子的发现&quot;一人独揽、无并列得主。本报 10-06 前瞻中呼声居前的薛其坤院士（量子反常霍尔效应实验观测）未能获奖，量子凝聚态方向与诺奖再次擦肩——继 2022 年量子纠缠实验获奖后，量子信息类成果的下一个诺奖窗口仍待观察；国内量子产业发布预计随国庆假期结束（10-09 起）恢复节奏。</description>
+    </item>
+    <item>
+      <title>[动态] DecaQ 云平台 Beta 2 上线：无物理比特的 400 逻辑数字比特确定性执行，QAOA/VQE 直接上云验证</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-07/#n3</link>
+      <guid isPermaLink="false">n:2026-10-07:3</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>主攻确定性数字量子计算的初创 DecaQ 商用化其 Cloud Beta 2 平台：不依赖物理 QPU、无硬件噪声，在经典基础设施上以&quot;数字量子 Oracle 执行引擎&quot;（区别于常规状态向量/张量网络模拟器）确定性运行至多 400 个逻辑数字比特、单线路 20 万数字 oracle 门，支持 OpenQASM 工作流及 Bernstein–Vazirani、Deutsch–Jozsa、相位估计、VQE、QAOA 等算法族，并同步推出本地部署的 Q400 桌面系统。如实注明：这不是物理量子硬件，而是面向企业研发、系统集成与化学/金融/物流算法验证的逻辑级开发平台——它回应的是容错时代&quot;先在逻辑比特层写算法&quot;的真实需求。</description>
+    </item>
+    <item>
+      <title>[动态] Infleqtion × 霍尼韦尔航空航天 × UCSB：芯片级氮化硅光学腔把&quot;稳频激光&quot;装进手持量子硬件</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-07/#n2</link>
+      <guid isPermaLink="false">n:2026-10-07:2</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Infleqtion（NYSE: INFQ）与霍尼韦尔航空航天、UC Santa Barbara Blumenthal 教授团队联合发布芯片级集成光学腔原型：在霍尼韦尔超低损耗氮化硅光子代工产线流片，替代传统桌上型&quot;体玻璃腔&quot;，为窄线宽稳频激光提供芯片级基准——这正是中性原子冷却/俘获/高保真门与光钟的心脏。工作基于 Infleqtion 2024 年收购的 UCSB 衍生公司 SiNoptiq 的 IP，面向手持量子传感器、GPS 拒止导航、电信塔与数据中心授时及紧凑型量子计算机的规模化制造，与今日报告论文三（Ansari 团队）共同勾勒&quot;量子硬件供应链工程化&quot;的一周主线。</description>
+    </item>
+    <item>
+      <title>[动态] Pasqal 5000 万欧元 Q-PLANET 试点线进入执行阶段：欧洲自建中性原子芯片供应链</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-07/#n1</link>
+      <guid isPermaLink="false">n:2026-10-07:1</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Pasqal（NASDAQ: PSQL）牵头的 Q-PLANET 项目在布鲁塞尔启动会三个月后转入执行期：为期三年、总额 5000 万欧元，由欧盟芯片联合企业（Chips JU）联合 France 2030、芬兰国家商务促进局、奥地利 FFG 及德国巴登-符腾堡州研究部共同出资，28 家伙伴横跨 11 国。目标是为中性原子量子计算/传感/通信建立欧洲自主的半导体-光子供应链：四波段集成激光源（461/698/795/1013nm，Pasqal 领衔 1013nm）、原子芯片、微制碱金属气室与标准化 PDK/ADK，支撑 TGCC、于利希、CINECA 等欧洲 HPC 中心的量子部署——欧洲&quot;量子主权&quot;路线图的实体化一步。</description>
+    </item>
+    <item>
+      <title>[动态] Xanadu 携手 GlobalFoundries：光量子核心组件走上 300mm 晶圆工业产线</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-07/#n0</link>
+      <guid isPermaLink="false">n:2026-10-07:0</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Xanadu（NASDAQ/TSX: XNDU）宣布与 GlobalFoundries 达成多年期战略制造协议，在其纽约州马耳他 300mm 晶圆厂量产光量子计算两大核心组件——超低损耗氮化硅（SiN）光子线路（&quot;光路板&quot;）与具备光子数分辨能力的片上 SNSPD 单光子探测器。此举标志光量子硬件从实验室原型走向工业级量产，将支撑 Xanadu 面向 2031 年 1000 逻辑比特目标的容错光量子计算机演示机与未来商用量子数据中心。</description>
+    </item>
     <item>
       <title>[论文] 光量子求解器在金融风险检测 QUBO 特征选择中的性能版图</title>
       <link>https://raymond0812-yylm.github.io/papers/landscape-dependent-performance-photonic-quantum-solvers-qubo-1b477/</link>
@@ -300,62 +356,6 @@
       <guid isPermaLink="false">n:2026-10-02:0</guid>
       <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
       <description>D-Wave（NYSE: QBTS）宣布面向选定客户开放其门模型量子模拟器 Beta 计划,早于正式商用版本。该计划主打&quot;错误感知编程&quot;（error-aware programming）能力,让客户在开发量子应用时即纳入目标硬件的错误特征。这标志着以量子退火立身的 D-Wave 在门模型路线上的产品化落地,退火与门模型双线并行——对组合优化用户而言,未来可在同一供应商生态内对比退火机与门模型两条求解路线。</description>
-    </item>
-    <item>
-      <title>[论文] 面向端到端组合优化的视觉-语言模型微调</title>
-      <link>https://raymond0812-yylm.github.io/papers/vlm-fine-tuning-end-end-combinatorial-optimization-8faa7/</link>
-      <guid isPermaLink="false">p:vlm-fine-tuning-end-end-combinatorial-optimization-8faa7</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>用大语言模型直接生成组合优化问题的解是 LLM4CO 的新前沿，但现有做法几乎全部依赖文本序列化——把图、坐标、约束写成字符串。文本化会丢失问题的空间与关系结构（节点相对方位、簇结构、时序重叠等），模型要在&quot;读文字&quot;的同时在脑内重建几何，天然吃亏。视觉-语言模型（VLM）具备图像理解能力，问题是：把问题画出来给模型看，能否真正增强求解？ 本文给出首个系统性的肯定答案与完整训练方案。</description>
-    </item>
-    <item>
-      <title>[论文] 指数级缩短深度的量子双括号虚时演化算法（PDBQITE）</title>
-      <link>https://raymond0812-yylm.github.io/papers/quantum-double-bracket-algorithm-imaginary-time-evolution-8faa7/</link>
-      <guid isPermaLink="false">p:quantum-double-bracket-algorithm-imaginary-time-evolution-8faa7</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>虚时演化（Imaginary-Time Evolution, ITE）是量子物理与量子化学中威力最大、也最&quot;贵&quot;的制备基态手段：沿虚时方向演化指数压制激发态分量，收敛于基态，但它本身是非幺正操作，量子电路不能直接执行。近年的路线之一是双括号量子虚时演化 DB-QITE：把虚时演化离散为一串&quot;双括号&quot;流步骤 e^[D,H]（D 为对角耗散生成元），每一步保持幺正，从而可在量子硬件上执行。DB-QITE 与 QAOA 关系密切——一步双括号流恰好形同一个 QAOA 层（代价函数版本即 dBBA 算法家族），因此它同…</description>
-    </item>
-    <item>
-      <title>[论文] 用重叠间隙性质分离量子与量子启发的近似优化算法</title>
-      <link>https://raymond0812-yylm.github.io/papers/overlap-gap-property-separating-quantum-quantum-inspired-8fa98/</link>
-      <guid isPermaLink="false">p:overlap-gap-property-separating-quantum-quantum-inspired-8fa98</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>&quot;QAOA 到底比它的经典模拟物强在哪&quot;是量子优化最核心的正当性之争。量子启发的平均场近似优化算法（MF-AOA）把 QAOA 的量子态换成经典平均场分布，在若干基准上表现与 QAOA 相当，常被引用来质疑量子优势的必要性。另一方面，自旋玻璃理论中的重叠间隙性质（OGP）已被证明会卡死一大类经典算法（含 AMP 类消息传递算法）：近优解在解空间中彼此分离成孤岛，局部方法难以跨越。本文把这两条线接上：MF-AOA 是否也受 OGP 约束？如果是，QAOA 是否不受？</description>
-    </item>
-    <item>
-      <title>[动态] 新华财经高端访谈:量子计算告别物理比特竞赛,驶入容错竞争新赛道</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-01/#n5</link>
-      <guid isPermaLink="false">n:2026-10-01:5</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>新华财经 9 月 30 日发布行业访谈指出,2026 年以来 IBM、微软等国际量子龙头密集发布容错量子技术路线图,多项量子纠错实验取得突破,业内认为量子计算正走出原型验证时代、转向以逻辑比特与容错为核心的新竞争阶段。国内产业界判断我国量子科技整体处于全球第一梯队,量子计算是未来十年竞争焦点。行业评价坐标从&quot;物理比特数量&quot;切换到&quot;逻辑比特质量&quot;,与今日报告论文一所在的降深度/容错化研究方向同频。</description>
-    </item>
-    <item>
-      <title>[动态] 全国首个量子技术赋能政务移动端规模化应用&quot;量子＋皖政通&quot;正式发布</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-01/#n4</link>
-      <guid isPermaLink="false">n:2026-10-01:4</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>据安徽省数据资源局消息,全国首个量子技术赋能政务移动端规模化应用成果——&quot;量子＋皖政通&quot;正式发布,标志着安徽落地一批全球领先的&quot;量子技术＋云网数算&quot;融合应用场景。安徽依托本地量子产业集群优势,将量子加密能力嵌入政务移动办公通道,是量子技术在政务领域首个规模化落地案例,为其他省份提供了可复制的样板。</description>
-    </item>
-    <item>
-      <title>[动态] &quot;之江·瀚&quot;AQC Nexus 量子计算云平台发布,主打跨硬件通用接入</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-01/#n3</link>
-      <guid isPermaLink="false">n:2026-10-01:3</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>之江数安量子在 9 月 26 日下午举行的量子信息展会期间正式发布&quot;之江·瀚&quot;AQC Nexus 量子计算云平台,定位为跨硬件的通用量子计算云平台,为行业应用提供&quot;用得上&quot;的量子算力接入。公司以&quot;让每个人提前用上安全可信的量子计算&quot;为愿景,聚焦量子安全与量子计算两大方向,携软硬一体化产品集中展出。跨后端的统一云接入降低了应用方试用量子优化求解服务的门槛。</description>
-    </item>
-    <item>
-      <title>[动态] QuantLase 在金融市场化数据上测试光子计算平台 PIPU</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-01/#n2</link>
-      <guid isPermaLink="false">n:2026-10-01:2</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>QuantLase 研发中心（QRDC）宣布在七个金融市场数据集上测试其光子智能处理单元 PIPU,将物理光学处理与 GPU 支持相结合,并与 AI 预测系统及数字仿真做对照评估。结果显示光动力学在处理市场数据方面具备超越常规方法的潜力,是光子计算向金融行业落地的一次具体验证。金融时序优化与风险计算是量子/光子计算最被看好的近期应用场景之一。</description>
-    </item>
-    <item>
-      <title>[动态] Classiq 发布&quot;容错引擎&quot;,打通量子应用与容错硬件之间的编译断层</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-01/#n1</link>
-      <guid isPermaLink="false">n:2026-10-01:1</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>量子软件公司 Classiq 于 9 月 30 日推出 Fault Tolerance Engine,可将优化后的逻辑量子程序编译为容错执行方案（含 Clifford+T 逻辑级编译）,并估算目标硬件资源需求。该能力已通过 SDK 的 classiq.error_correction 模块交付,帮助用户在容错量子计算机落地前评估应用可行性。随着 IBM、微软等密集发布容错路线图,应用侧&quot;提前对表&quot;容错资源的工具链开始成为刚需。</description>
     </item>
   </channel>
 </rss>
