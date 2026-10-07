@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-08] 48 自旋单态流形中交换控制的基准测试</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-08/</link>
+      <guid isPermaLink="false">daily:2026-10-08</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>交换相互作用路线（exchange-only）是半导体自旋量子比特中的&quot;极简控制&quot;流派：只靠电学调控的海森堡交换耦合 $J(t)$ 就能完成全部操控，无需逐比特的微波磁驱动。但它的结构性代价从一开始就写在了编码方案里——可独立寻址的逻辑比特必须编码在至少三个电子自旋的子系统中，其余自旋自由度全部被当作&quot;泄漏&quot;（leakage），只在门序列中短暂借用。当阵列规模从个位数比特迈向几十个自旋，&quot;比特抽象层&quot;之外的整个希尔伯特空间究竟被控制得怎么样，就从工程细节上升为平台生死问题：任何走向量子优势区域的横向扩展叙事，都…</description>
+    </item>
     <item>
       <title>[日报 2026-10-07] 训练变分量子算法即使局部也是 NP-难</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-07/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-03</guid>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
       <description>量子优势（quantum advantage） 是 NISQ（含噪中等规模量子）时代的核心里程碑。但现有&quot;量子优越性&quot;演示（如随机线路采样）针对的是人为构造、无实用价值的问题；而对真正经典难解（NP 完全）且有用的组合优化问题，量子算法始终未能展示出对最好经典求解器的优势。在缺乏严格复杂度证明的前提下，论文采用务实的替代判据——标度优势（scaling advantage）：随着问题规模增大，量子方法的资源需求增长指数底数若小于最好经典方法，即视为量子优势的经验证据。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-02] 面向随机机组组合的后端无关最大权独立集（MWIS）内核：中性原子量子硬件验证</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-02/</link>
-      <guid isPermaLink="false">daily:2026-09-02</guid>
-      <pubDate>Wed, 02 Sep 2026 00:00:00 GMT</pubDate>
-      <description>领域背景：组合优化被认为是近期含噪中等规模量子（NISQ）硬件最有希望率先落地的应用方向，QAOA、量子退火、模拟量子退火（AHS）等路线均在积极探索。但该方向存在两大长期痛点：其一，真实工业运筹模型（含连续变量与复杂约束）难以直接编译为量子硬件可执行的伊辛/QUBO 形式；其二，噪声量子硬件输出的解质量差，缺乏与真实决策回路对接的可行解修复机制。</description>
     </item>
   </channel>
 </rss>

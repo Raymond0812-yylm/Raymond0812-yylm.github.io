@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 07 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 6×6 量子点阵列中的稀疏比特操作</title>
+      <link>https://raymond0812-yylm.github.io/papers/sparse-qubit-operation-6-6-quantum-dot-1b495/</link>
+      <guid isPermaLink="false">p:sparse-qubit-operation-6-6-quantum-dot-1b495</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>半导体自旋比特的单、双比特保真度早已跨过容错门槛候选区，真正的瓶颈是&quot;扩规模且保连接&quot;：为了给每个量子点留出控制线通道，主流扩展基本沿一维方向堆叠，二维网格意味着控制线拥挤、串扰恶化、工艺良率陡降。本文给出一个反直觉的解法——不追求把比特铺满阵列，而是把阵列当作&quot;可编程底盘&quot;：6×6 共 36 个量子点仅由一层共享势垒栅 + 每点独立柱塞栅定义（显著放宽工艺要求），比特先在其中均匀装载，再通过相干自旋穿梭（coherent spin shuttling，最远 5.2 μm）搬运到稀疏位置——10 个比特同时受控…</description>
+    </item>
+    <item>
+      <title>[论文] 量子退火中谱隙与纠缠复杂性的解耦</title>
+      <link>https://raymond0812-yylm.github.io/papers/decoupling-spectral-gaps-from-entanglement-complexity-quantum-1b494/</link>
+      <guid isPermaLink="false">p:decoupling-spectral-gaps-from-entanglement-complexity-quantum-1b494</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>绝热量子退火的运行时由最小谱隙决定（$\sim 1/\Delta^2$），而社区里长期流行两条互相纠缠的叙事：&quot;纠缠增长→量子资源变强&quot;与&quot;纠缠有界→张量网络可模拟→量子无望&quot;。本文问了一个干净的问题：指数小的谱隙是否必然伴随复杂的纠缠结构？ 答案是否定的——谱隙标度与纠缠复杂性可以完全解耦，且四个方向都解耦：一阶相变给出&quot;指数小谱隙 + $O(1)$ 有界 Schmidt 秩（全局多体关联仍然存在）&quot;；连续相变给出&quot;多项式闭合谱隙 + 对数增长纠缠&quot;；作者再构造两个反例把配对反转过来——交错场反铁磁 Isin…</description>
+    </item>
+    <item>
+      <title>[论文] 48 自旋单态流形中交换控制的基准测试</title>
+      <link>https://raymond0812-yylm.github.io/papers/benchmarking-exchange-only-control-48-spin-singlet-1b495/</link>
+      <guid isPermaLink="false">p:benchmarking-exchange-only-control-48-spin-singlet-1b495</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>交换相互作用路线（exchange-only）是半导体自旋量子比特中的&quot;极简控制&quot;流派：只靠电学调控的海森堡交换耦合 $J(t)$ 就能完成全部操控，无需逐比特的微波磁驱动。但它的结构性代价从一开始就写在了编码方案里——可独立寻址的逻辑比特必须编码在至少三个电子自旋的子系统中，其余自旋自由度全部被当作&quot;泄漏&quot;（leakage），只在门序列中短暂借用。当阵列规模从个位数比特迈向几十个自旋，&quot;比特抽象层&quot;之外的整个希尔伯特空间究竟被控制得怎么样，就从工程细节上升为平台生死问题：任何走向量子优势区域的横向扩展叙事，都…</description>
+    </item>
+    <item>
+      <title>[动态] 国内量子精密测量重磅：清华联合团队国际率先研制&quot;核光钟&quot;，登上《自然》</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n4</link>
+      <guid isPermaLink="false">n:2026-10-08:4</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>清华大学物理系丁世谦团队联合国内多个研究团队，在国际上率先研制出&quot;核光钟&quot;（nuclear clock），以激光精确驱动钍-229 原子核跃迁实现时间频率基准，标志着量子精密测量从&quot;电子跃迁&quot;迈向&quot;原子核跃迁&quot;——论文以《锁定至钍-229 的核钟》（A nuclear clock synchronized to Th-229）为题于 10 月 7 日晚在线发表于《自然》，欧洲团队同期独立完成同类工作。核光钟有望支撑新一代高性能时频基准、卫星导航与深空探测定位，是当前量子精密测量领域国际竞争最激烈的前沿之一。</description>
+    </item>
+    <item>
+      <title>[动态] SQC 上榜 Fast Company&quot;2026 科技下一个大事件&quot;：全球首款商业化量子储备池计算 Watermelon 获主流认可</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n3</link>
+      <guid isPermaLink="false">n:2026-10-08:3</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>澳大利亚硅原子制造量子计算公司 Silicon Quantum Computing（SQC）入选 Fast Company&quot;2026 Next Big Things in Tech&quot;榜单，入选成果为其 2025 年 10 月发布的 Watermelon——号称全球首款商业化量子储备池计算机（quantum reservoir computer），基于 SQC 原子级精密制造技术，面向量子增强机器学习。同榜单还有 IonQ 等公司；量子储备池计算作为&quot;非通用但更近商用&quot;的差异化路线，正获得主流科技媒体的关注。</description>
+    </item>
+    <item>
+      <title>[动态] Eclipse Qrisp 斩获 Quantum Effects Award 2026：欧洲开源量子软件栈拿到行业背书</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n2</link>
+      <guid isPermaLink="false">n:2026-10-08:2</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>由 Fraunhofer FOKUS 发起、Eclipse 基金会托管的开源高级量子编程框架 Eclipse Qrisp，在斯图加特 Quantum Effects 展会（10 月 6—7 日）开幕式上获得 Quantum Effects Award 2026&quot;量子计算软件与算法&quot;类奖项。Qrisp 主打让开发者以高级抽象编写复杂量子程序，是欧洲自主量子软件栈的基石项目之一——在量子编程语言生态多为美企主导的格局下，该奖为欧洲开源路线提供了产业级背书。</description>
+    </item>
+    <item>
+      <title>[动态] D-Wave 推出门模型&quot;错误感知&quot;模拟器 Beta：21 比特双轨擦除仿真先于硬件铺软件生态</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n1</link>
+      <guid isPermaLink="false">n:2026-10-08:1</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>以量子退火立身的 D-Wave（NYSE: QBTS）为其门模型路线推出&quot;错误感知&quot;量子计算模拟器 Beta 计划：模拟器以 21 比特双轨（dual-rail）&quot;擦除型&quot;误差仿真为核心，复刻其双轨超导腔比特（DRQ）架构的硬件级错误检测特性，让选定客户在通用可用性（及后续真机部署）之前先行开发错误感知型应用。此举延续了&quot;先模拟器、后硬件&quot;的生态铺路打法，也标志着 D-Wave 退火+门模型双路线并进战略进入软件落地阶段。</description>
+    </item>
+    <item>
+      <title>[动态] 英飞凌 × ZuriQ 深化合作：二维彭宁微阱离子芯片走向工业化量产</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n0</link>
+      <guid isPermaLink="false">n:2026-10-08:0</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>英飞凌与 ETH 苏黎世衍生公司 ZuriQ 宣布深化合作（首度合作始于 2025 年 5 月），将 ZuriQ 的二维彭宁微阱（2D Penning micro-trap）离子阱架构与英飞凌的半导体制造能力结合，推进离子阱量子芯片的工业化与规模化——离子可在二维平面自由移动，是超越一维线性链的扩展路线。合作建立在 ZuriQ 3×3 九离子阵列演示之上；该公司今年 7 月刚完成 2550 万美元（2240 万欧元）种子轮（Quantonation 领投）。</description>
+    </item>
     <item>
       <title>[论文] 训练变分量子算法即使局部也是 NP-难</title>
       <link>https://raymond0812-yylm.github.io/papers/training-variational-quantum-algorithms-is-np-hard-1b485/</link>
@@ -300,62 +356,6 @@
       <guid isPermaLink="false">p:two-stage-quantum-classical-distribution-network-reconfiguration-8fb56</guid>
       <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
       <description>配电网重构（DNR）要求在拓扑与电气运行约束下寻找低损网络结构，本质是带强结构约束的混合整数非凸问题，是量子优化最现实的产业靶点之一。典型痛点：直接 QUBO 化需以罚函数强制辐射状（生成树）拓扑，罚系数调参凶险且大量采样浪费在不可行解上。本文的出发点是把可行性内建进编码本身，再让量子与经典各司其职。</description>
-    </item>
-    <item>
-      <title>[论文] Max-k-Cut 的可证局部经典与量子算法及中等围长下的量子优势</title>
-      <link>https://raymond0812-yylm.github.io/papers/provable-classical-quantum-local-algorithms-max-k-8fab5/</link>
-      <guid isPermaLink="false">p:provable-classical-quantum-local-algorithms-max-k-8fab5</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>&quot;QAOA 到底能否严格超越好的经典算法&quot;是量子优化领域最核心的悬案。最干净的比较平台是高围长（girth，最短环长）正则图上的局部算法：深度 p 的 QAOA 与 p 轮的局部经典算法都只能&quot;看见&quot;每个顶点半径约 p 的邻域，当围长足够大（g ≥ 2p+2）时邻域是树，两种算法的性能都能在无限规模极限下被精确计算——不靠仿真、可给证明。此前在 Max-Cut（二字母表）上，最优局部经典算法与 QAOA 长期互有胜负、僵持不下；作者们注意到一条新的可能通路：把字母表从二元扩到 k 元（Max-k-Cut），经典…</description>
-    </item>
-    <item>
-      <title>[论文] QAOA 向独立自旋-玻色子系统解耦及纯/混合自旋玻璃上的高深度性能</title>
-      <link>https://raymond0812-yylm.github.io/papers/decoupling-qaoa-into-independent-spin-boson-systems-8fb56/</link>
-      <guid isPermaLink="false">p:decoupling-qaoa-into-independent-spin-boson-systems-8fb56</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>评估深深度 QAOA 一直是硬骨头：稠密混合自旋玻璃上的精确递推公式虽存在，但计算代价随 QAOA 层数指数增长，几十层便不可算，导致&quot;高深度 QAOA 到底值不值&quot;长期停留在猜测层面。本文作者集群（与论文一交叉，另含 Dylan Herman、Benjamin Villalonga 等大规模 benchmark 老将）提出问题：稠密自旋玻璃中层间关联是否有可利用的近似解耦结构，能把指数账单砍下来？</description>
-    </item>
-    <item>
-      <title>[动态] 本源量子抗量子安全网关通过 CNAS 认可实验室完整检测</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n5</link>
-      <guid isPermaLink="false">n:2026-10-02:5</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>本源量子宣布其抗量子安全网关已通过中国信通院实验室（经 CNAS 中国合格评定国家认可委员会认可）的完整检测验证并取得检测报告。这标志其抗量子密码（PQC）产品达到可交付的合规检测水位;本源量子沿&quot;量子计算硬件本体 + 抗量子安全产品&quot;双线推进的策略进一步清晰,与安徽量子产业集群的政务/金融落地场景形成配合。</description>
-    </item>
-    <item>
-      <title>[动态] 浙江首个量子生态平台&quot;湖光云创&quot;正式发布启用</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n4</link>
-      <guid isPermaLink="false">n:2026-10-02:4</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>&quot;湖光云创&quot;量子生态平台于 9 月 29 日正式发布并同步启用,是浙江首个量子生态平台。平台由西湖云创集团发起,联合浙江省信息安全行业协会及省内外量子领域龙头企业共建,旨在打通量子安全与量子计算能力向企业客户的接入通道。地方性量子生态平台的密集出现,反映国内量子产业化正从单点技术突破转向区域集群式供给。</description>
-    </item>
-    <item>
-      <title>[动态] Pasqal 战略转向容错量子计算（FTQC）,终止法国国防项目 LSQUARE 聚焦商业应用</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n3</link>
-      <guid isPermaLink="false">n:2026-10-02:3</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>纳斯达克上市的中性原子量子公司 Pasqal 宣布调整与法国公共机构的合作框架,将资源集中于商业应用与容错量子计算（FTQC）路线,并终止参与国防项目 LSQUARE。这一&quot;收缩换聚焦&quot;的动作与 IBM、微软等巨头全面押注容错路线的方向一致,表明中性原子阵营的头部公司也开始把叙事从物理比特数量切换到逻辑比特与容错能力。</description>
-    </item>
-    <item>
-      <title>[动态] QCI 发布熵量子优化机 Dirac-3S:可处理约 9,980 个变量,首批客户 11 月出货</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n2</link>
-      <guid isPermaLink="false">n:2026-10-02:2</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Quantum Computing Inc.（NASDAQ: QUBT）发布新一代熵量子优化机 Dirac-3S,定位为 Dirac-3 的全面升级,主打速度、规模与解质量三项提升,变量容量扩至约 9,980 个,采用 5U 紧凑机型设计并支持模块化扩展,首批客户出货预计 2026 年 11 月。熵计算（光子-电子混合）路线直接面向组合优化商用市场,与 D-Wave 退火机、各类 Ising 机形成同赛道竞争,变量规模的量级提升是其对大型实际调度/路径问题的直接回应。</description>
-    </item>
-    <item>
-      <title>[动态] BlueQubit 用 IBM Nighthawk r2 商用处理器 19 秒完成 61 比特随机线路采样百万样本,经典估算需约 110 年</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n1</link>
-      <guid isPermaLink="false">n:2026-10-02:1</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>研究团队在云端调用的 IBM 120 比特 Nighthawk r2 超导处理器上,对 61 比特方格随机线路完成采样,19 秒生成 100 万个样本,估算同等任务经典超算需约 110 年（arXiv:2609.28657）;IBM 称 Nighthawk r2 每秒可执行逾 10 万条电路。值得注意的是该实验跑在商用云系统而非实验室专用装置上,不过&quot;110 年&quot;的经典估算口径与结果保真度验证仍是学界争议点。</description>
-    </item>
-    <item>
-      <title>[动态] D-Wave 推出门模型量子模拟器 Beta 计划,主打&quot;错误感知编程&quot;,退火巨头正式双线作战</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-02/#n0</link>
-      <guid isPermaLink="false">n:2026-10-02:0</guid>
-      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
-      <description>D-Wave（NYSE: QBTS）宣布面向选定客户开放其门模型量子模拟器 Beta 计划,早于正式商用版本。该计划主打&quot;错误感知编程&quot;（error-aware programming）能力,让客户在开发量子应用时即纳入目标硬件的错误特征。这标志着以量子退火立身的 D-Wave 在门模型路线上的产品化落地,退火与门模型双线并行——对组合优化用户而言,未来可在同一供应商生态内对比退火机与门模型两条求解路线。</description>
     </item>
   </channel>
 </rss>
