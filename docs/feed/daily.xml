@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 08 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-09] 经典优化问题的量子近似复杂度</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-09/</link>
+      <guid isPermaLink="false">daily:2026-10-09</guid>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
+      <description>经典近似复杂度理论早已为&quot;多项式时间内能保证多好的解&quot;建立了完整语言：APX 区分固定近似比可达与不可达，PTAS 允许逼近任意固定精度，FPTAS 进一步要求运行时间对精度倒数也是多项式；其随机化对应类 R-APX/R-PTAS/R-FPTAS 同样成熟。然而量子计算的对应语言一直缺席——QAOA、量子退火、量子-经典混合算法在实践中被大量启发式使用：在若干基准实例上跑出高分，并不构成任何最坏情况保证；反过来，&quot;量子算法&quot;这个词在实践中过于宽泛，从态制备、测量到经典后处理，哪些开销应计入&quot;运行时间&quot;也从未被严…</description>
+    </item>
     <item>
       <title>[日报 2026-10-08] 48 自旋单态流形中交换控制的基准测试</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-08/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-03-2</guid>
       <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
       <description>多目标组合优化（Multi-Objective Combinatorial Optimization, MOCO）广泛存在于工程设计、物流调度、金融投资与科学发现等领域，需要在相互冲突的目标之间寻找帕累托（Pareto）最优解集。其单目标版本往往已是 NP-hard，多目标化之后难度更高，精确的多目标整数规划求解器随规模增长迅速失效。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-03] 用增强型量子求解器在 NP 完全问题上实现标度优势的证据</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-03/</link>
-      <guid isPermaLink="false">daily:2026-09-03</guid>
-      <pubDate>Thu, 03 Sep 2026 00:00:00 GMT</pubDate>
-      <description>量子优势（quantum advantage） 是 NISQ（含噪中等规模量子）时代的核心里程碑。但现有&quot;量子优越性&quot;演示（如随机线路采样）针对的是人为构造、无实用价值的问题；而对真正经典难解（NP 完全）且有用的组合优化问题，量子算法始终未能展示出对最好经典求解器的优势。在缺乏严格复杂度证明的前提下，论文采用务实的替代判据——标度优势（scaling advantage）：随着问题规模增大，量子方法的资源需求增长指数底数若小于最好经典方法，即视为量子优势的经验证据。</description>
     </item>
   </channel>
 </rss>
