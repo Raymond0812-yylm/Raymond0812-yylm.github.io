@@ -120,6 +120,13 @@
       <description>Xanadu（NASDAQ/TSX: XNDU）宣布与 GlobalFoundries 达成多年期战略制造协议，在其纽约州马耳他 300mm 晶圆厂量产光量子计算两大核心组件——超低损耗氮化硅（SiN）光子线路（&quot;光路板&quot;）与具备光子数分辨能力的片上 SNSPD 单光子探测器。此举标志光量子硬件从实验室原型走向工业级量产，将支撑 Xanadu 面向 2031 年 1000 逻辑比特目标的容错光量子计算机演示机与未来商用量子数据中心。</description>
     </item>
     <item>
+      <title>[论文] 任意温度下多项式时间学习量子哈密顿量</title>
+      <link>https://raymond0812-yylm.github.io/papers/learning-quantum-hamiltonians-any-temperature-polynomial-time-e7575/</link>
+      <guid isPermaLink="false">p:learning-quantum-hamiltonians-any-temperature-polynomial-time-e7575</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>SIAM Journal on Computing 2026:给出任意温度下从 Gibbs 态副本多项式时间学习局域量子哈密顿量的算法与保证——哈密顿量学习从启发式走向有严格复杂性保证的理论成熟标志。</description>
+    </item>
+    <item>
       <title>[论文] 光量子求解器在金融风险检测 QUBO 特征选择中的性能版图</title>
       <link>https://raymond0812-yylm.github.io/papers/landscape-dependent-performance-photonic-quantum-solvers-qubo-1b477/</link>
       <guid isPermaLink="false">p:landscape-dependent-performance-photonic-quantum-solvers-qubo-1b477</guid>
@@ -419,13 +426,6 @@
       <guid isPermaLink="false">p:vlm-fine-tuning-end-end-combinatorial-optimization-8faa7</guid>
       <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
       <description>用大语言模型直接生成组合优化问题的解是 LLM4CO 的新前沿，但现有做法几乎全部依赖文本序列化——把图、坐标、约束写成字符串。文本化会丢失问题的空间与关系结构（节点相对方位、簇结构、时序重叠等），模型要在&quot;读文字&quot;的同时在脑内重建几何，天然吃亏。视觉-语言模型（VLM）具备图像理解能力，问题是：把问题画出来给模型看，能否真正增强求解？ 本文给出首个系统性的肯定答案与完整训练方案。</description>
-    </item>
-    <item>
-      <title>[论文] 指数级缩短深度的量子双括号虚时演化算法（PDBQITE）</title>
-      <link>https://raymond0812-yylm.github.io/papers/quantum-double-bracket-algorithm-imaginary-time-evolution-8faa7/</link>
-      <guid isPermaLink="false">p:quantum-double-bracket-algorithm-imaginary-time-evolution-8faa7</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>虚时演化（Imaginary-Time Evolution, ITE）是量子物理与量子化学中威力最大、也最&quot;贵&quot;的制备基态手段：沿虚时方向演化指数压制激发态分量，收敛于基态，但它本身是非幺正操作，量子电路不能直接执行。近年的路线之一是双括号量子虚时演化 DB-QITE：把虚时演化离散为一串&quot;双括号&quot;流步骤 e^[D,H]（D 为对角耗散生成元），每一步保持幺正，从而可在量子硬件上执行。DB-QITE 与 QAOA 关系密切——一步双括号流恰好形同一个 QAOA 层（代价函数版本即 dBBA 算法家族），因此它同…</description>
     </item>
   </channel>
 </rss>

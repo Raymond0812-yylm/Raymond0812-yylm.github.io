@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-08",
+ "updated": "2026-10-09",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -70,6 +70,65 @@
   }
  },
  "papers": [
+  {
+   "id": "learning-quantum-hamiltonians-any-temperature-polynomial-time-e7575",
+   "title": "Learning Quantum Hamiltonians at Any Temperature in Polynomial Time",
+   "titleZh": "任意温度下多项式时间学习量子哈密顿量",
+   "authors": [
+    "Ainesh Bakshi",
+    "Allen Liu",
+    "Ankur Moitra",
+    "Ewin Tang"
+   ],
+   "venue": "SIAM Journal on Computing",
+   "date": "2026-10-06",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1137/24m1690965",
+   "url": "https://doi.org/10.1137/24m1690965",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "SIAM Journal on Computing 2026:给出任意温度下从 Gibbs 态副本多项式时间学习局域量子哈密顿量的算法与保证——哈密顿量学习从启发式走向有严格复杂性保证的理论成熟标志。",
+   "abstract": "Abstract. We study the problem of learning a local quantum Hamiltonian [Formula: see text] given copies of its Gibbs state [Formula: see text] at a known inverse temperature [Formula: see text]. Anshu et al. [2020 IEEE 61st Annual Symposium on Foundations of Computer Science, pp. 685–691] gave an algorithm to learn a Hamiltonian on [Formula: see text] qubits to precision [Formula: see text] with only polynomially many copies of the Gibbs state, but which takes exponential time. Obtaining a computationally efficient algorithm has been a major open problem [ Alhambra, PRX Quantum, 4 (2023), 040201 ; Anshu and Arunachalam, Nature Rev. Phys., 6 (2023), pp. 59–69 ], with prior work only resolving this in the limited cases of high temperature [ Haah, Kothari, and Tang, Markov field on finite graphs and lattices, 1971 ] or commuting terms [ Anshu et al., Efficient learning of commuting Hamiltonians on lattices, 2021 ]. We fully resolve this problem, giving a polynomial time algorithm for learning [Formula: see text] to precision [Formula: see text] from polynomially many copies of the Gibbs state at any constant [Formula: see text]. Our main technical contribution is a new flat polynomial approximation to the exponential function, and a translation between multivariate scalar polynomials and nested commutators. This enables us to formulate Hamiltonian learning as a polynomial system. We then show that solving a low-degree sum-of-squares relaxation of this polynomial system suffices ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "nonorthogonal-variational-quantum-simulation-quantum-chemistry-ffe67",
+   "title": "Nonorthogonal variational quantum simulation for quantum chemistry",
+   "titleZh": "非正交变分量子模拟用于量子化学",
+   "authors": [
+    "Zongkang Zhang",
+    "Jiajun Ren",
+    "Xiao Yuan"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-24",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.29337",
+   "doi": "10.48550/arxiv.2609.29337",
+   "url": "https://arxiv.org/abs/2609.29337",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:动力学量子多体模拟需要高效波函数表示,张量网络与神经网络态在动力学上受限;该文提出非正交变分量子模拟方案,扩展 VQS 家族在实时动力学上的能力。",
+   "abstract": "Dynamical simulation of quantum many-body systems is a central task in quantum chemistry and requires efficient wavefunction representations. Although tensor-network and neural-network quantum states have achieved considerable success in ground-state calculations, entanglement growth hinders their application to quantum dynamics. Quantum computing may offer a route to quantum advantage, but algorithms such as Trotterization generally require fault-tolerant quantum computers, whereas near-term hardware supports only limited circuit sizes. Variational quantum simulation (VQS) instead represents the evolving state with a single shallow, fixed-size parameterized quantum circuit (PQC). Here, we introduce nonorthogonal variational quantum simulation (NOVQS), which applies linear combinations of parameterized quantum states to real- and imaginary-time evolutions. We design a shallow, hardware-friendly ansatz tailored to second-quantized electronic-structure Hamiltonians, together with resource-efficient protocols for measuring the matrices and vectors in the parameter equations of motion. Error analysis and resource estimation are also provided. Numerical simulations of hydrogen chains and the nitrogen molecule demonstrate that a collection of shallow, or even single-layer, PQCs can match or outperform a much deeper PQC in VQS. In particular, we identify a trade-off between circuit number and depth. NOVQS therefore provides a flexible route to enhancing wavefunction expressivity und",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
   {
    "id": "thermal-microwave-bus-neutral-atom-quantum-computing-87583",
    "title": "A thermal microwave bus for neutral atom quantum computing",
@@ -1459,6 +1518,38 @@
    "domains": []
   },
   {
+   "id": "autoqureo-framework-automated-quantum-resource-estimation-optimization-a99d1",
+   "title": "AutoQuREO: A Framework for Automated Quantum Resource Estimation and Optimization",
+   "titleZh": "AutoQuREO:自动化量子资源估计与优化框架",
+   "authors": [
+    "Harshkumar Oza",
+    "Aritra Sarkar",
+    "Syed Naqi Abbas",
+    "Rahul Bhowmick",
+    "Aryan Prakash",
+    "Prateek P. Kulkarni",
+    "Krishna Kumar Sabapathy"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-13",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.12936",
+   "doi": "10.48550/arxiv.2608.12936",
+   "url": "https://arxiv.org/abs/2608.12936",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:从原理验证走向实用化的关键缺口是\"这个算法到底需要多少资源\";AutoQuREO 提供自动化量子资源估计与优化的一体化框架,把资源估计从手工分析变为工程流程,是容错时代基础设施类工具。",
+   "abstract": "As quantum computing progresses from proof-of-principle demonstrations toward practical utility, a significant impediment is the need to augment algorithmic feasibility with system-level optimization across heterogeneous hardware and software stacks. Quantum resource estimation (QRE) plays a central role in this transition, yet existing approaches remain largely compilation-heavy or domain-knowledge-guided symbolic annotations, and tightly coupled to long-term fault-tolerant assumptions, limiting their topical applicability. In this work, we introduce AutoQuREO, an Automated framework for full-stack Quantum Resource Estimation and Optimization. AutoQuREO is built around four core novelties: (i) a flexible, user-defined abstraction of the quantum computing stack; (ii) a modular library of reusable stack components enabling rapid full-stack prototyping; (iii) surrogate modeling of layer-wise resources via algorithmic profiling and neuro-symbolic learning; and (iv) integrated multi-objective optimization that embeds QRE directly into deployment pipelines. Together, these design choices enable AutoQuREO to serve as a digital twin for quantum computing stacks, supporting the tractable exploration of complex design spaces. We demonstrate the capabilities of AutoQuREO through representative co-design case studies, including early-fault-tolerant quantum algorithms, small error correction codes, gate decomposition and variational training of parametric quantum circuits. These examples",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimal-stratification-sampling-frame-comparative-study-classical-25867",
    "title": "Optimal Stratification of a Sampling Frame: A Comparative Study of Classical, Quantum, and Quantum-Inspired Approaches",
    "titleZh": "抽样框最优分层:经典、量子与量子启发方法比较研究",
@@ -2197,6 +2288,46 @@
    ]
   },
   {
+   "id": "bounded-error-quantum-simulation-hamiltonian-lindbladian-learning-9c458",
+   "title": "Bounded-Error Quantum Simulation via Hamiltonian and Lindbladian Learning",
+   "titleZh": "经由哈密顿量与 Lindbladian 学习的有界误差量子模拟",
+   "authors": [
+    "Anonymous",
+    "Manoj K. Joshi",
+    "William T. Lam",
+    "Tobias Olsacher",
+    "Florian Kranzl",
+    "Johannes Franke",
+    "Lata Kh Joshi",
+    "R. Blatt",
+    "Augusto Smerzi",
+    "Daniel Stilck França",
+    "Benoît Vermersch",
+    "Barbara Kraus",
+    "Christian F. Roos",
+    "P. Zoller"
+   ],
+   "venue": "Physical Review X",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1103/s96t-n8tx",
+   "url": "https://doi.org/10.1103/s96t-n8tx",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review X:用哈密顿量+Lindbladian 学习替代直接模拟,对强关联多体动力学的模拟误差给出有界保证;\"先学习模型再做模拟\"是该论文确立的量子模拟新范式。",
+   "abstract": "Analog quantum simulators offer a route to exploring strongly correlated many-body dynamics beyond classical computation, but their predictive power remains limited by the absence of quantitative error estimation. Establishing rigorous uncertainty bounds is essential for elevating such devices from qualitative demonstrations to quantitative scientific tools. Here we introduce a general framework for bounded-error quantum simulation, which provides predictions for many-body observables with experimentally quantifiable uncertainties. The approach combines Hamiltonian and Lindbladian Learning—a statistically rigorous inference of the coherent and dissipative generators governing the dynamics—with the propagation of their uncertainties into the simulated observables, yielding confidence bounds directly derived from experimental data. We demonstrate this framework on trapped-ion quantum simulators implementing long-range Ising interactions with up to 51 ions. We analyze error bounds on two levels. First, we learn an open-system model from experimental data collected in an initial time window of quench dynamics, simulate the corresponding master equation, and quantitatively verify consistency between theoretical predictions and measured dynamics at long times. Second, we discuss short-time error bounds directly from experimental measurements alone, without relying on classical simulation—crucial for entering regimes of quantum advantage. In both cases, the learned models reproduce ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimizing-qaoa-circuit-transpilation-parity-twine-swap-18c58",
    "title": "Optimizing QAOA circuit transpilation with parity twine and SWAP network encodings",
    "titleZh": "利用奇偶缠绕与SWAP网络编码优化QAOA电路转译",
@@ -2724,6 +2855,38 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "shadow-engineering-quantum-processes-fa45e",
+   "title": "Shadow Engineering of Quantum Processes",
+   "titleZh": "量子过程的阴影工程",
+   "authors": [
+    "Tian-Ci Tian",
+    "De-Tao Jiang",
+    "Wei-Ming Zhu",
+    "Wei-You Liao",
+    "Hong-Wei Li",
+    "He-Liang Huang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-10",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.12035",
+   "doi": "10.48550/arxiv.2606.12035",
+   "url": "https://arxiv.org/abs/2606.12035",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把经典阴影从态层析推广到过程层析(量子过程的表征),服务硬件基准、错误诊断与算法验证三类需求,是阴影方法学的体系化扩展。",
+   "abstract": "Characterizing quantum processes is essential for hardware benchmarking, error diagnosis, and algorithm verification. While recent work [PRX QUANTUM \\textbf{4}, 040337 (2023)] extended classical shadows from quantum state to quantum process, enabling efficient single-channel $\\mathcal{E}$ property prediction, its applicability to composite processes $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$ remains unexplored. We introduce shadow engineering, a framework encoding the classical shadows of processes into sparse transfer matrices to predict $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$ properties with proven polynomial sample complexity, matching single-channel efficiency while exponentially lower than quantum process tomography. Crucially, this approach repurposes existing $\\mathcal{E}_m$-shadow data without physical execution of $f(\\mathcal{E}_1, \\mathcal{E}_2,\\cdots, \\mathcal{E}_k)$, enabling flexible quantum process characterization with minimal hardware overhead. We demonstrate the framework's effectiveness and practicality on a superconducting quantum processor for typical applications such as error mitigation and Hamiltonian dynamical simulation. This framework unlocks new capabilities for predicting complex quantum behaviors without physical re-execution, with immediate applications in near-term device calibration and quantum simulation.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "hybrid-quantum-inspired-intelligent-computing-model-real-ed75e",
@@ -3683,6 +3846,39 @@
    "domains": []
   },
   {
+   "id": "quantum-simulation-nanographenes-trotter-error-cancellation-f96af",
+   "title": "Quantum simulation of nanographenes and Trotter error cancellation",
+   "titleZh": "纳米石墨烯的量子模拟与 Trotter 误差消除",
+   "authors": [
+    "Andreas Juul Bay-Smidt",
+    "Nina Glaser",
+    "Marcel D. Fabian",
+    "Earl T. Campbell",
+    "Nick S. Blunt",
+    "Gemma C. Solomon"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.00745",
+   "doi": "10.48550/arxiv.2605.00745",
+   "url": "https://arxiv.org/abs/2605.00745",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:面向真实分子/材料(纳米石墨烯)的容错量子模拟,提出 Trotter 误差消除技术以压缩资源需求,缩小硬件能力与化学应用需求之间的鸿沟。",
+   "abstract": "Fault-tolerant quantum computing is a promising tool for simulating molecules and materials, but frequently-considered applications require substantial resources, and the gap between hardware capabilities and requirements remains significant. We propose quantum simulation of nanographene $π$-systems as relevant and scalable problems to span the gap between early and large-scale fault-tolerant quantum computing. We examine the efficiency of Trotterized quantum simulation, present a detailed analysis of worst-case, average-case and energy eigenvalue Trotter errors, and show that these Trotter error estimates vary by orders of magnitude. Trotter eigenvalue errors are obtained from a novel tensor-network-based approach which allows spectral analysis of product formulas for systems beyond brute-force calculation. Notably, we observe a Trotter error cancellation phenomenon whereby the Trotter error for energy differences between low-lying eigenstates is significantly smaller than the Trotter error for absolute energies, resulting in approximately an order of magnitude circuit depth reduction for quantum phase estimation calculation of energy gaps. This is a significant result because for most chemical applications, only energy differences are of practical relevance. We estimate that calculation of energy gaps to chemical accuracy between the ground- and excited-states within the Pariser--Parr--Pople model for large 2D nanographenes (up to 140 spin orbitals) requires circuits with $",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "solve-crude-oil-scheduling-problems-quantum-classical-8133f",
    "title": "Solve Crude Oil Scheduling Problems by Using Quantum-Classical Hybrid Algorithms",
    "titleZh": "用量子-经典混合算法求解原油调度问题",
@@ -3866,6 +4062,33 @@
    "domains": []
   },
   {
+   "id": "game-theoretic-approach-optimizing-quantum-error-budget-d6640",
+   "title": "A Game Theoretic Approach for Optimizing Quantum Error Budget Distribution",
+   "titleZh": "博弈论方法优化量子错误预算分配",
+   "authors": [
+    "Asif Akhtab Ronggon",
+    "Tasnuva Farheen"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-17",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.15603",
+   "doi": "10.48550/arxiv.2604.15603",
+   "url": "https://arxiv.org/abs/2604.15603",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "现有容错编译器对错误预算均匀分配,浪费资源;该文用博弈论方法非均匀优化各段的错误预算分配,在同等资源下提升整体成功率,是资源分配层面的编译创新。",
+   "abstract": "Current fault-tolerant quantum compilers allocate error budgets uniformly during resource estimation, causing suboptimal physical resource overhead. We optimize this allocation using a potential game formulation, where Nash Equilibrium yields a Pareto-optimal distribution across logical operations, T-state distillation, and rotation synthesis. An iterated best response (IBR) algorithm converges to this equilibrium through monotonic descent of the shared cost function. Evaluation across 433 MQT benchmarks demonstrates an average reduction of 30.22\\% in physical resource requirements relative to uniform baselines, with peak improvements of 97.81\\% for specific circuit instances. This establishes a game-theoretic foundation for strategic error budget optimization in fault-tolerant quantum design automation.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "black-box-optimization-factorization-ising-machines-71028",
    "title": "Black-box optimization using factorization and Ising machines",
    "titleZh": "基于因子分解机与Ising机的黑盒优化",
@@ -3900,6 +4123,42 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "covangelo-hybrid-quantum-classical-computing-platform-accurate-75fac",
+   "title": "CovAngelo: A hybrid quantum-classical computing platform for accurate and scalable drug discovery",
+   "titleZh": "CovAngelo:面向药物发现的混合量子-经典计算平台",
+   "authors": [
+    "Linn Samira Mari Evenseth",
+    "Kamil Galewski",
+    "Witold Jarnicki",
+    "Piero Lafiosca",
+    "Vyom N. Patel",
+    "Grzegorz Rajchel-Mieldzioć",
+    "Martin Šimka",
+    "Michał Szczepanik",
+    "Emil Żak"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-12",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.10487",
+   "doi": "10.48550/arxiv.2604.10487",
+   "url": "https://arxiv.org/abs/2604.10487",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:提出 QM/QM/MM 多尺度嵌入的量子内量子内经典模型,构建配体-蛋白结合的精确可扩展药物发现平台,是量子计算在制药工业化的平台级工作。",
+   "abstract": "We present a computational platform for modeling chemical reactions in complex molecular environments, focused on ligand-protein binding in drug discovery. The platform implements our new quantum-in-quantum-in-classical (QM/QM/MM) multiscale embedding model that integrates molecular dynamics with a quantum-information-enhanced density matrix embedding theory and quantum chemistry solvers, including explicit solvent. Quantum-information metrics are utilized to generate entanglement-consistent orbitals, enabling a high-accuracy description of strongly correlated regions. The framework supports multiple computational backends, including multi-CPU, NVIDIA multi-GPU architectures, and quantum hardware (IQM, IonQ, IBM) integrated under CUDA-Q, and is designed for compatibility with future fault-tolerant quantum systems. The new platform's capabilities are demonstrated by modeling covalent docking of zanubrutinib to Bruton's tyrosine kinase via a Michael addition mechanism, computing the full reaction energy profiles and energy barriers at a reduced computational cost relative to existing methods. As a 2nd-generation anticancer agent, zanubrutinib serves as a proof of concept for covalent inhibitor discovery. Accurate first-principles reaction barrier estimations provided by our method can contribute to reducing false positive and negative rates in drug discovery pipelines. Scalability is validated through benchmarks on GPU clusters, cloud-based CPU infrastructures. We demonstrate i",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "heom-based-numerical-framework-quantum-simulation-two-f3648",
@@ -4420,6 +4679,33 @@
    ]
   },
   {
+   "id": "learning-hamiltonians-solid-state-quantum-simulators-d5215",
+   "title": "Learning Hamiltonians for solid-state quantum simulators",
+   "titleZh": "面向固态量子模拟器的哈密顿量学习方法",
+   "authors": [
+    "Jarosław Pawłowski",
+    "Mateusz Krawczyk"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-03",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.02889",
+   "doi": "10.48550/arxiv.2603.02889",
+   "url": "https://arxiv.org/abs/2603.02889",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出可直接从实验数据辨识固态量子模拟器有效哈密顿量的通用框架,弥合\"理想模型\"与\"真实硬件\"之间的偏差,是模拟器标定的基础工具。",
+   "abstract": "We introduce a generalizable framework for identifying effective Hamiltonians directly from experimental data in solid-state quantum systems. Our unsupervised autoencoder-based approach incorporates the governing physics (here, the S-matrix formalism) directly into the decoder, enabling physically meaningful Hamiltonian inference without labeled Hamiltonian parameters. Through numerical experiments on a triple quantum dot chain, we demonstrate automated characterization of programmable solid-state simulators from transport measurements. The model accurately infers Hamiltonian parameters and generalizes beyond the training domain, while exhibiting finite capacity as the parameter space becomes increasingly broad or diverse. We further demonstrate robustness to noisy measurements and show that the model can be successfully trained on transport data generated outside the Hamiltonian family assumed by the physics decoder, while still identifying meaningful effective parameters.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "evaluating-limits-quantum-approximate-optimization-algorithm-parameter-28194",
    "title": "Evaluating the limits of Quantum Approximate Optimization Algorithm parameter transfer at high rounds on sparse Ising models with geometrically local cubic terms",
    "titleZh": "评估QAOA高层数参数迁移在含几何局域三次项稀疏Ising模型上的极限",
@@ -4879,6 +5165,35 @@
     "logistics",
     "transport"
    ]
+  },
+  {
+   "id": "shadow-enhanced-greedy-quantum-eigensolver-d703a",
+   "title": "A Shadow Enhanced Greedy Quantum Eigensolver",
+   "titleZh": "阴影增强的贪心量子本征求解器",
+   "authors": [
+    "Jona Erle",
+    "Bálint Koczor"
+   ],
+   "venue": "arXiv",
+   "date": "2026-02-19",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2602.17615",
+   "doi": "10.48550/arxiv.2602.17615",
+   "url": "https://arxiv.org/abs/2602.17615",
+   "topics": [
+    "vqa",
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把经典阴影(classical shadows)融入贪心量子本征求解器:用阴影表示低开销地引导基态制备的贪心步骤,是\"经典阴影×VQE\"结合的新算法组合。",
+   "abstract": "While ground-state preparation is expected to be a primary application of quantum computers, it is also an essential subroutine for many fault-tolerant algorithms. In early fault-tolerant regimes, logical measurements remain costly, motivating adaptive, shot-frugal state-preparation strategies that efficiently utilize each measurement. We introduce the Shadow Enhanced Greedy Quantum Eigensolver (SEGQE) as a greedy, shadow-assisted framework for measurement-efficient ground-state preparation. SEGQE uses classical shadows to evaluate, in parallel and entirely in classical post-processing, the energy reduction induced by large collections of local candidate gates, greedily selecting at each step the gate with the largest estimated energy decrease. We derive rigorous worst-case per-iteration sample-complexity bounds for SEGQE, exhibiting logarithmic dependence on the number of candidate gates. Numerical benchmarks on finite transverse-field Ising models and ensembles of random local Hamiltonians demonstrate convergence in a number of iterations that scales approximately linearly with system size, while maintaining high-fidelity ground-state approximations and competitive energy estimates. Together, our empirical scaling laws and rigorous per-iteration guarantees establish SEGQE as a measurement-efficient state-preparation primitive well suited to early fault-tolerant quantum computing architectures.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "iterative-quantum-assisted-least-squares-optimization-convergence-6cab3",
@@ -6741,6 +7056,36 @@
    "domains": []
   },
   {
+   "id": "clifford-volume-free-fermion-volume-complementary-scalable-72019",
+   "title": "Clifford Volume and Free Fermion Volume: Complementary Scalable Benchmarks for Quantum Computers",
+   "titleZh": "Clifford 体积与自由费米子体积:互补的可扩展量子计算机基准",
+   "authors": [
+    "Attila Portik",
+    "Orsolya Kálmán",
+    "Thomas Monz",
+    "Zoltán Zimborás"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-22",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2512.19413",
+   "doi": "10.48550/arxiv.2512.19413",
+   "url": "https://arxiv.org/abs/2512.19413",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向后 NISQ 与早期容错时代,提出 Clifford 体积与自由费米子体积两个平台无关、可扩展的基准指标,填补\"如何跨平台公平比较量子计算机\"的空白。",
+   "abstract": "As quantum computing advances toward the late-NISQ and early fault-tolerant eras, scalable and platform-independent benchmarks are essential for quantifying computational capacity in a classically verifiable manner. We introduce two volumetric benchmarks, Clifford Volume and Free Fermion Volume, that assess quantum hardware by testing the execution of random Clifford and free fermion operations. These two groups of unitaries possess a combination of properties that make them ideal for benchmarking: (i) each is individually efficient to simulate classically, enabling verification at scale; (ii) together they form a universal gate set; (iii) they serve as essential algorithmic primitives in practical applications (including shadow tomography and quantum chemistry); and (iv) their definitions are formulated abstractly, without explicit reference to hardware-specific features such as qubit connectivity or native gate sets. This framework thus enables scalable and fair cross-platform comparisons and tracks meaningful computational advancement. We demonstrate the practical feasibility of these benchmarks through extensive numerical simulations across realistic noise parameters and through experimental validation on Quantinuum's H2-1 trapped-ion quantum computer, which achieves a Clifford Volume of 34.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "black-box-optimization-storage-location-assignment-problem-632dd",
    "title": "Black-Box Optimization of the Storage Location Assignment Problem in Logistics Centers Using an Annealing Algorithm",
    "titleZh": "基于退火黑盒优化的物流中心储位分配优化",
@@ -8269,6 +8614,34 @@
    ]
   },
   {
+   "id": "optimal-robust-situ-quantum-hamiltonian-learning-through-c4e02",
+   "title": "Optimal and Robust In-situ Quantum Hamiltonian Learning through Parallelization",
+   "titleZh": "并行化的最优鲁棒原位量子哈密顿量学习",
+   "authors": [
+    "Liu, Suying",
+    "Xiaodi Wu",
+    "Murphy Yuezhen Niu"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-09",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2510.07818",
+   "doi": "10.48550/arxiv.2510.07818",
+   "url": "https://arxiv.org/abs/2510.07818",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出并行化的原位哈密顿量学习方案,在鲁棒性约束下达到最优样本复杂度;哈密顿量学习是多体精确模拟与器件表征的共同基础,该工作补齐了并行化维度的最优性。",
+   "abstract": "Hamiltonian learning is a cornerstone for advancing accurate many-body simulations, improving quantum device performance, and enabling quantum-enhanced sensing. Existing readily deployable quantum metrology techniques primarily focus on achieving Heisenberg-limited precision in one- or two-qubit systems. In contrast, general Hamiltonian learning theories address broader classes of unknown Hamiltonian models but are highly inefficient due to the absence of prior knowledge about the Hamiltonian. There remains a lack of efficient and practically realizable Hamiltonian learning algorithms that directly exploit the known structure and prior information of the Hamiltonian, which are typically available for a given quantum computing platform. In this work, we present the first Hamiltonian learning algorithm that achieves both Cramer-Rao lower bound saturated optimal precision and robustness to realistic noise, while exploiting device structure for quadratic reduction in experimental cost for fully connected Hamiltonians. Moreover, this approach enables simultaneous in-situ estimation of all Hamiltonian parameters without requiring the decoupling of non-learnable interactions during the same experiment, thereby allowing comprehensive characterization of the system's intrinsic contextual errors. Notably, our algorithm does not require deep circuits and remains robust against both depolarizing noise and time-dependent coherent errors. We demonstrate its effectiveness with a detailed ex",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "game-theoretic-energy-scheduling-community-multi-energy-f868f",
    "title": "Game-theoretic energy scheduling for community multi-energy system with electric vehicle aggregator leveraging quantum swarm intelligence",
    "titleZh": "基于量子群体智能的社区综合能源系统博弈论能量调度",
@@ -8836,6 +9209,41 @@
     "energy",
     "materials"
    ]
+  },
+  {
+   "id": "quantem-quantum-error-management-compiler-34855",
+   "title": "QuantEM: The quantum error management compiler",
+   "titleZh": "QuantEM:量子错误管理编译器",
+   "authors": [
+    "Ji  yin Liu",
+    "Langfitt, Quinn",
+    "Mingyoung Jeng",
+    "Alvin Gonzales",
+    "Noble Agyeman-Bobie",
+    "Kaiya Jones Siddharth Vijaymurugan",
+    "Daniel Dilley",
+    "Zain H. Saleem",
+    "Nikos Hardavellas",
+    "Kaitlin N. Smith"
+   ],
+   "venue": "arXiv",
+   "date": "2025-09-19",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2509.15505",
+   "doi": "10.48550/arxiv.2509.15505",
+   "url": "https://arxiv.org/abs/2509.15505",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:在错误缓解与完全纠错之间,量子错误检测(QED)是可扩展的中间策略;QuantEM 把 QED 集成进编译器自动识别并丢弃故障样本,是\"错误管理\"从手法到基础设施的标志工作。",
+   "abstract": "As quantum computing advances toward fault-tolerant architectures, quantum error detection (QED) has emerged as a practical and scalable intermediate strategy in the transition from error mitigation to full error correction. By identifying and discarding faulty runs rather than correcting them, QED enables improved reliability with significantly lower overhead. Applying QED to arbitrary quantum circuits remains challenging, however, because of the need for manual insertion of detection subcircuits, ancilla allocation, and hardware-specific mapping and scheduling. We present QuantEM, a modular and extensible compiler designed to automate the integration of QED codes into arbitrary quantum programs. Our compiler consists of three key modules: (1) program analysis and transformation module to examine quantum programs in a QED-aware context and introduce checks and ancilla qubits, (2) error detection code integration module to map augmented circuits onto specific hardware backends, and (3) postprocessing and resource management for measurement results postprocessing and resource-efficient estimation techniques. The compiler accepts a high-level quantum circuit, a chosen error detection code, and a target hardware topology and then produces an optimized and executable circuit. It can also automatically select an appropriate detection code for the user based on circuit structure and resource estimates. QuantEM currently supports Pauli check sandwiching and Iceberg codes and is desi",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "scalable-high-fidelity-all-electronic-control-trapped-262c9",
@@ -10241,6 +10649,37 @@
    "domains": []
   },
   {
+   "id": "meta-learning-gibbs-states-many-body-hamiltonians-4ca1a",
+   "title": "Meta-learning of Gibbs states for many-body Hamiltonians with applications to Quantum Boltzmann Machines",
+   "titleZh": "多体哈密顿量 Gibbs 态的元学习及其在量子玻尔兹曼机中的应用",
+   "authors": [
+    "Ruchira V Bhat",
+    "Rahul Bhowmick",
+    "Avinash Kumar Singh",
+    "Krishna Kumar Sabapathy"
+   ],
+   "venue": "arXiv",
+   "date": "2025-07-22",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2507.16373",
+   "doi": "10.48550/arxiv.2507.16373",
+   "url": "https://arxiv.org/abs/2507.16373",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把元学习用于多体哈密顿量 Gibbs 态制备,并落地到量子玻尔兹曼机(QBM)训练——连接哈密顿量学习与量子机器学习两个方向的关键节点。",
+   "abstract": "The preparation of quantum Gibbs states is a fundamental challenge in quantum computing, essential for applications ranging from modeling open quantum systems to quantum machine learning. Building on the Meta-Variational Quantum Eigensolver framework proposed by Cervera-Lierta et al.(2021) and a problem driven ansatz design, we introduce two meta-learning algorithms: Meta-Variational Quantum Thermalizer (Meta-VQT) and Neural Network Meta-VQT (NN-Meta VQT) for efficient thermal state preparation of parametrized Hamiltonians on Noisy Intermediate-Scale Quantum (NISQ) devices. Meta-VQT utilizes a fully quantum ansatz, while NN Meta-VQT integrates a quantum classical hybrid architecture. Both leverage collective optimization over training sets to generalize Gibbs state preparation to unseen parameters. We validate our methods on upto 8-qubit Transverse Field Ising Model and the 2-qubit Heisenberg model with all field terms, demonstrating efficient thermal state generation beyond training data. For larger systems, we show that our meta-learned parameters when combined with appropriately designed ansatz serve as warm start initializations, significantly outperforming random initializations in the optimization tasks. Furthermore, a 3- qubit Kitaev ring example showcases our algorithm's effectiveness across finite-temperature crossover regimes. Finally, we apply our algorithms to train a Quantum Boltzmann Machine (QBM) on a 2-qubit Heisenberg model with all field terms, achieving enh",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "artificial-intelligence-science-quantum-atomistic-continuum-systems-02fbd",
    "title": "Artificial intelligence for science in quantum, atomistic, and continuum systems",
    "titleZh": "量子、原子与连续系统中的科学人工智能",
@@ -11290,6 +11729,41 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "quantum-circuits-as-game-reinforcement-learning-agent-bc5cd",
+   "title": "Quantum circuits as a game: A reinforcement learning agent for quantum compilation and its application to reconfigurable neutral atom arrays",
+   "titleZh": "把量子线路当游戏玩:量子编译强化学习智能体 QC-Daemon",
+   "authors": [
+    "Kouhei Nakaji",
+    "Jonathan Wurtz",
+    "Haozhe Huang",
+    "Calderón, Luis Mantilla",
+    "Karthik Panicker",
+    "Elica S. Kyoseva",
+    "Alán Aspuru‐Guzik"
+   ],
+   "venue": "arXiv",
+   "date": "2025-06-05",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2506.05536",
+   "doi": "10.48550/arxiv.2506.05536",
+   "url": "https://arxiv.org/abs/2506.05536",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 QC-Daemon——用强化学习智能体做量子编译(深度合成),把编译过程形式化为智能体可学习的决策游戏;与库内 Quarl、ZX-演算 RL 等构成\"学习型编译\"完整谱系。",
+   "abstract": "We introduce the \"quantum circuit daemon\" (QC-Daemon), a reinforcement learning agent for compiling quantum device operations aimed at efficient quantum hardware execution. We apply QC-Daemon to the move synthesis problem called the Atom Game, which involves orchestrating parallel circuits on reconfigurable neutral atom arrays. In our numerical simulation, the QC-Daemon is implemented by two different types of transformers with a physically motivated architecture and trained by a reinforcement learning algorithm. We observe a reduction of the logarithmic infidelity for various benchmark problems up to 100 qubits by intelligently changing the layout of atoms. Additionally, we demonstrate the transferability of our approach: a Transformer-based QC-Daemon trained on a diverse set of circuits successfully generalizes its learned strategy to previously unseen circuits.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -14408,6 +14882,39 @@
    ],
    "summaryZh": "提出基于量子行走的异常顶点评分框架,服务于图数据的异常检测任务,发表于 Annalen der Physik。",
    "abstract": "Abstract With the constant flow of data from vast sources over the past decades, a plethora of advanced analytical techniques have been developed to extract relevant information from different data types ranging from labeled data, quasi‐labeled data, and data with no labels known a priori. For data with at best quasi‐labels, graphs are a natural representation and have important applications in many industries and scientific disciplines. Specifically, for unlabeled data, anomaly detection on graphs is a method to determine which data points do not posses the latent characteristics that are present in most other data. There have been a variety of classical methods to compute an anomalous score for the individual vertices of a respective graph, such as checking the local topology of a node, random walks, and complex neural networks. Leveraging the structure of the graph, the first quantum algorithm is proposed to calculate the anomaly score of each node by continuously traversing the graph with a uniform starting position for all nodes. The proposed algorithm incorporates well‐known characteristics of quantum walks, and, taking into consideration the noisy intermediate‐scale quantum (NISQ) era and subsequent intermediate‐scale quantum (ISQ) era, an adjustment to the algorithm is provided to mitigate the increasing depth of the circuit. This algorithm is rigorously shown to converge to the expected probability with respect to the initial condition.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "towards-identifying-possible-fault-tolerant-advantage-quantum-6ce36",
+   "title": "Towards identifying possible fault-tolerant advantage of quantum linear system algorithms in terms of space, time and energy",
+   "titleZh": "以所需逻辑量子比特数探索量子线性系统算法的容错优势",
+   "authors": [
+    "Tu, Yue",
+    "Mark Dubynskyi",
+    "Mohammadhossein Mohammadisiahroudi",
+    "Ekaterina Riashchentceva",
+    "Jinglei Cheng",
+    "Dmitry Ryashchentsev",
+    "Tamás Terlaky",
+    "Junyu Liu"
+   ],
+   "venue": "arXiv",
+   "date": "2025-02-16",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2502.11239",
+   "doi": "10.48550/arxiv.2502.11239",
+   "url": "https://arxiv.org/abs/2502.11239",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:量子线性系统算法(HHL 系)承诺超多项式加速,但实际受逻辑量子比特数与 T 门开销制约;该文以\"需要多少逻辑比特\"为标尺评估其容错优势,是资源约束视角下审视 HHL 类算法的关键工作。",
+   "abstract": "Quantum computing, a prominent non-Von Neumann paradigm beyond Moore's law, can offer superpolynomial speedups for certain problems. Yet its advantages in efficiency for tasks like machine learning remain under investigation, and quantum noise complicates resource estimations and classical comparisons. We provide a detailed estimation of space, time, and energy resources for fault-tolerant superconducting devices running the Harrow-Hassidim-Lloyd (HHL) algorithm, a quantum linear system solver relevant to linear algebra and machine learning. Excluding memory and data transfer, possible quantum advantages over the classical conjugate gradient method could emerge at $N \\approx 2^{33} \\sim 2^{48}$ or even lower, requiring ${O}(10^5)$ physical qubits, ${O}(10^{12}\\sim10^{13})$ Joules, and ${O}(10^6)$ seconds under surface code fault-tolerance with three types of magic state distillation (15-1, 116-12, 225-1). Key parameters include condition number, sparsity, and precision $κ, s\\approx{O}(10\\sim100)$, $ε\\sim0.01$, and physical error $10^{-5}$. Our resource estimator adjusts $N, κ, s, ε$, providing a map of quantum-classical boundaries and revealing where a practical quantum advantage may arise. Our work quantitatively determine how advanced a fault-tolerant quantum computer should be to achieve possible, significant benefits on problems related to real-world.",
    "source": "backfill",
    "domains": []
   },
@@ -17663,6 +18170,32 @@
    ]
   },
   {
+   "id": "magic-states-are-rarely-best-resource-optimize-dd2ba",
+   "title": "Magic states are rarely the best resource to optimize: An analytical tool for qubit resource estimation in concatenated codes",
+   "titleZh": "魔术态很少是最优优化对象:量子比特资源估计的解析工具",
+   "authors": [
+    "Marco Fellous-Asiani",
+    "Hui Khoon Ng",
+    "Robert S. Whitney"
+   ],
+   "venue": "arXiv",
+   "date": "2024-11-04",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2411.01880",
+   "doi": "10.48550/arxiv.2411.01880",
+   "url": "https://arxiv.org/abs/2411.01880",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "arXiv 2024:级联纠错被重新提出为可与表面码竞争的容错路线;该文给出解析工具回答\"该优化魔术态产率还是优化比特数\"这一资源分配问题,纠正了领域内默认优化目标的盲点。",
+   "abstract": "Concatenated error-correction schemes are well-understood routes to fault-tolerant quantum computing, and research on such schemes continues, including recent claims that they may be competitive with surface codes, and show potential when combined with high-rate Quantum Low Density Parity Check codes. However, there are few tools to evaluate the qubit resources required by concatenated schemes. We propose such a tool here. Its equations are closed-form and remain simple for an arbitrary number of levels of concatenation, making it ideal for comparing and minimizing the resource costs of such schemes. We use this tool to evaluate the resources for gate operations that require the injection of so-called ``magic states'', needed to complete the set of logical operations. It was expected that the complexity of such ``magic operations\" would make them dominate the resource costs of a calculation, with numerous works proposing optimizations of these cost. Our work reveals that this expectation is often inaccurate: Magic operations are rarely the dominant cost of concatenated schemes, mirroring similar conclusions from past work for surface codes. Optimizations affecting all operations naturally have more impact than those on magic operations alone, yet we unexpected find that the former can reduce qubit resources by a few orders of magnitude while the latter give only marginal reductions. We show this in detail for a 7-qubit concatenated scheme with Steane error-correction gadgets ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "low-crosstalk-optical-addressing-system-atomic-qubits-2409f",
    "title": "Low-crosstalk optical addressing system for atomic qubits based on multiple objectives and acousto-optic deflectors",
    "titleZh": "基于声光偏转器的低串扰离子寻址系统",
@@ -17747,6 +18280,33 @@
    "tags": [],
    "summaryZh": "在 max-cut、数划分、背包与量子自旋玻璃四类问题上系统基准测试非容错量子算法(VQE、QAOA 等)与经典基线,统一比较解质量与运行时间,是补充库内求解器对决系列的新实证。",
    "abstract": "This study systematically benchmarks several non-fault-tolerant quantum computing algorithms across four distinct optimization problems: max-cut, number partitioning, knapsack, and quantum spin glass. Our benchmark includes noisy intermediate-scale quantum (NISQ) algorithms, such as the variational quantum eigensolver, quantum approximate optimization algorithm, quantum imaginary time evolution, and imaginary time quantum annealing, with both ansatz-based and ansatz-free implementations, alongside tensor network methods and direct simulations of the imaginary-time Schrödinger equation. For comparative analysis, we also utilize classical simulated annealing and quantum annealing on D-Wave devices. Employing default configurations, our findings reveal that no single non-FTQC algorithm performs optimally across all problem types, underscoring the need for tailored algorithmic strategies. This work provides an objective performance baseline and serves as a critical reference point for advancing NISQ algorithms and quantum annealing platforms.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "certified-algorithms-quantum-hamiltonian-learning-energy-entropy-19d38",
+   "title": "Certified algorithms for quantum Hamiltonian learning via energy-entropy inequalities",
+   "titleZh": "经由能量-熵不等式的认证量子哈密顿量学习算法",
+   "authors": [
+    "Adam Artymowicz",
+    "Hamza Fawzi",
+    "Omar Fawzi",
+    "Samuel O. Scalet"
+   ],
+   "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+   "date": "2024-10-30",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2410.23284",
+   "doi": "10.48550/arxiv.2410.23284",
+   "url": "https://arxiv.org/abs/2410.23284",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "从 Gibbs 态期望值的估计出发学习哈密顿量,并给出可认证(误差有证书)的学习算法;认证性弥补了多数哈密顿量学习只有点估计无保证的短板。",
+   "abstract": "We consider the problem of learning the Hamiltonian of a quantum system from estimates of Gibbs-state expectation values. Various methods for achieving this task were proposed recently, both from a practical and theoretical point of view. On the one hand, some practical algorithms have been implemented and used to analyze experimental data but these algorithms often lack correctness guarantees or fail to scale to large systems. On the other hand, theoretical algorithms with provable asymptotic efficiency guarantees have been proposed, but they seem challenging to implement. Recently, a semidefinite family of Hamiltonian learning algorithms was proposed which was numerically demonstrated to scale well into the 100-qubit regime, but provided no provable accuracy guarantees. We build on this work in two ways, by extending it to provide certified a posteriori lower and upper bounds on the parameters to be learned, and by proving a priori convergence in the special case where the Hamiltonian is commuting.",
    "source": "backfill",
    "domains": []
   },
@@ -19443,6 +20003,49 @@
    "abstract": "Many emerging commercial services are based on the sharing or pooling of resources for common use with the aim of reducing costs. Businesses such as delivery-, mobility-, or transport-as-a-service have become standard in many parts of the world, fulfilling on-demand requests for customers in live settings. However, it is known that many of these problems are NP-hard, and therefore both modeling and solving them accurately is a challenge. Here we focus on one such routing problem, the Ride Pooling Problem (RPP), where multiple customers can request on-demand pickups and drop-offs from shared vehicles within a fleet. The combinatorial optimization task is to optimally pool customer requests using the limited set of vehicles, akin to a small-scale flexible bus route. In this work, we propose a quadratic unconstrained binary optimization (QUBO) program and introduce efficient formulation methods for the RPP to be solved using metaheuristics, and specifically emerging quantum optimization algorithms.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "prospects-quantum-computation-propellant-design-assessing-stability-95a83",
+   "title": "Prospects for Quantum Computation in Propellant Design: Assessing the Stability of Cyclic Ozone in Nanoscale Confinement",
+   "titleZh": "量子计算用于火箭推进剂设计:环臭氧稳定性评估",
+   "authors": [
+    "Thomas W. Watts",
+    "Matthew Otten",
+    "Jason Necaise",
+    "Nam‐Trung Nguyen",
+    "Benjamin Link",
+    "Kristen S. Williams",
+    "Yuval R. Sanders",
+    "Samuel J. Elman",
+    "Mária Kieferová",
+    "Michael J. Bremner",
+    "K. J. Morrell",
+    "Justin E. Elenewski",
+    "Johnson, Samuel D.",
+    "Luke Mathieson",
+    "Kevin Obenland",
+    "Rashmi Sundareswara",
+    "Adam A. Holmes"
+   ],
+   "venue": "arXiv",
+   "date": "2024-08-23",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2408.13244",
+   "doi": "10.48550/arxiv.2408.13244",
+   "url": "https://arxiv.org/abs/2408.13244",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "环臭氧添加剂有望大幅提升火箭比冲;该文用量子计算评估其稳定性,是航天推进×量子化学模拟的具体应用案例(航天应用方向)。",
+   "abstract": "Cyclic ozone additives have the potential to markedly increase the specific impulse of rocket fuel. This would translate to greater efficiency and reduced costs for space lift by granting more payload per rocket. While practical efforts to capture this isomer have been unsuccessful, it is possible that cyclic ozone would be stabilized in confined geometries. The required synthetic methods are nonetheless difficult to design and require theory-driven inputs that lie beyond the scope of classical methods. Quantum computation has the potential to enable these calculations, though the underlying hardware requirements remain unclear for many practical applications. We present an end-to-end analysis of how quantum methods could support efforts to isolate cyclic ozone via fullerene encapsulation. Our discussion extends beyond asymptotic complexity, reporting both logical- and physical-level resource estimates for ground-state energy determination via quantum phase estimation (QPE), computed using multiple independent resource estimation stacks - Azure Quantum Resource Estimator (AzureQRE), PennyLane's resource estimation framework, and MIT Lincoln Lab's pyLIQTR toolkit - to cross-check resource estimates and bracket realistic overheads. Taken collectively, these data delineate a plausible scale for realistic, computationally-aided molecular design efforts using fault-tolerant quantum computation.",
+   "source": "backfill",
+   "domains": [
+    "satellite",
+    "materials"
+   ]
   },
   {
    "id": "solving-constrained-optimization-problems-variational-quantum-eigensolver-020c3",
