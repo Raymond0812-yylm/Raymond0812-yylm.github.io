@@ -25,6 +25,9 @@ const SAT_CURATED = new Set([
   'efficient-earth-observation-satellites-mission-planning-quantum-a5624', // EOS任务规划量子算法(2024 IEEE TQCEBT)
   'scheduling-satellite-constellation-operations-eo-missions-quantum-aa23b', // EO星座运行调度量子优化(2024)
   'exploiting-adiabatic-quantum-computing-deep-space-missions-6fc41', // 深空任务绝热量子计算(2025)
+  // 2026-10-10 增量复查新增
+  'nonlinear-model-predictive-control-spacecraft-rendezvous-quantum-19efa', // 航天器交会 NMPC 量子优化(2026)
+  'toward-quantum-optimized-flow-scheduling-multi-beam-b1eb5', // 多波束数字卫星流量调度量子优化(2026)
 ]);
 export const SPECIALS = [
   {
