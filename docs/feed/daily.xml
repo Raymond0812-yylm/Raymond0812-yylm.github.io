@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-11] 借助分布式量子采样将量子优化扩展至千比特规模</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-11/</link>
+      <guid isPermaLink="false">daily:2026-10-11</guid>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+      <description>门模型量子优化的硬件演示长期停留在几十到一二百比特：QAOA 类算法的线路深度、比特间连接度与读出噪声，使得&quot;量子解一个完整工业实例&quot;在当前设备上几乎不可能。而真实工业组合优化问题——电网调度、能源交易撮合、物流配对——动辄上千变量。与其等待更大更好的芯片，一个更有生产力的问法是：今天的 NISQ 处理器能否在千变量问题中承担一个有可测增益的&quot;部件级&quot;角色？本文选择的最小格（Minimum Birkhoff Decomposition，MBD）问题正是这样一个载体：电网要把给定的线路流量分解为稀疏的加权匹配之和…</description>
+    </item>
     <item>
       <title>[日报 2026-10-10] 超越 QAOA：面向自适应组合优化的人工智能与量子计算综述</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-10/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-06</guid>
       <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
       <description>量子近似优化算法（QAOA）被视为在近期量子硬件上求解 MaxCut 等组合优化问题最有希望的算法之一，但一个根本性问题是：给定问题的建模方式，量子电路究竟能&quot;表达&quot;出多大的态空间？ 刻画这一问题的主要工具是由代价哈密顿量与混合哈密顿量生成的动力学李代数（DLA）——DLA 的维度直接决定变分电路的最大表达能力（controllability / expressibility）。然而构造 DLA 需要计算生成元的对易闭包，最坏情况下随比特数指数增长，经典验证在一般图上不可行。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-05] 基于傅里叶展开的酉算子线性组合高效方法及其在量子优化中的应用</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-05/</link>
-      <guid isPermaLink="false">daily:2026-09-05</guid>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 GMT</pubDate>
-      <description>在含噪中等规模量子（NISQ）时代，QAOA 及其衍生变分量子算法被视为最有可能率先展现量子计算实用价值的方向，尤其面向组合优化问题（MaxCut、投资组合优化、带基数约束的选择问题、调度与路径规划等）。然而这些算法在真实硬件上面临一个核心矛盾：</description>
     </item>
   </channel>
 </rss>
