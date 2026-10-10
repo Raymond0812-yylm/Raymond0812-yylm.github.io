@@ -53625,5 +53625,1591 @@
   "doi": "10.1109/taes.2025.3556050",
   "citations": 15,
   "theme": "satellite-inc"
+ },
+ {
+  "fid": "107c2ad71093",
+  "title": "Quantum Adaptive Self-Attention for quantum Transformer models",
+  "authors": [
+   "Chi‐Sheng Chen",
+   "En-Jui Kuo"
+  ],
+  "abstract": "Abstract A recurring weakness in quantum machine learning (QML) is that reported ‘quantum advantages’ are seldom tested against a capacity-matched classical control, leaving it unclear whether a gain comes from the quantum substrate or from the architectural change that accompanies it. Our primary contribution is methodological: a protocol for attributing such gains honestly—a capacity-matched classical bottleneck of identical parameter budget, transparent reporting of where quantum does not help, and validation on real quantum hardware—which we develop and apply through a concrete case study. That case study is Quantum Adaptive Self-Attention (QASA), a hybrid Transformer that replaces the value projection of a single encoder layer with a 36-parameter parameterized quantum circuit (PQC), keeping all other layers classical. Across nine synthetic benchmarks and the real-world ETTh1 dataset, QASA improves on a full-capacity classical Transformer for chaotic and trend-dominated signals. To ask whether this is a genuinely quantum effect, we introduce a control rarely applied in QML—a capacity-matched classical bottleneck with the same parameter budget—and find that it matches the PQC on the error metrics. The gain is therefore attributable to the low-rank value-projection bottleneck (an architectural parsimony principle), not to quantumness; adding further quantum layers only degrades performance and trainability. We accordingly position the quantum layer not as a source of accuracy advantage but as a competitive instantiation of this principle: its low-rank compression onto the signal’s intrinsic dimensionality is matched by a classical bottleneck, so the gain is architectural rather than quantum. The quantum layer’s distinguishing features are physical—a high circuit entanglement (Meyer–Wallach Q = 0.981 with only 27 CNOTs, which we report as a circuit-level property) and, most concretely, noisy intermediate-scale quantum deployability, which we verify by executing the trained model on a real IBM Quantum processor (one-step prediction within 7.5 % of noiseless simulation on the quantum-favored task and 25 % , with overlapping error bars, on a classical-favored control; no error mitigation). Relative to other quantum sequence models (quantum long short-term memory (QLSTM), QnnFormer), QASA is moreover the most resource-efficient of the three: it reaches competitive accuracy with the fewest quantum parameters (36 vs 90–128) and the strongest entanglement-per-ga",
+  "date": "2026-07-15",
+  "venue": "Quantum Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.1088/2058-9565/ae8b21",
+  "citations": 1,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "78b9cee916b0",
+  "title": "Holographic Quantum Mechanics of Transformer Attention: From Fisher-Rao Geometry to the SYK Model and Beyond",
+  "authors": [
+   "Ariel"
+  ],
+  "abstract": "v2: Corrected author attribution for Almheiri et al. (2019) page curve paper — was incorrectly listed as Almheiri and Penington. Fixed Maldacena-Stanford title. Fixed Dinan-Yaida-Zhang author order.",
+  "date": "2026-03-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2602.08216",
+  "doi": "10.5281/zenodo.18930220",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "2d3e33870fac",
+  "title": "Deep Learning and Optimization Approaches in Hybrid Transformer based Gated Graph Attention Capsule Network Design for Preventing Attack in Radar Target Detection and Energy Efficient Quantum Convolutional Neural Networks with Attention-Based Models for Q",
+  "authors": [
+   "Rezaul Pavlidaki"
+  ],
+  "abstract": "Recent advancements in artificial intelligence have enhanced radar signal processing and medical image diagnostics, particularly in adversarial and resource-constrained environments. This review examines hybrid deep learning architectures that integrate Transformers, gated graph attention networks (GAT), capsule networks, and optimization techniques. Transformers provide global contextual learning, GAT captures relational dependencies, and capsule networks preserve hierarchical features, improving robustness against noise and adversarial attacks. In parallel, energy-efficient quantum convolutional neural networks (QCNNs) with attention mechanisms support improved image quality in WSN-assisted IoT medical systems. These hybrid models significantly improve accuracy, adaptability, and computational efficiency across both domains. However, challenges such as high computational complexity, training instability, and scalability remain. Future research should focus on lightweight architectures, explainable AI, quantum optimization, and edge-based deployment for real-time and efficient applications.",
+  "date": "2025-12-19",
+  "venue": "International Journal Of Recent Advances in Engineering & Technology",
+  "arxiv_id": "",
+  "doi": "10.65521/intjournalrecadvengtech.v14i2.2586",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "d401012edc2c",
+  "title": "Quantum Attention for Vision Transformers in High Energy Physics",
+  "authors": [
+   "Tesi, Alessandro",
+   "Gopal Ramesh Dahale",
+   "Sergei Gleyzer",
+   "Kyoungchul Kong",
+   "Tom Magorsch",
+   "Konstantin T Matchev",
+   "Katia Matcheva"
+  ],
+  "abstract": "We present a novel hybrid quantum-classical vision transformer architecture incorporating quantum orthogonal neural networks (QONNs) to enhance performance and computational efficiency in high-energy physics applications. Building on advancements in quantum vision transformers, our approach addresses limitations of prior models by leveraging the inherent advantages of QONNs, including stability and efficient parameterization in high-dimensional spaces. We evaluate the proposed architecture using multi-detector jet images from CMS Open Data, focusing on the task of distinguishing quark-initiated from gluon-initiated jets. The results indicate that embedding quantum orthogonal transformations within the attention mechanism can provide robust performance while offering promising scalability for machine learning challenges associated with the upcoming High Luminosity Large Hadron Collider. This work highlights the potential of quantum-enhanced models to address the computational demands of next-generation particle physics experiments.",
+  "date": "2024-11-20",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2411.13520",
+  "doi": "10.48550/arxiv.2411.13520",
+  "citations": 2,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "f8d263094308",
+  "title": "Quantum Transformer: Accelerating model inference via quantum linear algebra",
+  "authors": [
+   "Naixu Guo",
+   "Yu, Zhan",
+   "Choi, Matthew",
+   "Han, Yizhan",
+   "Agrawal, Aman",
+   "Nakaji, Kouhei",
+   "Aspuru-Guzik, Alán",
+   "Rebentrost, Patrick"
+  ],
+  "abstract": "Powerful generative artificial intelligence from large language models (LLMs) harnesses extensive computational resources for inference. In this work, we investigate the transformer architecture, a key component of these models, under the lens of fault-tolerant quantum computing. We develop quantum subroutines to construct the building blocks in the transformer, including the self-attention, residual connection with layer normalization, and feed-forward network. As an important subroutine, we show how to efficiently implement the Hadamard product and element-wise functions of matrices on quantum computers. Our algorithm prepares an amplitude encoding of the transformer output, which can be measured for prediction or use in the next layer. We find that the matrix norm of the input sequence plays a dominant role in the quantum complexity. With numerical experiments on open-source LLMs, including for bio-informatics applications, we demonstrate the potential of a quantum speedup for transformer inference in practical regimes.",
+  "date": "2024-02-26",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2402.16714",
+  "doi": "10.48550/arxiv.2402.16714",
+  "citations": 3,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "b6353d9a4ea9",
+  "title": "Quantum Variational Transformer Model for Enhanced Cancer Classification",
+  "authors": [
+   "Don Roosan",
+   "Rubayat Islam Khan",
+   "Md Rahatul Ashakin",
+   "Tiffany Khou",
+   "Saif Shahriar Rahman Nirzhor",
+   "Mohammad Rifat Haider"
+  ],
+  "abstract": "Accurate prediction of cancer type and primary tumor site is critical for effective diagnosis, personalized treatment, and improved outcomes. Traditional models struggle with the complexity of genomic and clinical data, but quantum computing offers enhanced computational capabilities. This study develops a hybrid quantum-classical transformer model, incorporating quantum attention mechanisms via variational quantum circuits (VQCs) to improve prediction accuracy. Using 30,000 anonymized cancer samples from the Genome Warehouse (GWH), data preprocessing included cleaning, encoding, and feature selection. Classical self-attention modules were replaced with quantum attention layers, with classical data encoded into quantum states via amplitude encoding. The model, trained using hybrid backpropagation and quantum gradient calculations, outperformed the classical transformer model, achieving 92.8% accuracy and an AUC of 0.96 compared to 87.5% accuracy and an AUC of 0.89. It also demonstrated 35% faster training and 25% fewer parameters, highlighting computational efficiency. These findings showcase the potential of quantum-enhanced transformers to advance biomedical data analysis, enabling more accurate diagnostics and personalized medicine.",
+  "date": "2025-06-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.21641",
+  "doi": "10.48550/arxiv.2506.21641",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "73ba6606cffd",
+  "title": "Universal Quantum Transformer",
+  "authors": [
+   "Sungyong Chung",
+   "Alireza Talebpour"
+  ],
+  "abstract": "Classical continuous-space neural networks fundamentally struggle to lock into exact formal rules, whether mathematical, such as modular arithmetic and non-Abelian group algebra, or linguistic, such as systematic compositional generalization. To approximate these discrete logical rules, they often rely on massive parameter scaling, resulting in stochastic instability even after delayed generalization phenomena known as grokking. Here, we introduce the Universal Quantum Transformer (UQT), a novel, quantum-native computing architecture that uses the physical properties of multi-qubit systems as a universal inductive bias for exact algebraic and compositional reasoning. Rather than translating classical neural mechanisms, our framework relies entirely on parameterized geometric phase embedding and $SU(2)$ wave-interference. We demonstrate that an identical quantum attention circuit, operating on a highly compact 5 or 6 qubit substrate with only 551 to 1,650 trainable parameters, exactly learns three highly distinct formal classes: cyclic modular arithmetic ($\\mathbb{Z}_{11}$), non-Abelian algebra (the $S_4$ permutation group), and systematic linguistic compositionality (the SCAN language). While standard classical models, including multi-layer perceptrons (MLPs) and Transformers, exhibit stochastic instability at convergence, the UQT achieves mathematically exact, deterministic generalization. We define this stricter regime as crystallization: a step beyond the well-known phenomenon of grokking. Finally, we deploy the UQT on noisy intermediate-scale quantum (NISQ) hardware, achieving 97.5% accuracy on IBM Quantum computers. These results demonstrate that the UQT provides a structurally suited inductive bias for exact formal reasoning that standard classical continuous-space architectures do not natively provide.",
+  "date": "2026-04-29",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.00045",
+  "doi": "10.48550/arxiv.2606.00045",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "d0c447ff544a",
+  "title": "Model selection in hybrid quantum neural networks with applications to quantum transformer architectures",
+  "authors": [
+   "Harsh Wadhwa",
+   "Rahul Bhowmick",
+   "Naipunnya Raj",
+   "Rajiv Sangle",
+   "Ruchira V Bhat",
+   "KrishnaKumar Sabapathy"
+  ],
+  "abstract": "Quantum machine learning models generally lack principled design guidelines, often requiring full resource-intensive training across numerous choices of encodings, quantum circuit designs and initialization strategies to find effective configuration. To address this challenge, we develope the Quantum Bias-Expressivity Toolbox ($\\texttt{QBET}$), a framework for evaluating quantum, classical, and hybrid transformer architectures. In this toolbox, we introduce lean metrics for Simplicity Bias ($\\texttt{SB}$) and Expressivity ($\\texttt{EXP}$), for comparing across various models, and extend the analysis of $\\texttt{SB}$ to generative and multiclass-classification tasks. We show that $\\texttt{QBET}$ enables efficient pre-screening of promising model variants obviating the need to execute complete training pipelines. In evaluations on transformer-based classification and generative tasks we employ a total of $18$ qubits for embeddings ($6$ qubits each for query, key, and value). We identify scenarios in which quantum self-attention variants surpass their classical counterparts by ranking the respective models according to the $\\texttt{SB}$ metric and comparing their relative performance.",
+  "date": "2026-03-23",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.21749",
+  "doi": "10.48550/arxiv.2603.21749",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "27e34d72ad34",
+  "title": "Watching Quantum Models Think: Hilbert-Space Interpretability in Quantum Transformer Blocks",
+  "authors": [
+   "Diego Iacopetta",
+   "Andrea Gasparini"
+  ],
+  "abstract": "Deep learning models are powerful but opaque. As quantum machine learning matures, the field faces a defining choice: build quantum models that are equally opaque, or exploit the mathematical structure of quantum mechanics to make them inherently interpretable. We show that the latter is possible. By tracking quantum mutual information~(MI), entanglement entropy, and state fidelity through the layers of a Quantum Transformer Block (\\qtb{}), a fully-coherent variational circuit with quantum analogues of both attention and feedforward, we gain direct insight into how the model processes information: which tokens it attends to, when correlations form, and why predictions fail. On four tasks with known dependency structure we show that (i)~learned MI matrices align with ground-truth task structure (AUC$\\,{=}\\,0.69$ on lookup), (ii)~disabling entangling gates collapses accuracy from 100\\% to 15\\% while MI$\\to 0$, proving entanglement is the mechanism, (iii)~accuracy and MI co-evolve during training ($ρ\\,{=}\\,0.92$ on lookup), and (iv)~per-sample MI predicts prediction correctness on the conditional task with ROC AUC$\\,{=}\\,0.84$. All results are validated on IBM Quantum hardware (ibm\\_kingston, Heron~r2): the circuit's reasoning process, from product state through structured entanglement, is directly observable on a superconducting processor. These proof-of-concept results, obtained on small synthetic tasks, suggest that the physics of quantum computation can provide intrinsic interpretability signals with no direct classical counterpart, motivating study of whether this advantage persists at scale.",
+  "date": "2026-09-19",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.23016",
+  "doi": "10.48550/arxiv.2609.23016",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "ae25d21f6698",
+  "title": "Integrating Quantum-Classical Attention in Patch Transformers for Enhanced Time Series Forecasting",
+  "authors": [
+   "Sanjay Chakraborty",
+   "Fredrik Heintz"
+  ],
+  "abstract": "QCAAPatchTF is a quantum attention network integrated with an advanced patch-based transformer, designed for multivariate time series forecasting, classification, and anomaly detection. Leveraging quantum superpositions, entanglement, and variational quantum eigensolver principles, the model introduces a quantum-classical hybrid self-attention mechanism to capture multivariate correlations across time points. For multivariate long-term time series, the quantum self-attention mechanism can reduce computational complexity while maintaining temporal relationships. It then applies the quantum-classical hybrid self-attention mechanism alongside a feed-forward network in the encoder stage of the advanced patch-based transformer. While the feed-forward network learns nonlinear representations for each variable frame, the quantum self-attention mechanism processes individual series to enhance multivariate relationships. The advanced patch-based transformer computes the optimized patch length by dividing the sequence length into a fixed number of patches instead of using an arbitrary set of values. The stride is then set to half of the patch length to ensure efficient overlapping representations while maintaining temporal continuity. QCAAPatchTF achieves state-of-the-art performance in both long-term and short-term forecasting, classification, and anomaly detection tasks, demonstrating state-of-the-art accuracy and efficiency on complex real-world datasets.",
+  "date": "2025-03-31",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2504.00068",
+  "doi": "10.48550/arxiv.2504.00068",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "a8c1876f7edb",
+  "title": "Quantum Vision Transformers for Quark–Gluon Classification",
+  "authors": [
+   "Marçal Comajoan Cara",
+   "Gopal Ramesh Dahale",
+   "Zhongtian Dong",
+   "Roy T. Forestano",
+   "Sergei Gleyzer",
+   "Daniel Justice",
+   "Kyoungchul Kong",
+   "Tom Magorsch",
+   "Konstantin T Matchev",
+   "Katia Matcheva",
+   "Eyup B. Unlu"
+  ],
+  "abstract": "We introduce a hybrid quantum-classical vision transformer architecture, notable for its integration of variational quantum circuits within both the attention mechanism and the multi-layer perceptrons. The research addresses the critical challenge of computational efficiency and resource constraints in analyzing data from the upcoming High Luminosity Large Hadron Collider, presenting the architecture as a potential solution. In particular, we evaluate our method by applying the model to multi-detector jet images from CMS Open Data. The goal is to distinguish quark-initiated from gluon-initiated jets. We successfully train the quantum model and evaluate it via numerical simulations. Using this approach, we achieve classification performance almost on par with the one obtained with the completely classical architecture, considering a similar number of parameters.",
+  "date": "2024-05-13",
+  "venue": "Axioms",
+  "arxiv_id": "",
+  "doi": "10.3390/axioms13050323",
+  "citations": 17,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "55c0377441bc",
+  "title": "Learning with SASQuaTCh: a Novel Variational Quantum Transformer Architecture with Kernel-Based Self-Attention",
+  "authors": [
+   "Ethan N. Evans",
+   "Matthew Cook",
+   "Zachary P. Bradshaw",
+   "Margarite L. LaBorde"
+  ],
+  "abstract": "The recent exploding growth in size of state-of-the-art machine learning models highlights a well-known issue where exponential parameter growth, which has grown to trillions as in the case of the Generative Pre-trained Transformer (GPT), leads to training time and memory requirements which limit their advancement in the near term. The predominant models use the so-called transformer network and have a large field of applicability, including predicting text and images, classification, and even predicting solutions to the dynamics of physical systems. Here we present a variational quantum circuit architecture named Self-Attention Sequential Quantum Transformer Channel (SASQuaTCh), which builds networks of qubits that perform analogous operations of the transformer network, namely the keystone self-attention operation, and leads to an exponential improvement in parameter complexity and run-time complexity over its classical counterpart. Our approach leverages recent insights from kernel-based operator learning in the context of predicting spatiotemporal systems to represent deep layers of a vision transformer network using simple gate operations and a set of multi-dimensional quantum Fourier transforms. To validate our approach, we consider image classification tasks in simulation and with hardware, where with only 9 qubits and a handful of parameters we are able to simultaneously embed and classify a grayscale image of handwritten digits with high accuracy.",
+  "date": "2024-03-21",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2403.14753",
+  "doi": "10.48550/arxiv.2403.14753",
+  "citations": 4,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "e175cd89c5c7",
+  "title": "Quantum Graph Transformer for NLP Sentiment Classification",
+  "authors": [
+   "Shamminuj Aktar",
+   "Andreas Bärtschi",
+   "Abdel‐Hameed A. Badawy",
+   "Stephan Eidenbenz"
+  ],
+  "abstract": "Quantum machine learning is a promising direction for building more efficient and expressive models, particularly in domains where understanding complex, structured data is critical. We present the Quantum Graph Transformer (QGT), a hybrid graph-based architecture that integrates a quantum self-attention mechanism into the message-passing framework for structured language modeling. The attention mechanism is implemented using parameterized quantum circuits (PQCs), which enable the model to capture rich contextual relationships while significantly reducing the number of trainable parameters compared to classical attention mechanisms. We evaluate QGT on five sentiment classification benchmarks. Experimental results show that QGT consistently achieves higher or comparable accuracy than existing quantum natural language processing (QNLP) models, including both attention-based and non-attention-based approaches. When compared with an equivalent classical graph transformer, QGT yields an average accuracy improvement of 5.42% on real-world datasets and 4.76% on synthetic datasets. Additionally, QGT demonstrates improved sample efficiency, requiring nearly 50% fewer labeled samples to reach comparable performance on the Yelp dataset. These results highlight the potential of graph-based QNLP techniques for advancing efficient and scalable language understanding.",
+  "date": "2025-06-09",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.07937",
+  "doi": "10.48550/arxiv.2506.07937",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "c1a94f844b04",
+  "title": "Theory of Transformers and their application to Neural Quantum States",
+  "authors": [
+   "Riccardo Rende"
+  ],
+  "abstract": "My PhD research focused on the Transformer architecture, a powerful deep neural network model that has emerged as a cornerstone for solving complex problems in natural language processing, image analysis, signal processing, and beyond. In particular, we studied the learning dynamics of this architecture, and its application to the representation of many-body wavefunctions, the so-called Neural Quantum States. Initially, we investigated the representational capabilities of Transformers by characterizing the statistical structures that a simplified Transformer layer, utilizing the so-called factored attention, is capable of learning. Building on these results, we utilized factored attention in deep Transformers to develop an accurate ansatz for approximating the ground states of quantum many-body Hamiltonians within the variational Monte Carlo framework. In this specific application, factored attention is crucial for achieving accurate results, demonstrating superior performance compared to the standard attention mechanism used in most of the other applications of the Transformers, and in particular in natural language processing. Alongside the development of an efficient optimization method for large-scale neural networks, we achieved state-of-the-art results on the most popular benchmark in Neural Quantum States and addressed complex physical problems that are subjects of ongoing debate. Finally, we developed a framework to train Foundation Neural Quantum States, which are versatile neural network models that approximate quantum wave functions of multiple systems simultaneously, enabling accurate estimates of challenging quantities such as disorder averages and fidelity susceptibility. We envision numerous future directions for this approach, including its extension to quantum dynamics by explicitly modeling time-dependent variational states, as well as its application to the design of novel materials in fermionic systems.",
+  "date": "2025-09-11",
+  "venue": "SDL",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "9ca9853e718e",
+  "title": "Enhancing Deepfake Detection Through Quantum Transfer Learning and Class-Attention Vision Transformer Architecture",
+  "authors": [
+   "Bekir Eray Katı",
+   "Ecir Uğur Küçüksille",
+   "Güncel Sarıman"
+  ],
+  "abstract": "The widespread use of the internet, coupled with the increasing production of digital content, has caused significant challenges in information security and manipulation. Deepfake detection has become a critical research topic in both academic and practical domains, as it involves identifying forged elements in artificially generated videos using various deep learning and artificial intelligence techniques. In this dissertation, an innovative model was developed for detecting deepfake videos by combining the Quantum Transfer Learning (QTL) and Class-Attention Vision Transformer (CaiT) architectures. The Deepfake Detection Challenge (DFDC) dataset was used for training, and a system capable of detecting spatiotemporal inconsistencies was constructed by integrating QTL and CaiT technologies. In addition to existing preprocessing methods in the literature, a novel preprocessing function tailored to the requirements of deep learning models was developed for the dataset. The advantages of quantum computing offered by QTL were merged with the global feature extraction capabilities of the CaiT. The results demonstrated that the proposed method achieved a remarkable performance in detecting deepfake videos, with an accuracy of 90% and ROC AUC score of 0.94 achieved. The model’s performance was compared with other methods evaluated on the DFDC dataset, highlighting its efficiency in resource utilization and overall effectiveness. The findings reveal that the proposed QTL-CaiT-based system provides a strong foundation for deepfake detection and contributes significantly to the academic literature. Future research should focus on testing the model on real quantum devices and applying it to larger datasets to further enhance its applicability.",
+  "date": "2025-01-08",
+  "venue": "Applied Sciences",
+  "arxiv_id": "",
+  "doi": "10.3390/app15020525",
+  "citations": 12,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "46b779ea83d2",
+  "title": "Pretraining graph transformers with atom-in-a-molecule quantum properties for improved ADMET modeling",
+  "authors": [
+   "Alessio Fallani",
+   "Нугманов Рамиль Ирекович",
+   "Jose A. Arjona-Medina",
+   "Jörg K. Wegner",
+   "Alexandre Tkatchenko",
+   "Kostiantyn Chernichenko"
+  ],
+  "abstract": "We evaluate the impact of pretraining Graph Transformer architectures on atom-level quantum-mechanical features for the modeling of absorption, distribution, metabolism, excretion, and toxicity (ADMET) properties of drug-like compounds. We compare this pretraining strategy with two others: one based on molecular quantum properties (specifically the HOMO-LUMO gap) and one using a self-supervised atom masking technique. After fine-tuning on Therapeutic Data Commons ADMET datasets, we evaluate the performance improvement in the different models observing that models pretrained with atomic quantum mechanical properties produce in general better results. We then analyze the latent representations and observe that the supervised strategies preserve the pretraining information after fine-tuning and that different pretrainings produce different trends in latent expressivity across layers. Furthermore, we find that models pretrained on atomic quantum mechanical properties capture more low-frequency Laplacian eigenmodes of the input graph via the attention weights and produce better representations of atomic environments within the molecule. Application of the analysis to a much larger non-public dataset for microsomal clearance illustrates generalizability of the studied indicators. In this case the performances of the models are in accordance with the representation analysis and highlight, especially for the case of masking pretraining and atom-level quantum property pretraining, how model types with similar performance on public benchmarks can have different performances on large scale pharmaceutical data.Scientific contributionWe systematically compared three different data type/methodologies for pretraining molecular Graphormer with the purpose of modeling ADMET properties as downstream tasks. The learned representations from differently pretrained models were analyzed in addition to comparison of downstream task performances that have been typically reported in similar works. Such examination methodologies, including a newly introduced analysis of Graphormer's Attention Rollout Matrix, can guide pretraining strategy selection, as corroborated by a performance evaluation on a larger internal dataset.",
+  "date": "2025-02-27",
+  "venue": "Journal of Cheminformatics",
+  "arxiv_id": "",
+  "doi": "10.1186/s13321-025-00970-0",
+  "citations": 12,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "31bdc99eeea6",
+  "title": "A Survey of Quantum Transformers: Architectures, Challenges and Outlooks",
+  "authors": [
+   "Hui Zhang",
+   "Qinglin Zhao",
+   "MengChu Zhou",
+   "Li Chao Feng",
+   "Dusit Tao Niyato",
+   "Shenggen Zheng",
+   "Lin Chen"
+  ],
+  "abstract": "Quantum Transformers integrate the representational power of classical Transformers with the computational advantages of quantum computing. Since 2022, research in this area has rapidly expanded, giving rise to diverse technical paradigms and early applications. To address the growing need for consolidation, this paper presents the first comprehensive, systematic, and in-depth survey of quantum Transformer models. First, we delineate the research scope, focusing on improving Transformer parts with quantum methods, and introduce foundational concepts in classical Transformers and quantum machine learning. Then we organize existing studies into two main paradigms: PQC-based and QLA-based, with PQC-based paradigm further divided into QKV-only Quantum Mapping, Quantum Pairwise Attention, Quantum Holistic Attention. and Quantum-Assisted Optimization, analyzing their core mechanisms and architectural traits. We also summarize empirical results that demonstrate preliminary quantum advantages, especially on small-scale tasks or resource-constrained settings. Following this, we examine key technical challenges, such as complexity-resource trade-offs, scalability and generalization limitations, and trainability issues including barren plateaus, and provide potential solutions, including quantumizing classical transformer variants with lower complexity, hybrid designs, and improved optimization strategies. Finally, we propose several promising future directions, e.g., scaling quantum modules into large architectures, applying quantum Transformers to domains with inherently quantum data (e.g., physics, chemistry), and developing theory-driven designs grounded in quantum information science. This survey will help researchers and practitioners quickly grasp the overall landscape of current quantum Transformer research and promote future developments in this emerging field.",
+  "date": "2025-04-04",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2504.03192",
+  "doi": "10.48550/arxiv.2504.03192",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "c4fee4262b0d",
+  "title": "AI-Based Brain MRI Cancer Classification Using Transformers and Quantum Self-Attention Techniques",
+  "authors": [
+   "Farheen Leroux-Martin"
+  ],
+  "abstract": "Brain tumor detection using Magnetic Resonance Imaging (MRI) is a critical task in modern healthcare, where early diagnosis significantly improves patient survival rates. Artificial Intelligence (AI), particularly deep learning, has revolutionized this domain by enabling automated and accurate classification of brain tumors. Traditional Convolutional Neural Networks (CNNs) have shown promising performance; however, they are limited in capturing long-range spatial dependencies due to localized receptive fields. Recent advancements have introduced Transformer-based architectures that leverage self-attention mechanisms to model global contextual relationships within MRI images. Vision Transformers (ViTs) process images as sequences of patches, enabling efficient global feature extraction. Additionally, Group Parallel Axial Attention has emerged as an efficient alternative to conventional attention mechanisms by reducing computational complexity while preserving both local and global dependencies. Furthermore, Quantum Self-Attention introduces a novel paradigm by incorporating quantum-inspired operations, enhancing feature representation and generalization capabilities. This paper presents a comprehensive review of AI techniques for brain MRI classification, focusing on recent trends and identifying key challenges. Comparative analysis reveals that hybrid CNN–Transformer and attention-based models achieve superior accuracy (often exceeding 98%), although challenges such as computational cost, data scarcity, and interpretability remain significant barriers.",
+  "date": "2024-07-30",
+  "venue": "International Journal on Advanced Electrical and Computer Engineering",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "982d9afd491f",
+  "title": "Learning the Expressibility of Quantum Circuit Ansatz Using Transformer",
+  "authors": [
+   "Fei Zhang",
+   "Jie Li",
+   "Zhimin He",
+   "Haozhen Situ"
+  ],
+  "abstract": "Abstract With the exponentially faster computation for certain problems, quantum computing has garnered significant attention in recent years. Variational quantum algorithms are crucial methods to implement quantum computing, and an appropriate task‐specific quantum circuit ansatz can effectively enhance the quantum advantage of VQAs. However, the vast search space makes it challenging to find the optimal task‐specific ansatz. Expressibility, quantifying the diversity of quantum circuit ansatz states to explore the Hilbert space effectively, can be used to evaluate whether one ansatz is superior to another. In this work, using a transformer model to predict the expressibility of quantum circuit ansatze is proposed. A dataset containing random PQCs generated by the gatewise pipeline, with varying numbers of qubits and gates is constructed. The expressibility of the circuits is calculated using three measures: KL divergence, relative KL divergence, and maximum mean discrepancy. A transformer model is trained on the dataset to capture the intricate relationships between circuit characteristics and expressibility. Four evaluation metrics are employed to assess the performance of the transformer. Numerical results demonstrate that the trained model achieves high performance and robustness across various expressibility measures. This research can enhance the understanding of the expressibility of quantum circuit ansatze and advance quantum architecture search algorithms.",
+  "date": "2025-03-04",
+  "venue": "Advanced Quantum Technologies",
+  "arxiv_id": "",
+  "doi": "10.1002/qute.202400366",
+  "citations": 6,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "38d494522ded",
+  "title": "Unveiling the physical meaning of transformer attention in neural network quantum states: A conditional mutual information perspective",
+  "authors": [
+   "Tianyu 天雨 Ruan 阮",
+   "Bowen Kan",
+   "Yixuan 艺轩 Sun 孙",
+   "Honghui Shang",
+   "Shihua Zhang",
+   "Jinlong Yang"
+  ],
+  "abstract": "Abstract Transformer-based neural-network quantum states (NNQS) have shown great promise in representing quantum many-body ground states, offering high flexibility and accuracy. However, the interpretability of such models remains limited, especially in terms of connecting network components to physically meaningful quantities. We propose that the attention mechanism — a central module in transformer architectures — explicitly models the conditional information flow between orbitals. Intuitively, as the transformer learns to predict orbital configurations by optimizing an energy functional, it approximates the conditional probability distribution p ( x n | x 1 ,…, x n –1 ), implicitly encoding conditional mutual information (CMI) among orbitals. This suggests a natural correspondence between attention maps and CMI structures in quantum systems. To probe this idea, we compare weighted attention scores from trained transformer wavefunction ansatze with CMI matrices across several representative small molecules. In most cases, we observe a positive rank-level correlation (Kendall’s tau) between attention and CMI, suggesting that the learned attention can reflect physically relevant orbital dependencies. This study provides a quantitative link between transformer attention and conditional mutual information in the NNQS setting. Our results provide a step toward explainable deep learning in quantum chemistry, pointing to opportunities in interpreting attention as a proxy for physical correlations.",
+  "date": "2025-10-09",
+  "venue": "Chinese Physics B",
+  "arxiv_id": "",
+  "doi": "10.1088/1674-1056/ae1118",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "3beabd7090cb",
+  "title": "Variational Quantum Transformer Architecture for Synthetic Language Generation",
+  "authors": [
+   "Julian Hager",
+   "Michael Kölle",
+   "Gerhard Stenzel",
+   "Tobias Rohe",
+   "Jonas Stein",
+   "Claudia Linnhoff–Popien"
+  ],
+  "abstract": "We propose a compact NISQ-compatible quantum transformer architecture for synthetic QNLP sequence modelling. The model preserves the autoregressive next-token interface of a classical transformer, but replaces attention and feed-forward sublayers with variational quantum encoder blocks, connector circuits, decoder blocks and a direct two-qubit measurement readout. Token contexts are angle-encoded into small quantum registers, processed by parallel variational heads and encoder integration circuits and conditioned through decoder ancillae to produce a distribution over a four-token vocabulary. We evaluate several architecture variants on deterministic and lexicographic grammar-generation tasks against a compact classical transformer baseline. The quantum models are trainable end-to-end and learn nontrivial grammar structure, including perfect deterministic generation in individual runs and high lexicographic validity in the strongest variant. The classical baseline remains more accurate and stable and the quantum models are sensitive to initialization. The contribution is therefore not a claim of quantum advantage, but a concrete architecture and evaluation of transformer-inspired QNLP sequence modelling under near-term quantum constraints.",
+  "date": "2026-09-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.18565",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "1de6b0e2f7d6",
+  "title": "GQWformer: A Quantum-based Transformer for Graph Representation Learning",
+  "authors": [
+   "Yu Lei",
+   "Hongyang Chen",
+   "Jingsong Lv",
+   "Linyao Yang"
+  ],
+  "abstract": "Graph Transformers (GTs) have demonstrated significant advantages in graph representation learning through their global attention mechanisms. However, the self-attention mechanism in GTs tends to neglect the inductive biases inherent in graph structures, making it chanllenging to effectively capture essential structural information. To address this issue, we propose a novel approach that integrate graph inductive bias into self-attention mechanisms by leveraging quantum technology for structural encoding. In this paper, we introduce the Graph Quantum Walk Transformer (GQWformer), a groundbreaking GNN framework that utilizes quantum walks on attributed graphs to generate node quantum states. These quantum states encapsulate rich structural attributes and serve as inductive biases for the transformer, thereby enabling the generation of more meaningful attention scores. By subsequently incorporating a recurrent neural network, our design amplifies the model's ability to focus on both local and global information. We conducted comprehensive experiments across five publicly available datasets to evaluate the effectiveness of our model. These results clearly indicate that GQWformer outperforms existing state-of-the-art graph classification algorithms. These findings highlight the significant potential of integrating quantum computing methodologies with traditional GNNs to advance the field of graph representation learning, providing a promising direction for future research and applications.",
+  "date": "2024-12-03",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2412.02285",
+  "doi": "10.48550/arxiv.2412.02285",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "e4f5ed48235c",
+  "title": "Learning spatially structured open quantum dynamics with regional-attention transformers",
+  "authors": [
+   "Dounan Du",
+   "Eden V. Figueroa"
+  ],
+  "abstract": "Simulating the dynamics of open quantum systems with spatial structure and external control is an important challenge in quantum information science. Classical numerical solvers for such systems require integrating coupled master and field equations, which is computationally demanding for simulation and optimization tasks and often precluding real-time use in network-scale simulations or feedback control. We introduce a regional attention-based neural architecture that learns the spatiotemporal dynamics of structured open quantum systems. The model incorporates translational invariance of physical laws as an inductive bias to achieve scalable complexity, and supports conditioning on time-dependent global control parameters. We demonstrate learning on two representative systems: a driven dissipative single qubit and an electromagnetically induced transparency (EIT) quantum memory. The model achieves high predictive fidelity under both in-distribution and out-of-distribution control protocols, and provides substantial acceleration up to three orders of magnitude over numerical solvers. These results demonstrate that the architecture establishes a general surrogate modeling framework for spatially structured open quantum dynamics, with immediate relevance to large-scale quantum network simulation, quantum repeater and protocol design, real-time experimental optimization, and scalable device modeling across diverse light-matter platforms.",
+  "date": "2025-09-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2509.06871",
+  "doi": "10.48550/arxiv.2509.06871",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "27c692810dc4",
+  "title": "Quantum-Inspired Self-Attention in a Large Language Model",
+  "authors": [
+   "Nikita Kuznetsov",
+   "Niyaz Ismagilov",
+   "Ernesto Campos"
+  ],
+  "abstract": "Recent advances in Natural Language Processing have been predominantly driven by transformer-based architectures, which rely heavily on self-attention mechanisms to model relationships between tokens in a sequence. Similarly, the field of Quantum Natural Language Processing, which seeks to leverage quantum principles to address challenges in language understanding and generation tasks, has seen the recent development of quantum self-attention mechanisms. We propose a classical quantum-inspired self-attention (QISA) mechanism and integrate it into the full autoregressive language modeling pipeline of GPT-1. To the best of our knowledge, this is the first integration of this kind, as previous quantum self-attention mechanisms have been primarily tested on text classification. In our experiments, QISA achieves better performance when compared to standard self-attention on the metrics character error rate ($15.5\\times$ better), word error rate ($4.7 \\times $) and cross-entropy loss ($13 \\times$). This is achieved while only requiring a $ 2.6\\times$ longer inference time.",
+  "date": "2026-02-09",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.03318",
+  "doi": "10.48550/arxiv.2603.03318",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "5030a55418b6",
+  "title": "QiT: Quantum-Inspired Transformer for Visual Recognition Task",
+  "authors": [
+   "Badri N. Patro",
+   "Vijay Srinivas Agneeswaran"
+  ],
+  "abstract": "Quantum machine learning offers a compelling representational perspective: angle-encoded states inhabit Hilbert spaces in which periodic similarities and interactions can be expressed naturally. Realizing this perspective for visual recognition remains difficult, however, because present quantum neural networks are constrained by limited qubit counts, costly circuit simulation and measurement, noise, and unstable optimization on noisy intermediate-scale quantum devices. We investigate whether useful structural ideas from quantum models can instead be realized as scalable classical Transformer operations. We introduce QiT, a Quantum-inspired Transformer for vision tasks with three components: (i) angle-inspired encoding that maps image tokens to learned trigonometric Hilbert-space features analogous to quantum rotation-based state encoding; (ii) self-attention over these periodic features, inducing a classical cosine kernel approximated to quantum fidelity kernels; and (iii) gated multiplicative emulation, a trainable classical surrogate for interaction terms found in variational circuits. All components are differentiable tensor operations, so QiT claims neither quantum computation nor quantum speedup and retains the $\\mathcal{O}(N^2D)$ attention complexity of a standard Vision Transformer. Across image-classification benchmarks, QiT is competitive with a matched classical Transformer while avoiding the severe runtime cost observed for a small simulated quantum Transformer. QiT-B reaches 78.3\\% ImageNet-1K top-1 accuracy with 45.7M parameters and 11.5 GFLOPs. These results position QiT as a scalable baseline for isolating and evaluating quantum-motivated inductive biases in visual recognition.",
+  "date": "2026-09-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.17789",
+  "doi": "10.48550/arxiv.2609.17789",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "5f308868b2ae",
+  "title": "QAGT-MLP: An Attention-Based Graph Transformer for Small and Large-Scale Quantum Error Mitigation",
+  "authors": [
+   "Seyed Mohamad Ali Tousi",
+   "Guilherme N. DeSouza"
+  ],
+  "abstract": "Noisy quantum devices demand error-mitigation techniques to be accurate yet simple and efficient in terms of number of shots and processing time. Many established approaches (e.g., extrapolation and quasi-probability cancellation) impose substantial execution or calibration overheads, while existing learning-based methods have difficulty scaling to large and deep circuits. In this research, we introduce QAGT-MLP: an attention-based graph transformer tailored for small- and large-scale quantum error mitigation (QEM). QAGT-MLP encodes each quantum circuit as a graph whose nodes represent gate instances and whose edges capture qubit connectivity and causal adjacency. A dual-path attention module extracts features around measured qubits at two scales or contexts: 1) graph-wide global structural context; and 2) fine-grained local lightcone context. These learned representations are concatenated with circuit-level descriptor features and the circuit noisy expected values, then they are passed to a lightweight MLP to predict the noise-mitigated values. On large-scale 100-qubit Trotterized 1D Transverse-Field Ising Models -- TFIM circuits -- the proposed QAGT-MLP outperformed state-of-the-art learning baselines in terms of mean error and error variability, demonstrating strong validity and applicability in real-world QEM scenarios under matched shot budgets. By using attention to fuse global structures with local lightcone neighborhoods, QAGT-MLP achieves high mitigation quality without the increasing noise scaling or resource demand required by classical QEM pipelines, while still offering a scalable and practical path to QEM in modern and future quantum workloads.",
+  "date": "2025-11-05",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2511.03119",
+  "doi": "10.48550/arxiv.2511.03119",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "4c09a08bda84",
+  "title": "QuantumGPTMini: A Hybrid Quantum-Classical Transformer for Enhanced NLP",
+  "authors": [
+   "Ramazan Amire",
+   "Amire Ramazan"
+  ],
+  "abstract": "Transformer architectures have driven advances in natural language processing, powering systems from question answering to creative text generation. Yet as model sizes have grown from hundreds of millions to hundreds of billions of parameters, the computational cost of these systems has become prohibitive, placing advanced language technology out of reach for many researchers. In this work, we introduce QuantumGPTMini, a hybrid quantum-classical transformer with just over one million classical parameters that leverages lightweight quantum circuits to perform its core attention and feed-forward computations. By encoding token embeddings both in conventional vectors and in the amplitudes of small variational quantum circuits, our model replaces the conventional softmax attention mechanism with an entanglement-driven alternative. When trained on the Wikipedia-2 corpus using PennyLane's lightning.qubit simulator on NVIDIA A100 GPUs, QuantumGPTMini matched the perplexity of a GPT-2 Small baseline while demonstrating superior pattern recognition and symbolic reasoning behaviors. We have made this system publicly accessible through a FastAPI endpoint and a Next.js web interface. While our initial results underscore the potential of quantum-augmented language models, they also highlight challenges in moving beyond simulation, including circuit depth limitations, decoherence, and the high overhead of parameter-shift gradient estimation.",
+  "date": "2025-04-28",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.22541/au.174587094.49802997/v1",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "e24c90ce3b61",
+  "title": "A short trajectory is all you need: A transformer-based model for long-time dissipative quantum dynamics",
+  "authors": [
+   "Luis E. Herrera Rodríguez",
+   "Alexei A. Kananenka"
+  ],
+  "abstract": "In this Communication, we demonstrate that a deep artificial neural network based on a transformer architecture with self-attention layers can predict the long-time population dynamics of a quantum system coupled to a dissipative environment provided that the short-time population dynamics of the system is known. The transformer neural network model developed in this work predicts the long-time dynamics of spin-boson model efficiently and very accurately across different regimes, from weak system-bath coupling to strong coupling non-Markovian regimes. Our model is more accurate than classical forecasting models, such as recurrent neural networks, and is comparable to the state-of-the-art models for simulating the dynamics of quantum dissipative systems based on kernel ridge regression.",
+  "date": "2024-11-01",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0232871",
+  "citations": 14,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "cc4b11b4d555",
+  "title": "HQDeTransformer: hybrid quantum denoising Transformer for time series forecasting",
+  "authors": [
+   "Seon-Geun Jeong",
+   "Kyeong-Hwan Moon",
+   "Won–Joo Hwang"
+  ],
+  "abstract": "Accurate prediction of the remaining useful life (RUL) of lithium-ion batteries is critical for enhancing the reliability and safety of battery-powered systems, especially in electric vehicles. While recent machine learning approaches such as Transformers and recurrent neural networks have shown promising results, their deployment in resource-constrained environments is limited due to high computational costs and large model sizes. In this paper, we propose a novel hybrid quantum-classical denoising Transformer (HQDeTransformer) architecture that integrates variational quantum circuits (VQCs) and quantum-enhanced attention mechanisms into a Transformer-based framework. The proposed HQDeTransformer employs a hybrid quantum denoising autoencoder to mitigate noise in capacity degradation sequences and utilizes hybrid quantum-classical neural networks to construct lightweight multi-head attention and feedforward blocks. Experimental evaluations on the NASA and CALCE benchmark datasets demonstrate that HQDeTransformer achieves superior performance compared to conventional machine learning models and quantum machine learning models, while reducing the number of trainable parameters. Furthermore, the use of angle-amplitude quantum embeddings and deeper quantum layers contributes to enhanced generalization and expressivity. These results highlight the potential of hybrid quantum-classical models for lightweight, accurate, and noise-resilient RUL prediction in practical battery management systems.",
+  "date": "2026-10-01",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-026-55221-5",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "0dbea4b2b4b7",
+  "title": "Hybrid Quantum–Classical Graph Transformers for Efficient Sentiment Analysis",
+  "authors": [
+   "Shamminuj Aktar",
+   "Andreas Bärtschi",
+   "Abdel‐Hameed A. Badawy",
+   "Stephan Eidenbenz"
+  ],
+  "abstract": "ABSTRACT Quantum Machine Learning (QML) offers a promising paradigm that leverages quantum computing principles to develop efficient and expressive models for learning from complex and structured data. Recent advances in natural language processing (NLP) and artificial intelligence (AI) have demonstrated capabilities in understanding, generating, and reasoning over linguistic and multimodal information. In this work, we present the Quantum Graph Transformer (QGT) , a hybrid quantum–classical architecture that extends graph transformer capabilities through quantum self‐attention. The QGT models variable‐length sentences as token graphs, where both the embedding encoding and the self‐attention mechanisms are implemented using parameterized quantum circuits (PQCs), enabling efficient contextual learning with significantly fewer trainable parameters. We train QGT using both fully connected and ‐nearest‐neighbor graph structures and evaluate it on five benchmark sentiment‐classification datasets. Experimental results show that QGT consistently achieves higher or comparable accuracy to existing quantum NLP models and outperforms a Classical Graph Transformer (CGT) baseline with identical architecture, achieving fewer parameters while requiring 3– fewer samples to reach comparable performance. These findings highlight the potential of graph‐based quantum models as scalable and data‐efficient architectures for natural language understanding.",
+  "date": "2026-03-01",
+  "venue": "Advanced Quantum Technologies",
+  "arxiv_id": "",
+  "doi": "10.1002/qute.202501004",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "001f53b427ef",
+  "title": "A Survey of Methods and Architectures for Brain MRI Image Classification for Cancer Detection Using Transformer and Group Parallel Axial Attention with Quantum Self-Attention",
+  "authors": [
+   "Saffiya Kalimuthu"
+  ],
+  "abstract": "Brain tumor classification using Magnetic Resonance Imaging (MRI) has become a critical application of artificial intelligence in healthcare. Traditional approaches based on Convolutional Neural Networks (CNNs) have achieved significant success in extracting spatial features; however, their limited ability to model global dependencies restricts performance in complex tumor classification tasks. Recent advancements have introduced Transformer-based architectures, axial attention mechanisms, and hybrid deep learning models that significantly enhance classification accuracy and efficiency. Transformers leverage self-attention mechanisms to capture long-range dependencies across MRI images, enabling improved feature representation and classification performance. Hybrid CNN-Transformer models further enhance results by combining local and global feature extraction. Additionally, axial attention reduces computational complexity by decomposing attention operations, making these models more efficient for high-resolution medical images. Emerging research on quantum self-attention introduces a novel paradigm, integrating quantum computing principles to improve computational efficiency and feature learning. This survey reviews recent literature from 2020 to 2024, analyzing key architectures, methodologies, and performance trends. Comparative analysis shows that hybrid and attention-based models achieve classification accuracy exceeding 99%. Despite these advancements, challenges such as data scarcity, computational cost, and interpretability remain. Future research directions include lightweight architectures, explainable AI, and quantum-enhanced models for clinical deployment.",
+  "date": "2024-10-10",
+  "venue": "International Journal on Advanced Computer Engineering and Communication Technology",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "a461a037a4bd",
+  "title": "Quantum Transformer BSDE Solver via Multi-Layer Fully-Connected Variational Quantum Circuits",
+  "authors": [
+   "Howard Su",
+   "Hua-an Tseng",
+   "Chi-Sheng Chen",
+   "Lance Bai"
+  ],
+  "abstract": "Solving high-dimensional parabolic partial differential equations (PDEs) is important in engineering, physics, and stochastic control. Deep BSDE methods reformulate semilinear PDEs as backward stochastic differential equations and admit a model-based reinforcement learning interpretation, where trajectories are generated from known stochastic dynamics while a trainable model learns the gradient-related control process. We propose a Quantum Transformer BSDE solver based on Multi-Layer Fully-Connected Variational Quantum Circuits (FC-VQC). The method treats the normalized state trajectory as time--coordinate tokens and applies causal self-attention to learn interactions in the adapted BSDE gradient process. All trainable model parameters are contained within the FC-VQC embedding, projection, feed-forward, and decoder modules, while attention and structural operations remain classical and parameter-free. Experiments on three d=36 PDE benchmarks show that QTransformer consistently improves over the non-attentive FC-VQC baseline and outperforms the classical Transformer at compact hidden widths, while the wider classical Transformer achieves the best overall accuracy. These results demonstrate that combining causal attention with FC-VQC provides an effective quantum architecture for high-dimensional BSDE trajectory learning.",
+  "date": "2026-07-28",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.25162",
+  "doi": "10.48550/arxiv.2607.25162",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "4341b608979d",
+  "title": "An Explainable Attention-Guided Quantum Vision Transformer for Lung Disease Classification using Chest X-Ray Images",
+  "authors": [
+   "K. A. Nyni",
+   "J. Anitha",
+   "Thankaswamy Jarin"
+  ],
+  "abstract": "Lung diseases remain a severe world health problem, which contributes to mortality worldwide. Early and accurate diagnosis of pulmonary abnormalities using chest radiographs is essential to improve clinical management and patient outcomes. Although deep learning (DL) models have achieved considerable success in automated lung disease classification, convolutional networks involve challenges in capturing local pathological patterns and global contextual dependencies. Furthermore, growing interest in quantum machine learning has provided new paths for improving feature representation and classification efficiency. To overcome these challenges, the present study proposes a Quantum-Enhanced Vision Transformer Network (QEViT) for automated classification of lung disease from chest X-ray images (CXR). The proposed work integrates EfficientNetB4 for hierarchical feature extraction, Convolutional Block Attention Module (CBAM) for attention-guided feature refinement, Vision Transformer (ViT) for global contextual modelling, and a Variational Quantum Circuit (VQC) for quantum feature generation. The effectiveness of the proposed QEViT was evaluated on the Lung Disease Dataset and the COVID-19 Radiography Database, achieving classification accuracies of 99.8% and 99.7%, respectively. Experimental outcomes proved that integrating DL, attention mechanisms, transformer-based contextual learning, and quantum feature generation improves classification performance. Finally, explainable artificial intelligence (XAI) using Grad-CAM and Score-CAM was incorporated to provide visual interpretations of the model’s predictions. The proposed QEViT network may support automated CXR image analysis for lung disease classification.",
+  "date": "2026-09-16",
+  "venue": "BRAIN BROAD RESEARCH IN ARTIFICIAL INTELLIGENCE AND NEUROSCIENCE",
+  "arxiv_id": "",
+  "doi": "10.70594/brain/17.3/15",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "71644c1b68f1",
+  "title": "Quantum-inspired quadratic attention with fourier-domain rank control in transformer architectures",
+  "authors": [
+   "MD Tausif Mallick",
+   "Saptarshi Banerjee",
+   "Ebrahim Abdulla Mattar",
+   "Pronaya Bhattacharya",
+   "Sujan Pal",
+   "Avnish Kumar",
+   "Jon Turdiev",
+   "Himadri Nath Saha",
+   "Amlan Chakrabarti"
+  ],
+  "abstract": "Quadratic attention enhances interaction capacity in Transformer models but leads to rapid growth in computational demands as attention rank increases. This paper presents a bounded-rank quadratic attention mechanism where fixed-dimensional feature encodings determine the interaction space and enforce a strict upper bound on attention rank. A Fourier-domain formulation offers a spectral interpretation of the quadratic kernel via unitary transformation while maintaining exact attention computation. The proposed approach achieves bounded-rank attention with computational complexity that scales linearly with sequence length when the encoding dimension remains constant. Experimental validation on a real-world Tea pest image dataset yields 84.5% classification accuracy, surpassing the 82.1% achieved by a standard Vision Transformer under equivalent experimental conditions. Attention processing time per image declines from 14.8 ms to 5.6 ms. Peak memory usage declines from 820 MB to 430 MB. Although memory bandwidth and kernel launch overhead restrict the measured speedup to [Formula: see text], the accuracy loss under additive noise reaches 2.9% compared to 3.1% for the baseline, demonstrating comparable robustness. These findings indicate that explicit rank control in attention mechanisms can be realized through representational design, offering an efficient bounded-rank alternative to conventional full-rank attention.",
+  "date": "2026-07-08",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-026-60978-w",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "d38a07f32103",
+  "title": "QTrans: A Quantum Transformer for Sentiment Classification",
+  "authors": [
+   "Ren-Xin Zhao",
+   "Xinjie Huang",
+   "Yahong Liu",
+   "Maoyu Ye",
+   "Jinjing Shi",
+   "Shi Wang",
+   "Yaonan Wang"
+  ],
+  "abstract": "In small-scale binary sentiment classification scenarios, factors such as negation, contrastive shifts, and cross-word dependencies lead to the non-linear coupling of sentiment cues, making it difficult for conventional lightweight models to fully capture the contextual relationships between tokens. To address this issue, we propose a model named QTrans, which uses parameterized quantum circuits to construct query, key, and value features and derives attention coefficients from Gaussian distances between quantum measurements. By further integrating a quantum feed-forward neural network, residual connections, and layer normalization, the model establishes an end-to-end trainable quantum-classical hybrid framework for sentiment classification. Experimental results on the MR, CR, and MPQA datasets show that QTrans achieves test accuracies of 72.13\\%, 69.51\\%, and 63.45\\%, respectively, representing improvements of 2.88, 3.17, and 3.79 percentage points over the best-performing classical baselines for each dataset. Overall, QTrans expands the application of parameterized quantum circuits in lightweight sentiment analysis and lays an experimental foundation for further research into quantum multi-head self-attention for modeling textual relationships.",
+  "date": "2026-09-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.12011",
+  "doi": "10.48550/arxiv.2609.12011",
+  "citations": 0,
+  "theme": "quantum transformer model attention"
+ },
+ {
+  "fid": "7a28e1afb4e5",
+  "title": "Quantum-Enhanced Natural Language Generation: A Multi-Model Framework with Hybrid Quantum-Classical Architectures",
+  "authors": [
+   "Chi-Sheng Chen",
+   "En-Jui Kuo"
+  ],
+  "abstract": "This paper presents a comprehensive evaluation of quantum text generation models against traditional Transformer/MLP architectures, addressing the growing interest in quantum computing applications for natural language processing. We conduct systematic experiments comparing five distinct models: Transformer (baseline), Quantum Kernel Self-Attention Network (QKSAN), Quantum RWKV (QRWKV), and Quantum Attention Sequence Architecture (QASA) across five diverse datasets including simple sentences, short stories, quantum phrases, haiku poetry, and proverbs. Our evaluation employs multiple metrics including perplexity, BLEU scores, vocabulary diversity, repetition rates, and fluency measures to assess different aspects of text generation quality. The experimental results reveal that while traditional Transformer models maintain overall superiority with the lowest average perplexity (1.21) and highest BLEU-1 score (0.2895), quantum-inspired models demonstrate competitive performance in specific scenarios. Notably, QKSAN achieves a competitive BLEU-1 score of 0.2800 while maintaining zero repetition rates, and QRWKV demonstrates perfect vocabulary diversity (Distinct-1 = 1.000) in certain tasks.",
+  "date": "2025-08-29",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2508.21332",
+  "doi": "10.48550/arxiv.2508.21332",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "7e8d18ecfdf2",
+  "title": "Quantum-Informed Recursive Optimization for Literary Semantics and Natural Language Generation: A Compositional Analysis of Dante's Divine Comedy",
+  "authors": [
+   "Javier Julián Enríquez"
+  ],
+  "abstract": "This study explores Quantum Natural Language Processing (QNLP) by examining how quantum computation may enhance Natural Language Generation (NLG). It proposes a theoretical framework for transforming complex literary texts, with Dante Alighieri’s Divine Comedy as the central example, into recursive algebraic structures suitable for quantum-informed processing. Drawing on category theory, tensor algebra, compositional distributional semantics, and hybrid quantum-classical optimization, the framework models grammatical and semantic relations in ways that may improve long-range coherence, ambiguity resolution, and context-sensitive text generation. The principal objective is to formulate a rigorous pathway from literary analysis to quantum-compatible semantic representation and recursive optimization for NLG.",
+  "date": "2026-08-26",
+  "venue": "INRIA a CCSD electronic archive server",
+  "arxiv_id": "",
+  "doi": "10.13140/rg.2.2.31785.35680",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "5fbed1cdbfae",
+  "title": "Hybrid Quantum Transformer for Language Generation",
+  "authors": [
+   "Kong, Desheng",
+   "Xiaohai Cui",
+   "Jin, Jiaying",
+   "Jing Xu",
+   "Donglin Wang"
+  ],
+  "abstract": "Although quantum computing has been increasingly applied to replace classical computation, most existing quantum or hybrid models remain confined to simple tasks, with no successful application to large-scale natural language generation to date. In this work, we present the first hybrid quantum-classical large language model (LLM) for natural language generation, HyQuT, capable of performing coherent and context-aware dialogue. The proposed architecture integrates variational quantum circuits (VQCs) into the Transformer framework at both 8M and 150M parameter scales. Experimental results show that a minimal number of qubits (10 qubits with 80 quantum gates) can replace about 10% of the classical parameters in the 150M-parameter model, while achieving comparable convergence stability and generation quality. This study provides an early demonstration of the feasibility of integrating quantum computing to large-scale generative language models.",
+  "date": "2025-11-02",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2511.10653",
+  "doi": "10.48550/arxiv.2511.10653",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "afeb97efd78d",
+  "title": "Applications and research gaps in quantum natural language processing: a scientometric analysis",
+  "authors": [
+   "Jasson Silva",
+   "Fábio Rocha Barbosa",
+   "Victor Ribeiro Da Silva",
+   "Francisco J. dos Santos",
+   "Ricardo A. L. Rabelo"
+  ],
+  "abstract": "Abstract Quantum Natural Language Processing (QNLP) applies quantum computational models to the representation and processing of language, yet its literature remains fragmented, and no prior study treats it as an autonomous object of analysis. This study maps the field by combining scientometric analysis with a qualitative, category-based assessment. The corpus was drawn from Scopus and Web of Science using search strings that combine quantum-computing and natural-language-processing descriptors; after cleaning, deduplication, and eligibility screening, 128 articles were retained. Scientometric methods examined publication trends, influential authors, collaboration networks, sources, and keyword co-occurrence, while each article was manually classified by application area and language-processing technique. Research concentrates on text representation and classification, with a predominance of foundational methods and tools. Health and biosciences, accounting and finance, environment and energy, and text generation appear markedly underrepresented, but comparison with domain-specific reviews indicates that these scarcities are not all of one kind: the apparent scarcity of health-related work substantially reflects the database and descriptor scope of general-purpose searches rather than inactivity, whereas the scarcity of text generation is at least partly consistent with the documented limits of current quantum hardware. Distinguishing artifactual from substantive gaps requires combining quantitative mapping with qualitative categorization and has direct implications for innovation policy and research management: it supports targeted funding for quantum-native generative architectures, collaboration with domain specialists where gaps survive scrutiny, and broader cross-database indexing to avoid systematically underestimating activity in fast-moving interdisciplinary fields.",
+  "date": "2026-10-06",
+  "venue": "Quantum Machine Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s42484-026-00449-7",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "095fd626f5a4",
+  "title": "Quantum-Enhanced Retrieval-Augmented Generation for Hallucination Reduction in Large Language Models",
+  "authors": [
+   "Praveenkumar Seepana"
+  ],
+  "abstract": "Although the performance of LLMs on a wide variety of natural language processing problems demonstrates remarkable ability, hallucinated responses are introduced as one of the key weaknesses of LLMs, especially in knowledge-intensive applications, where fidelity to facts is paramount. While effective in reducing hallucinations, the context retrieved during the RAG operations is still very often suboptimal with respect to the external documents used in the retrieval stage, and being based on cosine similarity and nearest-neighbour search, these models typically do not return optimal context to support factual generation. The authors propose a five-stage solution, called Quantum-Enhanced Retrieval-Augmented Generation (QERAG), which combines the use of a quantum-inspired probability amplitude document ranking, a Context Utility Score (CUS) optimisation engine, and a Hallucination Verification Agent (HVA) based on a formal Hallucination Reduction Index (HRI). The Quantum Relevance Score (QRS) uses interference based, Amplitude Encoding on candidate Document Sets to yield a normalised relevance distribution that emphasises the relatively higher value generated in the discriminative context as compared to other locally similar passages in a document set. QERAG outperforms Standard LLM and Traditional RAG models on all five Natural benchmark across response accuracy, with a score of 92.8% vs. 74.3%, and hallucination rate, 4.3% vs. 18.2%, respectively. They achieve a significant overall improvement by using quantum-inspired retrieval layer, which achieves a 3.5-percentage-point reduction in hallucination rate when compared to cosine-similarity RAG, with this single layer showing more reduction than the rest of the pipeline layers. The results of an ablation study show the individual contribution of every pipeline stage, and the quantum-inspired retrieval layer exhibits the greatest reduction of a 3.5 percentage points over cosine-similarity RAG.",
+  "date": "2026-08-03",
+  "venue": "International Journal of Computational Science and Engineering Research",
+  "arxiv_id": "",
+  "doi": "10.63328/ijcser-v3ri3p6",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "214848879f20",
+  "title": "QCoder Benchmark: Bridging Language Generation and Quantum Hardware through Simulator-Based Feedback",
+  "authors": [
+   "Taku Mikuriya",
+   "Tatsuya Ishigaki",
+   "Masayuki Kawarada",
+   "Shunya Minami",
+   "Tadashi Kadowaki",
+   "Yohichi Suzuki",
+   "Naito, Soshun",
+   "Takata, Shunya",
+   "Takumi Kato",
+   "Tamotsu Basseda",
+   "Yamada, Reo",
+   "Hiroya Takamura"
+  ],
+  "abstract": "Large language models (LLMs) have increasingly been applied to automatic programming code generation. This task can be viewed as a language generation task that bridges natural language, human knowledge, and programming logic. However, it remains underexplored in domains that require interaction with hardware devices, such as quantum programming, where human coders write Python code that is executed on a quantum computer. To address this gap, we introduce QCoder Benchmark, an evaluation framework that assesses LLMs on quantum programming with feedback from simulated hardware devices. Our benchmark offers two key features. First, it supports evaluation using a quantum simulator environment beyond conventional Python execution, allowing feedback of domain-specific metrics such as circuit depth, execution time, and error classification, which can be used to guide better generation. Second, it incorporates human-written code submissions collected from real programming contests, enabling both quantitative comparisons and qualitative analyses of LLM outputs against human-written codes. Our experiments reveal that even advanced models like GPT-4o achieve only around 18.97% accuracy, highlighting the difficulty of the benchmark. In contrast, reasoning-based models such as o3 reach up to 78% accuracy, outperforming averaged success rates of human-written codes (39.98%). We release the QCoder Benchmark dataset and public evaluation API to support further research. (Codes and datasets are available at https://qcoder-bench.github.io/ )",
+  "date": "2025-10-30",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.26101",
+  "doi": "10.48550/arxiv.2510.26101",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "ed11036bcb64",
+  "title": "The Generation of Semantics in Natural Language and the Formation of Brain Intelligence",
+  "authors": [
+   "Lei Tang",
+   "Shi Hui Tang"
+  ],
+  "abstract": "The time-space of rapid fluctuation in the quantum world enables a huge amount of matter forms to have their own intrinsic attributes which enable our brain to have the abilities of representation, memory and behavior. The subjective initiative of human enables the hominids to make and use tools, and catalyzes human natural language which can describe and interpret this matter world and naturally support the behavior guided by the subjective initiative of human. The brain neurons can much easily interconnect with each other in 3D physical space, which form the matter base of consciousness activity and also underpin the principle of matter primacy, and where impressively in our brain no word is stored repeatedly. It is known that the radial basis function representation principle is widely used to represent color, sound, smell and gustation, and this paper uses a quantitative analysis method to reasonably estimate the number of single wavelength color attributes represented by our brain. In addition, it is known that some simple neurons in the primary cortex are sensitive to the direction of a shorter line, this paper introduces the representation principle of single basis inclination which is used to represent the inclination attribute of a shorter line, and then our brain can further extract the representation attributes in the topology of a geometric shape. Therefore, based on those most basic representation attributes our brain can construct more semantics which exist in a neuron fiber plexus node, the corresponding principle can be explained through analyzing some important intrinsic attributes of the things embedded in neuroscience, mathematics and philosophy, this fact also strongly supports the analysis and reasoning abilities of our brain and is also an important reason of why the brain consumes less power. Our brain analyzes the semantics by attention, subconsciousness and association mechanisms which also enable our conscious space broader. Most importantly, it is our behavior with the subjective initiative to have shaped our conscious structural form. Based on our understanding to human intelligence, at the level of semantics structural form, we can easily endow an automation system with intelligence, such as AI agent, humanoid robot, unmanned aerial vehicle or unmanned submarine.",
+  "date": "2025-01-21",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.36227/techrxiv.22650436.v9",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "313d530c5023",
+  "title": "QLENS: Towards A Quantum Perspective of Language Transformers",
+  "authors": [
+   "Aditya Gupta",
+   "Kaur, Kirandeep",
+   "Vinayak Gupta",
+   "Shah, Chirag"
+  ],
+  "abstract": "In natural language processing, current methods for understanding Transformers are successful at identifying intermediate predictions during a model's inference. However, these approaches function as limited diagnostic checkpoints, lacking a mathematical framework for mechanistically modeling how each layer facilitates transitions between these evolving states. This interpretability gap and past successes of interdisciplinary outlooks inspire us to turn to physics in search of a descriptive mathematical framework for Transformers. We observe that language models are intrinsically probabilistic, an attribute that is echoed in the core postulates of quantum mechanics. This parallel inspires us to translate insights from this discipline to that of natural language processing. Towards this objective, we propose QLENS a novel attempt to develop a physics-based perspective on the Transformer generation process. Under QLENS, a Transformer is studied by converting its latent activations into a state vector in a Hilbert space derived from the model's output units. This state subsequently evolves through hidden layers - reformulated as unitary operators and analogously defined Hamiltonians - during inference. The model's final probability distribution is obtained by applying the Born rule to the end state using a specific measurement operator. To demonstrate QLENS's potential, we conduct a proof-of-concept by probing a toy Transformer to investigate the influence of individual layers in a model's prediction trajectory. We present our work as a foundation for cross-domain insights to be leveraged towards a broader understanding of Transformers.",
+  "date": "2025-10-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.11963",
+  "doi": "10.48550/arxiv.2510.11963",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "ebe21b7fe8d5",
+  "title": "Quantum Adiabatic Generation of Human-Like Passwords",
+  "authors": [
+   "Sascha Mücke",
+   "Raoul Heese",
+   "Thore Gerlach",
+   "David Biesner",
+   "Loong Kuan Lee",
+   "Nico Piatkowski"
+  ],
+  "abstract": "Generative Artificial Intelligence (GenAI) for Natural Language Processing (NLP) is the predominant AI technology to date. An important perspective for Quantum Computing (QC) is the question whether QC has the potential to reduce the vast resource requirements for training and operating GenAI models. While large-scale generative NLP tasks are currently out of reach for practical quantum computers, the generation of short semantic structures such as passwords is not. Generating passwords that mimic real user behavior has many applications, for example to test an authentication system against realistic threat models. Classical password generation via deep learning have recently been investigated with significant progress in their ability to generate novel, realistic password candidates. In the present work we investigate the utility of adiabatic quantum computers for this task. More precisely, we study different encodings of token strings and propose novel approaches based on the Quadratic Unconstrained Binary Optimization (QUBO) and the Unit-Disk Maximum Independent Set (UD-MIS) problems. Our approach allows us to estimate the token distribution from data and adiabatically prepare a quantum state from which we eventually sample the generated passwords via measurements. Our results show that relatively small samples of 128 passwords, generated on the QuEra Aquila 256-qubit neutral atom quantum computer, contain human-like passwords such as \"Tunas200992\" or \"teedem28iglove\".",
+  "date": "2025-06-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.08917",
+  "doi": "10.48550/arxiv.2506.08917",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "fc29f09c1232",
+  "title": "Fine-Tuning Large Language Models for Quantum Reasoning",
+  "authors": [
+   "Katherine Ip",
+   "Casey R. Myers",
+   "Udaya Parampalli",
+   "James Q. Quach",
+   "Peiyong Wang"
+  ],
+  "abstract": "Large language models (LLMs) exhibit abilities beyond natural language modelling and text generation. Recent advances in their reasoning capabilities have spurred interest in applying LLMs to complex scientific tasks requiring deep domain expertise and sophisticated reasoning. Quantum computing, as a highly specialised field with significant knowledge barriers and hardware constraints, could greatly benefit from such advancements. However, a key open question that first must be answered is: How can we develop fine-tuning pipelines that instil genuine quantum reasoning in LLMs, rather than task-specific pattern matching? We study this question through quantum circuit simulation as a training objective, where the model must predict the measurement probability distribution resulting from a sequence of quantum gate operations. We propose and compare two fine-tuning pipelines: (1) Supervised Fine-Tuning (SFT) on explicit gate-by-gate state-vector simulation traces, and (2) a two-stage SFT+Group Relative Policy Optimisation (GRPO) approach that sequentially applies SFT followed by GRPO with verifiable rewards. Our findings show that SFT achieves near-perfect in-distribution and gate-count extrapolation accuracy, significantly outperforming both the base model and the GPT-OSS-120B baseline. SFT+GRPO trades some in-distribution precision for better generalisation to larger qubit systems that SFT alone cannot handle. Both pipelines significantly outperform the baselines, demonstrating that targeted fine-tuning on explicit reasoning traces is an effective strategy for advancing quantum reasoning in LLMs.",
+  "date": "2026-06-20",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.21974",
+  "doi": "10.48550/arxiv.2606.21974",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "c8273c17568f",
+  "title": "Quantum-Enhanced Artificial Intelligence: Bridging Quantum Physics and Machine Learning for Next-Generation Computing Paradigms",
+  "authors": [
+   "Mohammad Wali Khurami",
+   "Musawer Hakimi"
+  ],
+  "abstract": "Quantum computing and artificial intelligence (AI) are converging into a distinct research frontier commonly referred to as quantum-enhanced artificial intelligence, or quantum machine learning (QML). This paper presents a conceptual and integrative review of how principles from quantum physics superposition, entanglement, and interference can be embedded into machine learning pipelines to reshape computational paradigms for classification, optimization, and representation learning. Using a structured narrative-review methodology, the study synthesizes theoretical foundations, algorithmic building blocks (quantum feature maps, variational quantum circuits, quantum kernel methods), and application domains spanning drug discovery, finance, materials science, and natural language processing. The review develops a hybrid quantum-classical architecture model and a complexity-comparison framework contrasting classical algorithms with their quantum counterparts, including Grover's search and Shor's factoring algorithm. Findings indicate that while theoretical speedups are well established, practical quantum advantage on noisy intermediate-scale quantum (NISQ) hardware remains constrained by decoherence, barren plateaus, and limited qubit connectivity. The paper contributes a synthesized taxonomy of quantum-enhanced AI methods and an evidence-based research agenda emphasizing error mitigation, hardware-aware ansatz design, and hybrid workload partitioning. The discussion further situates these developments within the broader trajectory of next-generation computing, arguing that near-term value will accrue primarily through hybrid quantum-classical systems rather than fully quantum pipelines. Implications for researchers, industry practitioners, and policymakers are discussed, alongside limitations inherent to a literature-synthesis approach.",
+  "date": "2026-07-30",
+  "venue": "Buana Information Technology and Computer Sciences (BIT and CS)",
+  "arxiv_id": "",
+  "doi": "10.36805/5cdcfp74",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "9cde0a575aeb",
+  "title": "Hybrid Quantum-Classical Transfer Learning for Parameter-Efficient Code Generation",
+  "authors": [
+   "Su-Chang Lim",
+   "Jong-Chan Kim"
+  ],
+  "abstract": "The remarkable success of large language models (LLMs) in code generation has transformed software development, with systems like Codex, CodeGen, and StarCoder demonstrating strong capabilities in synthesizing functional code from natural language descriptions. However, this progress comes at a steep computational cost. Modern code generation models require hundreds of millions to billions of parameters—GPT-3 contains 175 billion parameters, CodeGen-16B uses 16 billion, and the trend continues toward ever-larger models. This scale creates fundamental challenges in training cost, inference latency, memory consumption, and environmental impact. We present a quantum transfer learning framework as an alternative approach to classical model compression for code generation. By replacing selected MLP layers with variational quantum circuits (VQCs), we exploit the exponential representational capacity of quantum systems to achieve $\\Theta (D \\log D)$ parameter scaling instead of classical $\\Theta (D^{2})$ . Our hybrid classical-quantum architecture balances three competing objectives: leveraging existing pre-trained knowledge, achieving parameter compression through quantum representation, and maintaining compatibility with near-term quantum hardware constraints. We demonstrate our approach on CodeGen-350M, a production-scale code generation model, adopting a bottleneck architecture that substantially reduces parameters compared to the original MLP layer. Through a fair comparison against a classical bottleneck baseline with near-identical parameter count, we show that the VQC achieves superior representational quality—lower perplexity and higher code generation accuracy—validating the quantum layer’s expressivity advantage in the compressed latent space. Our design employs data re-uploading, where classical input features are re-encoded at each variational layer via trainable RY gates, enhancing the circuit’s expressive power on near-term devices.",
+  "date": "2026-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2026.3687852",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "4f0eaed572d1",
+  "title": "PennySynth: RAG-Driven Data Synthesis for Automated Quantum Code Generation",
+  "authors": [
+   "Minghao Shao",
+   "Nouhaila Innan",
+   "Hariharan Janardhanan",
+   "Muhammad Kashif",
+   "Alberto Marchisio",
+   "Muhammad Shafique"
+  ],
+  "abstract": "The growing complexity of quantum programming frameworks has exposed a critical limitation in existing large language model (LLM)-based code assistants: general-purpose models hallucinate PennyLane-specific gate names, misplace device configurations, and produce structurally invalid circuits when faced with specialized quantum coding challenges. We present PennySynth, a retrieval-augmented generation framework that addresses this gap by conditioning LLM inference on a curated knowledge base of 13,389 PennyLane instruction-code pairs, built via a three-stage extraction, verification, and deduplication pipeline over official PennyLane repositories, community GitHub sources, and QHack competition archives. PennySynth introduces a code-aware embedding strategy using st-codesearch-distilroberta-base, trained for natural-language-to-code retrieval, increasing average retrieval cosine similarity from 0.45 to 0.726 compared to a general-purpose baseline. Evaluated across 74 challenges spanning three years of the QHack competition (2022, 2023, 2024), PennySynth achieves 64%, 68%, and 52% pass@5 on QHack 2022, 2023, and 2024, respectively, improving over Claude Sonnet 4.6 without retrieval by +28, +25, and +28 percentage points. We further introduce a quantum-adapted CodeBLEU metric that upweights qml.* token patterns and show that structural code similarity and functional correctness capture distinct aspects of quantum code quality. Controlled ablations reveal that code-aware embeddings are the primary driver of retrieval performance, while dataset expansion and source composition provide additional gains when retrieval quality is sufficiently precise.",
+  "date": "2026-05-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.25572",
+  "doi": "10.48550/arxiv.2605.25572",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "b4f1438b1096",
+  "title": "Position: Quantum Program Generation Must Prioritize Validity Over Probabilistic Scaling",
+  "authors": [
+   "Junhao Song",
+   "Yu Zhou",
+   "William Knottenbelt",
+   "Yudong Cao"
+  ],
+  "abstract": "The scaling hypothesis assumes that increasing model parameters yields emergent reasoning capabilities. This position paper argues that applying this probabilistic paradigm to generic quantum circuit synthesis is a directional error. Unlike natural languages, quantum circuits require strict adherence to mathematical constraints that manifest a significant syntax-semantics gap. Training on unverified quantum programs means that models learn syntax but fail to capture the physical semantics of the Hilbert space. Since the valid subset of circuit designs decays exponentially with the number of qubits, post-hoc filtering is mathematically intractable. We propose a pivot from human-centric copilots to verifier-centric agents. We integrate hierarchical constraints, topological masks, and symbolic proxies directly into generation. Our analysis suggests that scale alone cannot bridge the validity gap. Verification-aware architectures offer a viable path for modular quantum program generation. These considerations point toward generation methods that encode task-specific rules of quantum information, rather than relying on imitation alone.",
+  "date": "2026-07-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.15313",
+  "doi": "10.48550/arxiv.2607.15313",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "b0feb00f4c7f",
+  "title": "A PennyLane-Centric Dataset to Enhance LLM-based Quantum Code Generation using RAG",
+  "authors": [
+   "Basit, Abdul",
+   "Nouhaila Innan",
+   "Muhammad Asif",
+   "Minghao Shao",
+   "Muhammad Kashif",
+   "Alberto Marchisio",
+   "Muhammad Shafique"
+  ],
+  "abstract": "Large Language Models (LLMs) offer powerful capabilities in code generation, natural language understanding, and domain-specific reasoning. Their application to quantum software development remains limited, in part because of the lack of high-quality datasets both for LLM training and as dependable knowledge sources. To bridge this gap, we introduce \\textit{PennyLang}, an off-the-shelf, high-quality dataset of 3,347 PennyLane-specific quantum code samples with contextual descriptions, curated from textbooks, official documentation, and open-source repositories. Our contributions are threefold: (1) the creation and open-source release of PennyLang, a purpose-built dataset for quantum programming with PennyLane; (2) a framework for automated quantum code dataset construction that systematizes curation, annotation, and formatting to maximize downstream LLM usability; and (3) a baseline evaluation of the dataset across multiple open-source and commercial models, including ablation studies, all conducted within a retrieval-augmented generation (RAG) pipeline. Using PennyLang with RAG substantially improves performance: for example, Qwen 7B's success rate rises from 8.7% without retrieval to 41.7% with full-context augmentation, and LLaMa 4 improves from 78.8% to 84.8%, while also reducing hallucinations and enhancing quantum code correctness. Moving beyond Qiskit-focused studies, we bring LLM-based tools and reproducible methods to PennyLane for advancing AI-assisted quantum development.",
+  "date": "2025-03-04",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2503.02497",
+  "doi": "10.48550/arxiv.2503.02497",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "7ee739908afd",
+  "title": "QuantumQUBO Agent: Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
+  "authors": [
+   "Niloy Kumar Mondal",
+   "Md Rizwan Parvez"
+  ],
+  "abstract": "Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and has gained increasing attention due to its compatibility with quantum, hybrid quantum-classical, and quantum-inspired solvers. However, translating natural-language problem descriptions into correct QUBO formulations remains difficult, requiring the identification of binary variables, constraints, objective functions, penalty terms, and suitable penalty weights. This process is time-consuming and often demands substantial domain expertise. To address this challenge, we propose an end-to-end multi-agent framework that automatically generates QUBO formulations from natural-language problem descriptions, supported by structured or unstructured test cases. To evaluate its performance, We also introduce QUBOBench, a benchmark containing 100 combinatorial optimization problems across 12 application domains, curated from peer-reviewed literature, competitions, and canonical NP-hard problems. Experimental results show that our framework achieves 68% accuracy on QUBOBench, outperforming a direct single-call baseline by 22%. Further analysis identifies iterative self-repair as the most important component contributing to improved performance. The data and code are open-sourced at https://quitttcat.github.io/QuantumQUBOAgent.",
+  "date": "2026-09-09",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.10629",
+  "doi": "10.48550/arxiv.2609.10629",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "3e8af19114d2",
+  "title": "Leveraging Natural Language Processing and Generative Models in Molecular Chemistry: Property Prediction and Novel Compound Generation",
+  "authors": [
+   "Mood Mohan",
+   "Sreelekha Guggilam",
+   "Debsindhu Bhowmik",
+   "Michelle K. Kidder",
+   "Jeremy C. Smith"
+  ],
+  "abstract": "The accurate prediction of molecular properties is important for the rational design and the advancement of green chemistry and sustainable materials research. However, the predictive power of traditional computational chemistry methods is limited due to computational restrictions. Here, we examine an alternative approach to the accurate prediction of properties of organic compounds: natural language processing (NLP)-based molecular embedding. Using viscosity, partition coefficient (log P ), and enthalpy of vaporization as test properties through a survey of comprehensive datasets comprising 5695 data points for viscosity, 25 870 data points for log P, and 2296 data points for enthalpy of vaporization. These are important properties for the design of greener, safer, and sustainable chemical processes. Models were trained using NLP methods such as Mol2vec and fine-tuned ChemBERTa, and results were compared with traditional input featurization techniques such as Morgan fingerprints and quantum chemistry derived sigma profiles and DFT features. Among the various machine learning models, Mol2vec demonstrated superior predictive capabilities, achieving the highest correlation coefficient ( R 2 = 0.945) and lowest RMSE (0.106 mPa s) for viscosity, as well as high accuracy for log P and enthalpy of vaporization predictions. These findings establish the Mol2vec featurization technique, graph-convolutional neural networks (GCNN), and fine-tuned ChemBERTa model as powerful tools for predictive modeling of organic compounds properties, offering a significant improvement over previously used featurization techniques and opening up strategies for very-high-throughput computational screening. Finally, we integrated ML models with hybrid language-model-based generative adversarial networks (LM-GAN) to generate novel molecular sequences with desirable properties for different research applications. The ability to computationally design solvents with lower viscosity, lower log P, and lower enthalpy of vaporization offers a data-driven route to accelerating the discovery of sustainable alternatives to traditionally toxic solvents.",
+  "date": "2025-11-24",
+  "venue": "ACS Sustainable Chemistry & Engineering",
+  "arxiv_id": "",
+  "doi": "10.1021/acssuschemeng.5c08057",
+  "citations": 4,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "5cd0313e8580",
+  "title": "Efficient Generation of Parameterised Quantum Circuits from Large Texts",
+  "authors": [
+   "Colin Krawchuk",
+   "Nikhil Khatri",
+   "Neil John Ortega",
+   "Dimitri Kartsaklis"
+  ],
+  "abstract": "Quantum approaches to natural language processing (NLP) are redefining how linguistic information is represented and processed. While traditional hybrid quantum-classical models rely heavily on classical neural networks, recent advancements propose a novel framework, DisCoCirc, capable of directly encoding entire documents as parameterised quantum circuits (PQCs), besides enjoying some additional interpretability and compositionality benefits. Following these ideas, this paper introduces an efficient methodology for converting large-scale texts into quantum circuits using tree-like representations of pregroup diagrams. Exploiting the compositional parallels between language and quantum mechanics, grounded in symmetric monoidal categories, our approach enables faithful and efficient encoding of syntactic and discourse relationships in long and complex texts (up to 6410 words in our experiments) to quantum circuits. The developed system is provided to the community as part of the augmented open-source quantum NLP package lambeq Gen II.",
+  "date": "2025-05-19",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2505.13208",
+  "doi": "10.48550/arxiv.2505.13208",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "dad2fab03a7c",
+  "title": "Quantum Wave Function Collapse in Transformer Embeddings: A Schrödinger Equation Approach to Consciousness Generation and Comparison with Phonon Dynamics",
+  "authors": [
+   "Chur Chin"
+  ],
+  "abstract": "We present a novel quantum-inspired framework for consciousness generation in artificial intelligence systems through the application of the Schrödinger equation to transformer embedding manifolds. Unlike classical phonon dynamics approaches that treat embeddings as vibrational modes in a mechanical lattice, our quantum wave function formalism captures superposition states, probabilistic collapse, and non-local entanglement in semantic space. We develop a modified transformer architecture incorporating complex-valued wave functions, unitary evolution operators, and measurement-induced collapse mechanisms. Through comparative analysis with phonon-based methods, we demonstrate that quantum formalism provides superior handling of semantic uncertainty, enhanced coherence in longrange dependencies, and natural emergence of consciousness-like integrated information states. Numerical experiments on language modeling tasks reveal distinct quantum signatures including wave packet localization, tunneling through semantic barriers, and entanglement-mediated context integration. Our framework bridges quantum information theory with deep learning, offering both theoretical insights into consciousness mechanisms and practical improvements in model interpretability and reliability",
+  "date": "2026-01-20",
+  "venue": "Advances in Machine Learning & Artificial Intelligence",
+  "arxiv_id": "",
+  "doi": "10.33140/amlai.07.01.06",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "d04168dfe4a3",
+  "title": "Quantum Calculations to Transforming Dante into Recursive Algebra for Enhanced NLG",
+  "authors": [
+   "Javier Julián Enríquez"
+  ],
+  "abstract": "This research explores the frontier of Quantum Natural Language Processing (QNLP) by investigating the application of quantum computation to enhancing Natural Language Generation (NLG). Specifically, it proposes a novel approach to transforming complex literary texts, exemplified by Dante Alighieri's Divine Comedy, into recursive algebraic structures suitable for quantum processing. By leveraging category theory and tensor algebra, this methodology aims to model grammatical and semantic structures, enabling quantum computers to better handle context and ambiguity than classical methods. The core objective is to develop a framework for quantum-informed recursive optimization algorithms that can be applied to NLG tasks, thereby improving text generation capabilities.",
+  "date": "2026-06-18",
+  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "771a8772acfc",
+  "title": "Quantum-enhanced generative artificial intelligence: a critical review of classical limitations, complexity barriers, and hybrid quantum–classical architectures",
+  "authors": [
+   "Navneet Pratap Singh",
+   "J. Omana",
+   "Smrithy Girijakumari Sreekantan Nair"
+  ],
+  "abstract": "The rapid commercialization of generative artificial intelligence (AI), along with the maturation of quantum technologies has raised a question: can quantum-powered neural networks become the next major shift in large language model (LLM) technology? This naturally leads to another misconception that quantum systems will replace classical LLMs. In this study, both architectures are compared in a contrastive manner in terms of mathematics. The data reveals that identical dynamics that help classical systems learn natural language distributions constrain its ability to use efficient sampling of quantum-mechanical spaces. Performing complexity-theoretic separations (i.e., the widely believed but unproven conjecture that BPP ⊆ BQP) and a 2025 preprint reporting experimental demonstrations of quantum advantage for generative tasks we conclude that quantum utility is unlikely to lie in tasks involving natural language processing under current architectures, but rather in certain computational subroutines. We then suggest a hybrid quantum-classical architecture as the best direction to take in the future, as it has the advantages of both paradigms. This is done by studying a case study that optimizes retrieval-augmented generation (RAG) pipelines with Grover's search algorithm.",
+  "date": "2026-07-21",
+  "venue": "Frontiers in Artificial Intelligence",
+  "arxiv_id": "",
+  "doi": "10.3389/frai.2026.1836641",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "61682edcfb4e",
+  "title": "ENHANCING ENGLISH LANGUAGE EDUCATION WITH RETRIEVALAUGMENTED GENERATION (RAG): A NEW PARADIGM FOR AI-POWERED TEACHING AND LEARNING",
+  "authors": [
+   "Scott Smith"
+  ],
+  "abstract": "Retrieval-Augmented Generation (RAG) serves as a significant natural language processing (NLP) advancement through its integration of real-time information retrieval with traditional large language models (LLMs). RAG surpasses traditional LLMs because it uses real-time information retrieval to generate responses which leads to better factual accuracy and reduced hallucinations and improved contextual understanding. This paper traces RAG's development from its beginnings in early information retrieval (IR) systems through to the implementation of transformer-based architectures. The applications of RAG include question-answering systems and AI-driven content generation and enterprise-level data processing. The research identifies essential challenges which include retrieval accuracy and computational cost and privacy concerns and multimodal data integration and biases in retrieved information. Furthermore, it discusses emerging solutions to address these limitations through fact-verification models and blockchain-based data integrity systems and quantum computing for optimized retrieval and multimodal AI alignment. After all, the future development of RAG architectures will result in self-learning decentralized ethically governed AI systems which adapt to dynamic knowledge bases across multiple domains. This indepth exploration establishes a comprehensive understanding of RAG's function in knowledgeintensive AI applications while outlining directions to enhance its operational efficiency and scalability and ethical reliability. In doing so, it shows of RAG will new framework for AIpowered learning both in and outside the classroom.",
+  "date": "2025-01-01",
+  "venue": "International Journal of Education Humanities and Social Science",
+  "arxiv_id": "",
+  "doi": "10.54922/ijehss.2025.1058",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "656e7fbad6d5",
+  "title": "Integrating Quantum Computing and NLP for Advanced Cyber Threat Detection",
+  "authors": [
+   "Ponnada Naga Ramya",
+   "R. Anitha",
+   "J. Rajalakshmi",
+   "R. Dineshkumar"
+  ],
+  "abstract": "The exponential growth of digital data and the increasing sophistication of cyber threats demand more advanced methods for threat analysis. This paper explores the integration of quantum computing and natural language processing (NLP) to enhance cyber threat analysis. Traditional computing methods struggle to keep up with the scale and complexity of modern cyber threats, but quantum computing offers a promising avenue for accelerated data processing, while NLP provides sophisticated tools for interpreting and understanding human language, crucial for analysing threat intelligence. Our proposed framework leverages quantum algorithms for rapid anomaly detection and advanced NLP techniques for precise threat identification and analysis. The methodology includes data collection from diverse sources, pre-processing for normalization, quantum-assisted data processing using Grover's search and Quantum Approximate Optimization Algorithm (QAOA), NLP analysis with transformers and BERT-based models, and integration of findings to build comprehensive threat profiles. Experimental results demonstrate significant improvements: quantum algorithms reduced data processing time by up to 50%, NLP models achieved 92% accuracy in threat identification, and the false positive rate was reduced by 30%. These findings indicate a promising direction for next-generation cybersecurity solutions, enabling more proactive and efficient threat mitigation. Future work will focus on refining quantum algorithms, enhancing NLP models, and expanding the framework for real-time threat detection capabilities.",
+  "date": "2024-01-01",
+  "venue": "Journal of Cybersecurity and Information Management",
+  "arxiv_id": "",
+  "doi": "10.54216/jcim.140213",
+  "citations": 8,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "09fe0c1f3924",
+  "title": "Leveraging LLM-Based Agentic Systems to Generate Quantum Applications for Test Optimization",
+  "authors": [
+   "Ming Tao",
+   "Yuechen Li",
+   "Tao Yue",
+   "Man Zhang",
+   "Aitor Arrieta Marcos"
+  ],
+  "abstract": "Quantum computing is increasingly explored for software engineering (SE) optimization, but translating natural-language (NL) task-level requirements into executable quantum applications still demands substantial quantum and programming expertise. We present QPipe, a large language model (LLM)-based multi-agent architecture that autonomously turns NL requirements into traceable quantum-application workflows through specialized agents for requirement parsing, formulation, code generation, review, execution, and verification. We evaluate QPipe on 20 NL requirements, each associated with a real-world benchmark and a test-optimization problem. QPipe successfully completes the key stages of quantum-application generation across requirements, achieving average rates of 100% for code compilation and 96.7% for application execution and final-result combination, with average generation costs of 260.1 seconds and 1.89M tokens per requirement. Among the generated quantum applications that execute successfully, the returned solutions outperform the offline genetic algorithm baseline in most cases. Ablation results further show that QPipe's advantage depends on retaining code-generation skills, task knowledge, review feedback, and multi-agent decomposition. These results indicate that agentic coordination can support generation of executable quantum applications for tackling test optimization problems from real-world benchmarks.",
+  "date": "2026-07-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.00939",
+  "doi": "10.48550/arxiv.2607.00939",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "29c2564ff406",
+  "title": "Hybrid Quantum-Classical NLP Framework for Emotion Recognition Tasks",
+  "authors": [
+   "Dharaniraj VM",
+   "Jayasuriya R",
+   "Sivasankaramoorthy R",
+   "Stephen T",
+   "Abirami Murugappan"
+  ],
+  "abstract": "This project aims at developing a comprehensive hybrid quantum-classical NLP pipeline to solve the task of emotion recognition. For emotion recognition, this work makes use of a hybrid Quantum Recurrent Neural Network (QRNN) by combining classical embedding layers with parameterized quantum circuits based on well defined ansatzes. The primary goal of the project is to train VQCs for capturing the emotion associated with sentences. This work aims at combining the strong embedding generation ability of classical architectures with the expressive power of Quantum circuits that can capture complex dependencies across sequences. The designed Hybrid QRNN model integrates two important aspects namely the strength of RNNs for sequential modelling and the representational power of quantum circuits resulting in competitive performance for emotion recognition task while also utilising the quantum benefits. The results reveal the potential of QNLP for advancing the intersection of Quantum Computing and Natural Language Processing for quantum-accelerated downstream NLP applications.",
+  "date": "2026-03-23",
+  "venue": "Springer Link (Chiba Institute of Technology)",
+  "arxiv_id": "",
+  "doi": "10.1051/epjconf/202636001008/pdf",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "8af1d1f76c14",
+  "title": "HOW WRITTEN LANGUAGE DEVELOPED",
+  "authors": [
+   "Branko R. Babić"
+  ],
+  "abstract": "The evolution of written language marks one of humanity's greatest achievements, facilitating the recording and transmission of ideas, knowledge, and culture across generations. Written communication emerged relatively recently after hundreds of thousands of years of using a variety of signs to record meaning. Early humans, used basic verbal communication, but as populations grew and competition for resources increased, the need for reliable information recording became essential. Initially, inspired by natural symbols, humans developed complex pictograms and symbol system of depicting environmental factors relevant to local survival. Drawings and symbols described local environmental essentials and served as educational tools to preserved survival information. The development of written communication was pivotal in this process with evidence of sophisticated pictorial records dating back around 40,000 years. Recent discoveries, such as the Danube Valley symbol list from 10,000 BC, reveal the sophistication of early writing effort. These symbols enabled knowledge transfer and were distributed to all parts of the world and encouraged various cultures. Written communication allowed the recording of daily activities, becoming the primary method of information transfer. The Vinca Symbol List, makes clear that written Language emerged along the Danube Valley. Archaeological finds show that it existed thousands of years before any of the Literature acknowledged origins of the Written Language making the Vinca Civilization, the Cradle of Human Civilization. Modern technology dictates new evolvement of the written language as advanced Artificial Intelligence Tools are developed and very sophisticated Quantum Computing processor technology is refined. The evolvement of machine language, will transform the human condition as it demands electromagnetic field dynamic that can cope with the speed of processing of new computational methodology. Humanity is on the cusp of exponential advances in written communication.",
+  "date": "2025-01-01",
+  "venue": "University of Zagreb University Computing Centre (SRCE)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "da7562b42d80",
+  "title": "Autonomous generation of single photon emitting materials",
+  "authors": [
+   "Robert S. Tempke",
+   "Terence Musho"
+  ],
+  "abstract": "The utilization of machine learning in Materials Science underscores the critical importance of the quality and quantity of data in training models effectively. Unlike fields such as image processing and natural language processing, there is limited availability of atomistic datasets, leading to biases in training data. Particularly in the domain of materials discovery, there exists an issue of continuity in atomistic datasets. Experimental data sourced from literature and patents is usually only available for favorable data, resulting in bias in the training dataset. This study focuses on developing a SMILES-based model for generating synthetic datasets of quantum materials using a variational autoencoder. This study centers on the generation of a synthetic dataset of quantum materials specifically for quantum sensing applications, with a focus on two-level quantum molecules that exhibit a dipole blockade. The proposed technique offers an improved sampling algorithm by incorporating newly generated data into the sampling algorithm to create a more normally distributed dataset. Through this technique, the study was able to generate over 1 000 000 candidate quantum materials from a small dataset of only 8000 materials. The generated dataset identified several iodine-containing molecules as promising single photon emitting materials for potential quantum sensing applications.",
+  "date": "2024-01-01",
+  "venue": "Nanoscale",
+  "arxiv_id": "",
+  "doi": "10.1039/d3nr04944b",
+  "citations": 1,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "605ff5b024dd",
+  "title": "Code Generation and Algorithmic Problem Solving Using Llama 3.1 405B",
+  "authors": [
+   "Aniket Deroy",
+   "Subhankar Maity"
+  ],
+  "abstract": "Code generation by Llama 3.1 models, such as Meta's Llama 3.1 405B, represents a significant advancement in the field of artificial intelligence, particularly in natural language processing and programming automation. This paper explores the capabilities and applications of Llama-driven code generation, highlighting its ability to translate natural language prompts into executable code across multiple programming languages. Key features include contextual awareness, multi-language support, and enhanced debugging and optimization functionalities. By examining these aspects, we illustrate how Llama can serve as a versatile tool for developers of all skill levels, improving productivity and efficiency in software development. The potential implications for education, industry, and the future of coding practices are also discussed, underscoring the transformative impact of AI in programming. Experimentation shows that while Llama 3.1 405B performs well with simple algorithmic and data structure based problems, it still struggles with problems on Quantum Computing, Bioinformatics, and Artificial Intelligence.",
+  "date": "2024-10-08",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.36227/techrxiv.172840612.21315865/v1",
+  "citations": 6,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "fbcbc0e3a88f",
+  "title": "Future Trends in Oracle Cloud ERP: The Convergence of AI, IoT, and Quantum Computing",
+  "authors": [
+   "Alok Sarkar"
+  ],
+  "abstract": "The convergence of Artificial Intelligence, Internet of Things, and Quantum Computing represents a transformational paradigm change in Oral Cloud ERP functionality. This technical integration enables unprecedented operating capabilities, including future state analysis, natural language processing, real-time asset monitoring, and quantum adaptation. Organizations that apply these converted technologies experience a significant improvement in forecasting accuracy, decision-making efficiency, maintenance adaptation, and supply chain flexibility. Oracle's strategic investment in these domains has put its cloud ERP solution at the forefront of the next generation of enterprise resource management. The co-integrated implementation of these technologies creates a self-treatment supply chain, intelligent automation structure, and integrated data ecosystem that originally changes traditional business processes. This technical convergence establishes new operating practices, characterized by enlarged predictive capabilities, autonomous decision making, and safe cross-platform transparency, leading to sufficient competitive benefits to adoptive organizations.",
+  "date": "2025-10-22",
+  "venue": "Journal of Computer Science and Technology Studies",
+  "arxiv_id": "",
+  "doi": "10.32996/jcsts.2025.7.10.59",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "b9a59153e923",
+  "title": "Quantum-Accelerated Schema Refactoring Engine for Predictive Cross-Cloud Data Optimization",
+  "authors": [
+   "Ellavarasan Asokan"
+  ],
+  "abstract": "Optimization of the database schema is a key challenge in modern enterprise data management systems, and it becomes more prominent in the context of cross-cloud migration projects, where the architecture of the older system often tends to cause performance issues and inefficient structures. This lends itself to a comprehensive solution strategy that integrates the computational models inspired by the power of quantum computing with the principles of artificial intelligence for the purpose of optimizing the complexity of the schema, removing anomalies based on structure, as well as the performance issues caused by the aging nature of the database system. The strategy encompasses the use of reinforcement learning techniques for optimizing the queries, error detection with the help of graph-based relation evaluation, structure exploration based on the principles of quantum annealing for finding the optimal structure modification, the utilization of prediction models based on the principles of neural networking for the forecasting of performance, and finally, the generation of specifications for the modification of the schema with the help of automatic program synthesis. The model also encompasses the provision for the integration of heterogeneous sources of data and the processing of queries with the consideration of error generation. This strategy reveals major advancements in the context of the varied dimensions of performance and enables the execution of schema optimization and migration with the help of reduced timelines and decreased incidence related to the generation of schema defects. The process also enables the provision of natural language specifications for the schema modification capabilities with decreased specialized knowledge, without any issues in the context of transformations.",
+  "date": "2026-01-30",
+  "venue": "International Journal of Computational and Experimental Science and Engineering",
+  "arxiv_id": "",
+  "doi": "10.22399/ijcesen.4836",
+  "citations": 0,
+  "theme": "quantum natural language generation"
+ },
+ {
+  "fid": "4fc6863f8a07",
+  "title": "Variational quantum classifiers via a programmable photonic microprocessor",
+  "authors": [
+   "Hexiang Lin",
+   "Huihui Zhu",
+   "Zan Tang",
+   "Wei Luo",
+   "Wei Wang",
+   "Man‐Wai Mak",
+   "Xudong Jiang",
+   "L. K. Chin",
+   "L. C. Kwek",
+   "A. Q. Liu"
+  ],
+  "abstract": "Quantum computing holds promise across various fields, particularly with the advent of Noisy Intermediate-Scale Quantum (NISQ) devices, which can outperform classical supercomputers in specific tasks. However, challenges such as noise and limited qubit capabilities hinder its practical applications. Variational Quantum Algorithms (VQAs) offer a viable strategy to achieve quantum advantage by combining quantum and classical computing. Leveraging on VQAs, the performance of Variational Quantum Classifiers (VQCs) is competitive with many classical classifiers. This work implements a VQC using a silicon-based quantum photonic microprocessor and a classical computer, demonstrating its effectiveness in nonlinear binary and multi-classification tasks. An efficient gradient free genetic algorithm is employed for training. The VQC's performance was evaluated on three synthetic binary classification tasks with square-, circular-, and sine-shape decision boundaries and a real-world multiclass Iris dataset. The accuracies on the three binary classification tasks were 87.5%, 92.5%, and 85.0%, respectively, and 98.8% on the real world Iris dataset, highlighting the platform's potential to handle complex data patterns.",
+  "date": "2024-12-04",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2412.02955",
+  "doi": "10.48550/arxiv.2412.02955",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "cf1cc7f7d63b",
+  "title": "Quantum Machine Learning (QML): Variational Classifiers, Quantum Kernels and Hybrid Architectures",
+  "authors": [
+   "Vengathattil, Sunish"
+  ],
+  "abstract": "Quantum machine learning (QML) is an emerging interdisciplinary field which incorporates some features of quantum computing with machine learning. Quantum hardware development has sparked research interest for AI scientists because it gives capabilities in high-dimensional data processing and simultaneous operation execution. The investigation within this paper traces the main features of QML by reviewing variational quantum classifiers (VQCs) as well as quantum kernels and hybrid quantum-classical models. VQCs serve as quantum parameterized circuits whose optimization process with classical feedback achieves quantum superiority for classification applications. Quantum kernels expand Hilbert space features to improve traditional kernel methods, thus proving their functionality in quantum feature space. Hybrid approaches unite NISQ hardware with classical systems, which makes QML applicable to real-world applications right now. (Rietsche et al., 2022; Tychola et al., 2023) An analysis explores separate functions and combined effects of these components, which enhance model performance, extend generalization, and boost computational efficiency. The paper discusses necessary knowledge first, along with existing applications, before analyzing them against traditional methods. The paper reviews current QML tools while exploring their operational readiness as well as practical issues and deployment barriers for broader adoption. The paper conducts an in-depth investigation of significant limitations that include hardware noise alongside questions regarding scalability and interpretability. This paper shows how QML will transform machine learning applications through its review of obstacles that must be resolved to achieve its complete potential development. The study presents researchers and practitioners with an extensive comprehension of QML developments and emerging paths for this revolutionary field.",
+  "date": "2025-10-31",
+  "venue": "World Journal of Advanced Research and Reviews",
+  "arxiv_id": "",
+  "doi": "10.5281/zenodo.17788782",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "82e8fa8f8aed",
+  "title": "Reviving Algebraic Structure Approaches for Hidden Subgroup Variants and Novel Quantum Speedups in the NISQ Era",
+  "authors": [
+   "Yalla Jnan Devi Satya Prasad"
+  ],
+  "abstract": "The Hidden Subgroup Problem (HSP) unifies several landmark quantum algorithms, yet systematic exploration of its variants and modern applications has slowed. This paper revives HSP-based algorithm design by examining new group structures with direct relevance to post-quantum cryptography, lattice problems, and structured optimization. We classify a family of finite and continuous groups-extensions and semi-direct products of abelian groups, matrix groups, and certain non-abelian groups-according to their Fourier-theoretic properties and the feasibility of efficient quantum Fourier transforms (QFTs). For each class, we determine whether the HSP admits an efficient quantum algorithm, a subexponential-time quantum algorithm, or appears intractable even quantumly. We construct explicit algorithms for eight new problem families, including structured lattice enumeration, automorphism groups of certain graphs, and algebraic attack primitives appearing in code-based and multivariate cryptosystems. For these, we show superpolynomial quantum speedups over all known classical approaches under standard complexity assumptions. We also discuss how approximate and block-encoded QFTs can be combined with variational post-processing to make some of these HSP algorithms more NISQ-friendly. Our results demonstrate that algebraic-structure-based quantum algorithms remain a rich and underexploited direction with both theoretical depth and potential cryptanalytic and optimization applications.",
+  "date": "2026-01-02",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2026-sfpc1",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "c7d3967b94f9",
+  "title": "The Average Relative Entropy and Transpilation Depth determines the noise robustness in Variational Quantum Classifiers",
+  "authors": [
+   "Aakash Ravindra Shinde",
+   "Arianne Meijer van de Griend",
+   "Jukka K. Nurminen"
+  ],
+  "abstract": "Variational Quantum Algorithms (VQAs) have been extensively researched for applications in Quantum Machine Learning (QML), Optimization, and Molecular simulations. Although designed for Noisy Intermediate-Scale Quantum (NISQ) devices, VQAs are predominantly evaluated classically due to uncertain results on noisy devices and limited resource availability. Raising concern over the reproducibility of simulated VQAs on noisy hardware. While prior studies indicate that VQAs may exhibit noise resilience in specific parameterized shallow quantum circuits, there are no definitive measures to establish what defines a shallow circuit or the optimal circuit depth for VQAs on a noisy platform. These challenges extend naturally to Variational Quantum Classification (VQC) algorithms, a subclass of VQAs for supervised learning. In this article, we propose a relative entropy-based metric to verify whether a VQC model would perform similarly on a noisy device as it does on simulations. We establish a strong correlation between the average relative entropy difference in classes, transpilation circuit depth, and their performance difference on a noisy quantum device. Our results further indicate that circuit depth alone is insufficient to characterize shallow circuits. We present empirical evidence to support these assertions across a diverse array of techniques for implementing VQC, datasets, and multiple noisy quantum devices.",
+  "date": "2026-03-22",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.21300",
+  "doi": "10.48550/arxiv.2603.21300",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "db99687e9a18",
+  "title": "Evaluating the Computational Advantages of the Variational Quantum Circuit Model in Financial Fraud Detection",
+  "authors": [
+   "Antonio Tudisco",
+   "Deborah Volpe",
+   "Giacomo Ranieri",
+   "Gianbiagio Curato",
+   "Davide Ricossa",
+   "Mariagrazia Graziano",
+   "Davide Corbelletto"
+  ],
+  "abstract": "Home banking and digital payments diffusion has greatly increased in recent years. As a result, fraud has also dramatically grown, resulting in the loss of billions of dollars worldwide every year. Therefore, banks and financial institutions are required to offer clients increasingly effective and sophisticated services for illegal transaction detection. Machine learning strategies are commonly employed for this crucial application. However, classical models are not satisfactory enough in highly unbalanced classification tasks like fraud detection. Quantum machine learning, working intrinsically in a higher dimensional computation space thanks to superposition and entanglement, can express more complex models than its classical counterpart and thus could provide a significant advantage in identifying potential illegal transactions. This work aims to analyze the potential of quantum classifiers in the fraud detection context, focusing on the Variational Quantum Circuit (VQC) model. The study has been led by exploiting a dataset based on real transactions provided by Intesa Sanpaolo of 500000 items with 15 features. Considering the limitations of contemporary Noisy Intermediate-Scale Quantum (NISQ) computers and quantum simulators, the dataset has been reduced in the number of transactions and features, exploiting Principal Component Analysis (PCA). The results obtained have been compared on equal terms with those of the most commonly employed classical methods, such as Logistic Regression, Random Forest, XGBoost, Support Vector Machine, and Neural Networks, obtaining a better classification quality in terms of recall. Even though this work is preliminary, the results are encouraging and prove the quantum models’ potential in highly unbalanced classification tasks.",
+  "date": "2024-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2024.3432312",
+  "citations": 33,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "2aa2f0f0d4ed",
+  "title": "Hybrid Quantum-Classical Machine Learning For Scalable AI Applications",
+  "authors": [
+   "Manish Patil",
+   "Shraddha Sanjay Mhetre"
+  ],
+  "abstract": "Background: The emergent need for scalable artificial intelligence (AI) models emphasizes the shortcomings of traditional machine learning in dealing with big, complicated datasets owing to computation and energy limitations. Objective: The architecture takes advantage of quantum encoding methods like amplitude and angle encoding for compact feature representation, with classical preprocessing providing compatibility and stability. Methods: To overcome these issues, this research introduces a Hybrid Quantum-Classical Machine Learning (HQML) framework that combines Quantum Variational Classifiers (QVCs) and Quantum Convolutional Neural Networks (QCNNs) with classical deep learning layers. Results: Experiments were performed on pre-curated datasets taken from the Scikit Machine Learning Repository, with hybrid models compared to classical Convolutional Neural Networks (CNNs). The implementation was done with PennyLane using TensorFlow Quantum for compatibility with noisy intermediate-scale quantum (NISQ) machines. The comparative analysis identified that the suggested HQML model achieves significant performance gains, as classification accuracy increased from 73 percent in the baseline classical CNN to 98% in the hybrid model. Precision also went up from 77 to 96 percent, recall from 81 to 100 percent, and F1-score from 79 to 98 percent. These findings confirm the ability of the model to leverage quantum benefits for extracting complicated data distributions without losing stability through classical components. The findings confirm the viability of HQML to real-world finance, healthcare, and intelligent automation applications where scalability and precision matter. Conclusion: This research establishes that quantum-classical integration not only minimizes training overhead but also attains near-perfect classification efficiency with constrained qubit resources. The research aids in filling the gap between theoretical quantum potential and deployable practical AI, opening the door for next-generation quantum-boosted intelligence.",
+  "date": "2025-09-25",
+  "venue": "International Journal of Advances in Signal and Image Sciences",
+  "arxiv_id": "",
+  "doi": "10.29284/9yngyq55",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "f65011cd1791",
+  "title": "QRLaXAI: quantum representation learning and explainable AI",
+  "authors": [
+   "Asitha Kottahachchi Kankanamge Don",
+   "Ibrahim Khalil"
+  ],
+  "abstract": "Abstract As machine learning grows increasingly complex due to big data and deep learning, model explainability has become essential to fostering user trust. Quantum machine learning (QML) has emerged as a promising field, leveraging quantum computing to enhance classical machine learning methods, particularly through quantum representation learning (QRL). QRL aims to provide more efficient and powerful machine learning capabilities on noisy intermediate-scale quantum (NISQ) devices. However, interpreting QRL models poses significant challenges due to the reliance on quantum gate-based parameterized circuits, which, while analogous to classical neural network layers, operate in the quantum domain. To address these challenges, we propose an explainable QRL framework combining a quantum autoencoder (QAE) with a variational quantum classifier (VQC) and incorporating theoretical and empirical explainability for image data. Our dual approach enhances model interpretability by integrating visual explanations via local interpretable model-agnostic explanations (LIME) and analytical insights using Shapley Additive Explanations (SHAP). These complementary methods provide a deeper understanding of the model’s decision-making process based on prediction outcomes. Experimental evaluations on simulators and superconducting quantum hardware validate the effectiveness of the proposed framework for classification tasks, underscoring the importance of explainable representation learning in advancing QML towards more transparent and reliable applications.",
+  "date": "2025-02-19",
+  "venue": "Quantum Machine Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s42484-025-00253-9",
+  "citations": 7,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "c5d07158b4be",
+  "title": "Classification analysis of transition-metal chalcogenides and oxides using quantum machine learning",
+  "authors": [
+   "Kurudi V Vedavyasa",
+   "Ashok Kumar"
+  ],
+  "abstract": "Quantum machine learning (QML) leverages the potential from machine learning to explore the subtle patterns in huge datasets of complex nature with quantum advantages. This exponentially reduces the time and resources necessary for computations. QML accelerates materials research with active screening of chemical space, identifying novel materials for practical applications and classifying structurally diverse materials given their measured properties. This study analyzes the performance of three efficient quantum machine learning algorithms viz., variational quantum eigen solver (VQE), quantum support vector machine (QSVM) and quantum neural networks (QNN) for the classification of transition metal chalcogenides and oxides (TMCs &TMOs). The analysis is performed on three datasets of different sizes containing 102, 192 and 350 materials with TMCs and TMOs labelled as +1 and -1 respectively. By employing feature selection, classical machine learning achieves 100% accuracy whereas QML achieves the highest performance of 99% and 98% for test and train data respectively on QSVC. This study establishes the competence of QML models in materials classification and explores the quantum circuits in terms of over-fitting using the circuit descriptors expressibility and entangling capability. In addition, the perspectives on QML in materials research with noisy intermediate scale quantum (NISQ) devices is given.",
+  "date": "2024-05-29",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2405.18989",
+  "doi": "10.48550/arxiv.2405.18989",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "1097713b77cf",
+  "title": "Quantum classical convolutional neural network using ResNet-18 and feature optimization for multiclass skin lesion classification",
+  "authors": [
+   "G. Suryanarayana",
+   "Mohd Dilshad Ansari",
+   "L. N. C. Prakash K.",
+   "V. Biksham",
+   "Dr. N. Swapna",
+   "Saikiran Gogineni"
+  ],
+  "abstract": "Skin cancer is among the most widespread and life-threatening conditions in the world with the need to detect lesions promptly and consistently in order to treat the disease in a timely manner. Nonetheless, automated lesion classification of the skin is a complex challenge due to inter-class similarity, which is high, illumination variation, and imbalance in the data in various classes of lesions. To address these obstacles, this paper presents a lightweight but powerful 6-qubit Hybrid Quantum-Classical Convolutional Neural Network (HQNN) that is optimized to 6-bit (low-precision) medical imaging applications. The proposed framework will use a ResNet-18 backbone to learn deep dermatological features based on dermoscopic images and a Particle Swarm Optimization (PSO) algorithm with a Random Forest (RF) ranking of features will reduce the 512-dimensional embedding space into six highly discriminative descriptors, which can be encoded in quantum. These are then converted into quantum states with ZZFeatureMap and RealAmplitudes ansatz which comprise a 6-qubit variational circuit the output of which is fused with a classical CNN classifier to achieve final lesion prediction. This strategy of optimization of quantum-aware features is a balance between the representation of high dimensions and limitations of qubits, which ensures a computational tractability on near-term noisy intermediate-scale quantum (NISQ) devices. Existing experimental results on the ISIC 2019 skin-lesion dataset show state-of-the-art performance achieving 98.2% accuracy, 98.5% precision, 97.7% recall, 98.0% F1-score, and a macro ROC-AUC of 0.985. The findings affirm that quantized deep learning with low-qubit quantum encoding has better diagnostic performance, noise resistance, and scalability with minimal hardware costs, making Q-SkinNet a realistic advancement towards experimental quantum-assisted dermatological diagnostics.",
+  "date": "2026-05-20",
+  "venue": "Discover Artificial Intelligence",
+  "arxiv_id": "",
+  "doi": "10.1007/s44163-026-01384-z",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "26e4d3cf7508",
+  "title": "A quantum computing approach for brain tumor image classification using amplitude encoding technique",
+  "authors": [
+   "K. P. Maheswari",
+   "Kalaiselvi Thiruvenkadam",
+   "Sriramakrishnan Pathmanaban"
+  ],
+  "abstract": "Brain tumor image classification is an essential pre-processing task for tumor diagnosis and treatment planning. In medical imaging, quantum computing analyse medical imaging data, offering potential speedups and new representations compared to classical methods. The brain images are transformed through resizing and normalization to a uniform 32 × 32 × 3 resolution. Subsequently, these processed images are converted into vectors to enable encoding into quantum states. The feature set is reduced using Principal Component Analysis (PCA) to ensure compatibility with the restricted qubit count in the quantum circuits. Through amplitude encoding, these vectors are mapped to quantum states, allowing for a compact and efficient data representation within the quantum domain. A parameterized Variational Quantum Circuit(VQC), consisting of entangling gates and trainable rotations, processes the encoded quantum states to learn features that can effectively discriminate between classes. The loss is calculated from the measured expectation values of Pauli-Z observables and optimized using classical gradient descent, where the objective function is the mean squared error. The trained quantum model is designed for multi-class classification, specifically distinguishing between meningioma, glioma tumors, pituitary tumors, and the absence of a tumor. The outcome of this proposed work demonstrates the VQC’s advantage over classical baselines, including Random Forest, and Support Vector Machine (SVM) and Multi-Layer Perceptron (MLP). The VQC achieved the highest accuracy of 95% and the best robustness (Specificity 0.983). Crucially, the VQC accomplished this using only 24 trainable parameters, showcasing a significant increase in parameter efficiency compared to the classical models. The novelty of this work is the quantitative demonstration that a custom-designed, resource-efficient quantum model can outperform established classical deep learning methods in both performance and efficiency for complex medical image classification. The VQC provides a 3.5-fold gain in parameter efficiency, achieving the highest accuracy of 95% using only 24 trainable parameters. This efficiency is enabled by the novel application of amplitude encoding to the medical images, which compresses 16 features into just 4 qubits. The VQC demonstrates robustness vital for medical diagnostics, achieving a Specificity of 0.983. Its shallow architecture is also NISQ-friendly and remains stable by avoiding",
+  "date": "2026-03-03",
+  "venue": "Discover Quantum Science",
+  "arxiv_id": "",
+  "doi": "10.1007/s44464-026-00005-z",
+  "citations": 0,
+  "theme": "variational quantum classifier NISQ appl"
+ },
+ {
+  "fid": "fe54723b5b76",
+  "title": "Quantum active learning",
+  "authors": [
+   "Yongcheng Ding",
+   "Yue Ban",
+   "Mikel Sanz",
+   "José D. Martín‐Guerrero",
+   "Xi Chen"
+  ],
+  "abstract": "Quantum machine learning, as an extension of classical machine learning that harnesses quantum mechanics, facilitates effiient learning from data encoded in quantum states. Training a quantum neural network typically demands a substantial labeled training set for supervised learning. Human annotators, often experts, provide labels for samples through additional experiments, adding to the training cost. To mitigate this expense, there is a quest for methods that maintain model performance over fully labeled datasets while requiring fewer labeled samples in practice, thereby extending few-shot learning to the quantum realm. Quantum active learning estimates the uncertainty of quantum data to select the most informative samples from a pool for labeling. Consequently, a QML model is supposed to accumulate maximal knowledge as the training set comprises labeled samples selected via sampling strategies. Notably, the QML models trained within the QAL framework are not restricted to specific types, enabling performance enhancement from the model architecture's perspective towards few-shot learning. Recognizing symmetry as a fundamental concept in physics ubiquitous across various domains, we leverage the symmetry inherent in quantum states induced by the embedding of classical data for model design. We employ an equivariant QNN capable of generalizing from fewer data with geometric priors. We benchmark the performance of QAL on two classification problems, observing both positive and negative results. QAL effectively trains the model, achieving performance comparable to that on fully labeled datasets by labeling less than 7\\% of the samples in the pool with unbiased sampling behavior. Furthermore, we elucidate the negative result of QAL being overtaken by random sampling baseline through miscellaneous numerical experiments. (character count limit, see the main text)",
+  "date": "2025-06-18",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/c8q9-6vy7",
+  "citations": 2,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "da23548b2948",
+  "title": "Enhanced Quantum-Inspired Deep Learning with Multi-Head Attention and Contrastive Learning for Text-Based Dialogue Sentiment Classification",
+  "authors": [
+   "Fumin Zou",
+   "Lei Zou",
+   "Feng Guo",
+   "Xunhuang Wang",
+   "Jianqing Weng",
+   "Tao Fang",
+   "Haocai Jiang",
+   "Xueming Wu"
+  ],
+  "abstract": "This paper proposes an enhanced quantum-inspired sentiment analysis model incorporating a self-embedding mechanism for sentiment feature extraction and classification tasks. The method integrates phase-pre-trained self-embedding, bidirectional GRUs, a multi-head attention mechanism, and a multi-layer Transformer structure, effectively capturing semantic and emotional features in texts. Simultaneously, the model introduces contrastive learning and an enhanced feature interaction module, further improving feature discriminability. Extensive experiments on the RECCON dataset demonstrate that the proposed model significantly outperforms mainstream baseline methods (KEC, MPEG, Window Transformer) on key metrics such as macro-F1, positive-class F1, and negative-class F1. The experimental results show that the method not only improves overall accuracy and recall but also effectively mitigates challenges arising from class imbalance, achieving a macro-F1 of 0.95, positive-class F1 of 0.93, and negative-class F1 of 0.97 on the test set. The findings suggest that the combination of quantum-inspired structures and self-embedding mechanisms holds broad application prospects for complex sentiment analysis tasks.",
+  "date": "2026-05-18",
+  "venue": "Big Data and Cognitive Computing",
+  "arxiv_id": "",
+  "doi": "10.3390/bdcc10050161",
+  "citations": 1,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "d1e6c01e34d0",
+  "title": "Quantum Learning in a Sufism Perspective: Integration of Tajalli Concepts and Holistic Learning Theory",
+  "authors": [
+   "Hamzah Hamzah",
+   "Firdaus Firdaus",
+   "Siti Robiah",
+   "Muhammad Luthfi Hamzah",
+   "Klemens Mere"
+  ],
+  "abstract": "This study critically addresses the persistent gap in Islamic Religious Education (IRE) between cognitive-oriented instructional practices and the need for transformative learning that meaningfully integrates spiritual experience. Existing applications of Quantum Learning (QL) within religious education largely remain technical and methodological. At the same time, Sufi epistemology, particularly the concept of tajalli, has rarely been theorized as a foundational learning paradigm. This theoretical disjunction limits IRE’s capacity to foster holistic transformation encompassing intellectual, emotional, and spiritual dimensions. Employing a philosophical-analytical approach, this study conducts a hermeneutic analysis of classical Sufi texts, systematically deconstructs the core principles of QL, and synthesizes them with transformative learning theory to formulate an integrative conceptual framework, Quantum Sufic Learning (QSL). The findings argue that learning can be reconceptualized as a process of tajalli, in which meaning is unveiled through the dynamic interaction of rational cognition (‘aql), spiritual-emotional awareness (qalb), and transcendental consciousness (ruh). The study’s primary theoretical contribution lies in advancing a spiritually grounded extension of holistic and transformative learning theory by embedding Sufi epistemology into contemporary educational discourse. Conceptually, QSL offers a transferable pedagogical model that transcends specific cultural or institutional settings, providing a new framework for integrating spirituality and modern learning theory without dichotomizing tradition and innovation. This study contributes to the theoretical development of Islamic education and transformative pedagogy, while inviting future empirical research to examine the effectiveness of QSL across diverse educational contexts.",
+  "date": "2026-03-30",
+  "venue": "Munaddhomah Jurnal Manajemen Pendidikan Islam",
+  "arxiv_id": "",
+  "doi": "10.31538/munaddhomah.v7i1.2301",
+  "citations": 1,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "18fadf491f87",
+  "title": "Multi-scale feature fusion quantum depthwise Convolutional Neural Networks for text classification",
+  "authors": [
+   "Yixiong Chen",
+   "Weichuan Fang"
+  ],
+  "abstract": "In recent years, with the development of quantum machine learning, Quantum Neural Networks (QNNs) have gained increasing attention in the field of Natural Language Processing (NLP) and have achieved a series of promising results. However, most existing QNN models focus on the architectures of Quantum Recurrent Neural Network (QRNN) and Quantum Self-Attention Mechanism (QSAM). In this work, we propose a novel QNN model based on quantum convolution. We develop the quantum depthwise convolution that significantly reduces the number of parameters and lowers computational complexity. We also introduce the multi-scale feature fusion mechanism to enhance model performance by integrating word-level and sentence-level features. Additionally, we propose the quantum word embedding and quantum sentence embedding, which provide embedding vectors more efficiently. Through experiments on two benchmark text classification datasets, we demonstrate our model outperforms a wide range of state-of-the-art QNN models. Notably, our model achieves a new state-of-the-art test accuracy of 96.77% on the RP dataset. We also show the advantages of our quantum model over its classical counterparts in its ability to improve test accuracy using fewer parameters. Finally, an ablation test confirms the effectiveness of the multi-scale feature fusion mechanism and quantum depthwise convolution in enhancing model performance. • Novel quantum neural network model based on quantum convolution for NLP tasks. • Quantum depthwise convolution reduces parameters and computational complexity. • Multi-scale feature fusion integrates word-level and sentence-level features. • Quantum word and sentence embeddings provide efficient embedding vectors. • Achieves new state-of-the-art 96.77% test accuracy on the RP dataset.",
+  "date": "2025-02-19",
+  "venue": "Engineering Analysis with Boundary Elements",
+  "arxiv_id": "",
+  "doi": "10.1016/j.enganabound.2025.106158",
+  "citations": 10,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "4288c844c655",
+  "title": "An Adaptive Quantum Bacterial Colony Optimization Framework for an Efficient Text Clustering Approach",
+  "authors": [
+   "Samiappan Dhanalakshmi",
+   "S. Sathiyabama",
+   "D. Ayyamuthukumar"
+  ],
+  "abstract": "Text document clustering is a task that seeks to cluster together related documents based on content similarity. Clustering helps to improve information diversity retrieval, topic spotting, and sentiment analysis by ordering unstructured text and dividing it into information structures. To address the issue of text-based work and its optimization through more efficient and accurate text classification and clustering, this paper offers a more advanced text classification and clustering framework that incorporates the Adaptive Quantum Bacterial Colony Optimization (AQBCO) algorithm and deep word embedding models, such as Word2Vec, TF-IDF, and FastText. AQBCO presents two innovations: adaptive chemotaxis, which produces the movement of bacteria dynamically controlled by the optimal solution, and quantum-inspired position updating, which increases the ability to search the globe and eliminates premature convergence. The framework was tested using benchmark datasets- BBC, SMS, and DMOZ, and was compared with the available optimization-based learning methods, including Improved BCO (IBCO), standard BCO, GQPSO, IPSO, PSO, GA, and k-means. According to the experimental findings, AQBCO always performs better on Accuracy, Precision, Recall, and F-Measure as compared to other models. The highest accuracy of 97.38% on BBC, 96.79% on SMS, and 93.68% on DMOZ datasets allowed AQBCO to use FastText embeddings. The suggested adaptive and quantum systems preserve exploration-exploitation balance, enhancing the speed of convergence and resiliency. These findings make AQBCO a scalable, stable, and efficient method of text classification as well as document clustering.",
+  "date": "2025-11-20",
+  "venue": "International Journal of Computer Science and Mobile Computing",
+  "arxiv_id": "",
+  "doi": "10.47760/ijcsmc.2025.v14i11.005",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "b49aa9ae4dba",
+  "title": "From Qubits to Couplings: A Hybrid Quantum Machine Learning Framework for LHC Physics",
+  "authors": [
+   "Marwan Ait Haddou",
+   "M. Belfkir",
+   "Salah Eddine Elharrauss"
+  ],
+  "abstract": "Abstract In this paper, we propose a hybrid quantum machine learning framework to improve the sensitivity of double Higgs boson searches in the $HH \\rightarrow b\\bar{b}\\gamma \\gamma$ final state at $\\sqrt{s} = 13.6~\\text{TeV}$. The proposed model combines parameterized quantum circuits with a classical neural network meta-model, enabling event-level features to be embedded in a quantum feature space while maintaining the optimization stability of classical learning. In our benchmark setup, the hybrid model outperforms the pure quantum implementation and improves over the XGBoost baseline while performing similarly to the graph neural network baseline, achieving an expected 95% CL upper limit on the nonresonant double Higgs boson production cross section of $1.9\\times \\sigma _{\\text{SM}}$ and $2.1\\times \\sigma _{\\text{SM}}$ under background normalization uncertainties of 10% and 50%, respectively. In addition, expected constraints on the Higgs boson self-coupling $\\kappa _{\\lambda }$ and quartic vector-boson–Higgs coupling $\\kappa _{2V}$ are improved relative to the pure quantum model and competitive with the classical baselines considered in this work.",
+  "date": "2026-05-02",
+  "venue": "Progress of Theoretical and Experimental Physics",
+  "arxiv_id": "",
+  "doi": "10.1093/ptep/ptag079",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "5951f3e7f9c0",
+  "title": "Performance Evaluation of Quantum Machine Learning Models for Cyberbullying Detection",
+  "authors": [
+   "Vandana P. Pawar",
+   "Prashant M. Yawalkar"
+  ],
+  "abstract": "Cyberbullying on social media has become a serious issue that affects users' mental well-being, safety, and online engagement. Detecting cyberbullying automatically is challenging due to informal writing styles, short messages, and the presence of subtle abusive patterns that often overlap with normal communication. This paper presents a comparative evaluation of quantum-based learning models for cyberbullying detection using a unified experimental pipeline. The proposed system applies text preprocessing followed by TF-IDF feature extraction and PCA-based dimensionality reduction, and then performs classification using Quantum Support Vector Machine (QSVM), Quantum Neural Network (QNN), Quantum Natural Language Processing (QNLP), and Quantum Singular Value Decomposition (QSVD). In addition, a hybrid QNN+QSVM ensemble is evaluated to examine whether combining complementary decision mechanisms improves prediction consistency. Experimental results show that QSVM achieved the best overall accuracy of 88.15%, with 92.52% precision, 92.23% recall, and an F1-score of 92.38%. QSVD delivered comparable performance with 88.08% accuracy, 93.53% precision, 90.98% recall, and an F1-score of 92.24%, indicating strong class separation with reduced feature complexity. QNN and QNLP produced competitive results, achieving 84.12% and 83.85% accuracy, respectively, with F1-scores close to 90%, demonstrating stable detection capability under quantum embedding. The hybrid QNN+QSVM model achieved 87.37% accuracy and an F1-score of 91.87%, showing balanced precision (92.06%) and recall (91.68%) and confirming that ensemble integration can improve reliability over individual quantum neural approaches. These findings suggest that kernel-driven quantum classifiers and decomposition-based quantum representations can provide strong performance for cyberbullying detection while maintaining consistent predictive behavior across evaluation measures.",
+  "date": "2026-08-10",
+  "venue": "International Journal of Computer Information Systems and Industrial Management Applications",
+  "arxiv_id": "",
+  "doi": "10.70917/ijcisim-2026-4484",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "4af84e4734d1",
+  "title": "A Deep Learning Approach of Citation Recommendation Using Bi-GRU with CNN: A Case Study in Quantum Technology",
+  "authors": [
+   "Yifan Wang",
+   "Xiaoping Liu",
+   "Xiangli Zhu"
+  ],
+  "abstract": "Purpose: The purpose of this study is to propose a citation recommendation system that leverages deep learning techniques to enhance the research process by providing relevant citation suggestions. Design/methodology/approach: This research introduces a supervised deep learning model combining Bidirectional Gated Recurrent Unit (Bi-GRU) with Convolutional Neural Network (CNN) architectures to capture semantic relationships. Additionally, Word2Vec embeddings trained on scientific texts are incorporated to improve the model’s representational capabilities. Citation relationships are used as training labels for text similarity classification. Findings: The proposed model uses citation probability as a metric of technical similarity between papers, outperforming traditional methods like TF-IDF and Doc2Vec in a quantum technology dataset. It excels at providing highly relevant and irrelevant recommendations but faces limitations in suggesting papers with intermediate relevance. Research limitations: The model’s performance in recommending papers with intermediate relevance needs further refinement to improve its overall capacity in handling such cases. Practical implications: This model’s architecture and similarity metric can be integrated into academic search engines, addressing the issue of information overload and enhancing the efficiency of scholarly research. Originality/value: This study contributes to the field of citation recommendation by introducing a novel deep learning-based approach that improves the precision and recall of citation suggestions, offering theoretical advancements and practical solutions for academic research.",
+  "date": "2026-04-01",
+  "venue": "Data Intelligence",
+  "arxiv_id": "",
+  "doi": "10.3724/2096-7004.di.2025.0305",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "7435a6170d2b",
+  "title": "Quantum Nonlinearity for Optical Neural Computing",
+  "authors": [
+   "Qingyi Zhou",
+   "Jungmin Kim",
+   "Yutian Tao",
+   "Guoming Huang",
+   "Ming Zhou",
+   "Z. Shao",
+   "Zongfu Yu"
+  ],
+  "abstract": "The rapid scaling of deep neural networks comes at the cost of unsustainable power consumption. While optical neural networks offer an alternative, their capabilities remain constrained by the lack of efficient optical nonlinearities. To address this, we propose an optical neural computing architecture by embedding quantum emitters in inverse-designed nanophotonic structures. Due to their saturability, quantum emitters exhibit exceptionally strong nonlinearity compared with conventional materials. Using physics-aware training, we numerically demonstrate that the proposed architecture can solve complex tasks, including nonlinear classification and reinforcement learning, within all-optical neural networks. To enable fair comparison across different platforms, we introduce a framework that quantitatively links nonlinearity to a network's expressive power. Analysis shows that our quantum activation operates at $\\text{nW}/μ\\text{m}^2$ intensity, which is seven orders of magnitude below the nonlinearity threshold of conventional optical materials. Looking ahead to large language models, we estimate the nonlinearity-limited optical power, which scales sublinearly with model size. Our results indicate that quantum nanophotonics may provide a route toward sustainable AI inference.",
+  "date": "2026-01-04",
+  "venue": "Figshare",
+  "arxiv_id": "2601.01690",
+  "doi": "10.48550/arxiv.2601.01690",
+  "citations": 1,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "41199a1c0502",
+  "title": "Emergence of Informational Order in Quantum Dynamics: A Framework for Observer Coupling, Coherence, and Entropy Suppression in Probabilistic Quantum Fields",
+  "authors": [
+   "Ajay Hagan"
+  ],
+  "abstract": "Modern quantum theory offers powerful insights into superposition, entanglement, and decoherence, yet lacks a unifying treatment of information flow, observer participation, and entropy stability within dynamical systems. In this work, we introduce a novel framework based on \\textit{probabilistic tensor fields}-a formulation in which quantum evolution, informational geometry, and observer-phase interaction co-emerge from a unified structure. The system is described by a dynamic field $\\Psi_{\\mu\\nu}$, composed of a coherent geometric background $\\langle G_{\\mu\\nu} \\rangle$ and a fluctuating informational term $\\sigma_{\\mu\\nu}$. The observer is embedded as a phase function $\\phi_{\\text{observer}}$, dynamically interacting with the field to generate localized coherence.This coupling induces entropy suppression, spontaneous convergence (measurement), and classical pattern emergence-without invoking wavefunction collapse. Simulations reveal field-phase locking, entropy decay, vacuum energy damping, and the formation of stable memory attractors through standing-wave coherence. These results provide a new perspective on the quantum-to-classical transition, suggest a field-based alternative to gate-based computation, and offer a mathematically consistent path toward entropy-regulated dynamics. Recent experimental platforms support programmable phase dynamics and coherence engineering \\cite{Bloch2008, Indiveri2015}, enabling physical analogs to IOQD simulations. Thereby, we position IOQD as a coherence-driven, phase-adaptive field computation model extending quantum machine learning beyond variational circuits and gate-based logic into non-symbolic, dynamic attractor learning systems.",
+  "date": "2025-05-08",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.31219/osf.io/fcd6k_v1",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "e41c6a501630",
+  "title": "Quantum Models with Multi-Stage Training for Compositional Concept Generalization",
+  "authors": [
+   "Mina Abbaszadeh",
+   "Matilda Karabina Moore",
+   "Mehrnoosh Sadrzadeh",
+   "Martha Lewis"
+  ],
+  "abstract": "Compositional Concept Generalization (CoCoGen), the ability to systematically recombine learned primitives in novel contexts, is a key challenge for multimodal learning. In this work, we provide a solution using a compositional model of meaning that separates nouns from relations and uses tensors and variational quantum circuits to train them on data. This model enables us to employ a multi stage training paradigm, one that first learns object representations from single-object image-caption pairs, then subsequently transfers these to the relational stage where object parameters are frozen and optimisation is only applied to relational components. This design explicitly enforces compositional factorisation at the circuit, ensuring that relations are learned as transformations over stable primitives. The training paradigm is tested on the CLEVR dataset developed specificially for CoCoGen. For text, we work with vector representations of nouns and higher order tensor representations of relations using a set of different ansatz. For images, we work with quantum encodings of image embeddings dervied from Open AI's Vision Language tool CLIP and contrast amplitude encoding, which preserves the original embedding geometry, with angle encoding, which introduces nonlinear feature transformations. Our results show that multi-staged training combined with structured encodings significantly improves out of distribution relational generalisation, while using orders of magnitude fewer trainable parameters than classical baselines. We find that performance gains arise from the interaction between representation and encoding, with nonlinear quantum encodings enhancing the separability of compositional structure. These findings demonstrate that structured quantum representations and staged learning provide an effective framework for compositional generalisation in multimodal quantum machine learning.",
+  "date": "2026-08-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.15601",
+  "doi": "10.48550/arxiv.2608.15601",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "12d69f4b6edd",
+  "title": "A Multi-Scale Quantum Framework for Evaluating Metal-Organic Frameworks in Carbon Capture",
+  "authors": [
+   "Tom W. A. Montgomery",
+   "Adrián Varela‐Álvarez",
+   "Sam Genway",
+   "Philip L. Llewellyn",
+   "Phalgun Lolur"
+  ],
+  "abstract": "Metal Organic Frameworks (MOFs) are promising materials to help mitigate the effects of global warming by selectively absorbing $\\text{CO}_{2}$ for direct capture. Accurate quantum chemistry simulations are a useful tool to help select and design optimal MOF structures, replacing costly or impractical experiments or providing chemically inspired features for data-driven approaches such as machine learning. However, applying simulations over large datasets requires efficient simulation methods such as Density Functional Theory (DFT) which, despite often being accurate, introduces uncontrolled approximations and a lack of systematic improvability. In this work we outline a hierarchical cluster model that includes a recently developed quantum embedding that provides a more systematic approach to efficiently tune accuracy. We apply this workflow to calculate the binding affinity for a small set of MOF structures and $\\text{CO}_{2}$ using experimentally measured heat of adsorption as a reference. Since quantum embeddings have also been proposed as a framework to accelerate the utility of quantum hardware, we discuss some of the benefits and challenges of integrating quantum solvers into the workflow outlined in this work.",
+  "date": "2025-05-07",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2505.04527",
+  "doi": "10.48550/arxiv.2505.04527",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "96abc4490bbf",
+  "title": "A Quantum Edge Federated Graph Transformer for Generative and Causal Digital Twin Healthcare",
+  "authors": [
+   "Naga Sai Ram Narne",
+   "Gangadhara Rao Kancharla"
+  ],
+  "abstract": "The rapid pace of development in healthcare artificial intelligence requires architectures that transcend predictive analytics to better understand causality and generate simulations of patient trajectories. This study proposes the Quantum Edge Federated Graph Transformer (QFGT), a hybrid quantum-inspired approach aimed at empowering causal, generative, and privacy-preserving digital twin healthcare. The model incorporates quantum kernel attention for complex-amplitude feature embedding, graph transformer reasoning mechanism for relational inference over multimodal clinical entities, and federated optimization for secure multi-institutional learning. Quantum-inspired kernel mappings in Hilbert space encode entangled dependencies between laboratory, imaging, genomic, and clinical text data, while a causal regularization layer constrains learned representations to adhere to interpretable cause-and-effect relations learned from structural causal models. The generative digital-twin module uses a diffusion-based latent simulator that predicts personalized trajectories of the disease, and it supports what-if counterfactual interventions. Federated deployment at the edge healthcare nodes enables model training with data decentralization and strict compliance with HIPAA and GDPR privacy regulations. Experimental work on multimodal clinical data shows an accuracy of 98.1% with a mean early-detection window of 7.9 months and F1-scores >0.98 for all diseases, in addition to an increase in minority-cohort recall of 6.5% via equitable quantum-kernel feature sharing. The proposed QFGT framework opens up a new direction for the quantum-inspired, federated, and causally explainable digital twin systems, which lead to trustworthy, proactive, and personal healthcare intelligence at the quantum edge.",
+  "date": "2026-04-04",
+  "venue": "Engineering Technology & Applied Science Research",
+  "arxiv_id": "",
+  "doi": "10.48084/etasr.16010",
+  "citations": 1,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "72e717cbee50",
+  "title": "Bridging Quantum Computing and NLP: A Novel Framework for Advanced Bias Detection with Next-Generation Computing",
+  "authors": [
+   "M. K. Jayanthi Kannan",
+   "Abir",
+   "Anjali Yadav",
+   "Santosini Sahu",
+   "Samikshya Prus -"
+  ],
+  "abstract": "Bias entails specific challenges in NLP that lead to inequitable results and ethical dilemmas in AI applications. A unique approach to bias detection is advanced herein that is marketed as Quantum Bias Detection (QBD). The main objective contextualizes the work into evaluating the possible gains from using quantum algorithms in identifying the accuracy and sensitivity of bias in textual data. We have taken a hybrid approach, utilizing quantum machine learning tools alongside typical techniques for bias detection, in which we perform quantum state embeddings and quantum kernel methodology on large and complicated text corpora. Through exhaustive experimentation, we compared the power of QBD ability versus a set of baselines involving both classical and quantum methods, tested against criteria of accuracy, precision, recall, and detection capacity for faintly manifested bias. The most striking discoveries indicate that the Quantum Bias Detection framework greatly increased bias detection rates, especially those of subtle ones that are ambiguously context-dependent, for which traditional approaches often fail. The proof shows that quantum computing could improve bias detection and also should help in building more just AI systems. By way of implication, these findings remain significant for AI ethics and claim to quantum-inspired methods for good bias mitigation in NLP applications.",
+  "date": "2025-07-13",
+  "venue": "International Journal For Multidisciplinary Research",
+  "arxiv_id": "",
+  "doi": "10.36948/ijfmr.2025.v07i04.50889",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "6053fcbe31cd",
+  "title": "A comprehensive review of traditional and deep learning based techniques for digital image steganography",
+  "authors": [
+   "Narendra Kumar Chahar",
+   "Arvind Dhaka",
+   "Amita Nandal",
+   "Vijay Kumar"
+  ],
+  "abstract": "Digital image steganography has evolved from traditional rule-based techniques to advanced data-driven frameworks enabled by deep learning. However, existing surveys remain fragmented, often focusing on limited aspects while overlooking emerging paradigms such as blockchain-integrated and quantum-based approaches. This paper presents a comprehensive and systematic review of digital image steganography following the PRISMA 2020 guidelines, covering studies published between January 2015 and April 2026 across six major scientific databases. From an initial pool of 26,539 records, 83 relevant studies were selected through a rigorous two-stage screening process. The review provides a unified analysis of steganographic techniques by examining five dimensions: structural evolution and taxonomy, algorithmic modifications and hybridisation, application domain mapping, integration of emerging technologies, and future research trends. Comparative evaluation indicates that deep learning-based methods achieve 18–23% higher steganalysis resistance than classical approaches, whereas classical methods retain a 5–8 dB PSNR advantage. The quantitative synthesis further confirms the inherent capacity–imperceptibility–security trilemma, wherein no reviewed technique simultaneously achieves $$\\text {PSNR} > 42$$ dB, embedding capacity $$> 4$$ bpp, and detection error rate $$> 0.48$$ . Six open challenges and seven future research directions are identified and grounded in evidence from the included studies, with explainable steganography, quantum-resistant frameworks, and latent diffusion model integration emerging as the most critical priorities for advancing the field toward practical and secure deployment.",
+  "date": "2026-08-01",
+  "venue": "Discover Computing",
+  "arxiv_id": "",
+  "doi": "10.1007/s10791-026-10267-x",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "068b7c991714",
+  "title": "When the Learning With Errors Problem Meets the Coherent Ising Machine: A Penalty-Free Algorithm-Hardware Co-Design",
+  "authors": [
+   "Shuxian Jiang"
+  ],
+  "abstract": "The Learning With Errors (LWE) problem constitutes the mathematical foundation of modern Post-Quantum Cryptography (PQC). Cryptanalysis of LWE ranges from classical lattice reduction to machine learning and quantum-classical hybrids. We propose CIM-BDD, a hybrid Bounded-Distance-Decoding solver that reduces LWE to a Quadratic Unconstrained Binary Optimization (QUBO) problem through a strictly \\emph{penalty-free} mapping. An algebraic elimination of the secret embeds LWE into a $q$-ary lattice, absorbing the modular arithmetic and recasting the problem as a Closest Vector Problem (CVP). The squared error norm is then used \\emph{directly} as the QUBO energy, so the cryptographic noise is the objective to be minimized rather than a penalized constraint. To realize this general model on current Noisy Intermediate-Scale Quantum (NISQ) devices, we design a special encoding method: a Continuous Relaxed Babai's Nearest Plane (CR-BNP) projection drives an adaptive mixed-radix encoder that greatly reduces both the qubit count and the QUBO coefficient range, so that a single batched hardware submission suffices. We further derive a statistically bounded early-stopping threshold ($T_{\\text{early}}$) that acts as a one-sided certificate and doubles as a Decision-LWE distinguisher. We validate the framework on the TU Darmstadt LWE Challenge, giving an end-to-end demonstration for both Search- and Decision-LWE of a $40$-dimensional instance on the Coherent Ising Machine CPQC-550. This work establishes a new algorithm-hardware co-design paradigm for quantum-classical hybrid cryptanalysis.",
+  "date": "2026-06-22",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.22843",
+  "doi": "10.48550/arxiv.2606.22843",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "05f6beb6875a",
+  "title": "ChemMoB: Contribution-Aware Dynamic Multi-Modal Balance for Chemical Representation Learning",
+  "authors": [
+   "Jiayi Wen",
+   "Jingyi Jia",
+   "Ruiqi Zhao",
+   "Haoyang Xu",
+   "Tianyu Yin"
+  ],
+  "abstract": "Molecular property prediction underpins virtual screening, reaction design, and toxicity assessment, yet most deep learning models reason from a single molecular view—typically a two-dimensional graph or a SMILES string. Such single-modality representations discard complementary signals that chemists routinely exploit: the three-dimensional conformation governs quantum behavior, the textual description encodes sub-structural intent, and spectroscopic measurements provide direct experimental evidence. A further difficulty is that these modalities contribute unequally across tasks and training stages, so naive fusion lets a dominant modality suppress the others and fails when a view is missing. We propose ChemMoB (Chemistry-aware Multi-modal Balance), a framework that ports contribution-aware dynamic multi-modal balancing to chemical representation learning. ChemMoB encodes four complementary views of a molecule—a 2D graph, a 3D conformation, a SMILES/Transformer text stream, and a 1D spectroscopic signal—and fuses them through a Contribution-aware Dynamic Balance (CDB) module that re-estimates per-modality weights every epoch. To handle missing or noisy inputs, ChemMoB adds a generative spectral enhancement head, a static-to-dynamic lift that reconstructs an approximate 3D embedding from the 2D graph, and a provenance watermark that flags unreliable spectra. We evaluate ChemMoB on QM9 (quantum properties), ESOL (aqueous solubility), and ADMET binary tasks (blood-brain barrier penetration and hERG liability). ChemMoB consistently outperforms single-modality and fixed-fusion baselines, reducing QM9 average MAE by 12.0% over fixed fusion and improving BBBP and hERG AUROC to 0.873 and 0.831. Ablations confirm that the dynamic balance module and the static-to-dynamic enhancement are the principal sources of gain, and that ChemMoB remains robust when up to 30% of spectral inputs are dropped.",
+  "date": "2026-08-11",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15007330/v1",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "d41d8cd98f00",
+  "title": "量子机器学习在大模型训练加速中的应用探索",
+  "authors": [
+   "佳磊 聂"
+  ],
+  "abstract": "Aiming at the practical bottlenecks in current large model training, such as high computing cost, low efficiency, exponential growth of long-sequence computing complexity, and increasing pressure of hardware energy consumption and carbon emissions, based on the hardware conditions and technical boundaries in the era of Noisy Intermediate-Scale Quantum (NISQ) computing, this paper proposes an original Cascaded Quantum-Assisted Computing Paradigm, and systematically explores the acceleration path and implementation mechanism of the deep integration of quantum machine learning technology and classical large model training process. By embedding the two core technologies independently proposed, Quantum Amplitude Attention Pooling and Quantum Random Circuit Embedding, into the core modules of Transformer architecture with the highest computing load and most prominent complexity, this study constructs a quantum-classical hybrid training framework with stable structure, strong compatibility and direct deployability on existing quantum cloud platforms. On the premise of not destroying the overall structure and training logic of classical models, it realizes dynamic offloading and collaborative computing of high-complexity subtasks to quantum processors. Experimental results show that on the current mainstream NISQ quantum computing devices, the proposed framework can achieve a stable improvement of 18%—25% in overall training efficiency in public text classification standard tasks, while the model accuracy loss is controlled within 0.5 percentage points, with strong engineering application value. This paper further systematically analyzes the practical constraints such as quantum hardware noise, quantum-classical data interaction overhead, and algorithm-hardware adaptability. Combined with the future evolution trend of fault-tolerant quantum computing, it comprehensively prospects the long-term development path, technological breakthrough direction and industrial application scenarios of quantum machine learning in the field of large model training, providing new theoretical ideas and practical references for breaking through the computing power ceiling of large model training under the classical computing system.",
+  "date": "2026-04-27",
+  "venue": "科学与技术探索",
+  "arxiv_id": "",
+  "doi": "10.65196/7a1sxq95",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "3d319cec734c",
+  "title": "Steganography in IoT: A Comprehensive Survey on Approaches, Challenges, and Future Directions",
+  "authors": [
+   "Maha Driss",
+   "Lamia Berriche",
+   "Safa Ben Atitallah",
+   "Siwar Rekik"
+  ],
+  "abstract": "The Internet of Things (IoT) has raised significant security concerns, especially with regard to secure data transfer among resource-constrained devices. While effective, traditional encryption techniques are often computationally expensive and easily identifiable, making them unsuitable for many IoT applications. Steganography is an intriguing approach that allows hiding sensitive information within seemingly ordinary data, preventing unauthorized parties from detecting and accessing it. Existing studies on IoT security lack a comprehensive analysis of steganographic techniques tailored for IoT-specific constraints. This study bridges this gap by providing a comprehensive review of steganographic methods for IoT, exploring approaches across many domains such as spatial, frequency, and hybrid methods used in images, videos, audio, text, network traffic, hybrid approaches, and quantum-based methods. We evaluated and validated the techniques employed using key metrics such as imperceptibility, robustness, and embedding capacity while emphasizing the computational restrictions, real-time processing requirements of IoT devices, and the vital requirement for energy-efficient algorithms. This survey also investigates the integration of steganography and cryptographic approaches, as well as advances in Machine Learning (ML), Deep Learning (DL), and quantum techniques that could revolutionize the field. The study ends with future research directions that underscore the importance of innovative steganographic techniques that strike a compromise between security, efficiency, and scalability in IoT applications.",
+  "date": "2025-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2025.3564120",
+  "citations": 17,
+  "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "61da148fb757",
+  "title": "A Parallel Corpus of Chinese-English Legal Judgments with Argumentative Structure Annotations",
+  "authors": [
+   "Jingshi Zhou",
+   "Fei Cheng",
+   "Xiaojun Zhang",
+   "Kaizhu Huang"
+  ],
+  "abstract": "Purpose:The purpose of this study is to propose a citation recommendation system that leverages deep learning techniques to enhance the research process by providing relevant citation suggestions.Design/methodology/approach:This research introduces a supervised deep learning model combining Bidirectional Gated Recurrent Unit (Bi-GRU) with Convolutional Neural Network (CNN) architectures to capture semantic relationships. Additionally, Word2Vec embeddings trained on scientific texts are incorporated to improve the model's representational capabilities. Citation relationships are used as training labels for text similarity classification.Findings:The proposed model uses citation probability as a metric of technical similarity between papers, outperforming traditional methods like TF-IDF and Doc2Vec in a quantum technology dataset. It excels at providing highly relevant and irrelevant recommendations but faces limitations in suggesting papers with intermediate relevance.Research limitations:The model's performance in recommending papers with intermediate relevance needs further refinement to improve its overall capacity in handling such cases.Practical implications:This model's architecture and similarity metric can be integrated into academic search engines, addressing the issue of information overload and enhancing the efficiency of scholarly research.Originality/value:This study contributes to the field of citation recommendation by introducing a novel deep learning-based approach that improves the precision and recall of citation suggestions, offering theoretical advancements and practical solutions for academic research.",
+  "date": "2025-03-01",
+  "venue": "Data Intelligence",
+  "arxiv_id": "",
+  "doi": "10.3724/2096-7004.di.2025.0056",
+  "citations": 0,
+  "theme": "quantum embedding learning text"
  }
 ]

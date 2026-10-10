@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-10",
+ "updated": "2026-10-11",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -284,6 +284,36 @@
    "domains": [
     "satellite",
     "finance"
+   ]
+  },
+  {
+   "id": "quantumqubo-agent-automating-quadratic-unconstrained-binary-optimization-b1171",
+   "title": "QuantumQUBO Agent: Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
+   "titleZh": "QuantumQUBO Agent:自动化 QUBO 形式化生成的智能体",
+   "authors": [
+    "Niloy Kumar Mondal",
+    "Md Rizwan Parvez"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.10629",
+   "doi": "10.48550/arxiv.2609.10629",
+   "url": "https://arxiv.org/abs/2609.10629",
+   "topics": [
+    "qinspired",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:把 QUBO 形式化这一组合优化量子化的核心瓶颈交给 LLM 智能体自动完成——从自然语言问题描述自动生成正确的 QUBO 模型;与用户卫星任务规划 QUBO 建模方向直接相关,是\"LLM 辅助量子建模\"的代表工作。",
+   "abstract": "Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and has gained increasing attention due to its compatibility with quantum, hybrid quantum-classical, and quantum-inspired solvers. However, translating natural-language problem descriptions into correct QUBO formulations remains difficult, requiring the identification of binary variables, constraints, objective functions, penalty terms, and suitable penalty weights. This process is time-consuming and often demands substantial domain expertise. To address this challenge, we propose an end-to-end multi-agent framework that automatically generates QUBO formulations from natural-language problem descriptions, supported by structured or unstructured test cases. To evaluate its performance, We also introduce QUBOBench, a benchmark containing 100 combinatorial optimization problems across 12 application domains, curated from peer-reviewed literature, competitions, and canonical NP-hard problems. Experimental results show that our framework achieves 68% accuracy on QUBOBench, outperforming a direct single-call baseline by 22%. Further analysis identifies iterative self-repair as the most important component contributing to improved performance. The data and code are open-sourced at https://quitttcat.github.io/QuantumQUBOAgent.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {
@@ -1370,6 +1400,35 @@
    "domains": []
   },
   {
+   "id": "quantum-models-multi-stage-training-compositional-concept-18566",
+   "title": "Quantum Models with Multi-Stage Training for Compositional Concept Generalization",
+   "titleZh": "多阶段训练的量子模型用于组合概念泛化",
+   "authors": [
+    "Mina Abbaszadeh",
+    "Matilda Karabina Moore",
+    "Mehrnoosh Sadrzadeh",
+    "Martha Lewis"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.15601",
+   "doi": "10.48550/arxiv.2608.15601",
+   "url": "https://arxiv.org/abs/2608.15601",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向组合概念泛化(CoCoGen)——系统性重组已学基元表达新概念这一认知核心能力——提出多阶段训练的量子模型,是量子模型挑战组合泛化难题的方向性工作。",
+   "abstract": "Compositional Concept Generalization (CoCoGen), the ability to systematically recombine learned primitives in novel contexts, is a key challenge for multimodal learning. In this work, we provide a solution using a compositional model of meaning that separates nouns from relations and uses tensors and variational quantum circuits to train them on data. This model enables us to employ a multi stage training paradigm, one that first learns object representations from single-object image-caption pairs, then subsequently transfers these to the relational stage where object parameters are frozen and optimisation is only applied to relational components. This design explicitly enforces compositional factorisation at the circuit, ensuring that relations are learned as transformations over stable primitives. The training paradigm is tested on the CLEVR dataset developed specificially for CoCoGen. For text, we work with vector representations of nouns and higher order tensor representations of relations using a set of different ansatz. For images, we work with quantum encodings of image embeddings dervied from Open AI's Vision Language tool CLIP and contrast amplitude encoding, which preserves the original embedding geometry, with angle encoding, which introduces nonlinear feature transformations. Our results show that multi-staged training combined with structured encodings significantly improves out of distribution relational generalisation, while using orders of magnitude fewer trai",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "error-mitigated-quantum-annealing-solution-weighted-max-c2149",
    "title": "An error-mitigated quantum annealing solution for the weighted Max-Cut problem on a cubic lattice",
    "titleZh": "立方晶格上加权Max-Cut问题的误差缓解量子退火解",
@@ -2016,6 +2075,35 @@
    "domains": []
   },
   {
+   "id": "position-quantum-program-generation-must-prioritize-validity-33767",
+   "title": "Position: Quantum Program Generation Must Prioritize Validity Over Probabilistic Scaling",
+   "titleZh": "立场文件:量子程序生成必须优先保证有效性而非概率性扩展",
+   "authors": [
+    "Junhao Song",
+    "Yu Zhou",
+    "William Knottenbelt",
+    "Yudong Cao"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-15",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.15313",
+   "doi": "10.48550/arxiv.2607.15313",
+   "url": "https://arxiv.org/abs/2607.15313",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026 立场文件:直接挑战\"规模假设\"——指出 LLM 生成量子程序时,概率性扩展(更大模型)无法保证程序有效性,主张把有效性验证置于扩展优先级之上;对 LLM4Q 方向的过度乐观是一剂清醒剂。",
+   "abstract": "The scaling hypothesis assumes that increasing model parameters yields emergent reasoning capabilities. This position paper argues that applying this probabilistic paradigm to generic quantum circuit synthesis is a directional error. Unlike natural languages, quantum circuits require strict adherence to mathematical constraints that manifest a significant syntax-semantics gap. Training on unverified quantum programs means that models learn syntax but fail to capture the physical semantics of the Hilbert space. Since the valid subset of circuit designs decays exponentially with the number of qubits, post-hoc filtering is mathematically intractable. We propose a pivot from human-centric copilots to verifier-centric agents. We integrate hierarchical constraints, topological masks, and symbolic proxies directly into generation. Our analysis suggests that scale alone cannot bridge the validity gap. Verification-aware architectures offer a viable path for modular quantum program generation. These considerations point toward generation methods that encode task-specific rules of quantum information, rather than relying on imitation alone.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "reality-check-quantum-optimisation-evidence-from-industrial-bffee",
    "title": "A Reality Check on Quantum Optimisation: Evidence from an Industrial Case Study",
    "titleZh": "量子优化的现实检验:来自工业案例的证据",
@@ -2328,6 +2416,36 @@
    "domains": []
   },
   {
+   "id": "leveraging-llm-based-agentic-systems-generate-quantum-77cfd",
+   "title": "Leveraging LLM-Based Agentic Systems to Generate Quantum Applications for Test Optimization",
+   "titleZh": "基于 LLM 智能体系统生成测试优化的量子应用",
+   "authors": [
+    "Ming Tao",
+    "Yuechen Li",
+    "Tao Yue",
+    "Man Zhang",
+    "Aitor Arrieta Marcos"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.00939",
+   "doi": "10.48550/arxiv.2607.00939",
+   "url": "https://arxiv.org/abs/2607.00939",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向软件工程优化的量子应用生成:用 LLM 智能体系统把自然语言需求翻译为可执行的量子应用代码并做测试优化,探索\"自然语言→量子软件\"的自动化链路。",
+   "abstract": "Quantum computing is increasingly explored for software engineering (SE) optimization, but translating natural-language (NL) task-level requirements into executable quantum applications still demands substantial quantum and programming expertise. We present QPipe, a large language model (LLM)-based multi-agent architecture that autonomously turns NL requirements into traceable quantum-application workflows through specialized agents for requirement parsing, formulation, code generation, review, execution, and verification. We evaluate QPipe on 20 NL requirements, each associated with a real-world benchmark and a test-optimization problem. QPipe successfully completes the key stages of quantum-application generation across requirements, achieving average rates of 100% for code compilation and 96.7% for application execution and final-result combination, with average generation costs of 260.1 seconds and 1.89M tokens per requirement. Among the generated quantum applications that execute successfully, the returned solutions outperform the offline genetic algorithm baseline in most cases. Ablation results further show that QPipe's advantage depends on retaining code-generation skills, task knowledge, review feedback, and multi-agent decomposition. These results indicate that agentic coordination can support generation of executable quantum applications for tackling test optimization problems from real-world benchmarks.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimizing-qaoa-circuit-transpilation-parity-twine-swap-18c58",
    "title": "Optimizing QAOA circuit transpilation with parity twine and SWAP network encodings",
    "titleZh": "利用奇偶缠绕与SWAP网络编码优化QAOA电路转译",
@@ -2635,6 +2753,33 @@
    ]
   },
   {
+   "id": "when-learning-errors-problem-meets-coherent-ising-622fa",
+   "title": "When the Learning With Errors Problem Meets the Coherent Ising Machine: A Penalty-Free Algorithm-Hardware Co-Design",
+   "titleZh": "当 LWE 问题遇上相干 Ising 机:免罚项的算法-硬件协同设计",
+   "authors": [
+    "Shuxian Jiang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-22",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.22843",
+   "doi": "10.48550/arxiv.2606.22843",
+   "url": "https://arxiv.org/abs/2606.22843",
+   "topics": [
+    "qinspired",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:把现代后量子密码的数学基础 LWE(带误差学习)问题映射到相干 Ising 机(CIM)求解,提出免罚项的算法-硬件协同设计;\"用 Ising 机攻密码学难题\"兼具学术与战略意义,是 CIM 应用的重要案例。",
+   "abstract": "The Learning With Errors (LWE) problem constitutes the mathematical foundation of modern Post-Quantum Cryptography (PQC). Cryptanalysis of LWE ranges from classical lattice reduction to machine learning and quantum-classical hybrids. We propose CIM-BDD, a hybrid Bounded-Distance-Decoding solver that reduces LWE to a Quadratic Unconstrained Binary Optimization (QUBO) problem through a strictly \\emph{penalty-free} mapping. An algebraic elimination of the secret embeds LWE into a $q$-ary lattice, absorbing the modular arithmetic and recasting the problem as a Closest Vector Problem (CVP). The squared error norm is then used \\emph{directly} as the QUBO energy, so the cryptographic noise is the objective to be minimized rather than a penalized constraint. To realize this general model on current Noisy Intermediate-Scale Quantum (NISQ) devices, we design a special encoding method: a Continuous Relaxed Babai's Nearest Plane (CR-BNP) projection drives an adaptive mixed-radix encoder that greatly reduces both the qubit count and the QUBO coefficient range, so that a single batched hardware submission suffices. We further derive a statistically bounded early-stopping threshold ($T_{\\text{early}}$) that acts as a one-sided certificate and doubles as a Decision-LWE distinguisher. We validate the framework on the TU Darmstadt LWE Challenge, giving an end-to-end demonstration for both Search- and Decision-LWE of a $40$-dimensional instance on the Coherent Ising Machine CPQC-550. This work ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-restricted-boltzmann-machine-fast-unit-commitment-2d9ed",
    "title": "Quantum Restricted Boltzmann Machine for Fast Unit Commitment",
    "titleZh": "用量子受限玻尔兹曼机加速网络约束机组组合",
@@ -2662,6 +2807,36 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "fine-tuning-large-language-models-quantum-reasoning-99ae4",
+   "title": "Fine-Tuning Large Language Models for Quantum Reasoning",
+   "titleZh": "面向量子推理的大语言模型微调",
+   "authors": [
+    "Katherine Ip",
+    "Casey R. Myers",
+    "Udaya Parampalli",
+    "James Q. Quach",
+    "Peiyong Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-20",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.21974",
+   "doi": "10.48550/arxiv.2606.21974",
+   "url": "https://arxiv.org/abs/2606.21974",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:LLM 展现出超越自然语言建模的能力,该工作探索微调 LLM 使其执行量子推理任务(量子概念问答/线路理解),是\"LLM 作为量子计算认知接口\"路线的早期尝试,与库内量子代码生成系列同属 LLM4Q 方向。",
+   "abstract": "Large language models (LLMs) exhibit abilities beyond natural language modelling and text generation. Recent advances in their reasoning capabilities have spurred interest in applying LLMs to complex scientific tasks requiring deep domain expertise and sophisticated reasoning. Quantum computing, as a highly specialised field with significant knowledge barriers and hardware constraints, could greatly benefit from such advancements. However, a key open question that first must be answered is: How can we develop fine-tuning pipelines that instil genuine quantum reasoning in LLMs, rather than task-specific pattern matching? We study this question through quantum circuit simulation as a training objective, where the model must predict the measurement probability distribution resulting from a sequence of quantum gate operations. We propose and compare two fine-tuning pipelines: (1) Supervised Fine-Tuning (SFT) on explicit gate-by-gate state-vector simulation traces, and (2) a two-stage SFT+Group Relative Policy Optimisation (GRPO) approach that sequentially applies SFT followed by GRPO with verifiable rewards. Our findings show that SFT achieves near-perfect in-distribution and gate-count extrapolation accuracy, significantly outperforming both the base model and the GPT-OSS-120B baseline. SFT+GRPO trades some in-distribution precision for better generalisation to larger qubit systems that SFT alone cannot handle. Both pipelines significantly outperform the baselines, demonstrating",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "gaussian-process-model-kernels-noisy-optimization-variational-81978",
@@ -3284,6 +3459,37 @@
    ]
   },
   {
+   "id": "pennysynth-rag-driven-data-synthesis-automated-quantum-61abf",
+   "title": "PennySynth: RAG-Driven Data Synthesis for Automated Quantum Code Generation",
+   "titleZh": "PennySynth:RAG 驱动数据合成的自动化量子代码生成",
+   "authors": [
+    "Minghao Shao",
+    "Nouhaila Innan",
+    "Hariharan Janardhanan",
+    "Muhammad Kashif",
+    "Alberto Marchisio",
+    "Muhammad Shafique"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-25",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.25572",
+   "doi": "10.48550/arxiv.2605.25572",
+   "url": "https://arxiv.org/abs/2605.25572",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:针对现有 LLM 对量子编程框架(PennyLane 等)训练语料不足的短板,提出 RAG 驱动的数据合成方法自动生成高质量量子代码训练数据,缓解\"量子代码语料稀缺\"这一 LLM4Q 核心瓶颈。",
+   "abstract": "The growing complexity of quantum programming frameworks has exposed a critical limitation in existing large language model (LLM)-based code assistants: general-purpose models hallucinate PennyLane-specific gate names, misplace device configurations, and produce structurally invalid circuits when faced with specialized quantum coding challenges. We present PennySynth, a retrieval-augmented generation framework that addresses this gap by conditioning LLM inference on a curated knowledge base of 13,389 PennyLane instruction-code pairs, built via a three-stage extraction, verification, and deduplication pipeline over official PennyLane repositories, community GitHub sources, and QHack competition archives. PennySynth introduces a code-aware embedding strategy using st-codesearch-distilroberta-base, trained for natural-language-to-code retrieval, increasing average retrieval cosine similarity from 0.45 to 0.726 compared to a general-purpose baseline. Evaluated across 74 challenges spanning three years of the QHack competition (2022, 2023, 2024), PennySynth achieves 64%, 68%, and 52% pass@5 on QHack 2022, 2023, and 2024, respectively, improving over Claude Sonnet 4.6 without retrieval by +28, +25, and +28 percentage points. We further introduce a quantum-adapted CodeBLEU metric that upweights qml.* token patterns and show that structural code similarity and functional correctness capture distinct aspects of quantum code quality. Controlled ablations reveal that code-aware embeddin",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "integrated-error-suppressed-pipeline-quantum-optimization-nontrivial-1341c",
    "title": "Integrated error-suppressed pipeline for quantum optimization of nontrivial binary combinatorial optimization problems on gate-model hardware at the 156-qubit scale",
    "titleZh": "156量子比特门型硬件上非平凡二元组合优化的集成误差抑制流水线",
@@ -3878,6 +4084,35 @@
    "domains": []
   },
   {
+   "id": "from-qubits-couplings-hybrid-quantum-machine-learning-c29be",
+   "title": "From Qubits to Couplings: A Hybrid Quantum Machine Learning Framework for LHC Physics",
+   "titleZh": "从量子比特到耦合:面向 LHC 物理的混合量子机器学习框架",
+   "authors": [
+    "Marwan Ait Haddou",
+    "M. Belfkir",
+    "Salah Eddine Elharrauss"
+   ],
+   "venue": "Progress of Theoretical and Experimental Physics",
+   "date": "2026-05-02",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1093/ptep/ptag079",
+   "url": "https://doi.org/10.1093/ptep/ptag079",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Progress of Theoretical Physics:面向大型强子对撞机(LHC)数据分析,提出混合量子机器学习框架以提升新物理搜索的灵敏度,是 QML 在高能物理这一\"科学计算重负载\"领域的应用实例。",
+   "abstract": "Abstract In this paper, we propose a hybrid quantum machine learning framework to improve the sensitivity of double Higgs boson searches in the $HH \\rightarrow b\\bar{b}\\gamma \\gamma$ final state at $\\sqrt{s} = 13.6~\\text{TeV}$. The proposed model combines parameterized quantum circuits with a classical neural network meta-model, enabling event-level features to be embedded in a quantum feature space while maintaining the optimization stability of classical learning. In our benchmark setup, the hybrid model outperforms the pure quantum implementation and improves over the XGBoost baseline while performing similarly to the graph neural network baseline, achieving an expected 95% CL upper limit on the nonresonant double Higgs boson production cross section of $1.9\\times \\sigma _{\\text{SM}}$ and $2.1\\times \\sigma _{\\text{SM}}$ under background normalization uncertainties of 10% and 50%, respectively. In addition, expected constraints on the Higgs boson self-coupling $\\kappa _{\\lambda }$ and quartic vector-boson–Higgs coupling $\\kappa _{2V}$ are improved relative to the pure quantum model and competitive with the classical baselines considered in this work.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-simulation-nanographenes-trotter-error-cancellation-f96af",
    "title": "Quantum simulation of nanographenes and Trotter error cancellation",
    "titleZh": "纳米石墨烯的量子模拟与 Trotter 误差消除",
@@ -3971,6 +4206,33 @@
    ],
    "summaryZh": "为组合优化配置变分量子算法需要在求解器族、ansatz、目标与优化器间做协调选择,高度依赖专家经验。AutoQResearch用LLM引导闭环实验,把配置任务建模为策划设计空间上的序贯策略搜索,自动迭代改进配置。这是\"LLM自动化量子优化算法研究\"的前沿尝试,恰好处于用户关注的三个方向交汇点。",
    "abstract": "Configuring variational quantum algorithms for combinatorial optimization remains a difficult, expert-driven process requiring coordinated choices over solver family, ansatz, objective, and optimizer. We present AutoQResearch, an LLM-guided closed-loop experimentation framework that casts this task as sequential policy search over a curated design space. Instead of a single static configuration, the framework searches for adaptive solver-control policies that condition future decisions on diagnostics such as feasibility, optimality gap, and convergence stagnation. The system operates through a structured workflow: an LLM agent edits a small policy surface under a fixed evaluation harness, candidate policies are screened using cheap scout evaluations, and only the strongest candidates are promoted to full confirmation. This enables controlled autonomous exploration while guarding against proxy overfitting and unstable selection. We evaluate the framework on Maximum Independent Set (MIS) and the Capacitated Vehicle Routing Problem (CVRP). On MIS instances (16--64 vertices), discovered policies substantially outperform static baselines and reveal scale-dependent behavior: CVaR objectives are effective at small scale, while QRAO-based qubit compression provides the most effective explored scaling path. On CVRP curricula (8--12 customers) and a held-out E-n13-k4 benchmark, the framework discovers adaptations involving sampling budget, penalty design, and hybrid repair protocols, y",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "paper-21216",
+   "title": "量子机器学习在大模型训练加速中的应用探索",
+   "titleZh": "量子机器学习在大模型训练加速中的应用探索",
+   "authors": [
+    "佳磊 聂"
+   ],
+   "venue": "科学与技术探索",
+   "date": "2026-04-27",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.65196/7a1sxq95",
+   "url": "https://doi.org/10.65196/7a1sxq95",
+   "topics": [
+    "quantum-ai",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "中文工作:针对大模型训练算力成本高、长序列计算复杂度指数增长与硬件能耗压力等瓶颈,基于 NISQ 时代硬件条件与技术边界提出原创的级联量子辅助计算范式,系统探索量子机器学习与经典大模型训练深度融合的加速路径。",
+   "abstract": "Aiming at the practical bottlenecks in current large model training, such as high computing cost, low efficiency, exponential growth of long-sequence computing complexity, and increasing pressure of hardware energy consumption and carbon emissions, based on the hardware conditions and technical boundaries in the era of Noisy Intermediate-Scale Quantum (NISQ) computing, this paper proposes an original Cascaded Quantum-Assisted Computing Paradigm, and systematically explores the acceleration path and implementation mechanism of the deep integration of quantum machine learning technology and classical large model training process. By embedding the two core technologies independently proposed, Quantum Amplitude Attention Pooling and Quantum Random Circuit Embedding, into the core modules of Transformer architecture with the highest computing load and most prominent complexity, this study constructs a quantum-classical hybrid training framework with stable structure, strong compatibility and direct deployability on existing quantum cloud platforms. On the premise of not destroying the overall structure and training logic of classical models, it realizes dynamic offloading and collaborative computing of high-complexity subtasks to quantum processors. Experimental results show that on the current mainstream NISQ quantum computing devices, the proposed framework can achieve a stable improvement of 18%—25% in overall training efficiency in public text classification standard tasks, wh",
    "source": "backfill",
    "domains": []
   },
@@ -4439,6 +4701,66 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "hybrid-quantum-classical-nlp-framework-emotion-recognition-8d310",
+   "title": "Hybrid Quantum-Classical NLP Framework for Emotion Recognition Tasks",
+   "titleZh": "面向情感识别任务的混合量子-经典 NLP 框架",
+   "authors": [
+    "Dharaniraj VM",
+    "Jayasuriya R",
+    "Sivasankaramoorthy R",
+    "Stephen T",
+    "Abirami Murugappan"
+   ],
+   "venue": "Springer Link (Chiba Institute of Technology)",
+   "date": "2026-03-23",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1051/epjconf/202636001008/pdf",
+   "url": "https://doi.org/10.1051/epjconf/202636001008/pdf",
+   "topics": [
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "构建完整的混合量子-经典 NLP 管线执行情感识别任务(情感分析是 NLP 的代表性基准),覆盖从文本编码到量子分类的全流程,是混合 QNLP 系统级的工程实现(Springer 2026)。",
+   "abstract": "This project aims at developing a comprehensive hybrid quantum-classical NLP pipeline to solve the task of emotion recognition. For emotion recognition, this work makes use of a hybrid Quantum Recurrent Neural Network (QRNN) by combining classical embedding layers with parameterized quantum circuits based on well defined ansatzes. The primary goal of the project is to train VQCs for capturing the emotion associated with sentences. This work aims at combining the strong embedding generation ability of classical architectures with the expressive power of Quantum circuits that can capture complex dependencies across sequences. The designed Hybrid QRNN model integrates two important aspects namely the strength of RNNs for sequential modelling and the representational power of quantum circuits resulting in competitive performance for emotion recognition task while also utilising the quantum benefits. The results reveal the potential of QNLP for advancing the intersection of Quantum Computing and Natural Language Processing for quantum-accelerated downstream NLP applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "average-relative-entropy-transpilation-depth-determines-noise-46608",
+   "title": "The Average Relative Entropy and Transpilation Depth determines the noise robustness in Variational Quantum Classifiers",
+   "titleZh": "平均相对熵与转译深度决定变分量子算法的噪声鲁棒性",
+   "authors": [
+    "Aakash Ravindra Shinde",
+    "Arianne Meijer van de Griend",
+    "Jukka K. Nurminen"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-22",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.21300",
+   "doi": "10.48550/arxiv.2603.21300",
+   "url": "https://arxiv.org/abs/2603.21300",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:建立 VQA 的平均相对熵、转译深度与噪声鲁棒性之间的定量关系,为\"多深的线路能扛多大的噪声\"提供预测工具,是 VQA 可靠性设计理论化的代表工作。",
+   "abstract": "Variational Quantum Algorithms (VQAs) have been extensively researched for applications in Quantum Machine Learning (QML), Optimization, and Molecular simulations. Although designed for Noisy Intermediate-Scale Quantum (NISQ) devices, VQAs are predominantly evaluated classically due to uncertain results on noisy devices and limited resource availability. Raising concern over the reproducibility of simulated VQAs on noisy hardware. While prior studies indicate that VQAs may exhibit noise resilience in specific parameterized shallow quantum circuits, there are no definitive measures to establish what defines a shallow circuit or the optimal circuit depth for VQAs on a noisy platform. These challenges extend naturally to Variational Quantum Classification (VQC) algorithms, a subclass of VQAs for supervised learning. In this article, we propose a relative entropy-based metric to verify whether a VQC model would perform similarly on a noisy device as it does on simulations. We establish a strong correlation between the average relative entropy difference in classes, transpilation circuit depth, and their performance difference on a noisy quantum device. Our results further indicate that circuit depth alone is insufficient to characterize shallow circuits. We present empirical evidence to support these assertions across a diverse array of techniques for implementing VQC, datasets, and multiple noisy quantum devices.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "leveraging-classical-quantum-computing-process-systems-engineering-c86e2",
@@ -7012,6 +7334,34 @@
    ]
   },
   {
+   "id": "hybrid-quantum-classical-transfer-learning-parameter-efficient-992d2",
+   "title": "Hybrid Quantum-Classical Transfer Learning for Parameter-Efficient Code Generation",
+   "titleZh": "混合量子-经典迁移学习用于参数高效代码生成",
+   "authors": [
+    "Su-Chang Lim",
+    "Jong-Chan Kim"
+   ],
+   "venue": "IEEE Access",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/access.2026.3687852",
+   "url": "https://doi.org/10.1109/access.2026.3687852",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Access 2026:把混合量子-经典迁移学习用于参数高效的代码生成任务,在大模型代码生成管线中引入量子组件以压缩参数量,是\"量子×大模型\"在软件工程方向的落地尝试。",
+   "abstract": "The remarkable success of large language models (LLMs) in code generation has transformed software development, with systems like Codex, CodeGen, and StarCoder demonstrating strong capabilities in synthesizing functional code from natural language descriptions. However, this progress comes at a steep computational cost. Modern code generation models require hundreds of millions to billions of parameters—GPT-3 contains 175 billion parameters, CodeGen-16B uses 16 billion, and the trend continues toward ever-larger models. This scale creates fundamental challenges in training cost, inference latency, memory consumption, and environmental impact. We present a quantum transfer learning framework as an alternative approach to classical model compression for code generation. By replacing selected MLP layers with variational quantum circuits (VQCs), we exploit the exponential representational capacity of quantum systems to achieve $\\Theta (D \\log D)$ parameter scaling instead of classical $\\Theta (D^{2})$ . Our hybrid classical-quantum architecture balances three competing objectives: leveraging existing pre-trained knowledge, achieving parameter compression through quantum representation, and maintaining compatibility with near-term quantum hardware constraints. We demonstrate our approach on CodeGen-350M, a production-scale code generation model, adopting a bottleneck architecture that substantially reduces parameters compared to the original MLP layer. Through a fair comparison ag",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -7830,6 +8180,35 @@
     "transport",
     "materials"
    ]
+  },
+  {
+   "id": "adaptive-quantum-bacterial-colony-optimization-framework-efficient-b0e41",
+   "title": "An Adaptive Quantum Bacterial Colony Optimization Framework for an Efficient Text Clustering Approach",
+   "titleZh": "自适应量子细菌群体优化框架用于高效文本聚类",
+   "authors": [
+    "Samiappan Dhanalakshmi",
+    "S. Sathiyabama",
+    "D. Ayyamuthukumar"
+   ],
+   "venue": "International Journal of Computer Science and Mobile Computing",
+   "date": "2025-11-20",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.47760/ijcsmc.2025.v14i11.005",
+   "url": "https://doi.org/10.47760/ijcsmc.2025.v14i11.005",
+   "topics": [
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把量子细菌群体优化(量子启发元启发)用于文本聚类任务,给出自适应参数机制;量子启发算法在文本挖掘场景的应用实例。",
+   "abstract": "Text document clustering is a task that seeks to cluster together related documents based on content similarity. Clustering helps to improve information diversity retrieval, topic spotting, and sentiment analysis by ordering unstructured text and dividing it into information structures. To address the issue of text-based work and its optimization through more efficient and accurate text classification and clustering, this paper offers a more advanced text classification and clustering framework that incorporates the Adaptive Quantum Bacterial Colony Optimization (AQBCO) algorithm and deep word embedding models, such as Word2Vec, TF-IDF, and FastText. AQBCO presents two innovations: adaptive chemotaxis, which produces the movement of bacteria dynamically controlled by the optimal solution, and quantum-inspired position updating, which increases the ability to search the globe and eliminates premature convergence. The framework was tested using benchmark datasets- BBC, SMS, and DMOZ, and was compared with the available optimization-based learning methods, including Improved BCO (IBCO), standard BCO, GQPSO, IPSO, PSO, GA, and k-means. According to the experimental findings, AQBCO always performs better on Accuracy, Precision, Recall, and F-Measure as compared to other models. The highest accuracy of 97.38% on BBC, 96.79% on SMS, and 93.68% on DMOZ datasets allowed AQBCO to use FastText embeddings. The suggested adaptive and quantum systems preserve exploration-exploitation balan",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "solving-vehicle-sharing-problems-grover-algorithm-3f66b",
@@ -11123,6 +11502,37 @@
    "domains": []
   },
   {
+   "id": "bridging-quantum-computing-nlp-novel-framework-advanced-2f3a5",
+   "title": "Bridging Quantum Computing and NLP: A Novel Framework for Advanced Bias Detection with Next-Generation Computing",
+   "titleZh": "桥接量子计算与 NLP:下一代偏见检测框架",
+   "authors": [
+    "M. K. Jayanthi Kannan",
+    "Abir",
+    "Anjali Yadav",
+    "Santosini Sahu",
+    "Samikshya Prus -"
+   ],
+   "venue": "International Journal For Multidisciplinary Research",
+   "date": "2025-07-13",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.36948/ijfmr.2025.v07i04.50889",
+   "url": "https://doi.org/10.36948/ijfmr.2025.v07i04.50889",
+   "topics": [
+    "quantum-ai",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向 NLP 中的偏见检测(伦理关键任务)提出下一代量子计算框架,讨论量子表示对公平性敏感任务的潜在增益,是 QNLP 向 AI 伦理场景的延伸。",
+   "abstract": "Bias entails specific challenges in NLP that lead to inequitable results and ethical dilemmas in AI applications. A unique approach to bias detection is advanced herein that is marketed as Quantum Bias Detection (QBD). The main objective contextualizes the work into evaluating the possible gains from using quantum algorithms in identifying the accuracy and sensitivity of bias in textual data. We have taken a hybrid approach, utilizing quantum machine learning tools alongside typical techniques for bias detection, in which we perform quantum state embeddings and quantum kernel methodology on large and complicated text corpora. Through exhaustive experimentation, we compared the power of QBD ability versus a set of baselines involving both classical and quantum methods, tested against criteria of accuracy, precision, recall, and detection capacity for faintly manifested bias. The most striking discoveries indicate that the Quantum Bias Detection framework greatly increased bias detection rates, especially those of subtle ones that are ambiguously context-dependent, for which traditional approaches often fail. The proof shows that quantum computing could improve bias detection and also should help in building more just AI systems. By way of implication, these findings remain significant for AI ethics and claim to quantum-inspired methods for good bias mitigation in NLP applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "perspective-theoretical-modeling-soft-molecular-machines-devices-ae164",
    "title": "Perspective on Theoretical Modeling of Soft Molecular Machines and Devices: A Fusion of Data‐Driven Approaches with Traditional Computational Chemistry Algorithms",
    "titleZh": "软物质分子机器与器件理论建模展望:数据驱动与量子方法的融合",
@@ -12701,6 +13111,35 @@
    ],
    "summaryZh": "系统评估张量网络方法在组合优化与采样任务上的适用边界,并利用退火设备的高连通性设计实验与量子退火硬件直接对比,回答\"经典张量网络模拟何时够用、何时需要量子硬件\"这一求解器选型的关键问题。",
    "abstract": "In the ever-evolving landscape of computational science, tensor networks have emerged as a versatile toolset to simulate both quantum and classical many-body systems. This study investigates their applicability to complex optimization problems, where quantum annealing devices have generated significant interest. A challenge in applying tensor networks here is the high connectivity of the devices, which this work effectively leverages by utilizing sparse structures in construction, plus hardware acceleration. The authors quantify the limitations of their deterministic approach, and find that in certain scenarios it might outperform quantum annealers or randomized classical solvers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "efficient-generation-parameterised-quantum-circuits-from-large-53a4f",
+   "title": "Efficient Generation of Parameterised Quantum Circuits from Large Texts",
+   "titleZh": "从大型文本高效生成参数化量子线路",
+   "authors": [
+    "Colin Krawchuk",
+    "Nikhil Khatri",
+    "Neil John Ortega",
+    "Dimitri Kartsaklis"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-19",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.13208",
+   "doi": "10.48550/arxiv.2505.13208",
+   "url": "https://arxiv.org/abs/2505.13208",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv:提出从大型文本高效生成参数化量子线路的方法——QNLP 的\"文本→线路\"路线,把语言信息的量子表示与参数化线路生成结合,是 lambeq/QDisCoCirc 谱系的方法推进。",
+   "abstract": "Quantum approaches to natural language processing (NLP) are redefining how linguistic information is represented and processed. While traditional hybrid quantum-classical models rely heavily on classical neural networks, recent advancements propose a novel framework, DisCoCirc, capable of directly encoding entire documents as parameterised quantum circuits (PQCs), besides enjoying some additional interpretability and compositionality benefits. Following these ideas, this paper introduces an efficient methodology for converting large-scale texts into quantum circuits using tree-like representations of pregroup diagrams. Exploiting the compositional parallels between language and quantum mechanics, grounded in symmetric monoidal categories, our approach enables faithful and efficient encoding of syntactic and discourse relationships in long and complex texts (up to 6410 words in our experiments) to quantum circuits. The developed system is provided to the community as part of the augmented open-source quantum NLP package lambeq Gen II.",
    "source": "backfill",
    "domains": []
   },
@@ -14667,6 +15106,38 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "pennylane-centric-dataset-enhance-llm-based-quantum-b5a05",
+   "title": "A PennyLane-Centric Dataset to Enhance LLM-based Quantum Code Generation using RAG",
+   "titleZh": "以 PennyLane 为中心的数据集:用 RAG 增强 LLM 量子代码生成",
+   "authors": [
+    "Basit, Abdul",
+    "Nouhaila Innan",
+    "Muhammad Asif",
+    "Minghao Shao",
+    "Muhammad Kashif",
+    "Alberto Marchisio",
+    "Muhammad Shafique"
+   ],
+   "venue": "arXiv",
+   "date": "2025-03-04",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2503.02497",
+   "doi": "10.48550/arxiv.2503.02497",
+   "url": "https://arxiv.org/abs/2503.02497",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "构建以 PennyLane 为中心的量子代码数据集,用检索增强生成(RAG)提升 LLM 量子代码生成的正确率,与 PennySynth 同属\"量子代码语料工程\"路线的基础设施工作。",
+   "abstract": "Large Language Models (LLMs) offer powerful capabilities in code generation, natural language understanding, and domain-specific reasoning. Their application to quantum software development remains limited, in part because of the lack of high-quality datasets both for LLM training and as dependable knowledge sources. To bridge this gap, we introduce \\textit{PennyLang}, an off-the-shelf, high-quality dataset of 3,347 PennyLane-specific quantum code samples with contextual descriptions, curated from textbooks, official documentation, and open-source repositories. Our contributions are threefold: (1) the creation and open-source release of PennyLang, a purpose-built dataset for quantum programming with PennyLane; (2) a framework for automated quantum code dataset construction that systematizes curation, annotation, and formatting to maximize downstream LLM usability; and (3) a baseline evaluation of the dataset across multiple open-source and commercial models, including ablation studies, all conducted within a retrieval-augmented generation (RAG) pipeline. Using PennyLang with RAG substantially improves performance: for example, Qwen 7B's success rate rises from 8.7% without retrieval to 41.7% with full-context augmentation, and LLaMa 4 improves from 78.8% to 84.8%, while also reducing hallucinations and enhancing quantum code correctness. Moving beyond Qiskit-focused studies, we bring LLM-based tools and reproducible methods to PennyLane for advancing AI-assisted quantum devel",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "optimizing-quantum-convolutional-neural-network-architectures-arbitrary-6410e",
@@ -17559,6 +18030,41 @@
    "tags": [],
    "summaryZh": "Reviews of Modern Physics 综述(被引 56):半定规划(SDP)作为量子信息理论的核心数学工具——从贝尔不等式到量子态鉴别——的系统论述,SDP 本身也是组合优化松弛技术的核心,与量子优化方法论深度相关。",
    "abstract": "Sometimes a mathematical tool emerges as uniquely useful and even a defining feature within some branch of physics such as Feynman diagrams. In quantum information theory, the semidefinite program (SDP) has emerged as such a tool. SDP is an optimization task in which a linear objective function is maximized over a set of Hermitian matrices with positive eigenvalues. This review discusses the highly efficient algorithms available for the SDP, and shows how comprehensively the SDP has been deployed in problems of entanglement characterization, quantum nonlocality, quantum channel capacities, and the bounding of ground-state energies.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "variational-quantum-classifiers-programmable-photonic-microprocessor-9e4cd",
+   "title": "Variational quantum classifiers via a programmable photonic microprocessor",
+   "titleZh": "可编程光子微处理器上的变分量子分类器",
+   "authors": [
+    "Hexiang Lin",
+    "Huihui Zhu",
+    "Zan Tang",
+    "Wei Luo",
+    "Wei Wang",
+    "Man‐Wai Mak",
+    "Xudong Jiang",
+    "L. K. Chin",
+    "L. C. Kwek",
+    "A. Q. Liu"
+   ],
+   "venue": "arXiv",
+   "date": "2024-12-04",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2412.02955",
+   "doi": "10.48550/arxiv.2412.02955",
+   "url": "https://arxiv.org/abs/2412.02955",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "在可编程光子微处理器上实验实现变分量子分类器,真机验证 VQC 在 NISQ 条件下的分类性能,为光子路线的 QML 提供硬件证据(与库内 Nature Photonics 光量子核工作互补)。",
+   "abstract": "Quantum computing holds promise across various fields, particularly with the advent of Noisy Intermediate-Scale Quantum (NISQ) devices, which can outperform classical supercomputers in specific tasks. However, challenges such as noise and limited qubit capabilities hinder its practical applications. Variational Quantum Algorithms (VQAs) offer a viable strategy to achieve quantum advantage by combining quantum and classical computing. Leveraging on VQAs, the performance of Variational Quantum Classifiers (VQCs) is competitive with many classical classifiers. This work implements a VQC using a silicon-based quantum photonic microprocessor and a classical computer, demonstrating its effectiveness in nonlinear binary and multi-classification tasks. An efficient gradient free genetic algorithm is employed for training. The VQC's performance was evaluated on three synthetic binary classification tasks with square-, circular-, and sine-shape decision boundaries and a real-world multiclass Iris dataset. The accuracies on the three binary classification tasks were 87.5%, 92.5%, and 85.0%, respectively, and 98.8% on the real world Iris dataset, highlighting the platform's potential to handle complex data patterns.",
    "source": "backfill",
    "domains": []
   },
@@ -22437,6 +22943,35 @@
    "abstract": "Natural language processing (NLP) may face the inexplicable \"black-box\" problem of parameters and unreasonable modeling for lack of embedding of some characteristics of natural language, while the quantum-inspired models based on quantum theory may provide a potential solution. However, the essential prior knowledge and pretrained text features are often ignored at the early stage of the development of quantum-inspired models. To attacking the above challenges, a pretrained quantum-inspired deep neural network is proposed in this work, which is constructed based on quantum theory for carrying out strong performance and great interpretability in related NLP fields. Concretely, a quantum-inspired pretrained feature embedding (QPFE) method is first developed to model superposition states for words to embed more textual features. Then, a QPFE-ERNIE model is designed by merging the semantic features learned from the prevalent pretrained model ERNIE, which is verified with two NLP downstream tasks: 1) sentiment classification and 2) word sense disambiguation (WSD). In addition, schematic quantum circuit diagrams are provided, which has potential impetus for the future realization of quantum NLP with quantum device. Finally, the experiment results demonstrate QPFE-ERNIE is significantly better for sentiment classification than gated recurrent unit (GRU), BiLSTM, and TextCNN on five datasets in all metrics and achieves better results than ERNIE in accuracy, F1-score, and precision on",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "classification-analysis-transition-metal-chalcogenides-oxides-quantum-6e04c",
+   "title": "Classification analysis of transition-metal chalcogenides and oxides using quantum machine learning",
+   "titleZh": "过渡金属硫属化物与氧化物的量子机器学习分类分析",
+   "authors": [
+    "Kurudi V Vedavyasa",
+    "Ashok Kumar"
+   ],
+   "venue": "arXiv",
+   "date": "2024-05-29",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2405.18989",
+   "doi": "10.48550/arxiv.2405.18989",
+   "url": "https://arxiv.org/abs/2405.18989",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "用 QML 对过渡金属硫属化物/氧化物材料做分类分析,验证量子机器学习在材料类别识别上相对经典方法的表现;材料化工×QML 交叉。",
+   "abstract": "Quantum machine learning (QML) leverages the potential from machine learning to explore the subtle patterns in huge datasets of complex nature with quantum advantages. This exponentially reduces the time and resources necessary for computations. QML accelerates materials research with active screening of chemical space, identifying novel materials for practical applications and classifying structurally diverse materials given their measured properties. This study analyzes the performance of three efficient quantum machine learning algorithms viz., variational quantum eigen solver (VQE), quantum support vector machine (QSVM) and quantum neural networks (QNN) for the classification of transition metal chalcogenides and oxides (TMCs &TMOs). The analysis is performed on three datasets of different sizes containing 102, 192 and 350 materials with TMCs and TMOs labelled as +1 and -1 respectively. By employing feature selection, classical machine learning achieves 100% accuracy whereas QML achieves the highest performance of 99% and 98% for test and train data respectively on QSVC. This study establishes the competence of QML models in materials classification and explores the quantum circuits in terms of over-fitting using the circuit descriptors expressibility and entangling capability. In addition, the perspectives on QML in materials research with noisy intermediate scale quantum (NISQ) devices is given.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "testing-conjecture-that-quantum-processes-create-conscious-0b3dc",
