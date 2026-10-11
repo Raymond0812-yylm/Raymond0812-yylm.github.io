@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-11",
+ "updated": "2026-10-12",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -2316,6 +2316,41 @@
    "domains": []
   },
   {
+   "id": "quantum-annealing-dynamic-portfolio-optimization-under-realistic-f07a7",
+   "title": "Quantum Annealing for Dynamic Portfolio Optimization under Realistic Transaction Costs",
+   "titleZh": "现实交易成本下动态投资组合的量子退火优化",
+   "authors": [
+    "Escolástico Sánchez-Martínez",
+    "Senaida Hernández Santana",
+    "Ventura Sarasa Laborda",
+    "Pablo Serrano Molinero",
+    "Guillermo Juan",
+    "Alberto del Barrio García"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-03",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.03218",
+   "doi": "10.48550/arxiv.2607.03218",
+   "url": "https://arxiv.org/abs/2607.03218",
+   "topics": [
+    "annealing",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:把交易成本(佣金/冲击成本)纳入动态投资组合重构的 QUBO 模型,对比量子与经典投资策略;\"现实交易成本\"的引入使该工作比多数理想化组合优化论文更贴近实盘。",
+   "abstract": "This paper investigates and compares quantum and classical investment strategies for portfolio construction under realistic trading and allocation constraints. The study considers a multi-period portfolio re-balancing setting in which asset weights are subject to lower and upper bounds, class-level exposure restrictions, and turnover limitations. On the quantum side, the portfolio selection problem is reformulated as a quadratic unconstrained binary optimization (QUBO) model through a finite binary encoding of asset weights, and subsequently embedded into a constrained quadratic model (CQM) solved by a hybrid quantum-classical optimization workflow. On the classical side, benchmark allocation strategies are introduced to provide an economically meaningful reference for performance assessment. The proposed framework jointly evaluates portfolio efficiency from two complementary perspectives: business performance, measured through return, volatility, and a measure of the trade-off between them, the Sharpe ratio; and computational performance, assessed through solver structure, constraint handling, and hardware execution characteristics. The resulting comparison provides a rigorous basis for understanding the practical role of quantum annealing in constrained portfolio optimization, while clarifying both its modeling advantages and its current implementation limitations relative to established classical approaches.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "qaoa-parameter-transfer-quantum-optimization-autonomous-mobility-57c55",
    "title": "QAOA Parameter Transfer for Quantum Optimization in Autonomous Mobility",
    "titleZh": "自动出行中量子优化的QAOA参数迁移",
@@ -2442,6 +2477,36 @@
    ],
    "summaryZh": "面向软件工程优化的量子应用生成:用 LLM 智能体系统把自然语言需求翻译为可执行的量子应用代码并做测试优化,探索\"自然语言→量子软件\"的自动化链路。",
    "abstract": "Quantum computing is increasingly explored for software engineering (SE) optimization, but translating natural-language (NL) task-level requirements into executable quantum applications still demands substantial quantum and programming expertise. We present QPipe, a large language model (LLM)-based multi-agent architecture that autonomously turns NL requirements into traceable quantum-application workflows through specialized agents for requirement parsing, formulation, code generation, review, execution, and verification. We evaluate QPipe on 20 NL requirements, each associated with a real-world benchmark and a test-optimization problem. QPipe successfully completes the key stages of quantum-application generation across requirements, achieving average rates of 100% for code compilation and 96.7% for application execution and final-result combination, with average generation costs of 260.1 seconds and 1.89M tokens per requirement. Among the generated quantum applications that execute successfully, the returned solutions outperform the offline genetic algorithm baseline in most cases. Ablation results further show that QPipe's advantage depends on retaining code-generation skills, task knowledge, review feedback, and multi-agent decomposition. These results indicate that agentic coordination can support generation of executable quantum applications for tackling test optimization problems from real-world benchmarks.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "qdbo-real-time-quantum-augmented-database-system-5d3b3",
+   "title": "QDBO: A Real-Time Quantum-Augmented Database System Optimizer",
+   "titleZh": "QDBO:实时量子增强的数据库系统优化器",
+   "authors": [
+    "Hanwen Liu",
+    "Abhishek Kumar",
+    "Federico M. Spedalieri",
+    "Ibrahim Sabek"
+   ],
+   "venue": "Proceedings of the VLDB Endowment",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.14778/3836663.3836712",
+   "url": "https://doi.org/10.14778/3836663.3836712",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Proceedings of the VLDB Endowment(数据库顶会)2026:把量子退火采样嵌入实时数据库系统的组合优化(查询计划/资源调度),工程化解决低延迟集成难题;证明量子退火可在生产级数据库系统中担任实时优化角色。",
+   "abstract": "Quantum annealers offer a promising sampling-based computing paradigm for large-scale combinatorial optimization. However, directly using them to solve database optimization problems in real-time scenarios remains challenging due to strict hardware constraints and the opacity of commercial hybrid solvers. To address these challenges, we present QDBO , a white-box quantum-augmented database optimizer that directly leverages low-level quantum sampling on a quantum annealer. It first performs an initial reduction to produce embeddable QUBO instances via multiple mapping strategies that trade off efficiency and quality. It then applies an online iterative relaxation correction procedure that uses sampling feedback to correct the reduced QUBO across iterations, enabling controllable quality improvements under varying time budgets. We integrate QDBO with the PostgreSQL query optimizer to construct Q 2 O-QDBO for join order optimization. Evaluations on the Join Order Benchmark (JOB) and the Cardinality Estimation Benchmark (CEB) show that Q 2 O-QDBO improves 62 out of 113 JOB queries, and achieves up to 49.36× execution-time speedup and 36.88× end-to-end speedup on the CEB workload. Evaluations on synthetic queries with up to 50 relations show that Q 2 O-QDBO achieves significantly less end-to-end latency while maintaining similar solution quality compared with black-box quantum solvers. To demonstrate generality, we further integrate QDBO with PostgreSQL for index selection on TPC-",
    "source": "backfill",
    "domains": []
   },
@@ -4672,6 +4737,37 @@
    "domains": []
   },
   {
+   "id": "hybrid-quantum-annealing-price-optimization-under-cross-79445",
+   "title": "Hybrid quantum annealing for price optimization under cross‑elastic demand",
+   "titleZh": "交叉弹性需求下价格优化的混合量子退火方法",
+   "authors": [
+    "Ricardo Pérez-Castillo",
+    "Fernando Lorente"
+   ],
+   "venue": "Computers & Operations Research",
+   "date": "2026-03-25",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1016/j.cor.2026.107472",
+   "url": "https://doi.org/10.1016/j.cor.2026.107472",
+   "topics": [
+    "annealing",
+    "hardware",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Computers & Operations Research 2026:针对竞争市场中考虑交叉弹性需求的定价优化问题,提出混合量子退火方法;定价优化与投资组合优化数学同构,方法可双向迁移。",
+   "abstract": "In highly competitive markets, optimal price setting is a key strategic lever, particularly when item demand is elastic and interrelated. Small changes in the price of one item can significantly influence the demand for others through cross-elasticities, making the search for profit-maximizing price combinations a computationally challenging NP-hard problem. This paper proposes a hybrid quantum–classical approach to address large-scale price optimization under elastic demand with cross-item dependencies. The method combines quantum annealing, executed on D-Wave’s adiabatic quantum computing platform, with classical graph-based clustering to partition the problem into smaller subproblems compatible with current quantum hardware constraints. Each subproblem is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) model that maximizes total profit while enforcing pricing constraints and incorporating cross-elasticity effects. The system was validated on synthetic datasets simulating item catalogs of up to 2,500 items, with varying price ranges, profit margins, and elasticity densities. Results show that the hybrid solver can deliver high-quality solutions in operationally reasonable times, outperforming pure quantum execution and achieving a substantially more favorable scalability–efficiency trade-off than classical approaches such as exhaustive search and simulated annealing. The proposed framework demonstrates the feasibility of applying quantum annealing to real",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "applying-quantum-approximate-optimization-algorithm-oversubscribed-satellite-6dead",
    "title": "Applying Quantum Approximate Optimization Algorithm to the Oversubscribed Satellite Scheduling Problem",
    "titleZh": "将量子近似优化算法应用于超订阅卫星调度问题",
@@ -4822,6 +4918,36 @@
    ]
   },
   {
+   "id": "adaptive-encoding-strategy-quantum-annealing-mixed-variable-1db0c",
+   "title": "Adaptive Encoding Strategy for Quantum Annealing in Mixed-Variable Engineering Optimization",
+   "titleZh": "混合变量工程优化中量子退火的自适应编码策略",
+   "authors": [
+    "Fabian Key",
+    "Lukas Freinberger",
+    "Mayu Muramatsu",
+    "Norbert Hosters"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-18",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.17506",
+   "doi": "10.48550/arxiv.2603.17506",
+   "url": "https://arxiv.org/abs/2603.17506",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:针对离散-连续混合优化问题,提出量子退火的自适应编码策略——动态决定哪些连续变量离散化、如何编码,缓解混合变量问题的编码爆炸;与库内 PCE 少比特编码同属\"编码策略\"前沿。",
+   "abstract": "Mixed discrete-continuous optimization is central to engineering design, where discrete choices interact with continuous fields. These problems are difficult due to high-dimensional, complex search spaces. To tackle them, Quantum Annealing (QA) is promising, yet its native binary nature supports only discrete variables, making accurate and efficient encodings of continuous quantities a central challenge. Existing approaches either split the coupled problem, mapping discrete decisions to QA while solving continuous fields classically, or use fixed-bit-depth encodings. The former compromises QA's global search advantages; the latter can underrepresent dynamic range or inflate the number of binary variables. We show that simply increasing bit depth can even degrade performance on current QA hardware, underscoring the need for alternative encodings. In response, we introduce an adaptive encoding strategy for continuous variables in QA that enables efficient treatment of coupled mixed-variable problems. We propose an update strategy for the representable ranges of the continuous variables and demonstrate its utility by integrating it into the minimum complementary energy formulation for structural design optimization, which provides a single, coupled constrained problem. We apply a quadratic penalty method where we update the representation of the continuous variables while targeting the full original objective, preserving QA's global search capability. On a published benchmark, t",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "limits-quantum-run-time-advantage-d232f",
    "title": "Limits of quantum run-time advantage",
    "titleZh": "量子运行时优势的边界",
@@ -4947,6 +5073,35 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "airfoil-shape-optimization-coherent-ising-machine-26522",
+   "title": "Airfoil shape optimization via coherent Ising machine",
+   "titleZh": "基于相干 Ising 机的翼型外形优化",
+   "authors": [
+    "Hao Ni",
+    "Qi Gao",
+    "Zhen Lu",
+    "Yue Yang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-11",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.10518",
+   "doi": "10.48550/arXiv.2603.10518",
+   "url": "https://arxiv.org/abs/2603.10518",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:把翼型气动外形优化(经典求解器在效率上吃紧的连续-离散混合设计问题)映射到相干 Ising 机求解,是 CIM 从组合优化走向工程设计优化的应用拓展。",
+   "abstract": "Airfoil shape optimization presents a challenge where classical solvers frequently struggle with computational efficiency and local minima. In the promising paradigm of quantum computing, the coherent Ising machine (CIM), a specialized physical solver, offers acceleration capabilities. However, its native discrete binary architecture restricts the application in aerodynamic design. To bridge this gap, we propose a comprehensive framework that translates airfoil shape optimization into hardware-compliant quadratic unconstrained binary optimization formulations. We integrate high-order response surface models via the Rosenberg order reduction, enabling the CIM to capture strong nonlinearities in the aerodynamic performance response. Furthermore, we introduce a block-diagonal scalarization strategy that compose trade-off scenarios into a single optimization. Validated on the NACA 4-digit airfoil series using CIM hardware with 615 spins, the framework successfully locates the global optimum with a computational speedup of three orders of magnitude compared to the classical simulated annealing. The parallel embedding capacity allows for the extraction of an entire optimal Pareto front in a single hardware execution. This work demonstrates a viable, quantum-enhanced paradigm for engineering optimization.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "benchmarking-variational-quantum-algorithms-combinatorial-optimization-practice-be631",
@@ -12381,6 +12536,38 @@
    ]
   },
   {
+   "id": "novel-solver-qubo-problems-performance-analysis-comparative-06bc4",
+   "title": "A Novel Solver for QUBO Problems: Performance Analysis and Comparative Study with State-of-the-Art Algorithms",
+   "titleZh": "一种新型 QUBO 求解器:性能分析与与最先进求解器的对比研究",
+   "authors": [
+    "Jiecheng Yang",
+    "Ding Wang",
+    "Xiang Zhao",
+    "H.R. Zhang",
+    "Ming Gao",
+    "Lin Wei Yang"
+   ],
+   "venue": "arXiv",
+   "date": "2025-06-05",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2506.04596",
+   "doi": "10.48550/arxiv.2506.04596",
+   "url": "https://arxiv.org/abs/2506.04596",
+   "topics": [
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:提出新的 QUBO 求解器并与最先进求解器(SA/模拟分叉/Gurobi 等)做系统性能对比,给出各求解器的优势区间;与库内求解器对决系列互为补充。",
+   "abstract": "Quadratic Unconstrained Binary Optimization (QUBO) provides a versatile framework for representing NP-hard combinatorial problems, yet existing solvers often face trade-offs among speed, accuracy, and scalability. In this work, we introduce a quantum-inspired solver (QIS) that unites branch-and-bound pruning, continuous gradient-descent refinement, and quantum-inspired heuristics within a fully adaptive control architecture. We benchmark QIS3 against eight state-of-the-art solvers, including genetic algorithms, coherent Ising machines, simulated bifurcation, parallel tempering, simulated annealing, our prior QIS2 version, D-Wave's simulated-annealing (Neal), and Gurobi on three canonical QUBO problem classes: Max-Cut, NAE-3SAT, and Sherrington-Kirkpatrick spin glass problems. Under a uniform runtime budget, QIS3 attains the best solution on nearly all instances, achieving optimality in 94% of max-cut instances. These results establish QIS3 as a robust, high-performance solver that bridges classical exact strategies and quantum-inspired heuristics for scalable QUBO optimization.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-inspired-hyperheuristic-framework-solving-dynamic-multi-bf383",
    "title": "Quantum-Inspired Hyperheuristic Framework for Solving Dynamic Multi-Objective Combinatorial Problems in Disaster Logistics",
    "titleZh": "求解灾害物流动态多目标组合问题的量子启发超启发式框架",
@@ -15981,6 +16168,33 @@
    ]
   },
   {
+   "id": "quantum-inspired-computing-high-speed-financial-risk-fe1ba",
+   "title": "Quantum-Inspired Computing for High-Speed Financial Risk Modeling",
+   "titleZh": "量子启发计算用于高速金融风险建模",
+   "authors": [],
+   "venue": "预印本",
+   "date": "2025-02-01",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.65969/cma_3401-019.73",
+   "url": "https://doi.org/10.65969/cma_3401-019.73",
+   "topics": [
+    "annealing",
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025:讨论量子启发计算(QIC)在高速金融风险建模中相对传统 HPC 与 AI 系统的吞吐优势,给出波动市场情景下的对比实验;量子启发路线在金融风控的时效性主张。",
+   "abstract": "The article discusses the significant impact of Quantum-Inspired Computing (QIC) on financial risk modeling, surpassing traditional High-Performance Computing (HPC) and AI systems. In volatile financial markets, conventional methods often fail to provide required speed and precision. QIC utilizes enhanced classical architectures with quantum-inspired techniques like quantum annealing and hybrid algorithms, improving computational efficiency. QIC’s notable applications include Monte Carlo simulations for risk metrics like Value at Risk (VaR), where techniques such as Quantum Amplitude Estimation (QAE) and Quantum Monte Carlo (QMC) offer speed advantages. The article concludes that portfolio optimization is also enhanced through advanced techniques, leading to more advance strategies improving credit risk assessment and derivative pricing, utilizing Quantum Signal Processing (QSP) to streamline complexity. With major firms like IBM and Google Cloud adopting QIC in financial models, the technology demonstrates its practical applicability.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
+  },
+  {
    "id": "investigating-mitigating-barren-plateaus-variational-quantum-circuits-8b940",
    "title": "Investigating and mitigating barren plateaus in variational quantum circuits: a survey",
    "titleZh": "变分量子线路中贫瘠高原的研究与缓解:综述",
@@ -17475,6 +17689,39 @@
    "abstract": "This study presents a comprehensive survey on Quantum Machine Learning (QML) along with its current status, challenges, and perspectives. QML combines quantum computing and machine learning to solve complex problems in different domains, leveraging quantum algorithms to enhance classical machine learning techniques. We explore the application of QML in various domains such as cybersecurity, finance, healthcare, and drug discovery. The survey includes detailed tabular comparisons of the different QML models used for each application area, highlighting key techniques, findings, and their limitations. In this work, we identify important trends such as the strong potential of hybrid quantum-classical models for near-term applications and the significant challenges in the quantum domain due to quantum noise, limited qubit scalability, and costly qRAM implementations. Furthermore, we discuss solutions that emphasize advances in hardware, quantum error correction, and algorithmic innovations to address these challenges. By providing an in-depth analysis of QML’s potential across different fields, this study provides valuable insights into how QML can address complex real-world challenges and transform traditional machine learning practices.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "computer-aided-quantum-algorithms-real-time-energy-b6a19",
+   "title": "Computer-Aided Quantum Algorithms for Real-Time Energy Market Trading",
+   "titleZh": "面向实时能源市场交易的计算机辅助量子算法",
+   "authors": [
+    "Jinghui Wu",
+    "Wenjun Zhu",
+    "Yun Xu",
+    "Kangan Shu",
+    "Wei Yang"
+   ],
+   "venue": "IEEE Access",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1109/access.2025.3553369",
+   "url": "https://doi.org/10.1109/access.2025.3553369",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Access 2025:把 proxy 建模+量子算法组合用于实时能源市场交易策略优化,追求交易决策的实时性;能源市场交易是\"金融×能源\"交叉场景,量子算法的毫秒级响应优势有发挥空间。",
+   "abstract": "This study presents an innovative approach for optimizing real-time energy market trading strategies by integrating Proximal Policy Optimization (PPO) with Quantum Annealing (QA). The primary objective is to enhance trading performance by leveraging the adaptive capabilities of PPO alongside the optimization power of QA. The methodology involves using PPO to develop a dynamic trading strategy that adapts to real-time market conditions. PPO’s reinforcement learning framework is employed to manage state representations, action spaces, and reward functions, thereby continuously refining the trading policy. The optimization of trading parameters is achieved through Quantum Annealing, which solves Quadratic Unconstrained Binary Optimization (QUBO) problems derived from the trading strategy formulation. Key findings from the study demonstrate significant improvements in trading outcomes. The integration of QA with PPO led to a 25% increase in total return, a 15% enhancement in Sharpe ratio, a 10% reduction in maximum drawdown, and a 20% decrease in transaction costs. These results highlight the effectiveness of combining quantum optimization techniques with reinforcement learning for superior trading strategy development. The significance of this study lies in its contribution to advancing real-time trading strategy optimization through the synergistic use of machine learning and quantum computing. This approach offers potential applications across various financial sectors and dom",
+   "source": "backfill",
+   "domains": [
+    "finance",
+    "energy"
+   ]
   },
   {
    "id": "role-quantum-computing-solving-optimization-problems-artificial-c49a4",

@@ -55211,5 +55211,272 @@
   "doi": "10.3724/2096-7004.di.2025.0056",
   "citations": 0,
   "theme": "quantum embedding learning text"
+ },
+ {
+  "fid": "e69c0a4f6408",
+  "title": "Adaptive Encoding Strategy for Quantum Annealing in Mixed-Variable Engineering Optimization",
+  "authors": [
+   "Fabian Key",
+   "Lukas Freinberger",
+   "Mayu Muramatsu",
+   "Norbert Hosters"
+  ],
+  "abstract": "Mixed discrete-continuous optimization is central to engineering design, where discrete choices interact with continuous fields. These problems are difficult due to high-dimensional, complex search spaces. To tackle them, Quantum Annealing (QA) is promising, yet its native binary nature supports only discrete variables, making accurate and efficient encodings of continuous quantities a central challenge. Existing approaches either split the coupled problem, mapping discrete decisions to QA while solving continuous fields classically, or use fixed-bit-depth encodings. The former compromises QA's global search advantages; the latter can underrepresent dynamic range or inflate the number of binary variables. We show that simply increasing bit depth can even degrade performance on current QA hardware, underscoring the need for alternative encodings. In response, we introduce an adaptive encoding strategy for continuous variables in QA that enables efficient treatment of coupled mixed-variable problems. We propose an update strategy for the representable ranges of the continuous variables and demonstrate its utility by integrating it into the minimum complementary energy formulation for structural design optimization, which provides a single, coupled constrained problem. We apply a quadratic penalty method where we update the representation of the continuous variables while targeting the full original objective, preserving QA's global search capability. On a published benchmark, the size optimization of a composite rod, our adaptive encoding improves solution quality under a fixed binary variable budget, demonstrating a superior precision-resource trade-off. Since the framework generalizes beyond structural design, it offers practical guidance for encoding continuous variables for QA and indicates that adaptive representations can enhance precision on current hardware.",
+  "date": "2026-03-18",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.17506",
+  "doi": "10.48550/arxiv.2603.17506",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "5dedb71a30a5",
+  "title": "Er:LiNbO 3 Quantum Memory Platform Optimized with Dynamic Defect Annealing",
+  "authors": [
+   "Tetiana Slusar",
+   "Alexander Yu. Azarov",
+   "Augustinas Galeckas",
+   "Anders Hallén",
+   "Jung Jin Ju",
+   "Kiwon Moon",
+   "Andrej Yu Kuznetsov"
+  ],
+  "abstract": "Abstract Lithium niobate (LiNbO 3 ) exhibits poor radiation resistance when conventionally implanted with Er at room temperature. To repair the structural disorder, high‐temperature post‐implantation anneals are typically required; however, such treatments can cause sample cracking and dopant redistribution, which are incompatible with device applications. The optimized approach is proposed by performing implants at elevated but acceptably low temperatures to in situ minimize the structural defects generated in the collision cascades, via so‐called “dynamic defect annealing”. Thus, a gradual increase in Er optical activity is shown as a function of irradiation temperature in the range of 25–450 °C, in striking correlation with a decreasing trend for the residual disorder. The impact of moderate post‐implantation anneals is also investigated by comparing the results of anneals of samples implanted at 25 °C and 450 °C. This comparison further confirms the higher optical activation of Er and lower residual structural disorder when the material is initially implanted at elevated temperatures. Based on these data, it is concluded that the use of dynamic defect annealing during the Er implantation of LiNbO 3 is a promising strategy for optimizing it as a quantum memory platform, resolving otherwise inevitable trade‐offs.",
+  "date": "2024-08-28",
+  "venue": "Advanced Optical Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adom.202401374",
+  "citations": 5,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "c413d490f12a",
+  "title": "Quantum Annealing for Dynamic Portfolio Optimization under Realistic Transaction Costs",
+  "authors": [
+   "Escolástico Sánchez-Martínez",
+   "Senaida Hernández Santana",
+   "Ventura Sarasa Laborda",
+   "Pablo Serrano Molinero",
+   "Guillermo Juan",
+   "Alberto del Barrio García"
+  ],
+  "abstract": "This paper investigates and compares quantum and classical investment strategies for portfolio construction under realistic trading and allocation constraints. The study considers a multi-period portfolio re-balancing setting in which asset weights are subject to lower and upper bounds, class-level exposure restrictions, and turnover limitations. On the quantum side, the portfolio selection problem is reformulated as a quadratic unconstrained binary optimization (QUBO) model through a finite binary encoding of asset weights, and subsequently embedded into a constrained quadratic model (CQM) solved by a hybrid quantum-classical optimization workflow. On the classical side, benchmark allocation strategies are introduced to provide an economically meaningful reference for performance assessment. The proposed framework jointly evaluates portfolio efficiency from two complementary perspectives: business performance, measured through return, volatility, and a measure of the trade-off between them, the Sharpe ratio; and computational performance, assessed through solver structure, constraint handling, and hardware execution characteristics. The resulting comparison provides a rigorous basis for understanding the practical role of quantum annealing in constrained portfolio optimization, while clarifying both its modeling advantages and its current implementation limitations relative to established classical approaches.",
+  "date": "2026-07-03",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.03218",
+  "doi": "10.48550/arxiv.2607.03218",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "73a499930039",
+  "title": "Hybrid quantum annealing for price optimization under cross‑elastic demand",
+  "authors": [
+   "Ricardo Pérez-Castillo",
+   "Fernando Lorente"
+  ],
+  "abstract": "In highly competitive markets, optimal price setting is a key strategic lever, particularly when item demand is elastic and interrelated. Small changes in the price of one item can significantly influence the demand for others through cross-elasticities, making the search for profit-maximizing price combinations a computationally challenging NP-hard problem. This paper proposes a hybrid quantum–classical approach to address large-scale price optimization under elastic demand with cross-item dependencies. The method combines quantum annealing, executed on D-Wave’s adiabatic quantum computing platform, with classical graph-based clustering to partition the problem into smaller subproblems compatible with current quantum hardware constraints. Each subproblem is formulated as a Quadratic Unconstrained Binary Optimization (QUBO) model that maximizes total profit while enforcing pricing constraints and incorporating cross-elasticity effects. The system was validated on synthetic datasets simulating item catalogs of up to 2,500 items, with varying price ranges, profit margins, and elasticity densities. Results show that the hybrid solver can deliver high-quality solutions in operationally reasonable times, outperforming pure quantum execution and achieving a substantially more favorable scalability–efficiency trade-off than classical approaches such as exhaustive search and simulated annealing. The proposed framework demonstrates the feasibility of applying quantum annealing to real-world decision-support problems in the near term, even under the technological limitations of current quantum devices. This work anticipates future enhancements in quantum hardware and provides a foundation for integrating quantum optimization into dynamic pricing strategies, allowing organizations to periodically and adaptively recalculate prices as demand patterns and market conditions evolve in commerce and e-commerce environments.",
+  "date": "2026-03-25",
+  "venue": "Computers & Operations Research",
+  "arxiv_id": "",
+  "doi": "10.1016/j.cor.2026.107472",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "ed3349c7f1f3",
+  "title": "Computer-Aided Quantum Algorithms for Real-Time Energy Market Trading",
+  "authors": [
+   "Jinghui Wu",
+   "Wenjun Zhu",
+   "Yun Xu",
+   "Kangan Shu",
+   "Wei Yang"
+  ],
+  "abstract": "This study presents an innovative approach for optimizing real-time energy market trading strategies by integrating Proximal Policy Optimization (PPO) with Quantum Annealing (QA). The primary objective is to enhance trading performance by leveraging the adaptive capabilities of PPO alongside the optimization power of QA. The methodology involves using PPO to develop a dynamic trading strategy that adapts to real-time market conditions. PPO’s reinforcement learning framework is employed to manage state representations, action spaces, and reward functions, thereby continuously refining the trading policy. The optimization of trading parameters is achieved through Quantum Annealing, which solves Quadratic Unconstrained Binary Optimization (QUBO) problems derived from the trading strategy formulation. Key findings from the study demonstrate significant improvements in trading outcomes. The integration of QA with PPO led to a 25% increase in total return, a 15% enhancement in Sharpe ratio, a 10% reduction in maximum drawdown, and a 20% decrease in transaction costs. These results highlight the effectiveness of combining quantum optimization techniques with reinforcement learning for superior trading strategy development. The significance of this study lies in its contribution to advancing real-time trading strategy optimization through the synergistic use of machine learning and quantum computing. This approach offers potential applications across various financial sectors and domains requiring sophisticated real-time decision-making and optimization. Future research is suggested to further explore the scalability and practical implementation of this integrated methodology in more complex and larger-scale optimization problems.",
+  "date": "2025-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2025.3553369",
+  "citations": 2,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "f52c28d162cd",
+  "title": "QDBO: A Real-Time Quantum-Augmented Database System Optimizer",
+  "authors": [
+   "Hanwen Liu",
+   "Abhishek Kumar",
+   "Federico M. Spedalieri",
+   "Ibrahim Sabek"
+  ],
+  "abstract": "Quantum annealers offer a promising sampling-based computing paradigm for large-scale combinatorial optimization. However, directly using them to solve database optimization problems in real-time scenarios remains challenging due to strict hardware constraints and the opacity of commercial hybrid solvers. To address these challenges, we present QDBO , a white-box quantum-augmented database optimizer that directly leverages low-level quantum sampling on a quantum annealer. It first performs an initial reduction to produce embeddable QUBO instances via multiple mapping strategies that trade off efficiency and quality. It then applies an online iterative relaxation correction procedure that uses sampling feedback to correct the reduced QUBO across iterations, enabling controllable quality improvements under varying time budgets. We integrate QDBO with the PostgreSQL query optimizer to construct Q 2 O-QDBO for join order optimization. Evaluations on the Join Order Benchmark (JOB) and the Cardinality Estimation Benchmark (CEB) show that Q 2 O-QDBO improves 62 out of 113 JOB queries, and achieves up to 49.36× execution-time speedup and 36.88× end-to-end speedup on the CEB workload. Evaluations on synthetic queries with up to 50 relations show that Q 2 O-QDBO achieves significantly less end-to-end latency while maintaining similar solution quality compared with black-box quantum solvers. To demonstrate generality, we further integrate QDBO with PostgreSQL for index selection on TPC-H, where QDBO achieves up to 2.64× workload speedup over the empty-index baseline and outperforms classical and black-box solver baselines. These results demonstrate that using QDBO to solve large-scale database optimization problems in real-time settings is promising.",
+  "date": "2026-07-01",
+  "venue": "Proceedings of the VLDB Endowment",
+  "arxiv_id": "",
+  "doi": "10.14778/3836663.3836712",
+  "citations": 2,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "d59d56c06cdb",
+  "title": "Optimization of the Hadoop ecosystem b ased on the dynamic trade-off model and SDAPC framework: cross-layer storage and computation synergy and trustworthy scheduling strategies",
+  "authors": [
+   "Ming Long",
+   "Hu Jianlong",
+   "Zhang Xinyi",
+   "Wang Yuxiang"
+  ],
+  "abstract": "To address the core bottlenecks of high latency and low utilization in Hadoop ecosystem resource scheduling for the Zettabyte (ZB) era, this study proposes a cross-layer collaborative optimization method driven by a dynamic trade-off model. A SDAPC collaborative optimization framework integrating quantum and classical algorithms is constructed. This framework first enhances data locality through storage-computation preprocessing to reduce problem complexity; its core innovation lies in mapping the YARN task allocation problem to an Ising model Hamiltonian minimization problem. Global optimization is achieved via D-Wave quantum annealing, while millisecond-level fine-grained adjustments are enabled by a graph attention network-driven deep reinforcement learning strategy. In TPC-DS benchmarks on a 256-node heterogeneous cluster, the method achieves ultra-low scheduling latency of 12.0 ± <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> 2.0ms and resource utilization of 87.3% ± <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> 3.2%—reducing latency by 79.3% compared to conventional approaches, with GPU utilization fluctuation ( σ <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> <?fx-imagestate width=\"1.60866666\" height=\"2.11666679\"?> ) decreasing from 35% to 5%.",
+  "date": "2026-01-01",
+  "venue": "DOAJ (DOAJ: Directory of Open Access Journals)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "3758a53c0859",
+  "title": "Airfoil shape optimization via coherent Ising machine",
+  "authors": [
+   "Hao Ni",
+   "Qi Gao",
+   "Zhen Lu",
+   "Yue Yang"
+  ],
+  "abstract": "Airfoil shape optimization presents a challenge where classical solvers frequently struggle with computational efficiency and local minima. In the promising paradigm of quantum computing, the coherent Ising machine (CIM), a specialized physical solver, offers acceleration capabilities. However, its native discrete binary architecture restricts the application in aerodynamic design. To bridge this gap, we propose a comprehensive framework that translates airfoil shape optimization into hardware-compliant quadratic unconstrained binary optimization formulations. We integrate high-order response surface models via the Rosenberg order reduction, enabling the CIM to capture strong nonlinearities in the aerodynamic performance response. Furthermore, we introduce a block-diagonal scalarization strategy that compose trade-off scenarios into a single optimization. Validated on the NACA 4-digit airfoil series using CIM hardware with 615 spins, the framework successfully locates the global optimum with a computational speedup of three orders of magnitude compared to the classical simulated annealing. The parallel embedding capacity allows for the extraction of an entire optimal Pareto front in a single hardware execution. This work demonstrates a viable, quantum-enhanced paradigm for engineering optimization.",
+  "date": "2026-03-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.10518",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "04bb4664ca3c",
+  "title": "A Novel Solver for QUBO Problems: Performance Analysis and Comparative Study with State-of-the-Art Algorithms",
+  "authors": [
+   "Jiecheng Yang",
+   "Ding Wang",
+   "Xiang Zhao",
+   "H.R. Zhang",
+   "Ming Gao",
+   "Lin Wei Yang"
+  ],
+  "abstract": "Quadratic Unconstrained Binary Optimization (QUBO) provides a versatile framework for representing NP-hard combinatorial problems, yet existing solvers often face trade-offs among speed, accuracy, and scalability. In this work, we introduce a quantum-inspired solver (QIS) that unites branch-and-bound pruning, continuous gradient-descent refinement, and quantum-inspired heuristics within a fully adaptive control architecture. We benchmark QIS3 against eight state-of-the-art solvers, including genetic algorithms, coherent Ising machines, simulated bifurcation, parallel tempering, simulated annealing, our prior QIS2 version, D-Wave's simulated-annealing (Neal), and Gurobi on three canonical QUBO problem classes: Max-Cut, NAE-3SAT, and Sherrington-Kirkpatrick spin glass problems. Under a uniform runtime budget, QIS3 attains the best solution on nearly all instances, achieving optimality in 94% of max-cut instances. These results establish QIS3 as a robust, high-performance solver that bridges classical exact strategies and quantum-inspired heuristics for scalable QUBO optimization.",
+  "date": "2025-06-05",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.04596",
+  "doi": "10.48550/arxiv.2506.04596",
+  "citations": 0,
+  "theme": "quantum annealing trading strategy optim"
+ },
+ {
+  "fid": "a3723e341cb0",
+  "title": "The Role of Artificial Intelligence in Strategic Business Decision Making",
+  "authors": [
+   "Praateek Arora",
+   "Joydeep Das"
+  ],
+  "abstract": "Artificial Intelligence (AI) is transforming investment decision-making in financial institutions by leveraging machinelearning, natural language processing, and predictive analytics. These technologies enable rapid processing of vastdatasets, accurate market forecasting, and tailored investment strategies, leading to enhanced returns and operationalefficiencies. AI-driven tools analyze market data, sentiment, and alternative sources to uncover insights, optimizeportfolios, and improve risk management, offering a competitive edge in volatile markets. However, challenges such asalgorithmic biases, which can perpetuate unfair outcomes, cybersecurity vulnerabilities that threaten sensitive data,and regulatory complexities due to opaque AI models require robust oversight. This paper explores AI’s opportunities,including cost reduction and personalized services, alongside risks like over-reliance on automation and ethicalconcerns. Through case studies on hedge funds, robo-advisors, and high-frequency trading, we assess AI’s impact,emphasizing the need for human-AI collaboration to ensure ethical decision-making. We also examine future trends,such as sustainable investing and quantum computing, which promise to further reshape finance. Data analysishighlights AI’s potential and pitfalls, providing recommendations for responsible adoption, including transparency,staff training, and regulatory engagement, to balance innovation with accountability.",
+  "date": "2025-05-06",
+  "venue": "Journal of Scientific Research and Technology",
+  "arxiv_id": "",
+  "doi": "10.61808/jsrt203",
+  "citations": 2,
+  "theme": "hedging quantum computing finance"
+ },
+ {
+  "fid": "0b28d7b9f37e",
+  "title": "Stress Testing Financial Systems– Simulating economic disruption using AI-driven risk models",
+  "authors": [
+   "Shubham Metha",
+   "Manoj Varma Lakhamraju",
+   "Nikhil Sagar Miriyala",
+   "Kiran Babu Macha"
+  ],
+  "abstract": "The increasing interconnectedness and complexity of global financial markets have increased the stakes for advanced risk assessment methods. Traditional financial stress testing based on static rule-based models, historic datasets, and past crisis data which is poorly suited to address the nonlinear relationships and rapidly evolving risk factors characteristic of modern economies. This paper explores the use of Artificial Intelligence (AI) in financial stress testing with machine learning (ML), deep reinforcement learning (DRL), and generative AI to simulate systemic economic shocks and predict financial instability better. It also considers social media activities, geopolitical situations, climate change, pandemics, global financial markets, emerging technologies. This study provides a mechanized AI-based implementation plan for financial stress testing, data engineering pipeline profiling, model selection methodologies (LSTMs, GANs, and XGBoost), and real-time risk monitoring approaches. Financial institution case studies such as the Federal Reserve, Bank of England, and hedge funds such as BlackRock show how AI enhances prediction accuracy, reduces risk assessment cycles, and provides real-time financial crisis management approaches. In addition, this paper also opens up the prospects of Quantum AI, DeFi risk modeling, and digital twins powered by AI to revolutionize systemic risk analysis and crisis forecasting in finance. Our findings show that AI-powered financial stress tests are capable of significantly enhancing risk resilience, early warning, and global financial stability. Studies on XAI methods, audit architectures under regulatory directives, and the combination of quantum computing with AI-powered financial modeling for enhancing financial sector risk assessment even further is a direction that should be explored in future research.",
+  "date": "2025-05-13",
+  "venue": "International Journal of Computational and Experimental Science and Engineering",
+  "arxiv_id": "",
+  "doi": "10.22399/ijcesen.2132",
+  "citations": 1,
+  "theme": "hedging quantum computing finance"
+ },
+ {
+  "fid": "d1c82bf66f18",
+  "title": "Can Financial Markets Anticipate Geopolitical Risk in China? Evidence from Artificial Intelligence-Based Forecasting Models",
+  "authors": [
+   "Fangjian Zhou",
+   "Qihan Yin",
+   "Hao Zhou",
+   "Yunxin Huang",
+   "Lechen Jiang",
+   "Jiajia He"
+  ],
+  "abstract": "This study investigates whether China’s financial markets contain forward-looking information that can be used to predict geopolitical risks. It addresses a gap in the existing literature, which predominantly treats geopolitical risk as an exogenous shock affecting financial markets, by examining whether financial market movements can instead provide anticipatory signals of future geopolitical developments. Using high-frequency variables from China’s equity, bond, money, and foreign exchange markets, four quantum-enhanced Support Vector Regression models—QPSO-SVR, QACO-SVR, QFOA-SVR, and QABC-SVR—are developed to predict the Geopolitical Risk Index (GPR), Geopolitical Acts Index (GPA), and Geopolitical Threats Index (GPT). The empirical results reveal significant time-varying volatility across all three geopolitical risk measures and identify a distinct transmission sequence among them. More importantly, financial market indicators demonstrate significant predictive power for geopolitical risk, suggesting that asset prices incorporate information that precedes geopolitical events. Among the competing forecasting models, QPSO-SVR provides the strongest predictive performance for aggregate geopolitical risk, while QACO-SVR performs particularly well in forecasting realized geopolitical acts and geopolitical threats. The results further demonstrate that quantum swarm-intelligence optimization can substantially improve the efficiency and accuracy of SVR hyperparameter selection, thereby reducing forecasting errors. Overall, the findings challenge the conventional view of geopolitical risk as purely exogenous and demonstrate that financial markets can serve as valuable sources of forward-looking geopolitical information. The study also highlights the potential of quantum-enhanced machine-learning techniques for extracting complex and economically meaningful geopolitical signals from high-frequency financial market data.",
+  "date": "2026-09-30",
+  "venue": "The Singapore Economic Review",
+  "arxiv_id": "",
+  "doi": "10.1142/s021759082640014x",
+  "citations": 0,
+  "theme": "quantum optimization foreign exchange"
+ },
+ {
+  "fid": "f18b877cbd86",
+  "title": "INFLUENCE OF TECHNOLOGICAL INNOVATIONS ON ESG INVESTING: TRENDS AND FUTURE DIRECTIONS",
+  "authors": [
+   "Nguyen Huu Phu"
+  ],
+  "abstract": "This paper looks at how technological advancements in big data, blockchain, artificial intelligence (AI), the Internet of Things (IoT), and fintech are changing sustainable finance, especially in ESG invesment. Thanks to these technological advancements, ESG data is now more accessible, transparent, and accurate, allowing investors to make better-informed decisions that support sustainable development objectives. Even if new technologies like 5G networks and quantum computing have a lot of promise, their quick adoption comes with drawbacks, such as problems with data quality, complicated AI models, and the possibility of technology-driven greenwashing. The paper makes the case that standardizing reporting, fostering cross-industry collaboration, and striking a balance between technology advancements and social responsibilities are essential to the future of ESG investment.",
+  "date": "2024-10-10",
+  "venue": "ZBORNIK MES",
+  "arxiv_id": "",
+  "doi": "10.7251/blczr0723203h",
+  "citations": 0,
+  "theme": "quantum computing ESG investing"
+ },
+ {
+  "fid": "6ddf8eb51bf3",
+  "title": "A Value-Based Reawakening to Help Bridge the ESG Divide: Implications for Managers, Investors, and Policymakers",
+  "authors": [
+   "James L. Grant"
+  ],
+  "abstract": "Rather than abandon environmental, social, and governance (ESG) initiatives for political reasons, or assign the term to the dustbin of history or a cauldron of “rational sustainability,” the author recommends a return to traditional foundations on value-based analysis to help bridge the current ESG divide. In this context, the author uses economic value added (EVA) to illustrate how to capitalize expenditures on environmental, social, and governance initiatives, and he explains the pivotal role of value-based accounting that reimagines the concept of disclosed EVA for managers and investors. As with traditional expenditures on research and development and brand development, E, S, and G costs should be treated as capital “investments” with expected cash flow benefits or cost savings, as opposed to viewing ESG expenditures as ordinary or wasteful accounting expenses. To create financial value, the author reminds that all investments—whether traditional, ESG, or novel, such as artificial intelligence and quantum computing—must earn the associated cost of capital. Managers, investors, and policymakers are encouraged to monitor and evaluate ESG reporting and sustainability standards for potential capitalizations that are required or evolving under US and international accounting standards. Moreover, the author recommends that the named constituencies work toward closing the ESG divide by recognizing that corner solutions with all-or-nothing approaches to ESG are untenable because the optimal amount of environmental, social, and governance investing in the economy is neither zero nor unbounded. This value-based conclusion draws on the long-standing principles of economic profit (EVA) and net present value.",
+  "date": "2026-07-25",
+  "venue": "The Journal of Impact and ESG Investing",
+  "arxiv_id": "",
+  "doi": "10.3905/jesg.2026.008",
+  "citations": 0,
+  "theme": "quantum computing ESG investing"
+ },
+ {
+  "fid": "c62e73d38774",
+  "title": "INVESTMENT STRATEGIES IN THE FIELD OF IT: RISK ANALYSIS AND DEVELOPMENT PROSPECTS",
+  "authors": [
+   "Webflex",
+   "Ioanno Vladyslav",
+   "Kateryna Romanenko",
+   "Надія Васильєва"
+  ],
+  "abstract": "This article focuses on investigating investment strategies within information technology, specifically, analyzing the risks linked to investing in this sector and researching its development outlook. The study examines current approaches to IT investment, pinpoints the primary obstacles investors encounter, and indicates potential investment areas considering worldwide technological trends. Emphasis is given to the analysis of the IT sector as a very dynamic portion of the global economy, calling for flexible, adaptable, and knowledgeable investment choices. The article seeks not only to identify the success elements in investing in IT, but also to furnish practical suggestions for effective investment risk management. The author unveils the theoretical bases of investing in the IT sector, specifically, the categorization of strategies and the specifics of the IT industry as an investment object. The concept and essence of investment in the IT sphere are defined; characteristics of the IT industry as an investment object are determined. The core risks faced by investors in the IT sector are outlined and the methods of their assessment and reduction are characterized. Worldwide trends in IT investment are identified. Contemporary methodologies for investment and risk examination, and methods to address them, are assessed. Suggestions on selecting investment strategies that enable effective risk management and realize consistent profits within the IT sphere are provided. To improve the risks of investing in the IT sector, the author suggests techniques that aid in lessening the effects of negative influences and boosting the prospect of a reliable profit. Additional research ought to concentrate on quantitative analysis of the efficiency of different investment approaches within the IT industry, specifically, considering geographical, technological, and regulatory elements. It is also beneficial to investigate the effect of global technological trends, like artificial intelligence, blockchain, Web3, and quantum computing, on creating new investment models. Specific focus should be given to evaluating the role of ESG factors (environmental, social, and governance) when making investment choices in the IT sector, which is growing more crucial in terms of sustainable development.",
+  "date": "2025-01-01",
+  "venue": "Black Sea Economic Studies",
+  "arxiv_id": "",
+  "doi": "10.32782/bses.92-1",
+  "citations": 0,
+  "theme": "quantum computing ESG investing"
+ },
+ {
+  "fid": "b73af5d90fbd",
+  "title": "Quantum-Inspired Computing for High-Speed Financial Risk Modeling",
+  "authors": [],
+  "abstract": "The article discusses the significant impact of Quantum-Inspired Computing (QIC) on financial risk modeling, surpassing traditional High-Performance Computing (HPC) and AI systems. In volatile financial markets, conventional methods often fail to provide required speed and precision. QIC utilizes enhanced classical architectures with quantum-inspired techniques like quantum annealing and hybrid algorithms, improving computational efficiency. QIC’s notable applications include Monte Carlo simulations for risk metrics like Value at Risk (VaR), where techniques such as Quantum Amplitude Estimation (QAE) and Quantum Monte Carlo (QMC) offer speed advantages. The article concludes that portfolio optimization is also enhanced through advanced techniques, leading to more advance strategies improving credit risk assessment and derivative pricing, utilizing Quantum Signal Processing (QSP) to streamline complexity. With major firms like IBM and Google Cloud adopting QIC in financial models, the technology demonstrates its practical applicability.",
+  "date": "2025-02-01",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.65969/cma_3401-019.73",
+  "citations": 0,
+  "theme": "credit portfolio quantum annealing"
  }
 ]
