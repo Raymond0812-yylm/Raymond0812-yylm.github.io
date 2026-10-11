@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 11 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-12] 稀疏约束保持量子退火中的能隙敏感性与瓶颈迁移</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-12/</link>
+      <guid isPermaLink="false">daily:2026-10-12</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>带硬约束的组合优化（固定基数投资组合、k-hot 选择类问题）在量子退火与 QAOA 中的标准做法，是用约束保持混合算子（constraint-preserving mixer）替换普通的横场：对固定 Hamming 权重的可行域，两体交换相互作用（XY 型混合算子）在移动激发的同时保持总数不变，从而把搜索严格限制在可行扇区内，免去罚项调参。但一个长期被忽视的自由度是：保持同一个可行扇区的交换耦合图不止一张。环形、完全图等 XY mixer 是现成参考构造，而真实硬件的稀疏原生耦合结构又迫使&quot;交换条数&quot;本身成为…</description>
+    </item>
     <item>
       <title>[日报 2026-10-11] 借助分布式量子采样将量子优化扩展至千比特规模</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-11/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-07</guid>
       <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
       <description>蒙特卡洛（MC）方法是金融工程（衍生品定价、风险价值 VaR、预期损失估计）与大规模数值积分的主力算法，其均方误差以 O(N^{-1/2}) 的速率收敛——想要精度提高一个数量级，样本量要增加两个数量级。量子振幅估计（QAE）在理论上可将收敛速率提升到 O(N^{-1})，即所谓&quot;二次量子加速&quot;，这也是量子计算金融叙事的支柱之一。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-06] 无环图上对称约简 QAOA 表达能力的高效估计</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-06/</link>
-      <guid isPermaLink="false">daily:2026-09-06</guid>
-      <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
-      <description>量子近似优化算法（QAOA）被视为在近期量子硬件上求解 MaxCut 等组合优化问题最有希望的算法之一，但一个根本性问题是：给定问题的建模方式，量子电路究竟能&quot;表达&quot;出多大的态空间？ 刻画这一问题的主要工具是由代价哈密顿量与混合哈密顿量生成的动力学李代数（DLA）——DLA 的维度直接决定变分电路的最大表达能力（controllability / expressibility）。然而构造 DLA 需要计算生成元的对易闭包，最坏情况下随比特数指数增长，经典验证在一般图上不可行。</description>
     </item>
   </channel>
 </rss>
