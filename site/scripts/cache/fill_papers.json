@@ -55478,5 +55478,539 @@
   "doi": "10.65969/cma_3401-019.73",
   "citations": 0,
   "theme": "credit portfolio quantum annealing"
+ },
+ {
+  "fid": "a60671ec740a",
+  "title": "Reinforcement Learning to Initialize Newton-Raphson for AC Power Flow with Quantum Annealing-Based Environment Updates",
+  "authors": [
+   "Zeynab Kaseb",
+   "Matthias Möller",
+   "Lindsay Spoor",
+   "Guo, Jerry J.",
+   "Xiang Mei Yu",
+   "Peter Pálenský",
+   "Pedro P. Vergara"
+  ],
+  "abstract": "The Newton-Raphson (NR) method is widely used for solving power flow (PF) equations due to its quadratic convergence. However, its performance deteriorates under poor initialization or extreme operating scenarios, e.g., high levels of renewable energy penetration. We propose the use of reinforcement learning (RL) to optimize the initialization of NR, and introduce a quantum-enhanced RL environment update mechanism that addresses the combinatorially large action space at each RL timestep by formulating the voltage adjustment task as a Quadratic Unconstrained Binary Optimization (QUBO) problem, solved with an Ising machine. RL initialization is benchmarked against flat start and start from the DC (linearized) PF solution on a standard 4-bus system, Iwamoto's ill-conditioned 11-bus system, and the IEEE 118-bus system under normal and stressed loading and reactive power limits, with verified operational solutions. On all systems, a supervised initializer refined by RL requires fewer NR iterations than flat and DC starts and than the same initializer without RL, for all seeds. For example, on the 118-bus system under normal and stressed loading, it reached 2.04 and 2.86 NR iterations, compared with 3.02 and 5.13 from DC start and 2.61 and 3.09 without RL. In wall-clock time, this pays off only for an initializer integrated into the solver and reused for many solves on a fixed topology. On the 4-bus system, a quantum-enhanced RL agent with a quantum-inspired annealer moved challenging initial states that required 29 and 44 NR iterations to initializations that required three NR iterations within one RL timestep.",
+  "date": "2025-11-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2511.20237",
+  "doi": "10.48550/arxiv.2511.20237",
+  "citations": 0,
+  "theme": "reactive power optimization quantum anne"
+ },
+ {
+  "fid": "81a1b71c8821",
+  "title": "A Framework for Solving Continuous Energy and Power System Problems using Adiabatic Quantum Computing",
+  "authors": [
+   "Zeynab Kaseb",
+   "Matthias Möller",
+   "Peter Pálenský",
+   "Pedro P. Vergara"
+  ],
+  "abstract": "The increasing scale and nonlinearity of modern energy and power system problems pose significant challenges to classical numerical solvers. In parallel, advances in quantum and quantum-inspired hardware are expected to improve scalability and offer performance advantages for large-scale optimization problems. Therefore, we propose a novel combinatorial optimization framework that reformulates continuous energy and power system problems into a format executable on quantum/digital annealers. The proposed framework accommodates both real and complex numbers and can represent both linear and nonlinear equations. As a proof of concept, we demonstrate its use in three applications: (i) 2D steady conductive heat transfer for a plate with constant temperature at each edge, where coefficient and boundary condition matrices are developed to solve linear system of equations, (ii) power system parameter identification, where the admittance matrix is estimated given voltage and current measurements, and (iii) power flow analysis, which solves the governing equations for active and reactive power balance. As a proof of concept, the applications are run on small test cases. The results show that the framework effectively and efficiently addresses the three applications and therefore suggest its potential to solve a wide range of energy and power system problems.",
+  "date": "2025-04-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2504.06458",
+  "doi": "10.48550/arxiv.2504.06458",
+  "citations": 0,
+  "theme": "reactive power optimization quantum anne"
+ },
+ {
+  "fid": "2b0f09e1f22c",
+  "title": "A compact QUBO formulation for solving transmission expansion planning",
+  "authors": [
+   "Luca Hofstadler",
+   "Cătălin Gavriluţă",
+   "Jochen Stiasny",
+   "Matthias Möller",
+   "Carsten Hartmann",
+   "Andrea Benigni",
+   "Jochen Lorenz Cremer"
+  ],
+  "abstract": "Long-term infrastructure planning involves high costs and has become increasingly complex, making cost-effective strategies essential. Within this context, mathematical optimisation represents a viable tool. However, the discrete nature of investment decisions in Transmission Expansion Planning(TEP) renders the problem NP-hard, with solution space growing exponentially as investment options increase. Given recent advances in quantum computing and the potential of higher computational power, we explore the use of Quantum Annealing(QA) for optimising the Mixed-Integer Nonlinear Programming problem(MINLP) formulation of TEP. We propose a method for incorporating various types of constraints into the Quadratic Unconstrained Binary Optimization problem (QUBO) formulation required by QA, considering current hardware limitations in computational memory and topology. The approach is refined to mitigate infeasibility and tested on a 3-node test network using the D-Wave Advantage2_system1.6, owing the small test network size to the previously mentioned hardware limits.",
+  "date": "2026-06-29",
+  "venue": "Electric Power Systems Research",
+  "arxiv_id": "",
+  "doi": "10.1016/j.epsr.2026.113655",
+  "citations": 0,
+  "theme": "transmission expansion planning quantum"
+ },
+ {
+  "fid": "1dfbf60e7eee",
+  "title": "Transmission Network Expansion Planning Method Based on Feasible Region Description of Virtual Power Plant",
+  "authors": [
+   "Guo Li",
+   "Guiyuan Xue",
+   "Zheng Guang Xu",
+   "Wenjuan Niu",
+   "Chenyu Wang",
+   "Jiacheng Li",
+   "Huixiang Li",
+   "Xun Dou"
+  ],
+  "abstract": "In response to China’s “Dual Carbon” goals, this paper proposes a Transmission Network Expansion Planning (TNEP) model that explicitly incorporates the operational flexibility of Virtual Power Plants (VPPs). Unlike conventional approaches that focus mainly on transmission investment, the proposed method accounts for the aggregated dispatchable capability of VPPs, providing a more accurate representation of distributed resources. The VPP aggregation model is characterized by the inclusion of electric vehicles, which act not only as load-side demand but also as flexible energy storage units through vehicle-to-grid interaction. By coordinating EV charging/discharging with photovoltaics, wind generation, and other distributed resources, the VPP significantly enhances system flexibility and provides essential support for grid operation. The vertex search method is employed to delineate the boundary of the VPP’s dispatchable feasible region, from which an equivalent model is established to capture its charging, discharging, and energy storage characteristics. This model is then integrated into the TNEP framework, which minimizes the comprehensive cost, including annualized line investment and the operational costs of both the VPP and the power grid. The resulting non-convex optimization problem is solved using the Quantum Particle Swarm Optimization (QPSO) algorithm. A case study based on the Garver-6 bus and Garver-18 bus systems demonstrates the effectiveness of the approach. The results show that, compared with traditional planning methods, strategically located VPPs can save up to 6.65% in investment costs. This VPP-integrated TNEP scheme enhances system flexibility, improves economic efficiency, and strengthens operational security by smoothing load profiles and optimizing power flows, thereby offering a more reliable and sustainable planning solution.",
+  "date": "2025-10-23",
+  "venue": "World Electric Vehicle Journal",
+  "arxiv_id": "",
+  "doi": "10.3390/wevj16110590",
+  "citations": 2,
+  "theme": "transmission expansion planning quantum"
+ },
+ {
+  "fid": "d589fcc6fc25",
+  "title": "Power System Operation and Planning Solution Enhancement Using Quantum Computing",
+  "authors": [
+   "Reza Mahroo"
+  ],
+  "abstract": "The reliable and efficient operation of power systems is crucial for the proper functioning of modern society. However, the large and complex nature of power systems presents significant computational challenges for their operation and planning. Traditional computational techniques are insufficient in addressing these complexities, and novel approaches are necessary to enhance the efficiency and effectiveness of power system operations and planning. Although quantum computing algorithms have shown the potential in completing significant computing tasks faster than traditional computers, their application to power systems remains largely unexplored. This dissertation aims to investigate advanced solution techniques for power system optimization problems by proposing and implementing hybrid distributed-quantum computing-based optimization approaches. To address the current limitations of noisy quantum computers and their practical application, a multi-block alternating direction method of multiplier (ADMM) is proposed for solving mixed-integer linear programming (MILP) problems. The proposed algorithm is applied to a large-scale transmission expansion planning problem to demonstrate its performance. Furthermore, the quantum approximate optimization algorithm (QAOA) is integrated into the ADMM algorithm as a hybrid quantum-classical method for solving the MILP problem. The effectiveness of this approach is demonstrated through simulations and numerical experiments on a generation scheduling problem. To reduce the quantum-classical iteration of the QAOA algorithm, a recurrent neural network is designed to estimate the variational parameters of the quantum circuit with an appropriate sampling technique. The simulation results exhibit the effectiveness of the proposed model.",
+  "date": "2024-08-22",
+  "venue": "Civil War Book Review",
+  "arxiv_id": "",
+  "doi": "10.31390/gradschool_dissertations.6586",
+  "citations": 0,
+  "theme": "transmission expansion planning quantum"
+ },
+ {
+  "fid": "de4645658bcf",
+  "title": "Microscopy Society of America Awards: 2024 Award Winners",
+  "authors": [
+   "Paul G. Kotula"
+  ],
+  "abstract": "Each year, the Microscopy Society of America (MSA) provides several major awards for outstanding contributions to the fields of microscopy and microanalysis and service to the Society. While recipients of these awards are listed under the tab Awards & Scholarships – 2024 Major Society Awards Recipients on the MSA homepage, little information as to why awards were bestowed is provided. This article highlights the contributions of the winners of the 2024 MSA major Society awards and the MSA Fellows. The information presented here represents a short summary of information provided in the awardees’ nomination packages. Guidelines, including deadlines for nominating individuals for these and other MSA awards, can be found at https://microscopy.org/society-awards-and-msa-fellows#nomination. In 2024, there are no awards being given for the following: Hildegard H. Crowley Award for Outstanding Technologist in the Biological Sciences and Morton D. Maser Distinguished Service Award. Please consider worthy nominees for the 2025 awards in these categories. Distinguished Scientist Awards annually recognize a preeminent senior scientist, from both the biological and physical sciences, who has a long-standing record of achievement during his or her career in the field of microscopy or microanalysis. W. Gray “Jay”Jerome, quantitative lipid biologist and microscopy educator. W. Gray “Jay” Jerome has been in love with microscopy since seeing his first Spirogyra in a sample of pond water as a kid. He has been fascinated with the links between structure and function in biological material ever since. He received his Ph.D. in Anatomy and Cell Biology from the University of Virginia under the tutelage of Robert Cardell. Dr. Cardell had shown that hepatic glycogen synthesis in liver occurred in proximity to the smooth endoplasmic reticulum (sER). By quantifying changes over time in liver cells when glycogen synthesis was stimulated, Jay was able to show that glycogen was synthesized and deposited in very close proximity to the sER and away from other cellular organelles. His quantitative investigations also showed that there was an increase in surface area of sER that preceded the increase in glycogen deposition. Surprisingly, during the initial increase in sER surface area, there was an identical decrease in rough ER (rER) surface area. Both changes preceded the synthesis of new membrane phospholipid. This led to the novel hypothesis that during the initial phase of glycogen sy",
+  "date": "2024-07-01",
+  "venue": "Microscopy Today",
+  "arxiv_id": "",
+  "doi": "10.1093/mictod/qaae058",
+  "citations": 0,
+  "theme": "transmission expansion planning quantum"
+ },
+ {
+  "fid": "9543d3abacef",
+  "title": "Introducing a Novel Controller for Combined Load Frequency Control and Automatic Voltage Regulation of Interconnected Microgrids",
+  "authors": [
+   "Zahra Esmaeili",
+   "Hossein Heydari"
+  ],
+  "abstract": "ABSTRACT The microgrid exhibits low inertia levels and small X/R ratios. Consequently, load changes can adversely affect microgrid stability. However, frequency and voltage oscillations can be mitigated through the use of a load frequency control (LFC) system and an automatic voltage regulator (AVR), which serve as secondary control mechanisms. Additionally, the integration of photovoltaic (PV) and wind turbine (WT) in microgrids complicates the performance of LFC and voltage control due to the uncertainties associated with these renewable sources. Therefore, it is essential to employ a suitable controller with optimal parameters. To address this, this paper introduces a novel control technique known as the tilt‐proportional‐integral‐derivative second‐order derivative controller (TPIDD 2 ) to concurrently manage the voltage and frequency of microgrids. It also incorporates an intelligent optimisation algorithm integrated with quantum computing, referred to as quantum teaching‐learning‐based optimisation (QTLBO), to achieve optimal control parameters. The test system consists of a two‐area interconnected microgrid, where each area includes various sources such as PV, WT, fuel cell (FC), diesel generator, and battery energy storage system (BESS). The integral of time multiplied by the squared error (ITSE) is utilised as the objective function. To demonstrate the effectiveness of the proposed controller, it is compared with the proportional‐integral‐derivative (PID) controller. From the ITSE perspective, the proposed controller is 71.96% more effective than the PID controller. Furthermore, the results obtained using QTLBO are contrasted with those from teaching‐learning based optimization (TLBO), differential evolution (DE), and RCGA.",
+  "date": "2025-01-01",
+  "venue": "IET Renewable Power Generation",
+  "arxiv_id": "",
+  "doi": "10.1049/rpg2.70125",
+  "citations": 3,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "680cdb6ded54",
+  "title": "A quantum inspired machine learning agent for optimal unified control of battery energy storage systems in renewable microgrids",
+  "authors": [
+   "Arun Kumar Rawat",
+   "Subhash Chandra",
+   "Vinay Kumar Deolia"
+  ],
+  "abstract": "This paper introduces Quantum Entangled Reservoir Computing (QERC), a unified glass box control paradigm for battery energy storage systems (BESS) that replaces opaque black box learning with a transparent, physics inspired framework. Unlike randomly initialized neural networks or conventional Echo State Networks, QERC employs a fixed complex valued reservoir constructed using unitary entanglement matrices, ensuring inherent Lyapunov stability and energy conserving dynamic behaviour analogous to quantum chaotic systems. Implemented in MATLAB/Simulink on a modified IEEE 14-bus renewable microgrid, the proposed architecture simultaneously addresses five coupled objectives, voltage regulation, frequency support, state of charge (SOC) estimation, harmonic mitigation, and battery loss minimization, within a single coherent computational substrate, thereby avoiding fragmented cascaded control loops. By leveraging high bandwidth internal dynamics and deterministic 10 μs computational latency, QERC operates as an embedded virtual active power filter (V-APF), reducing grid total harmonic distortion (THD) from above 5% to below 2.7% under dynamic loading conditions. A regularized single shot ridge regression training strategy penalizes high frequency control jitter, suppressing battery micro-cycling and yielding approximately 14% reduction in operational losses. Performance evaluation demonstrates voltage regulation within ±0.7%, frequency containment below 0.08 Hz, and highly accurate SOC estimation with 0.4% RMSE, outperforming conventional model driven and AI-based benchmarks. These results establish QERC as a robust, interpretable, and computationally efficient control framework that bridges high performance AI methods with the stringent stability and real-time requirements of modern power electronic microgrids.",
+  "date": "2026-04-15",
+  "venue": "Energy Conversion and Management X",
+  "arxiv_id": "",
+  "doi": "10.1016/j.ecmx.2026.101862",
+  "citations": 0,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "15c3ffabd7fd",
+  "title": "Toward end-to-end quantum simulation for protein dynamics",
+  "authors": [
+   "Zhenning Liu",
+   "Xiantao Li",
+   "Chunhao Wang",
+   "Jinpeng Liu"
+  ],
+  "abstract": "Modeling and simulating the protein folding process overall remains a grand challenge in computational biology. We systematically investigate end-to-end quantum algorithms for simulating various protein dynamics with effects, such as mechanical forces or stochastic noises. A major focus is the read-in of system settings for simulation, for which we discuss (i) efficient quantum algorithms to prepare initial states--whether for ensemble or single-state simulations, in particular, the first efficient procedure for preparing Gaussian pseudo-random amplitude states, and (ii) the first efficient loading of the connectivity matrices of the protein structure. For the read-out stage, our algorithms estimate a range of classical observables, including energy, low-frequency vibrational modes, density of states, displacement correlations, and optimal control parameters. Between these stages, we simulate the dynamic evolution of the protein system, by using normal mode models--such as Gaussian network models (GNM) and all-atom normal mode models. In addition, we conduct classical numerical experiments focused on accurately estimating the density of states and applying optimal control to facilitate conformational changes. These experiments serve to validate our claims regarding potential quantum speedups. Overall, our study demonstrates that quantum simulation of protein dynamics represents a robust, end-to-end application for both early-stage and fully fault-tolerant quantum computing.",
+  "date": "2024-11-06",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2411.03972",
+  "doi": "10.48550/arxiv.2411.03972",
+  "citations": 2,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "6bc9dee9bcaa",
+  "title": "Quantum-Inspired Adaptive Control and Multi-Objective Optimization for Floating Offshore Wind Turbines Under Time-Varying Aero-Hydrodynamic Uncertainties",
+  "authors": [
+   "Hadi Mohammadian KhalafAnsar",
+   "Jaime Rohten"
+  ],
+  "abstract": "Offshore wind farms are moving into deeper water to capture stronger winds. Floating Offshore Wind Turbines (FOWTs) encounter severe operational challenges. Wind and water loads shift constantly, and loads have different frequency bands, resulting in changing operating conditions. Controlling these turbines becomes nearly impossible. Adaptive control has improved, but one problem stays unsolved; no system has been built that guarantees stability mathematically while also using AI to handle unexpected disturbances in real time on FOWTs. On top of that, automatically tuning multiple control settings under unpredictable wind and wave conditions was barely explored. This paper builds a three-layer system inspired by quantum computing. Layer one uses feedback linearization and sliding-mode control for steady baseline tracking. Layer two runs quantum-inspired attention mechanisms to detect and counteract unmeasured wind and water disturbances as occurrence. Layer three uses a Quantum-Inspired Evolutionary Algorithm to optimize all the control settings offline without gradients. We tested scenario on the NREL 5 MW turbine using real wind turbulence and wave spectra from IEC 61400-1 Class B standards and JONSWAP measurements. For each of 30 runs, with different random seeds, we achieved an average rotor-speed error of $0.0267\\pm 0.0043$ rad/s for our Quantum-Hybrid controller. This is 6.6 times more efficient than the simple PID controller, at 85%. PID scored $0.1767\\pm 0.0670$ rad/s. Wilcoxon test shows it is statistically with p $= 1.86\\times 10 ^{-9}$ . The error reduced to 0.0141 rad/s during a 600 s test run. The platform surge decreased by 7.8% and the control effort decreased by 5.6%. After 22 generations, our evolutionary algorithm determined the optimum settings, and after 45 generations, the fitness value was near 7.97, when optimization was complete. Quantum-inspired control runs in under 2 milliseconds per step and mathematically is proven stable using Lyapunov methods. It statistically sound across many tests, and is ready to deploy on real floating offshore wind turbines dealing with complex, shifting conditions.",
+  "date": "2026-01-01",
+  "venue": "IEEE Access",
+  "arxiv_id": "",
+  "doi": "10.1109/access.2026.3725594",
+  "citations": 0,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "7ef266c1561a",
+  "title": "Cryogenic Embedded Memory Benchmark: SRAM Vs. DRAM In 45- Nm CMOS",
+  "authors": [
+   "Shaik Mohammed Ismail Zabeeulla",
+   "Mr Khaderabad Abdul Khader"
+  ],
+  "abstract": "Quantum computing and cryogenic electronic systems require embedded memories that can operate reliably at extremely low temperatures around 4.2 Kelvin.Integrating cryo-CMOS memories within quantum processors is critical to reduce wiring complexity and thermal loads as processor scales increase.This work presents a thorough benchmarking study of embedded SRAM and DRAM fabricated using a 45-nm CMOS process under cryogenic conditions.Key performance parameters evaluated include power consumption, access delay, memory density, and scalability.The impact of power gating techniques on leakage current reduction and energy efficiency enhancement is also analyzed to maintain data integrity during idle periods.Challenges such as charge retention, threshold voltage variation, leakage control, and device variability at cryogenic temperatures are systematically addressed.Simulation results indicate that DRAM offers higher memory density and better energy efficiency at elevated frequencies, suited for large-scale cryogenic applications.SRAM delivers low-latency and high-reliability performance but with increased static power consumption and larger area overhead.These insights guide the design of next-generation cryo-CMOS memory solutions focused on achieving scalable, energy-efficient embedded memories for quantum computing and superconducting electronics.",
+  "date": "2026-03-01",
+  "venue": "International journal of engineering science and advanced technology.",
+  "arxiv_id": "",
+  "doi": "10.64771/ijesat.2026.v26.i03.2105",
+  "citations": 0,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "b5dbd201a950",
+  "title": "Structural and Spectroscopic Properties of Butanediol-Modified Boehmite Materials",
+  "authors": [
+   "Jeffery A. Greathouse",
+   "Philippe F. Weck",
+   "Nelson S. Bell",
+   "Jessica Nicole Kruichak",
+   "Edward Matteo"
+  ],
+  "abstract": "Glycoboehmite (GB) materials are synthesized by a solvothermal reaction to form layered aluminum oxyhydroxide (boehmite) modified by intercalated butanediol molecules. These hybrid materials offer a platform to design materials with potentially novel sorption, wetting, and catalytic properties. Several synthetic methods have been used, resulting in different structural and spectroscopic properties, but atomistic detail is needed to determine the interlayer structure to explore the synthetic control of GB materials. Here, we use classical molecular dynamics (MD) simulations to compare the structural properties of GB interlayers containing chemisorbed butanediol molecules as a function of diol loading. Accompanying quantum (density functional theory, DFT) static calculations and MD simulations are used to validate the classical model and compute the infrared spectra of various models. Classical MD results reveal the existence of two unique interlayer environments at higher butanediol loading, corresponding to smaller (cross-linked) and expanded interlayers. DFT-computed infrared spectra reveal the sensitivity of the aluminol O–H stretch frequencies to the interlayer environment, consistent with the spectrum of the synthesized material. Insight from these simulations will aid in the characterization of the newly synthesized GB materials.",
+  "date": "2024-02-15",
+  "venue": "The Journal of Physical Chemistry C",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpcc.3c07838",
+  "citations": 2,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "addec1a91d7d",
+  "title": "Pulsating aurora database and automated algorithm for detecting them from ground-based optical imaging",
+  "authors": [
+   "Megha Pandya",
+   "James Hui",
+   "R. Michell",
+   "Marilia Samara",
+   "Alexa Jean Halford",
+   "SangYun Lee",
+   "Guan Le",
+   "Emma R. Mirizio",
+   "Mei‐Ching Fok"
+  ],
+  "abstract": "Pulsating aurora (PA) represents a distinct class of diffuse auroral emissions observed in the polar ionosphere, appearing as quasiperiodic intensity modulations or intermittently brightening patches. These structures typically occur at 100 km altitude have horizontal scale size ranging from 10 to 200 km (Hosokawa & Ogawa, 2015;McEwen et al., 1981;Yukitoshi et al., 2020) and exhibit repetition periods ranging from a few seconds to several tens of seconds (Yamamoto, 1988). PAs are most commonly found in the post-midnight sector to dawn sector (Grono & Donovan, 2020;Jones et al., 2011;Partamies et al., 2022;Royrvik & Davis, 1977) usually near the equatorward edge of the auroral oval and are most often associated with the recovery phase of substorms (Bland et al., 2020;Tesema et al., 2020;Tsuchiya et al., 2018). PAs are spatially patchy, often drift slowly in the ionosphere, and exhibit complex temporal modulation patterns including on-off pulsations, drifting patches, and internal substructures (Grono & Donovan, 2020;Royrvik & Davis, 1977;Yukitoshi et al., 2020). PAs arises from quasiperiodic precipitation of magnetospheric electrons with characteristic energies of tens of keV. These electrons are modulated prior to entering the upper atmosphere (Johnstone, 1978;Samara et al., 2010;Sandahl et al., 1980). PAs are widely interpreted as the ionospheric manifestation of pitch-angle scattering of tens-of-keV electrons in the magnetosphere by very-low-frequency (VLF) and whistler-mode chorus waves (e.g., Jaynes et al., 2015;Kasahara et al., 2018;Nishimura et al., 2010). In this study, a pulsating aurora is defined as a spatially localized auroral emission that exhibits quasi-periodic, discrete intensity enhancements in time, identifiable as significant peaks relative to the local background intensity. From an algorithmic perspective, a pulsating aurora event is characterized by (i) a clear intensity pulse exceeding a prescribed prominence threshold, (ii) a finite pulse duration consistent with reported pulsation timescales (seconds to tens of seconds), and (iii) temporal separation from adjacent pulses that distinguishes individual pulsations from steady or slowly varying diffuse aurora.Historically, the identification and classification of PAs have relied heavily on manual inspection of: (i) ground-based all-sky imager data: (e.g. Shiokawa et al., 2010, Yang et al., 2015). (ii) Satellite optical data: (e.g. Klimov et al., 2022, Siren, 1975) (iii) Energetic partic",
+  "date": "2026-02-25",
+  "venue": "Frontiers in Astronomy and Space Sciences",
+  "arxiv_id": "",
+  "doi": "10.3389/fspas.2026.1788935",
+  "citations": 0,
+  "theme": "load frequency control quantum computing"
+ },
+ {
+  "fid": "b0e422e524ba",
+  "title": "Quantum Computing for EVs to Enhance Grid Resilience and Disaster Relief: Challenges and Opportunities",
+  "authors": [
+   "Tyler Christeson",
+   "Amin Khodaei",
+   "Rui Fan"
+  ],
+  "abstract": "The power grid is the foundation of modern society, however extreme weather events have increasingly caused widespread outages. Enhancing grid resilience is therefore critical to maintaining secure and reliable operations. In disaster relief and restoration, vehicle-to-grid (V2G) technology allows electric vehicles (EVs) to serve as mobile energy resources by discharging to support critical loads or regulating grid frequency as needed. Effective V2G operation requires coordinated charging and discharging of many EVs through optimization. Similarly, in grid restoration, EVs must be strategically routed to affected areas, forming the mobile charging station placement (CSP) problem, which presents another complex optimization challenge. This work reviews state-of-the-art optimization methods for V2G and mobile CSP applications, outlines their limitations, and explores how quantum computing (QC) could overcome current computational bottlenecks. A QC-focused perspective is presented on enhancing grid resilience and accelerating restoration as extreme weather events grow more frequent and severe.",
+  "date": "2025-11-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2511.00736",
+  "doi": "10.48550/arxiv.2511.00736",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "2aa8c0b9de45",
+  "title": "Earth TwinOps: Geospatial AI and Quantum Optimization for Climate-Resilient Cities and Grids",
+  "authors": [
+   "Murali Krishna Pasupuleti"
+  ],
+  "abstract": "Abstract: This study investigates an ‘Earth TwinOps’ paradigm that couples geospatial artificial intelligence with quantum optimization to support climate‑resilient cities and electricity grids. The conceptual contribution is a cross‑layer operating model in which urban digital twins, grid digital twins, and edge‑to‑cloud decision loops are governed as a single socio‑technical system, allowing hazard signals (heat, pluvial flooding, and air‑quality stress proxies) to be translated into actionable infrastructure and operations decisions. The methodological contribution is a replicable pipeline that (i) standardizes multi‑source geospatial and infrastructure indicators into a coherent feature space, (ii) learns interpretable risk and service‑criticality relationships, and (iii) formulates a multi‑objective hub‑selection and resource‑allocation problem as a Quadratic Unconstrained Binary Optimization (QUBO) instance for quantum‑inspired solvers. To satisfy end‑to‑end reproducibility in constrained data environments, the paper provides an embedded results section with a compact, clearly labeled illustrative dataset (eight Indian metropolitan nodes and their associated State/UT grid contexts) and demonstrates how the proposed metrics, models, and optimization workflow produce decision‑relevant outputs (priority ranking, hub placement, coverage trade‑offs, and sensitivity to governance weights). The findings indicate that Earth TwinOps is technically feasible using contemporary geospatial pipelines and hybrid quantum–classical optimization, but practical deployment depends on data governance, interoperability, and institutional capacity to operationalize accountability at the city–grid interface. Policy implications emphasize standards‑based data sharing, climate‑aligned public procurement, and phased capacity building that enables trustworthy automation from municipal operations to state‑level dispatch and investment planning. Keywords Digital twins; TwinOps; geospatial AI; climate resilience; electricity grids; quantum optimization; QUBO; edge computing; urban infrastructure governance.",
+  "date": "2025-12-24",
+  "venue": "International Journal of Academic and Industrial Research Innovations(IJAIRI)",
+  "arxiv_id": "",
+  "doi": "10.62311/nesx/rp-dp425",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "6711ee125ec8",
+  "title": "Transformer-based power forecasting and federated learning-driven fault detection with a quantum-inspired solar power optimization in smart grids",
+  "authors": [
+   "T. Aravind",
+   "A. Hema Malini",
+   "C. T. Kalaivani",
+   "T. Archana"
+  ],
+  "abstract": "This paper presents a unified smart-grid framework integrating solar forecasting, fault detection, and energy optimization using adaptive attention, federated learning, and quantum-inspired algorithms. The architecture combines TransDimNet with an Adaptive Multi-Resolution Attention Mechanism (AMRAM) to model temporal dependencies from solar irradiance, weather, and consumption data, improving solar prediction. A Bayesian Neural Network with Monte Carlo Dropout estimates Fourier-transformed features, while Federated Learning enables decentralized fault detection and predictive maintenance across grid components. Multi-Agent Reinforcement Learning optimizes task prioritization, and Quantum-Inspired Neural Networks with a Decentralized Hierarchical Fuzzy Decision Framework perform dynamic load balancing and energy optimization. Validation on NREL, PVUSA, and GAN-generated datasets demonstrates superior performance. The framework achieves R 2 of 0.92, per-panel MAE of 0.245 kW, RMSE of 0.312 kW, and MAPE of 4.5%, outperforming existing hybrid models by 15–20% (p < 0.05). Fault detection attains 99% precision, 98% recall, and 99% accuracy, surpassing baselines by 3–5%. The QINN–DHFD combination delivers 98% grid efficiency and 20% reduction in energy loss under fluctuating conditions. These results establish the proposed framework as a robust, scalable solution for enhancing sustainability and resilience in next-generation renewable energy systems.",
+  "date": "2026-07-18",
+  "venue": "Energy",
+  "arxiv_id": "",
+  "doi": "10.1016/j.energy.2026.141961",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "232f15e465c4",
+  "title": "Quantum‐Enhanced Federated Learning Architecture for Privacy‐Preserving Smart Grid IoT Security",
+  "authors": [
+   "Rami Baazeem"
+  ],
+  "abstract": "ABSTRACT The increasing complexity of smart grid IoT ecosystems demands security architectures capable of resisting quantum‐era threats, protecting data privacy, and scaling across large distributed infrastructures. This study introduces a novel hybrid security framework that integrates quantum cryptography, deep learning–based intrusion detection, and federated learning into a unified, high‐assurance design tailored for next‐generation smart grid environments. The architecture employs quantum key distribution (QKD) for secure key generation, an adaptive deep feature obfuscation layer to mitigate adversarial manipulation, and a privacy‐preserving federated learning pipeline that eliminates centralized data exposure. Simulation‐based evaluations demonstrate substantial performance gains, achieving a low quantum bit error rate (1.8%), high key‐generation throughput (4900 keys/s), low latency (18 ms), and intrusion detection accuracy of 98.7%, consistently outperforming conventional cryptographic and machine learning baselines. The framework further exhibits enhanced resilience against quantum‐based and adversarial attacks, with efficient performance maintained even under increasing network density. While real‐world deployment will require hardware‐in‐the‐loop validation and optimization for heterogeneous traffic conditions, the results indicate strong potential for securing future smart grid IoT infrastructures and supporting sustainable smart city applications.",
+  "date": "2026-02-03",
+  "venue": "Internet Technology Letters",
+  "arxiv_id": "",
+  "doi": "10.1002/itl2.70229",
+  "citations": 2,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "edb67a980bfa",
+  "title": "Quantum-Augmented Reinforcement Learning for Real-Time Dispatch in Hybrid Renewable Energy Grids",
+  "authors": [
+   "Murali Krishna Pasupuleti"
+  ],
+  "abstract": "The growing complexity of hybrid renewable energy grids, characterized by variable generation and decentralized assets, necessitates real-time decision-making frameworks that are both computationally efficient and operationally secure. This study proposes a Quantum-Augmented Reinforcement Learning (Q-ARL) framework to address the dispatch problem under network constraints and latency requirements. The conceptual analysis integrates quantum-safe infrastructure, control-theoretic AI safety, and statistical–topological learning foundations to construct a multi-layered architecture. The framework consists of (i) a real-time state estimation and forecasting layer leveraging IoT and SCADA streams, (ii) a hierarchical multi-agent reinforcement learning dispatch layer coordinating system- and feeder-level decisions, (iii) a quantum augmentation layer that accelerates combinatorial action selection, variance-reduced value estimation, and state abstraction, and (iv) a security–verification layer employing control-barrier functions, quantum test oracles, post-quantum cryptography, and blockchain for trustworthy coordination. Methodologically, quantum variational optimization and amplitude estimation are integrated into RL loops, while FPGA-based hardware acceleration enables sub-second decision cycles. The proposed framework improves policy stability, sample efficiency, and latency performance for real-time dispatch. The results indicate that Q-ARL can enhance operational resilience, reduce dispatch computation time, and enable secure decentralized coordination in renewable-rich grids. This research provides a scalable pathway toward integrating quantum computing and advanced RL techniques for sustainable, secure, and intelligent grid management. Keywords Quantum-augmented reinforcement learning, real-time dispatch, hybrid renewable energy grids, post-quantum cryptography, control-theoretic safety, quantum feature maps, hierarchical MARL, statistical mechanics, topological quantum field theory, FPGA acceleration, decentralized energy systems",
+  "date": "2025-09-30",
+  "venue": "International Journal of Academic and Industrial Research Innovations(IJAIRI)",
+  "arxiv_id": "",
+  "doi": "10.62311/nesx/rp-2-sep-25",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "569f224fe130",
+  "title": "Ensemble Particle Swarm-Genetic Algorithm with Blockchain-Secured Energy Trading for Coordinated Attack Resilience in Vehicle-to-Grid Networks",
+  "authors": [
+   "M Lavanya",
+   "Jasem M. Alostad",
+   "C. Gunasundari",
+   "V. Thiruppathy Kesavan"
+  ],
+  "abstract": "The adoption of electric vehicles (EVs) as part of Vehicle-to-Grid (V2G) networks introduces new challenges on how to make energy more sustainable and presents severe weaknesses to planned cyber-physical attacks and fraudulent transactions. To solve these problems, this paper offers the Ensemble Particle Swarm -Genetic Algorithm with Blockchain-Secured Energy Trading (EPGA-BET) framework. The core optimization engine combines Particle Swarm Optimization (PSO) and Genetic Algorithm (GA) operators, augmented by a standard contraction–expansion Quantum-inspired PSO (QPSO) formulation to improve exploration capability without altering canonical update rules. Energy trading is supported through a permissioned blockchain architecture employing Practical Byzantine Fault Tolerance (PBFT) consensus and Merkle-tree verification to ensure transaction integrity and fault tolerance. An auxiliary reinforcement learning (RL) module performs anomaly-aware adaptation by adjusting optimization parameters in response to detected attack indicators. Importantly, optimization, trading security, and anomaly detection are architecturally decoupled yet interact through defined feedback channels, preventing subsystem over-dependence. Comparative experiments against established baseline strategies demonstrate statistically significant improvements in operational cost, resilience index, detection latency, and transaction success rate under attack scenarios. Ablation analysis further clarifies the contribution of each module, showing that the primary performance gains arise from the PSO–GA ensemble and adaptive RL mechanism, while blockchain enhances transactional trust without affecting optimization convergence. In general, this study has shown how a well-architectured combination of ensemble intelligence, evolution algorithms and blockchain technology can offer a strong, adaptive, and secure base of the next-generation V2G networks.",
+  "date": "2026-03-10",
+  "venue": "International Journal of Computational Intelligence Systems",
+  "arxiv_id": "",
+  "doi": "10.1007/s44196-026-01260-9",
+  "citations": 3,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "7f733395f5b2",
+  "title": "Enhancing resilience in Los Angeles energy systems",
+  "authors": [
+   "Pengfei Zhao",
+   "Chenghong Gu",
+   "Shuangqi Li",
+   "Xin Ju",
+   "Mohannad Alhazmi"
+  ],
+  "abstract": "Wildfires, exacerbated by climate change, pose significant challenges to the resilience and operational stability of energy systems, particularly in regions like Los Angeles (LA). These extreme events disrupt critical infrastructure, hinder renewable energy generation, and amplify uncertainties in energy supply and demand. This paper proposes a novel quantum computing-based Distributionally Robust Optimization (DRO) framework to enhance the resilience of Virtual Power Plant (VPP)-enabled microgrids during wildfire scenarios. The framework integrates advanced quantum principles with dynamic wildfire impact modeling to optimize energy resource allocation under high-dimensional uncertainty. Key features of the proposed framework include a quantum-enhanced DRO model for energy dispatch, a wildfire propagation model to capture cascading impacts on grid operations, and a robust energy allocation strategy prioritizing critical loads. The study employs real-world data from recent LA wildfires, incorporating geospatial fire spread dynamics, wind patterns, and renewable generation profiles. A case study on a representative LA microgrid demonstrates the framework’s scalability and effectiveness. The proposed method achieves approximately a 25.3% reduction in operational costs, improves the resilience score by up to 18.7%, and ensures uninterrupted support to over 98% of critical loads during high-intensity wildfire scenarios. This research advances the state of the art in energy system resilience by combining quantum computing with robust optimization techniques tailored to wildfire-induced challenges. The findings offer actionable insights for designing adaptive, sustainable, and resilient energy systems in fire-prone regions.",
+  "date": "2025-04-16",
+  "venue": "Energy Reports",
+  "arxiv_id": "",
+  "doi": "10.1016/j.egyr.2025.03.062",
+  "citations": 4,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "b278a4215211",
+  "title": "AI-Driven Intelligent Control Frameworks for Enhancing Reliability, Resilience, and Efficiency in Smart Grids",
+  "authors": [
+   "Gaurav Tamrakar",
+   "Prerna Dusi"
+  ],
+  "abstract": "The fast turnover of the electricity infrastructures into smart and intelligent power systems has posed a challenge and an opportunity to the operation of the modern grids. Combining renewable energies, distributed generation, and electric cars greatly complicates the system and results in operation uncertainties, cyber-physical vulnerabilities, and real-time decision-making high demands. Traditional control methods do not have the flexibility and anticipatory power required to maintain system-wide integrity, durability and performance. This paper suggests a proposal of AI-based intelligent control systems that integrate machine learning, reinforcement learning, and deep neural networks to improve stability and flexibility of intelligent grids. The framework is organized into four levels which are data acquisition, AI-driven processing, decision-making and actuation. Sophisticated algorithms, such as the Long Short-Term Memory (LSTM) networks to predict renewable energy, Support Vector Machines (SVMs) to detect faults, and deep reinforcement learning to manage demand-side are combined to create proactive and adaptive control. The superiority of the proposed approach is proved in the case of simulation experiments carried out with the help of an IEEE 39-bus test system. Findings indicate that AI-powered structures decrease the error rates of renewable forecasting by 42.9 percent, enhance fault detection by 96.3 percent, and decrease outage recovery time by 34.3 percent as compared to conventional supervisory control strategies. Also, the demand-side optimization utilizing reinforcement learning decreases the peak demand by 18.5% whereas the detection accuracy of the neural network-based models of cybersecurity are 93 percent against typical smart grid cyber-attacks. The results affirm that intelligent control systems that are based on AI support the concept of self-healing, adaptable, and sustainable grid code operations. In addition to increasing reliability and resiliency, these methods can also increase the overall energy efficiency, which is essential to the shift to secure and sustainable energy infrastructures. Further efforts will be directed towards larger scale on-system validation, interoperability with edge -cloud systems and the use of quantum-inspired optimization methods in next-generation smart power systems.",
+  "date": "2025-10-20",
+  "venue": "National Journal of Intelligent Power Systems and Technology",
+  "arxiv_id": "",
+  "doi": "10.17051/njipst/01.04.02",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "1c49a5bc5383",
+  "title": "Employing Quantum Entanglement for Real-Time Coordination of Distributed Electric Vehicle Charging Stations: Advancing Grid Efficiency and Stability",
+  "authors": [
+   "Da‐Wei Wang",
+   "Hanqi Dai",
+   "Yuan Jin",
+   "Zhuoqun Li",
+   "Shanna Luo",
+   "Xuebin Li"
+  ],
+  "abstract": "The widespread deployment of electric vehicles (EVs) has introduced substantial challenges to electricity pricing, grid stability, and renewable energy integration. This paper presents the first real-time quantum-enhanced electricity pricing framework for large-scale EV charging networks, marking a significant departure from existing approaches based on mixed-integer programming (MILP) and deep reinforcement learning (DRL). The proposed framework incorporates renewable intermittency, demand elasticity, and infrastructure constraints within a high-dimensional optimization model. The objective is to dynamically determine spatiotemporal electricity prices that reduce system peak load, improve renewable utilization, and minimize user charging costs. A rigorous mathematical formulation is developed, integrating over 40 system-level constraints, including power balance, transmission limits, renewable curtailment, carbon targets, voltage regulation, demand-side flexibility, social participation, and cyber-resilience. Real-time electricity prices are treated as dynamic decision variables influenced by station utilization, elasticity response curves, and the marginal cost of renewable and grid electricity. The model is solved across 96 time intervals using a quantum-classical hybrid method, with benchmark comparisons against MILP and DRL baselines. A comprehensive case study is conducted on a 500-station EV network serving 10,000 vehicles, coupled with a modified IEEE 118-bus grid and 800 MW of variable renewable energy. Historical charging data with ±12% stochastic demand variation and real-world solar/wind profiles are used to simulate realistic conditions. Results show that the proposed framework achieves a 23.4% average peak load reduction per station, a 17.9% gain in renewable utilization, and up to 30% user cost savings compared to flat-rate pricing. Network congestion is mitigated at over 90% of high-traffic stations. Pricing trajectories align low-price windows with high-renewable periods and off-peak hours, enabling synchronized load shifting and enhanced flexibility. Visual analytics using 3D surface plots and disaggregated bar charts confirm structured demand-price interactions and smooth, stable price evolution. These findings validate the potential of quantum-enhanced optimization for scalable, clean, and adaptive EV charging coordination in renewable-rich grid environments.",
+  "date": "2025-06-02",
+  "venue": "Energies",
+  "arxiv_id": "",
+  "doi": "10.3390/en18112917",
+  "citations": 4,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "1e3716f2a9db",
+  "title": "Self-Learning Wind Turbine Optimization Using Quantum-Inspired Algorithms for Renewable Energy Efficiency",
+  "authors": [
+   "Dr. F Rahman",
+   "Ghorpade Bipin Shivaji",
+   "Ishwari Datt Suyal"
+  ],
+  "abstract": "Detailed considerations are required to optimize wind turbine efficiency and increase the demand for renewable energy solutions. In this ‎research, the Quantum-Inspired Self-Learning Optimization (QISLO) framework, which combines quantum-inspired algorithms with ‎adaptive machine learning, is proposed to enhance the performance of wind turbines. To dynamically optimize rotor blade pitch ‎angles, yaw control, and generator torque, thereby achieving enhanced energy capture under varying wind conditions, the proposed system ‎utilizes a Quantum-Inspired Genetic Algorithm (QIGA). Additionally, an Adaptive Reinforcement Learning (ARL) model maintains optimal ‎control settings by modeling both historical and real-time performance of the turbine. The Quantum-Inspired Differential Evolution (QIDE) ‎is employed to detect faults and recover them, minimizing downtime and mechanical stress to enhance the system's resilience. A Quantum-Inspired Fuzzy Logic Controller (QIFLC) is used to maintain turbine operations within a controlled range when operating in turbulent ‎conditions. Combined with the integration of an IoT-enabled data acquisition system, this gives real-time environmental data. The ‎experimental results of QISLO also demonstrate a 20-30% improvement in energy efficiency and a 40% reduction in mechanical wear ‎compared to conventional optimization techniques. It is an innovative solution to the limitations of traditional turbine control systems, ‎offering increased reliability of energy production, enhanced wind farm sustainability, and improved overall operational efficiency. Future ‎work will also scale the system to large-scale offshore wind farms and grid integration‎.",
+  "date": "2025-10-31",
+  "venue": "International Journal of Basic and Applied Sciences",
+  "arxiv_id": "",
+  "doi": "10.14419/6jb9ay30",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "68c56720cf7a",
+  "title": "A Sustainable Optimization Framework for Demand-Side Energy Scheduling in Grid-Connected Microgrid Management System",
+  "authors": [
+   "Kayode Ebenezer Ojo",
+   "Akshay Kumar Saha",
+   "Viranjay Mohan Srivastava"
+  ],
+  "abstract": "The growing integration of renewable energy sources in grid-connected microgrids (MG) has made it increasingly challenging to attain the most cost-effective and emission-efficient power dispatch in the face of uncertainty. This study addresses the scheduling problem of MG under utility-induced demand side load participation level for residential areas. Our research overcomes the constraints of conventional techniques by utilizing quantum-inspired particle swarm optimization (QPSO) to improve the operational efficiency and resilience of MG’s. In this study, a three-stage stochastic framework is proposed to address the optimal energy scheduling of MGs while taking economic and emission aspects into account. Using real-time meteorological data, five Cases were investigated and simulated using MATLAB/Simulink. Without the involvement of load participation, MG’s producing units in first Case, had carbon emissions of 797.110 kg and an operating cost of 267.10 €. Similar to this, the impact of demand side on the MG was evaluated in the remaining Cases. According to the simulation results, the fifth Case, which has optimal DGs scheduling, is the suggested way to improve MGs efficiency and provide a dependable power supply with low operating costs, emission reduction, and convergence features. This study not only demonstrates the practicality of QPSO algorithms but also paves the way for more resilient, efficient, and sustainable energy systems.",
+  "date": "2026-03-12",
+  "venue": "Sustainability",
+  "arxiv_id": "",
+  "doi": "10.3390/su18062763",
+  "citations": 1,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "a330a01c0793",
+  "title": "Vehicle-to-Grid Integration: Ensuring Grid Stability, Strengthening Cybersecurity, and Advancing Energy Market Dynamics",
+  "authors": [
+   "Bilal Ahmad",
+   "Jianguo Ding",
+   "Ali, Tayyab",
+   "Doreen Sebastian Sarwatt",
+   "Arshad, Ramsha",
+   "Adamu Gaston Philipo",
+   "Huansheng Ning"
+  ],
+  "abstract": "The increasing adoption of electric vehicles has spurred significant interest in Vehicle-to-Grid technology as a transformative approach to modern energy systems. This paper presents a systematic review of V2G systems, focusing on their integration challenges and potential solutions. First, the current state of V2G development is examined, highlighting its growing importance in mitigating peak demand, enhancing voltage and frequency regulation, and reinforcing grid resilience. The study underscores the pivotal role of artificial intelligence and machine learning in optimizing energy management, load forecasting, and real-time grid control. A critical analysis of cybersecurity risks reveals heightened vulnerabilities stemming from V2G's dependence on interconnected networks and real-time data exchange, prompting an exploration of advanced mitigation strategies, including federated learning, blockchain, and quantum-resistant cryptography. Furthermore, the paper reviews economic and market aspects, including business models (V2G as an aggregator or due to self-consumption), regulation (as flexibility service provider) and factors influencing user acceptance shaping V2G adoption. Data from global case studies and pilot programs offer a snapshot of how V2G has been implemented at different paces across regions. Finally, the study suggests a multi-layered framework that incorporates grid stability resilience, cybersecurity resiliency, and energy market dynamics and provides strategic recommendations to enable scalable, secure, and economically viable V2G deployment.",
+  "date": "2025-09-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2509.13393",
+  "doi": "10.48550/arxiv.2509.13393",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "8a52aeca156a",
+  "title": "USING ARTIFICIAL INTELLIGENCE TO CONTROL MICROPOWER GRIDS IN REMOTE REGIONS",
+  "authors": [
+   "Deni I. Khatuev",
+   "Rustam A.-M. Magomadov"
+  ],
+  "abstract": "The article examines the use of artificial intelligence (AI) to control micropower grids, especially in remote and hard-to-reach regions. The paper reviews various AI technologies, including machine learning, deep neural networks, and reinforcement learning algorithms, which can optimize power system management, predict energy generation and consumption, and prevent faults and emergencies. Practical examples of using AI in power systems in the Arctic region and remote areas of Africa are described, including projects using TensorFlow and PyTorch platforms to predict and manage energy flows. The prospects for integrating AI with quantum computing to accelerate data analysis and improve the efficiency of model training are discussed. Cybersecurity issues and the use of distributed AI to improve the resilience and pro-tection of power systems are considered.",
+  "date": "2024-01-01",
+  "venue": "EKONOMIKA I UPRAVLENIE PROBLEMY RESHENIYA",
+  "arxiv_id": "",
+  "doi": "10.36871/ek.up.p.r.2024.11.12.008",
+  "citations": 2,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "354899ba66d7",
+  "title": "Adaptive Quantum Cryptography: A Scalable Framework for Quantum–Resistant Security in Next–Generation IoT Networks",
+  "authors": [
+   "P. Rathika",
+   "S. Vidhya",
+   "T. Jayaprakash",
+   "P. Nagasaratha",
+   "C. Sincija",
+   "Liu Guangda"
+  ],
+  "abstract": "The rapid expansion of the Internet of Things (IoT) has introduced unprecedented cybersecurity challenges, as traditional cryptographic methods struggle to provide both efficiency and quantum resistance in resource-constrained environments. This research introduces Adaptive Quantum Cryptography (AQC), a novel security framework that integrates Quantum Key Distribution (QKD), Post-Quantum Cryptography (PQC), Quantum Random Number Generators (QRNGs), and AI-driven dynamic adaptation to safeguard IoT networks against evolving cyber threats. Unlike classical encryption techniques such as RSA and ECC, which are vulnerable to quantum attacks, AQC leverages quantum mechanical principles—such as superposition, entanglement, and the no-cloning theorem—to ensure provably secure key exchange and data encryption. The proposed AQC system dynamically adjusts cryptographic protocols based on real-time network conditions, computational resources, and threat intelligence, optimizing security without imposing excessive overhead. Experimental evaluations demonstrate that AQC achieves a 70% improvement in key exchange efficiency, a 50% reduction in computational load, and a 95% resilience rate against quantum attacks compared to conventional encryption methods. Additionally, the integration of QRNGs enhances cryptographic key entropy, while AI-driven anomaly detection enables proactive threat mitigation. This framework is particularly suited for next-generation IoT applications, including smart grids, autonomous vehicles, and industrial automation, where security, scalability, and energy efficiency are critical. By combining quantum-resistant algorithms with adaptive security mechanisms, AQC provides forward secrecy, resistance to quantum adversaries, and robust authentication, ensuring long-term protection for IoT ecosystems in the post-quantum era. The findings underscore AQC’s potential as a foundational security architecture for future quantum-safe IoT networks.",
+  "date": "2025-03-01",
+  "venue": "CompSci & AI Advances",
+  "arxiv_id": "",
+  "doi": "10.69626/cai.2025.0050",
+  "citations": 1,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "3fd8bdfd1dba",
+  "title": "Technological Convergence for Sustainable Energy Systems: The Role of Quantum Computing and Artificial Intelligence",
+  "authors": [
+   "Ian Khan",
+   "Ian Khan"
+  ],
+  "abstract": "Abstract: This paper examines the transformative potential of quantum computing and artificial intelligence (AI) in advancing energy sustainability. As traditional renewable energy approaches face limitations in addressing complex climate and demand challenges, emerging technologies offer novel solutions for optimizing energy generation, distribution, and consumption. The analysis explores how quantum computing enables unprecedented modeling of molecular interactions and grid optimization, while AI facilitates predictive maintenance and dynamic energy management. Furthermore, the convergence of these technologies with Internet of Things (IoT) and blockchain creates synergistic frameworks for real-time analytics, decentralized markets, and carbon tracking. Despite challenges including technological immaturity and cybersecurity concerns, the integration of quantum-AI systems represents a paradigm shift toward intelligent, adaptive energy ecosystems. This research contributes to understanding how technological convergence can accelerate the transition to sustainable energy futures through enhanced efficiency, resilience, and innovation. Keywords: quantum computing, artificial intelligence, energy sustainability, smart grids, technological convergence, predictive maintenance, renewable energy integration, energy optimization Year: 2026 Version: v1.0 Original Publication: https://www.iankhan.com/beyond-the-grid-how-quantum-computing-and-ai-are-redefining-energy-sustainability-in-2024/ Author: Ian Khan, Independent Futurist & Researcher Author Google Scholar: https://scholar.google.ca/citations?user=a1Aiy68AAAAJ&hl=en",
+  "date": "2026-01-01",
+  "venue": "Figshare",
+  "arxiv_id": "",
+  "doi": "10.6084/m9.figshare.31129504",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "807fe336f181",
+  "title": "A Post-Quantum Secure Federated Learning Framework for Cross-Domain V2G Authentication",
+  "authors": [
+   "Shafiq Ahmed",
+   "Mohammad Hossein Anisi"
+  ],
+  "abstract": "Cross-domain Vehicle-to-Grid (V2G) networks enable secure and efficient energy transactions between Electric Vehicles (EVs), Charging Stations (CS), and Electric Service Providers (ESP), forming a critical component of Edge computing-assisted Consumer devices and IoT (EACI) frameworks. However, existing authentication mechanisms often rely on centralized trusted authorities, leading to single points of failure and computational bottlenecks. Additionally, the emergence of quantum computing threatens traditional cryptographic authentication schemes, necessitating the integration of post-quantum security mechanisms to protect multi-domain V2G interactions. This paper presents a Lightweight Quantum-Resistant Authentication Protocol (LQAP) designed to address these challenges by employing a hybrid eXtended Merkle Signature Scheme (XMSS) and Lightweight Merkle Signature (LMS) system to achieve post-quantum resilience with optimized key management. Additionally, a decentralized Hierarchical Federated Learning (HFL) framework operating at the edge layer is incorporated for hardware-based secure entity identification, enabling distributed anomaly detection without centralized data aggregation. Additionally, physically unclonable functions (PUF) are incorporated for hardware-based secure entity identification. Formal security analysis using the Scyther tool confirms LQAP’s resilience against impersonation, replay, and machine learning-based inference attacks. Performance evaluations indicate that LQAP substantially reduces communication overhead by 21.45%, computational cost by 42.78%, and storage overhead by 61.95% compared to conventional schemes, thus providing an efficient and scalable post-quantum authentication solution aligned with EACI network requirements.",
+  "date": "2025-06-16",
+  "venue": "IEEE Transactions on Consumer Electronics",
+  "arxiv_id": "",
+  "doi": "10.1109/tce.2025.3580338",
+  "citations": 12,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "babb0cc0c249",
+  "title": "Federated Quantum Machine Learning for Distributed Cybersecurity in Multi-Agent Energy Systems",
+  "authors": [
+   "Kwabena Addo",
+   "Musasa Kabeya",
+   "Evans Eshiemogie Ojo"
+  ],
+  "abstract": "The increasing digitization and decentralization of modern energy systems have heightened their vulnerability to sophisticated cyber threats, necessitating advanced, scalable, and privacy-preserving detection frameworks. This paper introduces a novel Federated Quantum Machine Learning (FQML) framework tailored for anomaly detection in multi-agent energy environments. By integrating parameterized quantum circuits (PQCs) at the local agent level with secure federated learning protocols, the framework enhances detection accuracy while preserving data privacy. A trimmed-mean aggregation scheme and differential privacy mechanisms are embedded to defend against Byzantine behaviors and data-poisoning attacks. The problem is formally modeled as a constrained optimization task, accounting for quantum circuit depth, communication latency, and adversarial resilience. Experimental validation on synthetic smart grid datasets demonstrates that FQML achieves high detection accuracy (≥96.3%), maintains robustness under adversarial perturbations, and reduces communication overhead by 28.6% compared to classical federated baselines. These results substantiate the viability of quantum-enhanced federated learning as a practical, hardware-conscious approach to distributed cybersecurity in next-generation energy infrastructures.",
+  "date": "2025-10-14",
+  "venue": "Energies",
+  "arxiv_id": "",
+  "doi": "10.3390/en18205418",
+  "citations": 7,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "5ae36dc8a3e7",
+  "title": "Expert And Intelligent Systems for Peer-To-Peer Energy Trading in Nano Grids: A Comprehensive Survey",
+  "authors": [
+   "Ali Raza",
+   "Sajid Iqbal",
+   "Muhammad Adnan"
+  ],
+  "abstract": "The integration of intelligent and expert systems in P2P energy trading in nano grids is a pioneering step towards modern energy distribution. This current article provides a comprehensive review and analysis of future technologies such as artificial intelligence, federated learning, blockchain, digital twins, and quantum communication that are utilized to enhance decentralized energy systems' efficiency, autonomy, and resilience. A modular architecture is envisioned to facilitate real-time energy optimization, secure transactions, and efficient communication between distributed nodes while overcoming significant challenges surrounding data security, edge computing, and energy forecasting. The research also identifies the need for renewable energy integration and smart energy management methods in fostering sustainability. Despite the important strides made, a significant gap still exists between theoretical prototypes and real-world applications that are scalable. This paper sees research opportunities and maps a path towards the development of resilient, smart, and eco-friendly nano grid ecosystems that can sustain the future of decentralized energy trading.",
+  "date": "2025-07-11",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.22541/au.175225928.86757531/v1",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
+ },
+ {
+  "fid": "ce3c093d4048",
+  "title": "SPLIT-Q: A Scalable Sequential Quantum Computing Framework for Coherent Controlled Islanding",
+  "authors": [
+   "Yuqi Jiang",
+   "Zhiding Liang",
+   "Qiang Guan",
+   "Yan Li",
+   "Ganesh Kumar Venayagamoorthy"
+  ],
+  "abstract": "Growing integration of distributed energy resources increases power-system variability and uncertainty. During disturbances, these effects can intensify generation-load imbalances and cascading failures. Controlled islanding limits their propagation by partitioning a compromised grid into connected, electrically sustainable islands. However, classical methods face rapidly growing computational costs as network size and island count increase. Quantum optimization offers an alternative for exploring this combinatorial partition space. Yet monolithic quantum formulations encode all assignment decisions in one circuit, causing qubit demand and circuit complexity to scale with network size. In this study, a qubit-bounded sequential distributed quantum approximate optimization algorithm (QAOA) framework is proposed to tackle coherent controlled islanding under limited quantum resources. It formulates the optimization as boundary-conditioned regional quadratic unconstrained binary optimization (QUBO) subproblems that are solved sequentially within a fixed qubit budget. Thus, circuit width remains independent of network size, with aggregate quantum workload scaling linearly on bounded-degree networks. Evaluation covers eleven IEEE systems from 9 to 300 buses using IBM quantum computing resources, with Gurobi and monolithic QAOA as references. Across all systems, the framework recovers feasible Gurobi-optimal partitions under noise, confirming the resilience of its solution quality. The results further show that the proposed method substantially reduces quantum-resource demand and circuit complexity relative to monolithic QAOA, allowing large islanding problems to be addressed within current hardware limits. The proposed framework provides a feasible and scalable pathway for quantum optimization in large-scale power systems.",
+  "date": "2026-08-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.12711",
+  "doi": "10.48550/arxiv.2608.12711",
+  "citations": 0,
+  "theme": "grid resilience quantum optimization"
  }
 ]
