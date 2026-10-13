@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-14] 面向现代通信范式的概率伊辛机硬件原生高斯采样</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-14/</link>
+      <guid isPermaLink="false">daily:2026-10-14</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>伊辛机（Ising machine）——包括相干伊辛机（CIM）、概率伊辛机（p-bit 机）、量子退火机在内——过去十年的叙事几乎完全绑定&quot;组合优化加速器&quot;：把 QUBO/伊辛问题映射到硬件耦合网络，让物理系统自发弛豫到低能态。然而这条路线始终背负着&quot;何时真正超越 CPU/GPU 启发式&quot;的质疑。概率伊辛机的物理本质其实是一个可编程的随机采样机器：每个 p-bit 是一个随机二值单元（硬件上由磁隧道结 MTJ 的热涨落磁化翻转实现），其时间平均输出是模拟量，且统计行为可由耦合与偏置调控——这提示了一个被长期忽…</description>
+    </item>
     <item>
       <title>[日报 2026-10-13] 用逻辑编码的 XX 挂件增强模拟量子计算</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-13/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-10</guid>
       <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
       <description>QAOA 是 NISQ 时代组合优化最具代表性的变分算法，但它的性能天花板从来不是算法理论，而是噪声：未编码的裸比特电路在深度增长时误差迅速积累，采样到最优比特串的概率随电路规模指数劣化。而另一端，完全容错（表面码/qLDPC 码 + 魔态蒸馏）需要成百上千个物理比特换一个逻辑比特，对现阶段硬件而言仍显遥远。介于两者之间的错误检测（error detection）路线——用距离为 2 的小码检测单比特错误、发现错误即丢弃该次采样（后选择）——只付出约 2 倍的比特开销，被普遍视为从 NISQ 走向容错的&quot;第一级…</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-08] 量子优化求解蛋白质相互作用网络比对</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-08/</link>
-      <guid isPermaLink="false">daily:2026-09-08</guid>
-      <pubDate>Tue, 08 Sep 2026 00:00:00 GMT</pubDate>
-      <description>蛋白质相互作用（PPI）网络比对是系统生物学的基础计算问题：把不同物种的 PPI 网络对齐，可以识别跨物种保守的功能模块、推断直系同源基因、发现药物靶点，是&quot;用网络结构读懂进化&quot;的核心手段。其计算难度来源于双重耦合——全局比对要求同时在两个网络中寻找拓扑结构与序列信息（节点相似度）双最优的对应关系，本质上是子图同构族的 NP 难问题：经典启发式比对工具（SANA、MAGNA 等模拟退火/遗传搜索类）牺牲最优性换取可扩展性，精确方法则完全无法上规模。&quot;既要质量、又要规模&quot;的矛盾长期无解，这正是组合优化新范式（量子…</description>
     </item>
   </channel>
 </rss>

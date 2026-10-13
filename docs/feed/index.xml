@@ -5,8 +5,71 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 求解最小颜色数图着色问题的量子-经典方法</title>
+      <link>https://raymond0812-yylm.github.io/papers/quantum-classical-approach-solve-graph-coloring-problem-fd98e/</link>
+      <guid isPermaLink="false">p:quantum-classical-approach-solve-graph-coloring-problem-fd98e</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>最小色数图着色（求 chromatic number）是经典 NP 完全问题，直接映射调度、寄存器分配、频率指配等真实负载；经典精确算法在大图上不可行，而直接套用 Grover 搜索需要预先知道解的个数。本文的组合方案：用随机化 Grover 搜索（在解数未知时仍可工作的变体，保持二次加速）判定&quot;给定 k 种颜色是否存在合法着色&quot;，外层用经典二分搜索收缩 k 的区间，直至锁定最小色数。</description>
+    </item>
+    <item>
+      <title>[论文] 求解电力系统大规模非凸经济排放调度问题的量子增强粒子群混合算法</title>
+      <link>https://raymond0812-yylm.github.io/papers/novel-hybrid-quantum-augmented-variant-particle-swarm-5a163/</link>
+      <guid isPermaLink="false">p:novel-hybrid-quantum-augmented-variant-particle-swarm-5a163</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>经济排放调度（EED）是电力系统运行的核心非凸优化问题：考虑机组阀点加载效应（VPLE）后的成本函数呈现多局部极小地形，40 机组规模下经典方法已很吃力，而 gate-model 量子硬件（QAOA/退火）目前远不足以直接承载这一规模的连续-混合变量问题——量子启发进化算法因此成为当下最具工程现实性的折中路线。本文提出 HQAPSO-GWO：在标准粒子群（PSO）的速度更新机制中注入量子启发算子以增强高维搜索空间的种群多样性与收敛效率；用模糊推理系统在线动态调整惯性权重；再与灰狼优化（GWO）混合以兼顾探索与开发。</description>
+    </item>
+    <item>
+      <title>[论文] 面向现代通信范式的概率伊辛机硬件原生高斯采样</title>
+      <link>https://raymond0812-yylm.github.io/papers/hardware-native-gaussian-sampling-probabilistic-ising-machines-47753/</link>
+      <guid isPermaLink="false">p:hardware-native-gaussian-sampling-probabilistic-ising-machines-47753</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>伊辛机（Ising machine）——包括相干伊辛机（CIM）、概率伊辛机（p-bit 机）、量子退火机在内——过去十年的叙事几乎完全绑定&quot;组合优化加速器&quot;：把 QUBO/伊辛问题映射到硬件耦合网络，让物理系统自发弛豫到低能态。然而这条路线始终背负着&quot;何时真正超越 CPU/GPU 启发式&quot;的质疑。概率伊辛机的物理本质其实是一个可编程的随机采样机器：每个 p-bit 是一个随机二值单元（硬件上由磁隧道结 MTJ 的热涨落磁化翻转实现），其时间平均输出是模拟量，且统计行为可由耦合与偏置调控——这提示了一个被长期忽…</description>
+    </item>
+    <item>
+      <title>[动态] 中国信通院发布《量子计算发展态势研究报告（2026 年）》：全球量子计算企业已超 400 家，产业化落地提速</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n5</link>
+      <guid isPermaLink="false">n:2026-10-14:5</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>中国信通院技术与标准研究所发布《量子计算发展态势研究报告（2026 年）》，指出随着产业化落地提速，量子计算行业自 2024 年起进入新一轮扩张期，全球量子计算企业已超过 400 家，2025 年新注册企业数量与融资规模双双攀升。报告系统梳理了超导、离子阱、中性原子、光量子等技术路线的产业成熟度（本源量子、国仪量子、国盾量子等国内企业展示了最新成果），并研判软硬件全栈生态与行业应用将成为下一阶段竞争焦点——为国内量子产业政策与投资提供了权威坐标系。</description>
+    </item>
+    <item>
+      <title>[动态] 成立 8 个月融资超 10 亿元：上海中性原子量子计算公司&quot;太一量生&quot;完成数亿元 A 轮，快速成长为独角兽</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n4</link>
+      <guid isPermaLink="false">n:2026-10-14:4</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>由两位复旦同窗&quot;90 后&quot;创立的太一量生（上海）量子科技有限公司（2026 年 1 月成立）近日完成数亿元 A 轮融资，老股东华控领投，市场化机构、国资平台与产业资本跟投——继 6 月披露 3 亿元 Pre-A 轮后，累计融资已超 10 亿元、快速成长为独角兽。公司主攻中性原子路线，资金将用于全球科研人才引进、量子纠错与系统工程能力深化及开源生态建设，目标直指大规模容错量子计算；其与清醒异构签署战略合作，联合开发用于中性原子计算机校准调试的量子 AI 模型并计划推出具备自动纠错能力的系统。同期上海另一家量子计算公司亦完成 10 亿元级融资，&quot;耐心资本&quot;正在向国内中性原子赛道集聚。</description>
+    </item>
+    <item>
+      <title>[动态] 市场研究机构预测：量子计算市场 2030 年将超 180 亿美元，本十年剩余年份复合年增长率约 31%</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n3</link>
+      <guid isPermaLink="false">n:2026-10-14:3</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>The Business Research Company 最新报告预测量子计算市场规模到 2030 年将超过 180 亿美元，本十年剩余时间内保持约 31% 的复合年增长率——尽管量子计算当前在整体 IT 支出中占比仍小。各家机构口径差异明显（MarketsandMarkets 预测 2030 年 202 亿美元、CAGR 41.8%；Grand View 则保守至 42 亿美元），但&quot;高增长+高不确定&quot;的共识未变；报告发布正值美股量子板块因 IonQ 大额并购而波动加大之际，为一级/二级市场提供了新的定价锚点。</description>
+    </item>
+    <item>
+      <title>[动态] 摩根大通与 Quantinuum 将容错量子算法（含 QAOA）推进至 97 个物理比特：Steane 纠错码上的误差校正执行</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n2</link>
+      <guid isPermaLink="false">n:2026-10-14:2</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>摩根大通（JPMorgan Chase）全球技术应用研究组与 Quantinuum 合作演示：基于 Steane [[7,1,3]] 纠错码，量子算法（含量子近似优化算法 QAOA）在多达 97 个物理比特的囚禁离子系统上实现容错、误差校正下的算法执行。这是金融头部机构在&quot;容错时代的优化算法预演&quot;上的最新落子——不再停留在逻辑比特概念验证，而是把完整的变分优化流程放进纠错框架运行，为后续在量子处理器上执行有实际价值的组合优化负载（组合配置、风险管理等金融场景）铺路。</description>
+    </item>
+    <item>
+      <title>[动态] 新加坡团队量子算法在&quot;汽车喷漆难题&quot;上全面击败经典启发式：XQAOA 换漆率 0.357，2^12 车辆规模下保持稳定</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n1</link>
+      <guid isPermaLink="false">n:2026-10-14:1</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>新加坡国立大学（含量子技术中心 CQT）、A*STAR 量子创新中心与澳大利亚国立大学的联合团队在《Physical Review》发表二进制喷漆车间问题（BPSP，为 2^n 辆各出现两次的汽车排序着色以最小化换漆次数）研究：通过&quot;初始车色（ICC）&quot;编码把变量数减半并映射为带符号加权 MaxCut 伊辛模型后，深度-1 的 XQAOA 算法在 2^7～2^12（128～4096 辆车）实例上取得平均换漆率约 0.357，在几乎所有实例上优于包括最强经典方法递归星贪心（RSG，约 0.37）在内的四种经典启发式；而 RQAOA_1 首次被记录到随规模增大而退化。该研究为&quot;量子近似优化算法 vs 经典启发式&quot;的拉锯战再添一城，代码与数据集已开源。</description>
+    </item>
+    <item>
+      <title>[动态] D-Wave 与 SkyWater 签署多年期量子制造合作协议：IonQ 旗下美国代工厂持续为&quot;直接竞争对手&quot;制造量子处理器</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-10-14/#n0</link>
+      <guid isPermaLink="false">n:2026-10-14:0</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>D-Wave 宣布与 SkyWater Technology 延长量子制造合作、签署多年期协议，继续依托其明尼苏达州晶圆厂支持 D-Wave 双平台（退火+门模型）超导量子计算技术。耐人寻味的产业格局是：SkyWater 现已被 IonQ 收购，D-Wave 作为 IonQ 的直接竞争对手仍在使用&quot;IonQ 旗下代工厂&quot;的制造服务——量子硬件制造的专业化分工正在跨过公司竞争边界。SkyWater 的商业制造量子比特此前已支撑 D-Wave Advantage2 系统及其量子模拟优越性声明，本协议进一步锁定美国本土超导量子芯片供应链。</description>
+    </item>
     <item>
       <title>[论文] 用逻辑编码的 XX 挂件增强模拟量子计算</title>
       <link>https://raymond0812-yylm.github.io/papers/enhanced-analogue-quantum-computation-logically-encoded-xx-1b55a/</link>
@@ -293,69 +356,6 @@
       <guid isPermaLink="false">n:2026-10-09:3</guid>
       <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
       <description>中国信息通信研究院技术与标准研究所发布《量子计算发展态势研究报告（2026年）》：随着产业化落地提速，量子计算行业自 2024 年起进入新一轮扩张期，全球量子计算企业数量已超过 400 家。报告援引麦肯锡 2026 年度《量子技术监测报告》口径：全球量子科技投资累计超 557 亿美元、预计 2040 年增至 1060 亿美元，2035 年量子技术市场总规模有望达 1.3 万亿至 2.7 万亿美元；在量子计算、量子通信、量子精密测量三大核心领域中，量子计算占据投资与创业的主要份额。</description>
-    </item>
-    <item>
-      <title>[动态] NVIDIA 承诺未来五年 10 亿美元支持美国科学事业，量子计算列为关键方向</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-09/#n2</link>
-      <guid isPermaLink="false">n:2026-10-09:2</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <description>NVIDIA 宣布未来五年投入 10 亿美元建设美国&quot;科学超级智能&quot;研发能力，量子计算与医疗健康、能源安全并列为关键领域；资金将流向高等教育研究机构、美国量子领先事业以及服务美国政府任务需求的云服务商。该承诺配合白宫科技政策办公室出席的&quot;Genesis Mission&quot;扩展活动宣布，NVIDIA 同时是量子计算、聚变、加速器设计与微电子等多个二期 Genesis Mission 项目的合作方——GPU 巨头以&quot;经典算力底座&quot;身份持续深度绑定量子计算生态。</description>
-    </item>
-    <item>
-      <title>[动态] 美国战争部宣布 3.5 亿美元量子计算一揽子计划，PsiQuantum 获 1.5 亿美元战略资本贷款承诺</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-09/#n1</link>
-      <guid isPermaLink="false">n:2026-10-09:1</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <description>美国战争部（原国防部）宣布总额约 3.5 亿美元的量子计算系列举措，旨在&quot;识别、发展并为量子计算能力做好准备&quot;以支撑国家安全需求，其中最受瞩目的是光量子计算公司 PsiQuantum 获得战略资本办公室（OSC）最高 1.5 亿美元的有条件贷款承诺，用于推进其美国量子计算建设。媒体报道普遍将其解读为在大国竞争背景下，美国把量子战略从长期研究进一步推向演示验证、产业能力与国家安全部署——与 DARPA QBI 最终阶段启动同日落地，形成&quot;验证+输血&quot;的政策组合拳。</description>
-    </item>
-    <item>
-      <title>[动态] DARPA 量子基准倡议进入最终验证阶段：IonQ、IBM 等首批四家公司入选，单家协议价值最高 3 亿美元</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-09/#n0</link>
-      <guid isPermaLink="false">n:2026-10-09:0</guid>
-      <pubDate>Fri, 09 Oct 2026 00:00:00 GMT</pubDate>
-      <description>DARPA 量子基准倡议（QBI）宣布首批四家公司进入第三阶段（Stage C）——最终的独立验证与确认阶段，IonQ 与 IBM 均在列，IonQ 协议潜在价值最高 3 亿美元。Stage C 将持续至 2029 年，由 DARPA 独立测试各公司可扩展硬件与软件（IonQ 将交付多代 Superion 系统），以判定量子系统能否达到&quot;计算价值超过成本&quot;的实用规模；DARPA 同时为后续更多公司入选留出窗口。此前 IonQ 刚以 99.99% 双比特门保真度保持世界纪录，并通过 2026 年二季度约 20 亿美元直接投资与 2.15 亿美元&quot;Quantum Genesis&quot;合同持续加码。</description>
-    </item>
-    <item>
-      <title>[论文] 6×6 量子点阵列中的稀疏比特操作</title>
-      <link>https://raymond0812-yylm.github.io/papers/sparse-qubit-operation-6-6-quantum-dot-1b495/</link>
-      <guid isPermaLink="false">p:sparse-qubit-operation-6-6-quantum-dot-1b495</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>半导体自旋比特的单、双比特保真度早已跨过容错门槛候选区，真正的瓶颈是&quot;扩规模且保连接&quot;：为了给每个量子点留出控制线通道，主流扩展基本沿一维方向堆叠，二维网格意味着控制线拥挤、串扰恶化、工艺良率陡降。本文给出一个反直觉的解法——不追求把比特铺满阵列，而是把阵列当作&quot;可编程底盘&quot;：6×6 共 36 个量子点仅由一层共享势垒栅 + 每点独立柱塞栅定义（显著放宽工艺要求），比特先在其中均匀装载，再通过相干自旋穿梭（coherent spin shuttling，最远 5.2 μm）搬运到稀疏位置——10 个比特同时受控…</description>
-    </item>
-    <item>
-      <title>[论文] 量子退火中谱隙与纠缠复杂性的解耦</title>
-      <link>https://raymond0812-yylm.github.io/papers/decoupling-spectral-gaps-from-entanglement-complexity-quantum-1b494/</link>
-      <guid isPermaLink="false">p:decoupling-spectral-gaps-from-entanglement-complexity-quantum-1b494</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>绝热量子退火的运行时由最小谱隙决定（$\sim 1/\Delta^2$），而社区里长期流行两条互相纠缠的叙事：&quot;纠缠增长→量子资源变强&quot;与&quot;纠缠有界→张量网络可模拟→量子无望&quot;。本文问了一个干净的问题：指数小的谱隙是否必然伴随复杂的纠缠结构？ 答案是否定的——谱隙标度与纠缠复杂性可以完全解耦，且四个方向都解耦：一阶相变给出&quot;指数小谱隙 + $O(1)$ 有界 Schmidt 秩（全局多体关联仍然存在）&quot;；连续相变给出&quot;多项式闭合谱隙 + 对数增长纠缠&quot;；作者再构造两个反例把配对反转过来——交错场反铁磁 Isin…</description>
-    </item>
-    <item>
-      <title>[论文] 48 自旋单态流形中交换控制的基准测试</title>
-      <link>https://raymond0812-yylm.github.io/papers/benchmarking-exchange-only-control-48-spin-singlet-1b495/</link>
-      <guid isPermaLink="false">p:benchmarking-exchange-only-control-48-spin-singlet-1b495</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>交换相互作用路线（exchange-only）是半导体自旋量子比特中的&quot;极简控制&quot;流派：只靠电学调控的海森堡交换耦合 $J(t)$ 就能完成全部操控，无需逐比特的微波磁驱动。但它的结构性代价从一开始就写在了编码方案里——可独立寻址的逻辑比特必须编码在至少三个电子自旋的子系统中，其余自旋自由度全部被当作&quot;泄漏&quot;（leakage），只在门序列中短暂借用。当阵列规模从个位数比特迈向几十个自旋，&quot;比特抽象层&quot;之外的整个希尔伯特空间究竟被控制得怎么样，就从工程细节上升为平台生死问题：任何走向量子优势区域的横向扩展叙事，都…</description>
-    </item>
-    <item>
-      <title>[动态] 国内量子精密测量重磅：清华联合团队国际率先研制&quot;核光钟&quot;，登上《自然》</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n4</link>
-      <guid isPermaLink="false">n:2026-10-08:4</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>清华大学物理系丁世谦团队联合国内多个研究团队，在国际上率先研制出&quot;核光钟&quot;（nuclear clock），以激光精确驱动钍-229 原子核跃迁实现时间频率基准，标志着量子精密测量从&quot;电子跃迁&quot;迈向&quot;原子核跃迁&quot;——论文以《锁定至钍-229 的核钟》（A nuclear clock synchronized to Th-229）为题于 10 月 7 日晚在线发表于《自然》，欧洲团队同期独立完成同类工作。核光钟有望支撑新一代高性能时频基准、卫星导航与深空探测定位，是当前量子精密测量领域国际竞争最激烈的前沿之一。</description>
-    </item>
-    <item>
-      <title>[动态] SQC 上榜 Fast Company&quot;2026 科技下一个大事件&quot;：全球首款商业化量子储备池计算 Watermelon 获主流认可</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n3</link>
-      <guid isPermaLink="false">n:2026-10-08:3</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>澳大利亚硅原子制造量子计算公司 Silicon Quantum Computing（SQC）入选 Fast Company&quot;2026 Next Big Things in Tech&quot;榜单，入选成果为其 2025 年 10 月发布的 Watermelon——号称全球首款商业化量子储备池计算机（quantum reservoir computer），基于 SQC 原子级精密制造技术，面向量子增强机器学习。同榜单还有 IonQ 等公司；量子储备池计算作为&quot;非通用但更近商用&quot;的差异化路线，正获得主流科技媒体的关注。</description>
-    </item>
-    <item>
-      <title>[动态] Eclipse Qrisp 斩获 Quantum Effects Award 2026：欧洲开源量子软件栈拿到行业背书</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-08/#n2</link>
-      <guid isPermaLink="false">n:2026-10-08:2</guid>
-      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
-      <description>由 Fraunhofer FOKUS 发起、Eclipse 基金会托管的开源高级量子编程框架 Eclipse Qrisp，在斯图加特 Quantum Effects 展会（10 月 6—7 日）开幕式上获得 Quantum Effects Award 2026&quot;量子计算软件与算法&quot;类奖项。Qrisp 主打让开发者以高级抽象编写复杂量子程序，是欧洲自主量子软件栈的基石项目之一——在量子编程语言生态多为美企主导的格局下，该奖为欧洲开源路线提供了产业级背书。</description>
     </item>
   </channel>
 </rss>
