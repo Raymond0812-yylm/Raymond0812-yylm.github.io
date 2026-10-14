@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-15] 量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-15/</link>
+      <guid isPermaLink="false">daily:2026-10-15</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&quot;出生赛道&quot;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 MaxCut 的深度-1 解析解（切割比例 0.6924）论证这一算法族的潜力。而大围长（large-girth，即无短环）正则图则是理论上最干净的比武场：当图围长 $g \ge 2p+2$ 时，深度 $p$ 的 QAOA 在每条边周围看到的都是同一棵深度 $p$ 的树——强局域性使其期望切割比例可以被精确计算，且该数值天然构成一个刚性定理：&quot;所有该围长的…</description>
+    </item>
     <item>
       <title>[日报 2026-10-14] 面向现代通信范式的概率伊辛机硬件原生高斯采样</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-14/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-11</guid>
       <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
       <description>高斯玻色采样（GBS）是光量子计算展示&quot;量子计算优越性&quot;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&quot;一次性优越性演示&quot;走向&quot;可规模化工程部署&quot;，现有 GBS 装置存在三道现实障碍：苛刻的光学对准（分立光学元件拼装）、相位不稳定性（大体积光路长期漂移）、有限的可编程性（难以重构用于不同任务）。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-10] 迈向容错的变分优化：[[4,2,2]] 错误检测码保护下的 QAOA</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-10/</link>
-      <guid isPermaLink="false">daily:2026-09-10</guid>
-      <pubDate>Thu, 10 Sep 2026 00:00:00 GMT</pubDate>
-      <description>QAOA 是 NISQ 时代组合优化最具代表性的变分算法，但它的性能天花板从来不是算法理论，而是噪声：未编码的裸比特电路在深度增长时误差迅速积累，采样到最优比特串的概率随电路规模指数劣化。而另一端，完全容错（表面码/qLDPC 码 + 魔态蒸馏）需要成百上千个物理比特换一个逻辑比特，对现阶段硬件而言仍显遥远。介于两者之间的错误检测（error detection）路线——用距离为 2 的小码检测单比特错误、发现错误即丢弃该次采样（后选择）——只付出约 2 倍的比特开销，被普遍视为从 NISQ 走向容错的&quot;第一级…</description>
     </item>
   </channel>
 </rss>

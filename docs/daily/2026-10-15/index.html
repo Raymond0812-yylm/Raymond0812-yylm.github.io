@@ -1,0 +1,206 @@
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>日报 · 2026-10-15 · 量子优化日报</title><meta name="description" content="三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&#34;出生赛道&#34;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 M"><meta property="og:title" content="日报 · 2026-10-15 · 量子优化日报"><meta property="og:description" content="三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&#34;出生赛道&#34;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 M"><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="alternate" type="application/rss+xml" title="量子优化日报 精选 RSS" href="/feed.xml"><link rel="alternate" type="application/rss+xml" title="量子优化日报 日报 RSS" href="/feed/daily.xml"><link rel="manifest" href="/manifest.webmanifest"><meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#13191c" media="(prefers-color-scheme: dark)"><link rel="apple-touch-icon" href="/icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="QuantOpt"><script>
+      (function () {
+        // 默认浅色(AIHOT 式暖白纸面);尊重用户显式选择。
+        try {
+          var p = localStorage.getItem('qo-theme');
+          document.documentElement.dataset.theme = p === 'dark' || p === 'light' ? p : 'light';
+        } catch (e) { document.documentElement.dataset.theme = 'light'; }
+      })();
+    </script><link rel="stylesheet" href="/_astro/index.B52VjlbJ.css"></head> <body> <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      }
+    </script> <div class="mx-auto flex max-w-[var(--page-max-wide)]"> <!-- 桌面侧栏 --> <aside class="sticky top-0 hidden h-dvh w-[180px] shrink-0 flex-col border-r border-line bg-sidebar px-3 pb-3.5 pt-6 lg:flex"> <a href="/" class="mb-4 flex h-[50px] items-center gap-2 px-1 text-ink" aria-label="量子优化日报 首页"> <span class="flex size-8 items-center justify-center rounded-[10px] bg-accent font-black text-[17px] text-accent-contrast">Q</span> <span class="min-w-0"> <span class="block truncate text-[15px] font-bold leading-tight">QuantOpt</span> <span class="block text-[10px] tracking-[0.18em] text-ink-4">DAILY</span> </span> </a> <nav class="-mx-1 flex-1 overflow-y-auto px-1 scrollbar-thin" aria-label="主导航"> <div key="内容"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">内容</div> <div class="flex flex-col gap-1"> <a href="/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span> <span class="min-w-0 truncate">精选</span>  </a><a href="/all/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span> <span class="min-w-0 truncate">全部动态</span>  </a><a href="/hot/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></span> <span class="min-w-0 truncate">热点榜</span>  </a><a href="/daily/" aria-current="page" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 bg-accent/10 font-semibold text-ink dark:bg-accent-soft"> <span class="flex w-[22px] shrink-0 justify-center text-accent"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></span> <span class="min-w-0 truncate">日报</span>  </a><a href="/topics/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg></span> <span class="min-w-0 truncate">主题</span>  </a> </div> </div><div key="文献与专题"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">文献与专题</div> <div class="flex flex-col gap-1"> <a href="/papers/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span> <span class="min-w-0 truncate">文献库</span>  </a><a href="/specials/satellite/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> <span class="min-w-0 truncate">卫星任务规划</span>  </a><a href="/specials/llm/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span> <span class="min-w-0 truncate">量子 × 大模型</span>  </a> </div> </div><div key="更多"> <div class="px-2.5 pb-1 pt-3.5 text-[11px] text-ink-4">更多</div> <div class="flex flex-col gap-1"> <a href="/agent/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M12 22v-5"/><path d="M9 8V2M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8z"/></svg></span> <span class="min-w-0 truncate">Agent 接入</span>  </a><a href="/about/" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> <span class="min-w-0 truncate">关于本站</span>  </a><a href="/app/QuantOptDaily-v1.0.0.apk" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></span> <span class="min-w-0 truncate">安卓 App</span> <span class="ml-auto text-ink-4"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></span> </a><a href="/feed.xml" class="flex h-10 items-center gap-2.5 rounded-control px-2.5 text-[14px] transition-colors duration-150 font-medium text-ink-3 hover:bg-bg-sunk hover:text-ink"> <span class="flex w-[22px] shrink-0 justify-center"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></span> <span class="min-w-0 truncate">RSS 订阅</span>  </a> </div> </div> </nav> <div class="mt-2 space-y-2.5 px-1 pt-1"> <!-- 三态主题切换(深色/系统/浅色) --> <div id="themeSwitch" role="radiogroup" aria-label="外观" class="relative grid h-[34px] grid-cols-3 rounded-full border border-line bg-bg-sunk p-[3px] mx-1"> <span id="themeThumb" aria-hidden="true" class="absolute inset-y-[3px] left-[3px] w-[calc((100%-6px)/3)] rounded-full border border-line bg-surface shadow-[var(--shadow-card)] transition-transform duration-200 ease-[var(--ease-out-quart)]"></span> <button type="button" role="radio" data-choice="dark" title="深色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span class="sr-only">深色</span></button> <button type="button" role="radio" data-choice="system" title="跟随系统" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="sr-only">跟随系统</span></button> <button type="button" role="radio" data-choice="light" title="浅色" class="relative z-10 flex items-center justify-center rounded-full transition-colors duration-150 text-ink-4 hover:text-ink-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><span class="sr-only">浅色</span></button> </div> <p class="px-2 text-[10px] leading-relaxed text-ink-4">数据更新至 <span class="mono">2026-10-15</span> · 1049 篇论文</p> </div> </aside> <!-- 主内容列 --> <div class="min-w-0 flex-1"> <!-- 移动端品牌栏 --> <div class="flex h-14 items-center justify-between px-4 lg:hidden"> <a href="/" class="flex items-center gap-2" aria-label="量子优化日报 首页"> <span class="flex size-7 items-center justify-center rounded-[9px] bg-accent font-black text-[15px] text-accent-contrast">Q</span> <span class="text-[16px] font-bold">QuantOpt <span class="text-ink-3">Daily</span></span> </a> <a href="/search/?q=" class="flex size-9 items-center justify-center rounded-full text-ink-3 transition-colors hover:bg-bg-sunk hover:text-ink" aria-label="搜索"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></a> </div> <main class="px-4 pb-[calc(76px+env(safe-area-inset-bottom))] pt-2 lg:px-8 lg:pb-12 lg:pt-6">  <article class="report-shell mx-auto max-w-[880px] pb-10 pt-4 lg:pt-6"> <!-- 报眉 --> <header> <div class="flex items-center justify-between gap-4 border-b border-line pb-2.5 text-[12px] text-ink-4"> <span class="num">2026-10-15 · 星期四</span> <span class="hidden tracking-[0.3em] sm:inline">追踪量子求解最前沿</span> <span>晨报</span> </div> <div class="flex items-stretch justify-between gap-5 py-6 sm:gap-10 sm:py-8"> <div class="flex min-w-0 flex-col justify-center"> <h1 class="font-black leading-none tracking-[0.06em] text-ink"> <span class="block text-[40px] sm:text-[56px] lg:text-[72px]">量子优化日报</span> </h1> <p class="mt-3 text-[11.5px] tracking-[0.36em] text-ink-4">QUANTOPT DAILY</p> </div> <!-- 报眼:期号与大字日期 --> <div class="flex shrink-0 items-stretch well rounded-panel"> <div class="flex w-[118px] flex-col items-center justify-center px-2 py-3 text-center sm:w-[150px] sm:py-4"> <span class="text-[11px] tracking-[0.2em] text-ink-4">第 40 期</span> <span class="num mt-2 whitespace-nowrap text-[44px] font-black leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">10.15</span> <span class="mt-2 text-[11.5px] text-ink-2">2026 年</span> <span class="text-[11.5px] text-ink-4">第 40 期</span> <span class="mt-3 flex flex-wrap justify-center gap-1" aria-hidden="true"> <span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span><span class="size-[5px] rounded-full bg-accent"></span> </span> </div> </div> </div> <!-- 数据带 --> <div class="flex flex-wrap items-baseline gap-x-8 gap-y-1.5 border-y border-line-strong py-3"> <span class="inline-flex items-baseline gap-1.5 whitespace-nowrap"> <span class="num text-[22px] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[24px]">3</span> <span class="text-[12px] text-ink-4">篇论文</span> </span><span class="inline-flex items-baseline gap-1.5 whitespace-nowrap"> <span class="num text-[22px] font-bold leading-none tracking-[-0.02em] text-ink sm:text-[24px]">—</span> <span class="text-[12px] text-ink-4">累计被引</span> </span> <span class="ml-auto whitespace-nowrap text-[12px] text-ink-4">约 6 分钟读完</span> </div> </header> <!-- 头版:今日看点 --> <section class="mt-6" aria-label="本期看点"> <div class="flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.3em] text-accent"> <span class="h-[2px] w-6 rounded-full bg-accent" aria-hidden="true"></span> 本期看点 </div> <ol class="mt-3.5 space-y-2.5"> <li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">01</span> <a href="/papers/whither-quantum-advantage-new-classical-lower-bounds-1b576/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</a>  </li><li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">02</span> <a href="/papers/sampled-based-guided-quantum-walk-non-variational-fb48f/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">基于采样的制导量子行走：面向组合优化的非变分量子算法</a>  </li><li class="flex items-baseline gap-3"> <span class="num shrink-0 text-[13px] font-bold text-accent">03</span> <a href="/papers/competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560/" class="min-w-0 text-[15.5px] font-semibold leading-[1.6] text-ink transition-colors hover:text-accent">LABS 小子系统优化启发式的竞争性标度</a>  </li> </ol> <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-line-soft pt-3 text-[12.5px] text-ink-4"> <span class="font-semibold text-ink-3">版面</span> <a href="#s-1" class="transition-colors hover:text-accent">第一版 · 量子优势何去何从？大围长三正…<span class="ml-0.5 num">1</span></a><a href="#s-2" class="transition-colors hover:text-accent">第二版 · 基于采样的制导量子行走：面向…<span class="ml-0.5 num">1</span></a><a href="#s-3" class="transition-colors hover:text-accent">第三版 · LABS 小子系统优化启发式…<span class="ml-0.5 num">1</span></a> </div> </section> <!-- 分版故事:双栏报纸行,发丝线分隔 --> <section id="s-1" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第一版 · 量子优势何去何从？大围长三正…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 100)">A</span> <span class="truncate">arXiv 预印本</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/whither-quantum-advantage-new-classical-lower-bounds-1b576/" class="transition-colors hover:text-accent">量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&quot;出生赛道&quot;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 MaxCut 的深度-1 解析解（切割比例 0.6924）论证这一算法族的潜力。而大围长（large-girth，即无短环）正则图则是理论上最干净的比武场：当图围长 $g \ge 2p+2$ 时，深度 $p$ 的 QAOA 在每条边周围看到的都是同一棵深度 $p$ 的树——强局域性使其期望切割比例可以被精确计算，且该数值天然构成一个刚性定理：&quot;所有该围长的…</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2610.17236" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/whither-quantum-advantage-new-classical-lower-bounds-1b576/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section><section id="s-2" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第二版 · 基于采样的制导量子行走：面向…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 267)">Q</span> <span class="truncate">Quantum</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/sampled-based-guided-quantum-walk-non-variational-fb48f/" class="transition-colors hover:text-accent">基于采样的制导量子行走：面向组合优化的非变分量子算法</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">变分量子算法（QAOA/VQE 类）是 NISQ 时代组合优化的主流范式，但其结构性痛点人所共知：参数优化回路依赖经典优化器、梯度估计受采样噪声支配、贫瘠高原与优化器超参敏感使性能难以稳定复现。本文提出 SamBa-GQW，走一条完全非变分的路线：把组合优化问题的解空间表示为图，让量子行走者（walker）在图上做连续时间量子行走去寻找最小化目标函数的顶点——全程不使用任何经典优化器。</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2509.15138" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/sampled-based-guided-quantum-walk-non-variational-fb48f/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section><section id="s-3" class="mt-8 scroll-mt-20"> <div class="flex items-baseline justify-between border-b border-line-strong pb-2"> <h2 class="text-[17px] font-bold tracking-[-0.01em] text-ink">第三版 · LABS 小子系统优化启发式…</h2>  </div> <div> <div class="grid border-b border-line sm:grid-cols-2"> <article class="flex min-w-0 flex-col py-6 sm:pr-10"> <div class="flex items-center gap-2 text-[12px] text-ink-3"> <span class="inline-flex min-w-0 items-center gap-1.5"> <span aria-hidden="true" class="inline-flex shrink-0 items-center justify-center rounded-full font-semibold text-white" style="width:16px;height:16px;font-size:9px;background:oklch(0.6 0.07 100)">A</span> <span class="truncate">arXiv 预印本</span> </span>   </div> <h3 class="mt-3 text-[19px] font-bold leading-[1.5] tracking-[-0.01em] text-ink [overflow-wrap:anywhere] sm:text-[20px]"> <a href="/papers/competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560/" class="transition-colors hover:text-accent">LABS 小子系统优化启发式的竞争性标度</a> </h3> <p class="mt-2 line-clamp-4 text-[15px] leading-[1.85] text-ink-2 [overflow-wrap:anywhere]">### 一、论文基本信息</p> <div class="mt-auto flex items-center gap-4 pt-3"> <a href="https://arxiv.org/abs/2610.14361" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">原文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M7 17 17 7M7 7h10v10"/></svg></a> <a href="/papers/competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560/" class="inline-flex min-h-7 items-center gap-0.5 text-[12.5px] font-medium text-ink-3 transition-colors hover:text-accent">日报全文 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M5 12h14M12 5l7 7-7 7"/></svg></a> </div> </article> </div> </div> </section> <!-- 完整解读(日报的 markdown 正文) --> <section class="mt-10 border-t border-line-strong pt-6"> <div class="flex items-center gap-2.5 text-[12px] font-semibold tracking-[0.3em] text-accent"> <span class="h-[2px] w-6 rounded-full bg-accent" aria-hidden="true"></span> 完整解读 </div> <div class="prose mt-4"><h1>每日论文报告（2026-10-15）</h1>
+<blockquote>
+<p><strong>检索与筛选说明（请先阅读）</strong></p>
+<p>本报告生成于 <strong>2026 年 10 月 15 日（周四，北京时间凌晨）</strong>。检索流程：paper-distill MCP 跨九库检索（OpenAlex / Semantic Scholar / CrossRef / arXiv 等）+ arXiv 官方 API 按提交与更新日期过滤 + 与既往全部日报及 papers-db.json 比对去重（三篇入选论文均无正文推荐记录）。</p>
+<ul>
+<li><strong>批次说明（重要）</strong>：arXiv 公告节奏为美东 20:00 发布、北京时间次日 08:00 前后可检索。截至本报告生成时刻，<strong>尚无任何提交/更新日期标注为 2026-10-15 的条目</strong>（10-14 批次预计北京时间今日 08:00 前后上线，将顺延至明日报告首度覆盖）。今日以<strong>当前可检索的最新批次（10-12 / 10-13）及 10-13 正式见刊论文</strong>为主体。<strong>大模型求解组合优化备选方向</strong>：本期无合格新作，量子方向供给充足，未启用备选。</li>
+<li><strong>今日主线</strong>：在 MaxCut 与 LABS 这两条 QAOA / 量子退火的&quot;标准赛道&quot;上，<strong>经典局部算法再度拉高可证下界</strong>（论文一、论文三）；而量子侧则以<strong>彻底告别经典优化器的非变分量子行走</strong>作出回应（论文二，10-13 正式见刊 Quantum）。量子与经典在组合优化上的拉锯正进入&quot;逐条赛道、逐个深度&quot;贴身比拼的深水区。</li>
+<li><strong>未入选但值得留意</strong>：arXiv:2610.18245 &quot;Zeus-256&quot;（宣称 256 比特室温 NV 金刚石处理器、84 比特整数分解、逾 4000 万门电路）——声称极端惊人、未经同行评审、无独立复现，建议审慎对待（可对照今日行业动态第 4 条 SAXON Q / Fraunhofer IWU 的 3 比特室温 Grover 演示，校准室温金刚石平台的真实水位）；Explicitly correlated ground states with a feedback-free variational hybrid algorithm（arXiv:2610.18681，10-13，变分分子基态方向）；Circuit Design Problems in Binary Polynomial Quantum Optimization（arXiv:2610.13283，10-09，Tempura 浅电路合成启发式，与论文二同属 EDF 系团队）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>论文一：经典局部算法再度刷线——VIRAL 在大围长三正则图 MaxCut 上全面超越 QAOA 可证下界</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Whither quantum advantage? New classical lower bounds for Max-Cut on large-girth 3-regular graphs</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Flaviano Morone, Shivang Rawat, Dries Sels（纽约大学团队；Sels 组长期深耕量子算法与统计物理、张量网络交叉方向，近年连续以经典方法检验量子优势声明）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2610.17236（2026-10-12 提交，v1）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2610.17236">https://arxiv.org/abs/2610.17236</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&quot;出生赛道&quot;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 MaxCut 的深度-1 解析解（切割比例 0.6924）论证这一算法族的潜力。而<strong>大围长</strong>（large-girth，即无短环）正则图则是理论上最干净的比武场：当图围长 $g \ge 2p+2$ 时，深度 $p$ 的 QAOA 在每条边周围看到的都是同一棵深度 $p$ 的树——强局域性使其期望切割比例可以被精确计算，且该数值天然构成一个<strong>刚性定理</strong>：&quot;所有该围长的三正则图都至少能切掉这个比例的边&quot;。换言之，QAOA 的性能数字可以直接充当组合数学意义上的可证下界。此前大围长极限下的最好上下界为 $0.912 \le \lim_{g\to\infty} M_g \le 0.92386$，其中下界 0.912 正是来自 QAOA 的高深度数值计算。</p>
+<p>本文动机直白而锋利：既然 QAOA 的期望性能能当&quot;下界证书&quot;使用，<strong>经典局部算法同样可以</strong>。于是问题变成：在同等局域深度预算下，最好的经典局部算法与 QAOA 各自给出的下界孰高孰低？这直接决定了 QAOA 在这条标准赛道上还剩多少理论优势空间——也是&quot;量子优势何去何从&quot;（Whither quantum advantage?）这一标题的全部重量所在。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>局部算法下界证书策略</strong>：在围长 $g \ge 2p+2$ 的图上，任何深度 $p$ 的局部算法（QAOA 或经典算法皆然）在每条边周围看到的都是同一棵深度 $p$ 的树，因此其在树上的期望切割分数对所有该围长三正则图一致成立，构成 $M_g$ 的下界。作者把这一&quot;证书机制&quot;从 QAOA 移植到经典侧。</li>
+<li><strong>经典主角 VIRAL</strong>：Variational Iterative Rotation Algorithm（变分迭代旋转算法）——一个经典局部变分算法，在深度 $p$ 树上执行迭代旋转式优化。作者把树深度推到 <strong>$p=32$</strong>（覆盖全部偶数深度），大幅超越此前 QAOA 数值计算所能企及的深度范围——局域深度预算拉满后，经典算法的&quot;证书精度&quot;也随之水涨船高。</li>
+<li><strong>高置信蒙特卡洛</strong>：树上的期望切割分数以随机采样估计，并附严格的置信水平声明（最高给出 99.99999% 置信水平的下界），保证&quot;数值结果&quot;仍具备定理级别的可信度。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<ol>
+<li><strong>对每一个 $p \ge 4$，VIRAL 给出的下界都超过同深度 QAOA 所给下界</strong>，超出幅度 0.005～0.011——即在与 QAOA 公平对齐的局域深度上，经典局部算法全线领先。</li>
+<li>下界适用围长范围从 $g=36$ 扩展到 <strong>$g=66$</strong>；在 $g=66$ 处得到 $M_{66} \ge 0.9127$（99.99999% 置信水平）。</li>
+<li>由此把大围长渐近下界从 <strong>0.912 抬升至 0.9127</strong>（上界仍为 0.92386，缺口收窄但未关闭）。</li>
+</ol>
+<h3>五、对研究领域的意义与启示</h3>
+<ol>
+<li><strong>对 QAOA 优势叙事的直接挤压</strong>：在 QAOA 的主场（大围长三正则图 MaxCut）、以&quot;同等局域深度&quot;为公平规则的正面对比中，经典局部算法全面胜出。QAOA 若要在这条赛道翻盘，其优势来源只能是局域性之外的因素——更深深度下的非局域效应、更好的混合算符、问题定制编码、或硬件原生实现。</li>
+<li><strong>方法论启示：经典算法不止是对手，更是标尺</strong>。本工作示范了把经典启发式的性能&quot;公证&quot;为对全体图类刚性下界的通用范式——今后任何&quot;量子算法在 MaxCut 上超越经典&quot;的声明，都必须先过这道被经典算法亲手抬高的门槛。</li>
+<li><strong>与同期工作互为表里</strong>：论文三（LABS 小子系统启发式）在另一条基准赛道上同样收紧了经典水位；而论文二（非变分量子行走）则代表量子侧跳出变分框架寻找新武器的努力。三者同框，恰是当前&quot;量子 vs 经典组合优化&quot;研究格局的缩影：优势空间正被逐条赛道、逐个深度地重新丈量。</li>
+</ol>
+<hr>
+<h2>论文二：告别经典优化器——SamBa-GQW 采样制导量子行走正式见刊 Quantum，开辟非变分组合优化新路线</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Sampled-Based Guided Quantum Walk: Non-variational quantum algorithm for combinatorial optimization</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>基于采样的制导量子行走：面向组合优化的非变分量子算法</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Ugo Nzongani, Dylan Laplace Mermoud, Giuseppe Di Molfetta, Andrea Simonetto（法国电力 EDF 研发部联合法国高校团队；Simonetto 组长期从事面向工业负载的量子优化研究）</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>Quantum（同行评审开放获取期刊；2026-10-13 正式见刊，DOI: 10.22331/q-2026-10-13-2234；其 arXiv v3 修订版曾于 10-03 报告&quot;修订区值得留意&quot;中提示，今日正式出版，故纳入推荐）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2509.15138（v3，2026-10-03 更新）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2509.15138">https://arxiv.org/abs/2509.15138</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与动机</h3>
+<p>变分量子算法（QAOA/VQE 类）是 NISQ 时代组合优化的主流范式，但其结构性痛点人所共知：参数优化回路依赖经典优化器、梯度估计受采样噪声支配、贫瘠高原与优化器超参敏感使性能难以稳定复现。本文提出 SamBa-GQW，走一条<strong>完全非变分</strong>的路线：把组合优化问题的解空间表示为图，让量子行走者（walker）在图上做连续时间量子行走去寻找最小化目标函数的顶点——<strong>全程不使用任何经典优化器</strong>。</p>
+<h3>三、核心方法与技术路线</h3>
+<ol>
+<li><strong>离线经典采样探谱</strong>：算法的关键创新是一个离线经典采样协议，以多项式代价获取问题哈密顿量谱结构的信息——这一步把&quot;谱知识&quot;从变分优化回路中剥离出来，成为一次性的预处理。</li>
+<li><strong>时变跳跃率制导行走</strong>：以谱信息构造随时间变化的跳跃率（hopping rate），引导行走者的振幅向低能耗顶点定向输运——制导量子行走思路的采样化升级。</li>
+<li><strong>通用性问题编码</strong>：适用于任意阶二进制优化问题，覆盖二次（MaxCut、最大独立集、投资组合）与高阶多项式（LABS、MAX-$k$-SAT、四次多项式重编码的旅行商）。</li>
+</ol>
+<h3>四、主要实验/理论结果</h3>
+<p>在至多 $n=30$ 比特的问题上，SamBa-GQW 只需从 $2^n$ 个可能决策中采样 poly($n$) 个状态即可找到高质量近似解；经验性能与&quot;经典优化的&quot;变分对手——变分制导量子行走及深电路 QAOA——持平。作者据此将其定位为面向<strong>后 NISQ 体制</strong>的有竞争力启发式。</p>
+<h3>五、对研究领域的意义与启示</h3>
+<p>本篇与论文一互为镜像：经典侧在拉高 QAOA 必须跨越的门槛，量子侧则跳出变分框架另起炉灶。彻底移除经典优化器意味着移除参数高原、优化器选择与梯度噪声三重不稳定源——若这类非变分路线能在更大规模上保持性能，&quot;量子优化&quot;的技术叙事可能从&quot;变分调参&quot;整体迁移至&quot;物理过程直出解&quot;。对工业界（EDF 等能源调度负载方）而言，这也是一条更接近工程可验收的路径。</p>
+<hr>
+<h2>论文三：LABS 赛道的小子系统奇迹——4 自旋局部优化启发式实现 O(1.333^N) 标度，正面叫板最优经典与量子标尺</h2>
+<h3>一、论文基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>英文标题</strong></td>
+<td>Competitive scaling of small-subsystem-optimization heuristics for LABS</td>
+</tr>
+<tr>
+<td><strong>中文标题</strong></td>
+<td>LABS 小子系统优化启发式的竞争性标度</td>
+</tr>
+<tr>
+<td><strong>作者列表</strong></td>
+<td>Ginger E. Lau, Adil A. Gangat</td>
+</tr>
+<tr>
+<td><strong>发表平台</strong></td>
+<td>arXiv 预印本（quant-ph）</td>
+</tr>
+<tr>
+<td><strong>arXiv 编号</strong></td>
+<td>2610.14361（2026-10-09 提交，v1）</td>
+</tr>
+<tr>
+<td><strong>原文链接</strong></td>
+<td><a href="https://arxiv.org/abs/2610.14361">https://arxiv.org/abs/2610.14361</a></td>
+</tr>
+</tbody></table>
+<h3>二、研究背景与方法</h3>
+<p>低自相关二进制序列（LABS）问题通常表述为自旋晶格能量最小化，其能量地貌极其崎岖，是量子退火领域的标志性基准——量子退火硬件与模拟多次以其演示性能优势。本文报告一个反直觉发现：<strong>不整体优化 N 自旋系统，而是迭代优化与系统其余部分解耦的极小（n=4）自旋子系统</strong>，即可实现 LABS 的全局优化。</p>
+<h3>三、主要结果与意义</h3>
+<p>小子系统启发式在 $N \in [27, 60]$ 区间实现时间到解（TTS）标度 $O(1.333^N)$——优于当前最优经典标度 $O(1.34^N)$，逼近最优量子标度 $O(1.21^N)$。启示有二：其一，LABS 的经典水位再度被抬高，量子退火的相关优势声明今后须对照更强基线；其二，&quot;只含少量逻辑自旋的专用优化硬件&quot;（小型量子协处理器、伊辛机等）可能已具实用价值——组合优化的产业化路径未必需要等待大规模通用量子计算机，这为&quot;小而专&quot;的硬件路线提供了直接论据。</p>
+</div> </section> <!-- 邻期导航 + 版权行 --> <nav class="mt-10 flex items-center justify-between gap-4 border-t border-line-strong pt-4 text-[13px]"> <a href="/daily/2026-10-14/" class="group inline-flex min-w-0 items-center gap-1.5 font-medium text-ink-3 transition-colors hover:text-accent"> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="rotate-180"><path d="m9 18 6-6-6-6"/></svg><span class="truncate">上一期 · 2026-10-14</span> </a> <span></span> </nav> <p class="mt-6 text-center text-[11.5px] tracking-[0.2em] text-ink-4">QUANTOPT DAILY · 量子优化日报 · 每日自动汇编</p> </article>  <footer class="mt-10 border-t border-line-soft pt-4 text-[12px] leading-relaxed text-ink-4"> <p>量子优化日报 · QuantOpt Daily — 由每日自动检索流水线生成 · 数据来源 arXiv / OpenAlex / 产业媒体</p> <p class="mt-1"> <a class="transition-colors hover:text-accent" href="/agent/">Agent 接入</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/feed.xml">RSS</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/about/">关于</a> <span class="mx-1.5">·</span><a class="transition-colors hover:text-accent" href="/llms.txt">llms.txt</a> </p> </footer> </main> </div> </div> <!-- 移动端底部 TabBar --> <nav aria-label="底部导航" class="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur lg:hidden"> <div class="mx-auto grid h-[54px] max-w-[640px] grid-cols-4"> <a key="/" href="/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> <span>精选</span> </a><a key="/all/" href="/all/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg> <span>全部</span> </a><a key="/daily/" href="/daily/" aria-current="page" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors font-semibold text-accent"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg> <span>日报</span> </a><a key="/more/" href="/more/" class="relative flex flex-col items-center justify-center gap-[3px] text-[11px] transition-colors text-ink-3"> <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg> <span>更多</span> </a> </div> </nav> <!-- 回到顶部 --> <button id="backToTop" type="button" aria-label="回到顶部" class="fixed bottom-[calc(70px+env(safe-area-inset-bottom))] right-4 z-30 flex size-11 translate-y-2 items-center justify-center rounded-full border border-line bg-surface text-ink-2 opacity-0 shadow-[var(--shadow-soft)] transition-all duration-200 hover:text-ink lg:bottom-6 lg:right-6"> <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class><path d="M12 19V5M5 12l7-7 7 7"/></svg> </button> <script>
+      (function () {
+        // 三态主题切换
+        var root = document.documentElement;
+        var thumb = document.getElementById('themeThumb');
+        var btns = document.querySelectorAll('#themeSwitch [data-choice]');
+        function pref() { try { return localStorage.getItem('qo-theme'); } catch (e) { return null; } }
+        function sync() {
+          var p = pref();
+          var idx = p === 'dark' ? 0 : p === 'light' ? 2 : 1;
+          if (thumb) thumb.style.transform = 'translateX(' + idx * 100 + '%)';
+          btns.forEach(function (b) {
+            var on = (p === 'dark' && b.dataset.choice === 'dark') || (p === 'light' && b.dataset.choice === 'light') || (!p && b.dataset.choice === 'system');
+            b.classList.toggle('text-ink', on);
+            b.classList.toggle('text-ink-4', !on);
+          });
+        }
+        btns.forEach(function (b) {
+          b.addEventListener('click', function () {
+            var c = b.dataset.choice;
+            try { if (c === 'system') localStorage.removeItem('qo-theme'); else localStorage.setItem('qo-theme', c); } catch (e) {}
+            var p = pref();
+            root.dataset.theme = p === 'dark' || p === 'light' ? p : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            sync();
+          });
+        });
+        sync();
+        // 回到顶部
+        var top = document.getElementById('backToTop');
+        if (top) {
+          var onScroll = function () {
+            var show = window.scrollY > window.innerHeight * 1.2;
+            top.classList.toggle('opacity-0', !show);
+            top.classList.toggle('translate-y-2', !show);
+            top.classList.toggle('pointer-events-none', !show);
+          };
+          onScroll();
+          window.addEventListener('scroll', onScroll, { passive: true });
+          top.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        }
+      })();
+    </script> </body> </html>
