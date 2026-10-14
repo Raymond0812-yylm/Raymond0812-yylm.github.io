@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-14",
+ "updated": "2026-10-15",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -70,6 +70,33 @@
   }
  },
  "papers": [
+  {
+   "id": "numerically-exact-simulation-open-quantum-networks-strong-72862",
+   "title": "Numerically exact simulation of open quantum networks with strong system-bath couplings using tensor network path integrals",
+   "titleZh": "用张量网络精确模拟强系统- bath 耦合的开放量子网络",
+   "authors": [
+    "Quentin W. Richter",
+    "Moritz Cygorek"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-07",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.10259",
+   "doi": "10.48550/arxiv.2610.10259",
+   "url": "https://arxiv.org/abs/2610.10259",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "非马尔可夫开放量子网络是量子理论最难的问题之一;该文用张量网络精确模拟强系统-环境耦合的开放量子网络,为量子互联网与分布式量子计算的噪声建模提供工具。",
+   "abstract": "Non-Markovian open quantum networks are among the most challenging problems in quantum theory, as they suffer from both, the exponentially scaling many-body state space as well as long memory times when the sites are strongly coupled to structured environments. Recent efforts to address them by combining tensor networks with real-time path integrals, such as TEMPO and process tensors, were however limited to systems with rather weak system-environment couplings because strong couplings lead to large bond dimensions. Here, we devise a tensor network scheme (CTEMPO) resulting in particularly small bond dimensions for single-site problems. We then extend this to a practical scheme to simulate non-Markovian quantum networks by time-evolving a corresponding comb tensor network. Benchmarking the single-site algorithm on the spin-boson model we find orders-of-magnitude improvement over established methods. The multi-site algorithm is shown to solve the notoriously difficult problem of the 7-site Fenna-Matthews-Olson photosynthetic complex, whose spectral density contains 62 peaks. We then apply our approach to explore the scaling behavior of the superradiance of up to $N=20$ quantum dots individually coupled to super-Ohmic phonon baths. Our approach provides a turnkey solution to non-Markovian quantum networks and is compatible with more general tensor network topologies.",
+   "source": "backfill",
+   "domains": []
+  },
   {
    "id": "learning-quantum-hamiltonians-any-temperature-polynomial-time-e7575",
    "title": "Learning Quantum Hamiltonians at Any Temperature in Polynomial Time",
@@ -524,6 +551,44 @@
    "source": "backfill",
    "domains": [
     "materials"
+   ]
+  },
+  {
+   "id": "sar-insar-change-detection-quantum-generative-models-4323b",
+   "title": "SAR and InSAR Change Detection with Quantum Generative Models",
+   "titleZh": "基于量子生成模型的 SAR 与 InSAR 变化检测",
+   "authors": [
+    "Samwel Sekwao",
+    "Shaunak De",
+    "Alexis Hocken",
+    "Scott Staniewicz",
+    "Evgeny Epifanovsky",
+    "Craig Stringham",
+    "Gordon Farquharson",
+    "Martin Roetteler",
+    "Panagiotis Kl. Barkoutsos",
+    "Jason Iaconis"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.05313",
+   "doi": "10.48550/arxiv.2609.05313",
+   "url": "https://arxiv.org/abs/2609.05313",
+   "topics": [
+    "quantum-ai",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:SAR/InSAR 变化检测是灾害响应与基础设施监测的支柱技术;该文把量子生成模型引入 SAR 变化检测,面向卫星遥感数据处理线(EO 数据线)的最新工作。",
+   "abstract": "Change detection in synthetic aperture radar (SAR) and interferometric synthetic aperture radar (InSAR) underpins disaster response, infrastructure monitoring and land-use enforcement. Detection is limited by the background estimator, which conventionally forms a conditional expectation directly from observed pixel statistics and degrades where those statistics are sparse, including the regime produced by the heavy-tailed marginals of sub-meter-resolution radars. In this work, we integrate state-of-the-art satellite imagery with quantum machine learning on IonQ trapped-ion-based quantum processors. By replacing the empirical conditional with a quantum circuit Born machine (QCBM)-sampled generative model in Copula space, we substantially improve change detection on sparse real-world images. On Capella Space satellite image acquisitions, the generative estimator matches conventional methods when the observed statistics are adequate, and substantially outperforms them when they are not. Executing the trained model on IonQ trapped-ion based hardware reproduces the results of the ideal and noisy simulations and demonstrates up to par, or even better, performance with the classical state-of-the-art methods. For a SAR dataset of an airport, QPU circuit evaluations for both training and inference achieved a maximized filtered F1 score of 0.32, compared with 0.16 and 0.24 for the two classical baselines. For an InSAR dataset of a volcanic lava flow, all three methods reached a maximum",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {
@@ -1278,6 +1343,40 @@
    "abstract": "Traditional path planning methods are often constrained by local optima, limited scalability, and slow convergence, which significantly restrict their effectiveness in solving large-scale problems. To address these limitations, this paper shifts the problem-solving paradigm from algorithmic refinement to parallelization of computational architecture. We propose a novel optimization framework utilizing a Graphics Processing Unit (GPU)-parallelized Ising solver. Our method mimics the operational principles of quantum annealing on GPU hardware, enabling rapid search for the minimum-energy state of Ising models. Unlike physical quantum devices, which are often constrained by the number of qubits, our approach leverages the Fixstars Amplify (FA) platform to perform parallel annealing on highly parallelized GPUs. This enables the simultaneous evaluation of thousands of potential path candidates and vast state transitions. By leveraging large-scale parallel processing, the core strength of this framework lies in minimizing computation time even as the problem scale increases. Furthermore, to solve the path planning problem using the FA platform, we formulate the problem as a Quadratic Unconstrained Binary Optimization (QUBO) model. This formulation converts the objectives of flight constraints and operational time minimization into an energy state, enabling problem processing via the Ising-based architecture. Simulation results demonstrate that our proposed method consistently ident",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "efficient-treatment-non-linearity-quantum-computational-fluid-534c3",
+   "title": "Efficient Treatment of Non-Linearity in Quantum Computational Fluid Dynamics Using Hybrid Tensor Networks",
+   "titleZh": "混合张量网络方法处理量子计算流体动力学中的非线性项",
+   "authors": [
+    "Pia Siegl",
+    "Nis-Luca van Hülst",
+    "Maximilian Mandelt Buxadé",
+    "Tomohiro Hashizume",
+    "Dieter Jaksch"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-25",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.24150",
+   "doi": "10.48550/arxiv.2608.24150",
+   "url": "https://arxiv.org/abs/2608.24150",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "非线性项是量子计算流体动力学(QCFD)的根本挑战;该文提出混合张量网络方法处理 QCFD 的非线性项,把 CFD 这一经典强项问题与量子求解做衔接(与库内 QCFD 能源潮流工作互补)。",
+   "abstract": "Nonlinear terms present a fundamental challenge for quantum computational fluid dynamics, as their implementation on inherently linear quantum hardware typically requires resource-intensive workarounds that limit scalability to large-scale simulations. We present a hybrid quantum-classical tensor network algorithm that addresses this bottleneck by combining variational time-stepping with quantum tensor programming to efficiently compile operators and time-dependent fields into quantum circuits. Within a probabilistic framework, we replace prior state-based nonlinear implementations with tensor-based block encodings, stabilizing success probabilities that otherwise decay exponentially with system size. Benchmarking on turbulent flow fields demonstrates that the algorithm maintains high success probabilities and moderate measurement overhead across increasing Reynolds numbers and grid resolutions. Compared to fully classical tensor network solvers, our hybrid approach yields substantial reductions in both memory footprint and computational cost, establishing a scalable pathway toward practical quantum advantage in scale-resolving CFD simulations.",
+   "source": "backfill",
+   "domains": [
+    "energy"
+   ]
   },
   {
    "id": "improving-join-order-optimization-gate-based-quantum-f8ec6",
@@ -2193,6 +2292,62 @@
    ]
   },
   {
+   "id": "quantum-classical-crossover-fault-tolerant-quantum-dynamics-1e1ef",
+   "title": "Quantum-classical crossover in fault-tolerant quantum dynamics simulation",
+   "titleZh": "容错量子动力学模拟的量子-经典交叉点",
+   "authors": [
+    "J F Sun",
+    "Bozhen Zhou",
+    "Jue Xu",
+    "Yuan Yao",
+    "Zhenyu Du",
+    "Zixu Zhang",
+    "Yuntian Gu",
+    "Junxiang Huang",
+    "Shuo Zhou",
+    "Ziruo Wang",
+    "Alexander Yosifov",
+    "Wenzheng Dong",
+    "Yiming Huang",
+    "Daniel Serrano",
+    "Xinzhao Wang",
+    "Tianfeng Feng",
+    "Shreyas Sadugol",
+    "W K Yu",
+    "Zhou You",
+    "Dayue Qin",
+    "Xiao-Ming Zhang",
+    "Yantao Wu",
+    "Aditya Iyer",
+    "You Zhou",
+    "Tongyang Li",
+    "Ying Li",
+    "Xiongfeng Ma",
+    "Qi Zhao",
+    "Pei Zeng",
+    "Pan Zhang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-17",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.16116",
+   "doi": "10.48550/arxiv.2607.16116",
+   "url": "https://arxiv.org/abs/2607.16116",
+   "topics": [
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:识别量子计算机从\"经典可模拟\"到\"经典不可解\"的确切交叉点——以容错量子动力学模拟为对象量化量子相对经典的优势起始位置,对\"何时该用量子计算机\"给出操作判据。",
+   "abstract": "While quantum computers promise to solve classically intractable problems, identifying the point at which fault-tolerant quantum computation outperforms the best classical algorithms for practical applications remains an outstanding challenge. Here we establish a concrete quantum-classical crossover for quantum many-body dynamics under realistic hardware conditions. We introduce a scalable fault-tolerant framework that combines coherent observable estimation with a space-time-efficient implementation of non-Clifford rotations, suppressing the residual logical errors that limit existing partially fault-tolerant approaches. A benchmark against state-of-the-art tensor-network and variational Monte Carlo algorithms reveals a concrete crossover for mixed-field Ising dynamics at modest system sizes. For a physical error rate of $p=10^{-3}$, fault-tolerant simulation requires approximately 2 hours and $3.7 \\times 10^5$ physical qubits for a 100-site 1D system, whereas tensor network approaches would require about 100 years. For 2D models, where rapid entanglement growth limits the classical evolution time, we project quantum runtimes within minutes. A physical error rate of $p=10^{-4}$ leads to at least an order of magnitude reduction in qubit count ($3.1 \\times 10^4$ physical qubits) and runtime (minutes for 1D and seconds for 2D). The reduction in quantum runtime arises from our improved rotation-state injection and co-design of quantum error correction and observable-estimation p",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "near-optimal-parameter-tuning-level-1-qaoa-5e7e6",
    "title": "Near-Optimal Parameter Tuning of Level-1 QAOA for Ising Models",
    "titleZh": "Ising模型上一层QAOA的近最优参数调节",
@@ -2656,6 +2811,36 @@
    ],
    "summaryZh": "Proceedings of the VLDB Endowment(数据库顶会)2026:把量子退火采样嵌入实时数据库系统的组合优化(查询计划/资源调度),工程化解决低延迟集成难题;证明量子退火可在生产级数据库系统中担任实时优化角色。",
    "abstract": "Quantum annealers offer a promising sampling-based computing paradigm for large-scale combinatorial optimization. However, directly using them to solve database optimization problems in real-time scenarios remains challenging due to strict hardware constraints and the opacity of commercial hybrid solvers. To address these challenges, we present QDBO , a white-box quantum-augmented database optimizer that directly leverages low-level quantum sampling on a quantum annealer. It first performs an initial reduction to produce embeddable QUBO instances via multiple mapping strategies that trade off efficiency and quality. It then applies an online iterative relaxation correction procedure that uses sampling feedback to correct the reduced QUBO across iterations, enabling controllable quality improvements under varying time budgets. We integrate QDBO with the PostgreSQL query optimizer to construct Q 2 O-QDBO for join order optimization. Evaluations on the Join Order Benchmark (JOB) and the Cardinality Estimation Benchmark (CEB) show that Q 2 O-QDBO improves 62 out of 113 JOB queries, and achieves up to 49.36× execution-time speedup and 36.88× end-to-end speedup on the CEB workload. Evaluations on synthetic queries with up to 50 relations show that Q 2 O-QDBO achieves significantly less end-to-end latency while maintaining similar solution quality compared with black-box quantum solvers. To demonstrate generality, we further integrate QDBO with PostgreSQL for index selection on TPC-",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "noisy-quantum-circuit-simulation-tensor-jump-method-b3020",
+   "title": "Noisy quantum circuit simulation with the tensor jump method",
+   "titleZh": "张量跳跃方法模拟含噪量子线路",
+   "authors": [
+    "Maximilian Fröhlich",
+    "Aaron Sander",
+    "Martin Eigel",
+    "Robert Wille",
+    "Michael Hintermüller"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.01323",
+   "doi": "10.48550/arXiv.2607.01323",
+   "url": "https://arxiv.org/abs/2607.01323",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "含噪量子线路的经典模拟是算法验证与基准测试的基础;该文提出张量跳跃(tensor jump)方法高效模拟含噪线路演化,补充经典模拟工具箱。",
+   "abstract": "Classical simulation of noisy quantum circuits is essential for validating algorithms, benchmarking hardware, and assessing error-mitigation strategies, but remains limited by the exponential cost of density-matrix methods and the high variance of standard trajectory sampling. We introduce a variance-aware tensor network framework that combines the tensor jump method with local TDVP gate evolution on matrix product states and sparse Pauli-Lindblad hardware noise models. Gates are applied as short variational evolutions on the MPS manifold, while noise is sampled per circuit window from Pauli-Lindblad jump sets with state-independent hazards and dissipative contractions that reduce to irrelevant global factors after renormalization. The method supports correlated multi-qubit Lindblad noise consistent with hardware connectivity, including long-range operators on non-adjacent qubits, enabling direct simulation of crosstalk and other connectivity-induced errors beyond local noise models. We develop two unbiased variance-aware unravelings. An analog unitary-mixture unraveling matches the Lindblad generator exactly under symmetric Gaussian or two-point angle laws, while a projector-jump unraveling yields state-independent hazards and closed-form variance laws. Both retain the standard 1/sqrt(N) Monte Carlo convergence but with reduced prefactors. Empirically, projector sampling strongly reduces trajectory variance and bond-dimension growth across many circuit architectures, whereas",
    "source": "backfill",
    "domains": []
   },
@@ -3904,6 +4089,35 @@
    "domains": []
   },
   {
+   "id": "toward-near-real-time-marine-oil-spill-1630b",
+   "title": "Toward Near-Real-Time Marine Oil Spill Detection in SAR Imagery using Quantum-Assisted SVM",
+   "titleZh": "用量子辅助 SVM 实现 SAR 影像的近实时海洋油污检测",
+   "authors": [
+    "Joseph Strauss",
+    "Jyotsna Sharma"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-17",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.17217",
+   "doi": "10.48550/arXiv.2605.17217",
+   "url": "https://arxiv.org/abs/2605.17217",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "海洋油污需快速检测以减轻生态与经济损失;该文用量子辅助支持向量机在 SAR 卫星影像上做近实时油污检测,是 QSVM×卫星遥感数据的实用化尝试。",
+   "abstract": "Marine oil spills require rapid detection to mitigate severe ecological and economic damage. While satellite-based Synthetic Aperture Radar (SAR) provides essential all-weather monitoring, analyzing this data remains challenging. Deep learning models often require massive datasets and incur high latency. To address this, a pixel-wise quantum-assisted Support Vector Machine (QSVM) bagging ensemble is developed. Quantum annealing is leveraged to optimize the support vectors of individual weak SVMs on small data subsets, which are then classically aggregated. The approach is evaluated on Sentinel-1 imagery using both quantum simulation and physical quantum annealing hardware. The quantum-assisted pipeline achieved performance comparable to a rigorous classical baseline, yielding an Intersection-over-Union (IoU) of 0.60 and a balanced accuracy of 0.89. Complementary experiments with gate-based quantum computing demonstrated similar segmentation accuracy, although the annealing approach offered superior inference efficiency. Generalization was further assessed on independent oil spill imagery from the Strait of Hormuz, demonstrating the potential transferability of the trained pipeline to geographically distinct spill events. These results establish the feasibility of quantum-assisted, segmentation pipelines for near-real-time environmental monitoring.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "scaling-quantum-optimization-unit-commitment-pauli-correlation-f13e8",
    "title": "Scaling Quantum Optimization for Unit Commitment via Pauli Correlation Encoding",
    "titleZh": "基于 Pauli 关联编码的机组组合量子优化扩展",
@@ -4543,6 +4757,36 @@
    ]
   },
   {
+   "id": "tensor-network-surrogate-models-variational-quantum-computation-5475c",
+   "title": "Tensor network surrogate models for variational quantum computation",
+   "titleZh": "变分量子计算的张量网络代理模型",
+   "authors": [
+    "Ryo Watanabe",
+    "Dries Sels",
+    "Joseph Tindall"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-22",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.20180",
+   "doi": "10.48550/arxiv.2604.20180",
+   "url": "https://arxiv.org/abs/2604.20180",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "用二维张量网络拟设作为变分量子算法(VQA)的代理模型,在经典侧模拟 VQA 行为以降低真机采样成本;为\"经典代理辅助量子优化\"提供新工具。",
+   "abstract": "We adopt a two-dimensional tensor-network (TN) ansatz to simulate variational quantum algorithms on two-dimensional qubit architectures, demonstrating its capability to accurately simulate deep circuits through the Quantum Approximate Optimization Algorithm (QAOA) applied to Ising spin-glass problems on heavy-hexagonal and square lattices. For heavy-hexagonal problems with up to three-body interactions, parameters trained on small instances and transferred to systems an order of magnitude larger improve the sampled energy distribution only up to intermediate depths, indicating a fundamental limit of parameter concentration as a transfer strategy. By extending the training itself with TN simulations on larger system sizes, we avoid local minima and obtain lower-energy samples. Analyses of entanglement growth and importance sampling show that the simulation remains classically feasible with moderate bond dimension. We find that parameter concentration also persists on square lattices, albeit at substantially higher computational cost to perform reliable sampling. Overall, our TN framework not only provides an efficient and controlled framework for benchmarking variational quantum algorithms on two-dimensional lattices, but also serves as an effective surrogate model for training variational algorithms.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "potential-energy-savings-from-quantum-computing-based-ba60f",
    "title": "Potential Energy Savings from Quantum Computing-Based Route Optimization",
    "titleZh": "基于 QAOA 的路径优化节能潜力评估",
@@ -4660,6 +4904,42 @@
     "energy",
     "materials"
    ]
+  },
+  {
+   "id": "scalable-quantum-molecular-generation-gpu-accelerated-tensor-0766a",
+   "title": "Scalable Quantum Molecular Generation via GPU-Accelerated Tensor-Network Simulation",
+   "titleZh": "GPU 加速张量网络模拟的大规模量子分子生成",
+   "authors": [
+    "Yucheng Xiao",
+    "Jen-Yu Chang",
+    "Tzu-Ling Kuo",
+    "Aninda Astuti",
+    "Shu‐Chi Wu",
+    "Ka‐Lok Ng",
+    "Yun-Yuan Wang",
+    "Yu-Ze Chen",
+    "Nan-Yow Chen",
+    "Tai-Yu Li"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-15",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.13877",
+   "doi": "10.48550/arXiv.2604.13877",
+   "url": "https://arxiv.org/abs/2604.13877",
+   "topics": [
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "提出 SQMG:变分量子线路采样+GPU 加速张量网络模拟,实现可扩展的量子分子生成,绕开真机比特数限制;分子生成×量子×经典高性能计算三线融合。",
+   "abstract": "We propose Scalable Quantum Molecular Generation (SQMG), a variational quantum-circuit for sampling molecular graphs using chemical priors on atoms and bonds. SQMG assigns a fixed 3-qubit register to each heavy atom and reuses a single 2-qubit bond register to generate bonds sequentially, yielding an ''atom no-reuse, bond reuse'' architecture with linear qubit scaling. Measurement results are mapped to molecular graphs via lightweight classical decoding with structural constraints. In CUDA-Q, we benchmark the state-vector simulation (CPU/GPU) and the tensor-network simulation (GPU). At $N=8$ heavy atoms, the state-vector simulator (GPU) and the tensor-network simulator (GPU) achieve speeds of up to $4.5\\times 10^{4}$ and $2.2\\times 10^{3}$ over the state-vector (CPU) baseline, respectively. Crucially, tensor-network simulation extends exact simulation to $N=40$ heavy atoms, where state-vector methods become memory-limited. For training, Bayesian optimization outperforms COBYLA on a Validity$\\times$Uniqueness objective, and the same architecture supports \\textit{de novo} generation, scaffold decoration, and linker design. Overall, SQMG provides a scalable, reproducible testbed for evaluating accelerated tensor-network simulation and future quantum molecular generation algorithms.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "black-box-optimization-factorization-ising-machines-71028",
@@ -6826,6 +7106,36 @@
    "domains": []
   },
   {
+   "id": "autonomous-quantum-simulation-through-large-language-model-658b7",
+   "title": "Autonomous Quantum Simulation through Large Language Model Agents",
+   "titleZh": "通过大语言模型智能体实现自主量子模拟",
+   "authors": [
+    "Weitang Li",
+    "Jiajun Ren",
+    "Lixue Cheng",
+    "Cunxi Gong"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-15",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.10194",
+   "doi": "10.48550/arxiv.2601.10194",
+   "url": "https://arxiv.org/abs/2601.10194",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:证明 LLM 智能体可以自主完成张量网络量子模拟——从问题设定、方法选择到执行与解读;\"LLM 智能体×量子模拟\"是 2026 年新兴的自动化科研范式,与站点 QuantumQUBO Agent 同属 LLM4Q 前沿。",
+   "abstract": "We demonstrate that large language model (LLM) agents can autonomously perform tensor network simulations of quantum many-body systems, achieving approximately 90% success rate across representative benchmark tasks. Tensor network methods are powerful tools for quantum simulation, but their effective use requires expertise typically acquired through years of graduate training. By combining in-context learning with curated documentation and multi-agent decomposition, we create autonomous AI agents that can be trained in specialized computational domains within minutes. We benchmark three configurations (baseline, single-agent with in-context learning, and multi-agent with in-context learning) on problems spanning quantum phase transitions, open quantum system dynamics, and photochemical reactions. Systematic evaluation using DeepSeek-V3.2, Gemini 2.5 Pro, and Claude Opus 4.5 demonstrates that both in-context learning and multi-agent architecture are essential. Analysis of failure modes reveals characteristic patterns across models, with the multi-agent configuration substantially reducing implementation errors and hallucinations compared to simpler architectures.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "machine-learning-enhanced-quantum-classical-benders-decomposition-2f4da",
    "title": "Machine Learning–Enhanced Quantum–Classical Benders Decomposition for Stochastic Unit Commitment",
    "titleZh": "机器学习增强的量子-经典 Benders 分解求解随机机组组合",
@@ -8427,6 +8737,37 @@
    ]
   },
   {
+   "id": "maestro-intelligent-execution-quantum-circuit-simulation-ae2cd",
+   "title": "Maestro: Intelligent Execution for Quantum Circuit Simulation",
+   "titleZh": "Maestro:量子线路模拟的智能执行系统",
+   "authors": [
+    "Oriol Bertomeu",
+    "Hamzah Ghayas",
+    "Roman, Adrian",
+    "Stephen DiAdamo"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-03",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2512.04216",
+   "doi": "10.48550/arxiv.2512.04216",
+   "url": "https://arxiv.org/abs/2512.04216",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:面向量子算法开发验证的线路模拟需求,提出 Maestro 智能执行系统,自适应调度模拟资源;是经典量子模拟器工程化的代表工作。",
+   "abstract": "Quantum circuit simulation remains essential for developing and validating quantum algorithms, especially as current quantum hardware is limited in scale and quality. However, the growing diversity of simulation methods and software tools creates a high barrier to selecting the most suitable backend for a given circuit. We introduce Maestro, a unified interface for quantum circuit simulation that integrates multiple simulation paradigms - state vector, MPS, tensor network, stabilizer, GPU-accelerated, and p-block methods - under a single API. Maestro includes a predictive runtime model that automatically selects the optimal simulator based on circuit structure and available hardware, and applies backend-specific optimizations such as multiprocessing, GPU execution, and improved sampling. Benchmarks across heterogeneous workloads demonstrate that Maestro outperforms individual simulators in both single-circuit and large batched settings, particularly in high-performance computing environments. Maestro provides a scalable, extensible platform for quantum algorithm research, hybrid quantum-classical workflows, and emerging distributed quantum computing architectures.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-optimisation-supply-chain-qubo-formulations-qaoa-1d1f3",
    "title": "Quantum optimisation for supply chain: QUBO formulations and QAOA solutions for facility location and load balancing",
    "titleZh": "面向供应链的量子优化:设施选址与负载均衡的QUBO建模与QAOA求解",
@@ -8578,6 +8919,37 @@
    "source": "backfill",
    "domains": [
     "energy"
+   ]
+  },
+  {
+   "id": "quantum-eigenvalue-solver-based-tensor-networks-8c531",
+   "title": "A quantum eigenvalue solver based on tensor networks",
+   "titleZh": "基于张量网络的量子本征值求解器",
+   "authors": [
+    "Oskar Leimkuhler",
+    "K. Birgitta Whaley"
+   ],
+   "venue": "npj Quantum Information",
+   "date": "2025-11-25",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1038/s41534-025-01128-4",
+   "url": "https://doi.org/10.1038/s41534-025-01128-4",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "npj Quantum Information 2025:面向化学模拟的电子基态问题,提出基于张量网络的量子本征值求解器,把张量网络方法与量子求解器结合,是化学基态求解的混合路线。",
+   "abstract": "Abstract Electronic ground states are of central importance in chemical simulations, but have remained beyond the reach of efficient classical algorithms except in cases of weak electron correlation or one-dimensional spatial geometry. We introduce a hybrid quantum-classical eigenvalue solver that constructs a wavefunction ansatz from a linear combination of matrix product states in rotated orbital bases, enabling the characterization of strongly correlated ground states with arbitrary spatial geometry. The energy is converged via a gradient-free generalized sweep algorithm based on quantum subspace diagonalization, with a potentially exponential speedup in the off-diagonal matrix element contractions upon translation into compact quantum circuits of linear depth in the number of qubits. Chemical accuracy is attained in numerical experiments for both a stretched water molecule and an octahedral arrangement of hydrogen atoms, achieving substantially better correlation energies compared to a unitary coupled-cluster benchmark, with orders of magnitude reductions in quantum resource estimates and a surprisingly high tolerance to shot noise. This proof-of-concept study suggests a promising new avenue for scaling up simulations of strongly correlated chemical systems on near-term quantum hardware.",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
@@ -14575,6 +14947,38 @@
    "source": "backfill",
    "domains": [
     "finance"
+   ]
+  },
+  {
+   "id": "practical-scalability-tensor-network-quantum-emulators-molecular-9356d",
+   "title": "Practical Scalability of Tensor Network Quantum Emulators for Molecular Hamiltonian Simulation",
+   "titleZh": "张量网络量子模拟器求解分子哈密顿量的实用可扩展性",
+   "authors": [
+    "Kowalik, Marek",
+    "Ellen Michael",
+    "Péter Pogány",
+    "Phalgun Lolur"
+   ],
+   "venue": "arXiv",
+   "date": "2025-04-15",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2504.11399",
+   "doi": "10.48550/arxiv.2504.11399",
+   "url": "https://arxiv.org/abs/2504.11399",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:系统评估张量网络量子模拟器在分子哈密顿模拟上的实用可扩展性,给出经典模拟量子化学的能力边界——与 PRX\"QCNN 经典可模拟\"、Science\"D-Wave 张量网络复核\"构成经典模拟三步曲。",
+   "abstract": "Quantum computing holds promise for computational chemistry, but near-term quantum hardware remains limited by noise and scale, motivating classical bridging technologies such as quantum emulators. We present an application-specific systems-level benchmark of matrix product state (MPS) tensor-network emulation for real-time Hamiltonian evolution of a density matrix embedding theory (DMET)-embedded sulfonyl-fluoride pharmaceutical fragment, using state-vector simulation as reference. We evaluate runtime, accuracy, resource requirements, and entanglement growth across active spaces from 4 to 24 qubits for a one-body temporal observable used as a quantum fingerprint for reactivity prediction. The results identify a practical boundary for this workflow. At fixed bond dimension, MPS emulation retains favorable scaling, but the bond dimension required to estimate the observable within a 1.6 mHa chemical-accuracy threshold grows rapidly with active-space size. At 20-24 qubits, it approaches the maximum available MPS representation, eliminating the runtime advantage over state-vector simulation. Entanglement entropy analysis shows that increasing bipartite entanglement in the time-evolved state drives this cost growth, consistent with a mismatch between a one-dimensional MPS ansatz and the non-local correlations generated by molecular electronic dynamics. We do not claim a universal crossover across molecules, observables, mappings, or tensor-network geometries. Rather, this study me",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
