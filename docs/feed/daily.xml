@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 15 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-16] 面向 IBM Heron 量子处理器 MaxCut 实验的采样与噪声感知 Pauli 关联编码</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-16/</link>
+      <guid isPermaLink="false">daily:2026-10-16</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <description>QAOA 直接求解 $m$ 个二元变量的组合优化问题需要 $m$ 个量子比特和足以铺开问题图连通性的深电路，这是 NISQ 硬件难以承受的。Pauli 关联编码（Pauli Correlation Encoding, PCE） 是近两年 IBM 生态主推的破局思路（IBM Quantum 已提供官方 Qiskit 教程，衍生工作覆盖预算约束割、机组组合调度等）：把 $m$ 个二元变量编进 $k$-体 Pauli 关联子的符号里，只需 $n=O(m^{1/k})$ 个量子比特，再以参数化电路在&quot;锐度为 $\alp…</description>
+    </item>
     <item>
       <title>[日报 2026-10-15] 量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-15/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-12</guid>
       <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
       <description>随着谷歌 Willow、IBM Nighthawk 等处理器先后演示逻辑比特与实时纠错，量子计算正在从 NISQ 时代向早期容错（early fault-tolerant）时代过渡。但一个被长期低估的瓶颈浮出水面：&quot;算法层&quot;与&quot;可执行层&quot;之间横亘着巨大的编译鸿沟——研究者写下的是 Grover 搜索、QAOA、量子化学线路这样的高层量子程序，而表面码机器真正&quot;认识&quot;的，是经魔术态蒸馏、晶格手术、横向门等容错原语展开后的物理操作序列。把前者翻译成后者，并给出可信的时空体积（qubit 数 × 时间步数）预算，是判…</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-11] 芯片级时空复用高斯玻色采样处理器：光子数突破一万</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-11/</link>
-      <guid isPermaLink="false">daily:2026-09-11</guid>
-      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-      <description>高斯玻色采样（GBS）是光量子计算展示&quot;量子计算优越性&quot;的主力范式——从高斯态出发对光子进行干涉测量采样，其输出分布被认为难以被经典计算机高效模拟。然而从&quot;一次性优越性演示&quot;走向&quot;可规模化工程部署&quot;，现有 GBS 装置存在三道现实障碍：苛刻的光学对准（分立光学元件拼装）、相位不稳定性（大体积光路长期漂移）、有限的可编程性（难以重构用于不同任务）。</description>
     </item>
   </channel>
 </rss>
