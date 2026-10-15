@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-15",
+ "updated": "2026-10-16",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -8133,6 +8133,37 @@
    ]
   },
   {
+   "id": "quantum-simulation-co2-chemisorption-amine-functionalized-metal-ead20",
+   "title": "Quantum simulation of CO2 chemisorption in an amine-functionalized metal–organic framework",
+   "titleZh": "胺功能化金属有机框架中 CO2 化学吸附的量子模拟",
+   "authors": [
+    "Jonathan R. Owens",
+    "Marwa H. Farag",
+    "Pooja Rao",
+    "Annarita Giani"
+   ],
+   "venue": "AIP Advances",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1063/5.0277568",
+   "url": "https://doi.org/10.1063/5.0277568",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "AIP Advances 2026:用 NVIDIA CUDA-Q 平台加速的模拟 QPU 对胺功能化 MOF 的分子类似物做 VQE 系列计算,研究 CO2 化学吸附机制;与周期性 MOF 工作构成\"分子类似物→周期性材料\"的量子模拟推进路线。",
+   "abstract": "We perform a series of calculations using simulated quantum processing units (QPUs), accelerated by the NVIDIA CUDA-Q platform, focusing on a molecular analog of an amine-functionalized metal–organic framework, a promising class of materials for CO2 capture. The variational quantum eigensolver (VQE) technique is employed, utilizing both the unitary coupled-cluster method with singles and doubles and adaptive Ansätze within active spaces extracted from the larger material system. We explore active spaces of (6e, 6o), (8e, 8o), and (10e, 10o), corresponding to 12, 16, and 20 qubits, respectively, and simulate them using CUDA-Q’s graphics processing unit-accelerated state-vector simulator. Gate fusion is shown to decrease the circuit evaluation time by 2–3×, while parameter shift decreases the number of epochs required for variational convergence. The ADAPT-VQE method decreases both the number of epochs required for convergence and the number of circuit parameters across all active spaces, at the cost of an increased number of circuit evaluations. Combining ADAPT-VQE with the one- and two-electron integrals from a classical complete-active space self-consistent field calculation recovers more correlation energy, at the cost of increased computational time. The CO2 binding energy is computed, and we observe and discuss how just increasing the active space size can lead to uneven recovery of correlation energy, making the predicted binding energies variable, even positive (i.e., e",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -10331,6 +10362,41 @@
    "domains": [
     "materials",
     "it-cloud"
+   ]
+  },
+  {
+   "id": "quantum-simulation-carbon-capture-periodic-metal-organic-15125",
+   "title": "Quantum simulation of carbon capture in periodic metal-organic frameworks",
+   "titleZh": "周期性金属有机框架碳捕集的量子模拟",
+   "authors": [
+    "Dario Rocca",
+    "Jérôme F. Gonthier",
+    "Joshua Levin",
+    "Tobias Schäfer",
+    "Andreas Grüneis",
+    "Byeol Kang",
+    "Hong-Woo Lee"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-02",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2510.02550",
+   "doi": "10.48550/arxiv.2510.02550",
+   "url": "https://arxiv.org/abs/2510.02550",
+   "topics": [
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:碳捕集是钢铁化工等重工业脱碳的关键;该文针对 Fe-MOF-74(磁性 Mott 绝缘体、暴露金属位点)的 CO2 吸附,给出周期性 MOF 的量子模拟方案,把量子模拟从分子簇推进到周期性材料,是 CO2 捕集材料量子化的建模进展。",
+   "abstract": "Carbon capture is vital for decarbonizing heavy industries such as steel and chemicals. Metal-organic frameworks (MOFs), with their high surface area and structural tunability, are promising materials for CO2 capture. This study focuses on Fe-MOF-74, a magnetic Mott insulator with exposed metal sites that enhance CO2 adsorption. Its strongly correlated electronic structure challenges standard DFT methods, which often yield inconsistent predictions. We initially benchmark adsorption energies using various DFT functionals, revealing substantial variability and underscoring the need for more accurate approaches, such as those provided by quantum computing. However, practical quantum algorithms are far less established for simulations of periodic materials, particularly when the plane-wave basis set, often comprising tens of thousands of basis vectors, is used. To address this, we employ an active space reduction strategy based on Wannier functions and natural orbital selection. Localized orbitals around the adsorption site are identified, and MP2 natural orbitals are used to improve convergence of correlation energies. Adsorption energies are then computed using a quantum number-preserving ansatz within the variational quantum eigensolver framework. In addition to classical simulations, we conduct quantum experiments using the sample-based quantum diagonalization method. Although current hardware limits the size of feasible simulations, our approach offers a more efficient and s",
+   "source": "backfill",
+   "domains": [
+    "materials"
    ]
   },
   {
