@@ -57777,5 +57777,137 @@
   "doi": "10.2118/1125-0006-jpt",
   "citations": 0,
   "theme": "quantum computing CO2 capture materials"
+ },
+ {
+  "fid": "052d699c1ff2",
+  "title": "Quantum Heuristic Approach to Vehicle Routing Problem",
+  "authors": [
+   "Jun Suk Kim",
+   "Donghyeon Lee",
+   "Chang Wook Ahn"
+  ],
+  "abstract": "Quantum optimization has recently drawn considerable attention as one of the possible applications of noisy intermediate-scale quantum computation, yet the problem of qubit requirement remains a major bottleneck when combinatorial optimization problems are converted into quantum circuits. This issue becomes especially critical in solving the capacitated vehicle routing problem (CVRP) with the quantum approximate optimization algorithm (QAOA), since the number of required qubits increases polynomially with respect to the number of nodes. This study investigates whether a heuristic divide-and-conquer strategy can be adapted to the quantum setting so as to improve qubit efficiency while preserving the optimization capability to a reasonable extent. The proposed method decomposes a single CVRP into multiple traveling salesman problems (TSPs) by the sweeping-based clustering method, searches for the sector configuration with the smallest angle sum by Grover’s search algorithm, and then solves each sector-wise TSP with the QAOA aided by the gravitational search algorithm. Experiments on five benchmark datasets show that the proposed approach attains feasible solutions within 3.4 to 12.7% of the reinforcement-learning baseline on the main test set. These results suggest that the proposed approach serves as a plausible quantum heuristic framework for constrained routing optimization, with the advantage of reducing the qubit burden by decomposing the original problem into smaller subproblems.",
+  "date": "2026-03-18",
+  "venue": "Mathematics",
+  "arxiv_id": "",
+  "doi": "10.3390/math14061026",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "58ccd01460e5",
+  "title": "Quantum Approximate Multi-Objective Optimization in Routing Problems",
+  "authors": [
+   "Eduardo Willwock Lussi",
+   "Alisson dos Passos Fumaco",
+   "Marcos Vinicius Reballo",
+   "José Carlos Libois Neto",
+   "Fernando Augusto Caletti de Barros",
+   "Eduardo I. Duzzioni"
+  ],
+  "abstract": "Multi-objective optimization (MOO) problems are common in logistics, where routing decisions must balance conflicting objectives such as travel distance, delivery time, and operational risk. A recently proposed Quantum Approximate Optimization Algorithm (QAOA) parameter-transfer strategy solves multi-objective MAX-CUT problems by reusing parameters trained on smaller instances, avoiding costly reoptimization for each scalarized problem. However, its effectiveness has only been demonstrated on proof-of-concept instances tailored to quantum hardware connectivity. In this work, we evaluate the applicability of this strategy to realistic routing problems. We formulate the Traveling Salesman Problem (TSP) and Vehicle Routing Problem (VRP) as Quadratic Unconstrained Binary Optimization (QUBO) models, reduce them to MAX-CUT, and assess the parameter-transfer framework under conditions matching the original study. Validation is performed through classical simulations and experiments on IBM quantum hardware. The resulting Pareto fronts are compared with those obtained using an adapted classical ε-constraint method, using hypervolume as the primary quality metric. Results indicate that parameter transfer remains effective, frequently achieving higher hypervolume and often finding competitive solutions earlier. However, performance depends on problem structure. The approach is consistently effective for TSP instances but less stable for the more constrained VRP, suggesting that QAOA parameter transferability decreases as the optimization landscape becomes more complex. These results provide the first comprehensive evaluation of QAOA parameter transfer on realistic multi-objective routing problems and demonstrate its potential beyond proof-of-concept MAX-CUT benchmarks.",
+  "date": "2026-09-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2610.00168",
+  "doi": "10.48550/arxiv.2610.00168",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "f3580cf4a267",
+  "title": "Improving feasibility in the quantum approximate optimization algorithm for vehicle routing via constraint-aware initialization and hybrid XY–X mixing",
+  "authors": [
+   "Yuan-Zheng Lei",
+   "Yaobang Gong",
+   "Xianfeng Terry Yang",
+   "Nii Attoh-Okine"
+  ],
+  "abstract": "The Quantum Approximate Optimization Algorithm (QAOA) is a leading framework for quantum combinatorial optimization. The vehicle routing problem (VRP), a core problem in logistics and transportation, is a natural application target but poses a major feasibility challenge for standard QAOA: feasible solutions typically occupy only a tiny fraction of the full binary search space, and the conventional Pauli- X mixer can disrupt partial solution structures that already satisfy key local constraints. To address this issue, we propose a constraint-aware QAOA framework with two complementary components. First, we design an initialization strategy that encodes selected constraints into the initial state. This reduces the size of the initial superposition without explicitly constructing the complete feasible set and concentrates probability mass on states that satisfy the selected constraints. Second, we introduce a hybrid XY – X mixer whose preservation property is intentionally partial. The XY -exchange terms preserve only the selected structures chosen for protection, while the X -mixer terms retain exploration on qubits outside those structures, and the remaining VRP constraints are addressed through QUBO penalty terms and variational optimization. We evaluate the proposed framework on one three-node benchmark instance and two four-node benchmark instances under three regimes: exact-statevector objective optimization with noiseless finite-shot final sampling, ideal finite-shot optimization and sampling, and noisy finite-shot optimization and sampling. The experiments compare the proposed method with standard QAOA across all cases and with a block-wise XY-QAOA baseline for the four-node cases. Across the tested instances and regimes, the proposed method increases optimal-solution probability and reduces expected energy gap relative to standard QAOA. The four-node comparisons further show that block-wise XY-QAOA is a stronger feasibility-aware baseline than standard QAOA, but the proposed overlap-aware initialization and hybrid mixer generally provide a better balance between selected-constraint preservation and search flexibility. The advantage of the proposed ansatz is attenuated under hardware-inspired noise, in part because the structured mixers introduce additional two-qubit operations. These results highlight that the practical benefit of the proposed method depends on gate fidelity, readout quality, state-preparation cost, and circuit execution reliability",
+  "date": "2026-09-30",
+  "venue": "Transportation Research Part C Emerging Technologies",
+  "arxiv_id": "",
+  "doi": "10.1016/j.trc.2026.106047",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "58d3ffce66c2",
+  "title": "Cooperative Platoon Routing and Dispatching via Edge-Assisted Hybrid Quantum Optimization",
+  "authors": [
+   "Talha Azfar",
+   "Ruimin Ke"
+  ],
+  "abstract": "Cooperative platooning can reduce the energy use of Connected and Autonomous Vehicle (CAV) fleets, but the routing problem becomes difficult when vehicles must meet on the same road segments at compatible times while moving through unstable urban traffic. This paper develops an edge-assisted, closed-loop evaluation pipeline for platooning-aware vehicle routing. Roadside Units estimate local traffic kinematics from video, classify segment-level flow stability, and activate platooning rewards only on road segments where close-gap coordination is physically appropriate. The resulting multi-vehicle routing problem is written directly as a Quadratic Unconstrained Binary Optimization (QUBO) model, so pairwise platooning interactions are represented as native quadratic Ising terms instead of requiring auxiliary MILP linearization variables. We evaluate the framework using a 24-hour microscopic SUMO simulation of Troy, NY, together with localized IBM Quantum hardware benchmarks. The SUMO study shows an $18.5\\%$ reduction in fleet tractive-energy demand relative to a non-cooperative baseline. On 25-active-qubit benchmark instances executed on $\\texttt{ibm_boston}$, Linear-Chain QAOA reduces two-qubit CNOT depth by $66.7\\%$ compared with dense QAOA and samples the exact classical ground state with $P_{\\text{feas}} = 38.6\\%$ and $P_{\\text{opt}} = 14.2\\%$ at $p=2$. These results suggest that edge perception and shallow quantum optimization can work together as a useful component of closed-loop CAV platoon dispatching.",
+  "date": "2026-08-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.00524",
+  "doi": "10.48550/arxiv.2608.00524",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "571bfedcbbe2",
+  "title": "Encoding Matters: Benchmarking Binary and D-ary Representations for Quantum Combinatorial Optimization",
+  "authors": [
+   "Shashank Bhat",
+   "Peiyong Wang",
+   "Joseph West",
+   "Udaya Parampalli"
+  ],
+  "abstract": "Combinatorial optimization problems are typically formulated using Quadratic Unconstrained Binary Optimization (QUBO), where constraints are enforced through penalty terms that introduce auxiliary variables and rapidly increase Hamiltonian complexity, limiting scalability on near term quantum devices. In this work, we systematically study Quadratic Unconstrained D-ary Optimization (QUDO) as an alternative formulation in which decision variables are encoded directly in higher dimensional Hilbert spaces. We demonstrate that QUDO naturally captures structural constraints across a range of problem classes, including the Traveling Salesman Problem, two variants of the Vehicle Routing Problem, graph coloring, job scheduling, and Max-K-Cut, without the need for extensive penalty constructions. Using a qudit-level implementation of the Quantum Approximate Optimization Algorithm (qudit QAOA), we benchmark these formulations against their binary QUBO counterparts and exact classical solutions. Our study show consistently improved approximation ratios and substantially reduced computational overhead at comparable circuit depths, highlighting QUDO as a scalable and expressive representation for quantum combinatorial optimization.",
+  "date": "2026-02-07",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2602.07357",
+  "doi": "10.48550/arxiv.2602.07357",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "ba6a005bee5b",
+  "title": "Study on Quantum Approximation Optimization Algorithm in Airport Cargo Transportation Problem",
+  "authors": [
+   "Xudong Zhao",
+   "Jianping Chen",
+   "Lan Liu",
+   "Leilei Kang"
+  ],
+  "abstract": "The vehicle routing problem (VRP) is a core NP‐hard combinatorial optimization problem in logistics and supply chain management. Quantum computing, particularly the Quantum Approximate Optimization Algorithm (QAOA), is being explored as a promising heuristic tool for tackling such problems. Therefore, this study employs the QAOA approach to solve the airport cargo VRP. Subsequently, through a concrete airport cargo case study, the paper analyzes the process of solving single‐vehicle TSP and multivehicle VRP problems using QAOA. It compares the performance of different classical optimizers and discusses the impact of parameter settings (e.g., penalty factors, QAOA depth, and number of iterations) on the solution quality and feasibility, especially comparing the convergence speed of dynamic and fixed penalty coefficients. The paper also describes the design principles of QAOA quantum circuits for such VRP problems. Furthermore, the study presents a preliminary benchmark on a real quantum computer, demonstrating that its computation time for the problem’s QUBO matrix (14 ms) is approximately comparable to that of classical algorithms. Finally, it summarizes the current scalability challenges and limitations faced by QAOA in VRP applications concerning qubit count, circuit depth, and classical optimizer performance, and offers an outlook on future development directions. The research indicates that although QAOA demonstrates solution capabilities on specific small‐scale VRP instances, the complexity of parameter tuning and sensitivity to the spatial distribution of aircraft stands are critical considerations before practical application.",
+  "date": "2026-01-01",
+  "venue": "Journal of Advanced Transportation",
+  "arxiv_id": "",
+  "doi": "10.1155/atr/4046578",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "46201792e9b4",
+  "title": "Quantum Optimization Techniques for Supply Chain and Logistics",
+  "authors": [
+   "Sofia Dubois",
+   "Laura Rossi",
+   "Andreas duBois"
+  ],
+  "abstract": "Supply chain and logistics operations involve combinatorial optimisation problems -- vehicle routing, warehouse assignment, inventory scheduling, and network flow -- whose complexity scales exponentially with problem size, making exact classical solvers impractical for real-world instances. Quantum optimisation algorithms offer potential speedups through quantum parallelism and interference. This paper proposes the Quantum Supply Chain Optimisation Framework (QSCOF), evaluating QAOA, VQE, and quantum annealing across five canonical logistics problems on NISQ hardware and fault-tolerant models. Evaluated on 20 benchmark instances spanning 20-200 nodes, QSCOF demonstrates QAOA achieving 93.8% solution quality for 50-node vehicle routing on current hardware, quantum annealing delivering 28x speedup for 100-node warehouse assignment, and a Quantum Logistics Utility Index (QLUI) of 0.871. Quantum advantage thresholds and a phased adoption roadmap are provided.",
+  "date": "2025-11-12",
+  "venue": "Quantum Frontiers Journal",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "3a6f163c5a7c",
+  "title": "An Intelligent and Sustainable Green Supply Chain Optimization of Transportation Systems Using Classical and Quantum-Powered Computing",
+  "authors": [
+   "Muhammad Makama Mahmudur Rahman Ohee",
+   "Hafiz Md. Hasan Babu"
+  ],
+  "abstract": "Transportation strategists increasingly handle heterogeneous fleets under tight service levels, fluctuating costs, and stated environmental targets. This paper addresses the operational Heterogeneous Vehicle Routing Problem (HVRP) with a practical, mathematically light decision framework that treats sustainability as the main goal of the design. We introduce a Quantum-Inspired Supply Chain and Logistics Optimization Algorithm (QISCLOA), solver-independent HVRP approach for transportation system. Our proposed framework builds a curated, capacity-feasible, and diversified route pool using multi-strategy generation. In our $16\\times 16$ HVRP benchmarks, our proposed algorithm reduces elapsed time by up to 98.6% compared with strong classical formulations, while matching classical distance quality and delivering higher load utilization (95–99%) under the same feasibility constraints. Compared with existing classical system, our proposed system preserves full feasibility and comparable distance, shows clear distance-per-demand gains in symmetric unit-demand cases, and attains near-zero solve time on identical Binary Quadratic Models (BQM), evidencing orders-of-magnitude speedups. The proposed model further introduces a load–carbon emission correlation with speed, road-condition, and congestion factors, and the proposed Quantum Annealing (QA) and existing Quantum Approximate Optimization Algorithm (QAOA) comparison demonstrates competitive solution quality, solver-dependent efficiency, and full logical hardware compatibility. Additionally, we extend the formulation to a multi-depot setting with depot availability, dispatch-capacity, time-window, and Electric Vehicle (EV) charging constraints, and validate it on 21 Multi-Depot Vehicle Routing Problem (MDVRP) benchmark instances to demonstrate scalable multi-depot route selection, while a reduced comparison confirms competitive solution quality and solver-dependent efficiency, with existing QAOA improving overall route distance by 0.63% and proposed QA achieving a 9.14% overall runtime advantage. In multitasking Capacitated Vehicle Routing Problem (CVRP) benchmarks used in explicit evolutionary multitasking studies, our approach achieves lower routing cost for both best and average results with a win rate of 81.48%, indicating a lower emission of CO2. Empirically, our proposed method outperforms competitive state-of-the-art approaches in our evaluation metrics while maintaining core feasibility.",
+  "date": "2026-01-01",
+  "venue": "IEEE Open Journal of Intelligent Transportation Systems",
+  "arxiv_id": "",
+  "doi": "10.1109/ojits.2026.3726768",
+  "citations": 0,
+  "theme": "vehicle routing problem QAOA benchmark"
  }
 ]
