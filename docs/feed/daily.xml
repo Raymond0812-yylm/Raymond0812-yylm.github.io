@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 16 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-20] 学习量子近似优化的角度</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-20/</link>
+      <guid isPermaLink="false">daily:2026-10-20</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
+      <description>QAOA 及其变体是求解组合优化问题最有希望的近期能带算法之一：把问题映射为 Ising 哈密顿量，从变分量子线路中采样候选解。但 QAOA 的性能系于一组变分角度，而找好角度是一个实例特定、计算昂贵的非凸经典优化任务——外环优化调用的量子电路执行次数，往往比最终采样求解本身高出几个数量级。对一次性的小规模演示，这笔开销尚可忍受；但对&quot;同类问题每天反复求解&quot;的产业场景（物流调度、金融组合再平衡、电网机组组合），逐实例调角构成了 QAOA 无法忽视的实用性瓶颈。</description>
+    </item>
     <item>
       <title>[日报 2026-10-16] 面向 IBM Heron 量子处理器 MaxCut 实验的采样与噪声感知 Pauli 关联编码</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-16/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-13</guid>
       <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
       <description>用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&quot;大模型求解组合优化&quot;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&quot;口算&quot;答案，而是承担算法设计者的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-12] 面向表面码量子计算的低成本&quot;算法到执行&quot;框架</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-12/</link>
-      <guid isPermaLink="false">daily:2026-09-12</guid>
-      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
-      <description>随着谷歌 Willow、IBM Nighthawk 等处理器先后演示逻辑比特与实时纠错，量子计算正在从 NISQ 时代向早期容错（early fault-tolerant）时代过渡。但一个被长期低估的瓶颈浮出水面：&quot;算法层&quot;与&quot;可执行层&quot;之间横亘着巨大的编译鸿沟——研究者写下的是 Grover 搜索、QAOA、量子化学线路这样的高层量子程序，而表面码机器真正&quot;认识&quot;的，是经魔术态蒸馏、晶格手术、横向门等容错原语展开后的物理操作序列。把前者翻译成后者，并给出可信的时空体积（qubit 数 × 时间步数）预算，是判…</description>
     </item>
   </channel>
 </rss>
