@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 20 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-21] 面向量子近似优化的高阶宇称约束</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-21/</link>
+      <guid isPermaLink="false">daily:2026-10-21</guid>
+      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子近似优化算法（QAOA）是 NISQ 时代求解组合优化问题最有希望的候选算法之一，但它长期受制于&quot;局域性壁垒&quot;：在深度 p 的电路中，每个量子比特只能感知到 p 步邻域内的信息，关联在稀疏图上的传播速度跟不上，导致低深度 QAOA 在 3-正则图等硬件原生图上表现平平。另一方面，由 Wolfgang Lechner、Peter Zoller 等人 2015 年提出的宇称架构（Parity Architecture，又称 LHZ 架构）原本是为了解决硬件连通性限制——把全连接问题的相互作用编码为格点上物理比特…</description>
+    </item>
     <item>
       <title>[日报 2026-10-20] 学习量子近似优化的角度</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-20/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-14</guid>
       <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
       <description>近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&quot;夹击&quot;：一是算法误差——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是物理误差——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-13] RouteRepair：LLM 自动化启发式设计中的实例级失败诊断与定向修复（面向路由优化）</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-13/</link>
-      <guid isPermaLink="false">daily:2026-09-13</guid>
-      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
-      <description>用大语言模型自动设计组合优化启发式（LLM-based automated heuristic design），是 2024 年以来&quot;大模型求解组合优化&quot;最活跃的分支：从 FunSearch 到各类演化式启发式搜索（EoH 类方法），LLM 不再直接&quot;口算&quot;答案，而是承担算法设计者的角色——生成、修改局部搜索算子或构造规则，由经典求解器执行，再以求解质量为适应度驱动迭代。这一范式已在 TSP、CVRP、装箱等问题上逼近多年打磨的手工启发式，被视为 LLM 走向运筹优化落地的最现实路径之一。</description>
     </item>
   </channel>
 </rss>
