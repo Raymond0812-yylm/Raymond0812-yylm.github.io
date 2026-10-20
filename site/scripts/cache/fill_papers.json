@@ -57909,5 +57909,1307 @@
   "doi": "10.1109/ojits.2026.3726768",
   "citations": 0,
   "theme": "vehicle routing problem QAOA benchmark"
+ },
+ {
+  "fid": "c007614b5412",
+  "title": "A simulator-based quantum framework for molecular dynamics and multiscale materials modeling",
+  "authors": [
+   "Yingbin Chen",
+   "Shaoping Xiao"
+  ],
+  "abstract": "Introduction: Quantum computing has the potential to transform scientific computing by providing efficient algorithms for solving large-scale numerical problems that arise in engineering and materials science. However, integrating quantum algorithms into multiscale mechanics remains largely unexplored due to the complexity of coupling atomistic and continuum models and the nonlinear nature of molecular dynamics. In this work, we develop a unified hybrid classical–quantum framework for molecular dynamics and multiscale materials modeling based on the Variational Quantum Linear Solver (VQLS). Materials and methods: The proposed framework reformulates three representative mechanics problems as quantum-compatible linear systems: static atomistic–continuum coupling through reduced stiffness equations, dynamic atomistic–continuum coupling using a boundary-reduced Berry–Childs–Ostrander–Wang formulation, and nonlinear molecular dynamics through Carleman linearization. These systems are solved using shot-free quantum-circuit simulations within a common VQLS framework. Results: For the static problem with 1024 free displacement degrees of freedom, the VQLS solution achieves R 2 = 0.99784 and a relative L 2 error of 2.70 % . For the dynamic problem, the five-qubit restarted systems produce maximum final-time displacement and velocity differences of 1.39 × 10 − 4 nm and 6.74 × 10 − 5 nm/ps, respectively. For the nonlinear problem, comparison of the six-qubit VQLS trajectory with a high-accuracy integration of the full Lennard–Jones equations over 150 time steps gives maximum displacement and velocity differences of 4.09 × 10 − 4 nm and 2.87 × 10 − 3 nm/ps, respectively. The reported velocities are reconstructed from the displacement histories using a common backward-difference rule with the prescribed zero initial velocity. The numerical comparisons quantify agreement with classical reference trajectories and distinguish selected modeling, temporal-discretization, and variational-solution errors. Conclusions: By providing a unified quantum linear-system formulation for representative multiscale mechanics problems, this deterministic, shot-free, simulator-based study establishes a methodological proof of concept for integrating VQLS formulations with computational materials models, rather than demonstrating near-term hardware performance or scalable quantum computational advantage.",
+  "date": "2026-09-29",
+  "venue": "Academia quantum.",
+  "arxiv_id": "",
+  "doi": "10.20935/acadquant8550",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "4daf414c5f75",
+  "title": "Nonadiabatic molecular dynamics on quantum computers: challenges and opportunities",
+  "authors": [
+   "Eduarda Sangiogo Gil",
+   "Leticia González"
+  ],
+  "abstract": "Abstract In this Perspective, we discuss how quantum computers may advance the simulation of nonadiabatic molecular dynamics, a framework central to describing excited-state processes in photochemistry, biology, and materials science. Classical approaches span from exponentially scaling full quantum dynamics to more approximate mixed quantum–classical techniques such as surface hopping and Ehrenfest dynamics. Hybrid quantum–classical algorithms – particularly those based on the variational quantum eigensolver – offer a transformative alternative by providing access to the key electronic properties needed to drive nonadiabatic molecular dynamics simulations, including energies, gradients, and nonadiabatic couplings. We examine recent proof-of-principle quantum simulations of reduced model systems which, despite being restricted to small molecules and limited active spaces due to constraints of qubit number and device noise, already showcase the potential of quantum devices to capture phenomena such as conical intersections and ultrafast relaxation. Although practical applications are not yet feasible in the present noisy intermediate-scale quantum era, these efforts underline the conceptual and methodological advances of quantum algorithms paving the way for large-scale quantum simulations of nonadiabatic processes. Framed within the 2025 International Year of Quantum Science and Technology, such progress exemplifies how quantum computing may open new horizons for chemistry and beyond.",
+  "date": "2025-11-01",
+  "venue": "Pure and Applied Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1515/pac-2025-0599",
+  "citations": 2,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "86db8955e62b",
+  "title": "Advancements and Future Directions in Molecular Dynamics (MD) Simulations",
+  "authors": [
+   "Aline Clementine Beatrice"
+  ],
+  "abstract": "Molecular Dynamics (MD) simulations stand as a cornerstone in computational biology, offering unprecedented insights into atomic-level behaviors and interactions of molecules. Rooted in Newtonian mechanics and propelled by advanced computational algorithms, MD simulations meticulously track atom trajectories to simulate complex biological systems with remarkable accuracy. Essential to their precision are robust force fields such as AMBER, CHARMM, and GROMOS, which compute interatomic forces critical for studying biomolecular dynamics. These simulations, executed over infinitesimal time steps using integration algorithms like Verlet and leapfrog methods, require meticulous system setup based on experimental data or computational predictions. Applications of MD span diverse domains, including elucidating protein folding mechanisms, studying enzyme dynamics, predicting drug binding interactions, and exploring membrane behaviors. Beyond biology, MD contributes to materials science by investigating properties like elasticity and phase transitions at atomic scales. Future advancements promise enhanced capabilities through technologies like high-performance computing (HPC) and emerging quantum computing, potentially revolutionizing drug discovery and personalized medicine by enabling more accurate simulations and faster insights into molecular interactions. This review synthesizes principles underlying MD simulations, computational methodologies, and their applications across biomolecular research and materials science. It highlights recent advancements and explores future directions, including multi-scale modeling and real-time simulations, aimed at unraveling complex biological systems comprehensively. Despite challenges in computational intensity and data integration, MD simulations remain pivotal in advancing our understanding of biological processes and driving innovations in healthcare and materials science. In conclusion, MD simulations represent a transformative tool in computational biology, poised to deepen our understanding of biological complexity and accelerate scientific discoveries. By integrating computational prowess with biological insight, MD simulations will continue to shape the future of medicine and materials science, paving the way for innovative applications in personalized healthcare and beyond. Keywords: Molecular Dynamic, Simulations, computational biology, biomolecular",
+  "date": "2024-06-30",
+  "venue": "Idosr Journal of Computer and Applied Sciences.",
+  "arxiv_id": "",
+  "doi": "10.59298/jcas/2024/91.152126001",
+  "citations": 4,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "ba7de6ffa3b9",
+  "title": "Optimizing thermoelectric performance of graphene antidot lattices via quantum transport and machine-learning molecular dynamics simulations",
+  "authors": [
+   "Yang Xiao",
+   "Yuqi Liu",
+   "Zihan Tan",
+   "Bohan Zhang",
+   "Ke Wei Xu",
+   "Zheyong Fan",
+   "Shunda Chen",
+   "Shiyun Xiong",
+   "Haikuan Dong"
+  ],
+  "abstract": "Thermoelectric materials, which can convert waste heat to electricity or be utilized as solid-state coolers, hold promise for sustainable energy applications. However, optimizing thermoelectric performance remains a significant challenge due to the complex interplay between electronic and thermal transport properties. In this work, we systematically optimize $ZT$ in graphene antidot lattices (GALs), nanostructured graphene sheets with periodic nanopores characterized by two geometric parameters: the hexagonal unit cell side length $L$ and the antidot radius $R$. The lattice thermal conductivity is determined through machine-learned potential-driven molecular dynamics (MD) simulations, while electronic transport properties are computed using linear-scaling quantum transport in combination with MD trajectories based on a bond-length-dependent tight-binding model. This method is able to account for electron-phonon scattering, allowing access to diffusive transport in large-scale systems, overcoming limitations of previous methods based on a nonequilibrium Green's function formalism. Our results show that the introduction of the antidots effectively decouples lattice and electronic transport and leads to a favorable and significant violation of the Wiedemann-Franz law. We find that optimal $ZT$ values occur in GALs with intermediate $L$ and $R$, closely correlated with peak power factor values. Notably, thermoelectric performance peaks near room temperature, with maximal $ZT$ values approaching 2, highlighting GALs as promising candidates for high-performance thermoelectric energy conversion.",
+  "date": "2025-08-26",
+  "venue": "Physical Review Materials",
+  "arxiv_id": "",
+  "doi": "10.1103/hbzs-bzb8",
+  "citations": 6,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "3d53efbb2aca",
+  "title": "Applications of High-Performance Computing (HPC) in Materials Simulation",
+  "authors": [
+   "Tung Nguyen Thanh"
+  ],
+  "abstract": "Abstract: High-Performance Computing (HPC) has become a fundamental pillar of modern computational materials science, enabling the simulation and analysis of increasingly complex material systems with unprecedented accuracy and efficiency. The rapid advancement of HPC architectures, including petascale and exascale computing platforms, has significantly expanded the capabilities of materials modeling and simulation. This review provides a comprehensive overview of the role of HPC in materials research, covering its applications in first-principles calculations based on Density Functional Theory (DFT), molecular dynamics (MD) simulations, high-throughput materials discovery, and the investigation of nanomaterials and two-dimensional materials. The integration of HPC with advanced computational techniques has facilitated the exploration of electronic, magnetic, optical, mechanical, and thermodynamic properties of materials across multiple length and time scales. In addition, the review discusses the growing synergy between HPC and Artificial Intelligence (AI), highlighting the emergence of Materials Informatics as a powerful paradigm for data-driven materials design and accelerated materials discovery. Major materials simulation software packages optimized for HPC environments, including VASP, Quantum ESPRESSO, CASTEP, ABINIT, SIESTA, LAMMPS, GROMACS, CP2K, and nanoDCAL, are also examined. Furthermore, current challenges related to computational scalability, energy consumption, and infrastructure costs are analyzed, together with future perspectives involving exascale computing, next-generation GPU architectures, machine learning, and quantum computing. Overall, HPC continues to play a pivotal role in advancing materials research and is expected to remain an indispensable tool for the discovery, design, and optimization of advanced materials for future technological applications.",
+  "date": "2026-06-04",
+  "venue": "Current Science Research Bulletin",
+  "arxiv_id": "",
+  "doi": "10.5281/zenodo.20552381",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "3d102fbac24c",
+  "title": "Allegro-FM: Toward an Equivariant Foundation Model for Exascale Molecular Dynamics Simulations",
+  "authors": [
+   "Ken‐ichi Nomura",
+   "Shinnosuke Hattori",
+   "Satoshi Ohmura",
+   "Ikumi Kanemasu",
+   "Kohei Shimamura",
+   "Nabankur Dasgupta",
+   "Aiichiro Nakano",
+   "Rajiv K. Kalia",
+   "Priya D. Vashishta"
+  ],
+  "abstract": "We present a foundation model for exascale molecular dynamics simulations by leveraging an E(3) equivariant network architecture (Allegro) and a set of large-scale organic and inorganic materials data sets merged by the Total Energy Alignment framework. The obtained model (Allegro-FM) is versatile for various material simulations for diverse downstream tasks covering 89 elements in the training sets. Allegro-FM exhibits excellent agreement with high-level quantum chemistry theories in describing structural, mechanical, and thermodynamic properties, while exhibiting emergent capabilities for structural correlations, reaction kinetics, mechanical strengths, fracture, and solid/liquid dissolution, for which the model has not been trained. Furthermore, we demonstrate the robust predictability and generalizability of Allegro-FM for chemical reactions using Transition1x, which consists of tens of thousands of organic reactions and 9.6 million configurations including transition state data, in addition to reactive simulations using calcium silicate hydrates as a test bed. With its computationally efficient, strictly local network architecture, Allegro-FM scales up to multibillion-atom systems with a parallel efficiency of 0.975 on the exaflop/s Aurora supercomputer at Argonne Leadership Computing Facility. The approach presented in this work demonstrates the potential of the foundation model for novel materials design and discovery based on large-scale atomistic simulations.",
+  "date": "2025-06-20",
+  "venue": "The Journal of Physical Chemistry Letters",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpclett.5c00605",
+  "citations": 10,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "9c2f1e0317bf",
+  "title": "PYSED: A tool for extracting kinetic-energy-weighted phonon dispersion and lifetime from molecular dynamics simulations",
+  "authors": [
+   "Ting Liang",
+   "Wenwu Jiang",
+   "Ke Wei Xu",
+   "Hekai Bu",
+   "Zheyong Fan",
+   "Wengen Ouyang",
+   "Jianbin Xu"
+  ],
+  "abstract": "Machine learning potential-driven molecular dynamics (MD) simulations have significantly enhanced the predictive accuracy of thermal transport properties across diverse materials. However, extracting phonon-mode-resolved insights from these simulations remains a critical challenge. Here, we introduce pysed, a Python-based package built on the spectral energy density (SED) method, designed to efficiently compute kinetic-energy-weighted phonon dispersion and extract phonon lifetime from large-scale MD simulation trajectories. By integrating high-accuracy machine-learned neuroevolution potential (NEP) models, we validate and showcase the effectiveness of the implemented SED method across systems of varying dimensionalities. Specifically, the NEP-driven MD-SED accurately reveals how phonon modes are affected by strain in carbon nanotubes, as well as by interlayer coupling strengths and the twist angles in two-dimensional molybdenum disulfide. For three-dimensional systems, the SED method effectively establishes the thermal transport regime diagram for metal-organic frameworks, distinguishing between particlelike and wavelike propagation regions. Moreover, using bulk silicon as an example, we show that phonon SED can efficiently capture quantum dynamics based on path-integral trajectories. The pysed package bridges MD simulations with detailed phonon-mode insights, delivering a robust tool for investigating thermal transport properties with detailed mechanisms across various materials.",
+  "date": "2025-08-15",
+  "venue": "Journal of Applied Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0278798",
+  "citations": 36,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "c8a601d38042",
+  "title": "MixPI: Mixed-time slicing path integral software for quantized molecular dynamics simulations",
+  "authors": [
+   "Britta Johnson",
+   "Siyu Bu",
+   "Christopher J. Mundy",
+   "Nandini Ananth"
+  ],
+  "abstract": "We introduce the MixPI software to implement path integral molecular dynamics (PIMD) simulations for the study of condensed phase systems where nuclear quantum effects (NQEs) are important. In contrast to existing PIMD simulation software, MixPI enables the implementation of mixed quantum-classical path integral simulations where only a subset of system degrees of freedom (dofs) are treated quantum mechanically in an extended phase space while the remaining dofs are described classically. We expect this software to be particularly useful for simulations of electron and proton transfer in condensed phase systems, as well as for the study of biological and material systems where only a handful of dofs contribute significantly to the observed NQEs. We demonstrate the use of MixPI in two different systems. The first is a simple water model where we implement a set of mixed quantum-classical simulations to compute average energy and radial distribution functions. We use these simulations to benchmark the effectiveness of MixPI and to demonstrate how it enables systematic investigation into the origin of observed NQEs. We then compute radial distribution functions for a system where MixPI is essential: a solvated metal (M2+) cation described using an explicit quantized electron localized on an M3+ ion in water.",
+  "date": "2026-06-05",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0327460",
+  "citations": 1,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "6de07fd81e8f",
+  "title": "Theoretical prediction of materials with diffuse electrons with possible applications in redox catalysis and quantum computing",
+  "authors": [
+   "Benjamin A. Jackson",
+   "Evangelos Miliordos",
+   "Mal‐Soon Lee"
+  ],
+  "abstract": "The spin of diffuse electrons has been proposed in the literature as qubit for quantum hardware applications. Here we provide the first investigation of the thermal stability for a newly reported family of materials with diffuse electrons. This material has a diamond-like grid of Li+ centers bridged by diamine chains NH2(CH2)nH2N of varying carbon length. The tetracoordinated lithium-amine center is surrounded by one diffuse electron solvated by the N–H bonds. Previous work has demonstrated the tunability of the electronic structure of this material, with short chain lengths producing a metallic material and longer a semiconductor. Density functional theory-based ab initio molecular dynamics simulations are employed to characterize the thermal stability and melting point of the crystalline material. Calculations show that the thermal stability ranges from 100 to 220 K, primarily depending on the carbon chain length, with longer chains increasing the stability. Melting of the material is characterized by dissociation of the diamine coordination and formation of disordered clumps of undercoordinated Li-diamine centers. These melting points are well above temperatures used in typical quantum computing applications. The computational study provides insight into avenues for the future development of similar materials and the improvement of their stability.",
+  "date": "2024-12-03",
+  "venue": "Materials Today Sustainability",
+  "arxiv_id": "",
+  "doi": "10.1016/j.mtsust.2024.101052",
+  "citations": 1,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "0d915dd2fede",
+  "title": "Density Functional Waltz: Molecular Theory of Spin Dynamics",
+  "authors": [
+   "Subhasis Roy",
+   "Jyoti Bhattacharjee"
+  ],
+  "abstract": "Spin dynamics in molecular systems lies at the heart of contemporary research, promising revolutionary applications in fields like spintronics and quantum information processing. The paper provides insights into green techniques to improve spin dynamics for utilization in quantum computing and magnetic materials. This dynamic approach describes the temperature-dependent evolution of spin-lattice interactions. Snapshots acquired from various simulations enable additional DFT investigations, providing a more sophisticated understanding of spin dynamics under temperature variations. By seamlessly integrating theoretical insights with computational approaches, the Density Functional Waltz emerges as a potent paradigm for unraveling the mesmerizing choreography of spin dynamics at the molecular scale. This review analyzes the evolution of machine-learning approaches in the field of chemical sciences. The proposed review will highlight the significance of collaboration between quantum catalysis and the chemical physics community. There is an outline of the unique features of electron spin alongside the ingenious integration of macromolecules to control and fine-tune electron spin-based innovation.",
+  "date": "2024-03-20",
+  "venue": "Journal of Physics & Optics Sciences",
+  "arxiv_id": "",
+  "doi": "10.47363/jpsos/2024(6)242",
+  "citations": 19,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "b1202710b3f9",
+  "title": "Selective etching of 2D materials for quantum computing devices: A computational perspective",
+  "authors": [
+   "Md. Aminul Islam",
+   "Safiullah Khan",
+   "Nayem Hossain",
+   "Abdullah Al Alif",
+   "Sabiha Jannat",
+   "Mst. Fahmida Akter",
+   "Mithila Farzana",
+   "Jannatul Fardous Shorna"
+  ],
+  "abstract": "Achieving atomic-level precision in the fabrication of quantum devices built from two-dimensional (2D) materials requires a thorough understanding of how selective etching reshapes surface chemistry, defect populations, and electronic structure at the nanoscale. This review consolidates recent computational advances in density functional theory, molecular dynamics, machine learning, and quantum chemical methods that model etching pathways in graphene, transition metal dichalcogenides, hexagonal boron nitride, and MXenes. We critically assess how these simulations predict etchant–surface reactivity, defect-driven selectivity, and post-etch changes in band structure, spin–orbit coupling, valley polarization, and coherence lifetimes. Key experimental validations, including graphene Josephson junctions, etched double quantum dots, and MoS₂ valley qubits, illustrate how reliably simulations can guide fabrication. Closed-loop machine-learning–density-functional-theory frameworks and digital twin architectures are highlighted as promising routes toward automated, adaptive manufacturing of quantum-grade 2D devices. The review also identifies persistent gaps in multi-scale modelling and dynamic environment simulation, and suggests directions for future research.",
+  "date": "2026-10-15",
+  "venue": "Next Nanotechnology",
+  "arxiv_id": "",
+  "doi": "10.1016/j.nxnano.2026.100867",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "9dbe852706f9",
+  "title": "A Review of Quantum Principles in Oncology: From Molecular Dynamics to Next-Generation Therapeutics",
+  "authors": [
+   "Uğur Topal",
+   "Cihan Zamur"
+  ],
+  "abstract": "Cancer is a complex and heterogeneous disease characterized by dynamic genetic, metabolic, and microenvironmental alterations. In addition to established classical biological mechanisms, quantum-scale processes such as proton tunneling, electron transfer, and spin-dependent reactions have been proposed to contribute to selected molecular events relevant to cancer biology. This review examines the current evidence supporting these mechanisms and discusses their possible implications for mutagenesis, mitochondrial metabolism, and reactive oxygen species regulation. We also review quantum dot-based approaches for tumor imaging, biosensing, targeted drug delivery, and photodynamic therapy, together with emerging applications of quantum computing and quantum machine learning in molecular simulation, cancer classification, and treatment optimization. Although these approaches have generated substantial experimental and theoretical interest, most remain at the preclinical, proof-of-concept, or computational stage, and their clinical relevance has not yet been firmly established. Important limitations include biological decoherence, uncertainty regarding the magnitude and functional significance of quantum effects in complex cellular environments, toxicity and biodistribution concerns associated with some quantum materials, limitations of current quantum hardware, and the need for rigorous external and clinical validation. Future progress will depend on multidisciplinary research that clearly distinguishes established molecular-scale quantum phenomena from speculative interpretations and evaluates whether quantum-informed technologies provide measurable advantages over conventional approaches. Overall, quantum science may offer complementary perspectives and technological tools for oncology, but its clinical impact remains to be determined.",
+  "date": "2026-10-12",
+  "venue": "Biophysica",
+  "arxiv_id": "",
+  "doi": "10.3390/biophysica6050100",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "a2d8cfe6405b",
+  "title": "Quantum Molecular Charge-Transfer Model for Multistep Auger–Meitner Decay Cascade Dynamics",
+  "authors": [
+   "Adam E. A. Fouda",
+   "Stephen H. Southworth",
+   "Phay J. Ho"
+  ],
+  "abstract": "The fragmentation of molecular cations following inner-shell decay processes in molecules containing heavy elements underpins the X-ray damage effects observed in X-ray scattering measurements of biological and chemical materials, as well as in medical applications involving Auger electron-emitting radionuclides. Traditionally, these processes are modeled using simulations that describe the electronic structure at an atomic level, thereby omitting molecular bonding effects. This work addresses the gap by introducing a novel approach that couples Auger–Meitner decay to nuclear dynamics across multiple decay steps, by developing a decay spawning dynamics algorithm and applying it to potential energy surfaces characterized with ab initio molecular dynamics simulations. We showcase the approach on a model decay cascade following K-shell ionization of IBr and subsequent K β fluorescence decay. We examine two competing channels that undergo two decay steps, resulting in ion pairs with a total 3+ charge state. This approach provides a continuous description of the electron transfer dynamics occurring during the multistep decay cascade and molecular fragmentation, revealing the combined inner-shell decay and charge transfer time scale to be approximately 75 fs. Our computed kinetic energies of ion fragments show good agreement with experimental data.",
+  "date": "2024-10-11",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.4c00778",
+  "citations": 4,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "b22334c1a3b3",
+  "title": "A reactive molecular dynamics model for uranium/hydrogen containing systems",
+  "authors": [
+   "Artem Soshnikov",
+   "Rebecca Lindsey",
+   "Ambarish R. Kulkarni",
+   "Nir Goldman"
+  ],
+  "abstract": "Uranium-based materials are valuable assets in the energy, medical, and military industries. However, understanding their sensitivity to hydrogen embrittlement is particularly challenging due to the toxicity of uranium and the computationally expensive nature of quantum-based methods generally required to study such processes. In this regard, we have developed a Chebyshev Interaction Model for Efficient Simulation (ChIMES) that can be employed to compute energies and forces of U and UH3 bulk structures with vacancies and hydrogen interstitials with accuracy similar to that of Density Functional Theory (DFT) while yielding linear scaling and orders of magnitude improvement in computational efficiency. We show that the bulk structural parameters, uranium and hydrogen vacancy formation energies, and diffusion barriers predicted by the ChIMES potential are in strong agreement with the reference DFT data. We then use ChIMES to conduct molecular dynamics simulations of the temperature-dependent diffusion of a hydrogen interstitial and determine the corresponding diffusion activation energy. Our model has particular significance in studies of actinides and other high-Z materials, where there is a strong need for computationally efficient methods to bridge length and time scales between experiments and quantum theory.",
+  "date": "2024-03-07",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0183610",
+  "citations": 5,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "473528ff69a2",
+  "title": "Implicit Machine Learning Force Fields Accelerate Molecular Dynamics Simulations",
+  "authors": [
+   "Johannes Maeß",
+   "Leon Werner",
+   "J. Thorben Frank",
+   "Winfried Ripken",
+   "Martin Michajlow",
+   "Joshua Futterer",
+   "Klaus Robert Müller",
+   "Stefan Chmiela"
+  ],
+  "abstract": "We introduce implicit machine learning force fields (I-MLFFs), which replace explicit stacks of neural network layers with self-consistent fixed-point equations. In molecular simulations, this formulation enables intermediate representations to be reused across successive timesteps, thereby warm-starting force evaluation. The resulting models effectively combine the computational footprint of a shallow, single-layer MLFF with the representational capacity and accuracy of a deep neural network. Our approach unlocks architecture-agnostic efficiency gains that are inaccessible when force prediction and trajectory integration are considered separately. We demonstrate this across three major classes of graph neural networks: invariant, equivariant Cartesian tensor, and SO(3)-equivariant spherical-tensor architectures. Each yields a two- to five-fold reduction in compute and memory footprint. Crucially, these gains are achieved while retaining full atomistic resolution and the original integration timestep, avoiding spatial or temporal coarse graining. Our contribution therefore advances the scaling frontier of quantum-mechanically faithful molecular simulation, enabling longer trajectories and larger atomistic systems within fixed GPU memory and compute budgets, and thereby opening access to new insights across biomolecular and material systems.",
+  "date": "2026-07-31",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.29158",
+  "doi": "10.48550/arxiv.2607.29158",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "dbd0e0983e82",
+  "title": "Subangstrom ion beam engineering of buried ultrathin oxides for scalable quantum computing",
+  "authors": [
+   "Nikita S. Smirnov",
+   "Elizaveta A. Krivko",
+   "Daria A. Moskaleva",
+   "Dmitry O. Moskalev",
+   "Anastasia A. Solovieva",
+   "Aleksei R. Matanin",
+   "Vladimir V. Echeistov",
+   "Аnton I. Ivanov",
+   "Elizaveta I. Malevannaya",
+   "Victor I. Polozov",
+   "E. V. Zikiy",
+   "Nikita D. Korshakov",
+   "M. Teleganov",
+   "Dmitry A. Mikhalin",
+   "Nikolai M. Zhitkov",
+   "Ruslan V. Romashkin",
+   "Igor S. Korobenko",
+   "Aleksei V. Yanilkin",
+   "A. V. Lebedev",
+   "Ilya A. Ryzhikov",
+   "Aleksander V. Andriyash",
+   "Ilya A. Rodionov"
+  ],
+  "abstract": "Multilayer nanoscale systems incorporating ultrathin tunnel barriers, magnetic materials, amorphous oxides, and promising dielectrics are essential for next-generation logics, memory, quantum, and neuro-inspired computing. Still, an ultrathin film control at the atomic scale remains challenging. Here, we introduce a complementary metal-oxide semiconductor-compatible approach using focused ion beam irradiation for buried ultrathin films' engineering with subangstrom thickness control. Molecular dynamics simulations confirm the pivotal role of ion-induced crystal defects. Its performance is exemplified by Josephson junction resistance tuning in the range of 2 to 37% with a 0.86% standard deviation in completed chips. Furthermore, it enables ±17-megahertz frequency accuracy (±0.172 angstrom tunnel barrier thickness variation) in superconducting multiqubit processors, as well as qubit energy relaxation and echo coherence times exceeding 0.5 milliseconds.",
+  "date": "2025-05-07",
+  "venue": "Science Advances",
+  "arxiv_id": "",
+  "doi": "10.1126/sciadv.ads9744",
+  "citations": 4,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "931244b9c070",
+  "title": "Efficient simulation of second-order phase transitions in quantum anharmonic materials",
+  "authors": [
+   "Andrea Baldanza",
+   "Lorenzo Monacelli"
+  ],
+  "abstract": "When a crystal undergoes a second-order structural phase transition, such as in ferroelectrics, Peierls, and charge-density waves, the diverging fluctuations of the order parameter lead to the break- down of the standard phonon quasiparticle picture. Simulating these highly anharmonic regimes is notoriously challenging, as methods such as molecular dynamics suffer from a critical slowdown near the transition point, while the harmonic approximation fails dramatically at saddle points of the energy landscape stabilized by quantum or thermal ionic fluctuations. This work introduces a new approach, based on the variational free-energy principle, to predict critical long-range behavior and dynamical spectra in strongly anharmonic systems, even when quantum ionic fluctuations dominate. The proposed framework builds upon the stochastic self- consistent harmonic approximation but reduces its computational scaling with the number of atoms, N, from O(N^6) to O(N^2) and the memory requirement from O(N^4) to O(N). We benchmark the method on the prototypical lead-free metal-halide perovskite CsSnI3, a promising candidate for photovoltaic engineering, simulating its phase stability and Raman spectrum near the phase transition, where the breakdown of the quasiparticle picture becomes evident. We demonstrate the effectiveness of the method by computing the full free-energy Hessian and the critical temperature in a supercell with 1080 atoms. Such simulations would have required tens of thousands of years with the legacy approach; it is now feasible in a few hours on consumer hardware.",
+  "date": "2026-08-14",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.14292",
+  "doi": "10.48550/arxiv.2608.14292",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "8c816cf5f40a",
+  "title": "Predicting the Thermomechanical and Adhesive Properties of a Layered Polyimide Packaging Material Using Molecular Simulation",
+  "authors": [
+   "David A. Nicholson",
+   "Atif Afzal",
+   "Shaun Kwak",
+   "Andrea Robben Browning"
+  ],
+  "abstract": "The increasing demand for sophisticated electronic devices has placed challenging requirements on integrated circuits and the advanced packaging materials that encapsulate and protect them. To meet these engineering challenges, computational materials science offers powerful predictive tools, particularly molecular dynamics (MD) and quantum mechanical (QM) simulations. These methods are routinely employed to accurately compute the properties of materials directly from fundamental principles of chemistry and physics. MD and QM have been well-validated for polymer materials. They have proven utility for the design of new materials, formulation design, and characterization of phenomena that can be challenging and expensive to assess experimentally. Using these tools, we developed a molecular-scale model of a photo-imagable dielectric (PID) polyimide. This model predicts how the polyimide’s thermomechanical properties evolve during fabrication and characterizes its performance under reliability testing conditions, such as thermal cycling and mechanical stress. Additionally, it simulates the interaction of the polyimide with metallized surfaces, as seen in applications like redistribution layers (RDLs). Over the course of fabrication, a packaging polymer may transform through chemical processes like crosslinking and physical processes like solvent evaporation. The study involved the creation of detailed molecular models that accurately represented the material starting from its precursor state, progressing through an intermediate crosslinked state, and finally reaching its fully cured state. This step-wise approach is critical for capturing how properties mature throughout the manufacturing process. Using dedicated workflows within Schrödinger’s Materials Science Suite, the material was assessed for a range of properties. The Elastic Constants workflow was used to determine the bulk, shear, and Young’s moduli, which define the material’s mechanical stiffness. The Thermophysical Properties workflow was used to compute coefficients of thermal expansion (CTEs), which govern its dimensional stability under temperature changes, and its glass transition temperature, a key indicator of its thermal stability. Finally, the Amorphous Dielectric Properties workflow was used to compute the dielectric constant and dielectric loss, essential for electrical insulation and signal integrity. In the final product state, the dependence of these properties on temperature was asses",
+  "date": "2026-08-11",
+  "venue": "IMAPSource Proceedings",
+  "arxiv_id": "",
+  "doi": "10.4071/001c.166916",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "dde86b9eb3a3",
+  "title": "A Tale of Scales: Dynamics of Complex Materials",
+  "authors": [
+   "Esmée Berger"
+  ],
+  "abstract": "Complex materials, such as amorphous solids, liquid-solid mixtures, or aggregates of organic molecules, offer vast possibilities for scientific and technological advancement. In recent years, the capabilities of computationally understanding and predicting material properties have experienced rapid progress, but these are in many cases still limited to ordered crystalline solids. Complex materials exhibit relevant structure and dynamics on a wide range of spatio-temporal scales, so for investigating them a multi-scale modeling approach is necessary. In this context, efficient methods for sampling and computation of observables are crucial. Additionally, understanding of complex materials can benefit from close comparisons between computational predictions and experimental observations.This thesis contains contributions to the study of dynamics of complex materials at different length and time scales and is based on three papers. The first paper revolves around atomic-scale investigations and accompanies a software package developed for computing correlation functions from molecular dynamics trajectories, which have a strong tie to experimental observables. The second paper studies nuclear quantum effects on thermal properties through large-scale simulations. The third paper is a case study of applying a multi-scale modeling approach to investigate surfactant-surface phase behavior, which dictates the functionality in many applications. This behavior is challenging to model due to the combination of inorganic surfaces, liquid solvent, and supramolecular assemblies of organic molecules. Thus, a multi-scale modeling approach is required, which spans the atomic and continuum level. In this case, comparison to experiment is enabled via the computation of the optical response.",
+  "date": "2025-01-01",
+  "venue": "Chalmers Research (Chalmers University of Technology)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "0e299d6ccf95",
+  "title": "Evaluating mechanical property prediction across material classes using molecular dynamics simulations with universal machine-learned interatomic potentials",
+  "authors": [
+   "Konstantin Stracke",
+   "Connor Edwards",
+   "Jack D. Evans"
+  ],
+  "abstract": "Simulating the mechanical and thermal properties of materials requires accurate treatment of interatomic interactions, yet quantum-mechanical methods can be computationally prohibitive for the time scales needed. Universal machine-learned interatomic potentials (MLIPs) offer a promising alternative, but their reliability for dynamics across diverse material classes remains largely untested. Here, we assess the accuracy of six universal MLIPs for predicting the temperature and pressure response of 13 diverse materials (nine metal-organic frameworks and four inorganic compounds), computing bulk modulus, thermal expansion, and thermal decomposition. These MLIPs employ three architectures (graph neural networks, graph network simulators, and graph transformers) with varying training datasets. We observe qualitative agreement with experiment, outperforming UFF4MOF, but also systematic underestimation of bulk modulus and overestimation of thermal expansion across all models, consistent with potential energy surface softening. From all tested models, three top performers arise; ‘MACE-MP-0a’, ‘fairchem_OMAT’, and ‘Orb-v3’, with average error across metrics and materials of 41%, 43%, and 43%, respectively. Beyond overall performance, dataset homogeneity and structural representation dominate model accuracy, while certain architectures can compensate for biases, a step closer to truly universal MLIPs. The application of quantum-mechanical methods to complex systems is often computationally prohibitive, prompting the exploration of machine learning alternatives for modeling interatomic forces. Here, the authors benchmark machine-learned interatomic potentials (MLIPs) against density functional theory (DFT) and classical potentials for nine metal-organic frameworks and four inorganic compounds, highlighting the necessity of dynamic modeling for accurate mechanical property assessment.",
+  "date": "2026-05-06",
+  "venue": "Communications Chemistry",
+  "arxiv_id": "",
+  "doi": "10.1038/s42004-026-02057-9",
+  "citations": 1,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "031ea83d18c4",
+  "title": "The Convergence Frontier: Integrating Machine Learning and High Performance Quantum Computing for Next-Generation Drug Discovery",
+  "authors": [
+   "Narjes Ansari",
+   "César Feniou",
+   "Nicolaï Gouraud",
+   "Daniele Loco",
+   "Siwar Badreddine",
+   "Baptiste Claudon",
+   "Félix Aviat",
+   "Marharyta Blazhynska",
+   "Kevin E. Gasperich",
+   "Guillaume Michel",
+   "Diata Traoré",
+   "Corentin Villot",
+   "Thomas Plé",
+   "Olivier Adjoua",
+   "Louis Lagardère",
+   "Jean‐Philip Piquemal"
+  ],
+  "abstract": "Integrating quantum mechanics into drug discovery marks a decisive shift from empirical trial-and-error toward quantitative precision. However, the prohibitive cost of ab initio molecular dynamics has historically forced a compromise between chemical accuracy and computational scalability. This paper identifies the convergence of High-Performance Computing (HPC), Machine Learning (ML), and Quantum Computing (QC) as the definitive solution to this bottleneck. While ML foundation models, such as FeNNix-Bio1, enable quantum-accurate simulations, they remain tethered to the inherent limits of classical data generation. We detail how High-Performance Quantum Computing (HPQC), utilizing hybrid QPU-GPU architectures, will serve as the ultimate accelerator for quantum chemistry data. By leveraging Hilbert space mapping, these systems can achieve true chemical accuracy while bypassing the heuristics of classical approximations. We show how this tripartite convergence optimizes the drug discovery pipeline, spanning from initial system preparation to ML-driven, high-fidelity simulations. Finally, we position quantum-enhanced sampling as the beyond GPU frontier for modeling reactive cellular systems and pioneering next-generation materials.",
+  "date": "2026-03-18",
+  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "arxiv_id": "2603.17790",
+  "doi": "10.48550/arxiv.2603.17790",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "7b8c1f919a28",
+  "title": "Born–Oppenheimer Molecular Dynamics with a Linear Combination of Atomic Orbitals and Hybrid Functionals for Condensed Matter Simulations Made Possible. Theory and Performance for the Microcanonical and Canonical Ensembles",
+  "authors": [
+   "Chiara Ribaldone",
+   "Silvia Casassa"
+  ],
+  "abstract": "The implementation of an original Born-Oppenheimer molecular dynamics module is presented, which is able to perform simulations of large and complex condensed phase systems for sufficiently long time scales at the level of density functional theory with hybrid functionals, in the microcanonical (NVE) and canonical (NVT) ensembles. The algorithm is fully integrated in the Crystal code, a program for quantum mechanical simulations of materials, whose peculiarity stems from the use of atom-centered basis functions within a linear combination of atomic orbitals to describe the wave function. The corresponding efficiency in the evaluation of the exact Fock exchange series has led to the implementation of a rich variety of hybrid density functionals at a low computational cost. In addition, the molecular dynamics implementation benefits also from the effective MPI parallelization of the code, suited to exploit high-performance computing resources available on current generation supercomputer architectures. Furthermore, the information contained in the trajectory of the dynamics is extracted through a series of postprocessing algorithms that provide the radial distribution function, the diffusion coefficient and the vibrational density of states. In this work, we present a detailed description of the theoretical framework and the algorithmic implementation, followed by a critical evaluation of the accuracy and parallel performance (e.g., strong and weak scaling) of this approach, when ice and liquid water simulations are performed in the microcanonical and canonical ensembles.",
+  "date": "2024-04-22",
+  "venue": "Journal of Chemical Theory and Computation",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jctc.3c01231",
+  "citations": 10,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "24be040a5d6a",
+  "title": "Angstrom-scale ion-beam engineering of ultrathin buried oxides for quantum and neuro-inspired computing",
+  "authors": [
+   "Smirnov, N.",
+   "Elizaveta A. Krivko",
+   "Daria A. Moskaleva",
+   "Dmitry O. Moskalev",
+   "Solovieva, A.",
+   "Vladimir V. Echeistov",
+   "E. V. Zikiy",
+   "Nikita D. Korshakov",
+   "Ivanov, A.",
+   "Elizaveta I. Malevannaya",
+   "Aleksei R. Matanin",
+   "Victor I. Polozov",
+   "M. Teleganov",
+   "Nikolai M. Zhitkov",
+   "Ruslan V. Romashkin",
+   "Igor S. Korobenko",
+   "Alexey V. Yanilkin",
+   "A. V. Lebedev",
+   "Ilya A. Ryzhikov",
+   "Aleksander V. Andriyash",
+   "Ilya A. Rodionov"
+  ],
+  "abstract": "Multilayer nanoscale systems incorporating buried ultrathin tunnel oxides, 2D materials, and solid electrolytes are crucial for next-generation logics, memory, quantum and neuro-inspired computing. Still, an ultrathin layer control at angstrom scale is challenging for cutting-edge applications. Here we introduce a scalable approach utilizing focused ion-beam annealing for buried ultrathin oxides engineering with angstrom-scale thickness control. Our molecular dynamics simulations of Ne+ irradiation on Al/a-AlOx/Al structure confirms the pivotal role of ion generated crystal defects. We experimentally demonstrate its performance on Josephson junction tunning in the resistance range of 2 to 37% with a standard deviation of 0.86% across 25x25 mm chip. Moreover, we showcase +-17 MHz frequency control (+-0.172 A tunnel barrier thickness) for superconducting transmon qubits with coherence times up to 500 us, which is promising for useful fault-tolerant quantum computing. This work ensures ultrathin multilayer nanosystems engineering at the ultimate scale by depth-controlled crystal defects generation.",
+  "date": "2024-08-19",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2408.10138",
+  "doi": "10.48550/arxiv.2408.10138",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "127dcf26d8ca",
+  "title": "Integrating biophysical modeling, quantum computing, and AI to discover plastic-binding peptides that combat microplastic pollution",
+  "authors": [
+   "Jeet Dhoriyani",
+   "Michael T. Bergman",
+   "Carol K. Hall",
+   "Fengqi You"
+  ],
+  "abstract": "Methods are needed to mitigate microplastic (MP) pollution to minimize their harm to the environment and human health. Given the ability of polypeptides to adsorb strongly to materials of micro- or nanometer size, plastic-binding peptides (PBPs) could help create bio-based tools for detecting, filtering, or degrading MNP pollution. However, the development of such tools is prevented by the lack of PBPs. In this work, we discover and evaluate PBPs for several common plastics by combining biophysical modeling, molecular dynamics (MD), quantum computing, and reinforcement learning. We frame peptide affinity for a given plastic through a Potts model that is a function of the amino acid sequence and then search for the amino acid sequences with the greatest predicted affinity using quantum annealing. We also use proximal policy optimization to find PBPs with a broader range of physicochemical properties, such as isoelectric point or solubility. Evaluation of the discovered PBPs in MD simulations demonstrates that the peptides have high affinity for two of the plastics: polyethylene and polypropylene. We conclude by describing how our computational approach could be paired with experimental approaches to create a nexus for designing and optimizing peptide-based tools that aid the detection, capture, or biodegradation of MPs. We thus hope that this study will aid in the fight against MP pollution.",
+  "date": "2025-01-27",
+  "venue": "PNAS Nexus",
+  "arxiv_id": "",
+  "doi": "10.1093/pnasnexus/pgae572",
+  "citations": 10,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "37d5f2eb970e",
+  "title": "Designing microplastic-binding peptides with a variational quantum circuit–based hybrid quantum-classical approach",
+  "authors": [
+   "Raul Conchello Vendrell",
+   "Akshay Ajagekar",
+   "Michael T. Bergman",
+   "Carol K. Hall",
+   "Fengqi You"
+  ],
+  "abstract": "De novo peptide design exhibits great potential in materials engineering, particularly for the use of plastic-binding peptides to help remediate microplastic pollution. There are no known peptide binders for many plastics-a gap that can be filled with de novo design. Current computational methods for peptide design exhibit limitations in sampling and scaling that could be addressed with quantum computing. Hybrid quantum-classical methods can leverage complementary strengths of near-term quantum algorithms and classical techniques for complex tasks like peptide design. This work introduces a hybrid quantum-classical generative framework for designing plastic-binding peptides combining variational quantum circuits with a variational autoencoder network. We demonstrate the framework's effectiveness in generating peptide candidates, evaluate its efficiency for property-oriented design, and validate the candidates with molecular dynamics simulations. This quantum computing-based approach could accelerate the development of biomolecular tools for environmental and biomedical applications while advancing the study of biomolecular systems through quantum technologies.",
+  "date": "2024-12-18",
+  "venue": "Science Advances",
+  "arxiv_id": "",
+  "doi": "10.1126/sciadv.adq8492",
+  "citations": 19,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "2b3bead4c498",
+  "title": "Deep Learning Approaches for Determining Solid-State Anharmonic Phonon Dynamics and Thermodynamics: Quantum Accuracy without the Cost",
+  "authors": [
+   "Maria Petrov",
+   "Raymond G. Schireman",
+   "Davide Mitoli",
+   "Michael T. Ruggiero"
+  ],
+  "abstract": "Understanding lattice dynamics is essential for explaining and predicting the thermal, electronic, and spectroscopic behavior of crystalline materials, yet accurate simulations remain computationally prohibitive when treated using fully ab initio methods, particularly for phonon dispersion, thermodynamics, and anharmonic vibrational effects. Here we present a deep-learning-enabled quantum lattice dynamics framework that retains the rigor of quantum mechanical vibrational analysis while dramatically reducing computational cost. Using ice-XI as a model system due to its well-known anharmonic dynamics, we integrate machine-learned interatomic potentials into a conventional solid-state vibrational workflow 1 to compute harmonic phonons, phonon dispersion relations, quasi-harmonic thermodynamic properties, and fully anharmonic vibrational dynamics using the vibrational self-consistent field (VSCF) and vibrational configuration interaction (VCI) methods. Remarkably, the transferable ANI-2x neural network potential reproduces many solid-state vibrational properties with good fidelity despite being trained only on molecular datasets. We further demonstrate that training a system-specific E(3)-equivariant neural network potential on a modest set of ab initio configurations yields near-DFT accuracy across harmonic and anharmonic observables, including coupled-mode interactions and two-quantum vibrational excitations. The resulting models reproduce DFT frequencies with sub-percent errors while reducing the computational cost of lattice-dynamical simulations by orders of magnitude. These results establish a practical route to quantum-accurate simulations of anharmonic phonons in complex molecular crystals-or even disordered solids-and demonstrate how deep learning can transform the computational study of solid-state vibrational dynamics.",
+  "date": "2026-03-13",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15000892/v1",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "814ee5811547",
+  "title": "A Universal Deep Learning Force Field for Molecular Dynamic Simulation and Vibrational Spectra Prediction",
+  "authors": [
+   "Ji, Shengjiao",
+   "Zhang, Yujin",
+   "Zihan Zou",
+   "Bin Jiang",
+   "Jun Jiang",
+   "Yi Luo",
+   "Hu, Wei"
+  ],
+  "abstract": "Accurate and efficient simulation of infrared (IR) and Raman spectra is essential for molecular identification and structural analysis. Traditional quantum chemistry methods based on the harmonic approximation neglect anharmonicity and nuclear quantum effects, while ab initio molecular dynamics (AIMD) remains computationally expensive. Here, we integrate our deep equivariant tensor attention network (DetaNet) with a velocity-Verlet integrator to enable fast and accurate machine learning molecular dynamics (MLMD) simulations for spectral prediction. Trained on the QMe14S dataset containing energies, forces, dipole moments, and polarizabilities for 186,102 small organic molecules, DetaNet yields a universal and transferable force field with high-order tensor prediction capability. Using time-correlation functions derived from MLMD and ring-polymer molecular dynamics (RPMD) trajectories, we computed IR and Raman spectra that accurately reproduce anharmonic and nuclear quantum effects. Benchmark tests on isolated molecules, including polycyclic aromatic hydrocarbons, demonstrate that the DetaNet-based MD approach achieves near-experimental spectral accuracy with speedups up to three orders of magnitude over AIMD. Furthermore, the framework extends seamlessly to molecular and inorganic crystals, molecular aggregates, and biological macromolecules such as polypeptides with minimal fine-tuning. In all systems, DetaNet maintains high accuracy while significantly reducing computational cost. Overall, this work establishes a universal machine learning force field and tensor-aware MLMD framework that enable fast, accurate, and broadly applicable dynamic simulations and IR/Raman spectral predictions across diverse molecular and material systems.",
+  "date": "2025-10-05",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2510.04227",
+  "doi": "10.48550/arxiv.2510.04227",
+  "citations": 1,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "10aaed3a72a0",
+  "title": "Effect of Functional Groups on Neopentane and Adamantane Derivative Plastic Crystal Phase Transition in Molecular Simulations",
+  "authors": [
+   "Andrew P. Santos",
+   "Krishnan Swaminathan Gopalan",
+   "E Papajak",
+   "Masanobu Uchimura",
+   "Balachandran Radhakrishnan",
+   "Shigemasa Kuwata",
+   "Lauren J. Abbott"
+  ],
+  "abstract": "Huge latent heat from the solid-solid phase change in certain plastic crystals can be leveraged for solid-state refrigeration, which is a green alternative to current cooling technologies. Although several promising materials have been identified in recent years, meeting the specific operation conditions required for solid-state refrigeration has been a challenge. Many plastic crystals' functional groups form intermolecular bonds that are responsible for the barocaloric effects and therefore can be modified to tune the existing materials for particular applications. In this work, we study the effects of the number and type of functional groups on the plastic crystal phase transition using molecular dynamics simulations. We focus on varying the functional groups of two promising classes of materials, the first with a neopentane base structure, present in the well-studied neopentyl glycol, and the second with an adamantane base structure. Transition temperatures calculated from molecular dynamics simulations differ from experimental values by 3% to 20%. Noncovalent interaction energies, computed with quantum chemical simulations, correlate well with the change in transition temperature. We observe clear trends in the variation of the structural and kinetic properties as a result of the functional changes with both base structures. An increase in the number of functional groups results in higher transition temperatures due to noncovalent bond formation. Higher electronegativity and polarizability of the functional groups are also observed to lead to higher transition temperatures. Finally, for the same number and type of functional groups, simulations show that adamantane derivatives consistently exhibit transition temperatures higher than those of their neopentane counterparts. These results suggest that functional group modification can be used reliably to tailor barocaloric plastic crystals for particular applications.",
+  "date": "2025-09-15",
+  "venue": "The Journal of Physical Chemistry B",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpcb.5c02785",
+  "citations": 2,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "57e8317059f6",
+  "title": "Multiscale modeling of charge transfer in hole-transporting materials: Linking molecular morphology to charge mobility",
+  "authors": [
+   "Sanyam Sanyam",
+   "Anirban Mondal"
+  ],
+  "abstract": "Hole-transporting materials (HTMs) play a pivotal role in the performance and stability of organic electronic devices by enabling efficient hole transport. This study employs a multiscale approach to explore the relationship between molecular morphology and charge transfer properties in four HTM molecules. By combining quantum mechanical calculations, molecular dynamics simulations, and kinetic Monte Carlo modeling, we analyze key structural features such as radial distribution functions, principal axis orientations, and non-covalent interactions. Our findings reveal that molecular size and substituent effects significantly influence non-covalent interactions and molecular alignments, thereby affecting charge transport pathways. Charge transfer rates and energetic disorder were modeled using the master equation, and mobilities were computed, showing satisfactory agreement with experimental data. This comprehensive analysis provides valuable insights into the design of HTMs for organic electronic devices, emphasizing the importance of molecular architecture in optimizing charge mobility and minimizing energy losses.",
+  "date": "2025-05-08",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0265890",
+  "citations": 6,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "fa16972aa03c",
+  "title": "Hydrogen diffusion on Ni(100): A combined machine-learning, ring polymer molecular dynamics, and kinetic Monte Carlo study",
+  "authors": [
+   "Julien Steffen",
+   "Amin Alibakhshi"
+  ],
+  "abstract": "We introduce a methodological framework coupling machine-learning potentials, ring polymer molecular dynamics (RPMD), and kinetic Monte Carlo (kMC) to draw a comprehensive physical picture of the collective diffusion of hydrogen atoms on metal surfaces. For the benchmark case of hydrogen diffusion on a Ni(100) surface, the hydrogen adsorption and diffusion energetics and its dependence on the local coverage is described via a neural-network potential, where the training data are computed via periodic density functional theory (DFT) and include all relevant optimized diffusion and desorption paths, sampled by nudged elastic band optimizations and molecular dynamics simulations. Nuclear quantum effects, being crucial for processes involving hydrogen at low temperatures, are treated by RPMD. The diffusion rate constants are calculated with a combination of umbrella samplings employed to map the free energy profile and separate samplings of recrossing trajectories to obtain the transmission coefficient. The calculated diffusion rates for different temperatures and local environments are then combined and fitted into a kMC model allowing access to larger time and length scales. Our results demonstrate an outstanding performance for the trained neural network potential in reproducing reference DFT energies and forces. We report the effective diffusion rates for different temperatures and hydrogen surface coverages obtained via this recipe in good agreement with the experimental results. The method combination proposed in this study can be instrumental for a wide range of applications in materials science.",
+  "date": "2024-11-13",
+  "venue": "The Journal of Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0226314",
+  "citations": 15,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "b535a581632c",
+  "title": "Quantum Ornstein-Zernike theory for two-temperature two-component plasmas",
+  "authors": [
+   "Zachary A. Johnson",
+   "Nathaniel R. Shaffer",
+   "Michael S. Murillo"
+  ],
+  "abstract": "Laboratory plasma production almost always preferentially heats either the ions or electrons, leading to a two-temperature state. In this state, density functional theory molecular dynamic simulation is the state of the art for modeling bulk material properties. We construct a statistical mechanics model for the two-temperature limit that is theoretically consistent with the molecular dynamics method. We proceed to derive the electron-ion multitemperature quantum Ornstein-Zernike equations for the first time. This allows the construction of a two-temperature, two-component plasma model using the average atom from which we can compute bulk material properties at a fraction of the computation time of the two-temperature density functional theory simulation. The accuracy of the model is benchmarked against ion pair correlation and self-diffusion results from ab initio simulation. We proceed to compute the viscosity and ion thermal conductivity as a function of both ion and electron temperature.",
+  "date": "2025-07-16",
+  "venue": "Physical review. E",
+  "arxiv_id": "",
+  "doi": "10.1103/5c29-kdx1",
+  "citations": 1,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "0d095c5281b5",
+  "title": "Diabatization with electrostatic embedding for studyingphotophysics in organic molecular crystals",
+  "authors": [
+   "Michael Ingham",
+   "Mohammad Aarabi",
+   "Samuele Giannini",
+   "Marco Garavelli",
+   "Fabrizio Santoro",
+   "Roberto Improta",
+   "Rachel Crespo‐Otero"
+  ],
+  "abstract": "Highly emissive organic molecular crystals find applications in several areas, such as organic electronics, solar cells, and sensors. Understanding the excited-state mechanisms underlying these applications is essential for optimizing and controlling them effectively. Exciton models coupled with nonadiabatic dynamics, particularly quantum dynamics, provide crucial insights into photochemical and photophysical processes in molecular crystals. Nevertheless, there remains a lack of general tools and automated workflows to facilitate such simulations. In this paper, we present a computational strategy to investigate the photoactivated dynamics of organic molecular crystals, bridging methodologies traditionally used for molecular systems and materials science, with a particular focus on the interplay between local excitations and charge-transfer (CT) processes. We have implemented an interface between the fromage and Overdia programs, enabling the construction of vibronic Hamiltonians for molecular crystals within an excited-state ONIOM(QM:QM’) framework, incorporating long-range electrostatics through a RESP-based Ewald summation. Fragment-based diabatization provides a route to quantum dynamics simulations in weak-to-intermediate coupling regimes. The method was applied to the photophysics of dibenzo[g,p]chrysene (DBC) crystals using time-dependent DFT. The fromage/Overdia interface was employed to compute the couplings of local excitations and CT states for all 18 unique DBC dimers in the crystal and to quantify the influence of electrostatic embedding, which was found to be modest (10–20%). Simulations on π-stacked dimers reproduced the small red shift observed experimentally from solution to crystal, attributed to electronic interactions among fixed monomers rather than crystal electrostatics. Quantum dynamics simulations revealed ultrafast population transfer from bright local excitations to charge-transfer states. This approach establishes a robust framework linking molecular and solid-state excited-state dynamics, with potential applications for studying excitations, defects, and impurities in molecular crystals.",
+  "date": "2025-11-25",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv-2025-m6sft",
+  "citations": 0,
+  "theme": "quantum computing molecular dynamics sim"
+ },
+ {
+  "fid": "5bf705d6498d",
+  "title": "Influence of Quantum Computing Algorithms on Molecular Simulations in Material Science in Pakistan",
+  "authors": [
+   "Malik Khalid"
+  ],
+  "abstract": "Purpose: The aim of the study was to assess the influence of quantum computing algorithms on molecular simulations in material science in Pakistan. Materials and Methods: This study adopted a desk methodology. A desk study research design is commonly known as secondary data collection. This is basically collecting data from existing resources preferably because of its low cost advantage as compared to a field research. Our current study looked into already published studies and reports as the data was easily accessed through online journals and libraries. Findings: The study found that traditional classical computing methods often struggle with the complex and large-scale calculations required to simulate molecular interactions and properties, leading to approximations that can limit the precision of predictions. Quantum algorithms, particularly those based on quantum annealing and variational quantum eigensolver (VQE), offer the ability to process vast amounts of data simultaneously, making them highly effective for solving problems involving quantum states of matter. Studies have demonstrated that quantum computing can achieve a higher degree of accuracy in predicting molecular structures, reaction mechanisms, and material properties compared to classical approaches. Additionally, quantum computing can significantly reduce the time required for these simulations, thereby accelerating the development of new materials and technologies. Implications to Theory, Practice and Policy: Computational complexity theory, quantum information theory and algorithmic information theory may be used to anchor future studies on assessing the influence of quantum computing algorithms on molecular simulations in material science in Pakistan. In the realm of practical applications, the development of robust quantum computing infrastructure is essential for realizing the full potential of quantum algorithms in molecular simulations. Policymakers have a crucial role in supporting the research and development of quantum computing technologies, particularly in their application to material science.",
+  "date": "2024-08-24",
+  "venue": "European Journal of Physical Sciences",
+  "arxiv_id": "",
+  "doi": "10.47672/ejps.2326",
+  "citations": 0,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "b2cec496139a",
+  "title": "Statistical Disorder in MBE-Grown AlGaAs/GaAs Superlattices for Quantum Bragg Mirrors using Synchrotron X-ray Diffraction",
+  "authors": [
+   "Mateus T. Souza",
+   "Germano Maioli Penello",
+   "Guilherme A. Calligaris",
+   "Sérgio Luiz Morelhão"
+  ],
+  "abstract": "AlGaAs/GaAs superlattices grown by Molecular Beam Epitaxy (MBE) are foundational for advanced optoelectronic devices, including Quantum Bragg Mirror (QBM) infrared detectors. The performance of these devices critically depends on achieving near-perfect periodicity and abrupt interfaces, however, intrinsic statistical fluctuations during MBE growth introduce nanoscale structural disorder that can degrade device efficiency. In this study, we present a comprehensive methodology for quantifying this disorder in a 203-layer QBM device. High-resolution structural characterization was performed using high-energy (25 keV) synchrotron X-ray diffraction. By coupling a recursive dynamical diffraction formalism with an ensemble simulated annealing refinement, we extracted statistically robust, layer-by-layer thickness profiles. Our analysis reveals highly systematic, material-specific deviations from the nominal design: all AlGaAs barrier layers were consistently thinner than nominal by 0.3-0.6 nm. Furthermore, the sequential thickness profile successfully identified a significant 35 nm deficit in the final macroscopic top contact layer and a 40 nm deficit in the first GaAs layer. Achieving a statistical precision of about 0.2 to 0.6 nm (approximately 1-2 atomic monolayers), this non-destructive diagnostic approach provides directly actionable feedback for MBE flux calibration protocols.",
+  "date": "2026-08-26",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.26406",
+  "doi": "10.48550/arxiv.2608.26406",
+  "citations": 0,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "9317826690d7",
+  "title": "Advances in Multiscale Computational Modeling of 2D Nanomaterials for Solar Cells: From Interface Design to Fabrication and Stability",
+  "authors": [
+   "Iman Najafipour",
+   "Santanu Chaudhuri"
+  ],
+  "abstract": "Two-dimensional (2D) nanomaterials provide a versatile platform for next-generation solar cells because their electronic structure, optical response, carrier transport, and interfacial chemistry can be engineered across multiple scales. However, photovoltaic performance and operational stability are governed not only by intrinsic material properties but also by coupled processes involving charge redistribution, interfacial recombination, ion migration, thermal transport, degradation, and fabrication-dependent microstructure. This review presents a closed-loop multiscale computational framework for the design, fabrication, and optimization of 2D-material-enabled solar cells. Density functional theory (DFT) and related quantum-mechanical methods are discussed for predicting band structure, band alignment, charge transfer, defect states, and optical properties, while molecular dynamics (MD) simulations address structural stability, ion migration, thermal effects, interfacial dynamics, and degradation. Finite element method (FEM)/COMSOL and device-scale models connect material-level descriptors to charge transport, recombination, thermal behavior, and photovoltaic metrics. Machine learning (ML) further enables high-throughput screening, property prediction, processing optimization, and inverse design. Particular emphasis is placed on bridging the simulation-to-fabrication gap by linking processing variables, including concentration, flake dimensions, functionalization, deposition, annealing, and interface formation, to realized structure and device performance. Experimental characterization and feedback are incorporated to refine computational models and guide subsequent design decisions. Overall, integrating quantum, atomistic, device-scale, data-driven, and fabrication-aware approaches provides a pathway toward efficient, stable, reproducible, and scalable 2D-material-based photovoltaic technologies.",
+  "date": "2026-09-29",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15009625/v1",
+  "citations": 0,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "50de20344c3d",
+  "title": "Programmable exploration of magnetic states in Lieb-kagome interpolated lattices",
+  "authors": [
+   "Alejandro López‐Bezanilla",
+   "Pavel A. Dub",
+   "Avadh Saxena"
+  ],
+  "abstract": "We investigate a hybrid modeling framework in which a quantum annealer is used to simulate magnetic interactions in molecular qubit lattices inspired by experimentally realizable systems. Using phthalocyanine assemblies as a structurally constrained prototype, we model a continuous deformation from a Lieb to a kagome lattice, revealing frustration-driven disorder and magnetic field-induced reordering in the spin structure. The goal is to show how a quantum annealer can operate as a physically instantiated, programmable platform to emulate experimentally relevant lattice deformations and produce observables in a manner analogous to an experimental measurement, enabling the characterization of magnetic arrangements beyond the reach of current molecular architectures. This surrogate modeling approach offers a pathway to explore and iteratively design tunable magnetic states in synthetic materials. The synthetic design, structural characterization, and quantum simulation framework established here defines a modular and scalable paradigm for probing the limits of engineered matter across chemistry, condensed matter, and quantum information science.",
+  "date": "2025-11-24",
+  "venue": "Physical review. B./Physical review. B",
+  "arxiv_id": "",
+  "doi": "10.1103/nykx-1tsz",
+  "citations": 0,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "8fd3d7639e40",
+  "title": "Enhancing Narrowband Blue TADF OLED Performance with Adamantane Group‐Integrated Spatially Hindered 1,3‐Bis(N‐Carbazolyl)Benzene‐Based Host",
+  "authors": [
+   "Nahyun Kim",
+   "Min Ji Kang",
+   "Ho Jin Lee",
+   "Jin Young Park",
+   "Haeun Kwak",
+   "Chae Yeong Park",
+   "Han Jin Ahn",
+   "Jun‐Yun Kim",
+   "Ji‐Ho Baek",
+   "Ha Yeon Kim",
+   "Sungnam Park",
+   "Min Ju Cho",
+   "Dong Hoon Choi",
+   "Tae Geun Kim"
+  ],
+  "abstract": "Abstract In the past, considerable effort are focused on advancing blue organic light‐emitting diodes (OLEDs) based on 1,3‐bis(N‐carbazolyl)benzene (mCP). To enhance and stabilize the device performance in vacuum‐processed OLEDs, it is essential to optimize the thermally stable organic materials constituting the emitting layer. The proposed novel carbazole derivative, Ad‐mCP, is designed and synthesized as a host material for blue thermally activated delayed fluorescence OLEDs, which are ideal for vacuum processing. Ad‐mCP exhibits a high glass transition temperature and triplet energy (T1), making it highly compatible with the blue dopant 2,11,14‐tri‐tert‐butyl‐N,N,5‐tris(4‐(tert‐butyl)phenyl)−5H‐5,8b‐diaza‐15b‐borabenzo[a]naphtho[1,2,3‐hi]aceanthrylen‐7‐amine emitter. The incorporation of a rigid adamantane unit into the carbazole group modifies the molecular structure of mCP, preserving crucial photophysical properties, such as T1,while enhancing the morphological and thermal stability of the host material in its film state. Moreover, the spatially hindered molecular structure of Ad‐mCP improves the photoluminescent quantum yield of the emissive layer and enhances charge balance, crucially contributing to the overall efficiency of the OLEDs. As a result, the exceptional performance of Ad‐mCP as a host material for OLEDs resulted in a remarkably high maximum external quantum efficiency of 29.9%, demonstrating superior stability in efficiency even after thermal annealing compared to mCP devices.",
+  "date": "2024-08-15",
+  "venue": "Advanced Functional Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adfm.202408491",
+  "citations": 22,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "dc1f43694ff3",
+  "title": "Construction of Cross‐Linked Polymer Phosphorescence by Functionalization of Cyclotriphosphazene",
+  "authors": [
+   "Meiyi He",
+   "Ting Tan",
+   "Hui Hou",
+   "Fengling Guo",
+   "Xiaojuan Wang",
+   "Qiankun Li",
+   "Lunjun Qu",
+   "Kaiti Wang",
+   "Youbing Li",
+   "Chaolong Yang"
+  ],
+  "abstract": "Abstract In recent years, organic room‐temperature phosphorescence (RTP) materials have garnered significant research interest. However, the design and synthesis of novel polymeric RTP systems continue to pose substantial challenges. By leveraging cyclotriphosphazene functionalization, four novel phosphors are successfully developed. The presence of numerous heteroatoms (O, N, P) within this structure significantly enhances molecular spin‐orbit coupling (SOC). Initially, the incorporation of these novel phosphors into a polyvinyl alcohol (PVA) matrix yielded only weak RTP emissions. Remarkably, thermal annealing transformed these materials into long‐lived cross‐linked polymer RTP films. Specifically, a representative luminescent film (THMD@PVA) exhibits enhancements in phosphorescence intensity, lifetime, afterglow brightness, and quantum yield by factors of 8, 4, 18, and 6, respectively. With superior mechanical and luminescence properties, these RTP materials are well‐suited for creating flexible and reconfigurable 3D objects. Furthermore, the dual luminescence of fluorescent and phosphorescent emissions expands their applicability, including fingerprint recording, thereby broadening the application scope of organic RTP materials.",
+  "date": "2025-02-28",
+  "venue": "Advanced Optical Materials",
+  "arxiv_id": "",
+  "doi": "10.1002/adom.202403164",
+  "citations": 14,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "5126df1f07ee",
+  "title": "Development of a ReaxFF Reactive Force Field for the Crystallization of van der Waals-Layered Bismuth Selenide",
+  "authors": [
+   "Ga-Un Jeong",
+   "Ryan J. Morelock",
+   "Soumendu Bagchi",
+   "Nadire Nayir",
+   "Adri C. T. van Duin",
+   "Panchapakesan Ganesh"
+  ],
+  "abstract": "High Resolution Image Download MS PowerPoint Slide Bismuth selenide (Bi 2 Se 3 ) is a widely studied topological insulator and thermoelectric material whose properties are highly sensitive to crystal quality, defects, and stoichiometry. Recrystallization is an effective method of improving the crystal quality of materials, yet traditional experimental approaches are time-consuming and resource-intensive and often rely on trial and error. This work presents a new Bi/Se ReaxFF force field with the ability to recrystallize bulk Bi 2 Se 3 into van der Waals (vdW)-layered phases under various thermal and kinetic conditions. The force field is parameterized using a diverse quantum mechanical data set, which includes formation energies of bulk layered and nonlayered Bi–Se phases, the energy–volume equation of state, point defect formation energies, the composition-dependent energetic stability trends of high-temperature Bi x Se y clusters, and amorphous Bi 2 Se 3 structures sampled from melt-quench molecular dynamics simulations. Our simulations reveal that structural characteristics of the resulting recrystallized vdW materials, such as stacking order and stoichiometry, depend on melt-quenching processing parameters such as the cooling rate and annealing temperature. This novel force field constitutes a predictive framework for the structural tuning of complex Bi–Se vdW materials through recrystallization conditions, laying a foundation for computational design of a much wider selection of chalcogenides.",
+  "date": "2026-02-06",
+  "venue": "The Journal of Physical Chemistry C",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.jpcc.5c07042",
+  "citations": 1,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "3c0cc6006438",
+  "title": "On-surface synthesis of N-doped zig-zag nanochains",
+  "authors": [
+   "Xiaoyang Zhao",
+   "Zhipeng Zhang",
+   "Liqian Liu",
+   "Xinrui Miao"
+  ],
+  "abstract": "On-surface synthesis offers unprecedented atomic-level control in fabricating N-doped zig-zag nanostructures with tailored π-conjugation and a spin-polarized edge state, laying the foundation for the design and synthesis of organic quantum materials with tailored spin and charge transport properties. Herein, we systematically investigate the substrate-regulated self-assembly and thermal-induced reaction pathways of DAQ-Br molecules on Ag(111) and Au(111) surfaces using STM, achieving atomic-scale visualization of structural evolution from molecular self-assembly to zig-zag nanochains. Distinct coverage-dependent assembly patterns stabilized by different Br-based interactions are formed on Ag(111) and Au(111) surfaces. Thermal annealing triggers diverse pathways: on Ag(111), C-Ag-C organometallic chains are predominantly formed, with limited generation of C-C coupling products, whereas on Au(111), well-ordered zig-zag C-C covalent chains are directly formed. The zig-zag covalent nanochains obtained on the Au(111) surface exhibit a higher yield and a better long-range order. Furthermore, DFT calculations unravel the underlying differences in assembly behaviors and covalent coupling efficiencies on both surfaces. This study provides fundamental insights into the rational design of precursors for synthesizing target N-doped zig-zag nanostructures with controlled topologies by on-surface synthesis.",
+  "date": "2025-01-01",
+  "venue": "Nanoscale",
+  "arxiv_id": "",
+  "doi": "10.1039/d5nr02484f",
+  "citations": 1,
+  "theme": "quantum annealing molecular design mater"
+ },
+ {
+  "fid": "428d8d47f9d3",
+  "title": "Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning",
+  "authors": [
+   "David Craig",
+   "H. Moon",
+   "Federico Fedele",
+   "D. T. Lennon",
+   "Barnaby van Straaten",
+   "Florian Vigneau",
+   "Leon C. Camenzind",
+   "Dominik M. Zumbühl",
+   "G. Andrew D. Briggs",
+   "Michael A. Osborne",
+   "Dino Sejdinović",
+   "Natalia Ares"
+  ],
+  "abstract": "The discrepancies between reality and simulation impede the optimization and scalability of solid-state quantum devices. Disorder induced by the unpredictable distribution of material defects is one of the major contributions to the reality gap. We bridge this gap using physics-aware machine learning, in particular, using an approach combining a physical model, deep learning, Gaussian random field, and Bayesian inference. This approach enables us to infer the disorder potential of a nanoscale electronic device from electron-transport data. This inference is validated by verifying the algorithm’s predictions about the gate-voltage values required for a laterally defined quantum-dot device in AlGaAs/GaAs to produce current features corresponding to a double-quantum-dot regime. Published by the American Physical Society 2024",
+  "date": "2024-01-04",
+  "venue": "Physical Review X",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevx.14.011001",
+  "citations": 25,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "dc69c21c2498",
+  "title": "Accelerating point-defect simulations using data-driven and machine learning approaches",
+  "authors": [
+   "Arun Mannodi‐Kanakkithodi",
+   "Menglin Huang",
+   "Prashun Gorai",
+   "Seán R. Kavanagh"
+  ],
+  "abstract": "Point defects in solid-state materials are now routinely simulated using large supercell structures, requiring efficient quantum mechanical solutions. Data-driven and machine learning (ML) models trained on computational data can enable rapid defect property predictions and high-throughput screening. In this article, we provide an overview of prominent efforts to accelerate defect simulations using these approaches. We begin by discussing the motivations for data-driven techniques in defect modeling, and describe efforts over the past decade to use descriptor-based models for rapid screening of defect properties—most notably in oxides. In particular, we discuss case studies where surrogate models and interatomic potentials were trained on density functional theory (DFT) data, leading to predictions with quantum mechanical accuracies at a fraction of the cost. In addition to geometry relaxation and formation energy predictions, these interatomic potentials are capable of predicting phonon modes and vibrational free energies to yield defect energetics at finite temperatures—representing a key frontier for computational defect research. We finish with a discussion on how to connect these approaches and their outputs with experimental data, and provide an outlook on this burgeoning subfield. Density functional theory combined with machine learning property prediction models and interatomic potentials accelerate simulations of point defects in semiconductor",
+  "date": "2026-05-01",
+  "venue": "MRS Bulletin",
+  "arxiv_id": "",
+  "doi": "10.1557/s43577-026-01103-0",
+  "citations": 2,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "b8721de52981",
+  "title": "Machine learning-assisted advances in graphene and 2D materials",
+  "authors": [
+   "Sunuk Choe",
+   "Taegeun Song",
+   "Donghun Lee",
+   "Ara Go",
+   "Nojoon Myoung"
+  ],
+  "abstract": "Machine learning (ML) is becoming an enabling layer for graphene and two-dimensional (2D) material research, helping to manage the growing complexity of spectroscopy, electron transport, and multiscale simulation data. This brief review surveys recent advances across four representative domains: (i) ML-assisted characterization of defects and nanostructures, (ii) ML-based inference of local material properties, (iii) ML approaches for interpreting phase-coherent quantum transport in mesoscopic devices, and (iv) ML-accelerated simulations/modeling and inverse-design workflows. Across these areas, ML is highlighted as a complementary methodology that enhances parameter inference and automates analysis in regimes where conventional approaches are limited. We conclude by outlining challenges for reliable deployment of ML methods in graphene and 2D materials research, and by discussing promising directions toward more robust ML-integrated discovery and design in graphene and related 2D material platforms. • Reviews ML-assisted advances in graphene and 2D materials research. • Covers defect analysis, local inference, quantum transport, and modeling. • Emphasizes physics-guided interpretation beyond black-box prediction. • Highlights ML for spectroscopy, microscopy, and multiscale simulations. • Outlines challenges in data quality, transferability, and interpretability.",
+  "date": "2026-04-06",
+  "venue": "Current Applied Physics",
+  "arxiv_id": "",
+  "doi": "10.1016/j.cap.2026.04.004",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "c042b1c0c774",
+  "title": "Machine-learning-assisted modeling of defect-mediated charge transport in anisotropic 2D semiconductors",
+  "authors": [
+   "Zhang Wei"
+  ],
+  "abstract": "This study investigates defect-mediated charge transport in anisotropic two-dimensional semiconductors using combined transport modeling and machine-learning analysis. The objective of the work was to determine how structural defects and lattice anisotropy influence electrical conductivity and carrier mobility in low-dimensional quantum materials. Monolayer transition-metal dichalcogenides, black phosphorus, and ReS2-based systems with various defect configurations were analyzed. Transport behavior was modeled within a semiclassical framework incorporating anisotropic carrier mobility and defect-assisted scattering mechanisms. Machine-learning models, including random forest regression, gradient boosting regression, and artificial neural networks, were applied to predict conductivity variations using structural and electronic descriptors. The results demonstrated that conductivity decreases nonlinearly with increasing defect concentration, particularly above 1013 cm−2, where localization effects become dominant. Strongly anisotropic materials exhibited enhanced sensitivity to vacancy-induced disorder due to directional carrier confinement. Among the evaluated algorithms, the artificial neural network achieved the highest predictive accuracy with an R2 value of 0.972. Feature-importance analysis revealed that defect concentration, effective mass, and lattice anisotropy ratio are the primary factors governing transport degradation. The study confirms that accurate prediction of transport properties in anisotropic quantum materials requires simultaneous consideration of defect physics and directional electronic transport. The proposed approach may be useful for the design and optimization of next-generation nanoelectronic and flexible semiconductor devices.",
+  "date": "2026-06-25",
+  "venue": "Technobius physics.",
+  "arxiv_id": "",
+  "doi": "10.54355/tbusphys/30070147.4.2.2026.0051",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "e8a0e157e407",
+  "title": "CHIPS-FF: Evaluating Universal Machine Learning Force Fields for Material Properties",
+  "authors": [
+   "Daniel Wines",
+   "Kamal Kumar Choudhary"
+  ],
+  "abstract": "We introduce CHIPS-FF (Computational High-Performance Infrastructure for Predictive Simulation-based Force Fields), an open-source benchmarking platform for machine learning force fields (MLFFs). This platform focuses on complex properties including elastic constants, phonon spectra, defect formation energies, surface energies, and interfacial and amorphous phase properties. Utilizing 16 graph-based MLFFs including ALIGNN-FF, CHGNet, MatGL, MACE, SevenNet, ORB, MatterSim, and OMat24, CHIPS-FF integrates the Atomic Simulation Environment (ASE) with JARVIS-Tools to facilitate high-throughput simulations. Our framework is tested on a set of 104 materials, including metals, semiconductors, and insulators representative of those used in semiconductor components, with each MLFF evaluated for convergence, accuracy, and computational cost. Additionally, we evaluate the force-prediction accuracy of these models for close to 2 million atomic structures. By offering a streamlined, flexible benchmarking infrastructure, CHIPS-FF aims to guide the development and deployment of MLFFs for real-world semiconductor applications, bridging the gap between quantum mechanical simulations and large-scale device modeling.",
+  "date": "2025-05-05",
+  "venue": "ACS Materials Letters",
+  "arxiv_id": "",
+  "doi": "10.1021/acsmaterialslett.5c00093",
+  "citations": 24,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "0af159c6642a",
+  "title": "Multiscale Modeling of Quantum Dot Solar Cells: Integration of Density Functional Theory, SCAPS, Lambert W Analysis, and Machine Learning",
+  "authors": [
+   "Nejmeddine Yahyaoui"
+  ],
+  "abstract": "Quantum dot solar cells (QDSCs) have attracted significant attention as next-generation photovoltaic technologies due to their tunable bandgaps, solution-processable fabrication, and potential for multiple-exciton generation. However, their practical implementation is still limited by suboptimal power conversion efficiency, defect-assisted recombination, voltage losses, interfacial instability, and the use of toxic heavy-metal quantum dots. In this study, we present a unified multiscale framework that integrates density functional theory (DFT), SCAPS-1D device simulation, Lambert W-based analytical modeling, and artificial intelligence (AI) to accelerate the optimization of QDSCs. DFT provides atomistic insights into electronic structure, defect states, and interfacial charge transfer, while SCAPS-1D enables device-level analysis of charge transport and recombination mechanisms. The Lambert W formalism allows explicit extraction of nonideal diode parameters, improving the interpretability of device characteristics. In parallel, machine learning and generative AI approaches enable rapid performance prediction, inverse design of optimized architectures, and efficient screening of lower-toxicity quantum dot materials. This integrated strategy bridges physics-based and data-driven methodologies, offering a scalable pathway toward enhancing the efficiency, stability, and environmental sustainability of QDSCs.",
+  "date": "2026-05-15",
+  "venue": "ACS Omega",
+  "arxiv_id": "",
+  "doi": "10.1021/acsomega.6c01622",
+  "citations": 1,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "9de74974b6ef",
+  "title": "MULTISCALE ATOMISTIC MODELING AND MACHINE LEARNING FOR NANOMATERIALS: STRUCTURAL EVOLUTION AND DEVICE APPLICATIONS",
+  "authors": [
+   "Akram Ibrahim"
+  ],
+  "abstract": "Understanding and controlling the synthesis–structure–property relationships of materials, and faithfully simulating their behavior in physical processes and devices, remain pivotal challenges for developing the next generation of functional materials that underpin emerging nano- and quantum-technologies—including energy storage systems, sensors, catalysts, logic circuits, and memory devices. Progress is impeded by the complexity of engineered materials: their crystal structures are often unknown or, when characterized, exhibit disorder, extended defects, amorphous domains, and complex interfaces. Such features demand the simulation of system sizes and timescales that far exceed the capabilities of conventional electronic-structure methods. Overcoming these challenges requires computational modeling approaches that balance two competing objectives: achieving the accuracy of electronic-structure theory while maintaining the computational efficiency necessary to access the length and time scales relevant to experimental synthesis and device operation. Multiscale atomistic modeling, augmented by machine learning—particularly machine-learned interatomic potentials capable of accurately and efficiently representing complex potential energy surfaces—bridges this divide by extending the reach of first-principles accuracy from nanometers and picoseconds to microns and seconds. This dissertation develops and applies integrated multiscale atomistic frameworks that combine density functional theory, molecular dynamics, Monte Carlo methods, non-equilibrium Green’s function techniques, and advanced machine-learned interatomic potentials. We demonstrate how these approaches enable the prediction of complex crystal structures and their chemical, electronic, and magnetic properties, as well as the simulation of large-scale phenomena such as crystal growth, defect migration, heterogeneous chemical kinetics, electronic transport in devices, and magnetic phase transitions.",
+  "date": "2025-01-01",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.13016/m2o06y-eqzn",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "9d9c1c8aec92",
+  "title": "Accurate prediction of JV parameters in CZT(S,Se) quantum confined photon-sensitive devices: an AI based efficient photon energy management",
+  "authors": [
+   "P. Chandrasekar",
+   "Maykel Courel",
+   "Soumyaranjan Routray"
+  ],
+  "abstract": "Abstract The significance of Kesterite material in solar cell research lies in its potential to enhance the performance of solar cells. The research indicates that the primary reason for reduced performance is attributed to the defects that arise in the material during the fabrication process. The incorporation of quantum well(QW) structures has the potential to enhance the performance of the material. This paper presents an analysis of data obtained from TCAD simulated results for a QW structure with varying compositions of sulphur and selenium in CZT(S,Se) material, as well as varying numbers of QWs and defect distribution parameters. The 3200 TCAD simulation data has been subjected to a machine learning process for the purpose of predicting all electrical parameters. Following the construction of many models, it was discovered that the Gaussian process regression and random forest models predict outcomes with greater accuracy. When applied to the input data, these models yielded R squared values of 0.997 and 0.986, respectively.The prediction of the JV curve was also accomplished using a 2-layer feed forward artificial neural network that was trained with simulated data. The trained artificial neural network ultimately provides more accurate predictions of the JV curve, with an R-squared value of 0.98.",
+  "date": "2025-07-01",
+  "venue": "Physica Scripta",
+  "arxiv_id": "",
+  "doi": "10.1088/1402-4896/aded4c",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "8f603184a420",
+  "title": "Machine-learned interatomic potentials for battery materials: from fundamental methodology to emerging applications in electrodes, electrolytes, and interfaces",
+  "authors": [
+   "Keisuke Makino",
+   "Teruyuki Kato",
+   "Sayato Terashima",
+   "Yoshiya Matsuoka",
+   "So Takamoto",
+   "Chikashi Shinagawa",
+   "Yusuke Asano",
+   "Masanobu Nakayama"
+  ],
+  "abstract": "The rapid expansion of battery technologies beyond conventional lithium-ion systems has created an urgent demand for predictive, atomistic-scale simulation tools capable of addressing increasingly complex materials and interfaces. While first-principles calculations have played a central role in elucidating fundamental properties such as redox potentials, phase stability, and ion diffusion, its computational cost severely limits accessible system sizes and timescales. As a consequence, large-scale phenomena including defect-mediated transport, interfacial reactions, and mesoscale structural evolution remain challenging to investigate within a purely first-principles framework. Machine-learned interatomic potentials (MLIPs) have recently emerged as a transformative approach that bridges the gap between quantum-mechanical accuracy and large-scale molecular dynamics simulations. By learning from first-principles reference data, MLIPs enable efficient prediction of energies, forces, and stresses while preserving accuracy comparable to first-principles calculations. In this review, we provide a systematic overview of MLIP methodologies, based on descriptor models (hand-designed and learnable descriptors), and selection of machine learning algorithms. We further examine their growing impact in battery materials research, covering electrodes, solid electrolytes, and their interfaces. The MLIP developments open new possibilities for simulating ion transport, defect chemistry, and interfacial reactivity across diverse chemistries including all solid-state batteries and/or Li, Na, K, and multivalent systems. Finally, we discuss current limitations, validation strategies, and future directions toward robust, universally applicable MLIP frameworks that can accelerate the discovery and rational design of next-generation battery materials.",
+  "date": "2026-01-01",
+  "venue": "Physical Chemistry Chemical Physics",
+  "arxiv_id": "",
+  "doi": "10.1039/d6cp01595f",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "2da32b582f66",
+  "title": "OPTICAL PROPERTIES OF COMPLEX METAL ALLOY THIN FILMS: DEPOSITION, CHARACTERIZATION, AND PHYSICS-INFORMED MACHINE LEARNING",
+  "authors": [
+   "Lina F Rojas Murillo"
+  ],
+  "abstract": "Metal thin films are widely used in technologies such as photodetectors, electro-optic modulators, and plasmonic devices, where understanding their optical and electronic properties are critical to improve their performance. Unlike bulk materials, thin films can be influenced by factors such as strain, quantum confinement, and defects such, grain boundaries, which modify their electronic structure and optical response. Alloying provides an approach for tuning properties such as carrier generation and mobility, which are important for improving the performance and efficiency of these technologies. However, the electronic structure and optical properties of alloys do not necessarily vary linearly with composition, as effects such as band hybridization and chemical disorder can produce complex composition-dependent behavior. Experimental techniques such as spectroscopic ellipsometry and ultrafast pump-probe spectroscopy provide valuable information for understanding these systems but exploring large compositional spaces experimentally and through first-principles calculations can be time- and resource-intensive. In this context, combining physical models with data-driven approaches can provide a pathway to efficiently understand and predict the properties of alloy thin films using limited experimental data. This dissertation develops a hybrid methodology that combines experimental characterization, physical models, and machine learning to investigate and predict the optical properties of metal alloy thin films across compositional spaces. The methodology integrates optical properties measurements with physically motivated descriptors, dimensionality reduction, Gaussian Process Regression, and adaptive sampling to establish relationships between alloy composition and optical response while identifying compositions that provide the most informative experimental data. This framework provides an approach for reducing the experimental effort required to explore complex alloy systems and for improving the understanding and prediction of their composition-dependent optical properties.",
+  "date": "2026-08-20",
+  "venue": "Civil War Book Review",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "3955fd5f0321",
+  "title": "Performance optimization of lead-free KGeCl3 solar cells using SCAPS-1D and stacked machine learning models",
+  "authors": [
+   "Md Amanullah Saifee",
+   "Mohd. Shahid Khan",
+   "Javid Ali",
+   "Ahsaan Ali",
+   "M. Ajmal Khan"
+  ],
+  "abstract": "The development of high-efficiency and environmentally benign photovoltaic devices has stimulated growing interest in lead-free perovskite and halide-based absorber materials. In this work, we systematically investigate and optimize the performance of a novel solar cell architecture, FTO/WO3/KGeCl3/HTL (GQD and MoS2)/Au, employing two different hole transport layers (HTLs), namely graphene quantum dots (GQDs) and MoS2. Using SCAPS-1D numerical simulations, key device parameters including absorber layer thickness, HTL thickness, total defect density of the absorber, bandgap dependence, and operating temperature are comprehensively optimized. The GQD-based device exhibits a superior power conversion efficiency (PCE) of 23.35%, outperforming the MoS2-based device, which achieves 20.07%. The enhanced performance of the GQD-based architecture is attributed to improved energy band alignment, stronger internal electric fields, reduced carrier recombination, and enhanced charge extraction efficiency. Detailed analyses of the energy band diagram, electric field distribution, carrier generation and recombination profiles, and external quantum efficiency (EQE) further elucidate the underlying physical mechanisms governing device operation. To accelerate device optimization and performance prediction, a machine-learning-assisted framework is implemented by stacking Random Forest (RF) and XGBoost (XGB) models and feeding their outputs into a Neural Network (NN) meta-learner. The stacked model demonstrates excellent predictive accuracy, achieving R2 values of 99.80%, 99.77%, and 99.83% for RF, XGB, and NN models, respectively, with a remarkably low mean squared error (MSE) of 0.001 for the NN. These results highlight the effectiveness of integrating physics-based simulations with machine learning for the design and optimization of next-generation, high-efficiency solar cells.",
+  "date": "2026-05-01",
+  "venue": "Next Materials",
+  "arxiv_id": "",
+  "doi": "10.1016/j.nxmate.2026.102158",
+  "citations": 1,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "9e79569ccaa2",
+  "title": "Review Article: Transformative Application of AI Potential in Materials Science",
+  "authors": [
+   "Khurram Iqbal",
+   "Syed Saad Ali",
+   "Mansoor Ebrahim",
+   "Hamid Saeed Khan",
+   "Muhammad Ayaz Shirazi",
+   "Muhammad Imran Saeed"
+  ],
+  "abstract": "The identification tools and techniques in materials engineering using AI, computer vision, and natural language processing have advanced significantly to address limitations in traditional systems. Modern and advanced studies have emerged to drive innovation in the field of materials science. This contemporary shift enhances conventional methods by integrating AI-based techniques. This study emphasizes carbon fiber reinforced polymer (CFRP) composites, which are extensively used in aerospace, automotive, and structural applications. The identification of surface cracks and internal defects, such as delamination and voids, is essential for assessing structural integrity, performance, and service life. The methodology suggested is based on image processing and machine learning algorithms using computer vision to detect defects, extract features, and classify them, and provide automated analysis of the material conditions. AI provides algorithms and statistical pattern recognition techniques used for data analytics in materials science. AI rapidly enables the detection and analysis of defects, thereby transforming the field of materials engineering. Predictions and parameter estimations are dependent on data quality and material informatics. It has been shown through experiments that AI-based methods are effective in measuring structural integrity and performance evaluation due to enhanced detection accuracy, shorter processing time, and dependable defect classification measures in comparison to traditional inspection processes. Future studies are expected to incorporate quantum computing and AI systems for faster and more precise predictions and identifications. Prospective directions include improving material property predictions and optimizing simulations for computational analyses.",
+  "date": "2025-11-25",
+  "venue": "International Journal of Innovations in Science and Technology",
+  "arxiv_id": "",
+  "doi": "10.33411/ijist/1701",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "49f7f95acd7d",
+  "title": "AI-driven image processing framework for high-accuracy detection and characterization of vacancies in 2D materials",
+  "authors": [
+   "Ehsan Alibagheri"
+  ],
+  "abstract": "Two-dimensional (2D) materials such as graphene, phosphorene, and MoS₂ offer transformative opportunities but are often impaired by synthesis-induced vacancies. Existing characterization tools—atomic-resolution microscopy and molecular dynamics—are slow, costly, and unsuitable for large-scale screening. We introduce an AI-driven image-processing framework that combines automated grayscale image analysis with machine learning to rapidly and accurately detect and quantify vacancies. By converting structural information into tailored pixel-based descriptors, our method regresses defect coordinates, radii, and densities without atomic-scale input. Validated on thousands of simulated images with controlled defects, the framework attains over 96% prediction accuracy and surpasses thermal vibration analysis (~90%) while removing the need for specialized experimental setups. The approach is generalizable across material systems, enabling high-throughput screening and standardized defect analysis for nanoelectronics, sensing, and quantum technology applications. This work accelerates the AI-guided design and optimization of defect-engineered 2D materials.",
+  "date": "2026-02-25",
+  "venue": "npj 2D Materials and Applications",
+  "arxiv_id": "",
+  "doi": "10.1038/s41699-026-00667-4",
+  "citations": 1,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "d12583206f02",
+  "title": "Advances in Microstructure Engineering for High-Performance Materials",
+  "authors": [
+   "Abhishek Solanki"
+  ],
+  "abstract": "Microstructure engineering plays a critical role in designing high-performance materials with enhanced mechanical, thermal, and electrical properties. Advances in computational modeling, additive manufacturing, and nanotechnology have revolutionized the ability to manipulate material microstructures at multiple scales, enabling the development of lightweight, durable, and multifunctional materials for various industrial applications. This review explores recent developments in microstructure engineering, including grain boundary engineering for improved strength and fracture resistance, phase transformation control to optimize toughness and wear resistance, hierarchical microstructures that mimic natural materials for superior performance, and nano-reinforced composites for enhanced mechanical and thermal stability. The integration of high-entropy alloys, gradient materials, and amorphous metallic systems is also discussed as an emerging strategy to push the boundaries of material performance. Furthermore, advanced characterization techniques such as high-resolution electron microscopy, synchrotron X-ray diffraction, in-situ mechanical testing, and atom probe tomography are providing unprecedented insights into microstructural evolution and defect interactions. The role of computational methods, including molecular dynamics simulations, phase-field modeling, and data-driven machine learning approaches, in predicting and optimizing microstructures is also highlighted. Despite these advancements, challenges such as scalability, cost-effectiveness, processing complexity, and property trade-offs remain significant hurdles in large-scale implementation. Addressing these issues requires interdisciplinary approaches combining materials science, artificial intelligence, and advanced manufacturing techniques. Future research directions include the integration of machine learning-driven materials design, bioinspired microstructures for self-healing and adaptive functionality, and the potential of quantum-assisted simulations to revolutionize microstructural prediction and optimization. These advancements are poised to drive the next generation of high-performance materials with applications in aerospace, automotive, biomedical, and energy industries.",
+  "date": "2025-05-03",
+  "venue": "Journal of Advanced Research in Manufacturing Material Science & Metallurgical Engineering",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "4b22852d861f",
+  "title": "Experimental and computational insights into materials for next-generation technologies",
+  "authors": [
+   "Anna Mäkelä",
+   "Jussi Virtanen",
+   "Sanna Koskinen"
+  ],
+  "abstract": "The rapid evolution of next-generation technologies ranging from renewable energy systems and quantum devices to high-performance structural applications has placed materials science at the forefront of scientific and industrial innovation. This study integrates experimental investigations with computational modeling to provide a holistic understanding of advanced materials, focusing on their structural, electronic, and functional properties. The primary objective is to bridge the gap between empirical observations and theoretical predictions, enabling the design of materials with tailored functionalities. Experimental techniques, including X-ray diffraction, scanning electron microscopy, and mechanical testing, were employed to characterize microstructures, defect distributions, and mechanical responses under diverse conditions. Complementary computational approaches, such as density functional theory (DFT), molecular dynamics simulations, and machine learning-assisted property predictions, were used to probe electronic structures, dynamic behavior, and performance optimization.The findings reveal significant correlations between atomic-scale configurations and macroscopic behaviors, demonstrating how hybrid approaches accelerate materials discovery. High-entropy alloys exhibited superior strength-to-weight ratios compared to conventional alloys, while two-dimensional materials such as graphene and MoS? showed unprecedented electronic tunability validated by computational predictions. Data-driven algorithms further highlighted the efficiency of predictive models in narrowing the search space for optimal compositions, reducing experimental iterations. The synthesis of insights from both experimental and computational domains underscores the transformative potential of interdisciplinary strategies in addressing technological challenges. This work not only elucidates fundamental mechanisms governing material performance but also sets a precedent for developing innovative frameworks that will guide the deployment of next-generation technologies.",
+  "date": "2025-07-01",
+  "venue": "International Journal of Materials Science",
+  "arxiv_id": "",
+  "doi": "10.22271/27078221.2025.v6.i2a.75",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "0a1e6f8faa7e",
+  "title": "Active Learning Based Structure-Property Correlation in STM",
+  "authors": [
+   "Ganesh Narasimha",
+   "Dejia Kong",
+   "Zheng Gai",
+   "Rama Krishnan Vasudevan",
+   "Maxim A Ziatdinov"
+  ],
+  "abstract": "Material structure and morphisms form the bedrock of emergent functionalities across various scientific domains, contributing to advancements in photovoltaics, battery research, carbon capture, and quantum materials. In the pursuit of efficiently characterizing materials, the development of scanning probe techniques has emerged as a transformative tool across scientific disciplines. Scanning tunneling microscopy (STM) is one such powerful tool for imaging both the atomic positions and the electronic structure of material surfaces. However, the identification of diverse structures typically involves a manual process, with a human operator correlating the corresponding material properties using auxiliary information. The exploration of structures follows a sequential approach, requiring meticulous sifting across various length scales within the sample space. This step-by-step exploration, while essential for comprehensive analysis, contributes to the time-consuming nature of experimentation in STM. The endeavor to locate such features often involves an exhaustive search and, at times, relies on serendipitous discoveries. In this work, we demonstrate a machine learning (ML) based deep kernel learning (DKL) method deployed on an STM for the active discovery of structure-property relationship on a novel semimetal, EuZn2As2 which shows evidence of anti-ferro-magnetic ordering below 200 K [1]. At the investigated low temperature (∼ 77 K) STM experiments, the material exhibits a characteristic bandgap. The DKL method involves a combination of deep neural networks (DNN) in combination with a Gaussian Process (GP) based regressor [2, 3]. The workflow incorporating the use of DKL is illustrated in Fig 1. Here the morphology and the spectroscopic information is utilized by the DKL to predict the property across the sample space. Fig 1A shows the local point-and-shoot spectroscopy information from the experiment that is incorporated into the DKL. Fig 1B depicts the DKL framework. Here the structure (morphology) is incorporated as the input into the DKL, and the property-scalar is used as a target to train the DKL model. Fig 1C shows the constructed GP predicted objective-mean map that is constructed from structure-property correlated from the sparsely obtained experimental points. The inference of the DKL is dynamically incorporated into the STM in real time to drive exploration corresponding to a target property. The implementation of the DKL allows for active learnin",
+  "date": "2024-07-01",
+  "venue": "Microscopy and Microanalysis",
+  "arxiv_id": "",
+  "doi": "10.1093/mam/ozae044.1008",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "d3476a7f250f",
+  "title": "A Comprehensive Review on Structural Disorder in Crystalline Materials: Atomic-Scale Origins, Characterization, and Implications",
+  "authors": [
+   "Faisal Ahmed",
+   "Md. Rabiul Hasan",
+   "Mohammad Kamal Hossain"
+  ],
+  "abstract": "This paper offers a thorough analysis of the atomic-scale causes of structural disorder, including lattice distortions, point defects, substitutional disorder, and correlations at both short and long ranges. Modern characterisation methods such as X-ray and neutron scattering, EXAFS, Raman/IR spectroscopy, transmission electron microscopy, and atom probe tomography are discussed, along with computational methods for defect prediction and property mapping like density functional theory, molecular dynamics, Monte Carlo simulations, and machine learning. We analyse the functional effects of disorder in various material classes, such as high-entropy alloys, perovskites, transition metal dichalcogenides, oxide semiconductors, and thermoelectrics, showing how intentional defect engineering can improve mechanical strength, optical response, conductivity, catalytic activity, and quantum functionalities. Real materials always contain atomic-scale structural disorder, such as vacancies, interstitials, antisite defects, substitutional dopants, lattice distortions, and local compositional fluctuations, despite the fact that crystalline materials are frequently idealised as perfectly periodic lattices. Such disorder is not merely an imperfection; rather, it can have a significant impact on mechanical, optical, magnetic, catalytic, and electrical characteristics, providing a flexible tool for materials design. Last but not least, we list the main obstacles—controlled synthesis, multiscale disorder-performance correlation, and integrating AI-driven high-throughput techniques and suggest future paths for using atomic-scale disorder as a design paradigm for functional materials of the next generation.",
+  "date": "2025-11-01",
+  "venue": "Scientia. Technology, science and society.",
+  "arxiv_id": "",
+  "doi": "10.59324/stss.2025.2(11).24",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "e12e870b4023",
+  "title": "Research Progress on Computational and Data-driven Environmental-friendly Luminescent Materials",
+  "authors": [
+   "Yang Hu",
+   "Min XIE",
+   "Xiaoyi ZHANG",
+   "Xiang Li",
+   "Xinwei Guo",
+   "Nan JIANG",
+   "Wenhan Zhou",
+   "Shengli ZHANG",
+   "Haibo ZENG"
+  ],
+  "abstract": "The development of traditional luminescent materials, such as cadmium-based quantum dots and lead halide perovskites, are intrinsically limited by their reliance on toxic heavy metals (e.g., Cd and Pb), which raises severe environmental and health risks throughout their lifecycles.Therefore, the transition toward eco-friendly alternatives-including cadmium-free quantum dots, lead-free halide perovskites, and rare-earth-doped phosphorshas become a pivotal research imperative.Currently, the design and optimization of such materials often rely on inefficient trial-and-error experimental paradigms, which often fail to overcome critical bottlenecks in luminous efficiency, environmental stability, and interfacial compatibility.This review systematically outlines the current landscape and technical challenges of eco-friendly luminescent materials.We highlight how computational techniques, particularly density functional theory (DFT), allow the accurate prediction of optoelectronic properties in core-shell structures and the elucidation of defect-induced non-radiative recombination mechanisms, thus facilitating rational material design and property optimization.In addition to theoretical calculations, data-driven technologies further accelerate material screening by leveraging standardized databases and machine learning models, having already yielded high-stability phosphors and high-efficiency narrowband emitters.Finally, we provide an outlook on the synergy between computational and data-driven approaches to overcome existing research and development barriers.Future efforts must focus on deepening the integration of these technologies to advance the practical deployment of eco-friendly luminescent materials in display and lighting applications, thereby driving the sustainable transformation of the optoelectronics industry.",
+  "date": "2026-01-01",
+  "venue": "Journal of Inorganic Materials",
+  "arxiv_id": "",
+  "doi": "10.15541/jim20250425",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "e266d7c721b3",
+  "title": "Material Property Simulation for Advanced Packaging",
+  "authors": [
+   "Yan Li",
+   "Seo Young Kim",
+   "WooPoung Kim",
+   "Mohammad Atif Faiz Afzal",
+   "H. Shaun Kwak",
+   "David A. Nicholson"
+  ],
+  "abstract": "Advanced packaging allows chiplet integration and maximizes device performance with faster product development cycle, lower cost, and higher yield. As the package size becomes bigger and the device is getting more complicated, there is growing motivation to employ manufacturing process simulation, Artificial Intelligence (AI) assisted process optimization, yield and reliability prediction, rather than conventional methods, to ramp the yield and to ensure the reliability of a new product. The key for an accurate process simulation model is to input precise material properties, such as modulus, Coefficient of Thermal Expansion (CTE), dielectric constant, glass transition temperature, etc., which could change non-linearly with temperature, moisture, as well as other environmental factors and process conditions. Molecular modeling and molecular dynamics can provide insights into post chemical reactions or physical transformations via atomic and molecular simulations Lithography Techniques for Redistribution Layer (RDL) fabrication are the foundation of Advanced Packaging techniques, such as Fan Out Wafer Level Packaging (FOWLP), Fan Out Panel Level Packaging (FOPLP), 2.5D, 3D, and 3.5D packaging with RDL interposers. The continuous scaling-down of critical dimensions (CDs) in advanced packages, including via diameters, routing line and space (L/S), to a few microns, or submicron level, as well as the increasing number of RDL layers at panel scale pose significant challenges in RDL lithography techniques. For example, the Photo Imageable Dielectric (PID) or other build-up dielectric materials used in multilayer RDL fabrication are polymers, having low Young’s modulus, high CTE, and big volume shrinkage after curing. These material properties could cause fabrication process induced warpage and surface topography deformations, such as non-planarity, roughness, contamination, defects, and dimensional variations, which could potentially lead to massive yield loss when forming fine features during the multilayer RDL patterning. This paper presents material simulation methodologies based on quantum mechanics (QM), molecular dynamics (MD), and Machine Learning (ML), which are adopted to predict the material properties of a PID material, including glass transition temperature (Tg), CTE, mechanical properties, dielectric properties, as well as volume shrinkage after curing. Comparison between the simulation results and the experimental data is performed to validate the ",
+  "date": "2025-12-05",
+  "venue": "IMAPSource Proceedings",
+  "arxiv_id": "",
+  "doi": "10.4071/001c.153880",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "8ae4db8ca585",
+  "title": "Digital Technologies and Artificial Intelligence in the Design of Molecular Magnets and Magnetic Materials",
+  "authors": [
+   "E.V. Tretyakov",
+   "Valentine P. Ananikov"
+  ],
+  "abstract": "Magnetic-material design is a stringent test for artificial intelligence (AI) because the measured response is rarely a property of composition alone. Molecular magnets, spin-crossover compounds, low-dimensional magnets, magnetocaloric phases and permanent magnets connect local electronic structure and spin–orbit coupling to vibrations, crystal packing, defects, morphology, processing and measurement history. This review critically assesses how digital technologies are beginning to navigate that multiscale chain. We distinguish comparatively intrinsic or local targets - spin state, exchange and magnetic anisotropy - from emergent sample-level observables such as blocking temperature, hysteresis, coercivity and magnetocaloric response, and grade the evidence from retrospective prediction to prospective experimental and closed-loop validation. Curated molecular-nanomagnet datasets, high-throughput quantum chemistry, machine learning of spin–phonon dynamics, active learning and human–AI co-expert workflows have already expanded tractable search spaces. However, most studies remain limited by sparse, positive-biased data, inconsistent labels, weak out-of-distribution tests and incomplete capture of raw measurements, failed syntheses, polymorphs and processing history. We therefore argue that the fundamental data object for magnetic AI should be a sample-context record linking chemical identity, structure, preparation, physical state, measurement protocol, raw signal, fitting model and uncertainty. Near-term progress is most likely to come from physics-aware models, leakage-resistant benchmarks, calibrated abstention and modular human-supervised feedback loops. The resulting agenda is not a push-button magnet-design machine, but an auditable infrastructure in which AI helps formulate, rank and test chemically meaningful hypotheses. This review is intentionally focused and selective: representative, field-shaping studies are used to define the current frontier, identify gaps, and propose priorities for trustworthy AI-enabled magnetochemistry.",
+  "date": "2026-07-29",
+  "venue": "ChemRxiv",
+  "arxiv_id": "",
+  "doi": "10.26434/chemrxiv.15006730/v1",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "00ab4021602f",
+  "title": "Design Principles for Negative Thermal Expansion in Two-Dimensional Materials",
+  "authors": [
+   "Soumya Mondal",
+   "Ayan Datta"
+  ],
+  "abstract": "Conspectus Negative thermal expansion (NTE) is a counterintuitive property in metamaterials that can be observed upon excitation of certain low-frequency vibrational modes. Conventional materials expand upon heating, showing positive thermal expansion (PTE), whereas NTE materials contract, which is unusual. NTE challenges conventional lattice-dynamical concepts and is of significant importance for a wide range of applications such as in composite material for dental filling, glass-ceramic cooktops, etc. Over the past three decades, major efforts have focused on discovering and tuning NTE compounds. NTE has been reported in a wide range of materials in bulk and low-dimensional systems. To date, the vast majority of experimentally and theoretically identified NTE materials belong to bulk crystalline systems, whereas discovery of two-dimensional (2D) NTE systems is limited. Nevertheless, this phenomenon is remarkably amplified due to reduced dimensionality, enhanced anharmonicity, and unconventional phonon dynamics. Quantum confinement alters electronic, optical, mechanical, and thermal properties significantly in these systems. They sustain large NTE over exceptionally wide temperature ranges, often attributed to rigid-unit modes (RUMs) in framework structures. NTE in 2D materials can arise from several mechanisms including flexural phonons, structural transition, anisotropic bonding, conformational changes, geometric flexibility, electronegativity differences, spin-crossover, etc. We demonstrate a comprehensive and mechanism-oriented overview of NTE in 2D materials, encompassing elemental monolayers such as in graphene and graphyne analogues, h -boron nitride, transition-metal dichalcogenides, metal phosphides, arsenides and other emerging 2D materials. Beyond intrinsic mechanisms, we discuss tunability strategies unique to atomically thin systems, including pore size modulation, heteroatom substitution, defect modification, and magnetic or electronic-state control. Recent studies link NTE in 2D materials to phonon transport and topology-driven lattice responses and reveal trade-offs between thermal expansion and lattice thermal conductivity (TC). Most low-TC 2D systems exhibit pronounced NTE and vice versa. Spontaneous symmetry breaking in 2D-materials is associated with pseudo Jahn–Teller (PJT) distortions. The machine-learning (ML)-based predictions highlight the strong structural dependence of NTE in 2D materials. Despite growing interest in NTE materia",
+  "date": "2026-07-02",
+  "venue": "Accounts of Chemical Research",
+  "arxiv_id": "",
+  "doi": "10.1021/acs.accounts.6c00252",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "b4185b54d64e",
+  "title": "AI/ML in Designing Materials for Spintronics Applications",
+  "authors": [
+   "Neha",
+   "Sandeep Kumar",
+   "Anuj Kumar",
+   "Jitendra Pal Singh"
+  ],
+  "abstract": "Following the initiation of artificial intelligence (AI) and machine learning (ML) methodologies for their prediction, optimization and synthesis toward spintronic device development. Ferrites and their related spinel oxides are becoming very useful for spintronics due to their tunable magnetic, electronic and structural properties. Thus, this review compiles recent developments in performance toward integration of knowledge and AI/ML-based applications on ferrites concerning spintronic traits. It discusses predictions regarding cation distribution engineering, surrogate modeling, defect synthetic optimization and device-level tailoring or property manipulation. The whole spectrum of studies includes ferrites (e.g., Mn–Zn ferrites, doped nickel ferrites), and these advances are also spelt out in terms of how AI/ML could distinguish fresh designs. Issues such as data scarcity, interpretability and how AI could integrate with experimental validation will also be touched on. It outlines the various opportunities for AI to be coupled to autonomous laboratories, high-throughput simulations, or even quantum ML.",
+  "date": "2026-06-19",
+  "venue": "SPIN",
+  "arxiv_id": "",
+  "doi": "10.1142/s201032472630001x",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "470214f5b2cd",
+  "title": "First-Principles Calculations Innovation in Wide Bandgap Semiconductors: Multiphysics Field Coupling and Functional Device Design",
+  "authors": [
+   "Jie Wang",
+   "Yizhang Wu",
+   "Hefang Cao",
+   "Yong Wang",
+   "Aimei Zhang"
+  ],
+  "abstract": "Wide bandgap semiconductors have become the core material system for high-power electronic devices, deep-ultraviolet optoelectronic devices, and quantum information technology, featuring high-temperature stability and optoelectronic properties. First-principles calculations play an irreplaceable role in revealing the intrinsic physical properties of materials, guiding the optimization of energy-band engineering, and predicting the performance of devices through accurate modeling at the quantum mechanical level. This paper systematically reviews the key advances of first-principles calculations in wide bandgap semiconductor research in recent years: from the theoretical breakthroughs in electronic structure calculation and bandgap correction to the multiscale modeling of photoexcitation dynamics and thermal transport behavior; from the innovative design of defect formation mechanisms and doping strategies to the prediction of the performance of low-dimensional materials and heterojunction devices. The review shows that by integrating multi-body perturbation theory, machine learning algorithms, and dynamic simulation technology, first-principles calculations promote the paradigm shift from empirical exploration to theory-driven research on wide bandgap semiconductors, and the material-performance-device-function correlation model established by the study will lay the theoretical foundation for the breakthrough development of new-generation semiconductor technology.",
+  "date": "2025-05-02",
+  "venue": "CHAIN",
+  "arxiv_id": "",
+  "doi": "10.23919/chain.2025.000006",
+  "citations": 4,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "959e445135c0",
+  "title": "Data-Driven Thermal and Mechanical Modeling of Defective Covalent Organic Frameworks",
+  "authors": [
+   "Aleksander Szewczyk",
+   "Leonardo Rafael Medrano Sandonas",
+   "David Bodesheim",
+   "Bohayra Mortazavi",
+   "Gianaurelio Cuniberti"
+  ],
+  "abstract": "Covalent Organic Frameworks (COFs) are versatile two-dimensional (2D) materials for flexible electronics, catalysis, and sensing, owing to their tunable architectures and large surface areas. However, like most materials, COFs inevitably contain synthesis-induced defects, which-similar to graphene-can strongly influence intrinsic properties, such as thermal transport and mechanical strength. To address this challenge, we have assessed the performance of a set of machine learning interatomic potentials (MLIP) capable of efficient large-scale simulations of COFs with quantum accuracy. In doing so, QCOF models (Quantum COF) were developed by tuning the state-of-the-art MACE architecture on an extensive dataset of non-equilibrium COF conformations generated from high-fidelity density functional theory calculations. The accuracy, computational efficiency, memory footprint, and transferability to unseen chemical environments of these models were benchmarked against general-purpose MACE models and their fine-tuned variants. Our results show that an invariant QCOF model with a small descriptor dimensionality and cutoff outperforms all other models in most validation tasks, including scalability to large systems, force prediction in defective COFs, and phonon dispersion calculations. The best-performing QCOF model was then used to run large-scale simulations of thermal conductivity for defective CTF-1 and COF-LZU1 systems via non-equilibrium MD, revealing a more pronounced sensitivity of CTF-1 to structural defects. Stress-strain curves were also investigated, showing that the mechanical response remains nearly invariant at low defect densities, while asymmetric behaviour emerges at large strains. This work thus provides a foundation for the design of robust quantum-informed MLIP for large-scale property simulations of defective of extended network materials.",
+  "date": "2026-04-23",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.21494",
+  "doi": "10.48550/arxiv.2604.21494",
+  "citations": 1,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "bec1a18e1e06",
+  "title": "Emergent nonlinear dynamics in 2D nanomaterials for flexible electronics and sensor applications",
+  "authors": [
+   "V. Prakash",
+   "K. Radhakrishnan",
+   "V. Shanmuga Priya",
+   "Lalitha Gnanasekaran",
+   "Ayyar Manikandan",
+   "Vinayagam Mohanavel",
+   "D. Shanmugapriya",
+   "D. S. Vijayan",
+   "S. Santhoshkumar"
+  ],
+  "abstract": "Strong many-body interactions, quantum confinement, interfacial coupling, and defect or strain induced symmetry breaking give two-dimensional (2D) nanomaterials highly nonlinear electronic, optical, thermal and mechanical nonlinear responses. As opposed to bulk materials, these nonlinear dynamics allow highly sensitive and adaptive responses to external electrical, optical, thermal and mechanical stimuli, positioning 2D systems as an promising platform to develop next generation flexible electronics and sensor technologies. It critically reviews the fundamental mechanisms of nonlinear charge transport, harmonic generation, exciton–phonon interactions, anharmonic thermal transport, nonlinear plasmonics and strain/defect-mediated nonlinearities of graphene, transition metal dichalcogenides, black phosphorus, h-BN, MXenes and van der Waals heterostructures. Special focus is given to the direct link between the nonlinear response of materials and the improved device functionality such as ultrafast optical switching, high gain optical detection, bistable memory operation, threshold switching mode, neuromorphic operation, strain amplified sensing, broadband chemical and biological detection. The review also addresses the benefits of nonlinear dynamics for the sensitivity, signal amplification, energy efficiency, and operational adaptability of flexible transistors, wearable sensors, optoelectronic systems and bio-integrated electronics. Computational methods like density functional theory, nonequilibrium transport models, and machine learning-based nonlinear response prediction are also assessed to gain insights into and manipulate emergent nonlinear phenomena. The major challenges of large area integration, operational stability, reproducibility, and scalable fabrication of devices are critically examined along with future possibilities of considering nonlinear architectures in wearable, implantable and neuromorphic advanced technologies. Overall, this review identifies nonlinear dynamics in 2D nanomaterials as a general design framework that provides a foundation for the design of adaptive, multifunctional and high performance flexible electronic and smart sensors.",
+  "date": "2026-06-19",
+  "venue": "Sensors and Actuators A Physical",
+  "arxiv_id": "",
+  "doi": "10.1016/j.sna.2026.118135",
+  "citations": 2,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "5553ab190717",
+  "title": "Redefining tropical photovoltaics: an AI–DFT-driven physics-constrained framework linking electronic structure, climate response, and device-level performance in CsPbI 3 perovskites",
+  "authors": [
+   "Douglas Yeboah",
+   "Claudia Asare",
+   "Prince Gaka"
+  ],
+  "abstract": "Abstract Climate-induced temperature and humidity variations pose significant challenges to the development of stable and efficient perovskite photovoltaic materials suitable for tropical environments. This study presents a climate-aware artificial intelligence–density functional theory (AI–DFT) computational framework for the accelerated screening and optimization of caesium lead iodide (CsPbI 3 )-based perovskite absorbers by integrating first-principles calculations, machine learning (ML), atomistic stability analysis, and reduced-order device modelling. DFT calculations were employed to evaluate the structural, electronic, optical, thermodynamic, and defect-related characteristics of pristine and compositionally modified CsPbI 3 systems. The optimized cubic CsPbI 3 structure exhibits a lattice constant of 6.28 Å, a direct bandgap of 1.48 eV, a formation energy of −1.238 eV atom −1 , and an energy above hull of 0.025 eV atom −1 , indicating favourable characteristics relevant to photovoltaic applications. Finite-temperature ab initio molecular dynamics, phonon calculations, and reactive molecular dynamics simulations provide complementary insights into lattice behaviour and initial surface–water interaction mechanisms under the investigated conditions. The atomistic line graph neural network was trained and independently evaluated using a labelled dataset of 1024 structures, achieving a test mean absolute error of 0.0189 eV and an R 2 value of 0.97 for bandgap prediction. A random forest model subsequently integrated intrinsic material descriptors with temperature, relative humidity, and solar irradiance to generate a climate suitability ranking for candidate materials under tropical operating conditions. Perturbation-based sensitivity analysis revealed that temperature (24.5%), defect formation energy (21.8%), and ion-migration barrier (18.6%) were among the dominant factors affecting the predicted suitability index. AI-guided screening identified Cs 0.1 FA 0.9 PbI 3 and CsPbI 2 Br as promising absorber compositions with complementary efficiency–stability characteristics. A DFT-informed reduced-order photovoltaic model estimated device-level parameters, with predicted efficiencies of 21%–26% interpreted as physics-informed screening indicators rather than experimentally validated device efficiencies. Overall, the proposed AI–DFT framework provides a physically interpretable computational approach for climate-aware prioritization of perovskite photovolt",
+  "date": "2026-08-21",
+  "venue": "Engineering Research Express",
+  "arxiv_id": "",
+  "doi": "10.1088/2631-8695/ae9cfe",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "5012ab646493",
+  "title": "Photovoltaics beyond Silicon: Interfacial Engineering, Sustainable Processing, and Data-Driven Design for High-Efficiency and Durable Solar Energy Systems",
+  "authors": [
+   "Fatemeh Shiravani",
+   "Deepak Patil",
+   "Omid Estakhr",
+   "Amin Reza Zolghadr",
+   "Javad Tashkhourian"
+  ],
+  "abstract": "Abstract Silicon-based photovoltaics have established unmatched technological maturity, yet their intrinsic rigidity, indirect bandgap–related optical losses, and high-temperature processing requirements continue to constrain further diversification into lightweight, flexible, and low-carbon energy systems. Addressing these limitations has driven the rapid emergence of alternative photovoltaic platforms with tunable electronic structures and solution-processable architectures. This review provides a critical insight of interfacial phenomena that dictate efficiency and operational stability across perovskite, organic, quantum-dot, two-dimensional, metal organic frame work/covalent organic framework-based, MXene, and ferroelectric solar cells. Central emphasis is placed on how energy-level alignment, defect passivation, ion-migration control, and charge-selective layer engineering collectively shape charge extraction, recombination dynamics, and long-term durability. In addition, recent advances in sustainable processing routes, particularly deep eutectic solvent systems and low-temperature deposition strategies, are evaluated for their potential to enable environmentally benign and scalable device fabrication. In parallel, data-driven methodologies, including machine learning for materials discovery, interface optimization, and performance prediction, are assessed as transformative tools for accelerating the development of emerging photovoltaic technologies. By integrating interfacial chemistry, green processing, and computational design, this review outlines cross-cutting design principles and a forward-looking roadmap toward high-efficiency, stable, and scalable photovoltaics beyond silicon.",
+  "date": "2026-08-24",
+  "venue": "ACS Applied Energy Materials",
+  "arxiv_id": "",
+  "doi": "10.1021/acsaem.6c01544",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "cc0b3d83fb60",
+  "title": "Segmenting Atomic Layers in Images of Atomically Resolved van der Waals Bilayers",
+  "authors": [
+   "Austin Houston",
+   "Sumner B. Harris",
+   "Jordan A. Hachtel",
+   "Yiling Yu",
+   "David B. Geohegan",
+   "Kai Xiao",
+   "Gerd J. Duscher"
+  ],
+  "abstract": "Over the past decade, van der Waals bilayers (vdWBs) have drawn much attention for their unique, and often tunable, quantum properties. In particular, twisted vdWBs (TvdWBs) hold promise for creating elusive states of matter and for studying the strongly correlated physics that emerge [1]. First principles calculations show that the moiré lattices created by twisting two monolayers of graphene or transition metal dichalcogenides (TMDs) is more than an optical illusion – the in-plane modulation of electronic and topological structures changes material properties and creates a superlattice which can often be electrically tuned, or strain tuned to produce a variety of states from perfect arrays of quantum emitters to excitonic superlattices with giant spin-orbit coupling [2]. Excitingly, experimental research is largely confirming these findings, like in the case of “magic twist angles” in graphene leading to unconventional superconductivity [3]. As this field develops, experimentalists are realizing that strain and defect engineering can have a significant effect on TvdWBs properties [4]. These types of atomically thin materials are readily characterized with scanning transmission electron microscopy (STEM), where the positions of single atoms and defects can be identified. However, the effects of moiré patterns are not only illusory to the human eye; it is difficult to use traditional atom finding techniques like thresholding and blob finding, or even to use more advanced machine learning segmentation schemes, like those offered by AtomAI [5] or Atom SegNet [6]. Here, we develop a machine learning (ML) technique which is capable not only of finding atom positions, but of grouping atomic layers together. This technique uses the same U-net architecture as more typical atomic segmentation networks, retaining the benefits of these networks such as improved accuracy in atom localization over traditional methods, while having the advantage of no parameter tuning and generating predictions in milliseconds. This is achieved by handling multi-class pixel outputs and implementing a new combinatorial group loss function, shown in Fig 1. Multi-class pixel output is very important for these problems where there are often two atomic columns occupying a single pixel. Segmentation networks generally only output one layer, where each pixel is given a classification. This construction is not flexible enough for bilayer segmentation. Handling multi-class pixel output preserve",
+  "date": "2024-07-01",
+  "venue": "Microscopy and Microanalysis",
+  "arxiv_id": "",
+  "doi": "10.1093/mam/ozae044.181",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "9e523d9a2f5b",
+  "title": "Modulating phase structures and physical properties of two-dimensional transition metal dichalcogenides",
+  "authors": [
+   "Kuan Li",
+   "CUI Guoliang",
+   "LIU Meizhuang",
+   "XU Xiaozhi"
+  ],
+  "abstract": "Two-dimensional transition metal dichalcogenides (2D-TMDs) with atomic thickness have attracted extensive attention due to their various physical properties, such as quantum spin Hall effect, superconductivity, charge density waves, ferroelectricity, and ferromagnetism. Owing to different interlayer stacking configurations and elemental coordination geometries, 2D-TMDs exhibit diverse crystalline phase structures with different physicochemical properties. Changing the crystalline phase structures of TMDs through phase engineering can be an effective strategy for modulating the electronic structures, quantum states, and functional characteristics. This review focuses on the manufacture of thermodynamically metastable-phase 2D-TMDs, providing a detailed discussion on the mechanisms of phase transition induced by physicochemical approaches and the latest advances in direct phase-selective synthesis of specific crystalline phase structures. The influences of phase engineering on electronic structures, superconductivity, magnetism, ferroelectricity, and other physical properties are systematically elucidated. The research advances in structure and property modulation of 2D-TMDs via phase engineering are summarized. At present, a variety of approaches including alkali metal intercalation, doping, defects, strain, electric field, and external stimuli (plasma, electron beam and laser irradiation) have been developed for controlled phase transition in 2D-TMDs. These physical and chemical approaches can induce local transitions of phase structure, which have the advantage of studying the process and mechanism of phase transition. However, there are still some problems such as the introduction of impurities and defects, insufficient phase stability, and challenges in large-scale fabrication. In contrast, the phase-selective synthesis of 2D-TMDs through methods such as temperature control, precursor design, interface engineering, seed crystal induction, and templated heteroepitaxial growth is more conducive to the characterization of intrinsic physical properties, large-scale fabrication, and electronic device applications. Despite the significant progress made in phase-selective synthesis, there are still several important challenges and development opportunities in this field. The general strategies and mechanisms of phase-selective synthesis still need to be further expanded and explored. In the future, it is expected that through theoretical simulations, machine l",
+  "date": "2025-01-01",
+  "venue": "Acta Physica Sinica",
+  "arxiv_id": "",
+  "doi": "10.7498/aps.74.20251141",
+  "citations": 2,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "282c8f0d21bc",
+  "title": "Human-in-the-Loop Automated Experiment Simulated with Scanning Tunneling Microscopy",
+  "authors": [
+   "Richard (Yu) Liu",
+   "Harris Pirie",
+   "C. E. Matt",
+   "Pengcheng Chen",
+   "Jennifer E. Hoffman",
+   "Sergei V. Kalinin"
+  ],
+  "abstract": "Recently, scientific discoveries have been accelerated by using machine learning to analyze the data post-experiment. However, it’s still a rare case to use machine learning to help data acquisition during the experiment. Such attempt has been proven successful in the form of deep kernel learning (DKL) for piezoelectric force microscopy [1] and combinatorial library exploration [2] with scanning probe microscopy based on human in the loop automated experiment (hAE). It not only offers high-throughput characterization of materials, but also enables studying systems with giant amounts of data that human researchers cannot handle. In a typical hAE workflow, human operators provide the reward function to define the goal of the experiment and experiment policy to guide the behavior of the machines. Then the machine learning will learn the correlation within the acquired data and determine the next location for the next measurement based on reward function and policy. In this talk, I will present the hAE simulation based on complete STM data pre-acquired on various quantum materials, showing the possibility of accelerating physics research with hAE. First, I will show variational autoencoder (VAE) analysis and simulation of DKL hAE on complete STM grid data taken on topological Kondo insulator SmB6 [3, 4]. In SmB6, the formation of Kondo holes around Sm-site defects creates charge puddles around them, which leads to change in the rectification and zero-bias point in the I-V curve around them. Here I show that the DKL can predict the charge puddles formed around Kondo holes and its model uncertainty from the topography image after only 200 local conductance measurements (iterations). Then I will show another VAE + DKL simulation on the high-Tc superconductor BSCCO [5]. In BSCCO, the local doping level determines the local superconducting gap size that can be measured by the local differential conductance spectroscopy. This variation of superconducting gap size further decides the variation of superconducting transition temperature in the material. In this example, the DKL can predict the local gap size based on analysis of the local doping level in the topography image. These two examples indicate that hAE with STM can learn the relation between the structural features in the topography image and physical properties revealed in the spectra without the necessity of taking the full grid-measurement. Therefore, hAE has the potential to greatly accelerate physics res",
+  "date": "2024-07-01",
+  "venue": "Microscopy and Microanalysis",
+  "arxiv_id": "",
+  "doi": "10.1093/mam/ozae044.158",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "b94a8be2b75a",
+  "title": "Photovoltaics literature survey (no. 188)",
+  "authors": [
+   "Ziv Hameiri"
+  ],
+  "abstract": "In order to help readers stay up-to-date in the field, each issue of Progress in Photovoltaics will contain a list of recently published journal articles that are most relevant to its aims and scope. This list is drawn from an extremely wide range of journals, including IEEE Journal of Photovoltaics, Solar Energy Materials and Solar Cells, Renewable Energy, Renewable and Sustainable Energy Reviews, Journal of Applied Physics, and Applied Physics Letters. To assist readers, the list is separated into broad categories, but please note that these classifications are by no means strict. Also note that inclusion in the list is not an endorsement of a paper's quality. If you have any suggestions please email Ziv Hameiri at [email protected]. Müller D, Jiang ER, Rivas-Lazaro P, et al Indoor photovoltaics for the Internet-of-Things - A comparison of state-of-the-art devices from different photovoltaic technologies. Acs Applied Energy Materials 2023; 6(20): 10404–10414. Chen ZS, Sun P. Generic technology R&D strategies in dual competing photovoltaic supply chains: A social welfare maximization perspective. Applied Energy 2024; 353: 122089. Virtuani A, Borja Block A, Wyrsch N, et al The carbon intensity of integrated photovoltaics. Joule 2023; 7(11): 2511–2536. Mirletz H, Hieslmair H, Ovaitt S, et al Unfounded concerns about photovoltaic module toxicity and waste are slowing decarbonization. Nature Physics 2023; 19(10): 1376–1378. Chen Y, Chen D, Altermatt PP, et al Technology evolution of the photovoltaic industry: Learning from history and recent progress. Progress in Photovoltaics: Research and Applications 2023; 31(12): 1194–1204. Hassan S, Dhimish M. Enhancing solar photovoltaic modules quality assurance through convolutional neural network-aided automated defect detection. Renewable Energy 2023; 219: 119389. Lee M-H. Predicting and analyzing the fill factor of non-fullerene organic solar cells based on material properties and interpretable machine-learning strategies. Solar Energy 2024; 267: 112191. Liu Q, Liu M, Wang C, et al An efficient CNN-based detector for photovoltaic module cells defect detection in electroluminescence images. Solar Energy 2024; 267: 112245. Yousif H, Al-Milaji Z. Fault detection from PV images using hybrid deep learning model. Solar Energy 2024; 267: 112207. Heidrich R, Barretta C, Mordvinkin A, et al UV lamp spectral effects on the aging behavior of encapsulants for photovoltaic modules. Solar Energy Materials and Solar Cells 2024; 2",
+  "date": "2024-01-09",
+  "venue": "Progress in Photovoltaics Research and Applications",
+  "arxiv_id": "",
+  "doi": "10.1002/pip.3772",
+  "citations": 1,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "e3a0f5c5919d",
+  "title": "Photovoltaics literature survey (No. 189)",
+  "authors": [
+   "Ziv Hameiri"
+  ],
+  "abstract": "In order to help readers stay up-to-date in the field, each issue of Progress in Photovoltaics will contain a list of recently published journal articles that are most relevant to its aims and scope. This list is drawn from an extremely wide range of journals, including IEEE Journal of Photovoltaics, Solar Energy Materials and Solar Cells, Renewable Energy, Renewable and Sustainable Energy Reviews, Journal of Applied Physics, and Applied Physics Letters. To assist readers, the list is separated into broad categories, but please note that these classifications are by no means strict. Also note that inclusion in the list is not an endorsement of a paper's quality. If you have any suggestions please email Ziv Hameiri at [email protected]. Vicari Stefani B, Kim M, Zhang Y, et al. Historical market projections and the future of silicon solar cells. Joule 2023; 7(12): 2684-2699. Zhang CP, Wei K, Hu JF, et al. A review on organic hole transport materials for perovskite solar cells: Structure, composition and reliability. Materials Today 2023; 67: 518-547. Zhang JX, Chen XY, Wei HK, et al. A lightweight network for photovoltaic cell defect detection in electroluminescence images based on neural architecture search and knowledge distillation. Applied Energy 2024; 355: 122184. Pan JX, Chen ZM, Zhang TK, et al. Operando dynamics of trapped carriers in perovskite solar cells observed via infrared optical activation spectroscopy. Nature Communications 2023; 14(1): 8000. Lorenzo E, Moretón R, Solorzano J, et al. On outdoor testing procedures of large samples of PV modules. Progress in Photovoltaics: Research and Applications 2024; 32(1): 14-24. Grant NE, Pain SL, Khorani E, et al. Activation of Al2O3 surface passivation of silicon: Separating bulk and surface effects. Applied Surface Science 2024; 645: 158786. Yue ZY, Wang GY, Huang ZG, et al. Excellent crystalline silicon surface passivation by transparent conductive Al-doped ZnO/ITO stack. Applied Surface Science 2024; 645: 158845. Xing C, Jiang C, Gu W, et al. SrFx-based electron-selective contact with high tolerance to thickness for crystalline silicon solar cells enabling efficiency over 21%. Progress in Photovoltaics: Research and Applications 2024; 32(1): 35-44. Luo HW, Zheng XT, Kong WC, et al. Inorganic framework composition engineering for scalable fabrication of perovskite/silicon tandem solar cells. Acs Energy Letters 2023; 8(12): 4993-5002. Dipon MNA, Sahriar MA, Sarker S, et al. A comprehensive study of me",
+  "date": "2024-02-01",
+  "venue": "Progress in Photovoltaics Research and Applications",
+  "arxiv_id": "",
+  "doi": "10.1002/pip.3773",
+  "citations": 0,
+  "theme": "quantum machine learning defect predicti"
+ },
+ {
+  "fid": "97e1edb06d98",
+  "title": "Photovoltaics literature survey (No. 190)",
+  "authors": [
+   "Ziv Hameiri"
+  ],
+  "abstract": "In order to help readers stay up-to-date in the field, each issue of Progress in Photovoltaics will contain a list of recently published journal articles that are most relevant to its aims and scope. This list is drawn from an extremely wide range of journals, including IEEE Journal of Photovoltaics, Solar Energy Materials and Solar Cells, Renewable Energy, Renewable and Sustainable Energy Reviews, Journal of Applied Physics, and Applied Physics Letters. To assist readers, the list is separated into broad categories, but please note that these classifications are by no means strict. Also note that inclusion in the list is not an endorsement of a paper's quality. If you have any suggestions please email Ziv Hameiri at [email protected]. Hu F, Mou S, Wei S, et al Research on the evolution of China's photovoltaic technology innovation network from the perspective of patents. Energy Strategy Reviews 2024; 51: 101309. De Keersmaecker M, Tirado J, Armstrong NR, et al Defect quantification in metal halide perovskites anticipates photoluminescence and photovoltaic performance. Acs Energy Letters 2024; 9(1): 243–252. Wang S, Wang C, Ge Y, et al In-depth analysis of photovoltaic module parameter estimation. Energy 2024; 291: 130345. Cao Y, Pang D, Zhao Q, et al Improved YOLOv8-GD deep learning model for defect detection in electroluminescence images of solar photovoltaic modules. Engineering Applications of Artificial Intelligence 2024; 131: 107866. Musiienko A, Yang FJ, Gries TW, et al Resolving electron and hole transport properties in semiconductor materials by constant light-induced magneto transport. Nature Communications 2024; 15(1): 316. Qin Y, Yonemoto A, Gotoh K, et al Potential-induced degradation phenomena in single-encapsulation crystalline Si photovoltaic modules. Japanese Journal of Applied Physics 2024; 63(2): 02SP11. Chen W, Liu W, Yu Y, et al Study on selective emitter fabrication through an innovative pre-diffusion process for enhanced efficiency in TOPCon solar cells. Progress in Photovoltaics: Research and Applications 2024; 32(3): 199–211. Chen S, Shi J, Yao Y, et al Enhancement of short-circuit current density in silicon heterojunction solar cells by hydrogenated multiple-doped In2O3 thin films. Solar Energy Materials and Solar Cells 2024; 267: 112727. Hossain MJ, Sun M, Davis KO. Photon management in silicon photovoltaic cells: A critical review. Solar Energy Materials and Solar Cells 2024; 267: 112715. Li Y, Shi B, Xu Q, et al CsCl induced ef",
+  "date": "2024-03-11",
+  "venue": "Progress in Photovoltaics Research and Applications",
+  "arxiv_id": "",
+  "doi": "10.1002/pip.3795",
+  "citations": 4,
+  "theme": "quantum machine learning defect predicti"
  }
 ]
