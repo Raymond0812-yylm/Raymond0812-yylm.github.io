@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 21 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-23] 量子退火中的优化与公平采样：一个精确表征的阻挫伊辛基准</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-23/</link>
+      <guid isPermaLink="false">daily:2026-10-23</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+      <description>量子退火机（如 D-Wave）在应用中实际承担着两种不同的角色：其一是优化器——只要命中简并基态流形中的任意一个解即可，对应组合优化的典型用法；其二是采样器——需要在庞大的简并基态集合中&quot;公平&quot;地采样，这是玻尔兹曼机学习、系综枚举类应用的前提。一个长期悬而未决的问题是：这两种能力是否同涨同落？硬件调校让优化成功率提高时，采样分布是否也随之更均匀？</description>
+    </item>
     <item>
       <title>[日报 2026-10-21] 面向量子近似优化的高阶宇称约束</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-21/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-15</guid>
       <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
       <description>量子硬件正快速逼近&quot;utility（实用价值）规模&quot;，但各家平台的比特数、保真度、连通性、体系结构（超导/离子阱/中性原子）差异巨大，厂商宣传口径互不兼容——&quot;105 比特&quot;与&quot;56 比特&quot;谁更强？&quot;每秒门数&quot;高是否等于算力强？目前业界缺少一个与真实计算任务挂钩、可跨平台公平比较的算力度量。量子体积（QV）曾在 NISQ 早期承担这一角色，但其方形约束（宽度=深度）在高保真平台上迅速饱和，且无法回答&quot;这台机器离跑通 RSA 分解/量子化学还有多远&quot;这一工程决策最关心的问题。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-14] 噪声哈密顿量模拟中算法误差与物理误差的联合抑制</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-14/</link>
-      <guid isPermaLink="false">daily:2026-09-14</guid>
-      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
-      <description>近期量子处理器上的应用实验（哈密顿量模拟、变分算法、量子优化）的精度，同时被两类误差&quot;夹击&quot;：一是算法误差——有限步长 Trotter 乘积公式化带来的系统偏差，阶数为 O(T^{2p+1}/r^{2p})；二是物理误差——退相干、控制不完美等硬件噪声导致的期望值偏移。传统上两条线各自为战：Trotter 偏差靠变步长 Richardson 外推压制，硬件噪声靠零噪声外推（ZNE）等误差缓解技术消除。</description>
     </item>
   </channel>
 </rss>
