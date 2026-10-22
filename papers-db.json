@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-21",
+ "updated": "2026-10-23",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -380,6 +380,35 @@
    ]
   },
   {
+   "id": "reducing-decoding-latency-quantum-error-correction-early-a1282",
+   "title": "Reducing Decoding Latency in Quantum Error Correction by Early Starting Clustering",
+   "titleZh": "早启动聚类降低量子纠错解码延迟",
+   "authors": [
+    "Tommaso Peduzzi",
+    "Lukas Bödeker",
+    "Markus Müller",
+    "Luis Colmenárez"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.15612",
+   "doi": "10.48550/arxiv.2609.15612",
+   "url": "https://arxiv.org/abs/2609.15612",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:通过综合征聚类的早启动策略压缩解码关键路径,降低容错计算中最紧的延迟约束,与自适应中止互为互补优化。",
+   "abstract": "In quantum error correction, fast low-latency decoding is essential for fault-tolerant quantum computation, as delays in processing syndrome data can lead to the backlog problem. Existing decoders, including parallelizable approaches such as Union-Find, begin decoding only after all stabilizer measurement outcomes from an error-correction cycle have been received, inherently introducing a delay before decoding begins. We introduce Cluster-As-You-Go (CAYG), a modification of the Union-Find decoder that processes syndrome information during stabilizer measurements by clustering and correcting errors as they appear. This approach reduces the size of the remaining decoding problem at the end of the quantum error correction cycle and, consequently, the time required to complete the decoding process. While this early start of clustering incurs a modest reduction in decoding accuracy, it preserves the decoder's scalability. Surface-code simulations show that the resulting reduction in post-measurement idling can outweigh the accuracy loss, yielding an improved speed-accuracy trade-off. These results demonstrate that real-time, early-starting decoding during QEC cycles is both feasible and can be advantageous for quantum error correction. Demonstrated here for the surface code, CAYG is broadly applicable to other quantum error-correcting codes, which allow for clustering-based decoding approaches, and is extensible to dedicated real-time decoding hardware.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "loss-correcting-fault-tolerant-quantum-computing-architecture-1a91d",
    "title": "Loss-correcting fault-tolerant quantum computing architecture for neutral atoms",
    "titleZh": "面向中性原子的损失校正容错量子计算架构",
@@ -469,6 +498,36 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "efficient-quantum-state-preparation-quantinuum-hardware-160c9",
+   "title": "Efficient quantum state preparation on Quantinuum hardware",
+   "titleZh": "Quantinuum 硬件上的高效量子态制备",
+   "authors": [
+    "Archie Butterworth",
+    "Josh Green",
+    "Yusen Wu",
+    "Jie Pan",
+    "Jingbo Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-08",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.08414",
+   "doi": "10.48550/arxiv.2609.08414",
+   "url": "https://arxiv.org/abs/2609.08414",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:在 Quantinuum 离子阱硬件上实现特定量子态的高效制备与验证,态制备是所有量子算法的第一步,该工作给出系统化方案。",
+   "abstract": "Preparation and verification of specific quantum states is an important capability for quantum devices to realise advantages over classical computations and algorithms. In this work, we have demonstrated an end-to-end framework that combines resource-efficient quantum state preparation with rapid, robust fidelity verification on near-term quantum hardware. By experimentally preparing and validating a structured complex quantum state encoding a digitized acoustic signal on the Quantinuum H2-1 trapped-ion platform, we achieved a high hardware fidelity of $F_{\\mathrm{hw}} = 0.929$. Crucially, this milestone was realized without relying on idealized assumptions or deep fault-tolerant overhead, but rather through resource-minimal circuits optimized for NISQ-era and early fault-tolerant devices. Furthermore, we addressed a key limitation in current quantum state certification. While validation methods like shadow overlap work well for random states, their sample complexity can become prohibitively high for the structured states used in practical algorithms. We mitigate this by introducing a pre-measurement basis-change technique that reduces the verification parameter, $τ$, by over 10 orders of magnitude for structured targets. This approach tightens the theoretical certification guarantees of the shadow overlap method and integrates tensor-network preparation and shadow validation into a unified workflow. These results shift the paradigm of how structured classical data can be map",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "single-two-qubit-gates-driven-integrated-photonic-2ef7a",
@@ -1476,6 +1535,35 @@
    ]
   },
   {
+   "id": "real-time-decoder-megaquop-quantum-computer-single-c99f2",
+   "title": "Real-time decoder for a MegaQuOp quantum computer using a single CPU",
+   "titleZh": "单 CPU 实时解码 MegaQuOp 规模量子计算机",
+   "authors": [
+    "Min Ye",
+    "Andrii Maksymov",
+    "Nicolas Delfosse"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-25",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.25027",
+   "doi": "10.48550/arxiv.2608.25027",
+   "url": "https://arxiv.org/abs/2608.25027",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-08:面向执行百万门级的 MegaQuOp 量子计算机,提出仅需单个 CPU 的实时纠错解码系统——打破\"实时解码必须大规模专用硬件\"的预设,工程意义显著。",
+   "abstract": "As quantum computers advance toward the regime of MegaQuOp machines executing millions of gates, a decoding system capable of real-time error correction in such a device will be crucial. Recent efforts have been focused on decoding an error-corrected memory or a small number of logical operations. Here we demonstrate an end-to-end real-time decoding stack for a universal fault-tolerant trapped-ion quantum computer architecture capable of decoding real workloads with millions of logical gates over hundreds of logical qubits. The complete pipeline, including on the fly detector error model generation, decoding of all logical qubits, logical operations, and magic-state factories, runs on a single CPU. We benchmark the decoder on practically relevant quantum applications spanning up to 408 logical qubits, and up to one million $T$ gates. Assuming a trapped-ion architecture with 1 to 5 ms cycle time, the decoding delay stretches the computation by less than $0.3\\%$ at $p_{\\mathrm{CNOT}}=10^{-4}$ and less than $12\\%$ at $p_{\\mathrm{CNOT}}=5\\times 10^{-4}$ for all workloads studied. These results demonstrate real-time decoding at MegaQuOp scale on a single conventional CPU.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "improving-join-order-optimization-gate-based-quantum-f8ec6",
    "title": "Improving Join Order Optimization on Gate-Based Quantum Computers via Structured Parameter Initialization",
    "titleZh": "基于结构化参数初始化改进门型量子计算机上的连接次序优化",
@@ -1563,6 +1651,51 @@
    ],
    "summaryZh": "分子对接因结合构象组合爆炸而计算昂贵。论文将其重构为兼容图上的最大点权团问题(MVWCP),提出混合量子-经典求解方案并在NISQ设备上实现资源高效的端到端演示,为药物发现核心环节的量子化提供了可扩展的技术路线。",
    "abstract": "Molecular docking is a vital computational task in drug discovery, wherein the objective is to efficiently identify optimal binding poses between a ligand and a target receptor protein. Due to the combinatorial explosion of possible binding configurations, docking of large and flexible molecules remains a computationally intensive problem, especially at scale. Early studies have revealed that the molecular docking can be re-cast as a maximum vertex-weighted clique problem (MVWCP) problem on a compatibility graph to be solved classically. In this work, we proposed a hybrid quantum-classical approach for molecular docking leveraging the MVWCP formalism with a variational full-basis encoding (FBE) strategy, which enables efficient encoding of classical binary variables with Bloch sphere vectors. We further prove that a global minimizer of the FBE objective can always be chosen to be a pure product state, thereby providing a rigorous justification for its optimization using a unitary variational circuit. The molecular docking problem is first mapped to a cost Hamiltonian that is minimized within a variational framework, optimized via a randomized imaginary time evolution (ITE)-inspired warm start, and gradient-based techniques. Finally, we also executed the circuit on an IBM quantum computer, underlying the feasibility and of quantum-assisted optimization for structure-based drug design and point towards the broader utility of advanced encoding techniques in quantum optimization ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "integrated-quantum-transducer-nv-color-center-diamond-b23e4",
+   "title": "Integrated Quantum Transducer Using NV Color Center in Diamond Nano Device",
+   "titleZh": "基于金刚石 NV 色心的集成量子转导器",
+   "authors": [
+    "M. Yoshioka",
+    "K. Sato",
+    "H. Kurokawa",
+    "Y. Sekiguchi",
+    "M. Kamata",
+    "S. Hachuda",
+    "M. Kunii",
+    "T. Tamanuki",
+    "S. Ishida",
+    "H. Matsukiyo",
+    "H. Pholsen",
+    "Masao Nishioka",
+    "S. Ji",
+    "H. Otsuki",
+    "Kimura Kosuke",
+    "Takenaka Kouta",
+    "Onoda Shinobu",
+    "T. Baba",
+    "S. Iwamoto",
+    "H. Kosaka"
+   ],
+   "venue": "Institutional Repositories DataBase (IRDB)",
+   "date": "2026-08-20",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "",
+   "url": "https://scholar.google.com/scholar?q=Integrated+Quantum+Transducer+Using+NV+Color+Center+in+Diamond+Nano+Device",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "面向容错量子计算(FTQC)的布线开销问题,开发基于金刚石 NV 色心的微波-光学转导器并实现单片集成,与 Nature 全光学读取、入侵式接收机同属\"去同轴化\"路线族。",
+   "abstract": "We develop a diamond-based microwave-to-optical transducer to reduce cabling overhead in FTQC. By integrating diamond nanodevices with SiN waveguides, we achieved Purcell enhancement in a dilution refrigerator and verified spin controllability via ODMR, advancing toward scalable quantum interfaces.",
    "source": "backfill",
    "domains": []
   },
@@ -2689,6 +2822,41 @@
    ]
   },
   {
+   "id": "calibration-conditioned-featurewise-linear-modulation-decoders-low-65f51",
+   "title": "Calibration-conditioned featurewise linear modulation decoders for low-latency decoding of quantum error correction evaluated on IBM repetition-code experiments",
+   "titleZh": "校准条件特征调制解码器实现低延迟量子纠错",
+   "authors": [
+    "Samuel Stein",
+    "Shuwen Kan",
+    "Chenxu Liu",
+    "Adrian Harkness",
+    "Sean R. Garner",
+    "Zefan Du",
+    "Yufei Ding",
+    "Ying Mao",
+    "Ang Li"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2026-07-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1103/ftdh-t3yg",
+   "url": "https://doi.org/10.1103/ftdh-t3yg",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review Research 2026:提出硬件噪声时空变化下的低延迟解码器——以校准数据为条件的特征线性调制(featurewise modulation),兼顾高精度、低延迟与对硬件漂移的鲁棒性。",
+   "abstract": "Real-time decoding of quantum error correction is essential for enabling fault-tolerant quantum computation. A practical decoder must operate with high accuracy at low latency, while remaining robust to spatial and temporal variations in hardware noise. We introduce a hardware-conditioned neural decoder framework designed to exploit the natural separation of timescales in superconducting processors, where calibration drifts occur over hours while error correction requires microsecond-scale responses. By processing calibration data through a graph-based encoder and conditioning a lightweight convolutional backbone via featurewise linear modulation (FiLM), we decouple the heavy processing of device statistics from the low-latency syndrome decoding. We evaluate this approach using the repetition code as a test bed on IBM , , and processors, collecting over 2.7 million experimental shots spanning distances up to d = 11 . Training one decoder per code distance, basis, and round count ( d , r ) , we demonstrate that each trained model generalizes to unseen qubit chains and new calibration data acquired days later without retraining. The FiLM-conditioned decoder achieves up to a 11.1 × reduction in logical error rate relative to modified minimum-weight perfect matching. Cross-conditioning ablations further show that the calibration input actively improves decoding, with performance degrading when the decoder is conditioned on incorrect backend data or the conditioning is disabled. W",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-enhanced-solar-cell-efficiency-theoretical-empirical-aae91",
    "title": "Quantum-Enhanced Solar Cell Efficiency: A Theoretical And Empirical Framework For Photovoltaic Storage Degradation Optimization",
    "titleZh": "量子增强太阳能电池效率:光伏储能退化的理论与实证优化框架",
@@ -3251,6 +3419,33 @@
    "domains": []
   },
   {
+   "id": "analysis-speculative-window-decoders-quantum-error-correction-6ea3f",
+   "title": "An Analysis of Speculative Window Decoders for Quantum Error Correction",
+   "titleZh": "推测窗口解码器的分析研究",
+   "authors": [
+    "Jocelyn Li",
+    "Margaret Martonosi"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-23",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.24048",
+   "doi": "10.48550/arxiv.2606.24048",
+   "url": "https://arxiv.org/abs/2606.24048",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:系统分析推测执行(speculative window)解码器——借鉴 CPU 推测执行思想在窗口化 QEC 解码中的收益与代价,给出设计边界。",
+   "abstract": "Fault-tolerant quantum computing is essential for realizing the substantial computational speedups that quantum computing can bring, but it requires real-time error decoding with high performance. Speculative window decoding improves performance by reducing the time spent waiting for dependencies from prior decoding windows. However, speculative decoders have only been evaluated under the regime of superconducting qubits with fast gate speeds, surface codes, and matching decoders. Since different quantum technologies can have slower gate speeds, we evaluate the performance of speculative decoding under slow gate speeds. We also examine its sensitivity to speculation accuracy, decoder latency, processor count, and workload parallelism, which can vary across different quantum error correction codes, decoders, and hardware platforms. This work presents design principles for identifying when speculative decoding yields the greatest performance improvements. It also reveals the conditions under which non-speculative decoders outperform speculative decoders.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "trev-python-library-efficient-implementations-variational-quantum-4aa44",
    "title": "TREV: Python Library for Efficient Implementations of Variational Quantum Algorithms for Optimization using Tensor Networks",
    "titleZh": "TREV:基于张量网络高效实现变分量子优化算法的Python库",
@@ -3627,6 +3822,42 @@
    "domains": []
   },
   {
+   "id": "coset-ensemble-decoder-quantum-error-correction-algorithm-15b3c",
+   "title": "Coset Ensemble Decoder for Quantum Error Correction with Algorithm-Hardware Co-Design",
+   "titleZh": "算法-硬件协同设计的陪集集成解码器",
+   "authors": [
+    "Shuang Liang",
+    "Jubo Xu",
+    "Giulio Bassanino",
+    "Qianzhou Wang",
+    "Yidong Zhou",
+    "Yuncheng Lu",
+    "Zhiwen Mo",
+    "Paul H. J. Kelly",
+    "Bo Yuan",
+    "Wayne Luk",
+    "Hongxiang Fan"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.11076",
+   "doi": "10.48550/arxiv.2606.11076",
+   "url": "https://arxiv.org/abs/2606.11076",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-06:面向容错架构的陪集集成解码器,解码算法与硬件协同设计(co-design),在吞吐与保真度间取得工程平衡,与 CHARME、GARI 同属解码硬件化前沿。",
+   "abstract": "Reliable large-scale quantum computation relies on fault-tolerant architectures, where quantum error correction (QEC) continuously extracts and decodes error syndromes in real time. A critical component in QEC is the decoder, a classical subsystem that must simultaneously deliver high logical accuracy and ultra-low latency. This paper presents a novel algorithm-hardware co-design that improves the accuracy-latency trade-off over existing approaches such as vanilla Minimum-Weight Perfect Matching (MWPM) and Union-Find (UF) decoders. At the algorithmic level, we introduce coset ensemble decoding, which improves UF decoding by explicitly exploiting logically equivalent cosets. Our method performs ensemble forest exploration to generate multiple coset-consistent candidates and aggregates them to approximate coset-level maximum-likelihood decoding. We further reduce computational and memory complexity via reverse-order elimination and lossless graph compression, without sacrificing accuracy. At the hardware level, we design a domain-specific architecture that temporally reuses resources, avoiding the code-distance-proportional resource growth in prior spatial architectures. Several optimizations, such as multi-bank memory hashing and hierarchical ID mapping, are proposed to mitigate pipeline stalls and memory conflicts under highly concurrent access patterns. Under a circuit-level depolarizing noise model, our co-design approach achieves a better accuracy-latency trade-off than pr",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "hybrid-quantum-inspired-intelligent-computing-model-real-ed75e",
    "title": "Hybrid Quantum-Inspired Intelligent Computing Model for Real-Time Optimization of Massive Heterogeneous Climate Datasets",
    "titleZh": "面向海量异构气候数据实时优化的混合量子启发智能计算模型",
@@ -3960,6 +4191,41 @@
    "domains": []
   },
   {
+   "id": "real-time-quantum-error-correction-system-stack-e633a",
+   "title": "Real-Time Quantum Error Correction System Stack: Architecture, Algorithms, and Engineering Practice",
+   "titleZh": "实时量子纠错系统栈:架构、算法与工程实践",
+   "authors": [
+    "Yaojian Chen",
+    "Chunyang Luan",
+    "Peilin Zheng",
+    "Xianghong Zeng",
+    "Jiayi Hou",
+    "Zhuo Fu",
+    "Yirong Jin",
+    "Fei Wang",
+    "Guangwen Yang",
+    "Dingshun Lv"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-29",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.30765",
+   "doi": "10.48550/arxiv.2605.30765",
+   "url": "https://arxiv.org/abs/2605.30765",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:QEC 正从可行性演示转向系统工程挑战;该文给出实时 QEC 系统栈的完整架构(解码算法/控制/低延迟工程)与实践经验,是\"纠错系统工程化\"方向的奠基性综述,呼应 Google 距离 5/7 表面码与 Riverlane 硬件集成解码的最新进展。",
+   "abstract": "Quantum error correction (QEC) is transitioning from physical feasibility demonstrations to systems engineering challenges. Google has achieved below-threshold performance on distance-5/7 surface codes, while Riverlane and Rigetti have demonstrated hardware-integrated low-latency feedback loops. These milestones indicate that the core challenge of real-time decoding has shifted from algorithmic capability to system-level engineering. However, a substantial engineering gap remains between laboratory demonstrations and scalable fault-tolerant quantum computing (FTQC). This white paper addresses three questions: (1) Where are the real bottlenecks in real-time QEC: beyond average decoder speed, the constraints lie in QEC round time, tail latency, and end-to-end data path coordination; (2) How mature are mainstream decoder algorithms: we benchmark the major decoders for both surface codes and quantum low-density parity-check (qLDPC) codes, evaluating their real-time readiness; (3) What system stack do we propose: a six-layer reference architecture from syndrome acquisition to logical operations, with interface definitions and latency budget models. Our results quantify the gap between current decoder performance and real-time requirements, and identify the architectural choices needed to close it.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "comparison-spin-qubit-architectures-quantum-error-correcting-d487c",
    "title": "Comparison of spin-qubit architectures for quantum error-correcting codes",
    "titleZh": "硅自旋比特上表面码与 Bacon-Shor 码的架构对比",
@@ -3986,6 +4252,35 @@
    ],
    "summaryZh": "Physical Review A:在硅自旋比特平面阵列上对比表面码与 Bacon-Shor 码两种纠错方案的逻辑比特表现,覆盖两种编码布局,为硅平台选择纠错码提供定量依据。",
    "abstract": "We investigate the performance of two quantum error-correcting codes, the surface code and the Bacon-Shor code, for implementation with spin qubits in silicon. In each case, we construct a logical qubit using a planar array of quantum dots, exploring two encoding schemes: one based solely on single-electron Zeeman qubits (Loss-DiVincenzo qubits), and a hybrid approach combining Zeeman and singlet-triplet qubits. For both codes, we evaluate key performance metrics, including logical state preparation fidelity and cycle-level error correction performance, using state-of-the-art experimental parameters. Our results show that the hybrid encoding consistently outperforms the pure Zeeman-qubit implementation. By identifying the dominant error mechanisms that limit quantum error correction performance, our study highlights concrete targets for improving spin qubit hardware and provides a path toward scalable fault-tolerant architectures. In particular, we find that the logical error rate is not limited by memory errors, but rather by gate errors, especially 1- and 2-qubit gate errors.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "toward-scalable-heterogeneous-quantum-networks-microwave-optical-51111",
+   "title": "Toward Scalable Heterogeneous Quantum Networks: Microwave-Optical Transduction Across Platforms",
+   "titleZh": "迈向可扩展异构量子网络:跨平台微波-光学转导",
+   "authors": [
+    "Tarvir Anjum Aditto",
+    "Jaiyan Sadid Ifty",
+    "Khondokar Zahin"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-26",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.26976",
+   "doi": "10.48550/arxiv.2605.26976",
+   "url": "https://arxiv.org/abs/2605.26976",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:系统研究超导(微波)与光学量子平台间的相干微波-光学转导,面向异构量子网络的跨平台互联,是\"联网化\"阶段的架构级综述与方案。",
+   "abstract": "The development of scalable quantum networks requires coherent interfaces capable of converting microwave photons used in superconducting quantum processors into optical photons suitable for long-distance fiber transmission. This review surveys recent progress in microwave-to-optical quantum transduction across optomechanical, electro-optic, and magneto-optic platforms, with emphasis on conversion efficiency, bandwidth, added noise, and operating temperature. In addition to standard metrics, we propose the internal efficiency eta_in and the magnon decay rate kappa_m/2pi as normalized parameters that enable fairer comparison across heterogeneous implementations. Optomechanical systems achieve internal phonon-to-photon efficiencies of 93% with sub-quantum added noise of 0.25 quanta at millikelvin temperatures. Electro-optic devices based on LiNbO3 and AlN have advanced from room-temperature efficiencies below 1% to millikelvin systems with internal efficiencies approaching 99.5%, added noise as low as 0.16 quanta at 60 mK, and bandwidths extending to several tens of megahertz. Magneto-optic (optomagnonic) platforms exhibit the lowest efficiencies (typically $10^{-10}$ to $10^{-8})$, but offer intrinsic non-reciprocity and broadband magnonic operation, with emerging approaches based on topological heterostructures and magnon squeezing predicting enhancements up to $10^{-4}$. Optomechanical systems appear promising for high-fidelity quantum state transfer, electro-optic transduce",
    "source": "backfill",
    "domains": []
   },
@@ -4617,6 +4912,43 @@
    "domains": []
   },
   {
+   "id": "real-time-surface-code-error-correction-fpga-7430b",
+   "title": "Real-time Surface-Code Error Correction Using an FPGA-based Neural-Network Decoder",
+   "titleZh": "基于 FPGA 神经网络解码器的实时表面码纠错",
+   "authors": [
+    "Xiaohan Yang",
+    "Xuandong Sun",
+    "Zhiyi Wu",
+    "Jiawei Zhang",
+    "Ji Jiang",
+    "Xiayu Linpeng",
+    "Yuxuan Zhou",
+    "Ji Chu",
+    "Jingjing Niu",
+    "Youpeng Zhong",
+    "Song Liu",
+    "Dapeng Yu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-06",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.04892",
+   "doi": "10.48550/arxiv.2605.04892",
+   "url": "https://arxiv.org/abs/2605.04892",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:在 FPGA 上部署神经网络解码器实现表面码实时纠错,兼顾神经网络解码的精度与 FPGA 的低延迟,是\"AI 解码器硬件化\"路线的实证工作。",
+   "abstract": "Quantum error correction (QEC) is essential for achieving low error rates required for fault-tolerant quantum computation. In stabilizer-based codes such as the surface code, errors are inferred from repeated syndrome measurements and corrected by a classical decoder. To prevent error accumulation, decoding must be performed with both high throughput and low latency to keep pace with the QEC cycle and enable real-time feedback for universal logical operations. Here we report a hardware-integrated control architecture featuring an FPGA-based neural-network (NN) decoder and experimentally demonstrate real-time surface-code (distance-3) QEC on a superconducting quantum processor. The system achieves a deterministic closed-loop latency of 550 ns, including 124 ns for NN decoding, enabling feedback corrections within a 1.25 us QEC cycle. We show that real-time decoding and feedback correction achieve logical performance comparable to offline decoding while maintaining robustness against varying error conditions. We further demonstrate mid-circuit feedback correction in non-Clifford logical circuits, where Pauli-frame updating alone becomes insufficient. Our results establish a low-latency hardware architecture for embedded QEC control and provide a pathway towards scalable fault-tolerant quantum computing systems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "exchange-only-silicon-based-spin-qubits-charge-87faf",
    "title": "Exchange-Only Silicon Based Spin Qubits: Charge Noise, PINN Optimised Pulse Sequences,and Gate-Level Fidelity",
    "titleZh": "纯交换型硅自旋比特:电荷噪声、PINN 优化脉冲序列与门层级分析",
@@ -4736,6 +5068,35 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "scalable-fpga-architecture-real-time-decoding-quantum-1a944",
+   "title": "A Scalable FPGA Architecture for Real-Time Decoding of Quantum LDPC Codes Using GARI",
+   "titleZh": "基于 GARI 的量子 LDPC 码实时解码 FPGA 架构",
+   "authors": [
+    "Daniel Báscones",
+    "Arshpreet Singh Maan",
+    "Valentin Savin",
+    "Francisco García-Herrero"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.01035",
+   "doi": "10.48550/arxiv.2605.01035",
+   "url": "https://arxiv.org/abs/2605.01035",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:面向量子 LDPC 码中相关错误的解码,提出基于图增广与重排(GARI)检测器错误模型的 FPGA 硬件架构,用消息传递结构实现实时解码,面向高码率 QLDPC 实用化。",
+   "abstract": "In this work, we introduce a new hardware architecture for decoding correlated errors in quantum LDPC codes. The decoder is based on message passing and exploits the structure of the detector error model obtained through the recently introduced Graph Augmentation and Rewiring for Inference (GARI) method. The proposed architecture enables flexible scaling and can, in principle, adapt to any quantum LDPC codes using the GARI framework. It leverages resource reuse while maintaining a modest degree of parallelism, thereby reducing power consumption and area requirements, while preserving low decoding latency. As a case study, the architecture was implemented on a VCU19P FPGA as an ensemble of three decoder cores targeting the [[144,12,12]] bivariate bicycle code, achieving an average latency of 596 ns per decoding round. This implementation consumes six times fewer resources than the previous GARI-based proposal, being the first reported implementation of multiple decoder cores for correlated errors on a single FPGA device. This enables better energy-conscious scaling of the quantum error correction layer on the classical side, reducing overall power consumption while meeting real-time constraints without compromising decoding accuracy under correlated errors.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "solve-crude-oil-scheduling-problems-quantum-classical-8133f",
@@ -5484,6 +5845,36 @@
    ],
    "summaryZh": "构建完整的混合量子-经典 NLP 管线执行情感识别任务(情感分析是 NLP 的代表性基准),覆盖从文本编码到量子分类的全流程,是混合 QNLP 系统级的工程实现(Springer 2026)。",
    "abstract": "This project aims at developing a comprehensive hybrid quantum-classical NLP pipeline to solve the task of emotion recognition. For emotion recognition, this work makes use of a hybrid Quantum Recurrent Neural Network (QRNN) by combining classical embedding layers with parameterized quantum circuits based on well defined ansatzes. The primary goal of the project is to train VQCs for capturing the emotion associated with sentences. This work aims at combining the strong embedding generation ability of classical architectures with the expressive power of Quantum circuits that can capture complex dependencies across sequences. The designed Hybrid QRNN model integrates two important aspects namely the strength of RNNs for sequential modelling and the representational power of quantum circuits resulting in competitive performance for emotion recognition task while also utilising the quantum benefits. The results reveal the potential of QNLP for advancing the intersection of Quantum Computing and Natural Language Processing for quantum-accelerated downstream NLP applications.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "low-latency-gnn-accelerator-quantum-error-correction-b5bdb",
+   "title": "Low Latency GNN Accelerator for Quantum Error Correction",
+   "titleZh": "量子纠错低延迟 GNN 加速器",
+   "authors": [
+    "Alessio Cicero",
+    "Luigi Altamura",
+    "Moritz Lange",
+    "Mats Granath",
+    "Pedro Trancoso"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-23",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.22149",
+   "doi": "10.48550/arxiv.2603.22149",
+   "url": "https://arxiv.org/abs/2603.22149",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:用图神经网络加速器(GNN accelerator)解码表面码综合征,以图结构原生匹配解码问题的图特性,降低解码延迟,支撑容错计算实时性。",
+   "abstract": "Quantum computers can solve selected problems more efficiently than classical computers, but current devices are limited by high physical error rates. Quantum Error Correction (QEC) mitigates this by encoding many physical qubits into a logical qubit, with the surface code among the most widely studied approaches. Since syndrome measurements are produced continuously, the decoder must process them fast enough to avoid becoming a system bottleneck, making real-time decoding essential for fault-tolerant quantum computing. While most state-of-the-art real-time decoders rely on Minimum-Weight Perfect Matching (MWPM), we instead use a high-accuracy Graph Neural Network (GNN) that trades higher computational cost for lower logical error rates. To make this GNN practical for real-time decoding, we apply algorithm-hardware co-design. We reduce complexity through hardware-guided pruning and retraining, producing two hardware-friendly models that reduce parameter count by $3.1\\times$ and $6.5\\times$. These target, respectively, an average decoding latency of one syndrome cycle and a worst-case latency within one syndrome cycle. We further reduce hardware cost using input-graph filtering and post-training quantization. Based on these optimized models, we propose an FPGA-based architecture for low-latency inference and real-time decoding. Evaluated on surface codes up to distance 7 under circuit-level noise at physical error rate $p=10^{-3}$, our decoder outperforms MWPM in decoding accu",
    "source": "backfill",
    "domains": []
   },
@@ -6537,6 +6928,35 @@
    "domains": []
   },
   {
+   "id": "adaptive-aborting-schemes-quantum-error-correction-decoding-42f47",
+   "title": "Adaptive Aborting Schemes for Quantum Error Correction Decoding",
+   "titleZh": "量子纠错解码的自适应中止方案",
+   "authors": [
+    "Sanidhay Bhambay",
+    "Prakash Murali",
+    "Neil Walton",
+    "Thirupathaiah Vasantam"
+   ],
+   "venue": "arXiv",
+   "date": "2026-02-18",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2602.16929",
+   "doi": "10.48550/arxiv.2602.16929",
+   "url": "https://arxiv.org/abs/2602.16929",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-02:提出解码过程的自适应中止机制——当置信度足够时提前终止迭代,在保证精度的同时大幅削减平均解码延迟,是实时 QEC 系统的实用优化。",
+   "abstract": "Quantum error correction (QEC) is essential for realizing fault-tolerant quantum computation. Current QEC controllers execute all scheduled syndrome (parity-bit) measurement rounds before decoding, even when early syndrome data indicates that the run will result in an error. The resulting excess measurements increase the decoder's workload and system latency. To address this, we introduce an adaptive abort module that simultaneously reduces decoder overhead and suppresses logical error rates in surface codes and color codes under an existing QEC controller. The key idea is that initial syndrome information allows the controller to terminate risky shots early before additional resources are spent. An effective scheme balances the cost of further measurement against the restart cost and thus increases decoder efficiency. Adaptive abort schemes dynamically adjust the number of syndrome measurement rounds per shot using real-time syndrome information. We consider three schemes: fixed-depth (FD) decoding (the standard non-adaptive approach used in current state-of-the-art QEC controllers), and two adaptive schemes, AdAbort and One-Step Lookahead (OSLA) decoding. For surface and color codes under a realistic circuit-level depolarizing noise model, AdAbort substantially outperforms both OSLA and FD, yielding higher decoder efficiency across a broad range of code distances. Numerically, as the code distance increases from 5 to 15, AdAbort yields an improvement that increases from 5% ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "distributed-quantum-gaussian-processes-multi-agent-systems-257b2",
    "title": "Distributed Quantum Gaussian Processes for Multi-Agent Systems",
    "titleZh": "面向多智能体系统的分布式量子高斯过程",
@@ -7394,6 +7814,47 @@
    ],
    "summaryZh": "IEEE TPS 2026:用 LSTM 近似子问题成本、SVM 分类器筛选主导 Benders 割以压缩问题规模,再把简化后的核心交给量子计算求解,形成\"ML 降维 + 量子求解\"的两级加速架构,是混合框架设计的漂亮范例。",
    "abstract": "This paper proposes a learning-based quantum-classical Benders decomposition method for solving large-scale two-stage stochastic unit commitment (UC) problems. The approach integrates a long short-term memory (LSTM) network to approximate subproblem costs and a support vector machine (SVM) classifier to filter dominant Benders cuts, thereby reducing problem size, facilitating quantum computing implementation, and improving scalability. The master problem is reformulated into a quadratic unconstrained binary optimization (QUBO) problem, enabling its solution on quantum hardware. The key contributions are: (i) a quantum-classical decomposition framework tailored for stochastic UC, (ii) an LSTM-based subproblem proxy to facilitate iterations, (iii) an SVM-based cut filtering method to retain only dominant cuts, and (iv) a QUBO reformulation suitable for quantum solvers. Numerical experiments demonstrate that the proposed method significantly reduces computational overhead and quantum resource requirements compared with conventional approaches.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "learning-decode-parallel-self-coordinating-neural-network-51844",
+   "title": "Learning to Decode in Parallel: Self-Coordinating Neural Network for Real-Time Quantum Error Correction",
+   "titleZh": "并行自协调神经网络实现实时量子纠错解码",
+   "authors": [
+    "Kai Zhang",
+    "Zhengzhong Yi",
+    "Shaojun Guo",
+    "Linghang Kong",
+    "Situ Wang",
+    "Xiaoyu Zhan",
+    "He, Tan",
+    "W. W. Lin",
+    "Tao Jiang",
+    "Gao, Dongxin",
+    "Yiming Zhang",
+    "Fangming Liu",
+    "Fang Zhang",
+    "Zhengfeng Ji",
+    "F. Chen",
+    "Jianxin Chen"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.09921",
+   "doi": "10.48550/arxiv.2601.09921",
+   "url": "https://arxiv.org/abs/2601.09921",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-01:针对 AlphaQubit 等神经解码器精度高但串行推理慢的问题,提出自协调并行解码架构,把 SOTA 精度带入实时约束,是神经解码器工程化的关键一步。",
+   "abstract": "Fast, reliable decoders are pivotal components for enabling fault-tolerant quantum computation (FTQC). Neural network decoders like AlphaQubit have demonstrated potential, achieving higher accuracy than traditional human-designed decoding algorithms. However, existing implementations of neural network decoders lack the parallelism required to decode the syndrome stream generated by a superconducting logical qubit in real time. Moreover, integrating AlphaQubit with sliding window-based parallel decoding schemes presents non-trivial challenges: AlphaQubit is trained solely to output a single bit corresponding to the global logical correction for an entire memory experiment, rather than local physical corrections that can be easily integrated. We address this issue by training a recurrent, transformer-based neural network specifically tailored for parallel window decoding. While it still outputs a single bit, we derive training labels from a consistent set of local corrections and train on various types of decoding windows simultaneously. This approach enables the network to self-coordinate across neighboring windows, facilitating high-accuracy parallel decoding of arbitrarily long memory experiments. As a result, we overcome the throughput bottleneck that previously precluded the use of AlphaQubit-type decoders in FTQC. Our work presents the first scalable, neural-network-based parallel decoding framework that simultaneously achieves SOTA accuracy and the stringent throughput r",
    "source": "backfill",
    "domains": []
   },
@@ -9439,6 +9900,34 @@
    "domains": []
   },
   {
+   "id": "exploring-fpga-asic-design-space-belief-propagation-d5dec",
+   "title": "Exploring the FPGA and ASIC design space of belief propagation and ordered statistics decoders for quantum error correction codes",
+   "titleZh": "信念传播+有序统计解码的 FPGA/ASIC 设计空间探索",
+   "authors": [
+    "Daniel Báscones",
+    "Francisco García-Herrero",
+    "Javier Valls"
+   ],
+   "venue": "EPJ Quantum Technology",
+   "date": "2025-11-20",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1140/epjqt/s40507-025-00446-y",
+   "url": "https://doi.org/10.1140/epjqt/s40507-025-00446-y",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "EPJ Quantum Technology 2025:BP+OSD 是准通用解码器但 OSD 复杂度带来时序挑战;该文系统探索其 FPGA 与 ASIC 实现的设计空间,给出精度-延迟-资源的权衡曲线,是解码硬件化的重要工程文献。",
+   "abstract": "Abstract Belief propagation (BP) combined with ordered statistics decoding (OSD) offers a good balance between accuracy and complexity for many quantum error correction (QEC) codes, making it nearly a universal decoder. However, the complexity of OSD can impose timing constraints on real-time decoding for certain quantum technologies, such as superconducting qubits. Recent experiments have demonstrated that larger time budgets are available for the decoding process. Nevertheless, the limits of classical hardware decoder implementations have not been explored. Therefore, the code distance boundaries for different code families that real-time decoders may support remain unknown. For this reason, it is essential to evaluate the architecture of OSD and explore its limits for code families, such as bicycle bivariate codes and surface codes, under realistic assumptions like the detector error model. The findings from this analysis will benefit not only superconducting qubits but also any quantum technology, as improvements will be advantageous when quantum systems scale up. This paper introduces a BP+OSD parallel architecture implemented in both FPGA and ASIC for various surface codes with distances from 3 to 21 and bicycle bivariate codes ranging from distances 6 to 24. Results indicate that decoders for surface codes can fit into a single VCU129 FPGA up to distance 9, achieving a maximum frequency of 200 MHz and a worst-case latency of 134 \\(\\mu s\\) . For bicycle bivariate codes,",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "solving-vehicle-sharing-problems-grover-algorithm-3f66b",
    "title": "Solving Vehicle-Sharing Problems Using Grover Algorithm",
    "titleZh": "用 Grover 算法求解共享出行匹配问题",
@@ -9566,6 +10055,41 @@
    ]
   },
   {
+   "id": "hardware-efficient-bosonic-module-entangling-superconducting-quantum-dd6fe",
+   "title": "Hardware-Efficient Bosonic Module for Entangling Superconducting Quantum Processors via Optical Networks",
+   "titleZh": "经由光学链路纠缠超导量子处理器的硬件高效玻色模块",
+   "authors": [
+    "Jiayang Zou",
+    "Weizhou Cai",
+    "Jia-Qi Wang",
+    "Zhu, Zheng-Xu",
+    "Jie, Qing-Xuan",
+    "Xin‐Biao Xu",
+    "Weiting Wang",
+    "Guang‐Can Guo",
+    "Luyan Sun",
+    "Chang‐Ling Zou"
+   ],
+   "venue": "arXiv",
+   "date": "2025-11-13",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2511.10407",
+   "doi": "10.48550/arxiv.2511.10407",
+   "url": "https://arxiv.org/abs/2511.10407",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:提出硬件高效的玻色模块,让多台稀释制冷机内的超导处理器通过光学链路实现纠缠——突破单台制冷机的比特上限,是超导扩展的模块化路线。",
+   "abstract": "Scaling superconducting quantum processors beyond single dilution refrigerators requires efficient optical interconnects, yet integrating microwave-to-optical (M2O) transducers poses challenges due to frequency mismatches and qubit decoherence. We propose a modular architecture using SNAIL-based parametric coupling to interface Brillouin M2O transducers with long-lived 3D cavities, while maintaining plug-and-play compatibility. Through numerical simulations incorporating realistic noises, including laser heating, propagation losses, and detection inefficiency, we demonstrate raw entangled bit fidelities of F~0.8 at kHz-level rates over 30 km using the Duan-Lukin-Cirac-Zoller (DLCZ) protocol. Implementing asymmetric entanglement pumping tailored to amplitude damping errors, we achieve purified fidelities F~0.94 at 0.2 kHz rates. Our cavity-based approach outperforms transmon schemes, providing a practical pathway for distributed superconducting quantum computing.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-optimization-techniques-supply-chain-logistics-b85d5",
    "title": "Quantum Optimization Techniques for Supply Chain and Logistics",
    "titleZh": "供应链与物流的量子优化技术综述",
@@ -9596,6 +10120,42 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "microfabrication-8-qubit-processor-chip-trapped-ion-a652b",
+   "title": "Microfabrication of an 8-qubit processor chip for a trapped-ion quantum computer demonstrator",
+   "titleZh": "8 比特输运式离子阱处理器演示芯片的微加工",
+   "authors": [
+    "Nila Krishnakumar",
+    "F. J. Giebel",
+    "Eike Iseke",
+    "Konstantin Thronberens",
+    "Jacob Stupp",
+    "Nora D. Stahr",
+    "Rodrigo Munoz",
+    "Brigitte Kaune",
+    "Teresa Meiners",
+    "Ludwig Krinner",
+    "C. Ospelkaus"
+   ],
+   "venue": "Micro and Nano Engineering",
+   "date": "2025-11-11",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1016/j.mne.2025.100336",
+   "url": "https://doi.org/10.1016/j.mne.2025.100336",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Micro and Nano Engineering 2025:设计并加工 8 比特输运式(shuttling-based)离子阱处理器演示芯片,集成片上微波控制门操作,是欧洲离子阱硬件工程化的代表进展。",
+   "abstract": "Multilayer surface-electrode ion traps provide a scalable platform for quantum processors. In this paper we present a demonstrator chip designed to implement an 8-qubit shuttling-based quantum processor with chip-integrated microwave control for quantum gates. The design is based on a linear Paul trap geometry. All-to-all connectivity will be implemented through ion swapping. The production of the trap chip is carried out with multistep microfabrication. The 2-layer ion trap chip with two storage registers and an interaction zone has a size of 5 mm x 10 mm . Flexibility in signal routing is improved through the use of thick and planarised metal–dielectric layers. • Fabrication of multilayer asymmetric ion trap chip aiming to enable an 8-qubit quantum computer. • Brief insight into the linear trap chip design with quantum charged-coupled device architecture. • Wafer level multistep microfabrication procedure of the chip production. • Chip characterisation with respect to the target design features and trapping readiness.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "fault-tolerant-neutral-atom-architecture-universal-quantum-b3464",
@@ -16892,6 +17452,36 @@
    ],
    "summaryZh": "国内团队发表于 Chinese Physics B:用 GNN 与多任务学习设计 XZZX 表面码解码器,提升噪声偏置条件下的纠错表现,是神经网络解码器方向的中文团队代表性工作。",
    "abstract": "Abstract Quantum error correction is a technique that enhances a system’s ability to combat noise by encoding logical information into additional quantum bits, which plays a key role in building practical quantum computers. The XZZX surface code, with only one stabilizer generator on each face, demonstrates significant application potential under biased noise. However, the existing minimum weight perfect matching (MWPM) algorithm has high computational complexity and lacks flexibility in large-scale systems. Therefore, this paper proposes a decoding method that combines graph neural networks (GNN) with multi-classifiers, the syndrome is transformed into an undirected graph, and the features are aggregated by convolutional layers, providing a more efficient and accurate decoding strategy. In the experiments, we evaluated the performance of the XZZX code under different biased noise conditions (bias = 1, 20, 200) and different code distances (d = 3, 5, 7, 9, 11). The experimental results show that under low bias noise (bias = 1), the GNN decoder achieves a threshold of 0.18386, an improvement of approximately 19.12% compared to the MWPM decoder. Under high bias noise (bias = 200), the GNN decoder reaches a threshold of 0.40542, improving by approximately 20.76%, overcoming the limitations of the conventional decoder. They demonstrate that the GNN decoding method exhibits superior performance and has broad application potential in the error correction of XZZX code.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "efficient-universal-neural-network-decoder-stabilizer-based-2cc39",
+   "title": "Efficient and Universal Neural-Network Decoder for Stabilizer-Based Quantum Error Correction",
+   "titleZh": "GraphQEC:码无关的通用量子纠错解码框架",
+   "authors": [
+    "Gengyuan Hu",
+    "Wanli Ouyang",
+    "Chao‐Yang Lu",
+    "Lin Chen",
+    "Han-Sen Zhong"
+   ],
+   "venue": "arXiv",
+   "date": "2025-02-27",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2502.19971",
+   "doi": "10.48550/arxiv.2502.19971",
+   "url": "https://arxiv.org/abs/2502.19971",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:提出码无关的图表示解码框架 GraphQEC,一套流程适配多种纠错码(表面码/QLDPC 等),免却每换一个码重写解码器的工程负担。",
+   "abstract": "Scaling quantum computing to practical applications necessitates reliable quantum error correction. Although numerous correction codes have been proposed, the overall correction efficiency critically limited by the decode algorithms. We introduce GraphQEC, a code-agnostic decoder leveraging machine-learning on the graph structure of stabilizer codes with linear time complexity. GraphQEC demonstrates unprecedented accuracy and efficiency across all tested code families, including surface codes, color codes, and quantum low-density parity-check (QLDPC) codes. For instance, on a distance-12 QLDPC code, GraphQEC achieves a logical error rate of $9.55 \\times 10^{-5}$, an 18-fold improvement over the previous best specialized decoder's $1.74 \\times 10^{-3}$ under $p=0.005$ physical error rates, while maintaining $157μ$s/cycle decoding speed. Our approach represents the first universal solution for real-time quantum error correction across arbitrary stabilizer codes.",
    "source": "backfill",
    "domains": []
   },
