@@ -211,6 +211,13 @@
       <description>QAOA 直接求解 $m$ 个二元变量的组合优化问题需要 $m$ 个量子比特和足以铺开问题图连通性的深电路，这是 NISQ 硬件难以承受的。Pauli 关联编码（Pauli Correlation Encoding, PCE） 是近两年 IBM 生态主推的破局思路（IBM Quantum 已提供官方 Qiskit 教程，衍生工作覆盖预算约束割、机组组合调度等）：把 $m$ 个二元变量编进 $k$-体 Pauli 关联子的符号里，只需 $n=O(m^{1/k})$ 个量子比特，再以参数化电路在&quot;锐度为 $\alp…</description>
     </item>
     <item>
+      <title>[论文] Qanela:跨平台可移植量子汇编语言框架提案</title>
+      <link>https://raymond0812-yylm.github.io/papers/qanela-framework-proposal-designing-portable-quantum-assembly-b36cb/</link>
+      <guid isPermaLink="false">p:qanela-framework-proposal-designing-portable-quantum-assembly-b36cb</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
+      <description>arXiv 2026-10:针对各量子平台指令集、门实现与物理约束各异导致的可移植性难题,提出跨平台可移植量子汇编语言框架 Qanela,是量子软件生态的基础设施提案。</description>
+    </item>
+    <item>
       <title>[论文] EPOCH：面向 LLM 自动启发式设计的覆盖感知进化与经验偏好优化</title>
       <link>https://raymond0812-yylm.github.io/papers/epoch-coverage-aware-evolution-experiential-preference-optimization-1b576/</link>
       <guid isPermaLink="false">p:epoch-coverage-aware-evolution-experiential-preference-optimization-1b576</guid>
@@ -272,6 +279,13 @@
       <guid isPermaLink="false">p:competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560</guid>
       <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
       <description>### 一、论文基本信息</description>
+    </item>
+    <item>
+      <title>[论文] 我们在测错误的量子 Bug 吗?量子软件工程中的故障表示差距研究</title>
+      <link>https://raymond0812-yylm.github.io/papers/are-we-testing-wrong-quantum-bugs-study-fc8f1/</link>
+      <guid isPermaLink="false">p:are-we-testing-wrong-quantum-bugs-study-fc8f1</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>arXiv 2026-10:系统研究量子软件编译器、中间表示与执行框架中的**故障表示差距**——既有测试技术漏掉了哪些真实故障;量子软件测试方向的奠基性实证研究。</description>
     </item>
     <item>
       <title>[动态] 合肥量子产业链企业超 100 家、营收规模超 60 亿元：本源悟空被 192 个国家地区访问约 5600 万次，国盾量子密话用户破 600 万</title>
@@ -412,20 +426,6 @@
       <guid isPermaLink="false">n:2026-10-13:4</guid>
       <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
       <description>北京市科委与中关村管委会联合发布通知，开展北京地区 2026 年前沿新兴技术科普作品（量子科技方向）推荐工作，要求作品紧扣&quot;前沿量子科技&quot;主题、聚焦量子通信、量子计算、量子精密测量三大科研方向及其应用场景，内容科学准确并兼具通俗性，经遴选后择优向科技日报社组织的全国性征集评选活动推荐。这是地方科技管理部门在量子科技公众传播与人才储备侧的最新部署，与北京建设量子科技创新高地的产业政策形成配套。</description>
-    </item>
-    <item>
-      <title>[动态] DARPA 量子基准计划（QBI）最终阶段新增四支团队：Atom Computing、Diraq、IBM、IonQ 进入 Stage C，剑指 2033 年前效用级量子计算</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-13/#n3</link>
-      <guid isPermaLink="false">n:2026-10-13:3</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>DARPA 宣布 Atom Computing、Diraq、IBM、IonQ 四家机构通过独立验证、进入量子基准计划（QBI）最后阶段 Stage C——该阶段将对各家路线做严格的第三方效用评估，判定量子计算能否在 2033 年前以更快或更省的方式解决有真实价值的问题；QBI 董事总经理 Micah Stoutimore 表示&quot;我们越来越确信有人会在 2033 年前造出效用级量子计算机&quot;。其中 IonQ 披露其 Stage C 协议金额最高可达 3 亿美元。加上此前已入围的团队，美国&quot;政府背书的效用级量子军备赛&quot;进入决赛圈，验收标准从比特数转向真实问题上的性价比。</description>
-    </item>
-    <item>
-      <title>[动态] WISeSat.Space 为卫星通信开发现代后量子安全：SEALSQ 注资千万美元推进 PQC 芯片上星，迈向百星组网</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-13/#n2</link>
-      <guid isPermaLink="false">n:2026-10-13:2</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>卫星物联网公司 WISeSat.Space（10 月初已在纳斯达克独立上市，代码 SAIQ）宣布为卫星通信开发后量子密码安全方案：其皮卫星（picosatellite）平台为低功耗物联网传感提供端到端 PQC 加密连接，正朝 100 颗卫星星座扩展。合作方 SEALSQ 于 10 月上旬领投 1,000 万美元 PIPE 投资，并负责将其 PQC 芯片部署到新一代卫星——继 3 月双方发布首个商业化&quot;量子空间轨道云&quot;之后，&quot;抗量子卫星物联网&quot;从概念进入工程部署阶段，长期指向航天基础设施的量子安全升级。</description>
     </item>
   </channel>
 </rss>

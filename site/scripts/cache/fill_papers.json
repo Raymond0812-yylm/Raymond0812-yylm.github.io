@@ -60262,5 +60262,1104 @@
   "doi": "10.48550/arxiv.2606.03922",
   "citations": 0,
   "theme": "neutral atom array continuous loading lo"
+ },
+ {
+  "fid": "a1db6683b80c",
+  "title": "Qanela: A framework proposal for designing portable quantum assembly languages across different quantum computing platforms",
+  "authors": [
+   "Isaac Vargas-Chacón",
+   "Johan Carvajal-Godínez",
+   "Ernesto Rivera-Alvarado"
+  ],
+  "abstract": "The diversity of quantum hardware platforms creates significant algorithm portability challenges, with each platform employing distinct instruction sets, gate implementations, and physical constraints that hinder software reusability. This paper presents a framework for designing portable quantum assembly languages enabling seamless cross-platform execution. Through systematic profiling of Shor’s, Grover’s, and QAOA algorithms on IBM Qiskit, Microsoft Q#, and Google Cirq — 3,216 executions of identical, reference-validated logical circuits — we identify key portability challenges and derive empirically grounded design criteria from execution-pattern analysis. With matched workloads, cross-platform circuit-depth divergence is 1.3–1.6× where no gate decomposition is required and rises to 94.8× under multi-controlled decomposition pressure, of which 3.36× is genuine same-level synthesis divergence and the remainder an abstraction-level measurement gap; optimization semantics, topology expressibility, and quantum–classical execution contracts diverge analogously. The framework balances hardware abstraction with performance optimization through declared abstraction levels, topology-aware compilation, optimization profiles with defined semantics, and a universal gate set with platform-specific decomposition. Prototype validation demonstrates 100% automated compilation of unmodified single-source programs across 30 platform configurations, with all 90 executions passing calibrated distributional acceptance gates and exact statevector fidelity of 1.000000 against the language’s reference semantics, providing feasibility evidence for vendor-independent quantum software development.",
+  "date": "2026-10-16",
+  "venue": "Revista Tecnología en Marcha",
+  "arxiv_id": "",
+  "doi": "10.18845/tm.v39i4.8384",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "695dc2d93b70",
+  "title": "Evaluation of portability and performance of an OpenMP5 offloaded Quantum-Inspired Evolutionary Optimization Across the GPU Ecosystem",
+  "authors": [
+   "Kasturi Venkata Srikanth",
+   "Ashish Singh",
+   "Ferdin Sagai Don Bosco",
+   "Aman Mittal",
+   "Abhishek Singh",
+   "Aditya Singh",
+   "Abhishek Chopra"
+  ],
+  "abstract": "Quantum-inspired evolutionary optimization (QIEO) is a new class of population-based metaheuristic optimization algorithms which represents design variables as a set of qubits and searches a continuous, multi-dimensional landscape through rotation of the qubit's amplitude pair. Every generation rotates those amplitudes toward a single elite, which corresponds to that generation's best. The per-generation cost scales as $O(N_p N_g)$ for $N_p$ chromosomes and $N_g$ genes (decision variables). Production use of such solvers is rarely confined to a single machine class. Prototypes are run on laboratory servers- before moving to rented cloud workstations for more involved campaigns. The largest problems are reserved for leadership-class accelerators. This paper asks whether a \\emph{single} OpenMP~5 source of QIEO, offloaded with \\texttt{\\#pragma omp target}, is a viable production path in each of those settings. We report three independent, campaigns of the 0/1 knapsack problem against a same-source multi-core Intel CPU baseline. The study comprises approximately 3,000 runs spanning varying chromosome and gene counts, evaluated using both chromosome-level and gene-level offload strategies on the NVIDIA Tesla V100 SXM2, NVIDIA A100 80GB, and AMD Instinct MI300X GPUs. Deployment-specific nuances such as Volta's constant-memory cliffs, Ampere's L2 persistence and \\texttt{cp.async}, CDNA~3's Infinity Cache and XCD occupancy are addressed to ensure high performance of these platforms. Results reveal gene-parallel offload achieved geometric-mean speedups of 90$\\times$, 136$\\times$, and 155$\\times$ over a single CPU core on the V100, A100, and MI300X, respectively, and 12$\\times$, 17$\\times$, and 16.6$\\times$ over 72 host threads. Furthermore DetermineElite, the $O(N_p)$ selection of the generation-best chromosome, is found to be better suited to the host than to the device.",
+  "date": "2026-09-25",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.30862",
+  "doi": "10.48550/arxiv.2609.30862",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "c035b1b7de91",
+  "title": "USE OF GENETIC ALGORITHMS IN ADAPTIVE COMPILERS FOR CROSS-PLATFORM OPTIMIZATION",
+  "authors": [
+   "M. G. Berdnyk",
+   "Ігор СТАРОДУБСЬКИЙ"
+  ],
+  "abstract": "Context. Modern software is developed under conditions of continuously increasing complexity of computing systems. Today, developers must consider a vast diversity of platforms, ranging from resource-constrained mobile devices to servers with highperformance processors and specialized architectures such as GPUs, FPGAs and even quantum computers. This heterogeneity requires software to operate efficiently across various hardware platforms. However, portability remains one of the most challenging tasks, especially when high performance is required. One of the promising directions to address this problem is the use of adaptive compilers that can automatically optimize code for different architectures. This approach allows developers to focus on the functional part of the software, minimizing the effort spent on optimization and configuration. Genetic algorithms (GAs) play a special role among the methods used to create adaptive compilers. These are powerful evolutionary techniques that allow finding optimal solutions in complex and multidimensional parameter spaces.Objective. The objective of this research is to apply genetic algorithms in the process of adaptive compilation to enable automatic optimization of software across different hardware platforms.Method. The approach is based on genetic algorithms to automate the compilation process. The key stages include: population initialization – creation of an initial set of compilation parameters; fitness function evaluation – assessment of the efficiency of each parameter combination; evolutionary operations – applying crossover, mutation and selection to generate the next generation of parameters; termination criteria – stopping the iterative process upon reaching an optimal result or stabilization of metrics.Results. The developed algorithm was implemented in Python using the numpy, multiprocessing and subprocess libraries.Performance evaluation of the algorithm was carried out using execution time, energy consumption and memory usage metrics.Conclusions. The scientific novelty of the study lies in the development of: an innovative approach to automatic compilation parameter optimization based on genetic algorithms; a method for dynamic selection of optimization strategies based on performance metrics for different architectures; integration of GAs with modern compilers such as LLVM for automatic analysis of intermediate representation and code optimization; and methods for applying adaptive compilers to sol",
+  "date": "2025-12-24",
+  "venue": "Radio Electronics Computer Science Control",
+  "arxiv_id": "",
+  "doi": "10.15588/1607-3274-2025-4-16",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "f498bac8cfc7",
+  "title": "Search-Based Quantum Program Testing via Commuting Pauli String",
+  "authors": [
+   "Asmar Muqeet",
+   "Shaukat Ali",
+   "Paolo Arcaini"
+  ],
+  "abstract": "Quantum software testing is important for reliable quantum software engineering. Despite recent advances, existing quantum software testing approaches rely on simple test inputs and statistical oracles, costly program specifications, and limited validation on real quantum computers. To address these challenges, we propose SB-QOPS, a search-based quantum program testing approach via commuting Pauli strings. SB-QOPS, as a direct extension to a previously proposed QOPS approach, redefines test cases in terms of Pauli strings and introduces a measurement-centric oracle that exploits their commutation properties, enabling effective testing of quantum programs while reducing the need for full program specifications. By systematically exploring the search space through an expectation-value-based fitness function, SB-QOPS improves test budget utilization and increases the likelihood of uncovering subtle faults. We conduct a large-scale empirical evaluation on quantum circuits of up to 29 qubits on real quantum computers and emulators. We assess three search strategies: Genetic Algorithm, Hill Climbing, and the (1+1) Evolutionary Algorithm, and evaluate SB-QOPS under both simulated and real noisy conditions. Experiments span three quantum computing platforms: IBM, IQM, and Quantinuum. Results show that SB-QOPS significantly outperforms QOPS, achieving a fault-detection score of 100% for circuits up to 29 qubits, and demonstrating portability across quantum platforms.",
+  "date": "2026-02-12",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2602.11487",
+  "doi": "10.48550/arxiv.2602.11487",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "ecdc687d697d",
+  "title": "Tensor computing application programming interface: An application-oriented, lightweight API for portable high-performance tensor network computations",
+  "authors": [
+   "Rong-Yang Sun",
+   "Tomonori Shirakawa",
+   "Hidehiko Kohshiro",
+   "D. N. Sheng",
+   "Seiji Yunoki"
+  ],
+  "abstract": "Tensor networks (TNs) are a central computational tool in quantum science and artificial intelligence. However, the lack of a unified software interface across tensor-computing frameworks severely limits the portability of TN applications, coupling algorithmic development to specific hardware and software back ends. To address this challenge, we introduce the Tensor Computing Application Programming Interface (TCAPI)---an application-oriented, lightweight API designed to enable framework-independent, high-performance TN applications, currently specified for \\texttt{C++} and \\texttt{Python}. TCAPI provides well-defined type-system conventions that abstract tensor objects, together with a minimal yet expressive set of core functions for essential tensor manipulations and tensor linear-algebra operations, with operation semantics shared across language specifications. Through numerical demonstrations of representative tensor-network applications implemented in \\texttt{C++} using TCAPI, we show that code written against TCAPI can be migrated seamlessly across heterogeneous hardware and software platforms while achieving performance comparable to native framework implementations. We further provide open-source implementations of TCAPI based on \\textit{Cytnx} and \\textit{ITensor} in \\texttt{C++}, and on \\textit{NumPy} in \\texttt{Python}, demonstrating its practicality and ease of integration with existing tensor-computing frameworks.",
+  "date": "2026-10-16",
+  "venue": "APS Open Science",
+  "arxiv_id": "",
+  "doi": "10.1103/dmx5-95ny",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "58039451dbd4",
+  "title": "Nano-enabled fluorescent sensing platforms for on-site detection of pesticides in food",
+  "authors": [
+   "Nanjun Wang",
+   "Lisheng Zhu",
+   "Ruiyun Zhou",
+   "Zhe Feng",
+   "Yuanchao Lu"
+  ],
+  "abstract": "Pesticide residues in food matrices pose significant threats to global food safety. Conventional chromatographic methods, though highly reliable, are constrained by high costs, lengthy analysis times, and limited field deployability, restricting their use for rapid on-site monitoring across food supply chains. Nanomaterial-based fluorescent sensing platforms have emerged as promising analytical alternatives, leveraging the unique optical properties of quantum dots (QDs), carbon dots (CDs), Graphene quantum dots (GQDs), metal-organic frameworks (MOFs), and metal nanoclusters (MNCs). This review systematically examines recent advances in these platforms for pesticide detection, with particular emphasis on analytical chemistry perspectives spanning recognition mechanism design, signal transduction, and practical performance in complex food matrices. The structure-property relationships of major pesticide classes and their implications for molecular recognition are first discussed, followed by a systematic analysis of fluorescence modulation mechanisms, including photoinduced electron transfer (PET), Förster resonance energy transfer (FRET), inner filter effect (IFE), and aggregation-induced emission (AIE). Nanomaterial design strategies are further evaluated with respect to synthesis reproducibility, surface functionalization, and batch-to-batch consistency. The integration of artificial intelligence (AI) algorithms for automated signal processing and multi-analyte discrimination is highlighted as a promising approach for improving analytical robustness and quantitative accuracy. Recent advances in device engineering-including smartphone-based sensing platforms, paper-based microfluidic systems, and lateral flow immunoassay (LFIA)-are reviewed with respect to their potential for portable and field-deployable pesticide monitoring in complex food matrices. Finally, key challenges related to matrix interference, large-scale material production, and regulatory validation are discussed, with future directions emphasizing green nanomaterial synthesis, intelligent sensing architectures, and scalable analytical platforms to support distributed food safety monitoring networks.",
+  "date": "2026-07-27",
+  "venue": "Talanta",
+  "arxiv_id": "",
+  "doi": "10.1016/j.talanta.2026.130340",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "f3d0eb0d634c",
+  "title": "Intelligent Tetracycline Sensing With Carbon Quantum Dots: From Photophysical Engineering to Machine Learning‐Enhanced Detection",
+  "authors": [
+   "Mohamed Abu Shuheil",
+   "Rasha Eldalawy",
+   "Irwanjot Kaur",
+   "Ahmed Aldulaimi",
+   "Nada Othman Kattab",
+   "Kamal Kishore Thakur",
+   "Khushnud Azizjanov",
+   "Mukhammadali Buriev",
+   "Ahmad Amiri"
+  ],
+  "abstract": "ABSTRACT The proliferation of tetracycline antibiotics (TCs) in environmental and food matrices necessitates rapid, selective, and field‐deployable analytical methods. Carbon quantum dots (CQDs) have emerged as promising fluorescent nanomaterials for tetracycline (TC) sensing; yet translating laboratory prototypes into intelligent, real‐world platforms remains challenging. This review systematically examines the evolution from materials design to data‐driven detection strategies. We first analyze photophysical engineering approaches, including surface functionalization, heteroatom doping, and bandgap tuning, that govern CQD optical properties and analyte recognition mechanisms. Particular attention is given to selectivity‐enhancing interactions, including hydrogen bonding, electrostatic attraction, metal‐ion‐mediated coordination, molecular imprinting, and fluorescence modulation pathways such as photoinduced electron transfer and inner filter effects that enable discrimination of tetracyclines from competing species. Critical evaluation of analytical performance metrics reveals persistent challenges in matrix interference management and cross‐reactivity mitigation. Across the reviewed studies, CQD‐based sensing platforms have achieved limits of detection ranging from 0.28 nM to 0.158 μM, with linear dynamic ranges extending from the nanomolar domain to as high as 500 μM, depending on sensor architecture, transduction mechanism, and sample matrix. Recent integration of machine learning algorithms, including artificial neural networks, support vector machines, and principal component analysis, has demonstrated enhanced selectivity, interference discrimination, and multianalyte classification capabilities. We further assess emerging portable platforms, including smartphone‐integrated devices and paper‐based sensors, highlighting the synergy between miniaturization and computational intelligence. Translational barriers, including batch‐to‐batch reproducibility, regulatory validation, calibration transferability, and algorithm generalizability, are critically discussed. This review provides a roadmap for developing next‐generation intelligent sensing systems that bridge fundamental nanomaterial science, chemometric validation, artificial intelligence, and practical deployment in environmental monitoring, food safety surveillance, and resource‐limited settings.",
+  "date": "2026-07-01",
+  "venue": "Engineering Reports",
+  "arxiv_id": "",
+  "doi": "10.1002/eng2.70933",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "b4da74b67f6d",
+  "title": "On the Design, Security, and Implementation of the HAWK Digital Signature Scheme",
+  "authors": [
+   "Aaditya Rengarajan",
+   "Eileen Xu",
+   "Kerry Huang",
+   "Navdeep Mugathihalli Kumaregowda",
+   "Delaram Kahrobaei"
+  ],
+  "abstract": "This paper presents a consolidated and technically precise analysis of the HAWK digital signature scheme, focusing on the relationship between its mathematical foundations, security reductions, and implementation details. HAWK is built upon the Lattice Isomorphism Problem (LIP), specifically its rank-two short modular variant (smLIP), and employs structured algebraic techniques to achieve both security and efficiency. Our analysis up to Section 3 of the specification focuses on the mathematical foundations, algorithmic design, and encoding mechanisms that enable HAWK to deliver compact and fast signatures.We first explore the background concepts of lattices, number fields, and discrete distributions that form the cryptographic base of HAWK. The scheme operates over cyclotomic rings using integer arithmetic exclusively, ensuring deterministic and constant-time behavior across platforms. We then describe the key generation, signing, and verification algorithms in detail, emphasizing how HAWK constructs short lattice vectors through Gaussian sampling and norm-bounded computations. The design’s avoidance of floating-point operations enhances portability and side-channel resistance, while its modular structure supports efficient implementation on both high-performance and embedded systems.Through this study, we highlight HAWK’s strengths in speed, compactness, and theoretical soundness, as well as its reliance on emerging hardness assumptions like smLIP and omSVP. The insights gained establish a clear understanding of HAWK’s specification and underline its potential as a strong candidate for secure and practical post-quantum digital signatures.",
+  "date": "2025-12-15",
+  "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "9c7841cbd688",
+  "title": "Innovation Technologies for the Financial Sector: An Integrative Review of Value Creation, Market Redesign, and Governance Challenges",
+  "authors": [
+   "Heba",
+   "Fadi"
+  ],
+  "abstract": "Financial innovation has evolved from the digitization of individual services to the redesign of financial infrastructures, organisational boundaries and market relationships. This review brings together recent evidence across five key areas of AI and advanced analytics, blockchain and distributed ledgers, open banking and application programming interfaces, central bank digital currencies, platform-based finance and digitally enabled sustainable finance. Journal articles from 2020-2025 that were published in peer-reviewed journals were subjected to a structured integrative review. The final evidence base consists of 24 studies that were chosen for being topical, clear in terms of methodology, and published in a scholarly journal. All articles were coded by technology domain, the financial function, research design, principal value mechanism, and the predominant risk. The synthesis illustrates how the four foundational mechanisms of innovation—information friction reduction, verification and execution automation, financial services availability expansion, and programmable or data-portable financial market architectures—can generate value. But second order risks are also created, including algorithmic opacity, privacy externalities, platform concentration, cyber dependency, regulatory fragmentation, and new channels of liquidity or systemic stress. While strong evidence exists for blockchain, digital money and open banking, the organizational studies of generative AI, embedded finance, PFTs and quantum-ready financial infrastructure are still in their infancy. The Review builds a governance-based framework on which the financial outcome depends on a combination of technological capability, institutional design, and market structure. It ends with a research agenda focused upon causal evaluation, cross-jurisdictional comparison, resilience metrics and human accountability in increasingly autonomous financial systems",
+  "date": "2026-01-01",
+  "venue": "Financial Technology and Innovation",
+  "arxiv_id": "",
+  "doi": "10.54216/fintech-i.060103",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "4a87364486ca",
+  "title": "Art and Media Symbiosis",
+  "authors": [
+   "Kenneth King"
+  ],
+  "abstract": "Whatever the future of AI, the symbiosis between media is guaranteed to broker unprecedented breakthroughs in art and consciousness. A too familiar sight in restaurants or at dinner tables—smart phones next to the silverware if not in hand. Screens have become our new umbilical. Art and sociality continue to confront the compulsivity of the digital Rubicon. Broadcast mania and online obsessions accelerate as institutions undergo high-stakes crises challenging political stability and interpersonal relations. Though technology may be all consuming, art initiates breakthroughs in perception and cognition. Internet and social media have increased symbiotic co-dependence, enabling artists to bypass gatekeepers, agents, and critics to access and produce enormous ranges of genres and styles, as well as for disseminating programs and artwork.In biology, a symbiotic relationship occurs when one species piggybacks on or with another: domesticated pets and animals are ready examples. A symbiont can also be a parasite, microbe, or pathogen, not unrelated to how rampant misinformation and viral disinformation invade psyches and infect the mass media. Just as the human body can be a host for invisible bacteria, the metastases of power politics, divisive ideologies, and rabid conspiracies also operate like infectious symbionts. Being inter-species, symbiosis exists not only throughout the natural and animal kingdoms but also across digital domains. Technology and media have turned us into symbiotized creatures; art, too, can function as a parasite—or “para-sight”—moving eye, ear, and brain beyond everyday perception.Art and technology were wedded from the get-go. The decade before Louis Daguerre invented the daguerreotype, the first camera, in 1839, his elaborate theatrical dioramas of mobile painted scenery set in motion a fascination with moving pictures. Samuel Morse was a portrait painter and anatomy artist before inventing the telegraph a few years earlier, which compressed messages into binary coded signals and converted them into streaming electrons transmitted by an electrical current—the digital pulse. Morse met Daguerre in Paris that seminal year, became fascinated with his new invention and wrote a letter to the New York Observer describing it. Published widely, Morse quickly helped publicize photography. Two centuries later technology continues to produce a vast spectrum of mimetic currencies—the flora and fauna of the WWW—catalyzing instantaneous transferenc",
+  "date": "2024-09-01",
+  "venue": "PAJ A Journal of Performance and Art",
+  "arxiv_id": "",
+  "doi": "10.1162/pajj_a_00740",
+  "citations": 0,
+  "theme": "quantum algorithm portability across pla"
+ },
+ {
+  "fid": "987aef3eae2c",
+  "title": "Benchmarking Error Mitigation: Artefactual Improvements in Zero-Noise Extrapolation",
+  "authors": [
+   "Dominik Köster",
+   "Wolfgang Mauerer"
+  ],
+  "abstract": "Reliable benchmarking of Quantum Error Mitigation (QEM) requires distinguishing genuine improvements from artefacts of the post-processing arithmetic. In this paper, we expose a failure mode in Richardson Zero-Noise Extrapolation (ZNE), a widely used technique routinely (and often implicitly) relied upon in benchmarks and experiments. When noise amplification operates beyond usable signals - a regime that is quickly reached on current hardware for non-trivial circuits - we show that the extrapolation no longer reflects the underlying physics, but collapses into a fixed rescaling of a single noisy measurement, producing a bogus apparent improvement that is independent of noise amplification. This poses a rarely considered threat to the validity of many empirical evaluations in quantum computing. Measurements on real hardware (IQM Euro-Q-Exa) confirm this collapse with ordinary folding alone: as circuit depth erodes the signal, the reported estimate decouples from the truth and overshoots the ideal by up to 21%. We further introduce a matched-cost \"garbage-folding\" negative control that carries no usable signal yet reports a larger apparent improvement than genuine folding - showing that the magnitude of an improvement is not evidence of its correctness - alongside a zero-cost check flagging the artefact from data a benchmark already holds. We distil both into a short reporting checklist for ZNE benchmarks.",
+  "date": "2026-07-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.09360",
+  "doi": "10.48550/arxiv.2607.09360",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "2a54ba5b5208",
+  "title": "Increasing the Measured Effective Quantum Volume with Zero Noise Extrapolation",
+  "authors": [
+   "Elijah Pelofske",
+   "Vincent Russo",
+   "Ryan LaRose",
+   "Andrea Mari",
+   "Dan Strano",
+   "Andreas Bärtschi",
+   "Stephan Eidenbenz",
+   "William J. Zeng"
+  ],
+  "abstract": "Quantum volume is a full-stack benchmark for near-term quantum computers. It quantifies the largest size of a square circuit which can be executed on the target device with reasonable fidelity. Error mitigation is a set of techniques intended to remove the effects of noise present in the computation of noisy quantum computers when computing an expectation value of interest. Effective quantum volume is a proposed metric that applies error mitigation to the quantum volume protocol to evaluate the effectiveness not only of the target device but also of the error mitigation algorithm. Digital zero-noise extrapolation is an error mitigation technique that estimates the noiseless expectation value using circuit folding to amplify errors by known scale factors and then extrapolating computed expectation values to the zero-noise limit. Here we demonstrate that zero-noise extrapolation, with global and local unitary folding with fractional scale factors, in conjunction with dynamical decoupling, can increase the effective quantum volume over the vendor-measured quantum volume. Specifically, we measure the effective quantum volume of four IBM Quantum superconducting processor units, obtaining values that are larger than the vendor-measured quantum volume on each device. This is the first such increase reported.",
+  "date": "2024-07-30",
+  "venue": "ACM Transactions on Quantum Computing",
+  "arxiv_id": "",
+  "doi": "10.1145/3680290",
+  "citations": 6,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "4ee5f23f25ca",
+  "title": "Improving Zero-Noise Extrapolation via Physically Bounded Models",
+  "authors": [
+   "Andriy V. Miranskyy",
+   "Adam Sorrenti",
+   "Jasmine Thind",
+   "Claude Gravel"
+  ],
+  "abstract": "Zero-noise extrapolation (ZNE) mitigates errors in near-term quantum devices by extrapolating measurements obtained at amplified noise levels to estimate noise-free expectation values. In practice, commonly used extrapolation models are fitted without enforcing physical constraints, which can yield predictions outside the valid range of quantum observables. In this work, we introduce physically bounded variants of polynomial, exponential, and polynomial--exponential extrapolation models by explicitly parameterizing the zero-noise estimate and constraining it during optimization. We evaluate the approach using a large synthetic benchmark comprising 180,000 circuits and approximately 3.6 million ZNE experiments generated under realistic device noise models derived from IBM quantum backends. We also perform preliminary validation on real quantum hardware using GHZ and W-state circuits. Across the synthetic benchmark, bounded extrapolation substantially reduces unphysical predictions and improves the stability of exponential- and polynomial--exponential-family models, whereas polynomial models show little difference between bounded and unbounded variants. Hardware experiments show similar qualitative behaviour: bounded models generally avoid pathological extrapolations and often provide a more reliable balance between accuracy and usable coverage. At the same time, the results highlight practical limitations of current devices, including stronger-than-expected noise effects and variability not fully captured by simulation models. These results suggest that enforcing physical constraints during extrapolation improves the reliability of ZNE and that this approach can be incorporated into existing workflows with minimal modification.",
+  "date": "2026-04-27",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.24475",
+  "doi": "10.48550/arxiv.2604.24475",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "047b4709a8f7",
+  "title": "Application of zero-noise-extrapolation-based quantum error mitigation to a silicon spin qubit",
+  "authors": [
+   "Hanseo Sohn",
+   "Jaewon Jung",
+   "Jaemin Park",
+   "Hyeongyu Jang",
+   "Lucas E. A. Stehouwer",
+   "Davide Degli Esposti",
+   "Giordano Scappucci",
+   "Dohun Kim"
+  ],
+  "abstract": "As quantum computing advances towards practical applications, reducing errors remains a crucial frontier for developing near-term devices. Errors in the quantum gates and quantum state readout could result in noisy circuits, which would prevent the acquisition of the exact expectation values of the observables. Although ultimate robustness to errors is known to be achievable by quantum error correction-based fault-tolerant quantum computing, its successful implementation demands large-scale quantum processors with low average error rates that are not yet widely available. In contrast, quantum error mitigation (QEM) offers more immediate and practical techniques, which do not require extensive resources and can be readily applied to existing quantum devices to improve the accuracy of the expectation values. Here, we report the implementation of a zero-noise extrapolation-based error mitigation technique on a silicon spin qubit platform. This technique has recently been successfully demonstrated for other platforms such as superconducting qubits, trapped-ion qubits, and photonic processors. We first explore three methods for amplifying noise on a silicon spin qubit: global folding, local folding, and pulse stretching, using a standard randomized benchmarking protocol. We then apply global folding-based zero-noise extrapolation to the state tomography and achieve a state fidelity of 99.96% (98.52%), compared to the unmitigated fidelity of 75.82% (82.16%) for different preparation states. The results show that the zero-noise extrapolation technique is a versatile approach that is generally adaptable to quantum computing platforms with different noise characteristics through appropriate noise amplification methods.",
+  "date": "2025-05-13",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/925y-b4s1",
+  "citations": 6,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "c49a905ee5ed",
+  "title": "A useful metric for the NISQ era: Qubit error probability and its role in zero noise extrapolation",
+  "authors": [
+   "Nahual Sobrino",
+   "Unai Aseginolaza",
+   "Joaquim Jornet-Somoza",
+   "J. Borge"
+  ],
+  "abstract": "Accurate assessment and management of errors is indispensable for extracting useful results from noisy intermediate-scale quantum devices. In this work, we propose the qubit error probability (QEP), a device specific metric that combines relaxation, dephasing, gate, and measurement contributions into a single per qubit figure of merit computable before execution. Leveraging QEP as the control variable, we revisit zero noise extrapolation (ZNE) by adding pairs of controlled native two-qubit gates on all connected qubit pairs to generate circuits with successively larger mean QEP; the zero error limit is then approximated by a linear regression of the measured observable against those values. Benchmarking on IBM Quantum Heron processors, we apply QEP guided ZNE to first order Trotterized simulations of the two dimensional transverse field Ising model, chosen as a representative interacting many body system, involving up to 68 qubits and 15 Trotter steps. In regimes where the raw circuits exhibit a finite mean QEP, the method suppresses observable errors beyond those attainable with circuit depth scaled ZNE, while requiring only three noise scaled evaluations and no additional classical post processing. These results demonstrate that QEP serves as a transparent and efficient error metric and that its integration into ZNE provides a practical route to reliability gains on current superconducting hardware, without the resource costs associated with full quantum error correction.",
+  "date": "2026-02-13",
+  "venue": "AVS Quantum Science",
+  "arxiv_id": "",
+  "doi": "10.1116/5.0287324",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "000c6c69d0d7",
+  "title": "Enhancing Zero-Shot Time Series Forecasting in Off-the-Shelf LLMs via Noise Injection",
+  "authors": [
+   "Xingyou Yin",
+   "Ceyao Zhang",
+   "Min Hu",
+   "Kai Chen"
+  ],
+  "abstract": "Large Language Models (LLMs) have demonstrated effectiveness as zero-shot time series (TS) forecasters. The key challenge lies in tokenizing TS data into textual representations that align with LLMs' pre-trained knowledge. While existing work often relies on fine-tuning specialized modules to bridge this gap, a distinct, yet challenging, paradigm aims to leverage truly off-the-shelf LLMs without any fine-tuning whatsoever, relying solely on strategic tokenization of numerical sequences. The performance of these fully frozen models is acutely sensitive to the textual representation of the input data, as their parameters cannot adapt to distribution shifts. In this paper, we introduce a simple yet highly effective strategy to overcome this brittleness: injecting noise into the raw time series before tokenization. This non-invasive intervention acts as a form of inference-time augmentation, compelling the frozen LLM to extrapolate based on robust underlying temporal patterns rather than superficial numerical artifacts. We theoretically analyze this phenomenon and empirically validate its effectiveness across diverse benchmarks. Notably, to fully eliminate potential biases from data contamination during LLM pre-training, we introduce two novel TS datasets that fall outside all utilized LLMs' pre-training scopes, and consistently observe improved performance. This study provides a further step in directly leveraging off-the-shelf LLMs for time series forecasting.",
+  "date": "2025-12-23",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.20140",
+  "doi": "10.48550/arxiv.2512.20140",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "c836acac7504",
+  "title": "Reducing Quantum Error Mitigation Bias Using Verifiable Benchmark Circuits",
+  "authors": [
+   "Joseph Harris",
+   "Kevin Lively",
+   "Peter Schuhmacher"
+  ],
+  "abstract": "We present a simple, malleable and low-overhead approach for improving generic biased quantum error mitigation (QEM) methods, achieving up to 15% fidelity improvements over standard QEM on 100-qubit circuits with up to 2000 entangling gates. We do so by constructing verifiable benchmark circuits which mirror the application circuit's native-gate structure and thus noise profile. These circuits can be used to benchmark and mitigate the bias of the underlying error mitigation method, requiring only the application circuit and hardware native gate set. We present two methods for generating benchmark circuits; one is agnostic to the target hardware at the expense of a small overhead of single-qubit gates, while the other is specific to the IBM superconducting hardware and has no gate overhead. As a corollary, we introduce benchmarked-noise zero-noise extrapolation (bnZNE) as a simple adaptation of zero-noise extrapolation (ZNE), one of the most popular error mitigation methods. We consider as an example the bias-mitigated ZNE and bnZNE of Trotterized Hamiltonian simulations, observing that our approaches outperform standard ZNE using both small-scale classical simulations and 100-qubit utility-scale experiments on the IBM superconducting hardware. We consider the measurement of both single-site observables as well as two-site correlations along a one-dimensional qubit chain. We also provide a software package for implementing the error mitigation techniques used in this research.",
+  "date": "2026-03-10",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.10224",
+  "doi": "10.48550/arxiv.2603.10224",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "ef9af6a81399",
+  "title": "Real-time inference and extrapolation with Time-Conditioned UNet: Applications in hypersonic flows, incompressible flows, and global temperature forecasting",
+  "authors": [
+   "Oded Ovadia",
+   "Vivek Oommen",
+   "Adar Kahana",
+   "Ahmad Peyvan",
+   "Eli Turkel",
+   "George Em Karniadakis"
+  ],
+  "abstract": "Neural Operators are fast and accurate surrogates for nonlinear mappings between functional spaces within training domains. Extrapolation beyond the training domain remains a grand challenge across all application areas. We present Time-Conditioned UNet (TC-UNet) as an operator learning method to solve time-dependent PDEs continuously in time without any temporal discretization, including in extrapolation scenarios. TC-UNet incorporates the temporal evolution of the PDE into its architecture by combining a parameter conditioning approach with the attention mechanism from the Transformer architecture. After training, TC-UNet makes real-time inferences on an arbitrary temporal grid. We demonstrate its extrapolation capability on a climate problem by estimating the global temperature for several years and also for inviscid hypersonic flow around a double cone. We propose different training strategies involving temporal bundling and sub-sampling. We demonstrate performance improvements for several benchmarks, performing extrapolation for long time intervals and zero-shot super-resolution time. • We present TC-UNet, a neural operator for arbitrary temporal resolution inference. • TC-UNet outperforms FNO and UNet in zero-shot temporal super-resolution tasks. • TC-UNet is stable in modeling hypersonic flows with high spatiotemporal gradients. • Sensitivity analysis demonstrates TC-UNet as very stable to noise. • TC-UNet extrapolates better in time than regular UNet without time-conditioning.",
+  "date": "2025-04-15",
+  "venue": "Computer Methods in Applied Mechanics and Engineering",
+  "arxiv_id": "",
+  "doi": "10.1016/j.cma.2025.117982",
+  "citations": 13,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "bae3b32a9ccd",
+  "title": "SSNet: Flexible and Robust Channel Extrapolation for Fluid Antenna Systems Enabled by a Self-Supervised Learning Framework",
+  "authors": [
+   "Yuan Gao",
+   "Yiming Liu",
+   "Runze Yu",
+   "Shengli Liu",
+   "Yanliang Jin",
+   "Shunqing Zhang",
+   "Shugong Xu",
+   "Xiaoli Chu"
+  ],
+  "abstract": "Fluid antenna systems (FAS) signify a pivotal advancement in 6G communication by enhancing spectral efficiency and robustness. However, obtaining accurate channel state information (CSI) in FAS poses challenges due to its complex physical structure. Traditional methods, such as pilot-based interpolation and compressive sensing, are not only computationally intensive but also lack adaptability. Current extrapolation techniques relying on rigid parametric models do not accommodate the dynamic environment of FAS, while data-driven deep learning approaches demand extensive training and are vulnerable to noise and hardware imperfections. To address these challenges, this paper introduces a novel self-supervised learning network (SSNet) designed for efficient and adaptive channel extrapolation in FAS. We formulate the problem of channel extrapolation in FAS as an image reconstruction task. Here, a limited number of unmasked pixels (representing the known CSI of the selected ports) are used to extrapolate the masked pixels (the CSI of unselected ports). SSNet capitalizes on the intrinsic structure of FAS channels, learning generalized representations from raw CSI data, thus reducing dependency on large labeled datasets. For enhanced feature extraction and noise resilience, we propose a mix-of-expert (MoE) module. In this setup, multiple feedforward neural networks (FFNs) operate in parallel. The outputs of the MoE module are combined using a weighted sum, determined by a gating function that computes the weights of each FFN using a softmax function. Extensive simulations validate the superiority of the proposed model. Results indicate that SSNet significantly outperforms benchmark models, such as AGMAE and long short-term memory (LSTM) networks by using a much smaller labeled dataset. A key observation is that the proposed model is more effectively trained using a small unmasked ratio of known CSI. Specifically, the proposed SSNet trained using CSI of 10 % total ports outperforms that trained using CSI of 25 % and 50 % total ports. This is because using a smaller number of known CSIs during training, the proposed model is forced to learn more effective channel correlation for channel extrapolation at the expense of higher training complexities. Ablation experiments reveal substantial performance gains from the MoE module’s integration. Furthermore, zero-shot learning experiments show a moderate performance degradation of about 3-5 dB, underscoring the model’s rob",
+  "date": "2025-10-08",
+  "venue": "IEEE Journal on Selected Areas in Communications",
+  "arxiv_id": "",
+  "doi": "10.1109/jsac.2025.3619472",
+  "citations": 13,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "b98c574ec439",
+  "title": "A Novel Hybrid Quantum Framework for Assessing Noise Effects on Performance of Shor’s Algorithm",
+  "authors": [
+   "Mst. Nishita Aktar",
+   "Joynob Akter",
+   "Kh. Mustafizur Rahman",
+   "Shamsun Nahar",
+   "Md. Mahsin-Ul-Islam",
+   "Shakhawat Hossain Shipon",
+   "Md. Nazmus Sakib"
+  ],
+  "abstract": "This experimental study introduces a hybrid quantum-classical framework aiming to improve the noise robustness of Shor’s algorithm. By incorporating a novel hybrid logic gate into the modular exponentiation phase, the framework stabilizes qubit interactions and decreases decoherence in a noisy environment simulated by IBM Qiskit. Performance evaluation is accomplished by fidelity and entropy analysis across varied noise levels. Comparative benchmarking with conventional techniques, including Shor’s code, Bacon-Shor code, dynamical decoupling, and zero noise extrapolation, demonstrates that the proposed hybrid gate achieves higher fidelity (0.90) and lower entropy (0.33), while preserving minimal resource overhead. These findings highlight the framework’s effectiveness as a hardware-independent, scalable solution for Noisy Intermediate-Scale Quantum (NISQ) devices. Instead, the study offers an approach toward a scalable, error-resilient model to avoid exaggerating scalability. Despite its promising outcomes, study is presently limited to simulations and a single noise model. Future work will explore implementation on real quantum hardware and extend the framework to incorporate a broader range of noise profiles, contributing to the evolution of fault-tolerant quantum computation.",
+  "date": "2025-01-01",
+  "venue": "Journal of Quantum Information Science",
+  "arxiv_id": "",
+  "doi": "10.4236/jqis.2025.154009",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "92b4e658dc65",
+  "title": "MoSAIC: Scalable Probabilistic Error Cancellation via Variational Blockwise Noise Aggregation",
+  "authors": [
+   "Maya Ma",
+   "Rimika Jaiswal",
+   "Murphy Yuezhen Niu"
+  ],
+  "abstract": "Quantum error mitigation is essential for extracting trustworthy results from noisy intermediate-scale quantum (NISQ) processors. Yet, current approaches face a core scalability bottleneck: unbiased methods such as probabilistic error cancellation (PEC) incur exponential sampling overhead, while approximate techniques like zero-noise extrapolation trade accuracy for efficiency. We introduce and experimentally demonstrate MoSAIC (Modular Spatio-temporal Aggregation for Inverted Channels), a scalable quantum error mitigation framework that preserves the unbiasedness of PEC while dramatically reducing sampling costs. MoSAIC partitions a circuit into noise-aligned blocks, learns an effective block noise model using classical variational optimization, and applies quasi-probabilistic inversion once per block instead of after every layer. This blockwise aggregation reduces both sampling overhead and circuit-depth overhead, enabling mitigation far beyond the operating regime of standard PEC. We also experimentally validate MoSAIC on IBM's 156-qubit Heron processors, performing the largest PEC-based mitigation demonstration on hardware to date. As a physically meaningful benchmark, we prepare the critical one-dimensional transverse-field Ising (TFIM) ground state for system sizes up to 50 qubits. We show that MoSAIC can achieve at least 1 to 2 orders of magnitude better accuracy than standard PEC under identical sampling budgets. This enables MoSAIC to recover accurate observables for larger system sizes, even when standard PEC fails due to its prohibitive sampling overhead. We also present CUDA-Q accelerated simulations to validate performance trends under a range of different noise models. These results demonstrate that MoSAIC is not only theoretically scalable but also practically deployable for high-accuracy, large-scale quantum experiments on today's quantum hardware.",
+  "date": "2026-03-27",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.26063",
+  "doi": "10.48550/arxiv.2603.26063",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "4fa339c4a7ef",
+  "title": "Local Taylor-Jet estimation of a scale-dependent turing instability boundary in the Gierer–Meinhardt system",
+  "authors": [
+   "Donald G Palmer"
+  ],
+  "abstract": "Abstract Classical Turing analysis locates diffusion-driven instability boundaries directly when coefficient functions are known. We ask a narrower question: how accurately can such a boundary be extrapolated from a finite Taylor jet estimated over a narrow calibration window, without evaluating the system elsewhere? Using the standard two-species criterion, we define a scale-dependent Turing margin and estimate its first zero from local Taylor data. The construction requires positive, sufficiently differentiable measured diffusion coefficients on the calibration interval and excludes structural or transport transitions; extension beyond that interval additionally requires physical validity across the extrapolation bridge. For an analytic Gierer–Meinhardt benchmark, exact local derivatives recover the boundary rapidly, reaching sub-percent accuracy at fifth order. Finite-window fitted jets instead show an order–noise tradeoff: higher retained order becomes harmful when derivative estimates are noise dominated, and reliable recovery at the benchmark extrapolation ratio requires stringent measurement precision. The Taylor-coefficient algebra is standard; the contribution is the quantified accuracy, failure behaviour and applicability limits of local boundary extrapolation from finite-window measurements.",
+  "date": "2026-10-06",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-026-73656-8",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "584db7a6ab5f",
+  "title": "Machine Learning-based Quantum Error Mitigation for Variational Algorithms",
+  "authors": [
+   "Nikita Korolev",
+   "Kirill Lakhmanskiy",
+   "Daniil Rabinovich"
+  ],
+  "abstract": "Machine Learning-based quantum error mitigation (ML-QEM) has emerged as a promising approach for improving the performance of noisy quantum algorithms. However, existing ML-QEM methods often have restricted applicability to variational circuits and rely on inaccessible noiseless training data. In this work, we propose a practical ML-QEM protocol tailored to variational quantum algorithms, which generates training data by simulating (near-)Clifford circuits. This data is used for model selection and training, producing a mitigation model that can correct variational circuits with arbitrary parameters and transfer across different target Hamiltonians of similar structure. We benchmark the proposed method on the Variational Quantum Eigensolver (VQE) task for the Sherrington-Kirkpatrick Hamiltonian of up to $n=12$ qubits under various noise models, analyzing its effect on trainability and comparing its performance against standard Zero-Noise Extrapolation (ZNE). The results demonstrate consistent several-fold error suppression across all tested settings and superior performance over ZNE in the high-noise regime, providing evidence for the applicability of the proposed protocol to present-day NISQ processors.",
+  "date": "2026-06-01",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.02697",
+  "doi": "10.48550/arxiv.2606.02697",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "61d3a9372737",
+  "title": "Quantum Algorithm Software for Condensed Matter Physics",
+  "authors": [
+   "T. Farajollahpour"
+  ],
+  "abstract": "Realizing the promise of quantum computation for condensed matter many-body problems depends as much on software as on hardware, yet the area is reviewed far more often than it is quantified. We address this gap by pairing a focused survey of quantum algorithm software for condensed matter physics with a compact, fully reproducible benchmark suite that turns qualitative claims into concrete numbers. Each algorithm family, namely the variational quantum eigensolver (VQE), quantum phase estimation (QPE), quantum annealing and the quantum approximate optimization algorithm (QAOA), and quantum machine learning (QML), is demonstrated on a canonical lattice model and validated against an independent classical reference, from exact diagonalization and the Bethe ansatz to matrix-product-state DMRG. Within this suite we quantify two issues usually treated only qualitatively. Mapping the Fermi-Hubbard model to qubits under the Jordan-Wigner and Bravyi-Kitaev encodings, we tabulate qubit counts, operator weights, and gate costs and expose a geometry-dependent trade-off between the two. Simulating the circuits under a depolarizing noise model, we show that zero-noise extrapolation restores ground-state energies and optimization quality across the noise range. Around these results we review the algorithms as applied to strongly correlated systems, topological phases, and quantum magnetism, together with the leading software development kits (Qiskit, Cirq, PennyLane, and Q\\#) and the classical and tensor-network methods against which quantum approaches must be benchmarked. All circuits, seeds, and data are released so the benchmarks can be reproduced and extended. We argue that standardized, reproducible benchmarks of this kind are essential to gauge progress and identify genuine quantum advantage in condensed matter physics.",
+  "date": "2025-06-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2506.09308",
+  "doi": "10.48550/arxiv.2506.09308",
+  "citations": 1,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "eb915f3f8d39",
+  "title": "Error-mitigated multi-layer quantum routing",
+  "authors": [
+   "Wenbo Shi",
+   "Neel Kanth Kundu",
+   "Robert Malaney"
+  ],
+  "abstract": "Quantum routers direct a quantum signal from one input path to a quantum superposition of multiple output paths and are considered important elements of future quantum networks. To extend the scalability of quantum networks, multi-layer quantum routers, which allow for further superposition of paths, were proposed. Due to the numerous limitations of current quantum devices, quantum error mitigation methods become potential solutions for realizing practical quantum routers in the near term. Zero-Noise Extrapolation (ZNE) and Clifford Data Regression (CDR) are two promising quantum error mitigation methods. Based on the characteristics of these two methods, we propose a new method, named extrapolated CDR (eCDR). We benchmark the performance of multi-layer quantum routers implemented on current superconducting quantum devices instantiated with the ZNE, CDR, and eCDR methods. Our experimental results show that the new eCDR method improves the fidelity result of the two-layer quantum router. Our work highlights how new mitigation methods built from different components of pre-existing methods, and designed with a core application in mind, can lead to significant performance enhancements.",
+  "date": "2025-03-01",
+  "venue": "APL Quantum",
+  "arxiv_id": "",
+  "doi": "10.1063/5.0249909",
+  "citations": 1,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "b62fd7b87206",
+  "title": "Stream Forcing: Constructing Unified Training Trajectory for Robust Streaming Video Generation",
+  "authors": [
+   "Yueting Zhu",
+   "Yuehao Song",
+   "Kaicheng Zhang",
+   "Bao Tang",
+   "Chen, Shaoyu",
+   "Qian Zhang",
+   "Wenyu Liu",
+   "Xinggang Wang"
+  ],
+  "abstract": "Streaming video generation holds strong potential for world modeling, where future frames must be inferred online sequentially to form a continuous video stream. However, streaming video diffusion models introduce a fundamental train-inference mismatch: inference follows a specialized denoising order, whereas advanced training strategies typically require diverse noise-level configurations. To address this trade-off between train-inference consistency and training coverage, we reformulate the video diffusion sampling as a frame-indexed stochastic process over noise levels. Within this stochastic process space, we construct a continuous training trajectory along which the sampling schedule progressively evolves from independent sampling to inference-consistent sampling. We further introduce a joint calibration algorithm and a temporal correlative sampling algorithm to ensure trajectory smoothness and cross-frame correlation. Building on these designs, we propose Stream Forcing, a unified training framework for streaming video generation that balances training sufficiency and inference efficiency. Extensive experiments demonstrate that Stream Forcing significantly improves generation quality with a 36.6% FVD improvement on the UCF-101 benchmark. Furthermore, our method facilitates robust zero-shot extrapolation to long-horizon video generation with a 27.9% FVD improvement on the UCF-101 benchmark.",
+  "date": "2026-08-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.10439",
+  "doi": "",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "dbb4da91d533",
+  "title": "Designing Machine Learning Error-Mitigation Protocols for High-Fidelity Digital Quantum Simulation",
+  "authors": [
+   "Albert Schmidt"
+  ],
+  "abstract": "The pursuit of high-fidelity digital quantum simulation is fundamentally constrained by the inevitable presence of noise in current and near-term quantum processors. While quantum error correction ultimately promises fault-tolerance, its substantial qubit overhead renders it impractical for the noisy intermediate-scale quantum (NISQ) era. This research addresses the critical gap between hardware imperfections and simulation accuracy by designing systematic, resource-efficient machine learning (ML) error-mitigation protocols tailored specifically for digital quantum simulation. Unlike generic error-suppression methods, our approach exploits the unique structural properties of simulated quantum dynamics—including time-translation invariance, locality of interactions, and conserved quantities—to inform the training of lightweight neural networks and Gaussian process regressors. We develop a hybrid framework that combines randomized compiling with data-driven noise-inversion models, enabling real-time estimation and subtraction of both coherent and incoherent errors without exponential sampling overhead. Through extensive numerical benchmarks on spin-chain and Fermi-Hubbard models, we demonstrate that our ML protocols achieve up to an order-of-magnitude reduction in infidelity compared to standard probabilistic error cancellation and zero-noise extrapolation, while requiring fewer calibration circuits. Furthermore, we introduce an adaptive online learning scheme that continuously refines the mitigation model during the simulation runtime, automatically adjusting to time-dependent drift in hardware noise. Our results establish a practical pathway toward scalable, high-accuracy quantum simulations on existing devices, with implications for condensed matter physics, quantum chemistry, and the development of quantum advantage benchmarks.",
+  "date": "2026-07-14",
+  "venue": "预印本",
+  "arxiv_id": "",
+  "doi": "10.14293/pr2199.004105.v1",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "11711ca410c2",
+  "title": "Quantum Error Mitigation Strategies for Variational PDE-Constrained Circuits on Noisy Hardware",
+  "authors": [
+   "Prasad Nimantha Madusanka Ukwatta Hewage",
+   "Midhun Chakkravarthy",
+   "Ruvan Kumara Abeysekara"
+  ],
+  "abstract": "Variational quantum circuits (VQCs) solving partial differential equations (PDEs) on near-term quantum hardware face a critical challenge: hardware noise degrades solution fidelity and disrupts convergence. We present a systematic study of three noise channels; depolarizing, amplitude damping, and bit-flip on VQCs constrained by PDE residual loss functions for the heat equation, Burgers' equation, and the Saint-Venant shallow water equations. We benchmark three error mitigation strategies: zero-noise extrapolation (ZNE) via Richardson polynomial fitting, probabilistic error cancellation (PEC), and measurement error mitigation through inverse confusion matrices. Our numerical experiments on 6-qubit, 4-layer circuits demonstrate that ZNE reduces absolute error by 82-96% at low noise (p = 0.001), with effectiveness degrading gracefully at higher noise strengths. We prove analytically and confirm numerically that physics-constrained circuits exhibit inherent noise resilience: at p = 0.01, constrained circuits maintain 25-47% higher fidelity than unconstrained counterparts, with the advantage scaling with PDE complexity. PEC provides near-exact correction at low gate counts but incurs exponential sampling overhead, rendering it impractical beyond ~60 gates at p >= 0.02. Error budget decomposition reveals that systematic errors dominate at all noise levels (43-58%), while the PDE residual component grows from ~10% to ~31% as noise increases, indicating that physics constraints absorb noise through structured gradient information. These results establish practical guidelines for deploying variational PDE solvers on NISQ hardware.",
+  "date": "2026-04-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.10099",
+  "doi": "10.48550/arxiv.2604.10099",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "bc2d4c8db2a8",
+  "title": "Digital Quantum Simulation of Scalar Yukawa Coupling",
+  "authors": [
+   "Thierry N. Kaldenbach",
+   "Matthias Heller",
+   "G. Alber",
+   "Vladimir M. Stojanović"
+  ],
+  "abstract": "Motivated by the revitalized interest in the digital simulation of medium- and high-energy physics phenomena, we investigate the dynamics following a Yukawa interaction quench on IBM Q. Adopting the zero-dimensional version of the scalar Yukawa coupling model as our point of departure, we design low-depth quantum circuits, emulating its dynamics with up to three bosons. In the one-boson case, we demonstrate circuit compression, i.e., a constant-depth circuit containing only two controlled-NOT (CNOT) gates. In the more complex three-boson case, we design a circuit in which one Trotter step entails eight CNOTs. Using an analogy with the traveling salesman problem, we also provide a CNOT cost estimate for higher boson number truncations. Based on these circuits, we quantify the system dynamics by evaluating the expected boson number at an arbitrary time after the quench and the survival probability of the initial vacuum state (the Loschmidt echo). We also utilize these circuits to drive adiabatic transitions and compute the energies of the ground- and first-excited states of the considered model. Finally, through error mitigation, i.e., zero-noise extrapolation, we demonstrate the good agreement of our results with a numerically exact classical benchmark.",
+  "date": "2024-07-18",
+  "venue": "Quantum Reports",
+  "arxiv_id": "",
+  "doi": "10.3390/quantum6030024",
+  "citations": 2,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "7cce66829914",
+  "title": "Estimating the Jones polynomial for Ising anyons on noisy quantum computers",
+  "authors": [
+   "Chris N. Self",
+   "S. Iblisdir",
+   "Gavin Keith Brennen",
+   "Konstantinos Meichanetzidis"
+  ],
+  "abstract": "The evaluation of the Jones polynomial at roots of unity is a paradigmatic problem for quantum computers. In this work, we present experimental results obtained from existing noisy quantum computers for special cases of this problem, where it is classically tractable. Our approach relies on the reduction of the problem of evaluating the Jones polynomial of a knot at lattice roots of unity to the problem of computing quantum amplitudes of qudit stabilizer circuits, which are classically efficiently simulatable. More specifically, we focus on evaluation at the fourth root of unity, which is a lattice root of unity, where the problem reduces to evaluating amplitudes of qubit stabilizer circuits. To estimate the real and imaginary parts of the amplitudes up to additive error we use the Hadamard test, yielding non-Clifford circuits that nevertheless we can always efficiently compute the correct output of. Hence, we further argue that this setup defines a standard benchmark for near-term noisy quantum processors. Additionally, we study the benefit of performing quantum error mitigation with the method of zero-noise extrapolation.",
+  "date": "2026-03-02",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/zqzv-zzrp",
+  "citations": 1,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "c2f31e886337",
+  "title": "Additive binding energies in asphalt on a quantum processor via quantum-selected configuration interaction (QSCI)",
+  "authors": [
+   "Karim Elgammal",
+   "Marc Maußner"
+  ],
+  "abstract": "Quantum-centric supercomputing (in which a quantum processor samples the dominant electronic configurations and classical high-performance computing resources perform the diagonalisation) is emerging as a practical route to correlated electronic-structure calculations. We present QuantumPave, a hybrid quantum-classical workflow for computing additive binding energies in asphalt binder, a quantity central to the oxidative ageing of road infrastructure. Using a 24-atom pyridine-phenol hydrogen-bonded complex as a representative model, we couple machine-learning interatomic potentials (ORB v3) for geometry optimisation with quantum-selected configuration interaction (QSCI), also referred to as sample based quantum diagonalisation (SQD), in a (10e, 10o) active space run on the 54-qubit IQM Emerald processor. On hardware, SQD reproduces the active-space CASCI reference exactly, giving a binding energy of -3.52 kcal/mol (-0.153 eV); the device noise broadens the sampling to span the active space, so no zero-noise extrapolation is required. This active-space value captures the static correlation within the chosen orbitals and underbinds the full hydrogen bond: a counterpoise-corrected CCSD(T) benchmark gives -8.5 to -9.5 kcal/mol, while the calorimetric enthalpy of about -6.25 kcal/mol is consistent with this once zero-point, thermal, and solvent contributions are included. We show that chemically meaningful binding energies for an industrially relevant materials problem are attainable on current quantum hardware within a quantum-centric supercomputing workflow.",
+  "date": "2026-05-26",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.27640",
+  "doi": "10.48550/arxiv.2605.27640",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "60956c2b6081",
+  "title": "CutBackdoor: A Circuit Cut Triggered Backdoor Attack on Variational Quantum Algorithms",
+  "authors": [
+   "Ahatesham Bhuiyan",
+   "Hoang M. Ngo",
+   "Cheng Chu",
+   "Qian Lou",
+   "Lei Jiang",
+   "My T. Thai",
+   "Mengxin Zheng"
+  ],
+  "abstract": "Variational Quantum Algorithms (VQAs) are a leading paradigm for near-term quantum computing, combining parameterized quantum circuits with classical optimization across quantum chemistry, combinatorial optimization, and quantum machine learning. Since real-world VQA deployments routinely require circuits that exceed available hardware capacity, quantum circuit cutting has become an indispensable execution strategy, and pre-trained parameters are increasingly distributed through public repositories, introducing supply-chain security risks that have received little attention. Prior quantum backdoor attacks either introduce detectable circuit modifications or depend on device-specific noise, and none consider circuit cutting as an attack surface. We present CutBackdoor, the first parameter-supply-chain backdoor that uses cut circuit execution from CutQC as the deployment-time trigger against VQAs. Under noisy finite-shot circuit-cut execution, poisoned parameters preserve full-circuit validation performance while substantially increasing cut-path reconstruction error, without any circuit modification. The trigger activates when a resource-limited victim responds to a qubit-capacity mismatch by invoking the cutting workflow, requiring no attacker presence at deployment. We provide a theoretical analysis and empirically validate it across varying shot budgets. Evaluation across multiple VQA benchmarks on IBM quantum backends demonstrates cut-path energy amplification of $1.3\\times$ to $2.9\\times$ \\revA{over clean baselines on the VQE and VQD benchmarks while maintaining small stealthiness error on the full-circuit path. The cut-path gap persists across the evaluated backends and cut placements under matched compilation; Zero-Noise Extrapolation provides only partial mitigation, and the diagonal-cost QAOA benchmark delineates the attack's structural boundary",
+  "date": "2026-07-20",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.18126",
+  "doi": "10.48550/arxiv.2607.18126",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "a238ab89088a",
+  "title": "Quantitative Rules for Parallel Calibration and Drift-Resilient Maintenance of Large-Scale Superconducting Quantum Processors",
+  "authors": [
+   "Zhihao Wu",
+   "Kechengqi Zhu",
+   "Shichuan Xue",
+   "Xinfang Zhang",
+   "Zhaohua Yang",
+   "Zhang, Zhida",
+   "Shun Hu",
+   "Li, Cong",
+   "Dingzhou Liu",
+   "Kangding Zhao",
+   "Peng Luo",
+   "Lingling Lao",
+   "Xiang Fu",
+   "Mingtang Deng",
+   "Junjie Wu",
+   "Kai Lu"
+  ],
+  "abstract": "As superconducting quantum processors scale toward hundreds of qubits, manual calibration becomes increasingly costly and difficult to sustain. Here we address two system-level factors governing automated calibration, namely, crosstalk induced by parallel operations and temporal drift of control parameters. On a 66-qubit superconducting processor, cross-entropy benchmarking shows that single-qubit calibration tolerates full-chip concurrency with minimal fidelity loss, whereas CZ calibration requires a minimum coupler-graph distance of four to avoid elevated control errors. Continuous monitoring of representative qubit and coupler parameters further yields quantitative refresh rules that assign refresh priority by error-budget consumption. These results turn two conventionally heuristic choices, the concurrency density of calibration tasks and the refresh priority of each control parameter, into measurable operating rules. Implemented within an automated calibration framework, the rules support a six-qubit Greenberger-Horne-Zeilinger state with a zero-noise-extrapolated fidelity of 89.64%, distance-dependent logical-error suppression in a single-cycle repetition-code benchmark, and a reduction of the mean single-qubit error from 0.023 to 0.011 on a 337-qubit processor, providing an experimentally grounded reference for the automated calibration and maintenance of current and future large-scale superconducting quantum systems.",
+  "date": "2026-10-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2610.11477",
+  "doi": "10.48550/arxiv.2610.11477",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "ea7db77e6703",
+  "title": "A Comparative Analysis and Predictive Study of Deep Learning-Based Hybrid Quantum Error Mitigation Techniques for Noisy Intermediate-Scale Quantum Devices",
+  "authors": [
+   "Ghulam Khadija",
+   "Saman Rasheed"
+  ],
+  "abstract": "Quantum computing represents one of the most transformative technological developments of the twenty-first century. However, the practical realization of its potential on current Noisy Intermediate-Scale Quantum (NISQ) hardware remains severely constrained by noise and computational errors that arise from the inherent fragility of quantum states. This paper presents a systematic comparative analysis of three prominent quantum error mitigation techniques, partial quantum error correction (QEC), zero-noise extrapolation (ZNE), and deep learning-based noise prediction, and develops a predictive assessment of a proposed hybrid framework that integrates all three into a unified system. Through a thorough review of twelve peer-reviewed publications spanning 2017 to 2026, we establish what each technique has accomplished individually and to what degree of accuracy. We identify a critical and previously unaddressed gap: no existing work has systematically combined these three complementary approaches. Drawing on documented performance trends and theoretical complementarity, we predict that a well-designed hybrid framework could achieve classification accuracies of 85 to 90 percent on standard quantum machine learning benchmarks, compared to only 60 to 65 percent without error mitigation. These predictions are grounded in peer-reviewed experimental data. Our analysis provides a clear evidence-based roadmap for future experimental validation and establishes a strong foundation for the development of practical, resource-efficient quantum machine learning systems on near-term hardware. CCS Concepts: Hardware → Quantum computation; • Computing methodologies → Machine learning; • Theory of computation → Quantum complexity theory",
+  "date": "2026-06-09",
+  "venue": "Physical Education Health and Social Sciences",
+  "arxiv_id": "",
+  "doi": "10.63163/jpehss.v4i2.1416",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "c6c67fdccc6f",
+  "title": "Accelerating Noisy Variational Quantum Algorithms with Physics-Informed Denoising Networks",
+  "authors": [
+   "Jie Liu",
+   "Xin Wang"
+  ],
+  "abstract": "Variational quantum algorithms are promising for near-term quantum computing, but are severely limited by hardware noise and the substantial circuit overhead required for error mitigation methods such as Zero-Noise Extrapolation (ZNE). We propose a Physics-Informed Denoising Network (PIDN) that reduces the cost of ZNE by learning a surrogate model of its optimization dynamics. By viewing the variational update as a trajectory in the parameter space, PIDN is trained to reproduce ZNE-mitigated expectation values and gradient directions while incorporating a physics-informed loss that preserves the gradient descent dynamics. Once trained, PIDN replaces repeated multi-noise evaluations with denoised expectation and gradient estimation directly from the current noisy observation and the historical trajectory, significantly reducing circuit executions. We benchmark the approach on the quantum approximate optimization algorithm for 3-regular graphs, Sherrington-Kirkpatrick, and transverse-field Ising models, as well as the variational quantum eigensolver for LiH, BeH$_2$ and H$_2$O. Across all tasks, PIDN attains performance comparable to ZNE, while reducing the number of circuit executions by a factor of approximately 4 to 6. Gradient cosine similarity with ZNE remains above 0.95 throughout training. Robustness analysis shows that PIDN fails only when ZNE itself becomes unreliable, and ablation studies confirm the necessity of the physics-informed loss for maintaining directional consistency. We further find that PIDN tracks optimization dynamics most accurately when the effective loss landscape retains strong low-frequency structure. These results establish PIDN as a scalable, resource-efficient strategy for noise-resilient variational optimization in the noisy intermediate-scale quantum regime.",
+  "date": "2026-05-03",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2605.02066",
+  "doi": "10.48550/arxiv.2605.02066",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "0814fb2f8bc7",
+  "title": "Rényi Phase Transitions and Analytic Continuation to the von Neumann Entropy",
+  "authors": [
+   "Ayush Raj",
+   "Akash Vijay",
+   "Hong‐Chen Jiang",
+   "Laimei Nie"
+  ],
+  "abstract": "Extracting operationally meaningful quantities such as von Neumann entropy and mutual information is central to characterizing many-body quantum systems, yet experiments and numerics often provide direct access only to integer Rényi entropies. Whereas conventional extrapolation relies on a prescribed fitting ansatz, in PRL 137, 100202 we introduced an alternative approach based on stabilized analytic continuation (SAC), which avoids such an ansatz and is inherently robust to noise. Here, we further develop this framework in the noiseless setting and benchmark its performance across several nontrivial many-body problems. We first show that, besides the intrinsic ambiguity of reconstructing the von Neumann entropy from finitely many Rényi samples, analytic continuation can also fail because of genuine nonanalyticities in the Rényi function arising from zeros of $\\text{Tr}ρ^z$. We derive universal zero-free domains for $\\text{Tr}ρ^z$ and systematically sharpen these bounds using additional spectral information about $ρ$. We then benchmark the performance of SAC in three settings: ($i$) extracting topological entanglement entropy from DMRG Rényi data for the toric code and Kagome Heisenberg models; ($ii$) reconstructing the mutual information between disjoint intervals in a $(1+1)d$ compact-boson CFT; and ($iii$) recovering finite-time ballistic growth of the von Neumann entropy from integer Rényi entropies that cross over toward subballistic growth in diffusive quantum dynamics. In the latter setting, analytic continuation is expected to fail in the long time limit. We illustrate this mechanism with a physically motivated two-sector model, where the asymptotic separation between von Neumann and higher-Rényi growth is accompanied by a zero of $\\text{Tr}ρ^z$ pinching the real axis at $z=1$, thereby producing a first-order Rényi phase transition.",
+  "date": "2026-09-24",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.30386",
+  "doi": "10.48550/arxiv.2609.30386",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "b1383122fce9",
+  "title": "Hybrid Quantum-Classical Implementation of the Harrow–Hassidim–Lloyd Algorithm: Bounded-Error Quantum Polynomial Time (BQP)-Completeness of Matrix Inversion and Error Mitigation for Noisy Intermediate-Scale Quantum (NISQ) Devices",
+  "authors": [
+   "Zefree Lazarus Mayaluri",
+   "Panda Ganapati"
+  ],
+  "abstract": "We propose a hybrid quantum-classical implementation of the Harrow-Hassidim-Lloyd (HHL) algorithm for the matrix inversion (linear-systems) problem, a key subroutine in quantum computing. Rather than claiming a new complexity result, we provide an assumption-explicit proof sketch, aligned with established literature, that contextualizes matrix inversion as Bounded-Error Quantum Polynomial Time (BQP)-complete and offers reduction-based intuition via Grover-type amplitude amplification. We implement HHL for 2 × 2, 4 × 4, and 8 × 8 Hermitian matrices using Qiskit and evaluate performance using simulator-based experiments with calibrated noise models and executions on IBM Quantum and IonQ backends. To enhance robustness on Noisy Intermediate-Scale Quantum (NISQ) hardware, we integrate measurement-error mitigation, zero-noise extrapolation, and post-selection, and we quantify performance using fidelity and mean squared error. Results from noiseless simulation, calibrated-noise simulation, and real-device execution show that mitigation improves reconstruction fidelity for small Hermitian systems, particularly for deeper circuits. These findings support mitigation-aware feasibility on current NISQ devices; however, they do not establish present-day runtime advantage over optimized classical solvers. The proposed workflow is relevant to quantum optimization, quantum machine learning, and quantum chemistry, where linear-system primitives arise frequently. Future work will focus on reducing phase-estimation depth (e.g., iterative or semiclassical variants), improving compilation and benchmarking transparency, and re-evaluating larger instances on higher-fidelity hardware.",
+  "date": "2026-05-14",
+  "venue": "Cureus Journal of Computer Science.",
+  "arxiv_id": "",
+  "doi": "10.7759/s44389-025-00066-8",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "e3a35d77587a",
+  "title": "SoK: Adversarial Robustness of the Variational Quantum Eigensolver via Red-Teaming",
+  "authors": [
+   "Ahmed Azaz Humdoon",
+   "Cheng Chu",
+   "Lei Jiang",
+   "Qian Lou",
+   "Mengxin Zheng"
+  ],
+  "abstract": "The Variational Quantum Eigensolver (VQE) is a leading algorithm for estimating molecular ground-state energies on near-term quantum hardware, with applications spanning quantum chemistry, materials science, and drug discovery. As VQE workloads are increasingly deployed through cloud-based ``VQE-as-a-service'' pipelines, they become exposed to adversaries such as compromised service components, malicious co-tenants, or insiders in the transpilation stack, any of which can corrupt results before they reach the user. A range of attacks on variational quantum circuits has been proposed, but each has been studied in isolation: some on quantum classifiers with accuracy-based metrics, others on variational quantum algorithms with energy-error metrics. This lack of a common evaluation setup makes their relative severity difficult to compare and leaves the security of VQE poorly characterized. In this work, we present \\textbf{VQE-AdvBench}, the first unified red-teaming benchmark for the Variational Quantum Eigensolver, systematizing these attacks under a single evaluation protocol to rigorously assess VQE's adversarial robustness. We organize attacks along a black-, gray-, and white-box access taxonomy, and evaluate seven representative attack scenarios -- the QTrojan circuit backdoor, the QDoor parameter backdoor, parameter-space adaptations of FGSM and PGD, and three QNBAD noise-induced variants -- over a fixed molecule-ansatz-backend-metric configuration, on H$_2$ and H$_3^+$ across five noise-calibrated IBM backends. Our results reveal a clear severity ordering: noise-induced attacks that manipulate the Zero-Noise Extrapolation (ZNE) pipeline are the most damaging (up to 8.84$\\times$ error amplification), followed by the QTrojan circuit-level backdoor (7.52$\\times$), while the QDoor parameter-level backdoor is the least effective, yielding only marginal amplification (up to 1.37$\\times$).",
+  "date": "2026-07-21",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.19318",
+  "doi": "10.48550/arxiv.2607.19318",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "ccd9bdc8b406",
+  "title": "Compact Physics‐Informed Residual Networks for Cross‐Climate Building HVAC Load Prediction",
+  "authors": [
+   "Byung-Ki Jeon",
+   "Jin-Seok Lee",
+   "Hye-Mi Hwang",
+   "Young-Chul Ju",
+   "Woo-Gyun Shin",
+   "Suk-Whan Ko"
+  ],
+  "abstract": "Accurate short‐term predictions of building heating, ventilation, and air‐conditioning (HVAC) loads are central to model‐predictive control (MPC), demand response, and grid‐interactive efficient buildings (GEBs). Black‐box machine‐learning models routinely fail to generalize to unseen climates and out‐of‐distribution operating seasons, whereas pure white‐box reduced‐order resistance–capacitance (RC) models extrapolate well but cannot capture nonlinear HVAC behavior. We propose a physics‐informed residual network (PIRN) that adds a small multilayer perceptron (MLP) residual on top of a three‐parameter learnable RC envelope model—initialized at its exact nonnegative least‐squares (NNLS) optimum—and is trained end‐to‐end with a single mean‐squared‐error loss. We construct a benchmark spanning four generalization axes (in‐distribution accuracy, cross‐climate zero‐shot transfer, few‐shot fine‐tuning, and shoulder‐to‐extreme seasonal extrapolation), two capacity‐ and feature‐controlled ablations, and a sensor‐noise robustness probe from 8760 h annual EnergyPlus simulations of the U.S. Department of Energy small‐office prototype in five ASHRAE climate zones (2A, 3C, 4A, 5A, and 5B), with 10 random seeds for every primary experiment and Holm‐corrected paired statistics throughout. Three findings emerge. (i) At a matched parameter budget, PIRN and a plain MLP are practically interchangeable in‐distribution, in zero‐shot transfer, and in seasonal extrapolation (median |Δ R 2 | ≤ 0.02; every difference is either statistically indistinguishable or equivalent within a ± 0.03 R 2 margin by two one‐sided tests [TOSTs]); the often‐claimed physics‐informed‐versus‐black‐box gap disappears once the MLP receives the same physically meaningful features (under conservative few‐shot fine‐tuning, the MLP adapts modestly better, an effect our mitigation study traces to the fine‐tuning protocol). (ii) A capacity ablation shows the practical payoff of compactness: a 140‐parameter PIRN‐xs reproduces the in‐distribution accuracy ( R 2 ≈ 0.91) and the zero‐shot transfer accuracy ( R 2 ≈ 0.79) of its 9412‐parameter parent—a 67× reduction at equal accuracy, running in under 0.1 ms on microcontroller‐class hardware; a size‐matched small‐MLP control achieves the same, showing that this compactness reflects the low complexity of the well‐featurized task rather than the physics prior itself. (iii) The physics prior becomes decisive when sensing is sparse: with only three thermostat‐observabl",
+  "date": "2026-01-01",
+  "venue": "International Journal of Energy Research",
+  "arxiv_id": "",
+  "doi": "10.1155/er/8526893",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "ec5f98d8bbc5",
+  "title": "Mind the Gap: Standard 3DGS Evaluation Primarily Measures Near-Trajectory Interpolation",
+  "authors": [
+   "Gaoxiang Jia",
+   "Vikram Appia"
+  ],
+  "abstract": "Standard MipNeRF360-style 3D Gaussian Splatting (3DGS) evaluation holds out every N-th frame -- but these frames have trained neighbors on both sides, so the metric measures near-trajectory interpolation rather than spatial generalization. We introduce a fair matched-count protocol that isolates this effect: both arms train on the same number of images and differ only in whether the holdout is spread evenly (interpolation) or forms a contiguous spatial sector (extrapolation). Our primary finding is a large, consistent interpolation-extrapolation gap of 3~12dB -- several times the differences typically reported between competing methods. The gap is robust to training noise, is in two cases large enough to flip a method ranking under multi-seed confirmation, and -- crucially -- persists across three representation families, including a non-Gaussian volumetric neural radiance field (NeRF), so it reflects spatial coverage rather than any one representation. Diagnostically, it is dominated by a diffuse/geometry-proxy component and tracks each view's angular distance to its nearest training view, a zero-cost signal that also guides capture planning; loss-side regularization yields only marginal gains. Standard holdouts remain useful for near-trajectory rendering but should not, alone, be read as evidence of spatial generalization. Prior work notes protocol sensitivity; ours is, to our knowledge, the first to combine matched-count paired holdout, cross-representation quantification, and a diagnostic analysis Table 1. We describe a spatial-holdout benchmark toolkit with standardized splits and baselines for 16 scenes, which we are preparing for public release.",
+  "date": "2026-07-02",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2607.01556",
+  "doi": "10.48550/arxiv.2607.01556",
+  "citations": 0,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "39da96d1804f",
+  "title": "Degradation forecasting in laser-engineered TiO₂ electrodes for sodium-ion storage using quantum machine learning",
+  "authors": [
+   "Neha Lyka Muttumthala",
+   "Amirkianoosh Kiani"
+  ],
+  "abstract": "Developing high-rate electrodes is essential for Na-ion pseudocapacitors, next-generation devices that bridge the performance gap between high-energy density batteries and high-power density capacitors at a fraction of the cost of Li-ion analogs. Ultra-short laser pulses for in-situ nanostructure generation (ULPING) enables one-step fabrication of 3D-architected TiO₂ electrodes that minimize solid electrolyte interface (SEI) formation, but mapping laser parameters to electrochemical lifetime remains a significant data-driven challenge, particularly under sparse experimental sampling conditions. This study evaluates quantum machine learning (QML) methods such as quantum support vector regression (QSVR), quantum kernel ridge regression (QKRR), and quantum neural networks (QNN) for electrode performance prediction under noisy intermediate-scale quantum (NISQ) era constraints, with classical machine learning as a benchmark. Using 5026 unique configurations (26 experimentally realized + 5000 synthetic generated with a Conditional Variational Autoencoder, CVAE), noiseless quantum simulation achieved R² = 0.900, compared to a classical kernel ridge regression benchmark of R² = 0.9919. Introducing realistic device noise reduced performance substantially (≈60% with mitigation; ≈24% without). Real hardware experiments on IBM Quebec using four features and a 25/10 train-test split yielded R² = 0.150 for QSVR versus R² = 0.844 for classical SVR. However, mitigation strategies showed promise: zero-noise extrapolation improved quantum performance to R² = 0.580 (+287%), while combined readout error mitigation and ZNE reached R² = 0.696 (+364%). These results demonstrate the feasibility of an end-to-end framework for QML prediction models on noisy quantum hardware, quantify resource-accuracy trade-offs, and highlight the calibrated mitigation and scaling conditions under which quantum kernel methods may complement classical approaches as quantum processors mature, laying a methodological foundation for quantum-assisted materials informatics.",
+  "date": "2026-05-16",
+  "venue": "Future Batteries",
+  "arxiv_id": "",
+  "doi": "10.1016/j.fub.2026.100185",
+  "citations": 2,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "271e8b8b490b",
+  "title": "Theory of quantum error mitigation for non-Clifford gates",
+  "authors": [
+   "David Layden",
+   "Bradley Mitchell",
+   "Karthik Siva"
+  ],
+  "abstract": "Quantum error mitigation techniques mimic noiseless quantum circuits by running several related noisy circuits and combining their outputs in particular ways. How well such techniques work is thought to depend strongly on how noisy the underlying gates are. Weakly-entangling gates, like R Z Z ( θ ) for small angles θ , can be much less noisy than entangling Clifford gates, like CNOT and CZ, and they arise naturally in circuits used to simulate quantum dynamics. However, such weakly-entangling gates are non-Clifford, and are therefore incompatible with two of the most prominent error mitigation techniques to date: probabilistic error cancellation (PEC) and the related form of zero-noise extrapolation (ZNE). This paper generalizes these techniques to non-Clifford gates, and comprises two complementary parts. The first part shows how to effectively transform any given quantum channel into (almost) any desired channel, at the cost of a sampling overhead, by adding random Pauli gates and processing the measurement outcomes. This enables us to cancel or properly amplify noise in non-Clifford gates, provided we can first characterize such gates in detail. The second part therefore introduces techniques to do so for noisy R Z Z ( θ ) gates. These techniques are robust to state preparation and measurement (SPAM) errors, and exhibit concentration and sensitivity—crucial statistical properties for many experiments. They are related to randomized benchmarking, and may also be of interest beyond the context of error mitigation. We find that while non-Clifford gates can be less noisy than related Cliffords, their noise is fundamentally more complex, which can lead to surprising and sometimes unwanted effects in error mitigation. Whether this trade-off can be broadly advantageous remains to be seen.",
+  "date": "2026-02-10",
+  "venue": "Quantum",
+  "arxiv_id": "",
+  "doi": "10.22331/q-2026-02-10-2003",
+  "citations": 1,
+  "theme": "zero noise extrapolation benchmarking"
+ },
+ {
+  "fid": "a0e4ddacdfdb",
+  "title": "Retromorphic Testing of Quantum Compiler Passes",
+  "authors": [
+   "Mushahid Khan",
+   "Olivia Di Matteo"
+  ],
+  "abstract": "Quantum compilers play a critical role in transforming high-level quantum programs into optimized, hardware-compatible circuits. However, verifying the correctness of compiler passes remains challenging, as determining the expected output of large, deeply entangled quantum circuits is computationally intractable. This challenge is further amplified when compiler passes modify already complex circuit structures, making manual validation of transformed circuits impractical. In this work, we perform a systematic analysis of unit tests for quantum compiler passes in four quantum programming frameworks (PennyLane, Qiskit, Cirq, and pytket). Our findings indicate validation is dominated by program-content and program-metric assertions, and test circuits are generally small and shallow. Motivated by these observations, we introduce a testing methodology for automated validation of quantum compiler passes based on retromorphic testing and principles from the Hadamard test. This methodology analyzes a compiler pass, test circuit, and expected pass behavior to verify semantic preservation and intended structural modifications. We implement our methods in a framework, RetroQ, and apply it to compiler passes in PennyLane and Qiskit. Experimental evaluation reproduced several existing bugs as well as uncovered previously undetected defects, such as flawed symbolic parameter handling, incorrect commutation logic, failure to recognize self-adjointness of gates, and runtime crashes. These findings highlight the need for compiler-pass-specific testing methodologies to improve the reliability of the evolving quantum software stack.",
+  "date": "2026-10-08",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2610.11195",
+  "doi": "10.48550/arxiv.2610.11195",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "393b04898627",
+  "title": "Compiling Quantum Regular Language States",
+  "authors": [
+   "Reinis Irmejs",
+   "Armando Bellante",
+   "M. Florido-Llinas",
+   "María Cea",
+   "Marianna Crupi",
+   "Kiser, Matthew",
+   "J. Ignacio Cirac"
+  ],
+  "abstract": "Artifact for Accepted Paper #331: \"Compiling Quantum Regular Language States\" (OOPSLA 2026) arXiv: 2602.02698 A quantum state-preparation compiler for Regular Language States (RLS). Users describe target states via regular expressions, bitstring lists, or DFAs, and the compiler produces hardware-aware quantum circuits via two backends: SeqRLSP (linear depth, LNN connectivity) and TreeRLSP (logarithmic depth, all-to-all connectivity). Getting started and verifying the results: Download all files into a single directory tar xzf rlscomp-artifact.tar.gz cd rlscomp-artifact docker load < docker-image.tar docker run --platform linux/amd64 -it -v $(pwd):/work rlscomp-artifact bash python run_sec56_sec57.py (sanity check, ~1 min) See README.md for full instructions and CLAIMS.md for the mapping of paper claims to experiments. Reusing the code: To reuse and build upon the code please refer to the additional resources: Document What it covers ARCHITECTURE.md High-level overview of the codebase: the four-stage compilation pipeline, a module-by-module map, the data representations and conventions every stage relies on, a table mapping each construction in the paper to the function that implements it, and an annotated end-to-end trace of one compilation. GUIDE.md Guide to the main functionality: installation, the four ways to describe a state, complements, choosing between the three backends, verifying that a circuit is correct, measuring circuit cost the way the paper does, exporting circuits, using the intermediate stages directly, running benchmark sweeps, and a troubleshooting table. EXTENDING.md Applying and extending the package beyond our experiments: adding input front ends, compiling states that are not regular languages, adding methods to the benchmark harness, adding new circuit backends, generalising past the binary alphabet, using the analysis machinery on its own, known limits with workarounds, and how to test an extension.",
+  "date": "2026-09-04",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2602.02698",
+  "doi": "10.5281/zenodo.22302492",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "fd3860e0b2b8",
+  "title": "Embedding Quantum Program Verification into Dafny",
+  "authors": [
+   "Feifei Cheng",
+   "Sushen Vallabh Vangeepuram",
+   "Henry Allard",
+   "Seyed Mohammad Reza Jafari",
+   "Alex Potanin",
+   "Liyi Li"
+  ],
+  "abstract": "Despite recent development of quantum program verification, it is still in its early stage, where many quantum programs are hard to verify due to their inherent probabilistic nature and parallelism in quantum superposition. We propose Qafny c , a system that compiles quantum program verification into a well-established classical program verifier Dafny, enabling the formal verification of quantum programs. The key insight behind Qafny c is the separation of quantum program verification from its execution, leveraging the strength of classical verifiers to ensure correctness before compiling certified quantum programs into executable circuits. Using Qafny c , we have successfully verified 37 diverse quantum programs by compiling their verification into Dafny. To the best of our knowledge, this is the most extensive formally verified set of quantum programs.",
+  "date": "2025-10-09",
+  "venue": "Proceedings of the ACM on Programming Languages",
+  "arxiv_id": "",
+  "doi": "10.1145/3763157",
+  "citations": 2,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "39615ea46dcd",
+  "title": "End-to-end compilable implementation of quantum elliptic curve logarithm in Qrisp",
+  "authors": [
+   "Diego Polimeni",
+   "Raphael Seidel"
+  ],
+  "abstract": "Elliptic curve cryptography (ECC) is a widely established cryptographic technique, recognized for its effectiveness and reliability across a broad range of applications such as securing telecommunications or safeguarding cryptocurrency wallets. Although being more robust than RSA, ECC is, nevertheless, also threatened by attacks based on Shor's algorithm, which made it a popular field of study in quantum information science. A variety of techniques have been proposed to perform EC arithmetic in quantum devices; however, software support for compiling these algorithms into executables is extremely limited. Within this work, we leverage the Qrisp programming language to realize one of the first fully compilable implementations of EC arithmetic and verify its correctness using Qrisp's built-in sparse matrix simulator.",
+  "date": "2025-01-17",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2501.10228",
+  "doi": "10.48550/arxiv.2501.10228",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "049996c9a2a6",
+  "title": "Gaining confidence on the correct realization of arbitrary quantum computations",
+  "authors": [
+   "José A. Carrasco",
+   "Marc Langer",
+   "Antoine Neven",
+   "Barbara Kraus"
+  ],
+  "abstract": "We present verification protocols to gain confidence in the correct performance of a device implementing an arbitrary quantum computation. The derivation of the protocols is based on the fact that matchgate computations, which are classically efficiently simulable, become universal if supplemented with additional resources. We combine tools from weak simulation, randomized compiling, and statistics to derive verification circuits that (i) strongly resemble the original circuit and (ii) can be classically efficiently simulated not only in the ideal, i.e., error free scenario, but also in the realistic situation where errors are present. In fact, in one of the protocols we apply exactly the same circuit as in the original computation, however, to a slightly modified input state. Published by the American Physical Society 2024",
+  "date": "2024-09-30",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/physrevresearch.6.l032074",
+  "citations": 2,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "f857a9686812",
+  "title": "Towards Datalog on Quantum Annealers: Compiling Recursive Logic Programs with Bottom-up Semantics to 2-local Ising Models",
+  "authors": [
+   "Bruno Rucy Carneiro Alves de Lima",
+   "Victor Henrique Cabral Pinheiro",
+   "Evgenii Dolzhkov",
+   "Joseph Haske"
+  ],
+  "abstract": "Quantum annealers solve problems by finding the lowest-energy (ground) state of a programmable physical system, a 2-local Ising model, whose energy function is the Hamiltonian. We compile recursive Datalog programs into such models so that the ground state projects onto the program's minimal Herbrand model. The compiler has four stages: binarization, grounding, reduction to a Min-Ones SAT formula, and Ising encoding. Each rule becomes an energy penalty on the one assignment that violates it, and a small uniform cost on every true atom selects the minimal model. We contribute both in theory and in practice with per-stage correctness lemmas and a correspondence theorem, verified in Lean 4, establishing that the ground state of the compiled model projects onto the program's minimal Herbrand model. We map the compiled models onto the topologies of commercial annealers and characterize, under classical and simulated-quantum annealing, whether and when that certified ground state is attained.",
+  "date": "2026-08-05",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2608.04645",
+  "doi": "10.48550/arxiv.2608.04645",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "cab0096ccde3",
+  "title": "Are We Testing the Wrong Quantum Bugs? A Study of Fault Representation Gaps in Quantum Software Testing",
+  "authors": [
+   "Asif Mohammed Saad",
+   "Ahsanul Ameen Sabit",
+   "Jonah Brandenburgh",
+   "Jiyuan Wang",
+   "Qian Zhang",
+   "Soneya Binta Hossain"
+  ],
+  "abstract": "Quantum software relies on compilers, intermediate representations, and execution frameworks that transform programs before execution. Faults in these components can change the behavior of otherwise correct quantum programs. Yet quantum testing techniques are often evaluated using mutation-generated faults and curated bug benchmarks. We investigate how well the faults represented by these artifacts reflect those encountered in modern quantum software. We audit four quantum mutation-testing tools and three curated bug benchmarks, and collect 410 verified bugs from ten quantum software repositories over two years. We classify faults from all three sources into a common taxonomy of 56 bug families and compare their representation across mutation operators, curated benchmarks, and recent real-world bugs. The mutation tools support 20 bug families, and curated benchmarks add 15 more. Yet only 56 of the 410 real-world bugs (13.7%) belong to families represented by either source; the remaining 354 (86.3%) belong to families absent from both. The largest unrepresented families concern compiler transformations (66 bugs), type handling (53), and input validation (47). Unlike local gate or statement changes, these faults often depend on intermediate representations, compiler pipelines, input types, or dependency versions. Existing mutation operators primarily modify circuits and program constructs, whereas many real-world faults arise in the compilers, representations, and framework interfaces that process them. Addressing this gap requires looking beyond circuit-level faults toward testing semantic preservation across compiler transformations, correctness at representation boundaries, and interactions between software components. Our study provides empirical evidence to guide fault models and benchmarks that capture these mechanisms and preserve the contexts needed to reproduce them.",
+  "date": "2026-10-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2610.22089",
+  "doi": "10.48550/arxiv.2610.22089",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "7a3a8117e6a5",
+  "title": "MultiQ: Multi-Programming Neutral Atom Quantum Architectures",
+  "authors": [
+   "Francisco Romão",
+   "Daniel Vonk",
+   "Emmanuil Giortamis",
+   "Dennis Sprokholt",
+   "Pramod Bhatotia"
+  ],
+  "abstract": "Neutral atom Quantum Processing Units (QPUs) are emerging as a popular quantum computing technology due to their large qubit counts and flexible connectivity. However, performance challenges arise as large circuits experience significant fidelity drops, while small circuits underutilize hardware and face initialization latency issues. To tackle these problems, we propose $\\textit{multi-programming on neutral atom QPUs}$, allowing the co-execution of multiple circuits by logically partitioning the qubit array. This approach increases resource utilization and mitigates initialization latency while maintaining result fidelity. Currently, state-of-the-art compilers for neutral atom architectures do not support multi-programming. To fill this gap, we introduce MultiQ, the first system designed for this purpose. MultiQ addresses three main challenges: (i) it compiles circuits into a $\\textit{virtual zone layout}$ to optimize spatio-temporal hardware utilization; (ii) it parallelizes the execution of co-located circuits, allowing single hardware instructions to operate on different circuits; and (iii) it includes an algorithm to verify the functional independence of the bundled circuits. MultiQ functions as a cross-layer system comprising a compiler, controller, and checker. Our compiler generates \\emph{virtual zone layouts} to enhance performance, while the controller efficiently maps these layouts onto the hardware and resolves any conflicts. The checker ensures the correct bundling of circuits. Experimental results show a throughput increase from 3.8$\\times$ to 12.3$\\times$ when multi-programming 4 to 14 circuits, with fidelity largely maintained, ranging from a 1.3% improvement for four circuits to only a 3.5% loss for fourteen circuits. Overall, MultiQ facilitates concurrent execution of multiple quantum circuits, boosting throughput and hardware utilization.",
+  "date": "2026-01-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2601.08504",
+  "doi": "10.48550/arxiv.2601.08504",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "a417488e1e3f",
+  "title": "Shaking Up Quantum Simulators with Fuzzing and Rigour",
+  "authors": [
+   "Vasileios Klimis",
+   "Avner Bensoussan",
+   "Elena Chachkarova",
+   "Karine Even-Mendoza",
+   "Sophie Fortz",
+   "Connor Lenihan"
+  ],
+  "abstract": "Quantum computing platforms rely on simulators for modelling circuit behaviour prior to hardware execution, where inconsistencies can lead to costly errors. While existing formal validation methods typically target specific compiler components to manage state explosion, they often miss critical bugs. Meanwhile, conventional testing lacks systematic exploration of corner cases and realistic execution scenarios, resulting in both false positives and negatives. We present FuzzQ, a novel framework that bridges this gap by combining formal methods with structured test generation and fuzzing for quantum simulators. Our approach employs differential benchmarking complemented by mutation testing and invariant checking. At its core, FuzzQ utilises our Alloy-based formal model of QASM 3.0, which encodes the semantics of quantum circuits to enable automated analysis and to generate structurally diverse, constraint-guided quantum circuits with guaranteed properties. We introduce several test oracles to assess both Alloy’s modelling of QASM 3.0 and simulator correctness, including invariant-based checks, statistical distribution tests, and a novel cross-simulator unitary consistency check that verifies functional equivalence modulo global phase, revealing discrepancies that standard statevector comparisons fail to detect in cross-platform differential testing. We evaluate FuzzQ on both Qiskit and Cirq, demonstrating its platform-agnostic effectiveness. By executing over 800,000 quantum circuits to completion, we assess throughput, code and circuit coverage, and simulator performance metrics, including sensitivity, correctness, and memory overhead. Our analysis revealed eight simulator bugs, six previously undocumented. We also outline a path for extending the framework to support mixed-state simulations under realistic noise models.",
+  "date": "2025-10-09",
+  "venue": "Proceedings of the ACM on Programming Languages",
+  "arxiv_id": "",
+  "doi": "10.1145/3763100",
+  "citations": 4,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "e457db682807",
+  "title": "Congestion-free routing on quantum chips",
+  "authors": [
+   "Mithilesh Kumar",
+   "Yusuf Tahir",
+   "Varun Daiya",
+   "Sanjana Mattaparthi",
+   "Aarav Shaurya"
+  ],
+  "abstract": "Limited connectivity makes nonlocal quantum gates expensive on near-neighbor hardware, where compilation typically relies on SWAP transport, inheriting both depth overhead and path congestion. We present a swap-free routing framework in which higher levels of a qudit act as orthogonal spectral buses that transport control information without moving the computational state. We show that exact congestion relief in nearest-neighbor architectures requires local Hilbert-space expansion. In this model, a nonlocal operation over a path of length $L$ requires $2L+1$ logical routing primitives, compared to the $3L$ baseline. Overlapping routes remain distinguishable through bus labels encoded in the same physical qudits. This routing algebra extends to Boolean fan-in at a common target: multiple controls arriving on distinct buses trigger a local unitary based on an arbitrary Boolean function of bus digits, yielding multi-control operations of depth $2L + D_g + O(1)$ for fan-in size $K$ and target-synthesis cost $D_g$. We prove decodability, reversibility, and correctness for CNOT and Boolean fan-in, along with a state-count lower bound $d \\geq 2^{K+1}$ for exact overlap routing. Cirq simulations confirm single-control correctness and zero crosstalk. Compiler-level benchmarks on QFT, QAOA, and mirror-interaction circuits verify the predicted congestion law and transport reduction. Noisy QuTiP simulations show that the architectural advantage depends on higher-level coherence and speed. These results identify spectral qudit routing as a congestion-relief architecture that separates nonlocal control delivery from local target-side aggregation, providing a minimal mechanism for overcoming qubit routing limitations.",
+  "date": "2026-06-29",
+  "venue": "Physical Review A",
+  "arxiv_id": "",
+  "doi": "10.1103/v3gd-1xhv",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "36c6b632d03a",
+  "title": "Can Coding Agents Migrate to Post-Quantum Cryptography?",
+  "authors": [
+   "Abdulmalik Alquwayfili"
+  ],
+  "abstract": "A program migrated to post-quantum cryptography can verify its own signatures while producing keys or signatures that another implementation rejects. We introduce a contract-based task for migrating a Go file signer from RSA to ML-DSA-44, and compare coding agents with and without structured checker feedback. Both conditions receive the contract, compiler, documentation, and OpenSSL. Across 160 attempts in four local-agent configurations, twelve final patches pass local verification but fail external requirements. Checker access does not increase the observed completion rate in any comparison. Recorded traces show unresolved defects and checks invoked only after a patch is correct. Serving settings also affect completion: reducing only Qwen3.8's context window from 128K to 32K lowers full passes from 36/40 to 4/40. Four exploratory trials using GPT-6 Astra through Codex and Claude Fable 5.1 through Claude Code pass all 40 checks, including both baselines. These findings support evaluating interoperability separately from local agreement and reporting harness and serving limits alongside agent results.",
+  "date": "2025-12-15",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2512.12989",
+  "doi": "10.48550/arxiv.2512.12989",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "bb568143d8b3",
+  "title": "CUDA-Q Logical: Retargetable Compilation for Fault-Tolerant Quantum Computing",
+  "authors": [
+   "Alex McCaskey",
+   "Justin Lietz",
+   "Adam Holmes",
+   "紘平 中路",
+   "Vadym Kliuchnikov",
+   "Yifan Hong",
+   "Amalee Wilson",
+   "Andres Paz",
+   "Bettina Heim",
+   "Bruno de O. Schmitt",
+   "Krysta M. Svore"
+  ],
+  "abstract": "Realizing fault-tolerant quantum computing requires mapping logical programs to heterogeneous quantum error correction (QEC) codes and diverse fault-tolerant execution models, scheduling physical resources, and coupling to real-time classical control and feedback. Specialized tools exist for each step but rely on manual composition and translation that discard assumptions and provenance, separating resource estimates from the compiler artifacts they describe, and making it difficult to validate correctness, compare architectures, or attribute costs to specific design choices. We present CUDA-Q Logical, an extensible compiler infrastructure for retargetable fault-tolerant compilation, analysis, and execution. Interoperable with CUDA-Q and other mainstream front-ends, CUDA-Q Logical progressively lowers target-independent logical programs through a constrained logical virtual machine, QEC microcode, physical gate schedules, and real-time control plans, with each layer preserving semantics and provenance, while verifying composition and resource constraints. By deriving every resource estimate directly from compiler artifacts, the framework unifies compilation and resource analysis, enabling successively refined estimates and principled cross-architecture comparison while permitting QEC codes, execution models, decoders, and hardware architectures to be introduced as modular extensions. Across workloads ranging from application-architecture studies to qLDPC surgery and detector-error-model composition, we show that schedule-derived estimates reconcile with established independent models. Crucially, this compiler-visible structure exposes cost drivers hidden by aggregate analytical formulas, carries QEC artifacts intact into simulation, and demonstrates a complete compilation pipeline for fault-tolerant quantum computing.",
+  "date": "2026-09-11",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.13388",
+  "doi": "10.48550/arxiv.2609.13388",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "55aab39312bc",
+  "title": "Robust high-order quantum simulation using finite-width pulses",
+  "authors": [
+   "Leeseok Kim",
+   "Milad Marvian"
+  ],
+  "abstract": "We present a general framework for promoting first-order pulse sequences in quantum simulation to higher-order sequences that maintain robustness in the presence of finite pulse-width effects. Our approach maps a given first-order pulse sequence to a first-order Trotter formula, applies higher-order Trotter-formula constructions, and then compiles the resulting evolution back into physically implementable finite-width pulses via dynamically corrected gates. The resulting sequences achieve arbitrarily high-order error scaling with respect to the control cycle time of the underlying first-order sequence while maintaining robustness to finite pulse-width effects. The framework also enables the use of multi-product formulas for more efficient constructions. We apply the framework to several physically motivated quantum-simulation tasks and numerically verify the predicted error scalings.",
+  "date": "2026-03-16",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.15502",
+  "doi": "10.48550/arxiv.2603.15502",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "9233801e9234",
+  "title": "HyQBench: A Benchmark Suite for Hybrid CV-DV Quantum Computing",
+  "authors": [
+   "Shubdeep Mohapatra",
+   "Yuan Liu",
+   "Eddy Z. Zhang",
+   "Huiyang Zhou"
+  ],
+  "abstract": "Hybrid continuous-variable (CV)-discrete-variable (DV) quantum systems present a promising direction for quantum computing by combining the high dimensional encoding capabilities of qumodes with the control offered by DV qubits on the coupled qumodes. There have been exciting recent progresses on hybrid CV-DV quantum computing, including variational algorithms, error correction, compiler-level optimizations for Hamiltonian simulation, etc. However, there is a lack of a standardized CV-DV benchmark suite for assessing various emerging hardware platforms and evaluating software optimizations on hybrid CV-DV circuits. In this work, we introduce a simulation and benchmarking framework for hybrid CV-DV circuits, implemented using Bosonic Qiskit-a tool specifically designed to model CV-DV systems, along with QuTip for functional correctness verification. We construct and characterize representative CV-DV benchmarks, including cat state generation, GKP state generation, CV-DV state transfers, hybrid quantum Fourier transform, variational quantum algorithms, Hamiltonian simulation, and Shor's algorithm. To assess circuit complexity and scalability, we define a feature map organized into two categories: general features (e.g., qubit/qumode count, gate counts) and CV-DV-specific features (e.g., Wigner negativity, energy, truncation cost). These metrics enable evaluation of both classical simulability and hardware resource requirements. Our results, including one benchmark on real hardware, demonstrate that hybrid CV-DV architectures are not only viable but well-suited for a range of computational tasks, from optimization to Hamiltonian simulation. This framework lays the groundwork for systematic evaluation and future development of hybrid quantum systems.",
+  "date": "2026-03-04",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2603.04398",
+  "doi": "10.48550/arxiv.2603.04398",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "0f9a31bd1f5c",
+  "title": "Fault-Class-Matched Test Oracles for Output-Invisible Quantum Transpiler Regressions",
+  "authors": [
+   "Furqan Nasir",
+   "Arif Shah",
+   "Iftikhar Alam"
+  ],
+  "abstract": "Test oracles for quantum transpilers typically judge correctness by comparing compiled output against a reference: a statevector, a sampled distribution, or a unitary compared modulo global phase. A companion empirical study measures how often that choice fails. Roughly 28% of merged Qiskit transpiler bug-fixes (95% Wilson CI 19-40%) repair a fault that corrupts layout metadata, global phase, or run-to-run reproducibility while output stays correct: invisible to a black-box output-equivalence oracle by construction. This paper closes that gap with a fault-class-matched, layout-aware, width-tiered oracle family: a layout/permutation contract checker and a contract-level metamorphic relation (MR-1) for the metadata channel, a global-phase tracker for the phase channel, and a determinism runner for reproducibility. Verified from source on nine real, merged Qiskit transpiler regressions (three per channel), the output-equivalence oracle is blind throughout and the matched mechanism fires on every case. A 675-configuration sweep of the contract/metadata invariant finds no false positive. Synthetic mutant families confirm reliability at scale: 1.00 sensitivity and specificity across 36 mutants apiece for the contract/metadata and global-phase channels, and 1.00 sensitivity (95% CI 0.44-1.00) for reproducibility on the three circuits where the mutation is constructible. The contract checker costs two to six orders of magnitude less than a plain output check, the global-phase tracker is comparably cheap within its exact tier, and only the metamorphic relation carries a bounded cost. Ported natively to pytket/tket, the global-phase mechanism transfers cleanly, an identical 1.00/1.00 result with phases recovered to double-precision accuracy, evidence against a Qiskit-specific artifact.",
+  "date": "2026-09-21",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2609.24230",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "c20be4277885",
+  "title": "Context-Verified, Error-Budget-Aware Decomposition Selection for Toffoli Networks",
+  "authors": [
+   "Karol Bartkiewicz",
+   "Patrycja Tulewicz"
+  ],
+  "abstract": "Two-qubit-gate error dominates the failure budget of near-term quantum circuits, so the decomposition chosen for each Toffoli (CCX) gate should minimize hardware two-qubit infidelity, not gate count. The cheapest decompositions - relative-phase and approximate Toffolis - are only correct in context: their residual phase or bounded error must be cancelled or absorbed downstream. We present the first compiler pass that selects a per-Toffoli decomposition to minimize a two-qubit-infidelity error budget. It admits each context-dependent decomposition only when an exact, instance-specific equivalence check certifies its validity in that circuit context, coupling an error-budget objective with per-instance verification and closing the gap between context-aware-but-unverified and verified-but-context-free optimizers. The central result is a safety one: pattern-matched relative-phase substitution is silently incorrect. Our verifier flags 66 library rewrites of a deployed open optimizer as non-equivalent without a context check, and count-greedy substitution silently corrupts 6 of 12 benchmark circuits; the verification gate certifies 0 errors while still applying every valid decomposition. The two-qubit-gate reduction is real but workload-dependent: up to 39.5% fewer two-qubit gates and 36.7% lower infidelity over exact-only on a compute/uncompute-heavy suite (approx. 39%/35% versus Qiskit opt-3 and tket), and 15.6% aggregate on a larger 12-24-qubit suite, with decision-diagram checking certifying every substitution past the exhaustive-verification limit. At current superconducting and trapped-ion error rates, the certified substitutions lower estimated circuit infidelity by 36-43%, and on a quantum state-resetting circuit, the pass removes 48.8% of the native two-qubit gates, every substitution verified.",
+  "date": "2026-06-30",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.31791",
+  "doi": "10.48550/arxiv.2606.31791",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "f5c90118e55b",
+  "title": "Design of a fault‑tolerant‑metric‑aware, reversible n‑bit quantum arithmetic logic unit using IBM Qiskit",
+  "authors": [
+   "Agniswar Banerjee"
+  ],
+  "abstract": "Abstract This paper presents a reversible, n‑bit Quantum Arithmetic Logic Unit (QALU) implemented in Qiskit that supports a classical ALU‑like instruction set: ADD, SUB, CMP, AND/OR/XOR and their negations, unary NOT, shifts and rotates, and operand passthrough. The QALU outputs a result register and status flags N, Z, C, V (negative, zero, carry/no‑borrow, signed overflow) and emits explicit comparison outputs EQ, LT u , LT s . The design is modular and operation‑selectable at compile time, enabling clean verification and resource accounting. To evaluate fault‑tolerant efficiency, the circuits are decomposed into a Clifford + T basis and measure T‑count alongside CX‑count and depth. Exhaustive verification on Aer (matrix‑product‑state simulation) confirms correctness for all input pairs for n = 4 across 16 operations. Hardware experiments on IBM Quantum (limited to n = 2) demonstrate end‑to‑end execution with dynamical decoupling and gate twirling, and readout mitigation via mthree. An analytical scaling discussion grounded in ripple‑carry adder theory and known Toffoli/T‑gate constructions is further provided. These results show that a practical, verifiable QALU with flags and compare can be implemented within Qiskit while exposing meaningful fault‑tolerant metrics and hardware‑realistic performance characterization. Key findings from the provided implementation artifacts: (1) Aer exhaustive verification (n = 4): the QALU was exhaustively tested over all 2 2n =256 input pairs for each of 16 operations (4096 total tests), with 0 mismatches against a classical reference model. (2) Resource metrics (n = 4): after transpilation to a Clifford + T‑style basis {cx, h, s, sdg, x, z, t, tdg} at optimization level 3, the highest‑cost operations (ADD, SUB, CMP) report T‑count = 86, CX‑count ≈ 102–106, and depth ≈ 138 on a 24‑qubit circuit instance (including flags and MCX ancillae). (3) IBM hardware test (n = 2): on an automatically selected IBM backend (ibm_torino) using dynamical decoupling and gate twirling plus mthree readout mitigation, an exhaustive run over all 256 circuits yielded raw correctness 91.41% and mitigated correctness 91.02% (slightly worse post‑mitigation, consistent with practical tradeoffs where mitigation noise/calibration drift can dominate at small sizes).",
+  "date": "2026-05-20",
+  "venue": "Scientific Reports",
+  "arxiv_id": "",
+  "doi": "10.1038/s41598-026-53845-1",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "54d9d1811515",
+  "title": "Quasilinear Equivalence Checking for Detector Error Models",
+  "authors": [
+   "Mathys Rennela"
+  ],
+  "abstract": "A Detector Error Model (DEM) is a structured representation of error mechanisms in quantum circuits, which has gained popularity in quantum compilation pipelines for its ability to capture fault-tolerance at a circuit level. It lists error mechanisms as instructions targeting detectors and observables, specifying for each physical fault channel the probability that the fault fires, the detectors it triggers, and the observables it flips. In this paper, we develop an equational theory for DEMs, with its associated categorical semantics. We present a sound, terminating, confluent rewriting system for DEM terms, formulating it as a symmetric monoidal theory (a PROP) over the Giry monad. We prove that every DEM term has a unique normal form, which can be computed efficiently in quasilinear time $O(k|E|\\log|E|)$, where $|E|$ is the number of instructions and $k$ bounds the size of a target set. This provides a complete set of invariants (via Tanner graphs) for structural DEM equivalence. We provide the first static decision procedure for DEM equivalence, with rigorous correctness guarantees. It is complete (decides full decoder-equivalence exactly) for non-adaptive quantum error correction (QEC) pipelines, and scales to a sound and applicable decision procedure for partially-adaptive circuits (lattice surgery, distributed QEC, ...) without suffering exponential overhead. We discuss its application to the verification and optimisation of quantum compilers.",
+  "date": "2026-06-12",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2606.14677",
+  "doi": "10.48550/arxiv.2606.14677",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "b421d973a650",
+  "title": "Logical error rates for the surface code under a mixed coherent and stochastic circuit-level noise model inspired by trapped ions",
+  "authors": [
+   "Tyler LeBlond",
+   "Peter Groszkowski",
+   "Justin G. Lietz",
+   "Christopher M. Seck",
+   "Ryan S. Bennink"
+  ],
+  "abstract": "With fault-tolerant quantum computing (FTQC) on the horizon, it is critical to understand sources of logical errors in plausible hardware implementations of quantum error-correcting codes. Detailed error modeling of computational instructions on particular FTQC architectures will enable the better prediction of error propagation in FT-encoded quantum circuits while revealing where greater attention is needed in hardware design. In this work, we consider logical error rates for the surface code implemented on a hypothetical grid-based trapped-ion quantum charge-coupled device architecture. Specifically, we construct logical channels for the idling surface code and examine its diamond error under a mixed coherent and stochastic circuit-level noise model inspired by trapped ions. We include the coherent dephasing noise that is known to accumulate during physical qubit idling and transport in these systems, determining idling and transport durations using the time-resolved output of an open-source trapped-ion surface code compiler. To estimate expectation values of logical Pauli observables following hardware circuits containing non-Clifford sources of noise, we utilize a Monte Carlo technique to sample from an underlying quasiprobability distribution of Clifford circuits that we independently simulate in a phase-sensitive fashion. We verify error suppression up to code distance d = 11 at coherent dephasing rates near and below those of current-generation trapped-ion quantum computers and find that logical error rates align with those of analogous fully stochastic simulations in this regime. Exploring higher dephasing rates at d = 3 − 5 , we find evidence for growing coherent rotations about all three logical Pauli axes, increased diagonal logical error process matrix elements relative to those of stochastic simulations, and a reduced dephasing rate threshold. Overall, our work paves a way toward realistic hardware emulation of small fault-tolerant quantum processes, e.g., members of an FTQC instruction set.",
+  "date": "2025-11-19",
+  "venue": "Physical Review Research",
+  "arxiv_id": "",
+  "doi": "10.1103/ktb3-gcxr",
+  "citations": 3,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "5f7b4317bf05",
+  "title": "ResearchEVO: An End-to-End Framework for Automated Scientific Discovery and Documentation",
+  "authors": [
+   "Zhe Zhao",
+   "Wen, Haibin",
+   "Jiaming Ma",
+   "Jiachang Zhan",
+   "Tianyi Xu",
+   "Ye Wei",
+   "Qingfu Zhang"
+  ],
+  "abstract": "An important recurring pattern in scientific breakthroughs is a two-stage process: an initial phase of undirected experimentation that yields an unexpected finding, followed by a retrospective phase that explains why the finding works and situates it within existing theory. We present ResearchEVO, an end-to-end framework that computationally instantiates this discover-then-explain paradigm. The Evolution Phase employs LLM-guided bi-dimensional co-evolution -- simultaneously optimizing both algorithmic logic and overall architecture -- to search the space of code implementations purely by fitness, without requiring any understanding of the solutions it produces. The Writing Phase then takes the best-performing algorithm and autonomously generates a complete, publication-ready research paper through sentence-level retrieval-augmented generation with explicit anti-hallucination verification and automated experiment design. To our knowledge, ResearchEVO is the first system to cover this full pipeline end to end: no prior work jointly performs principled algorithm evolution and literature-grounded scientific documentation. We validate the framework on two cross-disciplinary scientific problems -- Quantum Error Correction using real Google quantum hardware data, and Physics-Informed Neural Networks -- where the Evolution Phase discovered human-interpretable algorithmic mechanisms that had not been previously proposed in the respective domain literatures. In both cases, the Writing Phase autonomously produced compilable LaTeX manuscripts that correctly grounded these blind discoveries in existing theory via RAG, with zero fabricated citations.",
+  "date": "2026-04-07",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2604.05587",
+  "doi": "10.48550/arxiv.2604.05587",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "2adc78ca5077",
+  "title": "Κυβερνοασφάλεια σε HW/SW : επιθέσεις δεδομένων σε επίπεδο αρχιτεκτονικής και υλικού",
+  "authors": [
+   "Χάρης Δημόπουλος"
+  ],
+  "abstract": "Public-key cryptography as deployed today rests on two mathematical problems, integer factorization and the discrete logarithm. Shor’s algorithm solves both in polynomial time on a sufficiently large quantum computer, reducing RSA, DSA and elliptic-curve cryptography to a single shared point of failure. Malicious entities, however, do not wait for such a machine to exist. Encrypted traffic captured today can be stored and decrypted retroactively the moment one does exist, so any secret that must remain confidential for years is already exposed. Post-quantum cryptography answers this by rebuilding the public-key primitives on problems believed to resist quantum attack, a process NIST partially concluded in 2024 with ML-KEM, ML-DSA and SLH-DSA being standardizes through FIPS 203-205. However, standardization settles which mathematical problems will protect digital communications once large-scale quantum computers exist, but it does not settle how the schemes built on those problems behave when they run on real silicon. A scheme whose security reduces to a provably hard lattice or multivariate quadratic problem can still surrender its private key through the power its processor draws or the electromagnetic radiation it emmits while computing, and no amount of cryptanalytic hardness prevents this. As post-quantum TLS already runs on constrained embedded devices, that gap between algorithmic and implementation security is a deployed exposure rather than a hypothetical one. Closing the gap is harder than the classical experience suggests. Where a block cipher offers a single primitive whose exploitable intermediate has been settled for two decades, a post-quantum signature is an assembly of structurally dissimilar sub-operations, each admitting a different family of attack and some admitting none at all, so that choosing where to focus is itself a research question. The quantity that leaks must be discovered rather than assumed, and it is rarely the secret itself. What ships compounds the difficulty, since the standards mandate nothing about side-channel resistance and the code deployed in practice is unprotected reference code compiled for speed, where an optimizing compiler relocates the very operations an attack depends upon. Profiled machine learning models raise a further demand, because a secret that never changes caps what any one victim can teach, and the diversity a model needs must come from many keys rather than many traces. Even the definition of suc",
+  "date": "2026-10-07",
+  "venue": "Νημερτής",
+  "arxiv_id": "",
+  "doi": "",
+  "citations": 0,
+  "theme": "quantum compiler verification correctnes"
+ },
+ {
+  "fid": "76e39a596821",
+  "title": "First and second quantized digital quantum simulations of bosonic systems",
+  "authors": [
+   "Mathias Mikkelsen",
+   "Hubert Valencia"
+  ],
+  "abstract": "We compare the basic resource requirements for first and second quantized bosonic mappings in a system consisting of $N$ particles in $M$ modes. In addition to the standard binary first quantized mapping, we investigate the unary first quantized mapping. Our comparison focuses on the $k$-body reduced density matrix ($k$-RDM) and two standard bosonic Hamiltonians. The first quantized mappings use less resources for off-diagonal terms of the $k$-RDM by a factor of $ \\sim N^k$, compared to the second quantized mappings. The number of gates for the first quantized binary mapping increases faster with $M$ compared to the other mappings. Nevertheless, a detailed numeric analysis reveals that the binary first quantized mapping still requires fewer gates than the binary and unary second quantized ones for realistic combinations of $N$ and $M$, while requiring exponentially fewer qubits than the unary mappings. Additionally, the number of CNOT and $R_z(ϕ)$ gates necessary to express a single Trotter step of the Hamiltonian in the binary first quantized mapping is comparable to the (most efficient for a single Trotter step) unary first quantized one when $M = 2^n$ for both the Bose-Hubbard model and the harmonic trap with short-range interactions. Additionally the binary mapping leads to lower one-norms than the unary mapping making it the overall most efficient choice for qubitization-based quantum phase estimation.",
+  "date": "2025-11-13",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2511.10124",
+  "doi": "10.48550/arxiv.2511.10124",
+  "citations": 0,
+  "theme": "Hamiltonian simulation Trotter qubitizat"
  }
 ]

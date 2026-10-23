@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-23",
+ "updated": "2026-10-24",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -70,6 +70,93 @@
   }
  },
  "papers": [
+  {
+   "id": "qanela-framework-proposal-designing-portable-quantum-assembly-b36cb",
+   "title": "Qanela: A framework proposal for designing portable quantum assembly languages across different quantum computing platforms",
+   "titleZh": "Qanela:跨平台可移植量子汇编语言框架提案",
+   "authors": [
+    "Isaac Vargas-Chacón",
+    "Johan Carvajal-Godínez",
+    "Ernesto Rivera-Alvarado"
+   ],
+   "venue": "Revista Tecnología en Marcha",
+   "date": "2026-10-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.18845/tm.v39i4.8384",
+   "url": "https://doi.org/10.18845/tm.v39i4.8384",
+   "topics": [
+    "qaoa",
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:针对各量子平台指令集、门实现与物理约束各异导致的可移植性难题,提出跨平台可移植量子汇编语言框架 Qanela,是量子软件生态的基础设施提案。",
+   "abstract": "The diversity of quantum hardware platforms creates significant algorithm portability challenges, with each platform employing distinct instruction sets, gate implementations, and physical constraints that hinder software reusability. This paper presents a framework for designing portable quantum assembly languages enabling seamless cross-platform execution. Through systematic profiling of Shor’s, Grover’s, and QAOA algorithms on IBM Qiskit, Microsoft Q#, and Google Cirq — 3,216 executions of identical, reference-validated logical circuits — we identify key portability challenges and derive empirically grounded design criteria from execution-pattern analysis. With matched workloads, cross-platform circuit-depth divergence is 1.3–1.6× where no gate decomposition is required and rises to 94.8× under multi-controlled decomposition pressure, of which 3.36× is genuine same-level synthesis divergence and the remainder an abstraction-level measurement gap; optimization semantics, topology expressibility, and quantum–classical execution contracts diverge analogously. The framework balances hardware abstraction with performance optimization through declared abstraction levels, topology-aware compilation, optimization profiles with defined semantics, and a universal gate set with platform-specific decomposition. Prototype validation demonstrates 100% automated compilation of unmodified single-source programs across 30 platform configurations, with all 90 executions passing calibrated d",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "are-we-testing-wrong-quantum-bugs-study-fc8f1",
+   "title": "Are We Testing the Wrong Quantum Bugs? A Study of Fault Representation Gaps in Quantum Software Testing",
+   "titleZh": "我们在测错误的量子 Bug 吗?量子软件工程中的故障表示差距研究",
+   "authors": [
+    "Asif Mohammed Saad",
+    "Ahsanul Ameen Sabit",
+    "Jonah Brandenburgh",
+    "Jiyuan Wang",
+    "Qian Zhang",
+    "Soneya Binta Hossain"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-15",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.22089",
+   "doi": "10.48550/arxiv.2610.22089",
+   "url": "https://arxiv.org/abs/2610.22089",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:系统研究量子软件编译器、中间表示与执行框架中的**故障表示差距**——既有测试技术漏掉了哪些真实故障;量子软件测试方向的奠基性实证研究。",
+   "abstract": "Quantum software relies on compilers, intermediate representations, and execution frameworks that transform programs before execution. Faults in these components can change the behavior of otherwise correct quantum programs. Yet quantum testing techniques are often evaluated using mutation-generated faults and curated bug benchmarks. We investigate how well the faults represented by these artifacts reflect those encountered in modern quantum software. We audit four quantum mutation-testing tools and three curated bug benchmarks, and collect 410 verified bugs from ten quantum software repositories over two years. We classify faults from all three sources into a common taxonomy of 56 bug families and compare their representation across mutation operators, curated benchmarks, and recent real-world bugs. The mutation tools support 20 bug families, and curated benchmarks add 15 more. Yet only 56 of the 410 real-world bugs (13.7%) belong to families represented by either source; the remaining 354 (86.3%) belong to families absent from both. The largest unrepresented families concern compiler transformations (66 bugs), type handling (53), and input validation (47). Unlike local gate or statement changes, these faults often depend on intermediate representations, compiler pipelines, input types, or dependency versions. Existing mutation operators primarily modify circuits and program constructs, whereas many real-world faults arise in the compilers, representations, and framework int",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "retromorphic-testing-quantum-compiler-passes-4acc5",
+   "title": "Retromorphic Testing of Quantum Compiler Passes",
+   "titleZh": "量子编译器 passes 的回溯态测试",
+   "authors": [
+    "Mushahid Khan",
+    "Olivia Di Matteo"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-08",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.11195",
+   "doi": "10.48550/arxiv.2610.11195",
+   "url": "https://arxiv.org/abs/2610.11195",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-10:量子编译器 passes 的正确性验证难题——大而深纠缠线路的期望输出难以确定;该文提出回溯态(retromorphic)测试方法,为编译器正确性验证提供新范式,与库内 Retromorphic Testing 系列呼应。",
+   "abstract": "Quantum compilers play a critical role in transforming high-level quantum programs into optimized, hardware-compatible circuits. However, verifying the correctness of compiler passes remains challenging, as determining the expected output of large, deeply entangled quantum circuits is computationally intractable. This challenge is further amplified when compiler passes modify already complex circuit structures, making manual validation of transformed circuits impractical. In this work, we perform a systematic analysis of unit tests for quantum compiler passes in four quantum programming frameworks (PennyLane, Qiskit, Cirq, and pytket). Our findings indicate validation is dominated by program-content and program-metric assertions, and test circuits are generally small and shallow. Motivated by these observations, we introduce a testing methodology for automated validation of quantum compiler passes based on retromorphic testing and principles from the Hadamard test. This methodology analyzes a compiler pass, test circuit, and expected pass behavior to verify semantic preservation and intended structural modifications. We implement our methods in a framework, RetroQ, and apply it to compiler passes in PennyLane and Qiskit. Experimental evaluation reproduced several existing bugs as well as uncovered previously undetected defects, such as flawed symbolic parameter handling, incorrect commutation logic, failure to recognize self-adjointness of gates, and runtime crashes. These fi",
+   "source": "backfill",
+   "domains": []
+  },
   {
    "id": "numerically-exact-simulation-open-quantum-networks-strong-72862",
    "title": "Numerically exact simulation of open quantum networks with strong system-bath couplings using tensor network path integrals",
@@ -278,6 +365,34 @@
    "domains": []
   },
   {
+   "id": "fault-class-matched-test-oracles-output-invisible-40a20",
+   "title": "Fault-Class-Matched Test Oracles for Output-Invisible Quantum Transpiler Regressions",
+   "titleZh": "面向输出不可见量子转译器回归的故障类匹配测试 oracle",
+   "authors": [
+    "Furqan Nasir",
+    "Arif Shah",
+    "Iftikhar Alam"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-21",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.24230",
+   "doi": "10.48550/arXiv.2609.24230",
+   "url": "https://arxiv.org/abs/2609.24230",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "指出既有量子转译器测试 oracle 依赖参考(态矢量/采样分布/模相位幺正)的选择会漏报故障,提出故障类匹配的测试 oracle 设计,补上量子软件测试的 oracle 空白。",
+   "abstract": "Test oracles for quantum transpilers typically judge correctness by comparing compiled output against a reference: a statevector, a sampled distribution, or a unitary compared modulo global phase. A companion empirical study measures how often that choice fails. Roughly 28% of merged Qiskit transpiler bug-fixes (95% Wilson CI 19-40%) repair a fault that corrupts layout metadata, global phase, or run-to-run reproducibility while output stays correct: invisible to a black-box output-equivalence oracle by construction. This paper closes that gap with a fault-class-matched, layout-aware, width-tiered oracle family: a layout/permutation contract checker and a contract-level metamorphic relation (MR-1) for the metadata channel, a global-phase tracker for the phase channel, and a determinism runner for reproducibility. Verified from source on nine real, merged Qiskit transpiler regressions (three per channel), the output-equivalence oracle is blind throughout and the matched mechanism fires on every case. A 675-configuration sweep of the contract/metadata invariant finds no false positive. Synthetic mutant families confirm reliability at scale: 1.00 sensitivity and specificity across 36 mutants apiece for the contract/metadata and global-phase channels, and 1.00 sensitivity (95% CI 0.44-1.00) for reproducibility on the three circuits where the mutation is constructible. The contract checker costs two to six orders of magnitude less than a plain output check, the global-phase tracker",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "hybrid-quantum-neural-network-analyse-big-experimental-95a26",
    "title": "A Hybrid Quantum Neural Network to Analyse Big Experimental Powder X-ray Diffraction Data",
    "titleZh": "混合量子神经网络分析大规模实验粉末 X 射线衍射数据",
@@ -405,6 +520,42 @@
    ],
    "summaryZh": "arXiv 2026-09:通过综合征聚类的早启动策略压缩解码关键路径,降低容错计算中最紧的延迟约束,与自适应中止互为互补优化。",
    "abstract": "In quantum error correction, fast low-latency decoding is essential for fault-tolerant quantum computation, as delays in processing syndrome data can lead to the backlog problem. Existing decoders, including parallelizable approaches such as Union-Find, begin decoding only after all stabilizer measurement outcomes from an error-correction cycle have been received, inherently introducing a delay before decoding begins. We introduce Cluster-As-You-Go (CAYG), a modification of the Union-Find decoder that processes syndrome information during stabilizer measurements by clustering and correcting errors as they appear. This approach reduces the size of the remaining decoding problem at the end of the quantum error correction cycle and, consequently, the time required to complete the decoding process. While this early start of clustering incurs a modest reduction in decoding accuracy, it preserves the decoder's scalability. Surface-code simulations show that the resulting reduction in post-measurement idling can outweigh the accuracy loss, yielding an improved speed-accuracy trade-off. These results demonstrate that real-time, early-starting decoding during QEC cycles is both feasible and can be advantageous for quantum error correction. Demonstrated here for the surface code, CAYG is broadly applicable to other quantum error-correcting codes, which allow for clustering-based decoding approaches, and is extensible to dedicated real-time decoding hardware.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "cuda-q-logical-retargetable-compilation-fault-tolerant-ee9b2",
+   "title": "CUDA-Q Logical: Retargetable Compilation for Fault-Tolerant Quantum Computing",
+   "titleZh": "CUDA-Q Logical:面向容错量子计算的可重定目标编译",
+   "authors": [
+    "Alex McCaskey",
+    "Justin Lietz",
+    "Adam Holmes",
+    "紘平 中路",
+    "Vadym Kliuchnikov",
+    "Yifan Hong",
+    "Amalee Wilson",
+    "Andres Paz",
+    "Bettina Heim",
+    "Bruno de O. Schmitt",
+    "Krysta M. Svore"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-11",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.13388",
+   "doi": "10.48550/arxiv.2609.13388",
+   "url": "https://arxiv.org/abs/2609.13388",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:NVIDIA CUDA-Q 生态的逻辑级编译层——把逻辑程序映射到异构 QEC 码与多样容错执行模型,调度物理资源并对接实时经典控制反馈,是容错编译栈的体系化实现。",
+   "abstract": "Realizing fault-tolerant quantum computing requires mapping logical programs to heterogeneous quantum error correction (QEC) codes and diverse fault-tolerant execution models, scheduling physical resources, and coupling to real-time classical control and feedback. Specialized tools exist for each step but rely on manual composition and translation that discard assumptions and provenance, separating resource estimates from the compiler artifacts they describe, and making it difficult to validate correctness, compare architectures, or attribute costs to specific design choices. We present CUDA-Q Logical, an extensible compiler infrastructure for retargetable fault-tolerant compilation, analysis, and execution. Interoperable with CUDA-Q and other mainstream front-ends, CUDA-Q Logical progressively lowers target-independent logical programs through a constrained logical virtual machine, QEC microcode, physical gate schedules, and real-time control plans, with each layer preserving semantics and provenance, while verifying composition and resource constraints. By deriving every resource estimate directly from compiler artifacts, the framework unifies compilation and resource analysis, enabling successively refined estimates and principled cross-architecture comparison while permitting QEC codes, execution models, decoders, and hardware architectures to be introduced as modular extensions. Across workloads ranging from application-architecture studies to qLDPC surgery and detector-",
    "source": "backfill",
    "domains": []
   },
@@ -746,6 +897,38 @@
    "domains": [
     "satellite"
    ]
+  },
+  {
+   "id": "compiling-quantum-regular-language-states-cd2a4",
+   "title": "Compiling Quantum Regular Language States",
+   "titleZh": "编译量子正则语言态(OOPSLA 2026)",
+   "authors": [
+    "Reinis Irmejs",
+    "Armando Bellante",
+    "M. Florido-Llinas",
+    "María Cea",
+    "Marianna Crupi",
+    "Kiser, Matthew",
+    "J. Ignacio Cirac"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2602.02698",
+   "doi": "10.5281/zenodo.22302492",
+   "url": "https://arxiv.org/abs/2602.02698",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "OOPSLA 2026:量子态制备编译器——用户用正则表达式、比特串列表或 DFA 描述目标态,编译器自动生成制备线路;把形式语言理论接入态制备编译,编程语言社区与量子计算的深度交叉。",
+   "abstract": "Artifact for Accepted Paper #331: \"Compiling Quantum Regular Language States\" (OOPSLA 2026) arXiv: 2602.02698 A quantum state-preparation compiler for Regular Language States (RLS). Users describe target states via regular expressions, bitstring lists, or DFAs, and the compiler produces hardware-aware quantum circuits via two backends: SeqRLSP (linear depth, LNN connectivity) and TreeRLSP (logarithmic depth, all-to-all connectivity). Getting started and verifying the results: Download all files into a single directory tar xzf rlscomp-artifact.tar.gz cd rlscomp-artifact docker load < docker-image.tar docker run --platform linux/amd64 -it -v $(pwd):/work rlscomp-artifact bash python run_sec56_sec57.py (sanity check, ~1 min) See README.md for full instructions and CLAIMS.md for the mapping of paper claims to experiments. Reusing the code: To reuse and build upon the code please refer to the additional resources: Document What it covers ARCHITECTURE.md High-level overview of the codebase: the four-stage compilation pipeline, a module-by-module map, the data representations and conventions every stage relies on, a table mapping each construction in the paper to the function that implements it, and an annotated end-to-end trace of one compilation. GUIDE.md Guide to the main functionality: installation, the four ways to describe a state, complements, choosing between the three backends, verifying that a circuit is correct, measuring circuit cost the way the paper does, exporting cir",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-computing-enhanced-deep-learning-real-time-b9eb4",
@@ -2146,6 +2329,35 @@
    ]
   },
   {
+   "id": "towards-datalog-quantum-annealers-compiling-recursive-logic-da723",
+   "title": "Towards Datalog on Quantum Annealers: Compiling Recursive Logic Programs with Bottom-up Semantics to 2-local Ising Models",
+   "titleZh": "把 Datalog 递归程序编译到量子退火机",
+   "authors": [
+    "Bruno Rucy Carneiro Alves de Lima",
+    "Victor Henrique Cabral Pinheiro",
+    "Evgenii Dolzhkov",
+    "Joseph Haske"
+   ],
+   "venue": "arXiv",
+   "date": "2026-08-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2608.04645",
+   "doi": "10.48550/arxiv.2608.04645",
+   "url": "https://arxiv.org/abs/2608.04645",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-08:把递归 Datalog 逻辑程序编译为 2-local Ising 模型,使退火机基态对应程序答案——逻辑编程语言×量子退火的编译路线,拓展退火机可解问题类的边界。",
+   "abstract": "Quantum annealers solve problems by finding the lowest-energy (ground) state of a programmable physical system, a 2-local Ising model, whose energy function is the Hamiltonian. We compile recursive Datalog programs into such models so that the ground state projects onto the program's minimal Herbrand model. The compiler has four stages: binarization, grounding, reduction to a Min-Ones SAT formula, and Ising encoding. Each rule becomes an energy penalty on the one assignment that violates it, and a small uniform cost on every true atom selects the minimal model. We contribute both in theory and in practice with per-stage correctness lemmas and a correspondence theorem, verified in Lean 4, establishing that the ground state of the compiled model projects onto the program's minimal Herbrand model. We map the compiled models onto the topologies of commercial annealers and characterize, under classical and simulated-quantum annealing, whether and when that certified ground state is attained.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "distributed-quantum-approximate-optimization-algorithm-unit-commitment-d829a",
    "title": "A Distributed Quantum Approximate Optimization Algorithm For Unit Commitment",
    "titleZh": "分布式量子近似优化算法求解机组组合的 ADMM 框架",
@@ -2431,6 +2643,77 @@
    "abstract": "We present QUBO.jl, an end-to-end Julia package for working with QUBO (Quadratic Unconstrained Binary Optimization) instances. This tool aims to convert a broad range of optimization problems in JuMP, Julia's mathematical programming package, for straightforward application in many physics and physics-inspired solution methods whose standard model form is equivalent to QUBO. These methods include quantum annealing, quantum gate-circuit optimization algorithms (Quantum Optimization Alternating Ansatz, Variational Quantum Eigensolver), other hardware-accelerated platforms, such as Coherent ising machines and Simulated Bifurcation Machines, and more traditional methods such as simulated annealing. In addition to working with reformulations, QUBO.jl allows its users to interface with the aforementioned hardware, sending QUBO models to these devices and retrieving results for subsequent analysis. QUBO.jl was written as a JuMP / MathOptInterface (MOI) layer that automatically maps between the input and output frames, thus providing a smooth modeling experience.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "sok-adversarial-robustness-variational-quantum-eigensolver-red-4f281",
+   "title": "SoK: Adversarial Robustness of the Variational Quantum Eigensolver via Red-Teaming",
+   "titleZh": "SoK:VQE 的对抗鲁棒性红队研究",
+   "authors": [
+    "Ahmed Azaz Humdoon",
+    "Cheng Chu",
+    "Lei Jiang",
+    "Qian Lou",
+    "Mengxin Zheng"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-21",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.19318",
+   "doi": "10.48550/arxiv.2607.19318",
+   "url": "https://arxiv.org/abs/2607.19318",
+   "topics": [
+    "vqa",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:对 VQE(分子基态能量估计的主力算法)做系统化红队测试,梳理其对抗攻击面与鲁棒性边界;VQE 在药物发现等场景的日益部署使安全性研究成为刚需。",
+   "abstract": "The Variational Quantum Eigensolver (VQE) is a leading algorithm for estimating molecular ground-state energies on near-term quantum hardware, with applications spanning quantum chemistry, materials science, and drug discovery. As VQE workloads are increasingly deployed through cloud-based ``VQE-as-a-service'' pipelines, they become exposed to adversaries such as compromised service components, malicious co-tenants, or insiders in the transpilation stack, any of which can corrupt results before they reach the user. A range of attacks on variational quantum circuits has been proposed, but each has been studied in isolation: some on quantum classifiers with accuracy-based metrics, others on variational quantum algorithms with energy-error metrics. This lack of a common evaluation setup makes their relative severity difficult to compare and leaves the security of VQE poorly characterized. In this work, we present \\textbf{VQE-AdvBench}, the first unified red-teaming benchmark for the Variational Quantum Eigensolver, systematizing these attacks under a single evaluation protocol to rigorously assess VQE's adversarial robustness. We organize attacks along a black-, gray-, and white-box access taxonomy, and evaluate seven representative attack scenarios -- the QTrojan circuit backdoor, the QDoor parameter backdoor, parameter-space adaptations of FGSM and PGD, and three QNBAD noise-induced variants -- over a fixed molecule-ansatz-backend-metric configuration, on H$_2$ and H$_3^+$ acr",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
+   "id": "cutbackdoor-circuit-cut-triggered-backdoor-attack-variational-c4a44",
+   "title": "CutBackdoor: A Circuit Cut Triggered Backdoor Attack on Variational Quantum Algorithms",
+   "titleZh": "CutBackdoor:针对变分量子算法的线路切割后门攻击",
+   "authors": [
+    "Ahatesham Bhuiyan",
+    "Hoang M. Ngo",
+    "Cheng Chu",
+    "Qian Lou",
+    "Lei Jiang",
+    "My T. Thai",
+    "Mengxin Zheng"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-20",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.18126",
+   "doi": "10.48550/arxiv.2607.18126",
+   "url": "https://arxiv.org/abs/2607.18126",
+   "topics": [
+    "quantum-ai",
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:揭示针对 VQA 的线路切割(circuit cutting)后门攻击——在切割点注入篡改即可操纵输出且难以察觉;量子软件供应链安全的新攻击面。",
+   "abstract": "Variational Quantum Algorithms (VQAs) are a leading paradigm for near-term quantum computing, combining parameterized quantum circuits with classical optimization across quantum chemistry, combinatorial optimization, and quantum machine learning. Since real-world VQA deployments routinely require circuits that exceed available hardware capacity, quantum circuit cutting has become an indispensable execution strategy, and pre-trained parameters are increasingly distributed through public repositories, introducing supply-chain security risks that have received little attention. Prior quantum backdoor attacks either introduce detectable circuit modifications or depend on device-specific noise, and none consider circuit cutting as an attack surface. We present CutBackdoor, the first parameter-supply-chain backdoor that uses cut circuit execution from CutQC as the deployment-time trigger against VQAs. Under noisy finite-shot circuit-cut execution, poisoned parameters preserve full-circuit validation performance while substantially increasing cut-path reconstruction error, without any circuit modification. The trigger activates when a resource-limited victim responds to a qubit-capacity mismatch by invoking the cutting workflow, requiring no attacker presence at deployment. We provide a theoretical analysis and empirically validate it across varying shot budgets. Evaluation across multiple VQA benchmarks on IBM quantum backends demonstrates cut-path energy amplification of $1.3\\time",
+   "source": "backfill",
+   "domains": [
+    "logistics",
+    "materials"
+   ]
   },
   {
    "id": "transformer-based-power-forecasting-federated-learning-driven-6fe37",
@@ -2788,6 +3071,33 @@
    "domains": [
     "manufacturing"
    ]
+  },
+  {
+   "id": "designing-machine-learning-error-mitigation-protocols-high-8910c",
+   "title": "Designing Machine Learning Error-Mitigation Protocols for High-Fidelity Digital Quantum Simulation",
+   "titleZh": "面向高保真数字量子模拟的机器学习错误缓解协议设计",
+   "authors": [
+    "Albert Schmidt"
+   ],
+   "venue": "预印本",
+   "date": "2026-07-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.14293/pr2199.004105.v1",
+   "url": "https://doi.org/10.14293/pr2199.004105.v1",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2026:为数字量子模拟设计机器学习错误缓解协议,系统处理噪声对模拟保真度的侵蚀;在纠错资源到位前,ML 缓解是过渡期的关键补救路线。",
+   "abstract": "The pursuit of high-fidelity digital quantum simulation is fundamentally constrained by the inevitable presence of noise in current and near-term quantum processors. While quantum error correction ultimately promises fault-tolerance, its substantial qubit overhead renders it impractical for the noisy intermediate-scale quantum (NISQ) era. This research addresses the critical gap between hardware imperfections and simulation accuracy by designing systematic, resource-efficient machine learning (ML) error-mitigation protocols tailored specifically for digital quantum simulation. Unlike generic error-suppression methods, our approach exploits the unique structural properties of simulated quantum dynamics—including time-translation invariance, locality of interactions, and conserved quantities—to inform the training of lightweight neural networks and Gaussian process regressors. We develop a hybrid framework that combines randomized compiling with data-driven noise-inversion models, enabling real-time estimation and subtraction of both coherent and incoherent errors without exponential sampling overhead. Through extensive numerical benchmarks on spin-chain and Fermi-Hubbard models, we demonstrate that our ML protocols achieve up to an order-of-magnitude reduction in infidelity compared to standard probabilistic error cancellation and zero-noise extrapolation, while requiring fewer calibration circuits. Furthermore, we introduce an adaptive online learning scheme that continuously",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "decomposition-based-qaoa-maximum-coverage-location-problem-e63e8",
@@ -3300,6 +3610,38 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "congestion-free-routing-quantum-chips-331a0",
+   "title": "Congestion-free routing on quantum chips",
+   "titleZh": "量子芯片上的无拥塞路由",
+   "authors": [
+    "Mithilesh Kumar",
+    "Yusuf Tahir",
+    "Varun Daiya",
+    "Sanjana Mattaparthi",
+    "Aarav Shaurya"
+   ],
+   "venue": "Physical Review A",
+   "date": "2026-06-29",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1103/v3gd-1xhv",
+   "url": "https://doi.org/10.1103/v3gd-1xhv",
+   "topics": [
+    "qaoa",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review A 2026:近邻耦合硬件上非局域门的 SWAP 传输会带来深度开销与路径拥塞;该文提出无拥塞路由框架,在更高抽象层处理交互,显著压缩 SWAP 开销,是路由编译的方法学进展。",
+   "abstract": "Limited connectivity makes nonlocal quantum gates expensive on near-neighbor hardware, where compilation typically relies on SWAP transport, inheriting both depth overhead and path congestion. We present a swap-free routing framework in which higher levels of a qudit act as orthogonal spectral buses that transport control information without moving the computational state. We show that exact congestion relief in nearest-neighbor architectures requires local Hilbert-space expansion. In this model, a nonlocal operation over a path of length $L$ requires $2L+1$ logical routing primitives, compared to the $3L$ baseline. Overlapping routes remain distinguishable through bus labels encoded in the same physical qudits. This routing algebra extends to Boolean fan-in at a common target: multiple controls arriving on distinct buses trigger a local unitary based on an arbitrary Boolean function of bus digits, yielding multi-control operations of depth $2L + D_g + O(1)$ for fan-in size $K$ and target-synthesis cost $D_g$. We prove decodability, reversibility, and correctness for CNOT and Boolean fan-in, along with a state-count lower bound $d \\geq 2^{K+1}$ for exact overlap routing. Cirq simulations confirm single-control correctness and zero crosstalk. Compiler-level benchmarks on QFT, QAOA, and mirror-interaction circuits verify the predicted congestion law and transport reduction. Noisy QuTiP simulations show that the architectural advantage depends on higher-level coherence and speed",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "steiner-traveling-salesman-problem-time-windows-pickup-9f056",
@@ -4160,6 +4502,35 @@
    ]
   },
   {
+   "id": "machine-learning-based-quantum-error-mitigation-variational-bbc86",
+   "title": "Machine Learning-based Quantum Error Mitigation for Variational Algorithms",
+   "titleZh": "面向变分线路的机器学习量子错误缓解",
+   "authors": [
+    "Nikita Korolev",
+    "Kirill Lakhmanskiy",
+    "Daniil Rabinovich"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.02697",
+   "doi": "10.48550/arxiv.2606.02697",
+   "url": "https://arxiv.org/abs/2606.02697",
+   "topics": [
+    "vqa",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-06:针对既有 ML-QEM 仅适用变分线路、依赖不可靠训练数据的局限,改进机器学习错误缓解方法的普适性与训练鲁棒性,扩展 ML-QEM 在噪声算法上的适用面。",
+   "abstract": "Machine Learning-based quantum error mitigation (ML-QEM) has emerged as a promising approach for improving the performance of noisy quantum algorithms. However, existing ML-QEM methods often have restricted applicability to variational circuits and rely on inaccessible noiseless training data. In this work, we propose a practical ML-QEM protocol tailored to variational quantum algorithms, which generates training data by simulating (near-)Clifford circuits. This data is used for model selection and training, producing a mitigation model that can correct variational circuits with arbitrary parameters and transfer across different target Hamiltonians of similar structure. We benchmark the proposed method on the Variational Quantum Eigensolver (VQE) task for the Sherrington-Kirkpatrick Hamiltonian of up to $n=12$ qubits under various noise models, analyzing its effect on trainability and comparing its performance against standard Zero-Noise Extrapolation (ZNE). The results demonstrate consistent several-fold error suppression across all tested settings and superior performance over ZNE in the high-noise regime, providing evidence for the applicability of the proposed protocol to present-day NISQ processors.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "nisq-aware-hybrid-quantum-classical-framework-scalable-e794b",
    "title": "A NISQ-Aware Hybrid Quantum-Classical Framework for Scalable Combinatorial Optimization",
    "titleZh": "面向可扩展组合优化的NISQ感知混合量子-经典框架",
@@ -4668,6 +5039,34 @@
    ]
   },
   {
+   "id": "hybrid-quantum-classical-implementation-harrow-hassidim-lloyd-0708d",
+   "title": "Hybrid Quantum-Classical Implementation of the Harrow–Hassidim–Lloyd Algorithm: Bounded-Error Quantum Polynomial Time (BQP)-Completeness of Matrix Inversion and Error Mitigation for Noisy Intermediate-Scale Quantum (NISQ) Devices",
+   "titleZh": "HHL 算法的混合量子-经典实现:有界误差线性系统求解",
+   "authors": [
+    "Zefree Lazarus Mayaluri",
+    "Panda Ganapati"
+   ],
+   "venue": "Cureus Journal of Computer Science.",
+   "date": "2026-05-14",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.7759/s44389-025-00066-8",
+   "url": "https://doi.org/10.7759/s44389-025-00066-8",
+   "topics": [
+    "quantum-ai",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025-05:HHL 线性系统求解算法的混合量子-经典实现——不做新的复杂性声明,而是给出假设明确、误差有界的工程化实现与评估,是 HHL 从理论走向可用的重要工程化一步。",
+   "abstract": "We propose a hybrid quantum-classical implementation of the Harrow-Hassidim-Lloyd (HHL) algorithm for the matrix inversion (linear-systems) problem, a key subroutine in quantum computing. Rather than claiming a new complexity result, we provide an assumption-explicit proof sketch, aligned with established literature, that contextualizes matrix inversion as Bounded-Error Quantum Polynomial Time (BQP)-complete and offers reduction-based intuition via Grover-type amplitude amplification. We implement HHL for 2 × 2, 4 × 4, and 8 × 8 Hermitian matrices using Qiskit and evaluate performance using simulator-based experiments with calibrated noise models and executions on IBM Quantum and IonQ backends. To enhance robustness on Noisy Intermediate-Scale Quantum (NISQ) hardware, we integrate measurement-error mitigation, zero-noise extrapolation, and post-selection, and we quantify performance using fidelity and mean squared error. Results from noiseless simulation, calibrated-noise simulation, and real-device execution show that mitigation improves reconstruction fidelity for small Hermitian systems, particularly for deeper circuits. These findings support mitigation-aware feasibility on current NISQ devices; however, they do not establish present-day runtime advantage over optimized classical solvers. The proposed workflow is relevant to quantum optimization, quantum machine learning, and quantum chemistry, where linear-system primitives arise frequently. Future work will focus on red",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "iterative-interpolation-schedules-quantum-approximate-optimization-algorithm-c48c0",
    "title": "Iterative Interpolation Schedules for Quantum Approximate Optimization Algorithm",
    "titleZh": "QAOA的迭代插值参数调度",
@@ -4974,6 +5373,35 @@
    ],
    "summaryZh": "纯交换(Exchange-Only)硅比特通过海森堡交换相互作用实现全电控,免微波;主要弱点是电荷噪声乘性耦合进控制。该工作用物理信息神经网络(PINN)优化脉冲序列对抗电荷噪声——\"AI×量子控制\"的代表实例。",
    "abstract": "Exchange-only (EO) spin qubits in silicon realise all-electrical qubit control through pairwise Heisenberg exchange interactions, making them attractive for scalable quantum computation. Their principal vulnerability is charge noise, which couples multiplicatively to the exchange coupling and degrades gate fidelity. We present a \\emph{two-stage} Physics-Informed Neural Network (PINN) framework for per-gate pulse optimisation. In \\textbf{Stage~I} (iterations~1--100) the PINN maximises the noise-averaged gate fidelity toward a threshold of $\\Fth=0.99$; the pulse duration is held fixed at its nominal hardware value. Once the threshold is crossed, \\textbf{Stage~II} (iterations~101--250) progressively compresses the total pulse time while maintaining $F\\geq\\Fth$ via continuous fine-tuning of the pulse-shape parameters. The cost function is a Monte-Carlo ensemble mean-squared error (MSE) averaged over $N_{\\rm real}=2000$ quasi-static Gaussian noise realisations drawn fresh at every iteration. We benchmark the framework on the single-qubit gate set $\\{X,Y,Z,H\\}$ and the two-qubit set $\\{X,Y,Z,H,\\mathrm{CX}\\}$ at noise levels $\\sigmaJ/J\\in\\{1\\%,5\\%,10\\%\\}$. All single-qubit gates cross $\\Fth$ within the first 100 iterations across all noise levels; Stage~II then reduces pulse durations by 20--40\\% from their nominal values. The two-qubit gates follow the same two-phase behaviour, with the CX gate compressing from its nominal \\SI{31}{\\nano\\second} to $\\approx\\SI{22}{\\nano\\second}$ at ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "accelerating-noisy-variational-quantum-algorithms-physics-informed-77a18",
+   "title": "Accelerating Noisy Variational Quantum Algorithms with Physics-Informed Denoising Networks",
+   "titleZh": "物理信息去噪网络加速含噪变分量子算法",
+   "authors": [
+    "Jie Liu",
+    "Xin Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-03",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2605.02066",
+   "doi": "10.48550/arxiv.2605.02066",
+   "url": "https://arxiv.org/abs/2605.02066",
+   "topics": [
+    "qaoa",
+    "vqa",
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:提出物理信息去噪网络(PIDN)替代高开销的 ZNE 缓解硬件噪声,免除外推线路开销;\"用神经网络学噪声\"是错误缓解的新兴路线。",
+   "abstract": "Variational quantum algorithms are promising for near-term quantum computing, but are severely limited by hardware noise and the substantial circuit overhead required for error mitigation methods such as Zero-Noise Extrapolation (ZNE). We propose a Physics-Informed Denoising Network (PIDN) that reduces the cost of ZNE by learning a surrogate model of its optimization dynamics. By viewing the variational update as a trajectory in the parameter space, PIDN is trained to reproduce ZNE-mitigated expectation values and gradient directions while incorporating a physics-informed loss that preserves the gradient descent dynamics. Once trained, PIDN replaces repeated multi-noise evaluations with denoised expectation and gradient estimation directly from the current noisy observation and the historical trajectory, significantly reducing circuit executions. We benchmark the approach on the quantum approximate optimization algorithm for 3-regular graphs, Sherrington-Kirkpatrick, and transverse-field Ising models, as well as the variational quantum eigensolver for LiH, BeH$_2$ and H$_2$O. Across all tasks, PIDN attains performance comparable to ZNE, while reducing the number of circuit executions by a factor of approximately 4 to 6. Gradient cosine similarity with ZNE remains above 0.95 throughout training. Robustness analysis shows that PIDN fails only when ZNE itself becomes unreliable, and ablation studies confirm the necessity of the physics-informed loss for maintaining directional c",
    "source": "backfill",
    "domains": []
   },
@@ -5543,6 +5971,36 @@
    "domains": []
   },
   {
+   "id": "quantum-error-mitigation-strategies-variational-pde-constrained-c457c",
+   "title": "Quantum Error Mitigation Strategies for Variational PDE-Constrained Circuits on Noisy Hardware",
+   "titleZh": "含噪硬件上求解偏微分方程的变分线路错误缓解策略",
+   "authors": [
+    "Prasad Nimantha Madusanka Ukwatta Hewage",
+    "Midhun Chakkravarthy",
+    "Ruvan Kumara Abeysekara"
+   ],
+   "venue": "arXiv",
+   "date": "2026-04-11",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2604.10099",
+   "doi": "10.48550/arxiv.2604.10099",
+   "url": "https://arxiv.org/abs/2604.10099",
+   "topics": [
+    "vqa",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-04:系统研究 VQC 求解 PDE 时三类噪声通道对解保真度与收敛的破坏,并给出对应的错误缓解策略组合;\"量子解 PDE\"方向的噪声工程专题。",
+   "abstract": "Variational quantum circuits (VQCs) solving partial differential equations (PDEs) on near-term quantum hardware face a critical challenge: hardware noise degrades solution fidelity and disrupts convergence. We present a systematic study of three noise channels; depolarizing, amplitude damping, and bit-flip on VQCs constrained by PDE residual loss functions for the heat equation, Burgers' equation, and the Saint-Venant shallow water equations. We benchmark three error mitigation strategies: zero-noise extrapolation (ZNE) via Richardson polynomial fitting, probabilistic error cancellation (PEC), and measurement error mitigation through inverse confusion matrices. Our numerical experiments on 6-qubit, 4-layer circuits demonstrate that ZNE reduces absolute error by 82-96% at low noise (p = 0.001), with effectiveness degrading gracefully at higher noise strengths. We prove analytically and confirm numerically that physics-constrained circuits exhibit inherent noise resilience: at p = 0.01, constrained circuits maintain 25-47% higher fidelity than unconstrained counterparts, with the advantage scaling with PDE complexity. PEC provides near-exact correction at low gate counts but incurs exponential sampling overhead, rendering it impractical beyond ~60 gates at p >= 0.02. Error budget decomposition reveals that systematic errors dominate at all noise levels (43-58%), while the PDE residual component grows from ~10% to ~31% as noise increases, indicating that physics constraints abso",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "heom-based-numerical-framework-quantum-simulation-two-f3648",
    "title": "HEOM-based numerical framework for quantum simulation of two-dimensional vibrational spectra in molecular liquids (HEOM-2DVS)",
    "titleZh": "基于 HEOM 的二维振动光谱量子模拟数值框架",
@@ -5752,6 +6210,35 @@
    ],
    "summaryZh": "Journal of Computer Applications 2026:城市空气污染治理具有多污染源、非线性交互、环境-经济目标竞争的典型组合优化特征,该文探索用量子计算求解污染控制策略优化问题,是环境治理场景量子化的少有尝试。",
    "abstract": "Multiple sources of pollution, nonlinear interactions, and competing environmental and economic goals are characteristics of complicated optimisation problems in urban air pollution control. When dealing with such high-dimensional decision spaces, conventional optimisation strategies frequently encounter scaling issues. This study suggests an optimisation structure for urban air pollution management methods based on quantum computing. In order to minimise pollutant concentrations while meeting operational and regulatory restrictions, the suggested method formulates air pollution reduction as a constrained optimisation problem in which industry rules, traffic management policies, and emission reduction strategies are optimised. To effectively explore the solution space, a hybrid quantum–classical optimisation model is created employing quantum-inspired algorithms. The framework's efficiency is compared with traditional optimisation techniques with respect to of convergence effectiveness and solution quality using simulated municipal air quality & emission data. The results show that for complicated pollution management scenarios, the quantum-based optimisation strategy achieves better optimisation performance and faster convergence. The results show how quantum computing paradigms can be a useful tool for solving large-scale environmental optimisation issues and assisting with data-driven the air quality in cities management.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "mosaic-scalable-probabilistic-error-cancellation-variational-blockwise-73b22",
+   "title": "MoSAIC: Scalable Probabilistic Error Cancellation via Variational Blockwise Noise Aggregation",
+   "titleZh": "MoSAIC:经变分分块噪声聚合的可扩展概率错误消除",
+   "authors": [
+    "Maya Ma",
+    "Rimika Jaiswal",
+    "Murphy Yuezhen Niu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-27",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.26063",
+   "doi": "10.48550/arxiv.2603.26063",
+   "url": "https://arxiv.org/abs/2603.26063",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:直击 PEC(概率错误消除)无偏但采样开销指数、ZNE 有偏但廉价的核心权衡;MoSAIC 用变分分块噪声聚合实现可扩展的错误消除,是 QEM 可扩展化路线的代表。",
+   "abstract": "Quantum error mitigation is essential for extracting trustworthy results from noisy intermediate-scale quantum (NISQ) processors. Yet, current approaches face a core scalability bottleneck: unbiased methods such as probabilistic error cancellation (PEC) incur exponential sampling overhead, while approximate techniques like zero-noise extrapolation trade accuracy for efficiency. We introduce and experimentally demonstrate MoSAIC (Modular Spatio-temporal Aggregation for Inverted Channels), a scalable quantum error mitigation framework that preserves the unbiasedness of PEC while dramatically reducing sampling costs. MoSAIC partitions a circuit into noise-aligned blocks, learns an effective block noise model using classical variational optimization, and applies quasi-probabilistic inversion once per block instead of after every layer. This blockwise aggregation reduces both sampling overhead and circuit-depth overhead, enabling mitigation far beyond the operating regime of standard PEC. We also experimentally validate MoSAIC on IBM's 156-qubit Heron processors, performing the largest PEC-based mitigation demonstration on hardware to date. As a physically meaningful benchmark, we prepare the critical one-dimensional transverse-field Ising (TFIM) ground state for system sizes up to 50 qubits. We show that MoSAIC can achieve at least 1 to 2 orders of magnitude better accuracy than standard PEC under identical sampling budgets. This enables MoSAIC to recover accurate observables for",
    "source": "backfill",
    "domains": []
   },
@@ -6102,6 +6589,33 @@
    "domains": []
   },
   {
+   "id": "robust-high-order-quantum-simulation-finite-width-659bc",
+   "title": "Robust high-order quantum simulation using finite-width pulses",
+   "titleZh": "有限脉宽鲁棒的高阶量子模拟脉冲序列框架",
+   "authors": [
+    "Leeseok Kim",
+    "Milad Marvian"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.15502",
+   "doi": "10.48550/arxiv.2603.15502",
+   "url": "https://arxiv.org/abs/2603.15502",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:把量子模拟的一阶脉冲序列系统提升为**保持有限脉宽鲁棒性的高阶序列**的通用框架,直击真实硬件脉冲非理想性这一模拟误差的主要来源。",
+   "abstract": "We present a general framework for promoting first-order pulse sequences in quantum simulation to higher-order sequences that maintain robustness in the presence of finite pulse-width effects. Our approach maps a given first-order pulse sequence to a first-order Trotter formula, applies higher-order Trotter-formula constructions, and then compiles the resulting evolution back into physically implementable finite-width pulses via dynamically corrected gates. The resulting sequences achieve arbitrarily high-order error scaling with respect to the control cycle time of the underlying first-order sequence while maintaining robustness to finite pulse-width effects. The framework also enables the use of multi-product formulas for more efficient constructions. We apply the framework to several physically motivated quantum-simulation tasks and numerically verify the predicted error scalings.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "toward-solution-time-advantage-error-mitigated-quantum-13e3e",
    "title": "Toward Solution‐Time Advantage With Error‐Mitigated Quantum Annealing for Combinatorial Optimization",
    "titleZh": "面向组合优化的误差缓解量子退火:迈向求解时间优势",
@@ -6287,6 +6801,34 @@
    "domains": []
   },
   {
+   "id": "reducing-quantum-error-mitigation-bias-verifiable-benchmark-d1d73",
+   "title": "Reducing Quantum Error Mitigation Bias Using Verifiable Benchmark Circuits",
+   "titleZh": "用可验证基准线路降低量子错误缓解的偏差",
+   "authors": [
+    "Joseph Harris",
+    "Kevin Lively",
+    "Peter Schuhmacher"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-10",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.10224",
+   "doi": "10.48550/arxiv.2603.10224",
+   "url": "https://arxiv.org/abs/2603.10224",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:提出简单、可塑、低开销的方法改进通用有偏量子错误缓解(QEM)——用可验证基准线路约束缓解偏差,在 100 比特、2000 缠绕门的线路上实现最高 15% 保真度提升,直击 QEM\"偏差不可验证\"的痛点。",
+   "abstract": "We present a simple, malleable and low-overhead approach for improving generic biased quantum error mitigation (QEM) methods, achieving up to 15% fidelity improvements over standard QEM on 100-qubit circuits with up to 2000 entangling gates. We do so by constructing verifiable benchmark circuits which mirror the application circuit's native-gate structure and thus noise profile. These circuits can be used to benchmark and mitigate the bias of the underlying error mitigation method, requiring only the application circuit and hardware native gate set. We present two methods for generating benchmark circuits; one is agnostic to the target hardware at the expense of a small overhead of single-qubit gates, while the other is specific to the IBM superconducting hardware and has no gate overhead. As a corollary, we introduce benchmarked-noise zero-noise extrapolation (bnZNE) as a simple adaptation of zero-noise extrapolation (ZNE), one of the most popular error mitigation methods. We consider as an example the bias-mitigated ZNE and bnZNE of Trotterized Hamiltonian simulations, observing that our approaches outperform standard ZNE using both small-scale classical simulations and 100-qubit utility-scale experiments on the IBM superconducting hardware. We consider the measurement of both single-site observables as well as two-site correlations along a one-dimensional qubit chain. We also provide a software package for implementing the error mitigation techniques used in this research.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-inspired-dynamical-models-quantum-classical-annealers-2d30e",
    "title": "Quantum-inspired dynamical models on quantum and classical annealers",
    "titleZh": "量子与经典退火机上的量子启发动力学基准套件",
@@ -6379,6 +6921,37 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "hyqbench-benchmark-suite-hybrid-cv-dv-quantum-99c3c",
+   "title": "HyQBench: A Benchmark Suite for Hybrid CV-DV Quantum Computing",
+   "titleZh": "HyQBench:混合连续-离散变量量子计算基准套件",
+   "authors": [
+    "Shubdeep Mohapatra",
+    "Yuan Liu",
+    "Eddy Z. Zhang",
+    "Huiyang Zhou"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2603.04398",
+   "doi": "10.48550/arxiv.2603.04398",
+   "url": "https://arxiv.org/abs/2603.04398",
+   "topics": [
+    "vqa",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:首个面向混合 CV-DV(连续变量-离散变量)量子系统的基准套件,覆盖 qumode 高维编码与 DV 比特控制的混合工作负载;填补混合量子计算基准的空白。",
+   "abstract": "Hybrid continuous-variable (CV)-discrete-variable (DV) quantum systems present a promising direction for quantum computing by combining the high dimensional encoding capabilities of qumodes with the control offered by DV qubits on the coupled qumodes. There have been exciting recent progresses on hybrid CV-DV quantum computing, including variational algorithms, error correction, compiler-level optimizations for Hamiltonian simulation, etc. However, there is a lack of a standardized CV-DV benchmark suite for assessing various emerging hardware platforms and evaluating software optimizations on hybrid CV-DV circuits. In this work, we introduce a simulation and benchmarking framework for hybrid CV-DV circuits, implemented using Bosonic Qiskit-a tool specifically designed to model CV-DV systems, along with QuTip for functional correctness verification. We construct and characterize representative CV-DV benchmarks, including cat state generation, GKP state generation, CV-DV state transfers, hybrid quantum Fourier transform, variational quantum algorithms, Hamiltonian simulation, and Shor's algorithm. To assess circuit complexity and scalability, we define a feature map organized into two categories: general features (e.g., qubit/qumode count, gate counts) and CV-DV-specific features (e.g., Wigner negativity, energy, truncation cost). These metrics enable evaluation of both classical simulability and hardware resource requirements. Our results, including one benchmark on real hardw",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "learning-hamiltonians-solid-state-quantum-simulators-d5215",
@@ -18766,6 +19339,33 @@
    ],
    "summaryZh": "Physical Review X 工作(被引 50):对 Yb-171 的里德堡态进行精密光谱测量与建模,为高保真两比特门设计提供理论基础,是中性原子平台门保真度优化的重要进展。",
    "abstract": "Highly excited Rydberg states and their interactions play an important role in quantum computing and simulation. These properties can be predicted accurately for alkali atoms with simple Rydberg level structures. However, an extension of these methods to more complex atoms such as alkaline-earth atoms has not been demonstrated or experimentally validated. Here, we present multichannel quantum defect models for highly excited Yb 174 and Yb 171 Rydberg states with L ≤ 2 . The models are developed using a combination of existing literature data and new, high-precision laser and microwave spectroscopy in an atomic beam, and validated by detailed comparison with experimentally measured Stark shifts and magnetic moments. We then use these models to compute interaction potentials between two Yb atoms, and find excellent agreement with direct measurements in an optical tweezer array. From the computed interaction potential, we identify an anomalous Förster resonance that likely degraded the fidelity of previous entangling gates in Yb 171 using F = 3 / 2 Rydberg states. We then identify a more suitable F = 1 / 2 state, and achieve a state-of-the-art controlled- gate fidelity of F = 0.994 ( 1 ) , with the remaining error fully explained by known sources. This work establishes a solid foundation for the continued development of quantum computing, simulation, and entanglement-enhanced metrology with Yb neutral atom arrays.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "end-end-compilable-implementation-quantum-elliptic-curve-acfcf",
+   "title": "End-to-end compilable implementation of quantum elliptic curve logarithm in Qrisp",
+   "titleZh": "Qrisp 中椭圆曲线对数的端到端可编译实现",
+   "authors": [
+    "Diego Polimeni",
+    "Raphael Seidel"
+   ],
+   "venue": "arXiv",
+   "date": "2025-01-17",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2501.10228",
+   "doi": "10.48550/arxiv.2501.10228",
+   "url": "https://arxiv.org/abs/2501.10228",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-01:在 Qrisp 框架中端到端实现椭圆曲线密码学(ECC)的量子求对数算法——Shor 算法攻 ECC 的完整可编译实例,评估真实资源需求;\"量子威胁时间表\"讨论的实证基础。",
+   "abstract": "Elliptic curve cryptography (ECC) is a widely established cryptographic technique, recognized for its effectiveness and reliability across a broad range of applications such as securing telecommunications or safeguarding cryptocurrency wallets. Although being more robust than RSA, ECC is, nevertheless, also threatened by attacks based on Shor's algorithm, which made it a popular field of study in quantum information science. A variety of techniques have been proposed to perform EC arithmetic in quantum devices; however, software support for compiling these algorithms into executables is extremely limited. Within this work, we leverage the Qrisp programming language to realize one of the first fully compilable implementations of EC arithmetic and verify its correctness using Qrisp's built-in sparse matrix simulator.",
    "source": "backfill",
    "domains": []
   },
