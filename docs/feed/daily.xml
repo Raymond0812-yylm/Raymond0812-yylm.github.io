@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-10-26] 超越二进制编码：基于 Qudit 的 QAOA 框架用于 M-QAM MIMO 系统最大似然检测</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-10-26/</link>
+      <guid isPermaLink="false">daily:2026-10-26</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+      <description>大规模 MIMO（多输入多输出）系统中的最大似然（ML）检测是无线通信物理层的核心组合难题：在接收端从叠加信号中恢复每个天线发送的 QAM 符号，其复杂度随发射天线数 $N_t$ 与调制阶数 $M$ 指数增长，严格意义上是 NP-hard 问题。经典系统只能退而求其次——ZF/MMSE 线性检测性能有损，球译码在中高维下仍不可承受，这使 MIMO 检测长期位居&quot;量子启发式最有望率先落地的通信问题&quot;之列，QAOA 近两年已被多次引入该场景。</description>
+    </item>
     <item>
       <title>[日报 2026-10-24] 用 AI 智能体自动化量子电路优化</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-24/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-18</guid>
       <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
       <description>用 QAOA 求解带约束的组合优化问题时，业界有两条编码路线：其一是罚函数法，把约束违反量折进目标哈密顿量，代价是解空间膨胀、最优解可能被大量不可行态淹没；其二是可行性保持混合器（feasibility-preserving mixer），用精心构造的混合哈密顿量保证演化始终停留在可行子空间内，代价是线路设计更复杂、且&quot;到底牺牲了多少表达能力&quot;长期没有人说清楚。这个问题相当根本：如果强制保可行会把可达态空间削掉一大块，那么约束优化中&quot;保可行&quot;的收益可能被表达能力的损失吃掉；反之若几乎不损失，保可行混合器就应是默…</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-17] 解缠 QAOA：从弱纠缠线路到经典 QUBO 求解器</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-17/</link>
-      <guid isPermaLink="false">daily:2026-09-17</guid>
-      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
-      <description>&quot;纠缠是量子计算的力量之源&quot;近乎量子信息领域的一条公理，QAOA 也不例外：直觉上，交替施加问题哈密顿量与混合层的价值正体现在比特间关联（纠缠）的建立与重组上。但这一直觉近年不断受到理论挑战——深度 1/2 的浅层 QAOA 在随机正则图上被证明受限于局域光锥、表现不如经典近似算法；弱纠缠线路原则上可用张量网络等经典方法高效模拟；而本频道此前持续跟踪的&quot;有效常数采样复杂度&quot;等工作（09-01 期）也提示，实践中表现良好的 QAOA 工作点可能落在经典可压缩的区域。问题被逼到最尖锐的形态：在真正&quot;能用&quot;的 QAO…</description>
     </item>
   </channel>
 </rss>
