@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-24",
+ "updated": "2026-10-26",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -391,6 +391,38 @@
    "abstract": "Test oracles for quantum transpilers typically judge correctness by comparing compiled output against a reference: a statevector, a sampled distribution, or a unitary compared modulo global phase. A companion empirical study measures how often that choice fails. Roughly 28% of merged Qiskit transpiler bug-fixes (95% Wilson CI 19-40%) repair a fault that corrupts layout metadata, global phase, or run-to-run reproducibility while output stays correct: invisible to a black-box output-equivalence oracle by construction. This paper closes that gap with a fault-class-matched, layout-aware, width-tiered oracle family: a layout/permutation contract checker and a contract-level metamorphic relation (MR-1) for the metadata channel, a global-phase tracker for the phase channel, and a determinism runner for reproducibility. Verified from source on nine real, merged Qiskit transpiler regressions (three per channel), the output-equivalence oracle is blind throughout and the matched mechanism fires on every case. A 675-configuration sweep of the contract/metadata invariant finds no false positive. Synthetic mutant families confirm reliability at scale: 1.00 sensitivity and specificity across 36 mutants apiece for the contract/metadata and global-phase channels, and 1.00 sensitivity (95% CI 0.44-1.00) for reproducibility on the three circuits where the mutation is constructible. The contract checker costs two to six orders of magnitude less than a plain output check, the global-phase tracker",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "reducing-qubo-complexity-drone-delivery-through-classical-d98d0",
+   "title": "Reducing QUBO Complexity in Drone Delivery Through Classical Feasibility Preprocessing",
+   "titleZh": "经由经典可行性预处理降低无人机配送的 QUBO 复杂度",
+   "authors": [
+    "Silvie Illésová",
+    "Novák, Vojtěch",
+    "Ivan Zelinka",
+    "Martin Beseda"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-21",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.21003",
+   "doi": "10.5281/zenodo.22880364",
+   "url": "https://arxiv.org/abs/2610.21003",
+   "topics": [
+    "qaoa",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:无人机配送规划(路径+载荷+续航约束)直接二进制编码代价高昂;该文提出**经典可行性预处理**先消去不可行变量再交量子求解——与库内\"图粗化\"\"最小QUBO化\"同属降低编码规模的先修路线,对卫星任务规划预处理策略有直接借鉴。",
+   "abstract": "Drone-delivery planning combines routing decisions with operational constraints such as payload capacity and limited onboard energy, resulting in combinatorial optimization problems that can become costly to encode directly in binary form. This work investigates a hybrid quantum--classical approach in which candidate drone missions are generated and evaluated classically before constructing a quadratic unconstrained binary optimization (QUBO) model for mission selection. Payload- and energy-infeasible missions are removed during preprocessing, while the reduced QUBO is solved using exact enumeration, simulated annealing (SA), and the Quantum Approximate Optimization Algorithm (QAOA), with mixed-integer linear programming (MILP) used as a classical reference. Experiments on controlled synthetic delivery instances evaluate solution quality, the effect of preprocessing, and computational scaling. Exact QUBO optimization reproduces the MILP optimum on the evaluated small instances, while SA achieves $100\\%$ feasibility with a median optimality gap of $0\\%$. Combined payload-and-energy preprocessing reduces the mean number of QUBO variables by $29.60\\%$ and quadratic interactions by $49.20\\%$, while reducing mean SA runtime by $31.26\\%$. In contrast, the evaluated shallow statevector-based QAOA configuration achieves lower feasibility and is restricted to small QUBO instances. These results indicate that, in the considered setting, the main practical benefit of the hybrid architec",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "hybrid-quantum-neural-network-analyse-big-experimental-95a26",
@@ -9493,6 +9525,41 @@
    "source": "backfill",
    "domains": [
     "logistics"
+   ]
+  },
+  {
+   "id": "quantum-annealing-resource-allocation-next-generation-wireless-12377",
+   "title": "Quantum Annealing for Resource Allocation in Next-Generation Wireless Communication Networks: A QUBO Modeling Guide",
+   "titleZh": "下一代无线通信网络资源分配的量子退火研究",
+   "authors": [
+    "Nguyen Xuan Tung",
+    "Le Tung Giang",
+    "Mai Dinh Cong",
+    "Pham Dang Anh Duc",
+    "Nguyễn Hoàng Việt",
+    "Trinh Van Chien",
+    "Lajos Hanzo"
+   ],
+   "venue": "IEEE Open Journal of the Communications Society",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/ojcoms.2026.3743851",
+   "url": "https://doi.org/10.1109/ojcoms.2026.3743851",
+   "topics": [
+    "annealing",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Open Journal 2026:把下一代无线网络的资源分配子问题映射为 Ising/QUBO,系统评估量子退火与混合求解器的可行性边界;卫星通信资源分配×量子退火的直接工作,与站点 DSN、多波束流量调度构成通信资源编排谱系。",
+   "abstract": "Quantum annealing (QA) offers a physics-inspired approach for such subproblems by mapping them onto an Ising Hamiltonian, which is algebraically equivalent to a Quadratic Unconstrained Binary Optimization (QUBO) model executable on quantum annealers or hybrid solvers. However, their practical employment in wireless systems critically depends on the specific problem formulation, on the particular variable encoding, constraint handling, solver selection, hardware embedding, and fair benchmarking. This paper develops wireless-oriented QUBO modeling guidelines for QA-assisted resource allocation. We first present a beginner-friendly toy example in which a terrestrial-aerial resource-allocation problem with a fractional signal-to-interference-plus-noise ratio (SINR) maximization objective is reformulated into a two-bit QUBO via Boolean interpolation, converted into an Ising representation, and decoded back into a wireless scheduling decision. The same scheduling is applicable to UAV, aircraft, satellite, and terrestrial links in SAGIN systems. We then review the QA foundations and solver ecosystems, including binary quadratic, discrete quadratic, constrained quadratic, and hybrid models from the perspective of NG wireless optimization. Furthermore, we discuss both binary and discrete encoding, penalty-based constraint conversion, embedding overhead, solution decoding, and feasibility verification. A QUBO Compatibility Index is introduced as a lightweight diagnostic metric for asse",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {
@@ -28962,6 +29029,53 @@
    "source": "backfill",
    "domains": [
     "logistics"
+   ]
+  },
+  {
+   "id": "quick3-3-design-satellite-based-quantum-light-69674",
+   "title": "QUICK3$^3$ ‐ Design of a Satellite‐Based Quantum Light Source for Quantum Communication and Extended Physical Theory Tests in Space",
+   "titleZh": "QUICK3³:面向量子通信与扩展应用的星基量子光源设计",
+   "authors": [
+    "Najme Ahmadi",
+    "S. Schwertfeger",
+    "Philipp Werner",
+    "Lukas Wiese",
+    "Joseph L. Lester",
+    "Elisa Da Ros",
+    "Josefine Krause",
+    "Sebastian Ritter",
+    "Mostafa Abasifard",
+    "Chanaprom Cholsuk",
+    "Ria G. Krämer",
+    "Simone Atzeni",
+    "Mustafa Gündoğan",
+    "Subash Sachidananda",
+    "Daniel Pardo",
+    "Stefan Nolte",
+    "Alexander Lohrmann",
+    "Alexander Ling",
+    "Julian Bartholomäus",
+    "Giacomo Corrielli",
+    "Markus Krutzik",
+    "Tobias Vogl"
+   ],
+   "venue": "Advanced Quantum Technologies",
+   "date": "2024-01-21",
+   "year": 2024,
+   "citations": 29,
+   "arxivId": "",
+   "doi": "10.1002/qute.202300343",
+   "url": "https://doi.org/10.1002/qute.202300343",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Advanced Quantum Technologies(29 引):设计紧凑的真单光子源以提升星基量子密钥分发的安全数据速率,面向卫星平台;是星基量子通信硬件(而非计算)方向的代表设计工作,补充卫星专题的通信硬件维度。",
+   "abstract": "Abstract Modern quantum technologies have matured such that they can now be used in space applications, e.g., long‐distance quantum communication. Here, the design of a compact true single photon source is presented that can enhance the secure data rates in satellite‐based quantum key distribution scenarios compared to conventional laser‐based light sources. The quantum light source is a fluorescent color center in hexagonal boron nitride. The emitter is off‐resonantly excited by a diode laser and directly coupled to an integrated photonic processor that routes the photons to different experiments performed directly on‐chip: i) the characterization of the single photon source and ii) testing a fundamental postulate of quantum mechanics, namely the relation of the probability density and the wave function (known as Born's rule). The described payload is currently being integrated into a 3U CubeSat and scheduled to launch in 2024 into low Earth orbit. Therefore the feasibility of true single photon sources and reconfigurable photonic circuits in space can be evaluated. This provides a promising route toward a high‐speed quantum network.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
    ]
   },
   {

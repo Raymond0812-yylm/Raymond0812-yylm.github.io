@@ -61361,5 +61361,77 @@
   "doi": "10.48550/arxiv.2511.10124",
   "citations": 0,
   "theme": "Hamiltonian simulation Trotter qubitizat"
+ },
+ {
+  "fid": "7b2289734393",
+  "title": "Quantum Annealing for Resource Allocation in Next-Generation Wireless Communication Networks: A QUBO Modeling Guide",
+  "authors": [
+   "Nguyen Xuan Tung",
+   "Le Tung Giang",
+   "Mai Dinh Cong",
+   "Pham Dang Anh Duc",
+   "Nguyễn Hoàng Việt",
+   "Trinh Van Chien",
+   "Lajos Hanzo"
+  ],
+  "abstract": "Quantum annealing (QA) offers a physics-inspired approach for such subproblems by mapping them onto an Ising Hamiltonian, which is algebraically equivalent to a Quadratic Unconstrained Binary Optimization (QUBO) model executable on quantum annealers or hybrid solvers. However, their practical employment in wireless systems critically depends on the specific problem formulation, on the particular variable encoding, constraint handling, solver selection, hardware embedding, and fair benchmarking. This paper develops wireless-oriented QUBO modeling guidelines for QA-assisted resource allocation. We first present a beginner-friendly toy example in which a terrestrial-aerial resource-allocation problem with a fractional signal-to-interference-plus-noise ratio (SINR) maximization objective is reformulated into a two-bit QUBO via Boolean interpolation, converted into an Ising representation, and decoded back into a wireless scheduling decision. The same scheduling is applicable to UAV, aircraft, satellite, and terrestrial links in SAGIN systems. We then review the QA foundations and solver ecosystems, including binary quadratic, discrete quadratic, constrained quadratic, and hybrid models from the perspective of NG wireless optimization. Furthermore, we discuss both binary and discrete encoding, penalty-based constraint conversion, embedding overhead, solution decoding, and feasibility verification. A QUBO Compatibility Index is introduced as a lightweight diagnostic metric for assessing the associated QUBO formulation readiness, rather than a predictor of runtime or solution quality. Finally, a case study on max-min uplink power control in cell-free massive MIMO illustrates how a fairness-oriented wireless problem can be discretized, constrained, converted into the concept of a QUBO, and evaluated against classical baselines. A host of key challenges and future directions are also discussed.",
+  "date": "2026-01-01",
+  "venue": "IEEE Open Journal of the Communications Society",
+  "arxiv_id": "",
+  "doi": "10.1109/ojcoms.2026.3743851",
+  "citations": 0,
+  "theme": "quantum annealing satellite communicatio"
+ },
+ {
+  "fid": "b0c931eb6396",
+  "title": "Reducing QUBO Complexity in Drone Delivery Through Classical Feasibility Preprocessing",
+  "authors": [
+   "Silvie Illésová",
+   "Novák, Vojtěch",
+   "Ivan Zelinka",
+   "Martin Beseda"
+  ],
+  "abstract": "Drone-delivery planning combines routing decisions with operational constraints such as payload capacity and limited onboard energy, resulting in combinatorial optimization problems that can become costly to encode directly in binary form. This work investigates a hybrid quantum--classical approach in which candidate drone missions are generated and evaluated classically before constructing a quadratic unconstrained binary optimization (QUBO) model for mission selection. Payload- and energy-infeasible missions are removed during preprocessing, while the reduced QUBO is solved using exact enumeration, simulated annealing (SA), and the Quantum Approximate Optimization Algorithm (QAOA), with mixed-integer linear programming (MILP) used as a classical reference. Experiments on controlled synthetic delivery instances evaluate solution quality, the effect of preprocessing, and computational scaling. Exact QUBO optimization reproduces the MILP optimum on the evaluated small instances, while SA achieves $100\\%$ feasibility with a median optimality gap of $0\\%$. Combined payload-and-energy preprocessing reduces the mean number of QUBO variables by $29.60\\%$ and quadratic interactions by $49.20\\%$, while reducing mean SA runtime by $31.26\\%$. In contrast, the evaluated shallow statevector-based QAOA configuration achieves lower feasibility and is restricted to small QUBO instances. These results indicate that, in the considered setting, the main practical benefit of the hybrid architecture comes from classical feasibility preprocessing that reduces the binary search space before QUBO-based optimization.",
+  "date": "2026-09-21",
+  "venue": "arXiv (Cornell University)",
+  "arxiv_id": "2610.21003",
+  "doi": "10.5281/zenodo.22880364",
+  "citations": 0,
+  "theme": "space mission planning QUBO"
+ },
+ {
+  "fid": "627eeaccf59e",
+  "title": "QUICK3$^3$ ‐ Design of a Satellite‐Based Quantum Light Source for Quantum Communication and Extended Physical Theory Tests in Space",
+  "authors": [
+   "Najme Ahmadi",
+   "S. Schwertfeger",
+   "Philipp Werner",
+   "Lukas Wiese",
+   "Joseph L. Lester",
+   "Elisa Da Ros",
+   "Josefine Krause",
+   "Sebastian Ritter",
+   "Mostafa Abasifard",
+   "Chanaprom Cholsuk",
+   "Ria G. Krämer",
+   "Simone Atzeni",
+   "Mustafa Gündoğan",
+   "Subash Sachidananda",
+   "Daniel Pardo",
+   "Stefan Nolte",
+   "Alexander Lohrmann",
+   "Alexander Ling",
+   "Julian Bartholomäus",
+   "Giacomo Corrielli",
+   "Markus Krutzik",
+   "Tobias Vogl"
+  ],
+  "abstract": "Abstract Modern quantum technologies have matured such that they can now be used in space applications, e.g., long‐distance quantum communication. Here, the design of a compact true single photon source is presented that can enhance the secure data rates in satellite‐based quantum key distribution scenarios compared to conventional laser‐based light sources. The quantum light source is a fluorescent color center in hexagonal boron nitride. The emitter is off‐resonantly excited by a diode laser and directly coupled to an integrated photonic processor that routes the photons to different experiments performed directly on‐chip: i) the characterization of the single photon source and ii) testing a fundamental postulate of quantum mechanics, namely the relation of the probability density and the wave function (known as Born's rule). The described payload is currently being integrated into a 3U CubeSat and scheduled to launch in 2024 into low Earth orbit. Therefore the feasibility of true single photon sources and reconfigurable photonic circuits in space can be evaluated. This provides a promising route toward a high‐speed quantum network.",
+  "date": "2024-01-21",
+  "venue": "Advanced Quantum Technologies",
+  "arxiv_id": "",
+  "doi": "10.1002/qute.202300343",
+  "citations": 29,
+  "theme": "satellite payload scheduling quantum"
  }
 ]
