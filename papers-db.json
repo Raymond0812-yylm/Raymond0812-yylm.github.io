@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-26",
+ "updated": "2026-10-31",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -2677,6 +2677,36 @@
    "domains": []
   },
   {
+   "id": "classical-hardware-acceleration-quantum-autoencoders-real-time-bb754",
+   "title": "Classical Hardware Acceleration of Quantum Autoencoders for Real-Time Anomaly Detection in Collider Experiments",
+   "titleZh": "经典硬件加速量子自编码器用于对撞机实时异常检测",
+   "authors": [
+    "Ivan Ge",
+    "S. V. Addepalli",
+    "Abhilasha Dave",
+    "J. L. Gonski"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-22",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.20302",
+   "doi": "10.48550/arxiv.2607.20302",
+   "url": "https://arxiv.org/abs/2607.20302",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026:把 QML 量子自编码器的经典硬件加速版部署于对撞机数据实时异常检测,兼顾 QML 的长程关联表达力与经典硬件的实时吞吐,是\"量子模型经典部署\"的工程化路线。",
+   "abstract": "Quantum machine learning (QML) algorithms in high energy physics (HEP) can efficiently represent and leverage long-range, high-order correlations in high-dimensional collider data, potentially with fewer parameters and favorable scaling relative to classical models. Deployment of QML in real-time collider applications such as trigger systems requires the ability to emulate and compile quantum circuits classically, then synthesize the resulting quantum gates onto low-latency hardware accelerators, namely field-programmable gate arrays (FPGAs). We present a study of variational quantum autoencoder models for real-time anomaly detection triggers in modern collider experiments. The models achieve performance comparable to state-of-the-art classical approaches and, after FPGA synthesis, satisfy resource usage and timing constraints consistent with trigger applications in future colliders. This work provides one of the first FPGA implementations of QML models for HEP triggers, enabling higher-capability models in today's classical data acquisition pipelines while advancing quantum readiness of collider experiment infrastructure.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "sok-adversarial-robustness-variational-quantum-eigensolver-red-4f281",
    "title": "SoK: Adversarial Robustness of the Variational Quantum Eigensolver via Red-Teaming",
    "titleZh": "SoK:VQE 的对抗鲁棒性红队研究",
@@ -3195,6 +3225,39 @@
    ],
    "summaryZh": "Physical Review Research 2026:提出硬件噪声时空变化下的低延迟解码器——以校准数据为条件的特征线性调制(featurewise modulation),兼顾高精度、低延迟与对硬件漂移的鲁棒性。",
    "abstract": "Real-time decoding of quantum error correction is essential for enabling fault-tolerant quantum computation. A practical decoder must operate with high accuracy at low latency, while remaining robust to spatial and temporal variations in hardware noise. We introduce a hardware-conditioned neural decoder framework designed to exploit the natural separation of timescales in superconducting processors, where calibration drifts occur over hours while error correction requires microsecond-scale responses. By processing calibration data through a graph-based encoder and conditioning a lightweight convolutional backbone via featurewise linear modulation (FiLM), we decouple the heavy processing of device statistics from the low-latency syndrome decoding. We evaluate this approach using the repetition code as a test bed on IBM , , and processors, collecting over 2.7 million experimental shots spanning distances up to d = 11 . Training one decoder per code distance, basis, and round count ( d , r ) , we demonstrate that each trained model generalizes to unseen qubit chains and new calibration data acquired days later without retraining. The FiLM-conditioned decoder achieves up to a 11.1 × reduction in logical error rate relative to modified minimum-weight perfect matching. Cross-conditioning ablations further show that the calibration input actively improves decoding, with performance degrading when the decoder is conditioned on incorrect backend data or the conditioning is disabled. W",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-kernel-extreme-learning-machine-multivariate-gaussian-98667",
+   "title": "Quantum Kernel Extreme Learning Machine with Multivariate Gaussian Document Representation for Multi-label Soft Classification",
+   "titleZh": "多变量高斯文档表示的量子核极限学习机用于多标签文本软分类",
+   "authors": [
+    "Shang Gao",
+    "Guang‐Bao Xu",
+    "Rui‐Chen Huang",
+    "Bing‐Xin Liu",
+    "Zhenwen Cheng",
+    "Yi Yang",
+    "Z.P. Zhang",
+    "Yi Yang"
+   ],
+   "venue": "Chinese Physics B",
+   "date": "2026-07-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1088/1674-1056/ae8821",
+   "url": "https://doi.org/10.1088/1674-1056/ae8821",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Chinese Physics B 2026:面向多标签文档学习效率瓶颈,提出多变量高斯文档表示+量子核极限学习机(QKELM)框架实现高效多标签软分类;国内团队 QNLP/文本方向代表作。",
+   "abstract": "Abstract To address the efficiency bottlenecks inherent in multi-label document learning, this paper proposes a quantum kernel extreme learning machine framework integrated with multivariate Gaussian document representation for efficient multi-label soft classification. The proposed approach leverages quantum computing paradigms to accelerate critical computational steps involved in kernel construction and model training. The proposed approach comprises four key quantum algorithmic components: (i) quantum algorithms for estimating mean vectors and empirical covariance matrices under multivariate Gaussian distribution; (ii) quantum subroutines for computing their corresponding Euclidean and Frobenius norms; (iii) a quantum procedure for constructing the density operator associated with the kernel matrix via partial trace; and (iv) a complete quantum kernel extreme learning machine architecture for probabilistic multi-label document prediction. Theoretical analysis demonstrates that, in general scenarios, the proposed quantum approach achieves exponential acceleration with respect to the number of document samples $D$ and their cardinality $N$, along with quadratic speedup regarding the dimensionality $M$ of sample documents, yielding an overall complexity of $\\mathcal{O}\\left(M\\text{poly}\\log\\left(DMN\\right)\\right)$ compared to the classical $\\mathcal{O}\\left(DNM^2+D^2M^2+D^3\\right)$, under standard assumptions regarding condition numbers and error parameters.",
    "source": "backfill",
    "domains": []
   },
@@ -4324,6 +4387,36 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "double-bracket-quantum-algorithms-thermal-state-preparation-7d4eb",
+   "title": "Double-bracket quantum algorithms for thermal state preparation",
+   "titleZh": "经双括号量子算法模拟热场双态制备热态",
+   "authors": [
+    "Andrew Wright",
+    "Reyhaneh Aghaei Saem",
+    "Supanut Thanasilp",
+    "Yudai Suzuki",
+    "Zoë Holmes"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-04",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2606.05947",
+   "doi": "10.48550/arxiv.2606.05947",
+   "url": "https://arxiv.org/abs/2606.05947",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-06:利用双括号量子算法在热场双态上实现虚时演化,其约化态实现 Gibbs 热态制备——热态制备是量子模拟与量子玻尔兹曼机训练的共同子程序,该工作给出新的算法路线。",
+   "abstract": "We propose quantum algorithms for preparing thermal states via the simulation of the thermofield double states. The key idea is to leverage double-bracket quantum algorithms to implement imaginary-time evolution on thermofield double states, whose reduced state realizes the Gibbs state. Our method, termed double-bracket thermofield double (DB-TFD), introduces two variants. The first, the vanilla DB-TFD algorithm, directly implements imaginary-time evolution using double-bracket quantum imaginary-time evolution. The second, poly DB-TFD, employs double-bracket quantum signal processing to approximate the imaginary-time evolution operator via a polynomial transformation. We demonstrate that the complexity of the poly DB-TFD algorithm scales exponentially with the inverse temperature in a broad practical regime. This scaling is consistent with existing methods, and numerical simulations support the corresponding theoretical bound. We further demonstrate the utility of DB-TFD in quantum Boltzmann machines for generative modeling, achieving improved performance compared with variational imaginary-time evolution approaches. These results establish DB-TFD as a promising route for thermal state preparation in the near-term and early-fault-tolerant regimes.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "assessing-efficacy-hybrid-quantum-classical-computing-combinatorial-b1841",
@@ -5738,6 +5831,36 @@
    "domains": []
   },
   {
+   "id": "development-hybrid-classical-quantum-svm-model-predicting-4ff0e",
+   "title": "Development of a Hybrid Classical-Quantum SVM Model for Predicting Perovskite Formation Energy",
+   "titleZh": "预测钙钛矿形成能的混合经典-量子 SVM 模型",
+   "authors": [
+    "Fauzan Arif Prayogi",
+    "Muhamad Akrom"
+   ],
+   "venue": "Journal of Applied Informatics and Computing",
+   "date": "2026-04-22",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.30871/jaic.v10i2.12240",
+   "url": "https://doi.org/10.30871/jaic.v10i2.12240",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Applied Informatics 2026:面向钙钛矿太阳能电池(效率>25%)形成能预测难题,提出混合经典-量子 SVM 模型;材料化工×QML 交叉,呼应量子计算助力新能源转型的主题。",
+   "abstract": "The global energy crisis and the threat of climate change are driving the acceleration of the transition towards new and renewable energy (NRE), with perovskite solar cells emerging as a leading candidate due to their high efficiency (>25%) and low production costs. A major challenge in the development of perovskite materials is their structural stability, which can be assessed through Formation Energy (FE). However, FE calculations using Density Functional Theory (DFT) are computationally expensive and not scalable for screening thousands of material candidates. This research develops a Quantum Machine Learning (QML) model to predict the Formation Energy of ABX₃ perovskite materials as an efficient alternative to conventional DFT approaches. Three variants of Support Vector Machine algorithms are compared comprehensively: the classical SVM with an RBF kernel as a baseline, Quantum SVM (QSVM) utilizing a quantum kernel with ZZFeatureMap to represent data in a high-dimensional quantum feature space, and Hybrid SVM (HSVM), which combines the expressiveness of the quantum feature map with the flexibility of classical parameter optimization. Evaluation results show that Hybrid SVM outperforms others with R² = 0.7221, RMSE = 0.4203, and MAE = 0.3228 on test data, improving by 4-8% compared to classical SVM (R² = 0.6674) and surpassing QSVM (R² = 0.6966). Interpretability analysis using Explainable AI with permutation feature importance reveals that the bandgap (HSE gap indirect) a",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "materials"
+   ]
+  },
+  {
    "id": "potential-energy-savings-from-quantum-computing-based-ba60f",
    "title": "Potential Energy Savings from Quantum Computing-Based Route Optimization",
    "titleZh": "基于 QAOA 的路径优化节能潜力评估",
@@ -6396,6 +6519,39 @@
    "abstract": "Quantum computers can solve selected problems more efficiently than classical computers, but current devices are limited by high physical error rates. Quantum Error Correction (QEC) mitigates this by encoding many physical qubits into a logical qubit, with the surface code among the most widely studied approaches. Since syndrome measurements are produced continuously, the decoder must process them fast enough to avoid becoming a system bottleneck, making real-time decoding essential for fault-tolerant quantum computing. While most state-of-the-art real-time decoders rely on Minimum-Weight Perfect Matching (MWPM), we instead use a high-accuracy Graph Neural Network (GNN) that trades higher computational cost for lower logical error rates. To make this GNN practical for real-time decoding, we apply algorithm-hardware co-design. We reduce complexity through hardware-guided pruning and retraining, producing two hardware-friendly models that reduce parameter count by $3.1\\times$ and $6.5\\times$. These target, respectively, an average decoding latency of one syndrome cycle and a worst-case latency within one syndrome cycle. We further reduce hardware cost using input-graph filtering and post-training quantization. Based on these optimized models, we propose an FPGA-based architecture for low-latency inference and real-time decoding. Evaluated on surface codes up to distance 7 under circuit-level noise at physical error rate $p=10^{-3}$, our decoder outperforms MWPM in decoding accu",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-enhanced-deep-belief-networks-financial-fraud-abfae",
+   "title": "Quantum-enhanced deep belief networks for financial fraud detection",
+   "titleZh": "量子增强深度信念网络用于金融欺诈检测",
+   "authors": [
+    "Rajalakshmi Sivanaiah",
+    "Angel Deborah S",
+    "T. T. Mirnalinee",
+    "Krishna Varun R",
+    "N. Krishnaraj"
+   ],
+   "venue": "Springer Link (Chiba Institute of Technology)",
+   "date": "2026-03-23",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1051/epjconf/202636001016/pdf",
+   "url": "https://doi.org/10.1051/epjconf/202636001016/pdf",
+   "topics": [
+    "qinspired",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Springer 2026:经典深度信念网络(DBN,堆叠 RBM)在复杂不平衡数据上难以捕捉高阶模式;该文提出量子增强 DBN 并用于金融欺诈检测,连接玻尔兹曼机谱系与金融风控应用。",
+   "abstract": "A Deep Belief Network (DBN) is a generative model stacking multiple Restricted Boltzmann Machine (RBM) layers to learn hierarchical data representations. While effective for feature extraction, classical DBNs struggle with high-order patterns in complex, imbalanced datasets, such as credit card fraud data. To overcome this, we integrate quantum-inspired RBMs (QRBMs) into the DBN framework. This study compares four 3-layer DBN configurations on the Credit Card Fraud Detection dataset: (i) classical DBN (all RBM layers), (ii) 1-Quantum DBN (1 QRBM layer), (iii) 2-Quantum DBN (2 QRBM layers), and (iv) full Quantum DBN (all QRBM layers). Models were trained via contrastive divergence and assessed using precision, recall, and F1-score. Results show the full Quantum DBN outperforming others: precision 0.581, recall 0.637, F1-score 0.602—yielding a 34.4% F1 improvement over classical DBN (precision 0.319, recall 0.755, F1 0.448). Hybrids ranked intermediately. Quantum advantages stem from entanglement and superposition, fostering complex pattern capture and faster convergence (fewer epochs). These findings highlight quantum-enhanced DBNs’ potential for scalable anomaly detection in financial fraud systems, paving the way for hybrid quantum-classical ML applications.",
+   "source": "backfill",
+   "domains": [
+    "finance"
+   ]
   },
   {
    "id": "average-relative-entropy-transpilation-depth-determines-noise-46608",
@@ -10106,6 +10262,38 @@
    "domains": []
   },
   {
+   "id": "photonic-quantum-accelerated-machine-learning-8ddae",
+   "title": "Photonic Quantum-Accelerated Machine Learning",
+   "titleZh": "光子量子加速机器学习",
+   "authors": [
+    "Markus Rambach",
+    "Roy, Abhishek",
+    "Alexei Gilchrist",
+    "Sakurai, Akitada",
+    "William J. Munro",
+    "Kae Nemoto",
+    "Andrew G. White"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-09",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2512.08318",
+   "doi": "10.48550/arxiv.2512.08318",
+   "url": "https://arxiv.org/abs/2512.08318",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-12:利用玻色采样——经典难模拟的量子干涉采样协议——作为机器学习的采样资源,在光子硬件上加速 ML 任务;是\"量子采样资源赋能 ML\"路线的实验推进。",
+   "abstract": "Machine learning is widely applied in modern society, but has yet to capitalise on the unique benefits offered by quantum resources. Boson sampling -- a quantum-interference based sampling protocol -- is a resource that is classically hard to simulate and can be implemented on current quantum hardware. Here, we present a quantum accelerator for classical machine learning, using boson sampling to provide a high-dimensional quantum fingerprint for reservoir computing. We show robust performance improvements under various conditions: imperfect photon sources down to complete distinguishability; scenarios with severe class imbalances, classifying both handwritten digits and biomedical images; and sparse data, maintaining model accuracy with twenty times less training data. Crucially, we demonstrate the acceleration of our scheme on a photonic quantum processing unit, providing experimental validation that boson-sampling-enhanced learning with Fock states delivers real performance gains on actual quantum hardware.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "output-prediction-quantum-circuits-based-graph-neural-b330e",
    "title": "Output prediction of quantum circuits based on graph neural networks",
    "titleZh": "基于图神经网络的量子线路输出预测",
@@ -10760,6 +10948,34 @@
    "domains": [
     "logistics"
    ]
+  },
+  {
+   "id": "flexible-quantum-convolutional-neural-network-85bc1",
+   "title": "A flexible quantum convolutional neural network",
+   "titleZh": "柔性量子卷积神经网络",
+   "authors": [
+    "Kai Yu",
+    "Song Lin",
+    "Bin‐Bin Cai"
+   ],
+   "venue": "Journal of Physics A Mathematical and Theoretical",
+   "date": "2025-11-12",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1088/1751-8121/ae1eb8",
+   "url": "https://doi.org/10.1088/1751-8121/ae1eb8",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Journal of Physics A 2025:提出柔性量子卷积神经网络,平衡量子资源开销与经典 CNN 的效率,在计算机视觉大规模数据处理任务上验证;量子 CNN 架构设计的近期进展。",
+   "abstract": "Abstract Convolutional neural network (CNN) is a crucial tool for machine learning, especially in the field of computer vision. The development of quantum information technology provides more possibilities for it in large-scale data processing. However, balancing the efficient utilization of quantum resources with the flexibility of algorithms while improving classical computational performance remains a significant challenge. In this paper, we propose a flexible quantum CNN algorithm. First, a data loading method based on quantum superposition is presented, which can exponentially reduce space requirements. Subsequently, quantum subroutines for convolutional layers, pooling layers, and fully connected layers were designed to fully replicate the core functionalities of classical CNNs. Quantum algorithm techniques were integrated to restore the data position of receptive fields based on feature location information, ensuring that the selection of window size and stride remains as flexible as in classical models. Moreover, parallel quantum amplitude estimation and swap test techniques enable parallel feature extraction. Analysis shows that the method can achieve exponential acceleration of data scale in less memory. Finally, the proposed method is numerically simulated on the Qiskit framework using handwritten digital images in the MNIST dataset. The experimental results provide evidence for the effectiveness of the model.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "microfabrication-8-qubit-processor-chip-trapped-ion-a652b",
@@ -13582,6 +13798,36 @@
    "domains": []
   },
   {
+   "id": "density-operator-expectation-maximization-59584",
+   "title": "Density Operator Expectation Maximization",
+   "titleZh": "密度算子期望最大化",
+   "authors": [
+    "Adit Vishnu",
+    "Shastry, Abhay",
+    "Dhruva Kashyap",
+    "Chiranjib Bhattacharyya"
+   ],
+   "venue": "arXiv",
+   "date": "2025-07-30",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2507.22786",
+   "doi": "10.48550/arxiv.2507.22786",
+   "url": "https://arxiv.org/abs/2507.22786",
+   "topics": [
+    "quantum-ai",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:把经典机器学习的期望最大化(EM)框架推广到密度算子——量子力学的数学基础,提出密度算子生成模型并解决其此前无法胜任的概率模型任务,是 QML 理论基础的重要扩展。",
+   "abstract": "Machine learning with density operators, the mathematical foundation of quantum mechanics, is gaining prominence with rapid advances in quantum computing. Generative models based on density operators cannot yet handle tasks that are routinely handled by probabilistic models. The progress of latent variable models, a broad and influential class of probabilistic unsupervised models, was driven by the Expectation-Maximization framework. Deriving such a framework for density operators is challenging due to the non-commutativity of operators. To tackle this challenge, an inequality arising from the monotonicity of relative entropy is demonstrated to serve as an evidence lower bound for density operators. A minorant-maximization perspective on this bound leads to Density Operator Expectation Maximization (DO-EM), a general framework for training latent variable models defined through density operators. Through an information-geometric argument, the Expectation step in DO-EM is shown to be the Petz recovery map. The DO-EM algorithm is applied to Quantum Restricted Boltzmann Machines, adapting Contrastive Divergence to approximate the Maximization step gradient. Quantum interleaved Deep Boltzmann Machines and Quantum Gaussian-Bernoulli Restricted Boltzmann Machines, new models introduced in this work, outperform their probabilistic counterparts on generative tasks when trained with similar computational resources and identical hyperparameters.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "exact-quantum-algorithm-unit-commitment-optimization-based-c2099",
    "title": "Exact quantum algorithm for unit commitment optimization based on partially connected quantum neural networks",
    "titleZh": "基于部分连接量子神经网络的机组组合优化精确求解",
@@ -14797,6 +15043,34 @@
    ]
   },
   {
+   "id": "schrosim-schr-dinger-inspired-scalable-quantum-photonic-7c786",
+   "title": "SchroSIM: A Schrödinger-Inspired Scalable Quantum Photonic Circuit Simulator for Hardware-Agnostic Quantum Computing",
+   "titleZh": "SchroSIM:薛定谔启发的硬件无关可扩展光子量子线路模拟器",
+   "authors": [
+    "Dennis Delali Kwesi Wayo"
+   ],
+   "venue": "预印本",
+   "date": "2025-06-16",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.36227/techrxiv.175008354.44543221/v1",
+   "url": "https://doi.org/10.36227/techrxiv.175008354.44543221/v1",
+   "topics": [
+    "quantum-ai",
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025:用 Swift 开发的薛定谔启发光子量子线路模拟器 SchroSIM,支持连续变量与非高斯量子操作、硬件无关;光子量子模拟器工具链的补充。",
+   "abstract": "This technical concept note presents SchroSIM, a Schrödinger-inspired, scalable, and hardware-agnostic simulator for photonic quantum circuits. Developed in Swift, SchroSIM supports continuous-variable (CV) and non-Gaussian quantum operations, enabling the modeling and simulation of photonic circuits across multiple levels of abstraction. The simulator features a modular architecture comprising a SwiftUI-based graphical frontend, an intermediate circuit compiler, and simulation backends optimized for GPU acceleration via Apple's Metal framework. SchroSIM addresses current limitations in photonic simulation platforms by offering platform-independent benchmarking, circuit fidelity evaluation, and an extensible plugin system for future integration with quantum machine learning and symbolic modeling tools. This concept note outlines the simulator's design, core modules, simulation strategies, benchmarking framework, and a staged development roadmap. While implementation is ongoing, this preprint serves to timestamp the conceptual framework and invite collaborative development from the photonic quantum computing community.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimization-distribution-networks-quantum-annealing-loss-reduction-d16c3",
    "title": "Optimization of distribution networks using quantum annealing for loss reduction and voltage improvement in electrical vehicle parking management",
    "titleZh": "用量子退火优化配电网:降低损耗与改善电动车停车管理电压",
@@ -15478,6 +15752,35 @@
    ]
   },
   {
+   "id": "data-driven-antenna-miniaturization-knowledge-based-system-8ca3e",
+   "title": "Data-Driven Antenna Miniaturization: A Knowledge-Based System Integrating Quantum PSO and Predictive Machine Learning Models",
+   "titleZh": "数据驱动的天线小型化:量子粒子群与预测建模知识系统",
+   "authors": [
+    "Khan Masood Parvez",
+    "Rahaman, Sk Md Abidar",
+    "Ali Shiri Sichani"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-28",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.22440",
+   "doi": "10.48550/arxiv.2505.22440",
+   "url": "https://arxiv.org/abs/2505.22440",
+   "topics": [
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-05:把量子行为粒子群(QPSO)与预测建模集成进天线小型化自动设计工作流,缩短无线技术演进周期的研发迭代;量子启发算法×电磁设计的工程实例。",
+   "abstract": "The rapid evolution of wireless technologies necessitates automated design frameworks to address antenna miniaturization and performance optimization within constrained development cycles. This study demonstrates a machine learning enhanced workflow integrating Quantum-Behaved Dynamic Particle Swarm Optimization (QDPSO) with ANSYS HFSS simulations to accelerate antenna design. The QDPSO algorithm autonomously optimized loop dimensions in 11.53 seconds, achieving a resonance frequency of 1.4208 GHz a 12.7 percent reduction compared to conventional 1.60 GHz designs. Machine learning models (SVM, Random Forest, XGBoost, and Stacked ensembles) predicted resonance frequencies in 0.75 seconds using 936 simulation datasets, with stacked models showing superior training accuracy (R2=0.9825) and SVM demonstrating optimal validation performance (R2=0.7197). The complete design cycle, encompassing optimization, prediction, and ANSYS validation, required 12.42 minutes on standard desktop hardware (Intel i5-8500, 16GB RAM), contrasting sharply with the 50-hour benchmark of PSADEA-based approaches. This 240 times of acceleration eliminates traditional trial-and-error methods that often extend beyond seven expert-led days. The system enables precise specifications of performance targets with automated generation of fabrication-ready parameters, particularly benefiting compact consumer devices requiring rapid frequency tuning. By bridging AI-driven optimization with CAD validation, this fram",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-ai-urbanism-redefining-future-artificial-intelligence-a9835",
    "title": "Quantum AI Urbanism: Redefining the Future of Artificial Intelligence in Cities",
    "titleZh": "量子AI城市主义:重新定义人工智能在城市中的未来",
@@ -15889,6 +16192,32 @@
    ],
    "summaryZh": "Physical Review Letters:研究线路级噪声下重复码的精确最大似然解码,揭示其结构性质并给出精确解码算法,为解码器性能评估提供理论上限基准(重复码是唯一做到大码距与极低错误率的码)。",
    "abstract": "We study the exact maximum-likelihood decoding of quantum error-correcting codes. Our primary focus is on the repetition code under circuit-level noise, which serves as a fundamental basis for quantum error correction experiments and is the only code that has achieved large distances and extremely low error rates. We uncover that the repetition code under circuit-level noise has an exact solution and propose an optimal maximum-likelihood decoding algorithm called \"planar.\" This algorithm is based on the exact solution of the spin-glass partition function on planar graphs and has polynomial computational complexity. Through extensive numerical experiments, we demonstrate that our algorithm uncovers the exact threshold for depolarizing noise and realistic superconductor SI1000 noise. Furthermore, we apply our method to analyze data from recent quantum memory experiments conducted by Google Quantum AI, revealing that part of the error floor was attributed to the decoding algorithm used by Google. Finally, we implemented the repetition code quantum memory on superconducting systems using a 72-qubit quantum chip lacking reset gates, demonstrating that even with an unknown error model, the proposed algorithm achieves a significantly lower logical error rate than the matching-based algorithm. We also discuss the application of our approach to quantum codes whose maximum-likelihood decoding problem corresponds to a spin-glass problem, including the surface code under independent code",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "quantum-computing-ai-perspectives-advanced-automation-science-863fa",
+   "title": "Quantum Computing and AI: Perspectives on Advanced Automation in Science and Engineering",
+   "titleZh": "量子计算与 AI:科学与工程自动化的展望",
+   "authors": [
+    "Tadashi Kadowaki"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-15",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2505.10012",
+   "doi": "10.48550/arxiv.2505.10012",
+   "url": "https://arxiv.org/abs/2505.10012",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-05:透视 AI 与量子计算加速科研与工程自动化的平行关系,以计算机视觉的自动化历程为参照讨论量子自动化的可行路径;Perspective 类前瞻文献。",
+   "abstract": "Recent advances in artificial intelligence (AI) and quantum computing are accelerating automation in scientific and engineering processes, fundamentally reshaping research methodologies. This perspective highlights parallels between scientific automation and established Computer-Aided Engineering (CAE) practices, introducing Quantum CAE as a framework that leverages quantum algorithms for simulation, optimization, and machine learning within engineering design. Practical implementations of Quantum CAE are illustrated through case studies for combinatorial optimization problems. Further discussions include advancements toward higher automation levels, highlighting the critical role of specialized AI agents proficient in quantum algorithm design. The integration of quantum computing with AI raises significant questions about the collaborative dynamics among human scientists and engineers, AI systems, and quantum computational resources, underscoring a transformative future for automated discovery and innovation.",
    "source": "backfill",
    "domains": []
   },
@@ -16794,6 +17123,36 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "note-universality-parameterized-iqp-circuits-hidden-units-ffd0f",
+   "title": "Note on the Universality of Parameterized IQP Circuits with Hidden Units for Generating Probability Distributions",
+   "titleZh": "参数化 IQP 线路带隐藏单元生成概率分布的普适性注记",
+   "authors": [
+    "Andrii Kurkin",
+    "Shen, Kevin",
+    "Susanne Pielawa",
+    "Hao Wang",
+    "Vedran Dunjko"
+   ],
+   "venue": "arXiv",
+   "date": "2025-04-08",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2504.05997",
+   "doi": "10.48550/arxiv.2504.05997",
+   "url": "https://arxiv.org/abs/2504.05997",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "证明基于参数化 IQP 线路、带隐藏单元的量子生成模型在只用可观测量期望值损失函数时可经典高效训练的条件下具有普适性——为\"可经典训练的量子生成模型\"划定表达能力边界。",
+   "abstract": "In a series of recent works, an interesting quantum generative model based on parameterized instantaneous polynomial quantum (IQP) circuits has emerged as they can be trained efficiently classically using any loss function that depends only on the expectation values of observables of the model. The model is proven not to be universal for generating arbitrary distributions, but it is suspected that marginals can be - much like Boltzmann machines achieve universality by utilizing hidden (traced-out in quantum jargon) layers. In this short note, we provide two simple proofs of this fact. The first is near-trivial and asymptotic, and the second shows universality can be achieved with a reasonable number of additional qubits.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "quantum-inspired-multi-objective-optimization-framework-dynamic-bbb88",
@@ -18633,6 +18992,38 @@
    "domains": [
     "it-cloud"
    ]
+  },
+  {
+   "id": "gaussian-models-non-gaussian-realms-quantum-photonic-6da09",
+   "title": "Gaussian Models to Non-Gaussian Realms of Quantum Photonic Simulators",
+   "titleZh": "从高斯模型到非高斯领域的量子光子模拟器",
+   "authors": [
+    "Dennis Delali Kwesi Wayo",
+    "Rodrigo Alves Dias",
+    "Masoud Darvish Ganji",
+    "Camila Martins Saporetti",
+    "Leonardo Goliatt"
+   ],
+   "venue": "arXiv",
+   "date": "2025-02-07",
+   "year": 2025,
+   "citations": 0,
+   "arxivId": "2502.05245",
+   "doi": "10.48550/arxiv.2502.05245",
+   "url": "https://arxiv.org/abs/2502.05245",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-02:综述量子光子模拟器从高斯态到非高斯操作(实现量子计算优势的必要条件)的研究版图,连接理论模型与光子硬件实验实现,是光子量子模拟的系统性地图。",
+   "abstract": "Quantum photonic simulators have emerged as indispensable tools for modeling and optimizing quantum photonic circuits, bridging the gap between theoretical models and experimental implementations. This review explores the landscape of photonic quantum simulation, focusing on the transition from Gaussian to non-Gaussian models and the computational challenges associated with simulating large-scale photonic systems. Gaussian states and operations, which enable efficient simulations through covariance matrices and phase-space representations, serve as the foundation for photonic quantum computing. However, non-Gaussian states crucial for universal quantum computation introduce significant computational complexity, requiring advanced numerical techniques such as tensor networks and high-performance GPU acceleration. We evaluate the leading photonic quantum simulators, including Strawberry Fields, Piquasso, QuTiP SimulaQron, Perceval, and QuantumOPtics.jl analyzing their capabilities in handling continuous-variable (CV) and discrete-variable (DV) quantum systems. Special attention is given to hardware-accelerated methods, including GPU-based tensor network approaches, machine learning integration, and hybrid quantum-classical workflows. Furthermore, we investigate noise modeling techniques, such as photon loss and dark counts, and their impact on simulation accuracy. As photonic quantum computing moves toward practical implementations, advancements in high-performance computing (H",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "routing-scheduling-optimization-urban-air-mobility-fleet-c7aed",
@@ -20928,6 +21319,42 @@
    "tags": [],
    "summaryZh": "指出量子计算架构的高线性性限制了 QNLP 表达能力,引入自监督预训练范式为量子语言模型提供高质量先验表示,显著提升下游任务表现,把 NLP 的\"预训练-微调\"经验移植到量子线路。",
    "abstract": "Quantum computing models have propelled advances in many application domains. However, in the field of natural language processing (NLP), quantum computing models are limited in representation capacity due to the high linearity of the underlying quantum computing architecture. This work attempts to address this limitation by leveraging the concept of self-supervised pre-training, a paradigm that has been propelling the rocketing development of NLP, to increase the power of quantum NLP models on the representation level. Specifically, we present a self-supervised pre-training approach to train quantum encodings of sentences, and fine-tune quantum circuits for downstream tasks on its basis. Experiments show that pre-trained mechanism brings remarkable improvement over end-to-end pure quantum models, yielding meaningful prediction results on a variety of downstream text classification datasets.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "zephyr-quantum-assisted-hierarchical-calo4pqvae-particle-calorimeter-71f0f",
+   "title": "Zephyr quantum-assisted hierarchical Calo4pQVAE for particle-calorimeter interactions",
+   "titleZh": "Zephyr 量子辅助分层 Calo4pQVAE 用于粒子量能器相互作用模拟",
+   "authors": [
+    "Lu, Ian",
+    "Hao Wei Jia",
+    "Gonzalez, Sebastian",
+    "Deniz Sogutlu",
+    "J. Quetzalcóatl Toledo-Marín",
+    "Sehmimul Hoque",
+    "Abhishek Singh",
+    "C. Gay",
+    "Roger G. Melko",
+    "Paquet, Eric",
+    "Geoffrey Fox",
+    "M. Swiatlowski",
+    "Wojciech T. Fedorko"
+   ],
+   "venue": "arXiv",
+   "date": "2024-12-06",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2412.04677",
+   "doi": "10.48550/arxiv.2412.04677",
+   "url": "https://arxiv.org/abs/2412.04677",
+   "topics": [
+    "annealing"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "arXiv 2024:HL-LHC 时代碰撞模拟算力需求不可持续;该文在 D-Wave Zephyr 拓扑上量子辅助训练分层 Calo4pQVAE,生成量能器相互作用数据,是\"量子生成模型替代蒙特卡洛探测器模拟\"谱系的代表工作。",
+   "abstract": "With the approach of the High Luminosity Large Hadron Collider (HL-LHC) era set to begin particle collisions by the end of this decade, it is evident that the computational demands of traditional collision simulation methods are becoming increasingly unsustainable. Existing approaches, which rely heavily on first-principles Monte Carlo simulations for modeling event showers in calorimeters, are projected to require millions of CPU-years annually -- far exceeding current computational capacities. This bottleneck presents an exciting opportunity for advancements in computational physics by integrating deep generative models with quantum simulations. We propose a quantum-assisted hierarchical deep generative surrogate founded on a variational autoencoder (VAE) in combination with an energy conditioned restricted Boltzmann machine (RBM) embedded in the model's latent space as a prior. By mapping the topology of D-Wave's Zephyr quantum annealer (QA) into the nodes and couplings of a 4-partite RBM, we leverage quantum simulation to accelerate our shower generation times significantly. To evaluate our framework, we use Dataset 2 of the CaloChallenge 2022. Through the integration of classical computation and quantum simulation, this hybrid framework paves way for utilizing large-scale quantum simulations as priors in deep generative models.",
    "source": "backfill",
    "domains": []
   },
@@ -24149,6 +24576,33 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "universal-matrix-multiplication-quantum-computer-f85ca",
+   "title": "Universal Matrix Multiplication on Quantum Computer",
+   "titleZh": "量子计算机上的通用矩阵乘法",
+   "authors": [
+    "J. M. Yao",
+    "Huang, Tianjian",
+    "Cai, Zipeng",
+    "Ding Liu"
+   ],
+   "venue": "arXiv",
+   "date": "2024-08-06",
+   "year": 2024,
+   "citations": 0,
+   "arxivId": "2408.03085",
+   "doi": "10.48550/arxiv.2408.03085",
+   "url": "https://arxiv.org/abs/2408.03085",
+   "topics": [
+    "quantum-ai"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "arXiv 2024-08:矩阵乘法是深度神经网络最核心、计算最密集的组件;该文提出量子计算机上的通用矩阵乘法方案,利用量子叠加并行性加速 DNN 训练与推理——直接呼应\"量子加速大模型训练\"主题。",
+   "abstract": "As the most central and computationally intensive component of deep neural networks, the execution efficiency of matrix multiplication directly determines the training and inference performance of models. Harnessing the parallel processing capabilities afforded by quantum superposition and entanglement to reshape matrix multiplication implementations has become a promising entry point for optimising underlying quantum arithmetic logic and improving the operational efficiency of quantum circuits. This paper proposes a universal quantum matrix multiplication (QMM) framework designed to achieve substantial computational acceleration through an optimised quantum arithmetic logic unit. To circumvent the limitations of multi-register and multi-control gates in conventional quantum arithmetic circuits, we encode classical data directly into parameterised \\(R_z\\) rotation gates using the quantum Fourier transform (QFT), thereby reducing the base gate complexity of the quantum adder to \\(O(n)\\). In addition, by adopting the column-wise multiplication principle from classical arithmetic, we optimize the gate complexity of the quantum multiplier to \\(O(n^2)\\). We further extend this approach to a quantum version of the Strassen algorithm, and experimentally quantify the trade-off between reduced multiplication time and increased overhead in addition resources. This work establishes a reliable technical pathway for constructing general-purpose quantum matrix operations, with the potentia",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "simple-linear-algebra-identity-optimize-large-scale-010c4",
