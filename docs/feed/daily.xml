@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-11-07] 神经代理量子增强 MCMC 的大规模约束玻尔兹曼采样硬件演示</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-11-07/</link>
+      <guid isPermaLink="false">daily:2026-11-07</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>约束玻尔兹曼采样（constrained Boltzmann sampling）——从形如 $p(x)\propto e^{-E(x)/T}$ 且带硬约束的概率分布中抽集样本——是组合优化、概率图模型推断与统计物理共同的核心瓶颈。经典马尔可夫链蒙特卡洛（MCMC）依靠 Gibbs/Metropolis/Kawasaki 动力学在能量景观中游走，但在阻错（glassy）景观中混合时间随规模急剧发散，&quot;采样难&quot;往往比&quot;求最优解难&quot;更普遍。近两年出现了一条折中路线：量子退火与 QAOA 天然偏向低能构型，用它们产生的…</description>
+    </item>
     <item>
       <title>[日报 2026-10-26] 超越二进制编码：基于 Qudit 的 QAOA 框架用于 M-QAM MIMO 系统最大似然检测</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-10-26/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-19</guid>
       <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
       <description>量子机器学习长期面临一个尴尬的剪刀差：要让量子模型&quot;大到有用&quot;（表达能力足以捕捉经典模型难以企及的统计结构），通常就要优化海水量子参数，而每一次参数更新都要付出真实硬件上反复采样、线路编译与读出的高昂代价——训练循环本身成了规模化最大的瓶颈。变分路线的贫瘠高原、测量开销与优化噪声，都让&quot;大而可训&quot;的量子模型至今停留在几十到几百比特的量级。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-18] 受限 QAOA 的表达能力：你可能错过的 MIS 要点</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-18/</link>
-      <guid isPermaLink="false">daily:2026-09-18</guid>
-      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
-      <description>用 QAOA 求解带约束的组合优化问题时，业界有两条编码路线：其一是罚函数法，把约束违反量折进目标哈密顿量，代价是解空间膨胀、最优解可能被大量不可行态淹没；其二是可行性保持混合器（feasibility-preserving mixer），用精心构造的混合哈密顿量保证演化始终停留在可行子空间内，代价是线路设计更复杂、且&quot;到底牺牲了多少表达能力&quot;长期没有人说清楚。这个问题相当根本：如果强制保可行会把可达态空间削掉一大块，那么约束优化中&quot;保可行&quot;的收益可能被表达能力的损失吃掉；反之若几乎不损失，保可行混合器就应是默…</description>
     </item>
   </channel>
 </rss>

@@ -5,8 +5,71 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/full.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 面向量子计算的背包问题资源高效建模方法</title>
+      <link>https://raymond0812-yylm.github.io/papers/resource-efficient-formulations-knapsack-problem-quantum-computing-502f2/</link>
+      <guid isPermaLink="false">p:resource-efficient-formulations-knapsack-problem-quantum-computing-502f2</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>量子优化方法（QAOA、量子退火）几乎都工作在 QUBO 形式上，而把带不等式约束的问题（以背包问题为典型代表）转成 QUBO 的标准做法需要引入松弛（slack）变量与罚项——这些额外比特不仅吞噬稀缺的量子比特资源，还平添大量浅伪低能态，显著稀释找到真解的概率。同一个问题往往存在多种 QUBO 写法，&quot;建模选择&quot;本身就是一个被低估的性能杠杆。Jülich 团队（Michielsen/Willsch 等此前完成过 LR-QAOA 协议与 NISQ QAOA 扩展性实验的知名系列工作）系统回答了：背包问题的 QU…</description>
+    </item>
+    <item>
+      <title>[论文] 混合振子-量子比特量子处理器：模拟费米子、玻色子与规范场</title>
+      <link>https://raymond0812-yylm.github.io/papers/hybrid-oscillator-qubit-quantum-processors-simulating-fermions-66f59/</link>
+      <guid isPermaLink="false">p:hybrid-oscillator-qubit-quantum-processors-simulating-fermions-66f59</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>纯量子比特架构要用大量比特与门去&quot;假装&quot;玻色模式（声子、光子、谐振腔），强关联费米-玻色体系（量子化学、晶格规范理论、凝聚态）对经典与近期量子计算机双双超载。谐振腔提供的&quot;振子&quot;（连续变量）模式天然是高维希尔伯特空间，超导腔、离子阱、中性原子平台均已具备普适玻色控制能力——问题是如何把费米-玻色混合模型系统性地编译到振子-比特混合处理器上。由 MIT（Isaac Chuang、Nathan Wiebe）、耶鲁（Steven Girvin）等机构组成的联合团队在本周（11 月 5 日）放出了 PRX 正式发表版。</description>
+    </item>
+    <item>
+      <title>[论文] 神经代理量子增强 MCMC 的大规模约束玻尔兹曼采样硬件演示</title>
+      <link>https://raymond0812-yylm.github.io/papers/hardware-demonstration-neural-surrogated-quantum-enhanced-mcmc-502eb/</link>
+      <guid isPermaLink="false">p:hardware-demonstration-neural-surrogated-quantum-enhanced-mcmc-502eb</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>约束玻尔兹曼采样（constrained Boltzmann sampling）——从形如 $p(x)\propto e^{-E(x)/T}$ 且带硬约束的概率分布中抽集样本——是组合优化、概率图模型推断与统计物理共同的核心瓶颈。经典马尔可夫链蒙特卡洛（MCMC）依靠 Gibbs/Metropolis/Kawasaki 动力学在能量景观中游走，但在阻错（glassy）景观中混合时间随规模急剧发散，&quot;采样难&quot;往往比&quot;求最优解难&quot;更普遍。近两年出现了一条折中路线：量子退火与 QAOA 天然偏向低能构型，用它们产生的…</description>
+    </item>
+    <item>
+      <title>[动态] 中国空间站梦天舱造出已知宇宙最冷物质，成果登《科学》</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n5</link>
+      <guid isPermaLink="false">n:2026-11-07:5</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>中国科学院 11 月 6 日举行发布会宣布：科研团队利用空间站梦天实验舱超冷原子物理实验柜，率先采用全光阱冷却技术将铷原子云等效温度降至 9.7 皮开尔文（千亿分之一开尔文），刷新人类低温纪录，&quot;宇宙最冷点&quot;落户中国空间站。成果同日在国际学术期刊《科学》（Science）发表，将支撑极低温量子气体相变、非平衡动力学与量子多体关联等基础物理研究，也为空间量子模拟与量子精密测量奠定新基准。</description>
+    </item>
+    <item>
+      <title>[动态] 中科院上海微系统所实现 97 纳秒全微波高保真量子门</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n4</link>
+      <guid isPermaLink="false">n:2026-11-07:4</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>中科院上海微系统与信息技术研究所团队提出 Autler-Townes 能级工程技术，在超导处理器上实现仅 97 纳秒的全微波控制 CZ 门，保真度达 99.40%，破解了全微波量子门&quot;提速必然伴随泄漏上升&quot;的长期矛盾。该方案无需磁通偏置、布线拓扑简单，可平移至多种超导量子比特平台，成果预印本（arXiv:2611.07967）本周挂出，被国际媒体评价为&quot;有望帮助超导量子比特扩规模&quot;。</description>
+    </item>
+    <item>
+      <title>[动态] 新加坡金管局就量子安全监管指引征求银行业意见</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n3</link>
+      <guid isPermaLink="false">n:2026-11-07:3</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>新加坡金融管理局（MAS）11 月 6 日发布咨询文件，邀请银行界对拟议的量子安全（quantum-safe）监管指引发表意见，要求金融机构系统评估加密资产面临的量子威胁暴露面、制定后量子密码迁移路线图并按期披露进展。亚太金融监管的&quot;量子安全制度化&quot;进程进一步提速。</description>
+    </item>
+    <item>
+      <title>[动态] IQM 与大众汽车用量子-经典混合方法加速电池研发</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n2</link>
+      <guid isPermaLink="false">n:2026-11-07:2</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>芬兰超导量子计算公司 IQM 与大众汽车 11 月 6 日披露合作进展：双方采用量子-经典混合工作流模拟电池材料的电化学过程，目标是缩短电池材料研发周期、降低实验试错成本。这是继 IQM 三季报营收同比增长 51%（至 890 万欧元）后，欧洲&quot;量子计算服务制造业&quot;的又一代表性落地案例。</description>
+    </item>
+    <item>
+      <title>[动态] 橡树岭国家实验室联合 IBM、AMD 发布量子纠错协同设计平台</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n1</link>
+      <guid isPermaLink="false">n:2026-11-07:1</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>美国能源部橡树岭国家实验室（ORNL）量子科学中心于当地时间 11 月 5 日宣布，携手 IBM 与 AMD 发布全新量子纠错协同设计平台，将超导量子比特噪声建模、纠错解码器设计与 GPU 大规模加速仿真打通为统一工作流并向研究社区开放，旨在缩短容错量子架构从设计到验证的迭代周期。</description>
+    </item>
+    <item>
+      <title>[动态] IonQ 三季报营收同比大增 336%，在手订单达 12 亿美元</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-07/#n0</link>
+      <guid isPermaLink="false">n:2026-11-07:0</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 GMT</pubDate>
+      <description>IonQ 于 11 月 5 日发布 2026 年第三季度财报：营收约 1.74 亿美元，同比增长 336%，累计订单/预订额达 12 亿美元，创行业纪录。公司将其归因于量子系统商业化交付与&quot;量子计算即服务&quot;需求放量，叠加其近期收购布局形成的全栈能力。同日 Quantinuum 亦公布营收同比增长 233% 并上调全年指引，反映量子行业收入端首次出现规模化拐点。</description>
+    </item>
     <item>
       <title>[论文] 定向以求多样：面向自动启发式设计的多方向搜索</title>
       <link>https://raymond0812-yylm.github.io/papers/directing-diversify-multi-directional-search-automatic-heuristic-1b70d/</link>
@@ -363,69 +426,6 @@
       <guid isPermaLink="false">n:2026-10-16:3</guid>
       <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
       <description>中国科大潘建伟、张强等与济南量子技术研究院郑名扬等组成的团队，成功攻克紫外波段量子信号向通信波段转换时效率低、噪声高的难题，实现 393nm 至 1550nm 的高效率、低噪声量子频率转换（QFC），刷新该波段转换效率与噪声水平的国际纪录。离子阱量子比特天然工作在紫外波段、与电信光纤不兼容，是囚禁离子节点远程组网的长期瓶颈；此项成果为可扩展量子网络中离子阱节点的光纤互连提供了关键器件基础，也是通向&quot;多硬件平台量子互联网&quot;的中国方案拼图。</description>
-    </item>
-    <item>
-      <title>[动态] QuEra 科学家入选美国能源部量子化学计划 9 支团队中的 3 支任共同 PI，中性原子平台对接国家科研负载</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-16/#n2</link>
-      <guid isPermaLink="false">n:2026-10-16:2</guid>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-      <description>QuEra Computing 宣布其科学家在美国能源部（DOE）量子化学计划已启动的 9 支团队中占据 3 席共同首席 investigator 名额，研究方向覆盖量子化学模拟与氢能生产等应用。公司在同稿中重申其路线图：目标 2029 年达成 1000 个逻辑量子比特。中性原子平台正在从&quot;基准刷榜&quot;走向承接国家级科研任务，QuEra 与 DOE、DARPA QBI Stage A 等政府项目的多点绑定，使其成为公共科研预算最集中的量子公司之一。</description>
-    </item>
-    <item>
-      <title>[动态] D-Wave 向意大利交付并揭幕该国首台退火量子计算机：Advantage2 系统 10 月 16 日在科莫正式亮相</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-16/#n1</link>
-      <guid isPermaLink="false">n:2026-10-16:1</guid>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-      <description>D-Wave 宣布向意大利交付其首台退火量子计算机——代号 VoltaB1 的 Advantage2 系统，并于 10 月 16 日在科莫历史建筑 Villa Saporiti 举行的 Q-Alliance&quot;Quantum per l'Italia&quot;活动上正式揭幕。这是继德国于利希、英国 etc. 之后退火算力在欧洲的又一次国家级落地，意大利金融、制造与科研机构将经由 Q-Alliance 生态接入本地化量子求解服务。对专注组合优化的退火路线而言，欧洲主权算力部署的清单正持续加长。</description>
-    </item>
-    <item>
-      <title>[动态] 谷歌量子 AI&quot;魔态培育&quot;在 Willow 上真机实证：关键量子态制备误差降低约 40 倍，成果发表于 Science</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-16/#n0</link>
-      <guid isPermaLink="false">n:2026-10-16:0</guid>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-      <description>谷歌 10 月 15 日宣布，其量子 AI 团队在 Willow 超导处理器上实证了&quot;魔态培育&quot;（Magic State Cultivation）技术——相比不采用该技术，制备容错量子计算所必需的&quot;魔态&quot;（magic state）资源的误差降低约 40 倍，论文同日发表于 Science。魔态是非稳定态之外唯一的&quot;通用量子计算燃料&quot;，传统上依赖开销巨大的蒸馏工厂批量提纯；&quot;培育&quot;路线则直接在纠错逻辑比特上生长出高质量魔态。此前该方案主要停留在理论 proposal，此次真机验证标志着谷歌把容错量子计算最昂贵的资源瓶颈打穿了一环，与 Willow 此前的纠错扩展性成果形成闭环。</description>
-    </item>
-    <item>
-      <title>[论文] 量子优势何去何从？大围长三正则图 MaxCut 的新经典下界</title>
-      <link>https://raymond0812-yylm.github.io/papers/whither-quantum-advantage-new-classical-lower-bounds-1b576/</link>
-      <guid isPermaLink="false">p:whither-quantum-advantage-new-classical-lower-bounds-1b576</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>三正则图（3-regular graph）上的 MaxCut 是 QAOA 的&quot;出生赛道&quot;：Farhi 等人 2014 年提出 QAOA 时，正是用三正则图 MaxCut 的深度-1 解析解（切割比例 0.6924）论证这一算法族的潜力。而大围长（large-girth，即无短环）正则图则是理论上最干净的比武场：当图围长 $g \ge 2p+2$ 时，深度 $p$ 的 QAOA 在每条边周围看到的都是同一棵深度 $p$ 的树——强局域性使其期望切割比例可以被精确计算，且该数值天然构成一个刚性定理：&quot;所有该围长的…</description>
-    </item>
-    <item>
-      <title>[论文] 基于采样的制导量子行走：面向组合优化的非变分量子算法</title>
-      <link>https://raymond0812-yylm.github.io/papers/sampled-based-guided-quantum-walk-non-variational-fb48f/</link>
-      <guid isPermaLink="false">p:sampled-based-guided-quantum-walk-non-variational-fb48f</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>变分量子算法（QAOA/VQE 类）是 NISQ 时代组合优化的主流范式，但其结构性痛点人所共知：参数优化回路依赖经典优化器、梯度估计受采样噪声支配、贫瘠高原与优化器超参敏感使性能难以稳定复现。本文提出 SamBa-GQW，走一条完全非变分的路线：把组合优化问题的解空间表示为图，让量子行走者（walker）在图上做连续时间量子行走去寻找最小化目标函数的顶点——全程不使用任何经典优化器。</description>
-    </item>
-    <item>
-      <title>[论文] LABS 小子系统优化启发式的竞争性标度</title>
-      <link>https://raymond0812-yylm.github.io/papers/competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560/</link>
-      <guid isPermaLink="false">p:competitive-scaling-small-subsystem-optimization-heuristics-labs-1b560</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>### 一、论文基本信息</description>
-    </item>
-    <item>
-      <title>[论文] 我们在测错误的量子 Bug 吗?量子软件工程中的故障表示差距研究</title>
-      <link>https://raymond0812-yylm.github.io/papers/are-we-testing-wrong-quantum-bugs-study-fc8f1/</link>
-      <guid isPermaLink="false">p:are-we-testing-wrong-quantum-bugs-study-fc8f1</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>arXiv 2026-10:系统研究量子软件编译器、中间表示与执行框架中的**故障表示差距**——既有测试技术漏掉了哪些真实故障;量子软件测试方向的奠基性实证研究。</description>
-    </item>
-    <item>
-      <title>[动态] 合肥量子产业链企业超 100 家、营收规模超 60 亿元：本源悟空被 192 个国家地区访问约 5600 万次，国盾量子密话用户破 600 万</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-15/#n5</link>
-      <guid isPermaLink="false">n:2026-10-15:5</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>中国新闻网 10 月 14 日报道合肥量子科技产业化进展：全市已集聚量子产业链企业超 100 家、营收规模超 60 亿元，在政务、能源、气象等领域开放 40 多个应用场景以场景驱动成果转化。&quot;本源悟空&quot;超导量子计算机已被 192 个国家和地区用户访问约 5600 万次、完成超 130 万个全球量子计算任务；科大国盾量子密话用户超 600 万；量子心磁图仪已在多地医院累计完成超 1 万例临床检测；知冷低温稀释制冷机 2025 年销售额 1.6 亿元、覆盖全球 60 多家科研机构。合肥模式的核心是把&quot;实验室—真实场景—产业规模&quot;的转化链条压缩提速，为国内量子产业生态提供了可复制的样本。</description>
-    </item>
-    <item>
-      <title>[动态] *ST 禾信 3.82 亿元收购国产稀释制冷机龙头量羲技术 56% 股权过会：&quot;壳换芯&quot;重组押注量子上游国产替代</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-15/#n4</link>
-      <guid isPermaLink="false">n:2026-10-15:4</guid>
-      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
-      <description>连续三年亏损、被实施退市风险警示的科创板质谱仪公司禾信仪器，拟以 38,192 万元（股份对价 24,552 万元 + 现金对价 13,640 万元）收购成立仅四年的量羲技术 56% 股权，重组已于 10 月 13 日过会、尚需上交所审核及证监会注册。量羲技术是国产稀释制冷机龙头（2024 年市占率 30.77%），受美国 2024 年起对华禁运稀释制冷机带来的国产替代需求驱动，2025 年营收约 1.53 亿元（同比 +110%）、净利润 5155 万元。这笔&quot;壳换芯&quot;交易折射出量子上游设备环节的高景气，但新增商誉 1.66 亿元（占备考归母净资产 38.46%）与客户集中度风险亦不容忽视。</description>
     </item>
   </channel>
 </rss>
