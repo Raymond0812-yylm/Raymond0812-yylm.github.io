@@ -5,8 +5,64 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] 量子随机能量模型 Davies 动力学的指数混合时间</title>
+      <link>https://raymond0812-yylm.github.io/papers/exponential-mixing-time-davies-dynamics-quantum-random-502ff/</link>
+      <guid isPermaLink="false">p:exponential-mixing-time-davies-dynamics-quantum-random-502ff</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>量子退火与量子 Gibbs 采样的核心承诺可以概括为一句话：让量子系统与低温热库弱耦合，量子涨落加环境冷却会把系统&quot;送到&quot;玻尔兹曼分布的低能区，从而同时服务于组合优化寻优与从复杂概率分布中采样。真实量子退火机（如 D-Wave）正是以准平衡开放系统的形态运行的。然而这条路线有一个长期悬而未决的理论前提：开放量子系统在玻璃态（自旋玻璃相）中到底能不能快速热化？ 如果混合时间是指数级的，那么&quot;低温热库&quot;不仅帮不上忙，反而会把退火过程冻结在亚稳态里。</description>
+    </item>
+    <item>
+      <title>[论文] 认证全局驱动受控-Z 门的里德堡暴露极限</title>
+      <link>https://raymond0812-yylm.github.io/papers/certifying-rydberg-exposure-limit-globally-driven-controlled-502f8/</link>
+      <guid isPermaLink="false">p:certifying-rydberg-exposure-limit-globally-driven-controlled-502f8</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>中性原子平台以全局激光驱动里德堡 blockade 实现纠缠门，是当前面向组合优化的模拟量子计算与门型化两条路线共同的热门硬件（QuEra、Pasqal 及国内团队均在列）。里德堡激发带来纠缠，也带来自发辐射退相干——原子停留在里德堡态的总时间（暴露量）直接决定门错误率。悬而未决的问题是：能否通过更聪明的脉冲整形或拉长门时间，把暴露量压到任意小？ 本文给出否定答案并给出几乎紧的定量下界。</description>
+    </item>
+    <item>
+      <title>[论文] 大规模量子码距与线路距离的认证</title>
+      <link>https://raymond0812-yylm.github.io/papers/certifying-quantum-code-circuit-distances-scale-502ff/</link>
+      <guid isPermaLink="false">p:certifying-quantum-code-circuit-distances-scale-502ff</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>码距（code/circuit distance）刻画量子纠错对逻辑错误的抑制强度，直接决定码的比较、解码调度的选择与容错资源估计——qLDPC 时代的每一条路线图都以码距为基本刻度。但码距计算本身是 NP 难的组合优化问题，文献中大量&quot;码距&quot;其实只是启发式搜索给出的上界，从未被证明等于真实值。错误的码距会系统性扭曲资源估算与方案取舍。本文把码距/线路距离表示为热带代数（tropical）配分函数这一组合优化形式，用秩动态规划 + 权重受限搜索求解，并给出带显式逻辑错误算符的可认证下界，使&quot;精确码距&quot;成为可批量…</description>
+    </item>
+    <item>
+      <title>[动态] &quot;九章四号&quot;光量子计算原型机获 2026 世界互联网大会领先科技奖</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-08/#n4</link>
+      <guid isPermaLink="false">n:2026-11-08:4</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>11 月 2 日，2026 年世界互联网大会领先科技奖颁奖典礼在浙江乌镇举行，共 20 项全球前沿科技成果获奖。中国科学技术大学牵头研制的&quot;九章四号&quot;光量子计算原型机位列两项基础研究类获奖成果之一，其求解特定问题的速度较超算呈现量级优势。光量子路线原型机获国际互联网治理舞台的重磅奖项，显示中国光量子计算成果的国际影响力持续外溢。</description>
+    </item>
+    <item>
+      <title>[动态] 我国首批量子计算性能测试评估类国家标准 11 月 1 日起实施</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-08/#n3</link>
+      <guid isPermaLink="false">n:2026-11-08:3</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>GB/T 47468-2026《量子计算系统性能测试方法》与 GB/T 47177.2-2026《量子计算服务平台 第 2 部分：性能评估》两项国家标准自 11 月 1 日起正式实施，这是我国量子计算领域首批性能测试评估类国标，首次从底层硬件到上层云服务建立统一测试规范，由全国量子技术标准化技术委员会归口、31 家单位参与编制，中电信量子、国盾量子、本源量子、图灵量子等深度参与。量子计算机的&quot;跑分&quot;从此有了国家统一标尺，为政府采购、行业评测与产品横向比较提供依据。</description>
+    </item>
+    <item>
+      <title>[动态] 英国国家量子计算中心首次通过 SparQ 引入量子软件：Phasecraft 工具面向材料、化学与优化开放</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-08/#n2</link>
+      <guid isPermaLink="false">n:2026-11-08:2</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>英国国家量子计算中心（NQCC）11 月 6 日宣布与量子算法公司 Phasecraft 签约，通过其 SparQ Access 计划首次向英国机构提供软件工具（此前 SparQ 只开放硬件机时）。申请于 11 月下旬开放、首批用户 2027 年春季启动，聚焦材料科学、化学与组合优化中的实用量子算法落地，帮助英国企业积累&quot;量子就绪&quot;能力。</description>
+    </item>
+    <item>
+      <title>[动态] MIT/Accenture《量子指数报告 2026》：2025 年全球量子投资达 109 亿美元，中国专利数全球第一</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-08/#n1</link>
+      <guid isPermaLink="false">n:2026-11-08:1</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>11 月 6 日发布的 Quantum Index Report 2026 显示，2025 年全球量子计算投资达创纪录的 109 亿美元（近 4 倍于上年），其中 57 亿来自已上市公司融资、23 亿来自后期风投，资本明显向成熟玩家集中。专利方面中国以 9790 件量子计算专利大幅领先美国的 2423 件（超过美、日、WIPO、EPO 之和），但美国在研究影响力（H 指数 93 对 56）上仍居首；可商用量子处理器一年内从 40 台增至 56 台（24 家厂商、11 国）。</description>
+    </item>
+    <item>
+      <title>[动态] IBM 最强量子计算机落地芝加哥：Nighthawk r2 系统 System Two 揭幕</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-08/#n0</link>
+      <guid isPermaLink="false">n:2026-11-08:0</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>IBM 于 11 月 6 日联合芝加哥大学及州政府伙伴，在 Hyde Park Labs 揭幕搭载 Quantum Nighthawk r2 处理器的 IBM Quantum System Two，这是 IBM 首台部署于伊利诺伊州的量子计算机，后续计划迁入伊利诺伊量子与微电子园区（IQMP）。此举为芝加哥竞逐全美量子计算中心增添了标志性硬件支点，也使伊利诺伊州量子生态（国家量子技术中心+IBM 100 亿美元级国家级投入）进一步成形。</description>
+    </item>
     <item>
       <title>[论文] 面向量子计算的背包问题资源高效建模方法</title>
       <link>https://raymond0812-yylm.github.io/papers/resource-efficient-formulations-knapsack-problem-quantum-computing-502f2/</link>
@@ -300,62 +356,6 @@
       <guid isPermaLink="false">n:2026-10-21:3</guid>
       <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
       <description>IonQ 宣布完成 20 亿美元股权融资定价，证券由 Heights Capital Management 管理的实体认购，为离子阱路线迄今最大规模的单笔融资之一。资金将用于支撑其近期一系列扩张动作，包括对 SkyWater 的制造整合、对 Elisity 的 13 亿美元收购（量子计算+企业安全），以及与剑桥大学卡文迪许实验室共建的量子创新中心。行业观察者认为此举将进一步拉大头部量子公司的资金差距。</description>
-    </item>
-    <item>
-      <title>[动态] NowSecure 报告：97% 的移动应用未检出任何后量子密码（PQC）代码</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-21/#n2</link>
-      <guid isPermaLink="false">n:2026-10-21:2</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>移动安全公司 NowSecure 对大规模移动应用的静态分析显示，97% 的应用中检测不到任何后量子密码学代码，量子威胁下的&quot;先收集、后解密&quot;风险在移动生态仍普遍敞开。报告呼吁将 PQC 迁移纳入移动开发供应链的默认安全基线，而非依赖各厂商自愿推进。这一结果与各国政府设定的关键系统抗量子迁移时间表形成鲜明落差。</description>
-    </item>
-    <item>
-      <title>[动态] NVIDIA 在欧洲首台百亿亿次超算 JUPITER 上完成创纪录容错量子计算模拟</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-21/#n1</link>
-      <guid isPermaLink="false">n:2026-10-21:1</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>NVIDIA 与德国于利希超算中心合作，在 JUPITER 超算（配备 8192 块 GH200 GPU）上完成了迄今最大规模的容错量子处理器综合模拟：在真实噪声模型下模拟 104 个量子比特的容错计算，聚焦&quot;幻态培育&quot;（magic state cultivation）这一容错关键技术，新方法比此前方案节省约 90% 的量子比特。该工作基于 CUDA-Q/cuQuantum 软件栈与 NVIDIA 加速量子研究中心（NVAQC）开发，旨在让研究人员在建造硬件之前先在模拟中验证容错设计，缩短实用量子计算机的研发周期。</description>
-    </item>
-    <item>
-      <title>[动态] Quantinuum Helios 打破量子纠错世界纪录：逻辑保真度达 99.9995%，验证 2029 容错路线</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-21/#n0</link>
-      <guid isPermaLink="false">n:2026-10-21:0</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Quantinuum 宣布其商用离子阱量子计算机 Helios 将逻辑保真度提升至 99.9995%（每百万次逻辑操作仅约 5 次错误），较自家此前纪录提升 10 倍、比其他硬件路线的最佳公开结果好约 100 倍。实验采用颜色码（每个逻辑比特最多用 37 个物理比特），逻辑错误率随码距每增加一级缩小 12 倍，呈指数下降。公司称该性能已进入其计划 2029 年交付的通用容错量子计算机 Apollo 的目标区间。</description>
-    </item>
-    <item>
-      <title>[论文] 量子近似随机组合优化</title>
-      <link>https://raymond0812-yylm.github.io/papers/quantum-approximate-stochastic-combinatorial-optimisation-1b634/</link>
-      <guid isPermaLink="false">p:quantum-approximate-stochastic-combinatorial-optimisation-1b634</guid>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-      <description>### 一、论文基本信息</description>
-    </item>
-    <item>
-      <title>[论文] 学习量子近似优化的角度</title>
-      <link>https://raymond0812-yylm.github.io/papers/learning-angles-quantum-approximate-optimization-1b63a/</link>
-      <guid isPermaLink="false">p:learning-angles-quantum-approximate-optimization-1b63a</guid>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-      <description>QAOA 及其变体是求解组合优化问题最有希望的近期能带算法之一：把问题映射为 Ising 哈密顿量，从变分量子线路中采样候选解。但 QAOA 的性能系于一组变分角度，而找好角度是一个实例特定、计算昂贵的非凸经典优化任务——外环优化调用的量子电路执行次数，往往比最终采样求解本身高出几个数量级。对一次性的小规模演示，这笔开销尚可忍受；但对&quot;同类问题每天反复求解&quot;的产业场景（物流调度、金融组合再平衡、电网机组组合），逐实例调角构成了 QAOA 无法忽视的实用性瓶颈。</description>
-    </item>
-    <item>
-      <title>[论文] LangNCO：将自然语言约束编译为神经组合优化的推理期干预</title>
-      <link>https://raymond0812-yylm.github.io/papers/langnco-compiling-natural-language-constraints-into-inference-1b63a/</link>
-      <guid isPermaLink="false">p:langnco-compiling-natural-language-constraints-into-inference-1b63a</guid>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-      <description>### 一、论文基本信息</description>
-    </item>
-    <item>
-      <title>[动态] 国内量子&quot;上市元年&quot;进行时：本源量子完成近 30 亿元 Pre-IPO 融资并启动科创板辅导备案，玻色量子、图灵量子相继启动上市辅导</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-20/#n5</link>
-      <guid isPermaLink="false">n:2026-10-20:5</guid>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-      <description>国内媒体产业盘点显示，2026 年上半年国内量子计算融资约 12.63 亿美元、超过美国与其他国家总和；本源量子完成近 30 亿元 Pre-IPO 融资并已启动科创板辅导备案，玻色量子、图灵量子相继启动上市辅导，2026 年被业内称为国内量子&quot;上市元年&quot;。资本审美正从论文叙事转向&quot;能交付&quot;的硬指标——量旋整机出海 40 国、本源悟空被 192 个国家地区访问约 5600 万次、玻色专用光量子机落地制造工厂等成为估值锚点，量子资产证券化大幕正式拉开。</description>
-    </item>
-    <item>
-      <title>[动态] 杭州&quot;原子矩阵&quot;完成战略融资：达晨财智领投，国内中性原子赛道一个月内第二笔重要注资</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-20/#n4</link>
-      <guid isPermaLink="false">n:2026-10-20:4</guid>
-      <pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>
-      <description>专注中性原子量子计算全栈解决方案的杭州原子矩阵计算技术有限公司宣布完成战略融资，本轮由达晨财智领投。公司成立于 2025 年，已研制具有完全自主知识产权的中性原子量子计算原型系统。这是继上海太一量生数亿元 A 轮（10-15 收录）之后，国内中性原子路线一个月内的第二笔重要融资；叠加国际侧 QuEra、Infleqtion、Oratomic 的密集动作，中性原子正在成为 2026 年资本与技术共振最强烈的硬件路线之一。</description>
     </item>
   </channel>
 </rss>
