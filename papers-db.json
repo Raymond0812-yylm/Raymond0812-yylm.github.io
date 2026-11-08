@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-08",
+ "updated": "2026-11-09",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -100,6 +100,33 @@
    "domains": []
   },
   {
+   "id": "quantum-lower-bounds-collision-problems-4a767",
+   "title": "Quantum Lower Bounds for Collision Problems",
+   "titleZh": "碰撞问题的量子查询复杂度紧致下界",
+   "authors": [
+    "Pan Peng",
+    "Jingyu Wu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-11-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2611.01767",
+   "doi": "10.48550/arxiv.2611.01767",
+   "url": "https://arxiv.org/abs/2611.01767",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-11:对 k-to-one 找碰撞问题建立自适应与非自适应量子查询复杂度的紧致下界(覆盖所有 k≥2 与字母表规模),碰撞问题是量子优越性演示(如 SWAP test)的理论核心。",
+   "abstract": "We establish tight lower bounds on the adaptive and non-adaptive quantum query complexities of Promised $k$-to-one Finding on an exactly $k$-to-one input string $x\\in\\mathbb Z_q^n$, for every fixed $k\\ge2$ and every feasible alphabet size $q\\ge n/k$. The lower bounds are $Ω_k(n^{1/2-1/(2(2^k-1))})$ for unrestricted adaptive algorithms and $Ω_k(n^{1-1/k})$ for one-round non-adaptive algorithms. The former matches the adaptive quantum algorithm of Liu and Zhandry [LZ19], whereas the latter matches classical birthday sampling even when the parallel queries are arbitrarily entangled. We also establish the non-adaptive lower bound $Ω_k(\\sqrt{n/k})$ for $k$-to-one Testing when $q\\ge n$, resolving an open question posed by Koiran, Landes, Portier, and Yao [KLPY10]. Our proofs generate the balanced input from a uniformly random permutation and use compressed permutation oracles to describe the information learned by the algorithm. The adaptive proof bounds the growth of partial collisions through successive queries. The one-round proof instead analyzes the state after the parallel queries directly, bounding the probability that the compressed database contains a full collision. In both proofs, a short verification step accounts for correct outputs that include unrecorded positions. For the decision problem, we also compare one-round states with independent and distinct output labels.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "logical-space-theory-ordered-statistics-decoding-quantum-99989",
    "title": "Logical-Space Theory of Ordered-Statistics Decoding for Quantum LDPC Codes",
    "titleZh": "量子 LDPC 码有序统计解码的逻辑空间理论",
@@ -182,6 +209,35 @@
    ],
    "summaryZh": "arXiv 2026-10:系统研究量子软件编译器、中间表示与执行框架中的**故障表示差距**——既有测试技术漏掉了哪些真实故障;量子软件测试方向的奠基性实证研究。",
    "abstract": "Quantum software relies on compilers, intermediate representations, and execution frameworks that transform programs before execution. Faults in these components can change the behavior of otherwise correct quantum programs. Yet quantum testing techniques are often evaluated using mutation-generated faults and curated bug benchmarks. We investigate how well the faults represented by these artifacts reflect those encountered in modern quantum software. We audit four quantum mutation-testing tools and three curated bug benchmarks, and collect 410 verified bugs from ten quantum software repositories over two years. We classify faults from all three sources into a common taxonomy of 56 bug families and compare their representation across mutation operators, curated benchmarks, and recent real-world bugs. The mutation tools support 20 bug families, and curated benchmarks add 15 more. Yet only 56 of the 410 real-world bugs (13.7%) belong to families represented by either source; the remaining 354 (86.3%) belong to families absent from both. The largest unrepresented families concern compiler transformations (66 bugs), type handling (53), and input validation (47). Unlike local gate or statement changes, these faults often depend on intermediate representations, compiler pipelines, input types, or dependency versions. Existing mutation operators primarily modify circuits and program constructs, whereas many real-world faults arise in the compilers, representations, and framework int",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "bootstrapping-classical-quantum-query-lower-bounds-finding-eb6f5",
+   "title": "Bootstrapping Classical and Quantum Query Lower Bounds for Finding Tarski Fixed Points",
+   "titleZh": "寻找 Tarski 不动点的经典与量子查询下界自举",
+   "authors": [
+    "Tongyang Li",
+    "Weiran Ma",
+    "Ziyi Yang",
+    "Xingyu Zhao"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-12",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2610.16209",
+   "doi": "10.48550/arxiv.2610.16209",
+   "url": "https://arxiv.org/abs/2610.16209",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:Tarski 不动点问题(格上单调映射的不动点,博弈论/经济学/验证的核心问题)的量子查询复杂度上下界仍有间隙;该文自举改进双方边界,是量子查询复杂度理论在经济学问题上的推进。",
+   "abstract": "The Tarski fixed-point problem asks for a fixed point of a monotone map on a $k$-dimensional grid lattice of width $n$ and has applications in game theory, economics, and verification. Substantial gaps remain between the known upper and lower bounds on its quantum query complexity. We prove two hardness bootstrapping theorems for quantum query lower bounds. Starting from a hard instance family whose instances have pair-wise incomparable unique fixed points, and a lower bound established by the nonnegative adversary method, we bootstrap this lower bound by (i) a factor of $Ω(t)$ when the dimension is multiplied by $t$ and the width remains unchanged, and (ii) a factor of $Ω(\\log m)$ when the width is multiplied by $m$ and the dimension is doubled. Applying these theorems, we obtain three consequences: (i) an $Ω(k\\log^2 n)$ lower bound for $k\\geq 4$, improving previously best-known classical and quantum lower bounds; (ii) for every fixed constant $α>0$, there exists a constant $δ(α)>0$ such that $Q_ε(\\text{Tarski}(n,k))=Ω(kn^{δ(α)})$ whenever $k>n^α$, and in particular, an $Ω(kn^{0.0072})$ lower bound for $k>n^{2/203}$, the first lower bound with simultaneous linear dependence on the dimension and polynomial dependence on the width; and (iii) a superpolynomial lower bound of $(k/\\log k)^{Ω(\\log k)}$ for exponentially wide grids, where $n=2^{Θ(k)}$. The last result rules out a route to polynomial-time algorithms for simple stochastic games and ARRIVAL through generic polynomial-",
    "source": "backfill",
    "domains": []
   },
@@ -299,6 +355,63 @@
    ]
   },
   {
+   "id": "tight-query-lower-bounds-quantum-sampling-application-9f312",
+   "title": "Tight Query Lower Bounds for Quantum Sampling, with an Application to Certified Randomness",
+   "titleZh": "循环 Forrelation 的指数级量子-经典查询分离",
+   "authors": [
+    "Keshav Bhateja",
+    "Mehdi Esmaili",
+    "Atul Mantri"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.06721",
+   "doi": "10.48550/arxiv.2610.06721",
+   "url": "https://arxiv.org/abs/2610.06721",
+   "topics": [
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:研究循环 Forrelation(k-Forrelation 的循环类比)的随机经典查询复杂度,证明经典与量子查询复杂度的指数分离——查询复杂度分离技术的又一里程碑。",
+   "abstract": "Random circuit sampling experiments, the leading demonstrations of quantum computational advantage, are tested with the linear cross-entropy benchmark (XEB), which scores outcomes by their ideal probabilities. We study what a high XEB score certifies about an untrusted quantum device. In the quantum query model, we show that the honest sampler's ideal score acts as a Tsirelson bound for efficient devices and certified randomness. First, exceeding the ideal score by a constant requires $Ω(N^{1/3})$ queries for the Haar and Fourier oracle ensembles with $N$ outcomes, and this bound is tight; this proves an earlier conjecture for Haar-random states and extends it to Fourier sampling. Second, for Fourier sampling and for Haar-random states accessed through the canonical state-preparation oracle, the $n$-bit output of a device that makes polynomially many queries and scores within $o(1)$ of the ideal score has $n-O(\\log n)$ bits of smooth min-entropy, even against an adversary who is entangled with the device and later learns the oracle; this is nearly optimal. As a corollary, sampling the collision distribution, which is proportional to the square of the ideal distribution, has query complexity $Θ(N^{1/3})$, and a coherent version of the same algorithm approximately prepares quantum Hadamard products of states with uniform amplitude magnitudes. Both lower bounds rest on progress measures that bound the excess over the ideal score and increase only slightly with each query. For Fo",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "tight-bounds-hybrid-quantum-classical-query-algorithms-2d91e",
+   "title": "Tight bounds for hybrid quantum-classical query algorithms",
+   "titleZh": "混合量子-经典查询算法的紧致界",
+   "authors": [
+    "Andris Ambainis",
+    "András Gilyén",
+    "Martins Kokainis"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-05",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2610.06803",
+   "doi": "10.48550/arxiv.2610.06803",
+   "url": "https://arxiv.org/abs/2610.06803",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:研究查询模型下的混合量子-经典算法(量子子程序之间全测量清空),对多类问题给出匹配的上下界;直接回答\"测量并清空比特的混合架构最多能省多少查询\"这一架构设计基础问题。",
+   "abstract": "We study hybrid quantum-classical algorithms in the query model. The computation consists of quantum subroutines that make at most $q$ oracle queries; between subroutines, all qubits are measured and discarded. We prove matching upper and lower bounds for several problems in this model: (i) (Unbiased) Phase estimation up to a precision $ε$ requires $Θ(\\frac{1}{q ε^2})$ queries; (ii) (Unbiased) Amplitude estimation up to a precision $ε$ requires $Θ(\\frac{p(1-p)}{q ε^2})$ queries; (iii) Search among $N$ items requires $Θ(\\frac{N}{q})$ queries; (iv) Two level AND-OR tree (AND of $m$ ORs, with $n$ inputs to each OR) requires $Θ(\\frac{nm}{q})$ queries. All of these bounds are optimal up to a constant factor, for all $q$ from 1, corresponding to the classical complexity, to $Q(f)$, the unrestricted quantum query complexity of the respective problem. We also derive a hybrid lower bound for distinguishing two distributions specified by a state-preparation unitary; this bound is tight up to a logarithmic factor. Besides specific lower bounds, an important contribution is developing methods for proving lower bounds on hybrid quantum algorithms (which have been very ad-hoc up to now). The first two bounds follow from a common framework: we analyze probability distributions over measurement transcripts and bound a progress measure that captures their distinguishability. The AND-OR bound requires a more delicate argument, combining two progress measures that track the information availabl",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "random-quantum-ldpc-codes-approaching-gilbert-varshamov-8162c",
    "title": "Random Quantum LDPC Codes Approaching the Gilbert-Varshamov Bound",
    "titleZh": "逼近 Gilbert-Varshamov 界的随机量子 LDPC 码族",
@@ -389,6 +502,62 @@
    "domains": []
   },
   {
+   "id": "noisy-quantum-query-complexity-fractional-block-sensitivity-b1fc4",
+   "title": "Noisy Quantum Query Complexity via Fractional Block Sensitivity",
+   "titleZh": "基于分数块敏感性的含噪量子查询复杂度下界",
+   "authors": [
+    "Mehil Agarwal",
+    "Shravas Rao",
+    "Fang Song"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-30",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2610.00506",
+   "doi": "10.48550/arxiv.2610.00506",
+   "url": "https://arxiv.org/abs/2610.00506",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:在多种不完美 oracle 访问模型(正确查询以概率 1-p 施加等)下,用分数块敏感性(fbs)统一框架导出含噪量子查询下界,把\"噪声下的量子加速还能剩多少\"理论化。",
+   "abstract": "We study quantum query complexity under several models of imperfect oracle access, and develop lower bounds through a common framework based on fractional block sensitivity ($\\operatorname{fbs}$). For a negligent oracle that applies the correct query with probability $1-p$, we prove a lower bound in terms of $\\operatorname{fbs}(f,0^n)$. We also show, perhaps surprisingly, that negligence need not destroy quantum speedups: any function $f$ can be transformed into a partial function $f'$ whose negligent query complexity essentially preserves the quantum query complexity of $f$. This gives partial functions with exponential quantum speedups even under negligent queries, and in particular rules out a general lower bound in terms of $\\operatorname{fbs}(f)$ for partial functions in this model. For two other models, we obtain general lower bounds in terms of $\\operatorname{fbs}(f)$ for all Boolean functions. For hybrid algorithms using $Q$ coherent and $C$ classical queries, we prove the tradeoff $C+Q^2=Ω(\\operatorname{fbs}(f))$. For an IID dephasing noisy model where each query dephases the query-index register at rate $p$ independently, we prove $Ω\\!\\left(p\\,\\operatorname{fbs}(f)\\right)$ queries are necessary. Finally, we introduce a broader family of time-varying dephasing models and identify a variational resource that is always lower bounded by $\\operatorname{fbs}(f)$. Computing this resource reduces to a convex optimization problem, providing a simple way to derive lower bound",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "improved-quantum-query-bounds-boolean-matrix-product-9c103",
+   "title": "Improved Quantum Query Bounds for Boolean Matrix Product Verification",
+   "titleZh": "布尔矩阵乘积验证的量子查询复杂度首个非平凡上界",
+   "authors": [
+    "Amin Shiraz Gilani",
+    "François Le Gall",
+    "Xingyu Zhou"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-30",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.40180",
+   "doi": "10.48550/arxiv.2609.40180",
+   "url": "https://arxiv.org/abs/2609.40180",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:回答量子查询复杂度的长期开放问题——布尔矩阵乘积验证(BMPV)给出 O~(n^17/12) 上界,改进此前平凡界;查询复杂度理论的方法学进展。",
+   "abstract": "We prove the first non-trivial upper bound for the quantum query complexity of Boolean Matrix Product Verification ($\\mathsf{BMPV}$), answering a longstanding open question in quantum query complexity. For $n\\times n$ matrices, our upper bound is $\\widetilde O(n^{17/12})$, improving on the standard $O(n^{3/2})$ bound obtained using Grover search by Buhrman and Špalek [SODA 2006]. We complement this result by showing an $Ω(n^{5/4})$ lower bound, which improves over the previous best known lower bound of $\\widetildeΩ(n^{19/18})$ by Childs, Kimmel, and Kothari [ESA 2012]. Our approach centers on a connection with Orthogonal Vectors ($\\mathsf{OV}$), which asks whether an indexed list of $n$ Boolean vectors of dimension $n$ contains two vectors with disjoint supports. In particular, we prove equivalences between $\\mathsf{OV}$ and $\\mathsf{BMPV}$ and establish the above bounds for $\\mathsf{OV}$. We also prove a tight $\\widetilde Θ(n^{3/2})$ bound for a variant of $\\mathsf{BMPV}$ that asks whether the product contains a given row vector. Together, these results imply a polynomial separation between the quantum query complexities of deciding whether a graph has radius at most two and whether it has diameter at most two.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "simulator-based-quantum-framework-molecular-dynamics-multiscale-47028",
    "title": "A simulator-based quantum framework for molecular dynamics and multiscale materials modeling",
    "titleZh": "基于模拟器的分子动力学与多尺度材料建模量子框架",
@@ -441,6 +610,34 @@
    ],
    "summaryZh": "arXiv 2026-09:提出本地+分布式的 qLDPC 解码框架:建立在信念传播之上,综合征信息严格本地处理+本地反馈+自主运行+高度并行,免除全局同步,是解码架构的分布式新范式。",
    "abstract": "We introduce a local and distributed framework for decoding quantum LDPC codes. Built atop belief propagation (BP), the architecture combines strictly local processing of syndrome information, local feedback, autonomous operation, and highly parallelized decoding. We establish the framework at two complementary levels. First, we show that any code exhibiting a threshold under iterative BP decoding can be promoted to an autonomous local measurement-and-feedback dynamics while preserving that threshold. We then turn to codes for which naive BP does not itself exhibit threshold behavior. Our key observation is that BP can nevertheless provide sufficiently accurate \\emph{local} marginal information: active syndrome defects use these local beliefs to \\emph{move}, pair, and annihilate through asynchronous feedback. We demonstrate numerically that this construction exhibits threshold behavior in the point-like sectors of the two- and three-dimensional toric codes, where conventional BP decoding fails. Exploiting the graph-generality of BP, we then study the inference dynamics on the membrane-like sector of the three-dimensional toric code and in a family of bivariate-bicycle quantum LDPC codes.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "simultaneously-query-optimal-quantum-linear-system-algorithm-df514",
+   "title": "Simultaneously Query-Optimal Quantum Linear-System Algorithm",
+   "titleZh": "同时查询最优的量子线性系统算法",
+   "authors": [
+    "Minbo Gao",
+    "Zhengfeng Ji",
+    "Chenghua Liu"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-27",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2609.33686",
+   "doi": "10.48550/arxiv.2609.33686",
+   "url": "https://arxiv.org/abs/2609.33686",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:量子线性系统算法(HHL 系)的矩阵块编码 oracle 与右端态制备 oracle 的查询复杂度此前只被分别优化;该工作给出同时查询最优的算法,双 oracle 联合最优是 HHL 工程化的关键缺口补齐。",
+   "abstract": "Quantum linear-system algorithms access the coefficient matrix through a block-encoding oracle $U_A$ and the right-hand side through a state-preparation oracle $U_b$. The optimal query complexities of these two oracles are known separately: $O(κ\\log(1/\\varepsilon))$ queries to $U_A$ and $O(κ/s)$ queries to $U_b$, where $s=α\\|A^{-1}b\\|$. Whether a single algorithm can achieve both bounds simultaneously has remained open. We resolve this question affirmatively. Given a constant-factor estimate of $s$, we give a quantum linear-system algorithm that prepares the normalized solution to error $\\varepsilon$ using simultaneously $ O\\left(κ\\log\\frac1\\varepsilon\\right)$ queries to $U_A$ and $O\\left(κ/{s}\\right)$ queries to $U_b$. The algorithm separates state preparation from precision refinement, so only the matrix-query count depends on the target accuracy. We also prove a matching same-instance worst-case lower bound: for every quantum linear-system algorithm and every solution-norm scale, there exists a single Hermitian instance on which that algorithm requires both $Ω(κ\\log(1/\\varepsilon))$ matrix queries and $Ω(κ/s)$ state-preparation queries. Thus the two oracle complexities can be optimized simultaneously, and the resulting bounds are jointly optimal.",
    "source": "backfill",
    "domains": []
   },
@@ -500,6 +697,34 @@
    ],
    "summaryZh": "arXiv 2026-09:图态是测量型与聚变型量子计算的核心资源;该工作解决如何用最少发射体确定性制备光子图态这一长期问题,是光子量子计算的资源理论突破。",
    "abstract": "Graph states are a fundamental resource for measurement and fusion-based quantum computing, quantum networks, and sensing. Preparing them in a photonic system deterministically is, in principle, possible, but finding efficient schemes to prepare them was a long-standing problem addressed recently. Additionally, heuristic optimization schemes for reducing the required number of two-qubit gates were developed. However, the problem of reducing the number of emitters by optimizing the emission ordering was not addressed, due to its computational complexity, as it is connected to a well-known NP-hard problem from graph theory, the linear rank width computation. In this work, we focus on developing heuristic polynomial algorithms to reduce the number of emitters required. In total, we propose four distinct algorithms, which demonstrate up to $30\\%$ emitter reduction on random graphs. Furthermore, we provide numerical and statistical evidence that the combination of our optimization schemes with the preexisting algorithms for optimizing the two-qubit gates of the preparation protocol can further reduce them by around $20\\%$. Finally, we examine the developed algorithms for various useful graph state families, such as graphs useful for measurement-based quantum algorithms, and cluster states and graph codes used for quantum error correction, to determine the performance of each algorithm.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "strong-selective-list-decoding-direct-product-theorems-35c20",
+   "title": "Strong Selective and List-Decoding Direct Product Theorems for Quantum Query Complexity",
+   "titleZh": "量子查询复杂度的强选择性与列表可译直积定理",
+   "authors": [
+    "Paul W. Beame",
+    "Niels Kornerup",
+    "Michael Whitmeyer"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-22",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2609.26678",
+   "doi": "10.48550/arxiv.2609.26678",
+   "url": "https://arxiv.org/abs/2609.26678",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:把近二十年已知特定函数的量子强直积定理推广到一般函数计算与态生成,证明用乘性对手方法的更强版本完成;查询复杂度下界理论的体系化推进。",
+   "abstract": "Quantum strong direct-product theorems for specific functions have been known for nearly two decades. These have been extended to general results for function computation and state generation. The proofs of these results use a version of the multiplicative adversary method that does not naturally extend to relations. Standard strong direct-product theorems apply when algorithms must correctly answer every given question. Prior work extended them to equivalent threshold direct-product theorems, which require answers to all questions but only require that most answers are correct. We focus on two further generalizations. Strong selective direct-products apply to algorithms that adaptively choose, based on what they learn from queries, which questions from a large list to answer. This generalization is relational and useful for proving time-space tradeoffs. We prove a quantum strong selective direct-product theorem for all functions using a relational formulation of the multiplicative adversary method by Jeffery and Zur which we prove, via an equivalent formulation, satisfies a strong selective direct product property and captures any query lower bound for functions proven by negative-weights adversaries. The second generalization is list-decoding direct product problems introduced by Ben-David and Blais for classical query complexity. These allow an algorithm to produce a large list of possible output vectors such that one of them is fully correct. They proved that such theorem",
    "source": "backfill",
    "domains": []
   },
@@ -2506,6 +2731,35 @@
    ]
   },
   {
+   "id": "circumventing-query-complexity-barriers-learning-quantum-dynamics-4aa7e",
+   "title": "Circumventing query complexity barriers in learning quantum dynamics via physics-informed kernels",
+   "titleZh": "经由物理信息核方法绕过量子动力学学习的查询复杂度壁垒",
+   "authors": [
+    "Youle Wang",
+    "Lei Zhang"
+   ],
+   "venue": "Quantum Science and Technology",
+   "date": "2026-08-12",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1088/2058-9565/ae98ec",
+   "url": "https://doi.org/10.1088/2058-9565/ae98ec",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Quantum Science and Technology 2026:学习连续量子动力学轨迹在量子计算机上代价高企;该文用物理信息核方法绕过查询复杂度壁垒——以物理结构换查询次数,与库内\"哈密顿量学习\"线互补。",
+   "abstract": "Abstract Learning continuous quantum dynamical trajectories—essential for understanding non-equilibrium phenomena in quantum chemistry and condensed matter physics—remains prohibitively expensive on quantum computers. Conventional data-driven surrogates treat observables as generic time series, ignoring the governing Schrödinger evolution, and consequently require an infeasible density of samples to resolve highly oscillatory dynamics. We first establish a fundamental information-theoretic lower bound: any incoherent learning protocol that measures independently prepared copies without quantum memory needs Ω ( T / ϵ 2 ) oracle queries, revealing a quadratic penalty in 1 / ϵ that renders naive dense sampling impossible. To circumvent this barrier, we introduce physics-informed kernel ridge regression (PI-KRR), which encodes the Heisenberg equation as a differentiable constraint. By extracting time derivatives from Hamiltonian commutators at zero additional quantum cost, PI-KRR doubles the information density per simulation shot without violating quantum estimation limits. Furthermore, integrated with classical shadow tomography, our framework reconstructs trajectories for M local observables simultaneously with measurement overhead scaling only as O ( log ⁡ M ) . We establish robustness guarantees for NISQ devices: isolated measurement outliers are suppressed as 1 / m with training size m , and systematic Hamiltonian miscalibrations yield only linearly bounded prediction error",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "optimal-stratification-sampling-frame-comparative-study-classical-25867",
    "title": "Optimal Stratification of a Sampling Frame: A Comparative Study of Classical, Quantum, and Quantum-Inspired Approaches",
    "titleZh": "抽样框最优分层:经典、量子与量子启发方法比较研究",
@@ -3906,6 +4160,34 @@
    ],
    "summaryZh": "含噪量子线路的经典模拟是算法验证与基准测试的基础;该文提出张量跳跃(tensor jump)方法高效模拟含噪线路演化,补充经典模拟工具箱。",
    "abstract": "Classical simulation of noisy quantum circuits is essential for validating algorithms, benchmarking hardware, and assessing error-mitigation strategies, but remains limited by the exponential cost of density-matrix methods and the high variance of standard trajectory sampling. We introduce a variance-aware tensor network framework that combines the tensor jump method with local TDVP gate evolution on matrix product states and sparse Pauli-Lindblad hardware noise models. Gates are applied as short variational evolutions on the MPS manifold, while noise is sampled per circuit window from Pauli-Lindblad jump sets with state-independent hazards and dissipative contractions that reduce to irrelevant global factors after renormalization. The method supports correlated multi-qubit Lindblad noise consistent with hardware connectivity, including long-range operators on non-adjacent qubits, enabling direct simulation of crosstalk and other connectivity-induced errors beyond local noise models. We develop two unbiased variance-aware unravelings. An analog unitary-mixture unraveling matches the Lindblad generator exactly under symmetric Gaussian or two-point angle laws, while a projector-jump unraveling yields state-independent hazards and closed-form variance laws. Both retain the standard 1/sqrt(N) Monte Carlo convergence but with reduced prefactors. Empirically, projector sampling strongly reduces trajectory variance and bond-dimension growth across many circuit architectures, whereas",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "ravines-quantum-cost-landscapes-opportunities-improved-vqa-e38c4",
+   "title": "Ravines in quantum cost landscapes: opportunities for improved VQA predictions",
+   "titleZh": "量子代价地形中的峡谷:改进 VQA 预测的机会",
+   "authors": [
+    "Felix J. Beckmann",
+    "João F. Bravo"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.01329",
+   "doi": "10.48550/arxiv.2607.01329",
+   "url": "https://arxiv.org/abs/2607.01329",
+   "topics": [
+    "quantum-ai",
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:系统分析量子代价地形(QCL)中的峡谷结构——连接局部极小的低代价路径;峡谷几何决定 VQA 优化动力学与预测能力,是 VQA 地形分析的前沿进展。",
+   "abstract": "The geometric and topological structure of quantum cost landscapes (QCLs) governs the optimization and thus the predictive power of variational quantum algorithms (VQAs). We systematically analyze ravines - low-cost paths connecting local minima - using an adapted version of the nudged elastic band (NEB) algorithm, a method originating from theoretical chemistry. By training quantum neural networks (QNNs) to classify the concentratable entanglement of quantum states, we apply the NEB algorithm and numerically identify ravine structures in QCLs of hardware-efficient ansatzes. Beyond visualizing these ravines, we construct an ensemble prediction framework by averaging predictions from QNNs parameterized along the low-cost NEB path. We introduce a resource-light pre-training metric which quantifies local-prediction variability and serves as a strong performance indicator for VQAs, even beyond the scope of this study. When base classifiers are drawn from circuit and weight initializations exhibiting high local-prediction variability, the quantum-based NEB ensembles outperform both classical and naive quantum alternatives. Moreover, a complexity analysis shows that leveraging the ravine-like structure of QCLs with the QNN NEB approach substantially reduces computational costs compared to naive QNN ensembling. A depth and qubit scaling analysis indicates that ravines persist across both scalings, and that, despite the expected growth in resource requirements with the qubit scaling,",
    "source": "backfill",
    "domains": []
   },
@@ -5831,6 +6113,34 @@
    ],
    "summaryZh": "arXiv 2026-05:在 FPGA 上部署神经网络解码器实现表面码实时纠错,兼顾神经网络解码的精度与 FPGA 的低延迟,是\"AI 解码器硬件化\"路线的实证工作。",
    "abstract": "Quantum error correction (QEC) is essential for achieving low error rates required for fault-tolerant quantum computation. In stabilizer-based codes such as the surface code, errors are inferred from repeated syndrome measurements and corrected by a classical decoder. To prevent error accumulation, decoding must be performed with both high throughput and low latency to keep pace with the QEC cycle and enable real-time feedback for universal logical operations. Here we report a hardware-integrated control architecture featuring an FPGA-based neural-network (NN) decoder and experimentally demonstrate real-time surface-code (distance-3) QEC on a superconducting quantum processor. The system achieves a deterministic closed-loop latency of 550 ns, including 124 ns for NN decoding, enabling feedback corrections within a 1.25 us QEC cycle. We show that real-time decoding and feedback correction achieve logical performance comparable to offline decoding while maintaining robustness against varying error conditions. We further demonstrate mid-circuit feedback correction in non-Clifford logical circuits, where Pauli-frame updating alone becomes insufficient. Our results establish a low-latency hardware architecture for embedded QEC control and provide a pathway towards scalable fault-tolerant quantum computing systems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "benchmarking-qaoa-vs-classical-algorithms-max-cut-d251e",
+   "title": "Benchmarking QAOA vs Classical Algorithms for Max-Cut Optimization",
+   "titleZh": "Max-Cut 的 QAOA 与经典算法严格实证评估",
+   "authors": [
+    "Ayan Khan"
+   ],
+   "venue": "预印本",
+   "date": "2026-05-06",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.5281/zenodo.20058924",
+   "url": "https://doi.org/10.5281/zenodo.20058924",
+   "topics": [
+    "qaoa",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2026-05:用 Qiskit Aer 态矢量模拟对 QAOA(p=2,3)与经典算法在 Max-Cut 上做严格实证评估——呼应领域\"严格基准稀缺\"痛点,提供可复现的对比方法论。",
+   "abstract": "This study presents a rigorous empirical evaluation of the Quantum Approximate Optimization Algorithm (QAOA) within a hybrid quantum-classical framework for solving the NP-hard Max-Cut problem. Using Python and Qiskit Aer statevector simulations, we benchmark QAOA (depths p = 2 and p = 3) against established classical algorithms, including simulated annealing, the Goemans–Williamson algorithm, and greedy heuristics, across Erdős–Rényi and regular graphs with 4 to 20 nodes (100 instances per size). Results demonstrate that low-depth QAOA suffers from significant performance degradation, achieving a 0.467 approximation ratio at 20 nodes compared to 0.856 for Goemans–Williamson, alongside a 210× runtime overhead. Convergence analysis further reveals low optimality probabilities and high iteration costs, highlighting limitations of variational optimization in NISQ-era devices. This work provides a reproducible benchmarking framework and contributes to a realistic assessment of near-term quantum advantage.",
    "source": "backfill",
    "domains": []
   },
@@ -8268,6 +8578,32 @@
    ]
   },
   {
+   "id": "bounded-drift-before-error-correction-why-long-808d8",
+   "title": "Bounded Drift Before Error Correction: Why Long-Run Quantrum Execution Fails without Preventive Phase Stabilization",
+   "titleZh": "纠错前的有界漂移:长期量子执行为何失败的预防性分析",
+   "authors": [
+    "Jos Aben"
+   ],
+   "venue": "HAL",
+   "date": "2026-02-09",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.5281/zenodo.18565423",
+   "url": "https://doi.org/10.5281/zenodo.18565423",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "HAL 2026:指出长期量子执行的根本约束不是门保真度,而是运行时旋转相位参考的累积不稳定;提出预防性校准框架——校准漂移作为失效主因的分析较少见,工程价值高。",
+   "abstract": "Abstract Long-run quantum execution remains fundamentally constrained, not primarily by gate infidelity, but by cumulative instability of the rotating phase reference during runtime. While contemporary quantum control stacks rely on calibration, dynamical decoupling, and quantum error correction, these mechanisms operate reactively and assume that the underlying phase frame remains valid between interventions. This assumption breaks down as execution depth, runtime, and system size increase. This note reframes long-run execution failure as a phase-frame stability problem rather than a post-fault correction problem. Using empirical hardware-adjacent observations, it shows that longitudinal drift is structured, temporally correlated, and often collective across qubits, placing it outside the effective bandwidth of fast-noise suppression techniques. As a result, computation is frequently admitted under metastable conditions in which logical error amplification occurs despite unchanged physical gate metrics. Based on this empirical and structural analysis, the note identifies a missing architectural element: a preventive drift-bounding layer that constrains phase-frame deviation before execution proceeds. The argument is intentionally architectural rather than implementational. No hardware-specific parameters, algorithms, or corrective primitives are disclosed. The purpose of this document is to establish why scalable quantum execution requires preventive phase stabilization at t",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "multi-agent-route-planning-as-qubo-problem-b1f27",
    "title": "Multi-Agent Route Planning as a QUBO Problem",
    "titleZh": "多智能体路径规划的 QUBO 形式化",
@@ -9237,6 +9573,35 @@
    ]
   },
   {
+   "id": "quantum-algorithms-stochastic-differential-equations-achieving-polynomial-90f41",
+   "title": "Quantum Algorithms for Stochastic Differential Equations: Achieving Polynomial and Super-Polynomial Speedups for High-Dimensional Systems",
+   "titleZh": "随机微分方程的量子算法:多项式到超多项式加速",
+   "authors": [
+    "Yalla Jnan Devi Satya Prasad"
+   ],
+   "venue": "预印本",
+   "date": "2026-01-05",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.22541/au.176764501.12582212/v1",
+   "url": "https://doi.org/10.22541/au.176764501.12582212/v1",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2026-01:随机微分方程(SDE)横跨量化金融/化学/物理/气候;该文给出 SDE 求解的量子算法,实现相对经典 Euler-Maruyama/蒙特卡洛的多项式至超多项式加速,是\"量子模拟×随机过程\"的算法级进展。",
+   "abstract": "Stochastic differential equations (SDEs) model noisy dynamical systems across quantitative finance, chemistry, physics, and climate science. Classical solvers-Euler-Maruyama schemes, Monte Carlo methods, and finite-difference PDE solvers for Fokker-Planck equations-suffer from exponential growth in computational cost with dimension and accuracy requirements. We present a family of quantum algorithms for simulating and solving SDEs with improved scaling. Our approach combines Hamiltonian simulation for drift terms, quantum random number generation for noise increments, and quantum amplitude estimation for computing expectations. For linear and semilinear SDEs with Lipschitz coefficients, we prove that relevant quantities (option prices, expected hitting times, moments) can be estimated to accuracy ε in time Õ(poly(d)polylog(1/ε)), versus classical O(poly(d)/ε 2). For nonlinear SDEs, we introduce variational quantum schemes leveraging parameterized circuits, with a priori error bounds and trainability analysis avoiding barren plateaus. We analyze multi-asset Black-Scholes models, Heston stochastic volatility, and Langevin dynamics for molecular coarse-graining, quantifying resource requirements (qubits, gate depth, oracle calls). Numerical simulations on small instances demonstrate polynomial-to-super-polynomial empirical speedups in accuracy for fixed runtime, establishing SDE solving as a promising quantum-accelerated task with practical applications.",
+   "source": "backfill",
+   "domains": [
+    "finance",
+    "materials"
+   ]
+  },
+  {
    "id": "quantum-inspired-fast-algorithm-circuit-realization-constrained-2decd",
    "title": "Quantum-Inspired Fast Algorithm and Circuit Realization for Constrained Combinatorial Optimization Problem",
    "titleZh": "约束组合优化问题的量子启发快速算法及其电路实现",
@@ -9890,6 +10255,36 @@
    ]
   },
   {
+   "id": "communicating-properties-quantum-states-over-classical-noisy-1622b",
+   "title": "Communicating Properties of Quantum States Over Classical Noisy Channels",
+   "titleZh": "经经典含噪信道传输量子态性质信息",
+   "authors": [
+    "Nikhitha Nunavath",
+    "Jiechen Chen",
+    "Osvaldo Simeone",
+    "Riccardo Bassoli",
+    "Frank H. P. Fitzek"
+   ],
+   "venue": "IEEE Communications Letters",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/lcomm.2026.3699811",
+   "url": "https://doi.org/10.1109/lcomm.2026.3699811",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IEEE Communications Letters 2026:研究经经典含噪信道传输量子态性质信息(态空间随系统尺寸指数膨胀)的方案,连接量子传感/计算/通信的信息传输需求。",
+   "abstract": "Transmitting information about quantum states over classical noisy channels is an important problem with applications to science, computing, and sensing. This task, however, poses fundamental challenges due to the exponential scaling of state space with system size. We introduce shadow tomography-based transmission with unequal error protection (STT-UEP), a novel communication protocol that enables efficient transmission of properties of quantum states, allowing decoder-side estimation of arbitrary observables. Unlike conventional approaches requiring the transmission of a number of bits that is exponential in the number of qubits, STT-UEP achieves communication complexity that scales logarithmically with the number of observables, depending on the observable weight. The protocol exploits classical shadow tomography for measurement efficiency, and applies unequal error protection by encoding measurement bases with stronger channel codes than measurement outcomes. We provide theoretical guarantees on estimation accuracy as a function of the bit error probability of the classical channel, and validate the approach against several benchmarks via numerical results.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "hybrid-multithreaded-quantum-inspired-processing-multispectral-satellite-4f49b",
    "title": "Hybrid Multithreaded and Quantum-Inspired Processing of Multispectral Satellite Imagery for Land Cover Classification",
    "titleZh": "多光谱卫星影像的混合多线程与量子启发处理",
@@ -10167,6 +10562,32 @@
    ]
   },
   {
+   "id": "classical-vs-quantum-search-experimental-performance-analysis-57b4d",
+   "title": "Classical vs Quantum Search: Experimental Performance Analysis of Grover's Algorithm on Real IBM Quantum Hardware",
+   "titleZh": "经典 vs 量子搜索:Grover 算法在真实 IBM 硬件上的实验性能分析",
+   "authors": [
+    "Kundan Kumar Sahu"
+   ],
+   "venue": "预印本",
+   "date": "2025-12-29",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.36227/techrxiv.176705167.72597149/v1",
+   "url": "https://doi.org/10.36227/techrxiv.176705167.72597149/v1",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "预印本 2025-12:在真实 IBM NISQ 硬件上对 Grover 二次加速做实验验证——理论优势早已确立,但噪声硬件上的实测对比稀缺;该文填补\"理论保证→实测验证\"的实验空白。",
+   "abstract": "Grover's quantum search algorithm provides a proven quadratic speedup over classical linear search for unstructured databases. While its theoretical advantage is well established, experimental validation on real noisy intermediate-scale quantum (NISQ) hardware remains limited by noise, decoherence, and hardware constraints. In this work, we present an experimental comparison between classical linear search and Grover's quantum search algorithm executed on IBM Quantum real superconducting hardware using Qiskit Runtime. A four-qubit implementation corresponding to a 16-element search space is evaluated across multiple experimental runs. The results demonstrate consistent amplitude amplification, achieving an average success probability of 54.25% and an amplification factor of 8.68× over random guessing. Although classical execution remains faster in wall-clock time due to quantum hardware overhead, the experiment empirically validates the algorithmic advantage of Grover's search and quantifies the performance gap between ideal and real quantum processors in the NISQ era.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "quantum-simulation-electron-energy-loss-spectroscopy-battery-fc681",
    "title": "Quantum simulation of electron energy loss spectroscopy for battery materials",
    "titleZh": "电池材料电子能量损失谱的量子模拟",
@@ -10408,6 +10829,35 @@
     "logistics",
     "manufacturing"
    ]
+  },
+  {
+   "id": "landscape-analysis-excited-states-calculation-over-quantum-1baa7",
+   "title": "Landscape Analysis of Excited States Calculation over Quantum Computers",
+   "titleZh": "量子计算机上激发态计算的景观分析",
+   "authors": [
+    "Chen, Hengzhun",
+    "Li, Yingzhou",
+    "Lu, Bichen",
+    "Lu, Jianfeng"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-18",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2512.16539",
+   "doi": "10.48550/arxiv.2512.16539",
+   "url": "https://arxiv.org/abs/2512.16539",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-12:对 VQE 求解低lying 激发态的代价景观做系统分析——激发态 VQE 的地形比基态更复杂,该工作给出景观结构与可训练性的系统刻画。",
+   "abstract": "The variational quantum eigensolver (VQE) is one of the most promising algorithms for low-lying eigenstates calculation on Noisy Intermediate-Scale Quantum (NISQ) computers. Specifically, VQE has achieved great success for ground state calculations of a Hamiltonian. However, excited state calculations arising in quantum chemistry and condensed matter often requires solving more challenging problems than the ground state as these states are generally further away from a mean-field description, and involve less straightforward optimization to avoid the variational collapse to the ground state. Maintaining orthogonality between low-lying eigenstates is a key algorithmic hurdle. In this work, we analyze three VQE models that embed orthogonality constraints through specially designed cost functions, avoiding the need for external enforcement of orthogonality between states. Notably, these formulations possess the desirable property that any local minimum is also a global minimum, helping address optimization difficulties. We conduct rigorous landscape analyses of the models' stationary points and local minimizers, theoretically guaranteeing their favorable properties and providing analytical tools applicable to broader VQE methods. A comprehensive comparison between the three models is also provided, considering their quantum resource requirements and classical optimization complexity.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "toward-sustainable-mobility-hybrid-quantum-llm-decision-1597f",
