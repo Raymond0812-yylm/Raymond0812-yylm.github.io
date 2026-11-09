@@ -5,8 +5,15 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed/daily.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[日报 2026-11-10] 符号对冲束搜索 QAOA：扩展量子优化算法的规模</title>
+      <link>https://raymond0812-yylm.github.io/daily/2026-11-10/</link>
+      <guid isPermaLink="false">daily:2026-11-10</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
+      <description>QAOA 及其规模化后继 RQAOA（递归量子近似优化算法）是&quot;用浅层量子电路求解组合优化&quot;的最主流路线：RQAOA 用浅层 QAOA 输出的关联信息（某两个变量倾向取一致还是相反的符号）迭代消去变量，把 $n$ 变量问题逐步化简到可直接精确求解的小核。但这条路径有一个长期被诟病的结构性弱点：每一次符号判定都是不可逆的单向承诺——早期哪怕一个错误符号，都会传播进后续所有消元步骤，直接把全局最优解从搜索空间里剔除。更糟的是，随着消元推进，残差问题变小、有效边密度却上升，后期决策面对的是越来越稠密的 Ising 问…</description>
+    </item>
     <item>
       <title>[日报 2026-11-08] 量子随机能量模型 Davies 动力学的指数混合时间</title>
       <link>https://raymond0812-yylm.github.io/daily/2026-11-08/</link>
@@ -209,13 +216,6 @@
       <guid isPermaLink="false">daily:2026-09-23</guid>
       <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
       <description>无蜂窝大规模 MIMO（cell-free massive MIMO）被视为 6G 物理层的核心候选架构之一：它用大量分布式接入点（AP）在同一时频资源上联合服务所有用户，天然提供宏分集与均匀覆盖。但这类系统的阿喀琉斯之踵是导频污染（pilot contamination）——信道估计依赖正交导频序列，而相干块长度有限使得可用正交导频数远小于用户/AP 数，导频必须复用；两个复用同一导频的用户会互相&quot;污染&quot;对方的信道估计，代价随用户几何分布急剧恶化。</description>
-    </item>
-    <item>
-      <title>[日报 2026-09-20] 量子计算机不会那么不同：规模化量子计算机的体系结构蓝图</title>
-      <link>https://raymond0812-yylm.github.io/daily/2026-09-20/</link>
-      <guid isPermaLink="false">daily:2026-09-20</guid>
-      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
-      <description>过去十年量子硬件的叙事由&quot;物理比特数竞赛&quot;主导：谷歌 53 比特、IBM Condor 1,121 比特、D-Wave 5,000+ 比特退火机……但比特数本身并不回答&quot;这台机器什么时候有用、造出来多少钱、放进数据中心怎么跑&quot;这三个工程问题。随着各家路线图普遍指向 2030 年前后的百万物理比特容错机器，一个更朴素的问题浮出水面：到了系统尺度，量子计算机的体系结构到底长什么样？它和经典计算机差多远？</description>
     </item>
   </channel>
 </rss>
