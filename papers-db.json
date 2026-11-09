@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-09",
+ "updated": "2026-11-10",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -1140,6 +1140,40 @@
    "abstract": "Trapped ions are a leading technology for quantum computing, but their reliance on bespoke tabletop laser and optical systems remains a major obstacle to scaling and robustness. Integrated silicon nitride lasers, compatible with future monolithic integration with surface electrode ion traps, have recently demonstrated frequency-selective qubit state preparation and measurement as well as interrogation of an optical clock transition. However, coherent qubit gates driven by integrated laser sources have not yet been demonstrated because coherent quantum logic imposes substantially more stringent performance requirements on the laser. Here, we use a visible-wavelength integrated Brillouin laser stabilized to an integrated coil resonator to drive coherent single- and two-qubit gates with $^{88}$Sr$^+$ optical qubits. We measure an average single-qubit fidelity of 99.61% $\\pm$ 0.03% per Clifford gate with randomized benchmarking and use a two-qubit Mølmer-Sørensen interaction to generate an entangled Bell state with a fidelity of 92.35% $\\pm$ 1.50%. The qubit exhibits a bare Ramsey coherence time of 660 $\\pm$ 9 $μ$s, extended to 1.750 $\\pm$ 0.033 ms by spin echo. These results demonstrate that integrated visible-wavelength narrow-linewidth photonic lasers can meet the phase-noise requirements for coherent trapped ion quantum logic, providing a path for scalable optical systems integrated within trapped ion quantum processors.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "quantum-machine-learning-agricultural-remote-sensing-capabilities-919e9",
+   "title": "Quantum machine learning for agricultural remote sensing: Capabilities, applications, and opportunities",
+   "titleZh": "量子机器学习用于农业遥感:能力、应用与机遇",
+   "authors": [
+    "Amanjot Bhullar",
+    "Nathaniel K. Newlands",
+    "R. Ayesha Ali",
+    "Étienne Lord",
+    "Catherine Champagne"
+   ],
+   "venue": "Computers and Electronics in Agriculture",
+   "date": "2026-09-07",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1016/j.compag.2026.112376",
+   "url": "https://doi.org/10.1016/j.compag.2026.112376",
+   "topics": [
+    "quantum-ai",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Computers and Electronics in Agriculture 2026:综述 QML 在农业遥感(多模态卫星+土壤+气候数据规模处理)的混合量子-经典建模进展——作物分类、产量估计等核心任务的 QML 方案版图,农业遥感×量子方向的标准参照。",
+   "abstract": "Quantum machine learning (QML) is receiving increasing attention as a potential tool for addressing the computational challenges inherent in agricultural remote sensing, where multimodal Earth observational satellite, soil, and climate datasets must be processed at scale. We review recent developments in quantum–classical hybrid modeling for core remote-sensing tasks, including crop type classification, yield estimation, cloud detection, and time series forecasting. Researchers typically combine classical feature extractors with shallow variational circuits or quantum kernels to accommodate the limited qubit counts and noise levels of contemporary quantum devices. We summarize performance trends reported in the literature, emphasizing the role of classical preprocessing, compact quantum circuits, and rigorous benchmarking against strong classical baselines. We consolidate the reviewed studies in a structured comparison covering task, dataset, qubit count, encoding, execution platform, and reported performance relative to classical baselines. The current hardware and data limitations that restrict current QML applications associated with state preparation, circuit depth, and encoding of agricultural datasets are discussed. Near-term prospects for QML in agriculture can involve small-scale hybrid models for multi-class crop mapping and short horizon sequence prediction, while longer-term opportunities may encompass quantum accelerated image segmentation, data fusion, and large ",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "quantum-enhanced-hybrid-model-compression-knowledge-distillation-14972",
@@ -10532,6 +10566,43 @@
    ]
   },
   {
+   "id": "comprehensive-survey-high-performance-efficient-computing-earth-9b255",
+   "title": "A Comprehensive Survey on High-Performance and Efficient Computing for Earth Observation",
+   "titleZh": "面向对地观测的高性能与高效计算综合综述",
+   "authors": [
+    "Dora B. Heras",
+    "Rocco Sedona",
+    "Álvaro Ordóñez",
+    "Gabriele Cavallaro",
+    "Sebastián López",
+    "Manil Maskey",
+    "Gabriele Meoni",
+    "Artur Miroszewski",
+    "Catherine D. Schuman",
+    "Jón Atli Benediktsson"
+   ],
+   "venue": "Proceedings of the IEEE",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1109/jproc.2026.3721381",
+   "url": "https://doi.org/10.1109/jproc.2026.3721381",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Proceedings of the IEEE 2026(顶级综合期刊):系统综述 EO 数据爆炸(高分辨率卫星+数字孪生+云原生生态)与深度学习/地理空间基础模型(GFM)变革下的高性能计算与高效计算版图——EO 计算基础设施的权威领域地图,任务规划量子化的背景参照。",
+   "abstract": "Remote sensing (RS) for Earth observation (EO) is undergoing an unprecedented data explosion driven by high-resolution satellite missions, new trends such as the development of digital twins (DTs), open-access policies, and cloud-native data ecosystems. At the same time, the rapid evolution of deep learning (DL) and geospatial foundation models (GFMs), a class of large-scale DL models, is transforming the way EO data are represented, transferred, and exploited across tasks and domains. These developments impose demanding computational requirements across the full EO processing workflow, from data acquisition and transmission to storage, analysis, model training, and deployment, all of which increasingly rely on high-performance computing (HPC) capabilities. This survey reviews the intersection of HPC and EO, providing a structured overview of computing paradigms, infrastructures, and hardware accelerators that support modern EO workflows. Rather than proposing a prescriptive rule for selecting a specific computational solution, the survey relates the main stages of a typical EO workflow to the infrastructures commonly used to support them, including edge computing, ground-segment computing, cloud computing, and supercomputing environments. This workflow-oriented perspective highlights how the suitability of each infrastructure depends not only on computational performance but also on data locality, latency, scalability, interoperability, energy constraints, economic cost, and",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
+  },
+  {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
    "title": "Prediction of Molecular Structures and Properties by Using Quantum Technology",
    "titleZh": "用量子技术预测分子结构与性质",
@@ -13756,6 +13827,37 @@
    ]
   },
   {
+   "id": "quantum-deep-reinforcement-learning-humanoid-robot-navigation-2575d",
+   "title": "Quantum deep reinforcement learning for humanoid robot navigation task",
+   "titleZh": "量子深度强化学习训练人形机器人导航任务",
+   "authors": [
+    "Romerik Lokossou",
+    "Birhanu Shimelis Girma",
+    "O.K. Tonguz",
+    "Biyabani, Ahmed"
+   ],
+   "venue": "arXiv",
+   "date": "2025-09-14",
+   "year": 2025,
+   "citations": 3,
+   "arxivId": "2509.11388",
+   "doi": "10.48550/arxiv.2509.11388",
+   "url": "https://arxiv.org/abs/2509.11388",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-09:经典 RL 在高维随机环境(人形机器人)参数需求大、非确定性挑战多;该文用量子深度强化学习(QDRL)高效训练人形机器人导航——把量子 RL 从轮式机器人推进到人形平台。",
+   "abstract": "Classical reinforcement learning (RL) methods often struggle in complex, high-dimensional environments because of their extensive parameter requirements and challenges posed by stochastic, non-deterministic settings. This study introduces quantum deep reinforcement learning (QDRL) to train humanoid agents efficiently. While previous quantum RL models focused on smaller environments, such as wheeled robots and robotic arms, our work pioneers the application of QDRL to humanoid robotics, specifically in environments with substantial observation and action spaces, such as MuJoCo's Humanoid-v4 and Walker2d-v4. Using parameterized quantum circuits, we explored a hybrid quantum-classical setup to directly navigate high-dimensional state spaces, bypassing traditional mapping and planning. By integrating quantum computing with deep RL, we aim to develop models that can efficiently learn complex navigation tasks in humanoid robots. We evaluated the performance of the Soft Actor-Critic (SAC) in classical RL against its quantum implementation. The results show that the quantum SAC achieves an 8% higher average return (246.40) than the classical SAC (228.36) after 92% fewer steps, highlighting the accelerated learning potential of quantum computing in RL tasks.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
    "id": "symmetry-based-quantum-algorithms-open-shop-scheduling-41459",
    "title": "Symmetry-based quantum algorithms for open-shop scheduling with hard constraints",
    "titleZh": "基于对称性的硬约束开放车间调度量子算法",
@@ -14427,6 +14529,37 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "quantum-computation-robot-posture-optimization-4b847",
+   "title": "Quantum computation for robot posture optimization",
+   "titleZh": "用量子计算求解机器人逆运动学姿态优化",
+   "authors": [
+    "Takuya Otani",
+    "Atsuo Takanishi",
+    "Nobuyuki Hara",
+    "Yutaka Takita",
+    "Kôichi Kimura"
+   ],
+   "venue": "Scientific Reports",
+   "date": "2025-08-08",
+   "year": 2025,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1038/s41598-025-12109-0",
+   "url": "https://doi.org/10.1038/s41598-025-12109-0",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Scientific Reports 2025(5 引):利用量子比特天然表示三维球面上点的能力,把机器人逆运动学前向计算编码进量子比特姿态表示,在量子退火机上求解姿态优化;太空机器人×量子计算的姿态优化实例。",
+   "abstract": "Quantum computing has gained attention for its potential to surpass classical computing in large-scale computations. In this study, we propose a method for solving the inverse kinematics of a robot using quantum computing. The approach leverages the ability of qubits to represent points on a sphere in three-dimensional space. Forward kinematics calculations are performed using qubits that encode the posture of each robot link, while inverse kinematics solutions are obtained through iterative optimization on a classical computer. Furthermore, we demonstrate that the robot's end-effector position can be effectively represented using a 2-qubit rotation gate, where the root joint angle influences the tip joint angle, resulting in accelerated convergence during inverse kinematics optimization. The proposed method was validated on an actual quantum computer, confirming its feasibility and efficiency. These findings suggest that hybrid quantum-classical approaches can enhance robotic motion planning and optimization in future quantum computing applications.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "multi-strategy-quantum-differential-evolution-algorithm-cooperative-0ab49",
@@ -17306,6 +17439,35 @@
    "abstract": "Solving combinatorial optimization problems on near-term quantum devices has gained a lot of attention in recent years. Currently, most studies have focused on single-objective problems, whereas many real-world applications need to consider multiple, mostly conflicting objectives, such as cost and quality. We present a variational quantum optimization algorithm to solve discrete multiobjective optimization problems on quantum computers. The proposed quantum multiobjective optimization (QMOO) algorithm incorporates all cost Hamiltonians representing the classical objective functions in the quantum circuit and produces a quantum state consisting of Pareto-optimal solutions in superposition. From this state, we retrieve a set of solutions and utilize the widely applied hypervolume indicator to determine its quality as an approximation to the Pareto front. The variational parameters of the QMOO circuit are tuned by maximizing the hypervolume indicator in a quantum-classical hybrid fashion. We show the effectiveness of the proposed algorithm on several benchmark problems with up to five objectives. We investigate the influence of the classical optimizer and the circuit depth, and compare them to results from classical optimization algorithms. We find that the algorithm is robust to shot noise and produces good results with as few as 128 measurement shots in each iteration. These promising results open the possibility to run the algorithm on near-term quantum hardware.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "hqc-nbv-hybrid-quantum-classical-view-planning-8fb35",
+   "title": "HQC-NBV: A Hybrid Quantum-Classical View Planning Approach",
+   "titleZh": "HQC-NBV:混合量子-经典视角规划方法",
+   "authors": [
+    "Xiaotong Yu",
+    "C. Chen"
+   ],
+   "venue": "arXiv",
+   "date": "2025-05-08",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2505.05212",
+   "doi": "10.48550/arxiv.2505.05212",
+   "url": "https://arxiv.org/abs/2505.05212",
+   "topics": [
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-05:视角规划(Next-Best-View)是搜索救援、自主导航等机器人感知的基础难题,经典采样/确定性方法在复杂场景下可扩展性受限;该文提出混合量子-经典视角规划 HQC-NBV。**视角规划与对地观测任务规划在数学结构上同构(下一最优观测点=下一最优成像任务),方法可直接迁移到卫星 EO tasking**——本批对你研究价值最高的一篇。",
+   "abstract": "Efficient view planning is a fundamental challenge in computer vision and robotic perception, critical for tasks ranging from search and rescue operations to autonomous navigation. While classical approaches, including sampling-based and deterministic methods, have shown promise in planning camera viewpoints for scene exploration, they often struggle with computational scalability and solution optimality in complex settings. This study introduces HQC-NBV, a hybrid quantum-classical framework for view planning that leverages quantum properties to efficiently explore the parameter space while maintaining robustness and scalability. We propose a specific Hamiltonian formulation with multi-component cost terms and a parameter-centric variational ansatz with bidirectional alternating entanglement patterns that capture the hierarchical dependencies between viewpoint parameters. Comprehensive experiments demonstrate that quantum-specific components provide measurable performance advantages. Compared to the classical methods, our approach achieves up to 49.2% higher exploration efficiency across diverse environments. Our analysis of entanglement architecture and coherence-preserving terms provides insights into the mechanisms of quantum advantage in robotic exploration tasks. This work represents a significant advancement in integrating quantum computing into robotic perception systems, offering a paradigm-shifting solution for various robot vision tasks.",
+   "source": "backfill",
+   "domains": [
+    "satellite"
+   ]
   },
   {
    "id": "evolutionary-ising-optimization-framework-unconstrained-binary-quadratic-969e8",
