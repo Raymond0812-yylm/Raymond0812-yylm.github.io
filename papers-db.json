@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-10",
+ "updated": "2026-11-13",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -7287,6 +7287,42 @@
    ]
   },
   {
+   "id": "resilience-constrained-low-carbon-dispatch-industrial-parks-84b7d",
+   "title": "Resilience-Constrained Low-Carbon Dispatch of Industrial Parks with Storage and Quantum Acceleration",
+   "titleZh": "韧性约束的工业园区低碳调度:储能+量子加速",
+   "authors": [
+    "Weiwei Li",
+    "Cheng Li",
+    "Xuemei Zhang",
+    "Shuai Xu",
+    "Yaqing Yue",
+    "Hailong Zhang"
+   ],
+   "venue": "Processes",
+   "date": "2026-03-23",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.3390/pr14061024",
+   "url": "https://doi.org/10.3390/pr14061024",
+   "topics": [
+    "annealing",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Processes 2026:面向碳中和工业园区(数据中心 VPP+可再生能源+短时电池+长时储能),提出韧性约束的两阶段随机调度框架并用量子加速求解;低碳+韧性双目标,储能长短时组合建模有参考价值。",
+   "abstract": "Carbon-neutral industrial parks require large consumers, such as data centers, to balance low-carbon operation and service reliability. This paper proposes a resilience-constrained stochastic dispatch framework for a data-center virtual power plant (VPP) with renewable generation, short-duration batteries, and long-duration storage units. The dispatch is formulated as a two-stage stochastic program with normal and outage scenarios. To solve the resulting large mixed-integer problem, we develop a hybrid quantum–classical L-shaped method: the integer master is solved heuristically by quantum annealing, while scenario subproblems are solved exactly by classical optimization. In a case study based on real-world industrial-park data, the proposed storage strategy eliminates critical load shedding for the tested 6 h outage scenarios with a 3.7% increase in expected daily cost. The QA-driven method reaches the same best-known objective as the classical baseline with an empirical 1.36× runtime speedup.",
+   "source": "backfill",
+   "domains": [
+    "energy",
+    "materials",
+    "it-cloud"
+   ]
+  },
+  {
    "id": "average-relative-entropy-transpilation-depth-determines-noise-46608",
    "title": "The Average Relative Entropy and Transpilation Depth determines the noise robustness in Variational Quantum Classifiers",
    "titleZh": "平均相对熵与转译深度决定变分量子算法的噪声鲁棒性",
@@ -10600,6 +10636,37 @@
    "source": "backfill",
    "domains": [
     "satellite"
+   ]
+  },
+  {
+   "id": "enhancing-distributed-state-estimation-power-grid-simplified-6b00e",
+   "title": "Enhancing Distributed State Estimation of Power Grid With a Simplified Quantum Algorithm",
+   "titleZh": "用简化 HHL 量子算法增强电网分布式状态估计",
+   "authors": [
+    "Shyh‐Jier Huang",
+    "Po‐Wei Yang",
+    "Shen‐Kun Yen",
+    "Yong‐Tai Li"
+   ],
+   "venue": "IET Generation Transmission & Distribution",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.1049/gtd2.70283",
+   "url": "https://doi.org/10.1049/gtd2.70283",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "IET GT 2026:将 HHL 算法及其简化量子线路(相位估计+受控旋转+逆相位估计三组件)应用于电网分布式状态估计,重点压缩各组件线路复杂度;状态估计是电网调度的实时基础,量子化的直接落地场景。",
+   "abstract": "ABSTRACT This paper presents the application of the Harrow‐Hassidim‐Lloyd (HHL) algorithm and its simplified quantum circuit to distributed state estimation in power grids. The proposed circuit comprises three main components: quantum phase estimation, controlled rotation, and inverse quantum phase estimation. Each component was implemented using quantum gates, with a focus on reducing circuit complexity within each block. This simplification lowers the number of quantum gates and control bits needed, thereby enhancing the computational efficiency of distributed state estimation. To evaluate the feasibility of the proposed method, simulations were conducted on the IEEE 30‐bus system. The computation performance was assessed using trace distance, circuit size, and output accuracy. The results show that the proposed approach successfully tackles distributed state estimation in a power grid, underscoring its potential as a practical quantum computing solution for this field.",
+   "source": "backfill",
+   "domains": [
+    "energy"
    ]
   },
   {
@@ -21937,6 +22004,38 @@
     "finance",
     "energy"
    ]
+  },
+  {
+   "id": "quantum-interior-point-methods-review-developments-optimally-5faa7",
+   "title": "Quantum Interior Point Methods: A Review of Developments and An Optimally Scaling Framework",
+   "titleZh": "量子内点方法:进展综述与最优标度框架",
+   "authors": [
+    "Mohammadhossein Mohammadisiahroudi",
+    "Zeguan Wu",
+    "Pouya Sampourmahani",
+    "Adrian Harkness",
+    "Tamás Terlaky B"
+   ],
+   "venue": "arXiv",
+   "date": "2025-01-01",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2512.06224",
+   "doi": "10.13016/m29rpf-wid2",
+   "url": "https://arxiv.org/abs/2512.06224",
+   "topics": [
+    "hardware",
+    "hybrid",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:内点法(IPM)是线性/锥优化的经典主力,但其每迭代成本在大规模密集问题上高企;该文综述量子内点法(QIPM)进展并提出最优标度框架——**经典优化的头号竞品(IPM)的量子对应物**,是衡量其他量子优化算法的天然基准。",
+   "abstract": "The growing demand for solving large-scale, data-intensive linear and conic optimization problems, particularly in applications such as arti?cial intelligence and machine learning, has highlighted the limitations of classical interior point methods (IPMs). Despite their favorable polynomial-time convergence, conventional IPMs often su!er from high per-iteration computational costs, especially for dense problem instances. Recent advances in quantum computing, particularly quantum linear system solvers, o!er promising avenues to accelerate the most computationally intensive steps of IPMs. However, practical challenges such as quantum error, hardware noise, and sensitivity to poorly conditioned systems remain signi?cant obstacles. In response, a series of Quantum IPMs (QIPMs) has been developed to address these challenges, incorporating techniques such as feasibility maintenance, iterative re?nement, and preconditioning. In this work, we review this line of research with a focus on our recent contributions, including an almost-exact QIPM framework. This hybrid quantum-classical approach constructs and solves the Newton system entirely on a quantum computer, while performing solution updates classically. Crucially, all matrix-vector operations are executed on quantum hardware, enabling the method to achieve an optimal worstcase scalability w.r.t dimension, surpassing the scalability of existing classical and quantum IPMs.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "role-quantum-computing-solving-optimization-problems-artificial-c49a4",
