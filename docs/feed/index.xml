@@ -5,8 +5,71 @@
     <link>https://raymond0812-yylm.github.io</link>
     <description>量子计算 × 组合优化 × 智能优化:论文中文解读与行业动态,每日自动更新</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 10 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://raymond0812-yylm.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>[论文] Tree-Ising：用比特级 Ising 编辑修复语言模型</title>
+      <link>https://raymond0812-yylm.github.io/papers/tree-ising-repairing-language-models-bit-level-503c4/</link>
+      <guid isPermaLink="false">p:tree-ising-repairing-language-models-bit-level-503c4</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>大模型出了&quot;病&quot;怎么治？主流答案有三种：微调（改权重分布，代价大且易灾难性遗忘）、推理期干预（改激活不改权重，治标不治本）、以及 MIT Takehi 等人新近提出的&quot;权重空间编程&quot;（weight-space programming）——让一个前沿 LLM 智能体直接&quot;读懂&quot;病态网络的权重并写出修复补丁。该工作展示了概念上的突破：GPT-6 Astra 智能体无需梯度就修复了 Qwen3.5-0.8B 的推理循环（reasoning loop）故障，但其成本令人咋舌：158 轮智能体交互、8970 万 toke…</description>
+    </item>
+    <item>
+      <title>[论文] 局部量子解码器下的解码量子干涉术无指数量子加速</title>
+      <link>https://raymond0812-yylm.github.io/papers/no-exponential-quantum-advantage-decoded-quantum-interferometry-503b6/</link>
+      <guid isPermaLink="false">p:no-exponential-quantum-advantage-decoded-quantum-interferometry-503b6</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>解码量子干涉术（DQI，Jordan et al.）是近两年量子优化理论最受瞩目的进展之一：它把稀疏线性约束优化（及从其 Gibbs 测度采样）归约为&quot;从量子态中解码一个线性码&quot;，给出了首个在特定问题类上可证明的近似优化量子优势——本库曾在 10-03 日报中深度跟踪。但 DQI 的优势声明依赖于解码器：实际提案均采用局部解码器（如带量子消息的置信传播 BPQM），只利用对数距离内的量子比特估计码字符号。</description>
+    </item>
+    <item>
+      <title>[论文] 三维单原子里德堡阵列上求解加权 MaxCut 的模拟量子近似优化算法</title>
+      <link>https://raymond0812-yylm.github.io/papers/analog-quantum-approximate-optimization-algorithm-solving-weighted-503be/</link>
+      <guid isPermaLink="false">p:analog-quantum-approximate-optimization-algorithm-solving-weighted-503be</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>中性原子平台的模拟 QAOA（aQAOA）路线中，加权问题一直是软肋：Rydberg 相互作用天然编码的是无权图（ blockade 几何），把边权&quot;写进&quot;硬件通常要靠辅助比特或多层编码。本文提出利用三维单原子囚禁阵列（individual trapping，而非光晶格）的独有自由度——原子间距可逐点设计——把问题权重直接编码进原子间相互作用能，配合全局激光脉冲与位点相关失谐，实现加权 MaxCut 的原生模拟 QAOA。这是&quot;用空间几何当权重寄存器&quot;的代表性尝试，也与 QuEra Aquila 类平台（2D …</description>
+    </item>
+    <item>
+      <title>[动态] &quot;本源悟空-180&quot;面向全球云上接单：单核 180 比特国产超导整机进入工程化阶段</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n5</link>
+      <guid isPermaLink="false">n:2026-11-13:5</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>据中新社 11 月 12 日报道，海外华文媒体代表团实地探访本源量子，中国第四代自主超导量子计算机&quot;本源悟空-180&quot;自今年 5 月上线以来已面向全球承接量子计算任务，用户经云端即可远程调用真实量子硬件。该机配备单核 180 比特超导量子芯片，标志国产超导整机迈入单芯片百比特工程化阶段；本源量子已在量子芯片、测控、环境支撑与操作系统等环节实现全栈自主研制，并完成中国首次自主量子算力出口。</description>
+    </item>
+    <item>
+      <title>[动态] 原基量子完成亿元级天使轮：图灵量子体外孵化中性原子新玩家，国内量子企业 IPO 辅导持续提速</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n4</link>
+      <guid isPermaLink="false">n:2026-11-13:4</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>中性原子量子计算公司原基量子宣布完成亿元级天使轮融资，由中国互联网投资基金与清华系资本慕华科创联合领投、近 10 家机构跟投。该公司由估值已突破 70 亿元、正冲刺 A 股 IPO 的光量子龙头图灵量子孵化（图灵持股 65%），核心团队出自上海交大集成量子信息技术研究中心。据披露，本源量子（超导，辅导第四期）、玻色量子与图灵量子（光量子）等多家国内量子企业已相继进入 IPO 辅导进程，叠加科创板拟新增&quot;量子&quot;行业分类，国内量子资本化明显提速。</description>
+    </item>
+    <item>
+      <title>[动态] Quandela 与台湾汉民集团签署合作备忘录：共推光子量子计算研发与区域部署</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n3</link>
+      <guid isPermaLink="false">n:2026-11-13:3</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>法国光子量子计算公司 Quandela 与半导体设备大厂汉民集团（Hermes-Epitek）签署合作备忘录，将通过联合研发推进光子量子技术，并评估在台湾部署量子计算机的可行性。Quandela 以光子量子处理器与&quot;量子.asarray&quot;云平台著称，此次合作借助汉民在台湾半导体产业链的渠道，是欧洲光量子厂商向东亚市场渗透的标志性动作，也为台系代工生态切入量子供应链打开想象空间。</description>
+    </item>
+    <item>
+      <title>[动态] Quantum X Labs 发布冷原子量子计算机最新路线图：2030 年前实现容错计算</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n2</link>
+      <guid isPermaLink="false">n:2026-11-13:2</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>纳斯达克上市的 Quantum X Labs（QXL）于 11 月 12 日发布更新版执行路线图，明确其冷原子量子计算机将以 2030 年实现容错计算为目标，并披露关键工程节点与商业化路径。冷原子/中性原子路线近期资本热度持续攀升（美国 Oratomic 10 月完成 4.75 亿美元 B 轮），该公司路线图将中性原子规模化竞赛从&quot;比特数展示&quot;进一步推向&quot;容错时间表&quot;对表阶段。</description>
+    </item>
+    <item>
+      <title>[动态] Quantinuum 与日本理研扩大合作：Reimei 升级至 H2 系统，联手软银探索量子直连 AI 数据中心</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n1</link>
+      <guid isPermaLink="false">n:2026-11-13:1</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Quantinuum 于 11 月 10 日宣布与日本理化学研究所（RIKEN）扩大战略合作，将部署于 RIKEN 的 Reimei 离子阱量子计算机升级至第二代 H2 系统，推进量子-AI 混合超算在日本商业化落地。双方还联合软银（SoftBank Corp.）评估将量子计算机与日本 AI 数据中心基础设施直接互联的方案，面向电子、材料与制药等场景开发应用。受利好与上调的业绩指引推动，Quantinuum 股价随后一度大涨 26%。</description>
+    </item>
+    <item>
+      <title>[动态] Q-CTRL 完成 2.9 亿美元 C 轮融资：Salesforce Ventures 领投，量子软件公司跻身独角兽</title>
+      <link>https://raymond0812-yylm.github.io/news/2026-11-13/#n0</link>
+      <guid isPermaLink="false">n:2026-11-13:0</guid>
+      <pubDate>Fri, 13 Nov 2026 00:00:00 GMT</pubDate>
+      <description>澳大利亚量子控制与纠错软件公司 Q-CTRL 于 11 月 12 日宣布完成 2.9 亿美元 C 轮融资，由 Salesforce Ventures 领投，公司估值突破 10 亿美元成为量子软件赛道新晋独角兽。Q-CTRL 主攻量子误差抑制、纠错基础设施与量子传感（含无 GPS 导航），本轮资金将用于加速&quot;量子 × AI&quot;融合产品线扩张。这是量子软件/基础设施层迄今最大规模融资之一，标志着资本市场对&quot;卖铲人&quot;路线的估值逻辑正从比特数量转向工程化价值。</description>
+    </item>
     <item>
       <title>[论文] 符号对冲束搜索 QAOA：扩展量子优化算法的规模</title>
       <link>https://raymond0812-yylm.github.io/papers/sign-hedged-beam-qaoa-scaling-quantum-optimization-50300/</link>
@@ -293,69 +356,6 @@
       <guid isPermaLink="false">n:2026-10-24:3</guid>
       <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
       <description>10 月 23 日，Telefónica 与 IQM 宣布将在马德里理工大学（UPM）部署马德里自治区首台本地部署（on-premises）量子计算机 IQM Spark，计划 2026 年底前投入使用，面向科研与教学。这是双方在西班牙落地的第三台量子处理器，本地化部署模式正成为欧洲高校获取量子算力的主流路径之一。</description>
-    </item>
-    <item>
-      <title>[动态] IQM 联合 NVIDIA 用视觉语言模型智能体自动校准 20 量子比特芯片，并发布 QCalEval 开放基准</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-24/#n2</link>
-      <guid isPermaLink="false">n:2026-10-24:2</guid>
-      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
-      <description>IQM 与 NVIDIA 合作，用 NVIDIA Ising 视觉语言模型智能体完成了 20 量子比特超导芯片校准流程的自动化，同时发布开放基准 QCalEval 用于评估 AI 驱动的处理器上电调校（bring-up）。芯片校准是量子硬件扩产的核心人力瓶颈，AI 自动化调校有望显著压缩新机交付周期。</description>
-    </item>
-    <item>
-      <title>[动态] Quantinuum 与 Oracle 推出 OCI Quantum AI Compute Beta，Helios 离子阱机型入驻 Oracle 云</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-24/#n1</link>
-      <guid isPermaLink="false">n:2026-10-24:1</guid>
-      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Quantinuum 与 Oracle 联合启动 OCI Quantum AI Compute Beta 计划，将 Helios 离子阱量子处理器部署进 Oracle 云数据中心，面向量子-AI 混合工作负载提供早期访问。更多细节将在 Oracle AI World 2026 大会公布，标志着一云巨头与量子厂商的&quot;机内托管&quot;（QPU 进云区域）模式进一步铺开。</description>
-    </item>
-    <item>
-      <title>[动态] Google Quantum AI 启动 15 万美元 Kaggle 竞赛：用 AI 智能体压缩容错量子电路</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-24/#n0</link>
-      <guid isPermaLink="false">n:2026-10-24:0</guid>
-      <pubDate>Sat, 24 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Google Quantum AI 于 10 月 22 日宣布 Kaggle 竞赛（赛期 2026-10-22 至 2027-01-20），总奖金 15 万美元，任务是用 AI 智能体压缩容错量子电路中的 &quot;kickmix&quot; 电路，且压缩结果可被经典方法精确验证。这是科技巨头首次以众包竞赛形式推动&quot;AI 智能体×容错电路优化&quot;，与同期 arXiv 上的认证式 AI 智能体电路优化工作（见今日论文报告论文一）形成呼应。</description>
-    </item>
-    <item>
-      <title>[论文] 基于变分方法的量子优化算法资源分析</title>
-      <link>https://raymond0812-yylm.github.io/papers/resource-analysis-quantum-optimization-algorithms-variational-methods-1b667/</link>
-      <guid isPermaLink="false">p:resource-analysis-quantum-optimization-algorithms-variational-methods-1b667</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>QAOA 一类变分量子优化算法到底&quot;用了多少&quot;量子资源（纠缠、相干）才换来解的质量提升，目前缺乏可与算法性能逐层对照的定量刻画——回答这个问题有助于判断增益是否真来自量子性，也为算法选型与深度截断提供依据。</description>
-    </item>
-    <item>
-      <title>[论文] 量子退火中的优化与公平采样：一个精确表征的阻挫伊辛基准</title>
-      <link>https://raymond0812-yylm.github.io/papers/optimization-versus-fair-sampling-quantum-annealing-exactly-1b665/</link>
-      <guid isPermaLink="false">p:optimization-versus-fair-sampling-quantum-annealing-exactly-1b665</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>量子退火机（如 D-Wave）在应用中实际承担着两种不同的角色：其一是优化器——只要命中简并基态流形中的任意一个解即可，对应组合优化的典型用法；其二是采样器——需要在庞大的简并基态集合中&quot;公平&quot;地采样，这是玻尔兹曼机学习、系综枚举类应用的前提。一个长期悬而未决的问题是：这两种能力是否同涨同落？硬件调校让优化成功率提高时，采样分布是否也随之更均匀？</description>
-    </item>
-    <item>
-      <title>[论文] 大型量子处理器之间的米尺度量子互连</title>
-      <link>https://raymond0812-yylm.github.io/papers/meter-scale-quantum-interconnects-between-large-quantum-1b667/</link>
-      <guid isPermaLink="false">p:meter-scale-quantum-interconnects-between-large-quantum-1b667</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>单芯片超导处理的比特数受制版面积与布线密度约束，模块化互连被普遍视为超导路线走向百万比特的必经之路；而互连的难点在于：量子态要在米尺度距离上低损耗相干传输，且每个模块对要支持多条链路才能构成真正的网络。</description>
-    </item>
-    <item>
-      <title>[动态] 国产&quot;最纯净硅&quot;问世：浙大团队发布硅-28 硅烷特气与外延片，纯度 99.99998%</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-23/#n5</link>
-      <guid isPermaLink="false">n:2026-10-23:5</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>在第二届量子科技前沿论坛上，硅及先进半导体材料全国重点实验室与浙江大学杭州国际科创中心量子信息硅团队国内首次发布硅-28 硅烷特气与外延片，纯度达 99.99998%，是目前报道的国产&quot;最纯净硅&quot;材料。同位素纯化硅可将硅基量子比特的核自旋噪声大幅压低，是硅基（自旋）量子芯片走向规模化的重要材料基础，此次发布标志着该关键材料环节的自主可控取得实质进展。</description>
-    </item>
-    <item>
-      <title>[动态] 国盾量子拟向中电信量子集团销售超导量子计算整机，合同额约 6477 万元</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-23/#n4</link>
-      <guid isPermaLink="false">n:2026-10-23:4</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>国盾量子 10 月 22 日披露，全资子公司上海国盾拟与中电信量子集团签订销售合同，为其量子计算项目提供一台超导量子计算整机（含设备及相关技术服务），金额预计 6477.27 万元。这是国内超导量子计算整机在电信运营商体系内的又一规模化采购落地，延续&quot;国产整机+央企云平台&quot;（天衍平台）的商用路径，也反映出量子算力正从示范性部署走向可复购的基础设施采购。</description>
-    </item>
-    <item>
-      <title>[动态] 韩国科学技术信息通信部扩建三个量子通信测试枢纽，KT 运营其中两处</title>
-      <link>https://raymond0812-yylm.github.io/news/2026-10-23/#n3</link>
-      <guid isPermaLink="false">n:2026-10-23:3</guid>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
-      <description>韩国科学技术情报通信部宣布扩建三个量子通信测试枢纽（商用、海外、未来），目标 2028 年建成，三年总投入 74 亿韩元（政府约 37.5 亿、民间约 36.5 亿）。电信运营商 KT 获选运营&quot;商用&quot;与&quot;未来&quot;两处枢纽，今年将测试网延伸至大邱，其后扩展至光州、釜山，2028 年覆盖江原；SK Broadband 负责海外枢纽，与新加坡、波兰、保加利亚测试床互联。官方表示，扩面后的测试环境将帮助企业在多样化场景中验证量子通信技术与产品。</description>
     </item>
   </channel>
 </rss>
