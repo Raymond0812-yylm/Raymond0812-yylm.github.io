@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-13",
+ "updated": "2026-11-26",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -6051,6 +6051,37 @@
    "domains": []
   },
   {
+   "id": "quantum-geometric-entropic-optimization-customer-lifetime-value-a81e6",
+   "title": "Quantum geometric-entropic optimization for customer lifetime value prediction: convergence theory and an empirical study on transactional retail data",
+   "titleZh": "量子几何熵优化(Q-GEO)用于客户流失预测:收敛理论",
+   "authors": [
+    "Массимилиано Феррара",
+    "Laura Sáez‐Ortuño",
+    "Santiago Forgas‐Coll",
+    "Jorge Fabila",
+    "Carlos Martín-Isla",
+    "Karim Lekadir"
+   ],
+   "venue": "Statistics",
+   "date": "2026-05-11",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "",
+   "doi": "10.1080/02331888.2026.2667471",
+   "url": "https://doi.org/10.1080/02331888.2026.2667471",
+   "topics": [
+    "vqa"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Statistics 2026:面向客户流失预测(管理科学与营收预测核心问题),提出量子几何熵优化框架 Q-GEO 并给出收敛理论保证;量子优化算法在管理科学中获得理论保证的少有工作。",
+   "abstract": "Predicting customer churn from transactional data is a central problem in management science, with direct implications for retention strategy, revenue forecasting, and resource allocation. This paper introduces Quantum Geometric-Entropic Optimization (Q-GEO), a framework that integrates Geometric-Entropic Optimization – combining Riemannian gradient methods with entropy-regularized optimal transport – into the training of variational quantum kernels for classification. The algorithm operates on a parameter manifold equipped with a Fisher-Wasserstein metric and incorporates Sinkhorn-type projections to enforce distributional coherence on the quantum feature space. We establish three theoretical contributions: (i) a convergence theorem for Q-GEO-trained variational quantum kernels under a combined Polyak–Łojasiewicz and Sinkhorn contraction framework, yielding linear convergence in the Riemannian condition number plus geometric contraction of the Sinkhorn residual; (ii) a margin amplification result showing that GEO-trained quantum embeddings achieve improved separation bounds over Euclidean-trained counterparts due to the spectral regularization provided by the Wasserstein component of the Fisher-Wasserstein metric; and (iii) a distributional stability result proving that Sinkhorn-projected quantum kernel matrices preserve a doubly stochastic spectral structure that mitigates kernel collapse in imbalanced settings. We validate the framework on the UCI Online Retail II dataset ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "two-step-quantum-approximate-optimization-algorithm-portfolio-d0a45",
    "title": "A Two-Step Quantum Approximate Optimization Algorithm for Portfolio Optimization and Risk Assessment",
    "titleZh": "两步QAOA用于投资组合优化",
@@ -7350,6 +7381,38 @@
    "abstract": "Variational Quantum Algorithms (VQAs) have been extensively researched for applications in Quantum Machine Learning (QML), Optimization, and Molecular simulations. Although designed for Noisy Intermediate-Scale Quantum (NISQ) devices, VQAs are predominantly evaluated classically due to uncertain results on noisy devices and limited resource availability. Raising concern over the reproducibility of simulated VQAs on noisy hardware. While prior studies indicate that VQAs may exhibit noise resilience in specific parameterized shallow quantum circuits, there are no definitive measures to establish what defines a shallow circuit or the optimal circuit depth for VQAs on a noisy platform. These challenges extend naturally to Variational Quantum Classification (VQC) algorithms, a subclass of VQAs for supervised learning. In this article, we propose a relative entropy-based metric to verify whether a VQC model would perform similarly on a noisy device as it does on simulations. We establish a strong correlation between the average relative entropy difference in classes, transpilation circuit depth, and their performance difference on a noisy quantum device. Our results further indicate that circuit depth alone is insufficient to characterize shallow circuits. We present empirical evidence to support these assertions across a diverse array of techniques for implementing VQC, datasets, and multiple noisy quantum devices.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "hybrid-quantum-classical-branch-price-intra-day-ee483",
+   "title": "Hybrid Quantum-Classical Branch-and-Price for Intra-Day Electric Vehicle Charging Scheduling via Partition Coloring",
+   "titleZh": "经由混合量子-经典分支定价的日内电动汽车充电调度",
+   "authors": [
+    "Peng Sun",
+    "Liang Zhong",
+    "Qing-Guo Zeng",
+    "Li Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-22",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2603.21374",
+   "doi": "10.48550/arxiv.2603.21374",
+   "url": "https://arxiv.org/abs/2603.21374",
+   "topics": [
+    "qinspired",
+    "hybrid"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:针对公共停车场与车队运营的日内充电调度(充电桩容量紧+停留时间短),建模为划分着色问题变体,用混合量子-经典分支定价框架求解——EV 充电调度量子化的新方法工作。",
+   "abstract": "The rapid deployment of electric vehicles (EVs) in public parking facilities and fleet operations raises challenging intra-day charging scheduling problems under tight charger capacity and limited dwell times. We model this problem as a variant of the Partition Coloring Problem (PCP), where each vehicle defines a partition, its candidate charging intervals are vertices, and temporal and resource conflicts are represented as edges in a conflict graph. On this basis, we design a branch-and-price algorithm in which the restricted master problem selects feasible combinations of intervals, and the pricing subproblem is a maximum independent set problem. The latter is reformulated as a quadratic unconstrained binary optimization (QUBO) model and solved by quantum-annealing-inspired algorithms (QAIA) implemented in the MindQuantum framework, specifically the ballistic simulated branching (BSB) and simulated coherent Ising machine (SimCIM) methods, while the master problem is solved by Gurobi. Computational experiments on a family of synthetic EV charging instances show that the QAIA-enhanced algorithms match the pure Gurobi-based branch-and-price baseline on small and medium instances, and clearly outperform it on large and hard instances. In several cases where the baseline reaches the time limit with non-zero optimality gaps, the QAIA-based variants close the gap and prove optimality within the same time budget. These results indicate that integrating QAIA into classical decomposi",
+   "source": "backfill",
+   "domains": [
+    "logistics"
+   ]
   },
   {
    "id": "leveraging-classical-quantum-computing-process-systems-engineering-c86e2",
@@ -9221,6 +9284,37 @@
    "domains": []
   },
   {
+   "id": "quantum-computing-railway-rescheduling-literature-review-future-5b2e6",
+   "title": "Quantum computing for railway rescheduling: Literature review and future directions",
+   "titleZh": "铁路列车重调度的量子计算:文献综述与未来方向",
+   "authors": [
+    "Alexander Schuler",
+    "Steven Travis Waller",
+    "Riccardo Bassoli",
+    "Nikola Bešinović"
+   ],
+   "venue": "Transportation Research Interdisciplinary Perspectives",
+   "date": "2026-01-20",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "",
+   "doi": "10.1016/j.trip.2026.101868",
+   "url": "https://doi.org/10.1016/j.trip.2026.101868",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Transportation Research 2026:系统综述铁路实时重调度(扰动下运行图调整)的量子计算研究版图——问题建模、QUBO 化方案、硬件实验与开放方向;铁路调度×量子方向的标准入口文献。",
+   "abstract": "The demand for rail transport is expected to increase due to growing mobility needs and shifts in transport policies. This growth will lead to a higher capacity utilization of existing networks, making disturbances more frequent. To minimize their impact, dispatchers engage in real-time traffic management by adjusting the timetable to resolve the arising conflicts. Given the limited time to identify high-quality solutions, developing computer-based optimization methods to support dispatchers can significantly enhance rail transport efficiency. However, this is a challenging task with high computational complexity particularly in large and dense railway networks. Quantum computing offers a possible research direction, as it may offer advantages over classical computing due to its unique properties. This paper introduces the fundamentals of quantum computing and explores its challenges and opportunities for real-time railway traffic management. For this purpose, the paper reviews existing approaches that use quantum computing in railway operations and related fields, and highlights open challenges. Finally, several further research directions are identified, ranging from detailed benchmarking to new algorithm development.",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
    "id": "variational-quantum-machine-learning-quantum-error-detection-c3af7",
    "title": "Variational quantum machine learning with quantum error detection",
    "titleZh": "结合量子错误检测的变分量子机器学习",
@@ -10668,6 +10762,34 @@
    "domains": [
     "energy"
    ]
+  },
+  {
+   "id": "entropy-regularized-riemannian-hyperstate-transport-adaptive-nonlocal-d0203",
+   "title": "Entropy-regularized Riemannian hyperstate transport with adaptive nonlocal tunneling for stochastic deep neural optimization",
+   "titleZh": "量子启发随机几何超态优化(QISGHO)用于随机深度神经优化",
+   "authors": [
+    "Mashail M. Al-Sobhi",
+    "Irsa Sajjad"
+   ],
+   "venue": "AIMS Mathematics",
+   "date": "2026-01-01",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "",
+   "doi": "10.3934/math.20261316",
+   "url": "https://doi.org/10.3934/math.20261316",
+   "topics": [
+    "qinspired",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "AIMS Mathematics 2026:提出改进的量子启发随机几何超态优化(QISGHO)——把学习视为黎曼统计流形上多个概率超态的演化与输运,用于随机深度神经网络优化;量子启发算法的理论化推进。",
+   "abstract": "This study investigates an improved quantum-inspired stochastic geometric hyperstate optimization (QISGHO) method for stochastic deep neural optimization, where learning is viewed as the evolution and transport of multiple interacting probabilistic hyperstates on a Riemannian statistical manifold. The proposed optimization framework is based on the general stochastic-geometric hyperstate optimization paradigm, with a more explicit entropy-regularized Riemannian probability-transport mechanism, an interaction potential for hyperstates, geometry and uncertainty-adaptive diffusion, and an acceptance-controlled nonlocal tunneling process with loss barriers, manifold distance, local curvature, probability mass, and annealing temperature. The ensemble also includes a collapse-prevention, consolidation, and rejuvenation mechanism to preserve diversity within a hyperstate. The dynamics of these components are then linked to nonlinear Riemannian Fokker–Planck and nonlocal master-equation descriptions, thereby offering a population-level perspective on stochastic optimization, and are unified by a variational free-energy formulation. The framework establishes a principled balance between global exploration and local exploitation, optimization stability, uncertainty awareness, and geometric consistency. The paired-run experiments compare and contrast the algorithm's predictive performance, calibration, robustness to perturbations, optimization behavior, and computational cost with SGD, ",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "prediction-molecular-structures-properties-quantum-technology-3eeac",
@@ -12433,6 +12555,34 @@
    "domains": []
   },
   {
+   "id": "decentralized-smart-city-transport-quantum-computing-nft-b0038",
+   "title": "Decentralized smart city transport via quantum computing and NFT spatial governance",
+   "titleZh": "去中心化智慧城市交通的量子计算与 NFT 空间治理",
+   "authors": [
+    "Ehsan Dorostkar"
+   ],
+   "venue": "Sustainable Futures",
+   "date": "2025-10-29",
+   "year": 2025,
+   "citations": 10,
+   "arxivId": "",
+   "doi": "10.1016/j.sftr.2025.101474",
+   "url": "https://doi.org/10.1016/j.sftr.2025.101474",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Sustainable Futures 2025:探索量子计算与 NFT(非同质化通证)协同革新城市交通系统的概念框架——量子优化交通改进+去中心化治理机制结合;前瞻性概念工作,视角新颖。",
+   "abstract": "This research explores the future synergy between quantum computing (QC) and non-fungible tokens (NFTs) as a tool to revitalize urban transport systems through optimized improvement techniques as well as decentralized governance. Utilizing a conceptual approach combined with thematic analysis, this research provides an integrative framework that combines insights from quantum computing, blockchain governance, and transport geography. Key results include the observation that the integration of these technologies holds the potential to address enduring issues regarding efficiency, sustainability, and equity within transport through exemplary spatial optimization as well as open, participatory governance strategies. However, significant challenges do remain, including energy consumption, the digital divide, as well as regulative uncertainties, requiring careful design, equity-focused protections, as well as effective governance infrastructure. This paper suggests that the actualization of the full potential of these future technologies requires interdisciplinary collaboration as well as a focus on the public good rather than technological advancement alone.",
+   "source": "backfill",
+   "domains": [
+    "transport"
+   ]
+  },
+  {
    "id": "energy-aware-swarm-robotics-smart-microgrids-quantum-84910",
    "title": "Energy-Aware Swarm Robotics in Smart Microgrids Using Quantum-Inspired Reinforcement Learning",
    "titleZh": "titleZh",
@@ -13922,6 +14072,41 @@
    "source": "backfill",
    "domains": [
     "materials"
+   ]
+  },
+  {
+   "id": "quantum-computing-transport-network-optimization-d5ad0",
+   "title": "Quantum Computing for Transport Network Optimization",
+   "titleZh": "公共交通网络优化的量子计算方法",
+   "authors": [
+    "Jiangwei Ju",
+    "Zhihang Liu",
+    "Yuelin Bai",
+    "Yong Wang",
+    "Qi Gao",
+    "Yin Ma",
+    "Chao Zheng",
+    "Kai Wen"
+   ],
+   "venue": "Entropy",
+   "date": "2025-09-13",
+   "year": 2025,
+   "citations": 8,
+   "arxivId": "",
+   "doi": "10.3390/e27090953",
+   "url": "https://doi.org/10.3390/e27090953",
+   "topics": [
+    "qinspired"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Entropy 2025(8 引):面向大都市公交网络设计(最大化客流覆盖+换乘因素)的复杂优化问题,给出量子计算求解方案;公交线网设计是交通规划的经典难题,量子化尝试的代表工作。",
+   "abstract": "Public transport systems play a crucial role in the development of large cities. Bus network design to optimize passenger flow coverage in a global metropolis is a challenging task. As an essential part of bus travel planning, considering the bus transfer factor in the existing extremely complex and extensive public bus network usually leads to a optimization problem characterized by high-dimensionality and non-linearity. While classical computers struggle to deal with this kind of problems, quantum computers shed new light into this field. The coherent Ising machine (CIM), a specialized optical quantum computer using a photonic dissipative architecture, has shown its remarkable computational power in combinatorial optimization problems. We construct the classical model and the quadratic unconstrained binary optimization (QUBO) model of the bus route optimization problem, and solve it using a classical computer and CIM, respectively. Our experimental results demonstrate the significant acceleration capability of CIM over classical computers in finding the optimal or near-optimal solutions, albeit subject to the hardware limitations of the 100-qubit CIM.",
+   "source": "backfill",
+   "domains": [
+    "transport"
    ]
   },
   {
@@ -28921,6 +29106,35 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "upgrading-strategies-long-haul-quantum-key-distribution-46e0b",
+   "title": "Upgrading strategies for long-haul quantum key distribution networks",
+   "titleZh": "长途量子密钥分发网络的升级策略",
+   "authors": [
+    "Mario Wenning",
+    "Maria Samonaki",
+    "Sai Kireet Patri",
+    "Tobias Fehenberger",
+    "Helmut Grießer",
+    "Carmen Mas Machuca"
+   ],
+   "venue": "Journal of Optical Communications and Networking",
+   "date": "2024-04-12",
+   "year": 2024,
+   "citations": 5,
+   "arxivId": "",
+   "doi": "10.1364/jocn.513632",
+   "url": "https://doi.org/10.1364/jocn.513632",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Journal of Optical Communications 2024:面向长途 QKD 网络(利用既有光纤基础设施)给出分阶段升级策略,是量子通信基础设施建设的规划性工作;与站点 DSN/量子通信线互补。",
+   "abstract": "Quantum key distribution (QKD) has become a promising option for transmitting sensitive data due to the increased maturity of QKD devices and the threat scalable quantum computers imposes on asymmetric public-key cryptosystems. By utilizing existing infrastructure, e.g., amplifier huts and dark fibers, the cost and complexity of deploying QKD networks (QKDNs) can be reduced. In this study, we develop a topology optimization algorithm that minimizes the cost of the QKDN deployment and maximizes the key capacity between any pair of nodes. We present three deployment upgrade strategies for facilitating the encryption of increasing throughput of QKD-secured optical transport networks and enabling a pay-as-you-grow approach. Comparing different strategies in a capacity-planning study allows operators to assess the scalability of deployments and upgrades. Depending on the availability requirements, our results compare the cost of protection measures. We confirm that adding trusted nodes is the most cost-efficient upgrading strategy based on our analysis.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "nonadiabatic-geometric-quantum-gates-composite-pulses-based-d1777",
