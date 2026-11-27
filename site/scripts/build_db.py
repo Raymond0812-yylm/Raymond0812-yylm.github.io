@@ -251,7 +251,7 @@ def main():
             p["domains"] = [d for d in match_key(domain_text(p), DOMAIN_RULES)[:3] if d in DOMAIN_LABELS]
 
     # ---- 量子相关性硬过滤(二次严格审查;卫星与航天领域文献豁免)----
-    QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|qubit|量子", re.I)
+    QS = re.compile(r"quantum|QAOA|QUBO|Ising|anneal|adiabatic|rydberg|trapped[- ]ion|VQE|variational quantum|qubit|量子|transmon|fluxonium|bosonic|josephson|penning", re.I)
     CRYPTO = re.compile(r"post-quantum|quantum[- ]resistant|cryptograph|cryptanalysis", re.I)
     def is_quantum(p):
         title, text = p.get("title", ""), ((p.get("summaryZh") or "") + " " + (p.get("abstract") or ""))[:700]
@@ -262,7 +262,7 @@ def main():
         core = text[:650]
         if not QS.search(core):
             return False
-        n = len(re.findall(r"quantum", core, re.I)) + len(re.findall(r"QAOA|QUBO|Ising machine|quantum anneal|variational quantum|neutral[- ]atom|中性原子|量子退火|量子计算|量子优化|量子启发", core, re.I))
+        n = len(re.findall(r"quantum", core, re.I)) + len(re.findall(r"QAOA|QUBO|Ising machine|quantum anneal|variational quantum|neutral[- ]atom|qubit|transmon|fluxonium|surface code|logical qubit|中性原子|量子比特|量子纠错|量子退火|量子计算|量子优化|量子启发|表面码|逻辑比特", core, re.I))
         return n >= 2
 
     kept, culled_list = [], []

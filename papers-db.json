@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-11-26",
+ "updated": "2026-11-28",
  "topics": {
   "qaoa": {
    "label": "量子近似优化",
@@ -182,6 +182,42 @@
    "domains": []
   },
   {
+   "id": "demonstration-logical-error-suppression-surface-code-memory-ef4ab",
+   "title": "Demonstration of Logical Error Suppression in a Surface Code Memory on a Cloud-Accessible IBM Superconducting Processor",
+   "titleZh": "云接入 IBM 超导处理器表面码存储器的逻辑错误抑制演示",
+   "authors": [
+    "Shuwen Kan",
+    "Aaron C. Hoyt",
+    "Sean R. Garner",
+    "Ethan Vo",
+    "Adrian Harkness",
+    "Rod Rofougaran",
+    "Zefan Du",
+    "Chenxu Liu",
+    "Norm M. Tubman",
+    "Ying Mao",
+    "Samuel Stein"
+   ],
+   "venue": "arXiv",
+   "date": "2026-10-16",
+   "year": 2026,
+   "citations": 2,
+   "arxivId": "2610.23840",
+   "doi": "10.48550/arxiv.2610.23840",
+   "url": "https://arxiv.org/abs/2610.23840",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-10:在云接入 IBM 超导处理器上演示表面码存储器的逻辑错误抑制——需要门、mid-circuit 测量与比特相干的紧密协调,器件差异与噪声相干性是主要工程挑战。",
+   "abstract": "Quantum error correction can suppress logical errors exponentially with code distance when physical noise is below threshold. Realizing this on hardware requires tight coordination among quantum gates, mid-circuit measurements, and qubit coherence. Device variation, noise asymmetry, and correlations across space and time complicate the translation of these capabilities into logical error suppression. Here, we study rotated surface-code memory on an IBM Nighthawk r2 processor. Performance varies across tested processor placements, which we attribute to differences in qubit quality. We optimize the code by combining short readout, fused measurement and reset, and an XX echo on data qubits during ancilla readout. Compared with standard readout without reset or echo, the optimized syndrome extraction circuit reduces the median per-round logical error rate by factors of 3.8 in the X basis and 1.4 in the Z basis. In memory experiments of up to 150 rounds, the distance advantage weakens, alongside long-lived correlations that may reflect a persistent error component. Under our optimization recipe, increasing the protected distance from 3 to 6 while holding the other distance fixed reduces the per-round logical error rate from 0.53% to 0.24% in Z memory and from 0.52% to 0.22% in X memory. The corresponding error-suppression factors under maximum-likelihood decoding are 1.68 and 1.85. These results connect circuit compilation and optimization to surface-code memory performance and li",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "are-we-testing-wrong-quantum-bugs-study-fc8f1",
    "title": "Are We Testing the Wrong Quantum Bugs? A Study of Fault Representation Gaps in Quantum Software Testing",
    "titleZh": "我们在测错误的量子 Bug 吗?量子软件工程中的故障表示差距研究",
@@ -265,6 +301,34 @@
    ],
    "summaryZh": "arXiv 2025-10:量子编译器 passes 的正确性验证难题——大而深纠缠线路的期望输出难以确定;该文提出回溯态(retromorphic)测试方法,为编译器正确性验证提供新范式,与库内 Retromorphic Testing 系列呼应。",
    "abstract": "Quantum compilers play a critical role in transforming high-level quantum programs into optimized, hardware-compatible circuits. However, verifying the correctness of compiler passes remains challenging, as determining the expected output of large, deeply entangled quantum circuits is computationally intractable. This challenge is further amplified when compiler passes modify already complex circuit structures, making manual validation of transformed circuits impractical. In this work, we perform a systematic analysis of unit tests for quantum compiler passes in four quantum programming frameworks (PennyLane, Qiskit, Cirq, and pytket). Our findings indicate validation is dominated by program-content and program-metric assertions, and test circuits are generally small and shallow. Motivated by these observations, we introduce a testing methodology for automated validation of quantum compiler passes based on retromorphic testing and principles from the Hadamard test. This methodology analyzes a compiler pass, test circuit, and expected pass behavior to verify semantic preservation and intended structural modifications. We implement our methods in a framework, RetroQ, and apply it to compiler passes in PennyLane and Qiskit. Experimental evaluation reproduced several existing bugs as well as uncovered previously undetected defects, such as flawed symbolic parameter handling, incorrect commutation logic, failure to recognize self-adjointness of gates, and runtime crashes. These fi",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "error-semitransparent-universal-control-bosonic-logical-qubit-fc41a",
+   "title": "Error semitransparent universal control of a bosonic logical qubit",
+   "titleZh": "玻色逻辑比特的错误半透明通用控制",
+   "authors": [
+    "Saswata Roy",
+    "Owen C. Wetherbee",
+    "Valla Fatemi"
+   ],
+   "venue": "Nature Communications",
+   "date": "2026-10-08",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1038/s41467-026-78317-y",
+   "url": "https://doi.org/10.1038/s41467-026-78317-y",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Nature Communications 2026-10:玻色码已实现超越盈亏平衡的量子存储,但容错逻辑操作仍是瓶颈;该文实现错误半透明(ET)通用门——逻辑操作期间错误不扩散,补上玻色纠错的逻辑操作短板。",
+   "abstract": "Bosonic codes offer hardware-efficient quantum error correction, recently achieving beyond-breakeven quantum memory. However, fault-tolerant logical operations remain a critical bottleneck. While error transparent (ET) gates offer a pathway to resolve this, experimental demonstrations remain limited to phase gates. Here, we introduce a dynamic encoding subspaces framework that enables simple linear drives to accomplish universal logical gates that are error semi-transparent (EsT) to oscillator photon loss. Our EsT logical gate set of {X, H, T} exhibited a five-fold reduction in infidelity conditioned on photon loss, extended active-manipulation lifetimes with quantum error correction, and enabled a composite EsT non-Clifford operation using an eight-gate sequence. Our approach is compatible with methods for detectable ancilla errors and is readily extensible to other rotation-symmetric codes, offering an approach to error-mitigated universal control of bosonic logical qubits with the standard quantum control toolkit and a coherent framework for incorporating more sophisticated quantum control methods.",
    "source": "backfill",
    "domains": []
   },
@@ -556,6 +620,38 @@
    "abstract": "We prove the first non-trivial upper bound for the quantum query complexity of Boolean Matrix Product Verification ($\\mathsf{BMPV}$), answering a longstanding open question in quantum query complexity. For $n\\times n$ matrices, our upper bound is $\\widetilde O(n^{17/12})$, improving on the standard $O(n^{3/2})$ bound obtained using Grover search by Buhrman and Špalek [SODA 2006]. We complement this result by showing an $Ω(n^{5/4})$ lower bound, which improves over the previous best known lower bound of $\\widetildeΩ(n^{19/18})$ by Childs, Kimmel, and Kothari [ESA 2012]. Our approach centers on a connection with Orthogonal Vectors ($\\mathsf{OV}$), which asks whether an indexed list of $n$ Boolean vectors of dimension $n$ contains two vectors with disjoint supports. In particular, we prove equivalences between $\\mathsf{OV}$ and $\\mathsf{BMPV}$ and establish the above bounds for $\\mathsf{OV}$. We also prove a tight $\\widetilde Θ(n^{3/2})$ bound for a variant of $\\mathsf{BMPV}$ that asks whether the product contains a given row vector. Together, these results imply a polynomial separation between the quantum query complexities of deciding whether a graph has radius at most two and whether it has diameter at most two.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "readout-failures-superconducting-qubits-due-two-level-85bfe",
+   "title": "Readout failures in superconducting qubits due to two-level system defects in tunnel junctions",
+   "titleZh": "transmon 隧穿势垒中强耦合 TLS 的读出失败研究",
+   "authors": [
+    "Jürgen Lisenfeld",
+    "Alexander K. Händel",
+    "Alexander Bilmes",
+    "Alexey Vladimirovich Ustinov"
+   ],
+   "venue": "Physical Review Research",
+   "date": "2026-09-30",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "",
+   "doi": "10.1103/ypm5-lh8d",
+   "url": "https://doi.org/10.1103/ypm5-lh8d",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Physical Review Research 2026:用多光子谱学与 TLS 战略定位研究 transmon 隧穿势垒中的强耦合 TLS——读出失败与 TLS 的关联被定量建立,与 TLS 映射构成缺陷工程谱系。",
+   "abstract": "Material defects give rise to parasitic two-level systems (TLS) that present a major source of decoherence in superconducting qubits. Here, we study a strongly coupled TLS that resides in the tunnel barrier of transmon qubit. We use multiphoton spectroscopy and TLS strain tuning to explore the rich spectrum of the interacting three-partite system consisting of TLS, qubit, and its readout resonator. This reveals a strong effective resonant coupling between the TLS and the qubit's readout resonator, which dresses the resonator states and results in a resonance frequency shift that spoils the readout signal. Our finding presents yet another way how material defects can interfere with qubit operation and hinder the realization of solid-state quantum processors.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "simulator-based-quantum-framework-molecular-dynamics-multiscale-47028",
@@ -1076,6 +1172,35 @@
    ]
   },
   {
+   "id": "demonstration-logical-bell-state-measurement-beyond-linear-f4549",
+   "title": "Demonstration of a logical Bell-state measurement beyond the linear-optical limit",
+   "titleZh": "超越线性光学极限的逻辑贝尔态测量演示",
+   "authors": [
+    "Shreya Kumar",
+    "Simon Daniel Reiß",
+    "Peter van Loock",
+    "Stefanie Barz"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-09",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2609.10698",
+   "doi": "10.48550/arxiv.2609.10698",
+   "url": "https://arxiv.org/abs/2609.10698",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:贝尔态测量(BSM)是测量型量子计算与聚变网络的基础组件;该文在线性光学极限之外演示逻辑级 BSM,为光子容错计算补上关键逻辑操作。",
+   "abstract": "Fault tolerance is essential for scalable quantum technologies and is enabled by quantum error-correction codes. Bell-state measurements (BSMs) are a fundamental building block for modern quantum technologies such as measurement-based quantum computation and fusion-based quantum computation, as well as quantum networks. Therefore, performing BSMs on error-corrected qubits is a necessary step for achieving fault tolerance in these applications. In this work, we realise a logical BSM using linear optics, based on a two-qubit repetition code, an instance of a quantum parity code that allows detection of bit-flip errors, and experimentally achieve a mean success probability of (70.8 +/- 0.4)%. While standard linear-optical BSMs are fundamentally limited to a maximum success probability of 50%, this increased success probability enables higher secure key rates in quantum communication and facilitates the generation of large graph states for quantum computation. Since fault-tolerant schemes require error-correction codes regardless, this improvement comes at no additional resource overhead. Our results demonstrate that error-correction codes can be used to surpass the linear-optics limit of BSMs, which is an important step towards practical, fault-tolerant, and scalable photonic quantum technologies.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "efficient-quantum-state-preparation-quantinuum-hardware-160c9",
    "title": "Efficient quantum state preparation on Quantinuum hardware",
    "titleZh": "Quantinuum 硬件上的高效量子态制备",
@@ -1102,6 +1227,39 @@
    ],
    "summaryZh": "arXiv 2026:在 Quantinuum 离子阱硬件上实现特定量子态的高效制备与验证,态制备是所有量子算法的第一步,该工作给出系统化方案。",
    "abstract": "Preparation and verification of specific quantum states is an important capability for quantum devices to realise advantages over classical computations and algorithms. In this work, we have demonstrated an end-to-end framework that combines resource-efficient quantum state preparation with rapid, robust fidelity verification on near-term quantum hardware. By experimentally preparing and validating a structured complex quantum state encoding a digitized acoustic signal on the Quantinuum H2-1 trapped-ion platform, we achieved a high hardware fidelity of $F_{\\mathrm{hw}} = 0.929$. Crucially, this milestone was realized without relying on idealized assumptions or deep fault-tolerant overhead, but rather through resource-minimal circuits optimized for NISQ-era and early fault-tolerant devices. Furthermore, we addressed a key limitation in current quantum state certification. While validation methods like shadow overlap work well for random states, their sample complexity can become prohibitively high for the structured states used in practical algorithms. We mitigate this by introducing a pre-measurement basis-change technique that reduces the verification parameter, $τ$, by over 10 orders of magnitude for structured targets. This approach tightens the theoretical certification guarantees of the shadow overlap method and integrates tensor-network preparation and shadow validation into a unified workflow. These results shift the paradigm of how structured classical data can be map",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "platform-aware-compilation-framework-fault-tolerant-quantum-7155a",
+   "title": "A Platform-aware Compilation Framework for Fault-tolerant Quantum Computation",
+   "titleZh": "平台感知的容错量子计算编译框架",
+   "authors": [
+    "Srushti Patil",
+    "Susan X. Chen",
+    "Andreas Juul Bay-Smidt",
+    "Stefan Alaric Schäffer",
+    "Peter Krogstrup",
+    "Stefano Paesani",
+    "Gemma C. Solomon"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-08",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2609.08908",
+   "doi": "10.48550/arxiv.2609.08908",
+   "url": "https://arxiv.org/abs/2609.08908",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:算法编译随硬件平台与纠错模型的选择差异巨大;该文提出平台感知编译框架,统一评估不同架构-硬件组合的资源需求,免却\"绑定单一配置\"的评估失真。",
+   "abstract": "The compilation of an algorithm can vary significantly with the choice of physical hardware platform and error correction model. Yet, current compilation frameworks typically commit to a single architecture-hardware configuration, making it difficult to assess resource estimates across platforms. We present a platform-aware compilation framework that re-compiles a quantum circuit into a hardware-compatible instruction set as well as fault-tolerant operations and provides end-to-end resource estimates in terms of physical-qubit count, time-to-solution, and classical processing time. We benchmark the framework by obtaining end-to-end resource estimates for different compilers, each tailored to the functionalities of specific hardware modalities: connectivity, clock speed, and noise model. As part of this framework, we introduce a transversal active volume (t-AV) compilation architecture designed for the efficient execution of fault-tolerant operations in platforms supporting long-range logical connectivity. We benchmark the framework for Hamiltonian simulation of the 2D Fermi Hubbard model as well as for eigenenergy estimation of a small molecule (trimethylenemethane) as a candidate for early fault-tolerant demonstration of quantum chemistry. For the latter, we show that end-to-end quantum simulations can be achieved with $\\sim10^4$ physical qubits and runtimes ranging from $10^2$ ms (photonics, superconducting) to $10^5$ ms (neutral atoms).",
    "source": "backfill",
    "domains": []
   },
@@ -1562,6 +1720,35 @@
    ],
    "summaryZh": "热场双态(TFD)制备通常需要深层量子电路。论文将多角度QAOA(ma-QAOA)用于SYK模型的TFD态制备,提出两种自顶向下的顺序角度剪枝算法,在移除小优化角度的泡利串演化后重新优化,在保持高保真度的同时显著压缩电路深度,更适合含噪处理器。",
    "abstract": "Variational preparation of thermofield double (TFD) states can require deep quantum circuits, particularly for interacting many-body systems. Reducing these circuits while retaining high fidelity is therefore crucial for TFD-state preparation on noisy quantum processors. We study this problem by applying the multi-angle quantum approximate optimization algorithm (ma-QAOA) to TFD-state preparation and introducing two top-down sequential angle-pruning algorithms. Starting from the optimized initial ma-QAOA circuit, both algorithms sequentially remove Pauli-string evolutions with small optimized angles and reoptimize the remaining parameters after each removal. We apply these algorithms to Gaussian and binary Sachdev--Ye--Kitaev (SYK) models in both dense and sparse cases. We find that ma-QAOA prepares the target TFD states with high fidelity and that sequential small-angle pruning retains high fidelity while reducing the circuit depth, particularly at low temperature. Moreover, using the post-reoptimization cost in sequential small-angle pruning further improves the fidelity. For the binary sparse $N=10$ SYK model at $β=10$, $88.8\\%$--$92.1\\%$ of the nonlocal Pauli-string evolutions are removed while retaining an average fidelity of approximately $95\\%$. Finally, we propose extensions of the sequential pruning algorithms toward quantum--classical hybrid implementation.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "coherent-microwave-optical-transduction-yb-yso-spins-2f25a",
+   "title": "Coherent microwave-to-optical transduction with Yb:YSO spins strongly coupled to a 3D resonator",
+   "titleZh": "Yb:YSO 自旋强耦合三维谐振腔的相干微波-光学转导",
+   "authors": [
+    "Ujjwal Gautam",
+    "Nasser Gohari Kamel",
+    "Sourabh Kumar",
+    "Daniel Oblak"
+   ],
+   "venue": "arXiv",
+   "date": "2026-09-02",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2609.02226",
+   "doi": "10.48550/arxiv.2609.02226",
+   "url": "https://arxiv.org/abs/2609.02226",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-09:在掺镱 YSO 晶体中实现自旋与三维谐振腔强耦合的相干微波-光学转导,为远程超导比特纠缠提供固态实现,转导效率是核心指标。",
+   "abstract": "Microwave-to-optical quantum transducers are essential for entangling remote superconducting qubits. Among the available transduction platforms, ensembles of Er$^{3+}$ and Yb$^{3+}$ ions doped into solids have emerged as leading candidates. While external magnetic fields are needed to split the Zeeman levels of erbium ions and enable a microwave--qubit interface, superconducting qubits suffer decoherence in such fields. In contrast, ytterbium ions exhibit zero-first-order Zeeman transitions and large hyperfine splittings at zero magnetic field (when doped into inorganic crystals). Owing to its long optical and spin coherence times, Yb:YSO has been widely used as a quantum memory, yet its potential for quantum transduction remains largely unexplored. Investigating this material could enable the integration of quantum memory and transduction in a single platform. Here, we demonstrate microwave-to-optical transduction in the continuous-wave regime using a 5\\,ppm doped Yb:YSO crystal. The internal transduction efficiency is $2\\times10^{-8}$ with a bandwidth of 200\\,kHz, achieved using a 3D loop-gap microwave resonator (LGR) and a single-pass optical configuration. We explore all the ground states that form a V-type three-level system with the first and second optical excited states and assert the use of the ground state, which provides the highest efficiency and isolated optical transition. We further establish strong spin-microwave coupling from avoided crossing measurements. Wi",
    "source": "backfill",
    "domains": []
   },
@@ -3072,6 +3259,47 @@
    "domains": []
   },
   {
+   "id": "hardware-efficient-erasure-error-detection-integer-fluxonium-d4aa0",
+   "title": "Hardware-efficient erasure-error detection with an integer fluxonium",
+   "titleZh": "整数 fluxonium 中的硬件高效擦除错误检测",
+   "authors": [
+    "Junyoung An",
+    "Helin Zhang",
+    "Jeffrey Gertler",
+    "Kate Azar",
+    "Renee DePencier Pinero",
+    "Michael Gingras",
+    "Junghyun Kim",
+    "Bethany M. Niedzielski",
+    "Ilan T. Rosen",
+    "Mollie E. Schwartz",
+    "Joel I-Jan Wang",
+    "Terry P. Orlando",
+    "Jeffrey A. Grover",
+    "Max Hays",
+    "Kyle Serniak",
+    "William D. Oliver"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-29",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2607.27123",
+   "doi": "10.48550/arxiv.2607.27123",
+   "url": "https://arxiv.org/abs/2607.27123",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:在整数 fluxonium 中演示擦除转换与 mid-circuit 擦除检测,使玻色比特纠错系统能识别错误发生的时间与位置,擦除错误的可见性可大幅提升纠错效率。",
+   "abstract": "Erasure-error detection can improve the efficiency of quantum error correction by revealing the times and locations of their error events. In this work, we demonstrate erasure conversions and mid-circuit erasure detections in a single integer fluxonium, in which the states $\\mathrm{|g\\rangle, |f\\rangle}$ encode the logical states and $\\mathrm{|e\\rangle}$ encodes the erasure state. The integer fluxonium suppresses direct $|\\mathrm{f} \\rangle \\rightarrow |\\mathrm{g} \\rangle$ transitions and allows the dominant $|\\mathrm{f} \\rangle \\rightarrow |\\mathrm{e}\\rangle$ transitions to be converted into detectable erasures. Furthermore, we identified a design space that nullifies the resonant-frequency shift between the two logical states, enabling ancilla-free mid-circuit erasure checks using the same resonator employed for final readout. By discarding the detected erasure events, we achieved an 8.4-fold increase in the $|\\mathrm{f}\\rangle$ state lifetime, a 1.38-fold increase in the Hahn-echo time, and a reduction of single-qubit gate error from 0.061(2)% to 0.030(5)%. Our results establish integer fluxonium as a hardware-efficient platform for erasure-error detection and conversion, while identifying the improvements required to realize an effective erasure qubit with high erasure bias.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "pareto-front-engineering-dynamical-sweet-spots-superconducting-bec16",
    "title": "Pareto front engineering of dynamical sweet spots in superconducting qubits",
    "titleZh": "超导比特动态甜点的帕累托前沿工程",
@@ -3352,6 +3580,34 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "quantum-codes-from-classical-annealing-67674",
+   "title": "Quantum codes from classical annealing",
+   "titleZh": "经典模拟退火搜索中等规模高码率量子纠错码",
+   "authors": [
+    "Michael A. Perlin",
+    "Matthew Steinberg",
+    "Ben Criger"
+   ],
+   "venue": "arXiv",
+   "date": "2026-07-21",
+   "year": 2026,
+   "citations": 4,
+   "arxivId": "2607.19574",
+   "doi": "10.48550/arxiv.2607.19574",
+   "url": "https://arxiv.org/abs/2607.19574",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-07:用自适应模拟退火搜索高码率、大距离的中等规模稳定子码(CSS 及其子类)——经典优化算法反向为量子纠错设计码,与库内 QuantumQUBO Agent 同属\"算法为量子服务\"。",
+   "abstract": "We introduce an adaptive simulated annealing algorithm to search for moderately-sized quantum error-correcting codes with high encoding rates and large distances. Our search targets two classes of stabilizer codes: (1) CSS codes, and (2) a subclass of CSS codes that we call ``self-dual with equivalent logicals'' (SWEL) codes, the latter of which which admit transversal implementations of logical Hadamard and phase gates that can be leveraged to construct fault-tolerant gate sets. The search is guided by an energy function that acts as a surrogate for the logical error rate in a code-capacity noise model, combining code distance with a count of minimum-weight logical operators to resolve the discrete plateaux that impede naïve distance optimization. For block lengths of up to $50$ physical qubits, our search finds state-of-the-art CSS and SWEL codes whose distances frequently meet or exceed the variants of the quantum Gilbert-Varshamov bound. In addition to providing favorable seed codes for fault-tolerant architectures based on code concatenation, the codes found in this work are promising candidates for high-rate code demonstrations on near-term quantum computing hardware.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "cutbackdoor-circuit-cut-triggered-backdoor-attack-variational-c4a44",
@@ -4226,6 +4482,37 @@
    "domains": []
   },
   {
+   "id": "framework-partial-error-correction-intermediate-scale-quantum-d7996",
+   "title": "A framework of partial error correction for intermediate-scale quantum computers",
+   "titleZh": "中等规模量子计算机的部分纠错框架",
+   "authors": [
+    "Nikolaos Koukoulekidis",
+    "Samson Wang",
+    "Tom O’Leary",
+    "Daniel Bultrini",
+    "Łukasz Cincio",
+    "Piotr Czarnik"
+   ],
+   "venue": "npj Quantum Information",
+   "date": "2026-07-01",
+   "year": 2026,
+   "citations": 12,
+   "arxivId": "",
+   "doi": "10.1038/s41534-026-01301-3",
+   "url": "https://doi.org/10.1038/s41534-026-01301-3",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "npj Quantum Information(12 引):回答过渡期核心问题——有限比特与质量如何分配给纠错与计算;提出部分纠错框架在噪声小规模与完全容错系统之间架桥,资源分配策略的体系化工作。",
+   "abstract": "As quantum computing hardware steadily increases in qubit count and quality, one important question is how to allocate these resources to mitigate the effects of hardware noise. In a transitional era between noisy small-scale and fully fault-tolerant systems, we envisage a scenario in which we are only able to error-correct a fraction of the qubits required to perform an interesting computation. In this work, we develop concrete constructions of logical operations on a joint system of a collection of noisy and a collection of error-corrected logical qubits. Within this setting and under Pauli noise assumptions, we provide analytic evidence that brick-layered circuits display on average slower concentration to the “useless” uniform distribution with increasing circuit depth compared to fully noisy circuits. We corroborate these findings by numerical demonstration of slower decoherence with an increasing fraction of error-corrected qubits under depolarizing noise acting at the circuit level. We find that this advantage only manifests when the number of error-corrected qubits passes a specified threshold which depends on the number of couplings between error-corrected and noisy registers.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "optimizing-qaoa-circuit-transpilation-parity-twine-swap-18c58",
    "title": "Optimizing QAOA circuit transpilation with parity twine and SWAP network encodings",
    "titleZh": "利用奇偶缠绕与SWAP网络编码优化QAOA电路转译",
@@ -4445,6 +4732,35 @@
    "abstract": "We propose the Steiner Traveling Salesman Problem with Time Windows and Pickup and Delivery, an advanced and practical extension of classical routing models. This variant integrates the characteristics of the Steiner Traveling Salesman Problem with time-window constraints, pickup and delivery operations and vehicle capacity limitations. These features closely mirror the complexities of contemporary logistics challenges, including last-mile distribution, reverse logistics and on-demand service scenarios. To tackle the inherent computational difficulties of this NP-hard problem, we propose two specialized mathematical formulations: an arc-based model and a node-oriented model, each designed to capture distinct structural aspects of the problem. We further introduce a preprocessing reduction method that eliminates redundant arcs, significantly enhancing computational performance and scalability. We also introduce a benchmark instance generator designed to create diverse and scalable test scenarios, providing a flexible framework for assessing the performance and robustness of both classical and quantum optimization methods. Both formulations are implemented using classical and quantum optimization approaches. In particular, the classical models are solved with Gurobi, whereas the quantum implementation is carried out on D-Wave's LeapCQMHybrid platform, a hybrid quantum-classical environment that integrates quantum annealing with classical optimization techniques for constrained ",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "cultivating-logical-catalysts-fault-tolerant-dyadic-phase-2836a",
+   "title": "Cultivating logical catalysts for fault-tolerant dyadic phase rotations",
+   "titleZh": "表面码培育协议制备可复用逻辑催化剂态实现精确二进制相位门",
+   "authors": [
+    "Yan Xu",
+    "Xiao Wang"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-25",
+   "year": 2026,
+   "citations": 1,
+   "arxivId": "2606.27358",
+   "doi": "10.48550/arxiv.2606.27358",
+   "url": "https://arxiv.org/abs/2606.27358",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-06:提出表面码培育协议制备可复用的逻辑催化剂态,经相位反冲实现精确的 Z^(2^-b) 细粒度相位门;催化剂态可重复使用,是容错算术(如旋转门合成)的资源效率突破。",
+   "abstract": "We introduce a surface-code cultivation protocol for reusable logical catalyst states that implement exact fine dyadic phase gates $Z^{2^{-b}}$ by phase kickback. The catalyst is an eigenstate of a high-period Clifford circuit $U$, with a direct construction supported on $O(2^b)$ logical qubits. Once cultivated, each invocation implements the target phase through a controlled-$U$ gadget, removing Clifford+$T$ synthesis approximation error from the online gate and making the online non-Clifford depth independent of the target logical accuracy. As a concrete demonstration, we construct a catalyst for $\\sqrt{T}=Z^{1/8}$, where $U$ is a nine-qubit brickwork Clifford circuit and controlled-$U$ consists of eight controlled-CNOTs. Starting from nine distance-three rotated-surface-code blocks, we cultivate the catalyst through logical-$U$ checks, syndrome extraction and postselection, code growth, and complementary-gap decoding. Due to the intrinsic fault tolerance of the phase read-out, a \\emph{single} verification round already reaches the leading error-corrected scaling, in contrast to the repeated logical checks required when cultivating single-qubit magic states. A hybrid tensor-network and stabilizer simulation shows that, at physical error rate $p=10^{-3}$, the postselected catalyst can be grown to distance-seven rotated-surface-code blocks with logical leakage rate $\\sim 10^{-6}$ using around seven expected attempts, and can be suppressed further with stronger postselection. ",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "rate-aware-quantum-inspired-trajectory-learning-interference-fd112",
@@ -4834,6 +5150,37 @@
     "logistics",
     "materials"
    ]
+  },
+  {
+   "id": "lattice-surgery-near-term-experimental-logical-qubit-3aadb",
+   "title": "Lattice surgery for near-term experimental logical qubit entanglement creation in planar architectures",
+   "titleZh": "近期实验逻辑比特纠缠的晶格手术详细方案",
+   "authors": [
+    "Lukas Bödeker",
+    "Áron Márton",
+    "Luis Colmenárez",
+    "Ilya S. Besedin",
+    "Andreas J. Wallraff",
+    "Markus Müller"
+   ],
+   "venue": "arXiv",
+   "date": "2026-06-13",
+   "year": 2026,
+   "citations": 9,
+   "arxivId": "2606.15190",
+   "doi": "10.48550/arxiv.2606.15190",
+   "url": "https://arxiv.org/abs/2606.15190",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-06:在逻辑与物理比特双层详细描述平面架构中逻辑比特间纠缠操作的晶格手术实现——早期容错时代逻辑门演示的工程化方案,与库内 DSN 时代 TAES 表面码线呼应。",
+   "abstract": "In the era of early fault-tolerant quantum computing, basic demonstrations of entanglement operations between a few logical qubits are at the frontier of recent developments in quantum computing. In this work, we describe in detail, at both the logical and physical qubit levels, a logical teleportation protocol between two surface code logical qubits based on lattice surgery. We address several aspects of the teleportation protocol pertinent to superconducting qubit architectures. We explore the modularity constraints in the number and location of stabilizer readouts and compare variants of the teleportation protocol in this regard. Additionally, we investigate potential performance improvements related to in-sequence decision logic and the optimal size of the interface region between two surface code patches on a superconducting chip. Based on our simulations, we show possible near-term improvements in lattice surgery protocols that facilitate fault-tolerant quantum computing in superconducting circuit architectures.",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "parameter-study-industrial-applicability-quantum-annealing-approach-e0b38",
@@ -5334,6 +5681,38 @@
    "domains": []
   },
   {
+   "id": "programmable-coherent-site-selective-spin-control-rotating-b23a1",
+   "title": "Programmable coherent site-selective spin control in rotating Penning-trap ion crystals",
+   "titleZh": "Penning 阱旋转离子晶体的可编程相干位点选择自旋控制",
+   "authors": [
+    "Nihar Makadia",
+    "Julian Y. Z. Jee",
+    "Gustavo Café de Miranda",
+    "Joseph H. Pham",
+    "Michael J. Biercuk",
+    "Athreya Shankar",
+    "Robert N. Wolf"
+   ],
+   "venue": "arXiv",
+   "date": "2026-05-31",
+   "year": 2026,
+   "citations": 3,
+   "arxivId": "2606.00940",
+   "doi": "10.48550/arxiv.2606.00940",
+   "url": "https://arxiv.org/abs/2606.00940",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-05:Penning 阱大离子晶体(数百自旋)因刚体旋转限制局部控制;该文演示可编程相干位点选择自旋控制,为大规模离子晶体的量子模拟与传感解锁灵活寻址。",
+   "abstract": "Large ion crystals in Penning traps provide a platform for quantum simulation and sensing with hundreds of spins, but their continuous rigid-body rotation has so far limited flexible local qubit control. Here we demonstrate programmable coherent site-selective spin control across large rotating ${}^{9}\\mathrm{Be}^{+}$ crystals in a Penning trap. A tightly focused off-resonant laser beam drives local $R_z$ phase rotations via differential AC Stark shifts. Beam steering synchronised with crystal rotation enables addressing of arbitrary ions throughout the crystal. Ramsey-based characterisation shows $R_z(π)$ gate fidelity of 0.950(4) and nearest-neighbour crosstalk error of 0.021(6). We demonstrate preparing spatially structured spin patterns, generating a biskyrmion spin texture in a single-layer crystal, and then extend the method to bilayer crystals where we perform layer-selective addressing operations. We further demonstrate dual-quadrature Ramsey sensing by imprinting a relative $π/2$ phase shift between spatial sub-ensembles, enabling simultaneous measurement of orthogonal spin components within a single experimental realisation. These results establish programmable local control in large rotating ion crystals, opening new routes for engineering spatially structured quantum states in multidimensional trapped-ion systems.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "nisq-aware-hybrid-quantum-classical-framework-scalable-e794b",
    "title": "A NISQ-Aware Hybrid Quantum-Classical Framework for Scalable Combinatorial Optimization",
    "titleZh": "面向可扩展组合优化的NISQ感知混合量子-经典框架",
@@ -5620,6 +5999,39 @@
    ],
    "summaryZh": "面向化学激发态计算(光谱、材料、药物设计的关键环节),系统比较等系综与加权系综两类变分量子算法变体,证明等系综描述在计算成本与精度的权衡上系统性占优,为光化学相关的量子化学模拟提供更优路线。",
    "abstract": "Calculating excited states in chemistry is crucial to providing insight into photoinduced molecular behavior beyond the ground state, enabling innovations in spectroscopy, material sciences, and drug design. While several approaches have been developed to compute excited-state properties, finding the best ratio between the computational cost and accuracy remains challenging. The advent of quantum computers brings new perspectives with the development of quantum algorithms that promise an advantage over classical ones. Most of these new algorithms are inspired by previous classical ones but with different pros and cons. In this work, we focus on the choice of the weights within the ensemble variational quantum eigensolver (VQE) based on the generalization of the variational principle for many-body excited states. We compare the performance of the equi-ensemble and weighted ensemble VQE on two types of problems that cover different correlation regimes: (1) the many-body electronic structure problem of formaldimine using the generalized unitary coupled cluster ansatz and (2) the one-body noninteracting Kohn–Sham problem of hydrogen chains using the R Y CNOT hardware-efficient ansatz. While the equi-ensemble objective is to perform a block-diagonalization only, the weighted ensemble has the additional complexity to reach the targeted eigenstates and eigenvalues. In this work, we show that such a difference leads to several significant consequences, such as the increase in circuit",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
+  },
+  {
+   "id": "mapping-positions-two-level-systems-surface-superconducting-467b0",
+   "title": "Mapping the positions of Two-Level-Systems on the surface of a superconducting transmon qubit",
+   "titleZh": "Mapping 超导 transmon 表面的双能级系统位置",
+   "authors": [
+    "Jürgen Lisenfeld",
+    "Alexander K. Händel",
+    "Etienne Daum",
+    "Benedikt Berlitz",
+    "Alexander Bilmes",
+    "Alexey Vladimirovich Ustinov"
+   ],
+   "venue": "npj Quantum Information",
+   "date": "2026-05-20",
+   "year": 2026,
+   "citations": 11,
+   "arxivId": "",
+   "doi": "10.1038/s41534-026-01272-5",
+   "url": "https://doi.org/10.1038/s41534-026-01272-5",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "npj Quantum Information(11 引):超导量子计算机相干性受材料缺陷形成的寄生双能级系统(TLS)严重限制;该工作实现对 transmon 表面 TLS 位置的成像映射——缺陷定位从推测走向观测,材料工程的关键进展。",
+   "abstract": "The coherence of superconducting quantum computers is severely limited by material defects that create parasitic two-level-systems (TLS). Progress is complicated by lacking understanding how TLS are created and in which parts of a qubit circuit they are most detrimental. Here, we present a method to determine the individual positions of TLS at the surface of a transmon qubit. We employ a set of on-chip gate electrodes near the qubit to generate local DC electric fields that are used to tune the TLS’ resonance frequencies. The TLS position is inferred from the strengths at which TLS couple to different electrodes and comparing them to electric field simulations. We found that the majority of detectable surface-TLS was residing on the leads of the qubit’s Josephson junction, despite the dominant contribution of its coplanar capacitor to electric field energy and surface area. This indicates that the TLS density is significantly enhanced near shadow-evaporated electrodes fabricated by lift-off techniques. Our method is useful to identify critical circuit regions where TLS contribute most to decoherence, and can guide improvements in qubit design and fabrication methods.",
    "source": "backfill",
    "domains": [
     "materials"
@@ -6078,6 +6490,34 @@
    ],
    "summaryZh": "Statistics 2026:面向客户流失预测(管理科学与营收预测核心问题),提出量子几何熵优化框架 Q-GEO 并给出收敛理论保证;量子优化算法在管理科学中获得理论保证的少有工作。",
    "abstract": "Predicting customer churn from transactional data is a central problem in management science, with direct implications for retention strategy, revenue forecasting, and resource allocation. This paper introduces Quantum Geometric-Entropic Optimization (Q-GEO), a framework that integrates Geometric-Entropic Optimization – combining Riemannian gradient methods with entropy-regularized optimal transport – into the training of variational quantum kernels for classification. The algorithm operates on a parameter manifold equipped with a Fisher-Wasserstein metric and incorporates Sinkhorn-type projections to enforce distributional coherence on the quantum feature space. We establish three theoretical contributions: (i) a convergence theorem for Q-GEO-trained variational quantum kernels under a combined Polyak–Łojasiewicz and Sinkhorn contraction framework, yielding linear convergence in the Riemannian condition number plus geometric contraction of the Sinkhorn residual; (ii) a margin amplification result showing that GEO-trained quantum embeddings achieve improved separation bounds over Euclidean-trained counterparts due to the spectral regularization provided by the Wasserstein component of the Fisher-Wasserstein metric; and (iii) a distributional stability result proving that Sinkhorn-projected quantum kernel matrices preserve a doubly stochastic spectral structure that mitigates kernel collapse in imbalanced settings. We validate the framework on the UCI Online Retail II dataset ",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "soft-information-decoding-superconducting-qubits-687da",
+   "title": "Soft information decoding with superconducting qubits",
+   "titleZh": "超导比特的软信息解码",
+   "authors": [
+    "Maurice D. Hanisch",
+    "Bence Hetényi",
+    "James R. Wootton"
+   ],
+   "venue": "APS Open Science",
+   "date": "2026-05-08",
+   "year": 2026,
+   "citations": 6,
+   "arxivId": "",
+   "doi": "10.1103/y9fh-4x6n",
+   "url": "https://doi.org/10.1103/y9fh-4x6n",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "APS Open Science 2026:软信息解码(利用综合征测量的模拟幅度而非仅硬判决)可显著降低容错阈值——解码器从综合征提取软信息的体系化研究,解码精度工程的关键路线。",
+   "abstract": "Quantum error correction promises a viable path to fault-tolerant computations, enabling exponential error suppression when the device's error rates remain below the protocol's threshold. However, this threshold strongly depends on the classical method used to decode the measurements of the syndrome. These classical algorithms traditionally only interpret binary data, ignoring valuable information contained in complete analog measurement data. We present the first large-scale experimental verification of soft decoding by implementing repetition codes up to distance 51 on superconducting hardware. Unlike previous demonstrations limited to small code distances, this extensive range allows us to confirm a fundamental improvement in the exponential scaling of error suppression rather than a mere constant-factor reduction in error rates. We observe a 25% increase in the threshold, which yields logical error rates up to 30 times lower than standard hard decoding. Analyzing the trade-off between information volume and decoding performance, we show that a single byte of information per measurement suffices to reach optimal decoding. This underscores the effectiveness and practicality of soft decoding on hardware, including in time-sensitive contexts such as real-time decoding.",
    "source": "backfill",
    "domains": []
   },
@@ -7609,6 +8049,36 @@
    "domains": []
   },
   {
+   "id": "optimizing-logical-mappings-quantum-low-density-parity-b1480",
+   "title": "Optimizing Logical Mappings for Quantum Low-Density Parity Check Codes",
+   "titleZh": "优化量子 LDPC 码的逻辑映射",
+   "authors": [
+    "Sayam Sethi",
+    "Sahil Khan",
+    "Maxwell Poster",
+    "Abhinav Anand",
+    "Jonathan M. Baker"
+   ],
+   "venue": "arXiv",
+   "date": "2026-03-17",
+   "year": 2026,
+   "citations": 7,
+   "arxivId": "2603.17167",
+   "doi": "10.48550/arxiv.2603.17167",
+   "url": "https://arxiv.org/abs/2603.17167",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-03:面向程序总失败率的逻辑级编译优化——研究 qLDPC 码的逻辑映射选择如何影响端到端程序错误率,把逻辑映射从手工选择变为可优化对象。",
+   "abstract": "Early demonstrations of fault tolerant quantum systems have paved the way for logical-level compilation. For fault-tolerant applications to succeed, execution must finish with a low total program error rate (i.e., a low program failure rate). In this work, we study a promising candidate for future fault-tolerant architectures with low spatial overhead: the Gross code. Compilation for the Gross code entails compiling to Pauli Based Computation and then reducing the rotations and measurements to the Bicycle ISA. Depending on the configuration of modules and the placement of code modules on hardware, one can reduce the amount of resulting Bicycle instructions to produce a lower overall error rate. We find that NISQ-based, and existing FTQC mappers are insufficient for mapping logical qubits on Gross code architectures because 1. they do not account for the two-level nature of the logical qubit mapping problem, which separates into code modules with distinct measurements, and 2. they naively account only for length two interactions, whereas Pauli-Products are up to length $n$, where $n$ is the number of logical qubits in the circuit. For these reasons, we introduce a two-stage pipeline that first uses hypergraph partitioning to create in-module clusters, and then executes a priority-based algorithm to efficiently assign clusters onto hardware. We find that our mapping policy reduces the error contribution from inter-module measurements, the largest source of error in the Gross Co",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "robust-high-order-quantum-simulation-finite-width-659bc",
    "title": "Robust high-order quantum simulation using finite-width pulses",
    "titleZh": "有限脉宽鲁棒的高阶量子模拟脉冲序列框架",
@@ -8119,6 +8589,37 @@
    "domains": []
   },
   {
+   "id": "demonstration-high-fidelity-entangled-logical-qubits-transmons-e8f49",
+   "title": "Demonstration of high-fidelity entangled logical qubits using transmons",
+   "titleZh": "用动态解耦检测逻辑错误的 transmon 高保真纠缠逻辑比特演示",
+   "authors": [
+    "Arian Vezvaee",
+    "Vinay Tripathi",
+    "Mario Morford-Oberst",
+    "Friederike Butt",
+    "Victor Kasatkin",
+    "Daniel A. Lidar"
+   ],
+   "venue": "Nature Communications",
+   "date": "2026-02-27",
+   "year": 2026,
+   "citations": 9,
+   "arxivId": "",
+   "doi": "10.1038/s41467-026-70011-3",
+   "url": "https://doi.org/10.1038/s41467-026-70011-3",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "Nature Communications 2026(9 引):提出并实现利用动态解耦(DD)检测纠错码自身无法察觉的逻辑错误的方法,在 transmon 平台演示高保真纠缠逻辑比特——逻辑错误检测这一纠错的盲点被补上。",
+   "abstract": "Quantum error correction (QEC) codes are necessary to fault-tolerantly operate quantum computers. However, every such code is inherently limited by its inability to detect logical errors. Here, we propose and implement a method that leverages dynamical decoupling (DD) to drastically suppress logical errors. The key to achieving this is to use the normalizer elements of the QEC code as DD pulses, which we refer to as normalizer dynamical decoupling (NDD). The resulting hybrid QEC-NDD strategy is in principle capable of handling arbitrary weight errors. We test an error detecting version of this strategy using IBM transmon devices and the [[4, 2, 2]] code, demonstrating performance that significantly exceeds the capabilities of using either this code or DD in isolation. We present a method that allows for the detection of logical errors affecting logically encoded Bell states, which, in this case, arise primarily from crosstalk among physical qubits. Building on this, we experimentally demonstrate high-fidelity entangled logical qubits. The fidelities we achieve are beyond-breakeven, i.e., they significantly exceed the corresponding fidelities of unprotected entangled qubits in the same setting.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "edge-chaos-enhanced-quantum-inspired-algorithm-combinatorial-ed08c",
    "title": "Edge-of-chaos-enhanced quantum-inspired algorithm for combinatorial optimization",
    "titleZh": "混沌边缘增强的量子启发组合优化算法",
@@ -8577,6 +9078,50 @@
    "domains": [
     "materials"
    ]
+  },
+  {
+   "id": "demonstrating-benchmarking-classical-shadows-lindblad-tomography-1c638",
+   "title": "Demonstrating and Benchmarking Classical Shadows for Lindblad Tomography",
+   "titleZh": "经典阴影用于 Lindblad 层析的演示与基准测试",
+   "authors": [
+    "Rune Thinggaard Birke",
+    "Johann Bock Severin",
+    "Malthe A. Marciniak",
+    "Emil Hogedal",
+    "Andreas Nylander",
+    "Irshad Ahmad",
+    "Amr Osman",
+    "Janka Biznárová",
+    "Marcus Rommel",
+    "Anita Fadavi Roudsari",
+    "Jonas Bylander",
+    "Giovanna Tancredi",
+    "Daniel Stilck França",
+    "Werner, Albert",
+    "Christopher Warren",
+    "Jacob Hastrup",
+    "Svend Krøjer",
+    "Morten Kjærgaard"
+   ],
+   "venue": "arXiv",
+   "date": "2026-02-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2602.14694",
+   "doi": "10.48550/arxiv.2602.14694",
+   "url": "https://arxiv.org/abs/2602.14694",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "把经典阴影方法扩展到开放系统 Lindblad 层析并做基准演示——固体量子处理器的寄 生耦合与退相干需要精细表征,该工作给出可扩展的测量方案。",
+   "abstract": "Spurious couplings and decoherence degrade the performance of solid-state quantum processors, demanding careful design, calibration, and mitigation protocols. These strategies often rely on characterization of the idling processor, but tomographic recovery of (time-independent) Lindblad dynamics scales exponentially with qubit count. Here, we experimentally benchmark and demonstrate that randomized (\"shadow\") measurements accelerate Lindblad tomography on a superconducting transmon processor. We first implement extensible Lindblad tomography, which estimates Lindblad parameters using a complete tomographic dataset, and use it as a baseline to benchmark a shadow tomography approach, shadow Lindblad tomography. The shadow approach recycles randomized configurations to estimate the same Lindblad parameters using far fewer resources under physically motivated locality assumptions. We experimentally verify these assumptions in our processor by implementing the protocols on one- and three-qubit subsystems; here, shadow Lindblad tomography reproduces extensible Lindblad tomography within uncertainties while using exponentially fewer configurations. Leveraging this efficiency, we apply shadow Lindblad tomography to the full five-qubit processor and recover all single qubit dissipation and two-qubit coupling parameters in 9 hours of acquisition time compared to an estimated 58 hours for extensible Lindblad tomography. Additionally, our shadow implementation is compatible with conventi",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "optimization-free-recursive-quantum-approximate-optimization-algorithm-4a2f3",
@@ -9377,6 +9922,46 @@
    "domains": [
     "finance"
    ]
+  },
+  {
+   "id": "transmon-architecture-emission-detection-single-microwave-photons-e3318",
+   "title": "Transmon Architecture for Emission and Detection of Single Microwave Photons",
+   "titleZh": "单微波光子的发射与探测一体 Transmon 电路",
+   "authors": [
+    "Daniel L. Campbell",
+    "Stephen J. McCoy",
+    "Melinda Andrews",
+    "Alexander Madden",
+    "Viva R. Horowitz",
+    "Bakir Husremović",
+    "Samuel Marash",
+    "Christopher Nadeau",
+    "Man Nguyen",
+    "Andrew Brownell",
+    "Derrick Sica",
+    "Michael Senatore",
+    "Samuel Schwab",
+    "Erin Sheridan",
+    "Matthew LaHaye"
+   ],
+   "venue": "arXiv",
+   "date": "2026-01-16",
+   "year": 2026,
+   "citations": 0,
+   "arxivId": "2601.11378",
+   "doi": "10.48550/arxiv.2601.11378",
+   "url": "https://arxiv.org/abs/2601.11378",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2026-01:开发紧凑的 transmon 发射/探测一体(TED)超导电路,单一器件兼具单微波光子的发射与探测双功能,简化量子互连的硬件栈。",
+   "abstract": "We develop a compact transmon emitter/detector (TED) superconducting circuit and demonstrate its dual functionality as a single-photon source and detector. In our setup, photons emitted by a source TED are transmitted via a meter-long coaxial cable, routed through a circulator, and captured by a measurement TED. Both TED modules operate with nominally identical parameters, highlighting the flexibility of this novel architecture. Furthermore, we introduce an efficient microwave photon detection scheme tailored to the TED. Using this setup, we detect 60% of the emitted Fock state photons and infer a 95% detection efficiency at the input of the measurement TED, which we calibrate against coherent state measurements. The reset and photon emission/detection processes each require approximately $2\\,μs$, yielding a minimum protocol duration of $4\\,μs$ as constrained by our chosen TED parameters. Ultimately, the TED demonstrates a new use case for the recently developed double transmon coupler (DTC): a compact, drop-in, tunable, and transition-selective link between a coherent data transmon and a waveguide. Circuits like the TED will play a vital role in quantum information processing by facilitating unconditional fast reset, enabling microwave photon metrology, and serving as nascent quantum communication interfaces (QCIs). QCIs mediate entanglement distribution between quantum processing units (QPUs) within a cryostat or interface with microwave-to-optical transducers for long-rang",
+   "source": "backfill",
+   "domains": []
   },
   {
    "id": "extrapolation-method-optimize-linear-ramp-quantum-approximate-5e7f4",
@@ -11057,6 +11642,35 @@
    "abstract": "As quantum computing advances toward the late-NISQ and early fault-tolerant eras, scalable and platform-independent benchmarks are essential for quantifying computational capacity in a classically verifiable manner. We introduce two volumetric benchmarks, Clifford Volume and Free Fermion Volume, that assess quantum hardware by testing the execution of random Clifford and free fermion operations. These two groups of unitaries possess a combination of properties that make them ideal for benchmarking: (i) each is individually efficient to simulate classically, enabling verification at scale; (ii) together they form a universal gate set; (iii) they serve as essential algorithmic primitives in practical applications (including shadow tomography and quantum chemistry); and (iv) their definitions are formulated abstractly, without explicit reference to hardware-specific features such as qubit connectivity or native gate sets. This framework thus enables scalable and fair cross-platform comparisons and tracks meaningful computational advancement. We demonstrate the practical feasibility of these benchmarks through extensive numerical simulations across realistic noise parameters and through experimental validation on Quantinuum's H2-1 trapped-ion quantum computer, which achieves a Clifford Volume of 34.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "lattice-renormalized-tunneling-models-superconducting-qubit-materials-6a762",
+   "title": "Lattice-Renormalized Tunneling Models for Superconducting Qubit Materials",
+   "titleZh": "超导比特材料的格点重整化隧穿模型",
+   "authors": [
+    "P. Graham Pritchard",
+    "James M. Rondinelli"
+   ],
+   "venue": "arXiv",
+   "date": "2025-12-20",
+   "year": 2025,
+   "citations": 2,
+   "arxivId": "2512.18156",
+   "doi": "10.48550/arxiv.2512.18156",
+   "url": "https://arxiv.org/abs/2512.18156",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-12:提出格点重整化形式化描述构型隧穿 TLS,克服最小能量路径与轻粒子模型的局限——由核哈密顿导出、引入复合声子坐标,是 TLS 理论建模的体系化推进。",
+   "abstract": "We present a lattice-renormalized formalism for configurational tunneling two-level systems (TLS) that overcomes limitations of minimum-energy-path and light-particle models. Derived from the nuclear Hamiltonian, our formulation introduces composite phonon coordinates to capture lattice distortions between degenerate potential wells. This approach resolves deficiencies in prior models and enables accurate computation of tunnel splittings and excitation spectra for hydrogen-based TLS in bcc Nb. Our results bound experimental tunnel splittings and reveal strong anharmonic couplings between tunneling atoms and lattice phonons, establishing a direct link between TLS dynamics and phonon-mediated strain interactions. The formalism further generalizes to multi-level systems (MLS), providing insight into defect-induced decoherence in superconducting qubits and guiding strategies for materials design to suppress TLS-related loss.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "black-box-optimization-storage-location-assignment-problem-632dd",
@@ -12866,6 +13480,43 @@
    "abstract": "We propose an architecture for scheduling network operations enabling the end-to-end generation of entanglement according to user demand. The main challenge solved by this architecture is to allow for the integration of a network schedule with the execution of quantum programs running on processing end nodes in order to realise quantum network applications. A key element of this architecture is the definition of an entanglement packet to meet application requirements on near-term quantum networks where the lifetimes of the qubits stored at the end nodes are limited. Our architecture is fully modular and hardware agnostic, and defines a framework for further research on specific components that can now be developed independently of each other. In order to evaluate our architecture, we realise a proof of concept implementation on a simulated 6-node network in a star topology. We show our architecture facilitates the execution of quantum network applications, and that robust admission control is required to maintain quality of service. Finally, we comment on potential bottlenecks in our architecture and provide suggestions for future improvements.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "fabrication-structural-analysis-trilayers-tantalum-josephson-junctions-ee3e0",
+   "title": "Fabrication and Structural Analysis of Trilayers for Tantalum Josephson Junctions with Ta$_2$O$_5$ Barriers",
+   "titleZh": "钽约瑟夫森结三层膜的制备与结构分析(Ta2O5)",
+   "authors": [
+    "Raahul Potluri",
+    "Rohin Tangirala",
+    "Liu, Jiangteng",
+    "Alejandro Barrios",
+    "Praveen Kumar",
+    "Sage R. Bauers",
+    "Peter V. Sushko",
+    "David P. Pappas",
+    "Serena Eley"
+   ],
+   "venue": "arXiv",
+   "date": "2025-10-23",
+   "year": 2025,
+   "citations": 4,
+   "arxivId": "2510.20114",
+   "doi": "10.48550/arxiv.2510.20114",
+   "url": "https://arxiv.org/abs/2510.20114",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025-10:钽(Ta)是实现创纪录相干时间的低损耗材料;该文制备并结构分析 Ta/Ta2O5 三层膜,探究其原生氧化物中 TLS 缺陷的关键来源——钽比特材料的工艺细节。",
+   "abstract": "Tantalum (Ta) has emerged as a promising low-loss material, enabling record coherence times in superconducting qubits. This enhanced performance is largely attributed to its stable native oxide, which may host fewer two-level system (TLS) defects, which are the key contributors to decoherence in superconducting circuits. Nevertheless, aluminum oxide remains the predominant choice for Josephson junction (JJ) barriers in most qubit architectures. Here, we investigate techniques for forming high-quality oxide layers on $α$-phase tantalum films to develop tantalum-oxide JJ barriers. We explore thermal oxidation in a tube furnace, rapid thermal annealing, and plasma oxidation of both room-temperature and heated Ta films, characterize the resulting structures using X-ray techniques and electron microscopy, and propose a mechanistic picture of the oxidation pathways. We find that plasma oxidation provides the smoothest Ta$_2$O$_5$ layers, is compatible with in situ Ta deposition, and offers thickness control through the annealing temperature, advantageous for JJ fabrication. Lastly, we evaluate methods for growing Ta/TaO$_x$/Ta trilayers. All trilayers showed c-axis-oriented columnar growth of the bottom Ta layer, with sapphire substrates producing larger, better-aligned grains yet higher dislocation densities than silicon. Nucleation of c-axis-oriented $α$-Ta on tantalum-oxide required an Nb seed layer, as direct Ta deposition yielded amorphous Ta. These results demonstrate the fea",
+   "source": "backfill",
+   "domains": [
+    "manufacturing",
+    "materials"
+   ]
   },
   {
    "id": "optimization-decoded-quantum-interferometry-71b09",
@@ -15848,6 +16499,33 @@
    ]
   },
   {
+   "id": "awesome-quantum-computing-experiments-benchmarking-experimental-progress-8dd82",
+   "title": "Awesome Quantum Computing Experiments: Benchmarking Experimental Progress Towards Fault-Tolerant Quantum Computation",
+   "titleZh": "Awesome 量子计算实验:迈向容错量子计算的进展基准汇总",
+   "authors": [
+    "François-Marie Le Régent"
+   ],
+   "venue": "arXiv",
+   "date": "2025-07-04",
+   "year": 2025,
+   "citations": 7,
+   "arxivId": "2507.03678",
+   "doi": "10.48550/arxiv.2507.03678",
+   "url": "https://arxiv.org/abs/2507.03678",
+   "topics": [
+    "hardware",
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025(7 引):汇总并基准化离子阱/超导/中性原子/光量子等主要平台迈向容错的实验进展——物理比特性能与 QEC 双维度的对照清单,跟踪领域进展的工具型文献。",
+   "abstract": "Achieving fault-tolerant quantum computation (FTQC) demands simultaneous progress in physical qubit performance and quantum error correction (QEC). This work reviews and benchmarks experimental advancements towards FTQC across leading platforms, including trapped ions, superconducting circuits, neutral atoms, NV centers, and semiconductors. We analyze key physical metrics like coherence times, entanglement error, and system size (qubit count), fitting observed exponential trends to characterize multi-order-of-magnitude improvements over the past two decades. At the logical level, we survey the implementation landscape of QEC codes, tracking realized parameters $[[n, k, d]]$ and complexity from early demonstrations to recent surface and color code experiments. Synthesizing these physical and logical benchmarks reveals substantial progress enabled by underlying hardware improvements, while also outlining persistent challenges towards scalable FTQC. The experimental databases and analysis code underpinning this review are publicly available at https://github.com/francois-marie/awesome-quantum-computing-experiments.",
+   "source": "backfill",
+   "domains": []
+  },
+  {
    "id": "mini-scale-traffic-flow-optimization-iterative-qubos-a3cf4",
    "title": "Mini-scale traffic flow optimization: an iterative QUBOs approach converting from hybrid solver to pure quantum processing unit",
    "titleZh": "小规模交通流优化:从混合求解器到纯量子处理单元的迭代QUBO方案",
@@ -15998,6 +16676,50 @@
    "abstract": "High-fidelity mid-circuit measurements, which read out the state of specific qubits in a multiqubit processor without destroying them or disrupting their neighbors, are a critical component for useful quantum computing. They enable fault-tolerant quantum error correction, dynamic circuits, and other paths to solving classically intractable problems. But there are few methods to assess their performance comprehensively. In this work, we address this gap by introducing the first randomized benchmarking protocol that measures the rate at which mid-circuit measurements induce errors in many-qubit circuits. Using this protocol, we detect and eliminate previously undetected measurement-induced crosstalk in a 20-qubit trapped-ion quantum computer. Then, we use the same protocol to measure the rate of measurement-induced crosstalk error on a 27-qubit IBM Q processor, and quantify how much of that error is eliminated by dynamical decoupling. Characterisation of quantum operations is fundamental in quantum technologies - quantum computing in particular - but there’s currently no reliably efficient method to assess mid-circuit measurements, which are a key component for subfields like quantum error correction. Here, the authors fill this gap, integrating MCMs into the framework of randomized benchmarking.",
    "source": "backfill",
    "domains": []
+  },
+  {
+   "id": "temperature-magnetic-field-dependence-energy-relaxation-fluxonium-c9f7f",
+   "title": "Temperature and Magnetic-Field Dependence of Energy Relaxation in a Fluxonium Qubit",
+   "titleZh": "Fluxonium 比特能量弛豫的温度与磁场依赖研究",
+   "authors": [
+    "Lamia Ateshian",
+    "Max Hays",
+    "David A. Rower",
+    "Helin Zhang",
+    "Kate Azar",
+    "Réouven Assouly",
+    "Leon Ding",
+    "Michael Gingras",
+    "Hannah Stickler",
+    "Bethany M. Niedzielski",
+    "Mollie E. Schwartz",
+    "Terry P. Orlando",
+    "Joel I-Jan Wang",
+    "Simon Gustavsson",
+    "Jeffrey A. Grover",
+    "Kyle Serniak",
+    "William D. Oliver"
+   ],
+   "venue": "arXiv",
+   "date": "2025-07-01",
+   "year": 2025,
+   "citations": 14,
+   "arxivId": "2507.01175",
+   "doi": "10.48550/arxiv.2507.01175",
+   "url": "https://arxiv.org/abs/2507.01175",
+   "topics": [
+    "quantum"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025(14 引):系统研究界面材料缺陷噪声对 fluxonium 能量弛豫的温度与磁场依赖——-fluxonium 在高磁通偏置点的独特鲁棒性得到机理阐释,与 PRB 缺陷映射、TLS 谱学构成材料缺陷三部曲。",
+   "abstract": "Noise from material defects at device interfaces is known to limit the coherence of superconducting circuits, yet our understanding of the defect origins and noise mechanisms remains incomplete. Here we investigate the temperature and in-plane magnetic-field dependence of energy relaxation in a low-frequency fluxonium qubit, where the sensitivity to flux noise and charge noise arising from dielectric loss can be tuned by applied flux. We observe an approximately linear scaling of flux noise with temperature $T$ and a power-law dependence of dielectric loss $T^3$ up to 100 mK. Additionally, we find that the dielectric-loss-limited $T_1$ decreases with weak in-plane magnetic fields, suggesting a potential magnetic-field response of the underlying charge-coupled defects. We implement a multi-level decoherence model in our analysis, motivated by the widely tunable matrix elements and transition energies approaching the thermal energy scale in our system. These findings offer insight for fluxonium coherence modeling and should inform microscopic theories of intrinsic noise in superconducting circuits.",
+   "source": "backfill",
+   "domains": [
+    "materials"
+   ]
   },
   {
    "id": "quantum-compilation-toolkit-rydberg-atom-arrays-implications-80db8",
@@ -19968,6 +20690,34 @@
    ],
    "summaryZh": "把可解释 AI 的 Shapley 值方法引入量子机器学习:量化各量子特征/线路组件对预测的贡献,发表于 Quantum Machine Intelligence。",
    "abstract": "Abstract Methods of artificial intelligence (AI) and especially machine learning (ML) have been growing ever more complex, and at the same time have more and more impact on people’s lives. This leads to explainable AI (XAI) manifesting itself as an important research field that helps humans to better comprehend ML systems. In parallel, quantum machine learning (QML) is emerging with the ongoing improvement of quantum computing hardware combined with its increasing availability via cloud services. QML enables quantum-enhanced ML in which quantum mechanics is exploited to facilitate ML tasks, typically in the form of quantum-classical hybrid algorithms that combine quantum and classical resources. Quantum gates constitute the building blocks of gate-based quantum hardware and form circuits that can be used for quantum computations. For QML applications, quantum circuits are typically parameterized and their parameters are optimized classically such that a suitably defined objective function is minimized. Inspired by XAI, we raise the question of the explainability of such circuits by quantifying the importance of (groups of) gates for specific goals. To this end, we apply the well-established concept of Shapley values. The resulting attributions can be interpreted as explanations for why a specific circuit works well for a given task, improving the understanding of how to construct parameterized (or variational) quantum circuits, and fostering their human interpretability in ge",
+   "source": "backfill",
+   "domains": []
+  },
+  {
+   "id": "demolition-measurement-protocol-transmon-qubits-2853a",
+   "title": "Demolition measurement protocol for transmon qubits",
+   "titleZh": "transmon 比特的破坏式测量协议",
+   "authors": [
+    "Mishra, Ashutosh",
+    "Frank K. Wilhelm",
+    "Shai Machnes"
+   ],
+   "venue": "arXiv",
+   "date": "2025-02-25",
+   "year": 2025,
+   "citations": 1,
+   "arxivId": "2502.18322",
+   "doi": "10.48550/arxiv.2502.18322",
+   "url": "https://arxiv.org/abs/2502.18322",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [
+    "recent"
+   ],
+   "summaryZh": "arXiv 2025:提出 transmon 比特的破坏式测量协议——测量与重初始化合并,消除重复实验间的长闲置时间,提升超导量子计算机的有效采样吞吐。",
+   "abstract": "The process of measuring a qubit and re-initializing it to the ground state practically lead to long qubit idle times between re-runs of experiments on a superconducting quantum computer. Here, we propose a protocol for a \\textit{demolition measurement} of a transmon qubit that integrates qubit readout with the reset process to minimize qubit idle time. We present a three-staged implementation of this protocol, involving a combined qubit readout and resonator reset scheme that unconditionally resets the resonator at the end of the readout; a leakage removal scheme that can be integrated with the measurement stage; and an unconditional qubit reset. We demonstrate that this protocol could be implemented in $1 \\, μ$s with greater than $95 \\, \\%$ reset fidelity and a $99 \\, \\%$ readout fidelity without any hardware overhead beyond those commonly used. This provides at least a 50x speed up compared to the passive decay of the qubit, thereby significantly increasing the data-acquisition rate.",
    "source": "backfill",
    "domains": []
   },
@@ -26091,6 +26841,44 @@
    "source": "backfill",
    "domains": [
     "transport"
+   ]
+  },
+  {
+   "id": "effect-etching-methods-dielectric-losses-transmons-4094c",
+   "title": "Effect of Etching Methods on Dielectric Losses in Transmons",
+   "titleZh": "刻蚀方法对 Transmon 介电损耗的影响",
+   "authors": [
+    "T. A. Chudakova",
+    "Grigoriy S. Mazhorin",
+    "I. V. Trofimov",
+    "N. Yu. Rudenko",
+    "Alexander M. Mumlyakov",
+    "Alena S. Kazmina",
+    "Elena Yu. Egorova",
+    "P. A. Gladilovich",
+    "Maxim Vladimirovich Chichkov",
+    "Nataliya Maleeva",
+    "Michael A. Tarkhov",
+    "Vladimir I. Chichkov"
+   ],
+   "venue": "Journal of Experimental and Theoretical Physics Letters",
+   "date": "2024-08-01",
+   "year": 2024,
+   "citations": 4,
+   "arxivId": "",
+   "doi": "10.1134/s0021364024602410",
+   "url": "https://doi.org/10.1134/s0021364024602410",
+   "topics": [
+    "hardware"
+   ],
+   "curatedTopics": false,
+   "tags": [],
+   "summaryZh": "Journal of Experimental and Theoretical Physics 2024:系统研究刻蚀工艺对超导比特表面/衬底缺陷及介电损耗的影响——工艺参数与相干时间的定量关联,材料工艺×比特性能的直接证据。",
+   "abstract": "Superconducting qubits are considered as a promising platform for implementing a fault tolerant quantum computing. However, surface defects of superconductors and the substrate leading to qubit state decoherence and fluctuations in qubit parameters constitute a significant problem. The amount and type of defects depend both on the chip materials and fabrication procedure. In this work, transmons produced by two different methods of aluminum etching: wet etching in a solution of weak acids and dry etching using a chlorine-based plasma are experimentally studied. The relaxation and coherence times for dry-etched qubits are more than twice as long as those for wet-etched ones. Additionally, the analysis of time fluctuations of qubit frequencies and relaxation times, which is an effective method to identify the dominant dielectric loss mechanisms, i-ndicates a significantly lower impact of two-level systems in the dry-etched qubits compared to the wet-etched ones.",
+   "source": "backfill",
+   "domains": [
+    "manufacturing",
+    "materials"
    ]
   },
   {
